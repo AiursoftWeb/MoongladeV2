@@ -1,0 +1,19 @@
+@model Aiursoft.MoongladeV2.Models.BlogViewModels.TagsViewModel
+
+<vc:marketing-navbar></vc:marketing-navbar>
+
+<main class="container py-4">
+    <h1 class="mb-3">@Localizer["Tags"]</h1>
+    <p class="text-muted">@Model.Tags.Count @Localizer["tags in total"]</p>
+
+    <div class="d-flex flex-wrap gap-2">
+        @foreach (var item in Model.Tags)
+        {
+            <a class="badge rounded-pill text-bg-light border text-decoration-none p-2" asp-controller="Blog" asp-action="Tag" asp-route-tag="@item.Tag">
+                @item.Tag <span class="text-muted">(@item.Count)</span>
+            </a>
+        }
+    </div>
+</main>
+
+<vc:marketing-footer></vc:marketing-footer>

@@ -1,0 +1,23 @@
+.blog-summary-card {
+    border-radius: 0.9rem;
+}
+
+.blog-card-hero {
+    max-height: 280px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.blog-post-article {
+    max-width: 820px;
+}
+
+.blog-post-hero {
+    max-height: 420px;
+    object-fit: cover;
+}
+
+.blog-markdown-body {
+    font-size: 1.05rem;
+    line-height: 1.8;
+}

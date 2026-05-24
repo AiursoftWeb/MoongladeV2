@@ -1,0 +1,26 @@
+@model Aiursoft.MoongladeV2.Models.BlogViewModels.ArchiveViewModel
+
+<vc:marketing-navbar></vc:marketing-navbar>
+
+<main class="container py-4">
+    <h1 class="mb-2">@Localizer["Archive"]</h1>
+    <p class="text-muted mb-4">@Model.TotalPosts @Localizer["posts in total"]</p>
+
+    @foreach (var month in Model.Months)
+    {
+        <section class="mb-4">
+            <h3 class="h5 border-bottom pb-2">@month.Label</h3>
+            <ul class="list-unstyled">
+                @foreach (var post in month.Posts)
+                {
+                    <li class="py-2 d-flex justify-content-between border-bottom">
+                        <a class="text-decoration-none" href="@post.Url">@post.Title</a>
+                        <span class="text-muted small">@post.PublishedAt.ToString("MM-dd")</span>
+                    </li>
+                }
+            </ul>
+        </section>
+    }
+</main>
+
+<vc:marketing-footer></vc:marketing-footer>

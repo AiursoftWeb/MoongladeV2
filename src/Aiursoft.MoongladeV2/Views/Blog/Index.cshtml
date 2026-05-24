@@ -1,0 +1,171 @@
+@model Aiursoft.MoongladeV2.Models.BlogViewModels.IndexViewModel
+
+@{
+    string BuildSortUrl(string sort)
+    {
+        if (!string.IsNullOrWhiteSpace(Model.CurrentTag))
+        {
+            return Url.Action("Tag", "Blog", new { tag = Model.CurrentTag, sort, page = 1 }) ?? "/";
+        }
+
+        if (!string.IsNullOrWhiteSpace(Model.SearchQuery))
+        {
+            return Url.Action("Search", "Blog", new { q = Model.SearchQuery, sort, page = 1 }) ?? "/";
+        }
+
+        return Url.Action("Index", "Blog", new { sort, page = 1 }) ?? "/";
+    }
+
+    string BuildPageUrl(int page)
+    {
+        if (!string.IsNullOrWhiteSpace(Model.CurrentTag))
+        {
+            return Url.Action("Tag", "Blog", new { tag = Model.CurrentTag, sort = Model.SortBy, page }) ?? "/";
+        }
+
+        if (!string.IsNullOrWhiteSpace(Model.SearchQuery))
+        {
+            return Url.Action("Search", "Blog", new { q = Model.SearchQuery, sort = Model.SortBy, page }) ?? "/";
+        }
+
+        return Url.Action("Index", "Blog", new { sort = Model.SortBy, page }) ?? "/";
+    }
+}
+
+<vc:marketing-navbar></vc:marketing-navbar>
+
+<main class="container py-4">
+    <div class="row g-4">
+        <section class="col-lg-9">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <div>
+                    <h2 class="mb-0">
+                        @if (!string.IsNullOrWhiteSpace(Model.CurrentTag))
+                        {
+                            @($"{Localizer["Tag"]}: {Model.CurrentTag}")
+                        }
+                        else if (!string.IsNullOrWhiteSpace(Model.SearchQuery))
+                        {
+                            @($"{Localizer["Search"]}: {Model.SearchQuery}")
+                        }
+                        else
+                        {
+                            @Localizer["All Posts"]
+                        }
+                    </h2>
+                    <div class="text-muted small">@Model.TotalPosts @Localizer["posts"]</div>
+                </div>
+                <div class="btn-group btn-group-sm">
+                    <a href="@BuildSortUrl("recent")" class="btn @(Model.SortBy == "Recent" ? "btn-dark" : "btn-outline-dark")">@Localizer["Recent"]</a>
+                    <a href="@BuildSortUrl("featured")" class="btn @(Model.SortBy == "Featured" ? "btn-dark" : "btn-outline-dark")">@Localizer["Featured"]</a>
+                </div>
+            </div>
+
+            @if (!Model.Posts.Any())
+            {
+                <div class="alert alert-info">@Localizer["No posts found."]</div>
+            }
+            else
+            {
+                @foreach (var post in Model.Posts)
+                {
+                    <article class="card border-0 shadow-sm mb-3 blog-summary-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="text-muted small">@post.PublishedAt.ToString("yyyy-MM-dd")</span>
+                                @if (post.IsFeatured)
+                                {
+                                    <span class="badge text-bg-warning">@Localizer["Featured"]</span>
+                                }
+                            </div>
+                            <h3 class="h4 mb-2">
+                                <a class="text-decoration-none text-dark" href="@post.Url">@post.Title</a>
+                            </h3>
+                            @if (!string.IsNullOrWhiteSpace(post.HeroImageUrl))
+                            {
+                                <a href="@post.Url">
+                                    <img src="@post.HeroImageUrl" alt="@post.Title" class="img-fluid rounded mb-3 blog-card-hero" loading="lazy" />
+                                </a>
+                            }
+                            <p class="text-muted mb-3">@post.Excerpt</p>
+                            @if (post.Tags.Any())
+                            {
+                                <div class="d-flex flex-wrap gap-2">
+                                    @foreach (var tag in post.Tags)
+                                    {
+                                        <a class="badge rounded-pill text-bg-light border text-decoration-none" asp-controller="Blog" asp-action="Tag" asp-route-tag="@tag">@tag</a>
+                                    }
+                                </div>
+                            }
+                        </div>
+                    </article>
+                }
+            }
+
+            @if (Model.TotalPages > 1)
+            {
+                <nav aria-label="Blog pagination">
+                    <ul class="pagination">
+                        <li class="page-item @(Model.CurrentPage <= 1 ? "disabled" : string.Empty)">
+                            <a class="page-link" href="@BuildPageUrl(Model.CurrentPage - 1)">@Localizer["Previous"]</a>
+                        </li>
+                        @for (var i = 1; i <= Model.TotalPages; i++)
+                        {
+                            <li class="page-item @(Model.CurrentPage == i ? "active" : string.Empty)">
+                                <a class="page-link" href="@BuildPageUrl(i)">@i</a>
+                            </li>
+                        }
+                        <li class="page-item @(Model.CurrentPage >= Model.TotalPages ? "disabled" : string.Empty)">
+                            <a class="page-link" href="@BuildPageUrl(Model.CurrentPage + 1)">@Localizer["Next"]</a>
+                        </li>
+                    </ul>
+                </nav>
+            }
+        </section>
+
+        <aside class="col-lg-3">
+            <div class="card border-0 shadow-sm mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">@Localizer["Search"]</h5>
+                    <form asp-controller="Blog" asp-action="Search" method="get">
+                        <div class="input-group">
+                            <input type="text" name="q" class="form-control" value="@Model.SearchQuery" placeholder="@Localizer["Keywords"]" />
+                            <button class="btn btn-dark" type="submit">@Localizer["Go"]</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-sm mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">@Localizer["Popular Tags"]</h5>
+                    <div class="d-flex flex-wrap gap-2">
+                        @foreach (var item in Model.TopTags.Take(20))
+                        {
+                            <a class="badge rounded-pill text-bg-light border text-decoration-none" asp-controller="Blog" asp-action="Tag" asp-route-tag="@item.Tag">
+                                @item.Tag <span class="text-muted">(@item.Count)</span>
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">@Localizer["Explore"]</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><a asp-controller="Blog" asp-action="Tags">@Localizer["All tags"]</a></li>
+                        <li><a asp-controller="Blog" asp-action="Archive">@Localizer["Archive"]</a></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<vc:marketing-footer></vc:marketing-footer>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <link rel="stylesheet" href="~/styles/blog.css" asp-append-version="true" />
+}

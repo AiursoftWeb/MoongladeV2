@@ -1,0 +1,43 @@
+@model Aiursoft.MoongladeV2.Models.BlogViewModels.PostViewModel
+
+<vc:marketing-navbar></vc:marketing-navbar>
+
+<main class="container py-4">
+    <article class="mx-auto blog-post-article">
+        <header class="mb-4">
+            <a class="text-decoration-none small" asp-controller="Blog" asp-action="Index">← @Localizer["Back to posts"]</a>
+            <h1 class="mt-2">@Model.Title</h1>
+            <div class="text-muted">
+                @Model.PublishedAt.ToString("yyyy-MM-dd")
+                <span class="mx-2">·</span>
+                @Model.AuthorName
+            </div>
+            @if (Model.Tags.Any())
+            {
+                <div class="d-flex flex-wrap gap-2 mt-3">
+                    @foreach (var tag in Model.Tags)
+                    {
+                        <a class="badge rounded-pill text-bg-light border text-decoration-none" asp-controller="Blog" asp-action="Tag" asp-route-tag="@tag">@tag</a>
+                    }
+                </div>
+            }
+        </header>
+
+        @if (!string.IsNullOrWhiteSpace(Model.HeroImageUrl))
+        {
+            <img src="@Model.HeroImageUrl" alt="@Model.Title" class="img-fluid rounded mb-4 w-100 blog-post-hero" loading="lazy" />
+        }
+
+        <section class="markdown-content blog-markdown-body">
+            @Html.Raw(Model.ContentHtml)
+        </section>
+    </article>
+</main>
+
+<vc:marketing-footer></vc:marketing-footer>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/styles/blog.css" asp-append-version="true" />
+}
