@@ -17,4 +17,18 @@ public abstract class TemplateDbContext(DbContextOptions options) : IdentityDbCo
     public DbSet<MarkdownDocument> MarkdownDocuments => Set<MarkdownDocument>();
 
     public DbSet<DocumentShare> DocumentShares => Set<DocumentShare>();
+
+    public DbSet<LocalizedDocument> LocalizedDocuments => Set<LocalizedDocument>();
+
+    public DbSet<SearchEmbedding> SearchEmbeddings => Set<SearchEmbedding>();
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+
+        builder.Entity<MarkdownDocument>()
+            .HasIndex(d => d.Slug)
+            .IsUnique()
+            .HasFilter("[Slug] IS NOT NULL");
+    }
 }

@@ -88,6 +88,37 @@ public class GlobalSettingsService(
                !string.IsNullOrWhiteSpace(configuration[key]);
     }
 
+    public async Task<bool> IsAiLocalizationEnabledAsync()
+    {
+        var endpoint = await GetSettingValueAsync(SettingsMap.OpenAiChatEndpoint);
+        return !string.IsNullOrWhiteSpace(endpoint);
+    }
+
+    public async Task<bool> IsAiSearchEnabledAsync()
+    {
+        var dedicated = await GetSettingValueAsync(SettingsMap.EmbeddingEndpoint);
+        if (!string.IsNullOrWhiteSpace(dedicated)) return true;
+
+        var fallback = await GetSettingValueAsync(SettingsMap.OpenAiChatEndpoint);
+        return !string.IsNullOrWhiteSpace(fallback);
+    }
+
+    public async Task<string> GetEmbeddingEndpointAsync()
+    {
+        var dedicated = await GetSettingValueAsync(SettingsMap.EmbeddingEndpoint);
+        if (!string.IsNullOrWhiteSpace(dedicated)) return dedicated;
+
+        return await GetSettingValueAsync(SettingsMap.OpenAiChatEndpoint);
+    }
+
+    public async Task<string> GetEmbeddingTokenAsync()
+    {
+        var dedicated = await GetSettingValueAsync(SettingsMap.EmbeddingApiToken);
+        if (!string.IsNullOrWhiteSpace(dedicated)) return dedicated;
+
+        return await GetSettingValueAsync(SettingsMap.OpenAiApiToken);
+    }
+
     public async Task UpdateSettingAsync(string key, string value)
     {
         if (IsOverriddenByConfig(key))

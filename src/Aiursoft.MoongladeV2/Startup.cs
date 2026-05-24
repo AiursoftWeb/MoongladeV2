@@ -63,6 +63,25 @@ public class Startup : IWebStartup
         var orphanMarkdownImageCleanupJob = services.RegisterBackgroundJob<Services.BackgroundJobs.OrphanMarkdownImageCleanupJob>();
         services.RegisterScheduledTask(registration: orphanMarkdownImageCleanupJob, period: TimeSpan.FromHours(6), startDelay: TimeSpan.FromMinutes(10));
 
+        // AI: embedding cache (singleton — shared by all requests for cosine-similarity search)
+        services.AddSingleton<Services.DocumentEmbeddingCache>();
+
+        // AI: localization job — translates posts to configured languages
+        var localizeDocsJob = services.RegisterBackgroundJob<Services.BackgroundJobs.LocalizeDocumentsJob>();
+        services.RegisterScheduledTask(registration: localizeDocsJob, period: TimeSpan.FromMinutes(30), startDelay: TimeSpan.FromMinutes(2));
+
+        // AI: embedding generation job — generates/updates float[] vectors for vector search
+        var generateEmbeddingsJob = services.RegisterBackgroundJob<Services.BackgroundJobs.GenerateDocumentEmbeddingsJob>();
+        services.RegisterScheduledTask(registration: generateEmbeddingsJob, period: TimeSpan.FromMinutes(30), startDelay: TimeSpan.FromMinutes(3));
+
+        // AI: refresh embedding cache from DB into memory
+        var refreshCacheJob = services.RegisterBackgroundJob<Services.BackgroundJobs.RefreshDocumentEmbeddingCacheJob>();
+        services.RegisterScheduledTask(registration: refreshCacheJob, period: TimeSpan.FromHours(1), startDelay: TimeSpan.FromMinutes(4));
+
+        // AI: cleanup stale/orphaned localization rows
+        var cleanupLocalizedJob = services.RegisterBackgroundJob<Services.BackgroundJobs.CleanupLocalizedDocumentsJob>();
+        services.RegisterScheduledTask(registration: cleanupLocalizedJob, period: TimeSpan.FromHours(6), startDelay: TimeSpan.FromMinutes(15));
+
         // Controllers and localization
         services.AddControllersWithViews()
             .AddNewtonsoftJson(options =>
