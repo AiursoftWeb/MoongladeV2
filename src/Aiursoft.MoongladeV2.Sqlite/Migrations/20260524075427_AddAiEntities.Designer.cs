@@ -3,6 +3,7 @@ using System;
 using Aiursoft.MoongladeV2.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aiursoft.MoongladeV2.Sqlite.Migrations
 {
     [DbContext(typeof(SqliteContext))]
-    partial class SqliteContextModelSnapshot : ModelSnapshot
+    [Migration("20260524075427_AddAiEntities")]
+    partial class AddAiEntities
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.8");
@@ -46,7 +49,7 @@ namespace Aiursoft.MoongladeV2.Sqlite.Migrations
 
                     b.HasIndex("SharedWithUserId");
 
-                    b.ToTable("DocumentShares", (string)null);
+                    b.ToTable("DocumentShares");
                 });
 
             modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.GlobalSetting", b =>
@@ -59,7 +62,7 @@ namespace Aiursoft.MoongladeV2.Sqlite.Migrations
 
                     b.HasKey("Key");
 
-                    b.ToTable("GlobalSettings", (string)null);
+                    b.ToTable("GlobalSettings");
                 });
 
             modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.LocalizedDocument", b =>
@@ -94,7 +97,7 @@ namespace Aiursoft.MoongladeV2.Sqlite.Migrations
                     b.HasIndex("DocumentId", "Culture")
                         .IsUnique();
 
-                    b.ToTable("LocalizedDocuments", (string)null);
+                    b.ToTable("LocalizedDocuments");
                 });
 
             modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.MarkdownDocument", b =>
@@ -154,7 +157,7 @@ namespace Aiursoft.MoongladeV2.Sqlite.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("MarkdownDocuments", (string)null);
+                    b.ToTable("MarkdownDocuments");
                 });
 
             modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.SearchEmbedding", b =>
@@ -183,7 +186,7 @@ namespace Aiursoft.MoongladeV2.Sqlite.Migrations
                     b.HasIndex("QueryText")
                         .IsUnique();
 
-                    b.ToTable("SearchEmbeddings", (string)null);
+                    b.ToTable("SearchEmbeddings");
                 });
 
             modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.User", b =>

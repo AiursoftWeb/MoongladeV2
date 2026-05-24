@@ -63,7 +63,7 @@ public class MarkdownDocument
 
     /// <summary>
     /// Serialized float[] embedding vector (4 bytes × N dims, little-endian).
-    /// Null until <see cref="GenerateDocumentEmbeddingsJob"/> processes this document.
+    /// Null until the embedding background job processes this document.
     /// </summary>
     public byte[]? Embedding { get; set; }
 

@@ -10,8 +10,6 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Aiursoft.MoongladeV2.MySql.Migrations
 {
-    // THIS FILE IS AUTO GENERATED AND MAINTAINED BY ENTITY FRAMEWORK!
-    // NEVER EDIT THIS FILE MANUALLY!!!
     [DbContext(typeof(MySqlContext))]
     partial class MySqlContextModelSnapshot : ModelSnapshot
     {
@@ -19,7 +17,7 @@ namespace Aiursoft.MoongladeV2.MySql.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.2")
+                .HasAnnotation("ProductVersion", "10.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
@@ -69,6 +67,43 @@ namespace Aiursoft.MoongladeV2.MySql.Migrations
                     b.ToTable("GlobalSettings");
                 });
 
+            modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.LocalizedDocument", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Culture")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)");
+
+                    b.Property<Guid>("DocumentId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("LastLocalizedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("LocalizedContent")
+                        .IsRequired()
+                        .HasMaxLength(65535)
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("LocalizedTitle")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("varchar(200)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DocumentId", "Culture")
+                        .IsUnique();
+
+                    b.ToTable("LocalizedDocuments");
+                });
+
             modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.MarkdownDocument", b =>
                 {
                     b.Property<Guid>("Id")
@@ -82,12 +117,36 @@ namespace Aiursoft.MoongladeV2.MySql.Migrations
                     b.Property<DateTime>("CreationTime")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<byte[]>("Embedding")
+                        .HasColumnType("longblob");
+
+                    b.Property<string>("HeroImageUrl")
+                        .HasMaxLength(500)
+                        .HasColumnType("varchar(500)");
+
+                    b.Property<bool>("IsFeatured")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<bool>("IsPublic")
                         .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime>("LastEmbeddedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Slug")
+                        .HasMaxLength(200)
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<string>("Tags")
+                        .HasMaxLength(500)
+                        .HasColumnType("varchar(500)");
 
                     b.Property<string>("Title")
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("UserId")
                         .IsRequired()
@@ -96,9 +155,44 @@ namespace Aiursoft.MoongladeV2.MySql.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Slug")
+                        .IsUnique()
+                        .HasFilter("[Slug] IS NOT NULL");
+
                     b.HasIndex("UserId");
 
                     b.ToTable("MarkdownDocuments");
+                });
+
+            modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.SearchEmbedding", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<byte[]>("Embedding")
+                        .IsRequired()
+                        .HasColumnType("longblob");
+
+                    b.Property<DateTime>("LastAccessedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("QueryText")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("varchar(40)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("QueryText")
+                        .IsUnique();
+
+                    b.ToTable("SearchEmbeddings");
                 });
 
             modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.User", b =>
@@ -327,6 +421,17 @@ namespace Aiursoft.MoongladeV2.MySql.Migrations
                     b.Navigation("SharedWithUser");
                 });
 
+            modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.LocalizedDocument", b =>
+                {
+                    b.HasOne("Aiursoft.MoongladeV2.Entities.MarkdownDocument", "Document")
+                        .WithMany("LocalizedDocuments")
+                        .HasForeignKey("DocumentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Document");
+                });
+
             modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.MarkdownDocument", b =>
                 {
                     b.HasOne("Aiursoft.MoongladeV2.Entities.User", "User")
@@ -392,6 +497,8 @@ namespace Aiursoft.MoongladeV2.MySql.Migrations
             modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.MarkdownDocument", b =>
                 {
                     b.Navigation("DocumentShares");
+
+                    b.Navigation("LocalizedDocuments");
                 });
 
             modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.User", b =>
