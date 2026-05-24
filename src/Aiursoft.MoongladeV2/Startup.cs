@@ -18,6 +18,8 @@ using Newtonsoft.Json.Serialization;
 using Aiursoft.Canon.TaskQueue;
 using Aiursoft.Canon.BackgroundJobs;
 using Aiursoft.Canon.ScheduledTasks;
+using Aiursoft.Dotlang.Shared;
+using Aiursoft.GptClient.Services;
 
 namespace Aiursoft.MoongladeV2;
 
@@ -54,6 +56,10 @@ public class Startup : IWebStartup
         services.AddAssemblyDependencies(typeof(Startup).Assembly);
         services.AddSingleton<NavigationState<Startup>>();
 
+        // AI translation infrastructure (Dotlang)
+        services.AddScoped<ChatClient>();
+        services.AddScoped<MarkdownShredder>();
+
         // Background job queue
         services.AddTaskQueueEngine();
         services.AddScheduledTaskEngine();
@@ -81,6 +87,14 @@ public class Startup : IWebStartup
         // AI: cleanup stale/orphaned localization rows
         var cleanupLocalizedJob = services.RegisterBackgroundJob<Services.BackgroundJobs.CleanupLocalizedDocumentsJob>();
         services.RegisterScheduledTask(registration: cleanupLocalizedJob, period: TimeSpan.FromHours(6), startDelay: TimeSpan.FromMinutes(15));
+
+        // AI: abstract generation — generates per-language summaries for blog posts
+        var generateAbstractsJob = services.RegisterBackgroundJob<Services.BackgroundJobs.GenerateAbstractDocumentsJob>();
+        services.RegisterScheduledTask(registration: generateAbstractsJob, period: TimeSpan.FromMinutes(30), startDelay: TimeSpan.FromMinutes(5));
+
+        // AI: cleanup stale/orphaned abstract rows
+        var cleanupAbstractsJob = services.RegisterBackgroundJob<Services.BackgroundJobs.CleanupAbstractDocumentsJob>();
+        services.RegisterScheduledTask(registration: cleanupAbstractsJob, period: TimeSpan.FromHours(6), startDelay: TimeSpan.FromMinutes(20));
 
         // Controllers and localization
         services.AddControllersWithViews()

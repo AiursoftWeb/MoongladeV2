@@ -57,7 +57,7 @@ public class LocalizeDocumentsJob(
                 // Only translate public documents that are stale for this culture.
                 var pending = await db.MarkdownDocuments
                     .Where(d => d.IsPublic &&
-                                string.Compare(d.Id.ToString(), currentLastId.ToString(), StringComparison.Ordinal) > 0 &&
+                                d.Id.CompareTo(currentLastId) > 0 &&
                                 !db.LocalizedDocuments.Any(ld =>
                                     ld.DocumentId == d.Id &&
                                     ld.Culture == culture &&

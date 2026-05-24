@@ -62,6 +62,36 @@ namespace Aiursoft.MoongladeV2.Sqlite.Migrations
                     b.ToTable("GlobalSettings");
                 });
 
+            modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.LocalizedAbstract", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Abstract")
+                        .IsRequired()
+                        .HasMaxLength(1024)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Culture")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("DocumentId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("LastGeneratedAt")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DocumentId", "Culture")
+                        .IsUnique();
+
+                    b.ToTable("LocalizedAbstracts");
+                });
+
             modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.LocalizedDocument", b =>
                 {
                     b.Property<int>("Id")
@@ -406,6 +436,17 @@ namespace Aiursoft.MoongladeV2.Sqlite.Migrations
                     b.Navigation("Document");
 
                     b.Navigation("SharedWithUser");
+                });
+
+            modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.LocalizedAbstract", b =>
+                {
+                    b.HasOne("Aiursoft.MoongladeV2.Entities.MarkdownDocument", "Document")
+                        .WithMany()
+                        .HasForeignKey("DocumentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Document");
                 });
 
             modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.LocalizedDocument", b =>

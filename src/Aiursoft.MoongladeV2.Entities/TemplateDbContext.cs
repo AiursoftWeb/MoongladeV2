@@ -22,6 +22,8 @@ public abstract class TemplateDbContext(DbContextOptions options) : IdentityDbCo
 
     public DbSet<SearchEmbedding> SearchEmbeddings => Set<SearchEmbedding>();
 
+    public DbSet<LocalizedAbstract> LocalizedAbstracts => Set<LocalizedAbstract>();
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
