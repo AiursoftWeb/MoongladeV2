@@ -60,6 +60,18 @@ namespace Aiursoft.MoongladeV2.Sqlite.Migrations
                 defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
 
             migrationBuilder.CreateTable(
+                name: "GlobalSettings",
+                columns: table => new
+                {
+                    Key = table.Column<string>(type: "TEXT", nullable: false),
+                    Value = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GlobalSettings", x => x.Key);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "LocalizedDocuments",
                 columns: table => new
                 {
@@ -121,6 +133,9 @@ namespace Aiursoft.MoongladeV2.Sqlite.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "GlobalSettings");
+
             migrationBuilder.DropTable(
                 name: "LocalizedDocuments");
 

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aiursoft.MoongladeV2.Sqlite.Migrations
 {
     [DbContext(typeof(SqliteContext))]
-    [Migration("20260524075427_AddAiEntities")]
+    [Migration("20260524080628_AddAiEntities")]
     partial class AddAiEntities
     {
         /// <inheritdoc />

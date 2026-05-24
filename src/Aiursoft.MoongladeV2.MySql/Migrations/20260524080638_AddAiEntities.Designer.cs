@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aiursoft.MoongladeV2.MySql.Migrations
 {
     [DbContext(typeof(MySqlContext))]
-    [Migration("20260524073435_AddAiEntities")]
+    [Migration("20260524080638_AddAiEntities")]
     partial class AddAiEntities
     {
         /// <inheritdoc />
