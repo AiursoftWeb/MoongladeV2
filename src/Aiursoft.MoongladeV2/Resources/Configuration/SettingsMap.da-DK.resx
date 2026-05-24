@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Allow User Adjust Nickname" xml:space="preserve">
+    <value>Tillad bruger at ændre apelation</value>
+  </data>
+  <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
+    <value>Tillad brugere at justere deres nickname på siden til profilhåndtering.</value>
+  </data>
+  <data name="Brand Home URL" xml:space="preserve">
+    <value>Brand-website-URL</value>
+  </data>
+  <data name="Brand Name" xml:space="preserve">
+    <value>Varenavn</value>
+  </data>
+  <data name="Company Address" xml:space="preserve">
+    <value>Virksomhedens adresse</value>
+  </data>
+  <data name="Company Email" xml:space="preserve">
+    <value>Virksomhedse-mail</value>
+  </data>
+  <data name="Company Phone" xml:space="preserve">
+    <value>Firma telefon</value>
+  </data>
+  <data name="Company Postcode" xml:space="preserve">
+    <value>Virksomhed postnummer</value>
+  </data>
+  <data name="Contract Logo" xml:space="preserve">
+    <value>Kontraktlogo</value>
+  </data>
+  <data name="ICP Number" xml:space="preserve">
+    <value>ICP-nummer</value>
+  </data>
+  <data name="Project Logo" xml:space="preserve">
+    <value>Projektlogo</value>
+  </data>
+  <data name="Project Name" xml:space="preserve">
+    <value>Projektnavn</value>
+  </data>
+  <data name="Show Contract Header" xml:space="preserve">
+    <value>Vis kontraktoverskrift</value>
+  </data>
+  <data name="The address of the company or project." xml:space="preserve">
+    <value>Adressen for virksomheden eller projektet.</value>
+  </data>
+  <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
+    <value>Det brandnavn, som virksomheden eller projektet har. F.eks. Aiursoft.</value>
+  </data>
+  <data name="The email address of the company or project." xml:space="preserve">
+    <value>E-mailadressen for virksomheden eller projektet.</value>
+  </data>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>ICP-licensenr. for brugere i Kina&apos;s hovedland. Lad stå tomt for at skjule.</value>
+  </data>
+  <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
+    <value>Logoet for kontrakten, der vises i headeren. Understøtter jpg, png, svg. Adskilt fra systemlogoet.</value>
+  </data>
+  <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
+    <value>Logoet for projektet vises i navigationen og i foden. Støtter jpg, png, svg.</value>
+  </data>
+  <data name="The name of the project displayed in the frontend." xml:space="preserve">
+    <value>Navnet på projektet, der vises i brugergrænsefladen.</value>
+  </data>
+  <data name="The phone number of the company or project." xml:space="preserve">
+    <value>Telefonnummeret for virksomheden eller projektet.</value>
+  </data>
+  <data name="The postcode of the company or project." xml:space="preserve">
+    <value>Postnummeret for virksomheden eller projektet.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>URL&apos;en for virksomheden eller projektet. F.eks. https://www.aiursoft.com</value>
+  </data>
+  <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
+    <value>Om kontraktens overskrift (logo, adresse osv.) skal vises i kontraktvisningen.</value>
+  </data>
+
+</root>

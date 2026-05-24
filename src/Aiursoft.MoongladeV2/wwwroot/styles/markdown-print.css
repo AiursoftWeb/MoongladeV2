@@ -1,0 +1,92 @@
+/* markdown-print.css */
+
+@media print {
+    /* 页面基础重置 */
+    @page {
+        margin: 1.5cm;
+    }
+
+    body {
+        background-color: white !important;
+        color: black !important;
+    }
+
+    /* 隐藏所有 UI 框架元素 */
+    .navbar,
+    .sidebar,
+    footer,
+    .card-header,
+    .toolbar-container,
+    .alert,
+    .btn,
+    .d-none,
+    .mb-3,
+    .mt-n1,
+    .text-muted {
+        display: none !important;
+    }
+
+    /* 专门隐藏顶部标题栏中的 h3 */
+    .row.mb-2.mb-xl-3 h3 {
+        display: none !important;
+    }
+
+    /* 重置布局容器，消除 Grid 和 Flex 影响 */
+    .row,
+    .col-12,
+    .col-lg-6,
+    .card,
+    .card-body,
+    .tab-content {
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        overflow: visible !important;
+    }
+
+    /* 隐藏左侧编辑器列和代码容器 */
+    #editor-column,
+    #markdown-editor-container,
+    #html-output-container {
+        display: none !important;
+    }
+
+    /* 隐藏源代码/编辑器 Tab - 必须在 .tab-pane 规则之后以确保优先级 */
+    #markdown,
+    #code {
+        display: none !important;
+    }
+
+    /* 强制显示预览区域的 tab-pane */
+    #preview.tab-pane {
+        display: block !important; /* 覆盖 bootstrap 的 display:none */
+    }
+
+    #preview,
+    #printable-area {
+        display: block !important;
+        visibility: visible !important;
+        position: static !important;
+        overflow: visible !important;
+    }
+
+    .markdown-content {
+        background-color: white !important;
+        color: black !important;
+    }
+
+    .markdown-content a {
+        text-decoration: underline;
+        color: black !important;
+    }
+    .markdown-content a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.85em;      /* 稍微缩小一点，区分正文 */
+        color: #555;            /* 灰色显示 */
+        word-break: break-all;  /* 防止长链接撑破纸张 */
+    }
+}

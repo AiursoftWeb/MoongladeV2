@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Allow User Adjust Nickname" xml:space="preserve">
+    <value>Salli käyttäjän muokata nimimerkkiä</value>
+  </data>
+  <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
+    <value>Salli käyttäjien muuttaa nimimerkkiään profiilin hallintasivulla.</value>
+  </data>
+  <data name="Brand Home URL" xml:space="preserve">
+    <value>Brändin kotisivuosoite</value>
+  </data>
+  <data name="Brand Name" xml:space="preserve">
+    <value>Brändinimi</value>
+  </data>
+  <data name="Company Address" xml:space="preserve">
+    <value>Yrityksen osoite</value>
+  </data>
+  <data name="Company Email" xml:space="preserve">
+    <value>Yrityksen sähköposti</value>
+  </data>
+  <data name="Company Phone" xml:space="preserve">
+    <value>Yrityksen puhelin</value>
+  </data>
+  <data name="Company Postcode" xml:space="preserve">
+    <value>Yrityksen postinumero</value>
+  </data>
+  <data name="Contract Logo" xml:space="preserve">
+    <value>Sopimuslogo</value>
+  </data>
+  <data name="ICP Number" xml:space="preserve">
+    <value>ICP-numero</value>
+  </data>
+  <data name="Project Logo" xml:space="preserve">
+    <value>Projektin logo</value>
+  </data>
+  <data name="Project Name" xml:space="preserve">
+    <value>Projektin nimi</value>
+  </data>
+  <data name="Show Contract Header" xml:space="preserve">
+    <value>Näytä sopimuksen otsikko</value>
+  </data>
+  <data name="The address of the company or project." xml:space="preserve">
+    <value>Yrityksen tai projektin osoite.</value>
+  </data>
+  <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
+    <value>Yrityksen tai projektin brändinimi. Esim. Aiursoft.</value>
+  </data>
+  <data name="The email address of the company or project." xml:space="preserve">
+    <value>Yrityksen tai projektin sähköpostiosoite.</value>
+  </data>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>ICP-luvanumero Kiinan mantereen käyttäjille. Jätä tyhjäksi piilottaaksesi.</value>
+  </data>
+  <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
+    <value>Sopimuksen logo, joka näytetään otsakkeessa. Tuetut muodot: jpg, png, svg. Eri kuin järjestelmän logo.</value>
+  </data>
+  <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
+    <value>Projektin logo näytetään navigointipalkissa ja alatunnisteessa. Tuetut muodot: jpg, png, svg.</value>
+  </data>
+  <data name="The name of the project displayed in the frontend." xml:space="preserve">
+    <value>Projektin nimi, joka näytetään käyttöliittymässä.</value>
+  </data>
+  <data name="The phone number of the company or project." xml:space="preserve">
+    <value>Yrityksen tai projektin puhelinnumero.</value>
+  </data>
+  <data name="The postcode of the company or project." xml:space="preserve">
+    <value>Yrityksen tai projektin postinumero.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>Yrityksen tai projektin URL-osoite. Esim. https://www.aiursoft.com</value>
+  </data>
+  <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
+    <value>Näytetäänkö sopimuksen otsikko (logo, osoite jne.) sopimusnäkymässä.</value>
+  </data>
+
+</root>

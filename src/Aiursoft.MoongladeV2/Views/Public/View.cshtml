@@ -1,0 +1,250 @@
+@using Aiursoft.MoongladeV2.Controllers
+@model Aiursoft.MoongladeV2.Models.PublicViewModels.PublicDocumentViewModel
+
+@* --- Metadata Section --- *@
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Model.DocumentTitle</h3>
+    </div>
+    <div class="col-auto ms-auto text-end mt-n1">
+        <div class="text-muted">
+            <span class="me-3"><i class="align-middle" data-lucide="user"></i> @Model.AuthorName</span>
+            <span class="text-sm"><i class="align-middle" data-lucide="calendar"></i>
+                @Model.CreationTime.ToString("yyyy-MM-dd")</span>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card shadow-sm">
+            @* --- Compact Header: Tabs Left, Actions Right --- *@
+            <div class="card-header d-flex align-items-center justify-content-between pt-2 pb-0"
+                style="min-height: 49px;">
+
+                @* Left: Tabs *@
+                <ul class="nav nav-tabs card-header-tabs" role="tablist" id="view-tabs">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" href="#preview" data-bs-toggle="tab" role="tab" aria-selected="true"
+                            data-target-actions="preview-actions">
+                            <i class="align-middle" data-lucide="eye"></i> @Localizer["Preview"]
+                        </a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" href="#markdown" data-bs-toggle="tab" role="tab" aria-selected="false"
+                            data-target-actions="markdown-actions">
+                            <i class="align-middle" data-lucide="file-text"></i> @Localizer["Source"]
+                        </a>
+                    </li>
+                </ul>
+
+                @* Right: Contextual Actions (Replaces the Private/Public dropdown) *@
+                <div class="ms-auto mb-2">
+                    @* Group 1: Preview Actions *@
+                    <div id="preview-actions" class="action-group">
+                        @if (Model.CanEdit)
+                        {
+                            <a asp-controller="Home" asp-action="Edit" asp-route-id="@ViewBag.DocumentId" class="btn btn-sm btn-outline-primary me-1"
+                               title="@Localizer["Edit"]">
+                                <i class="align-middle" data-lucide="edit"></i> <span class="d-none d-sm-inline">@Localizer["Edit"]</span>
+                            </a>
+                        }
+                        <button type="button" id="print-button" class="btn btn-sm btn-outline-secondary"
+                            title="@Localizer["Print"]">
+                            <i class="align-middle" data-lucide="printer"></i> <span
+                                class="d-none d-sm-inline">@Localizer["Print"]</span>
+                        </button>
+                        <a asp-controller="Contract" asp-action="Fill" asp-route-id="@ViewBag.DocumentId" class="btn btn-sm btn-outline-info"
+                           target="_blank" title="@Localizer["Contract Layout"]">
+                            <i class="align-middle" data-lucide="file-signature"></i> <span
+                                class="d-none d-sm-inline">@Localizer["Contract Layout"]</span>
+                        </a>
+                    </div>
+
+                    @* Group 2: Markdown Actions (Hidden by default) *@
+                    <div id="markdown-actions" class="action-group d-none">
+                        <div class="btn-group">
+                            <a href="@Url.Action("Raw", "Public", new { id = ViewBag.DocumentId })"
+                                class="btn btn-sm btn-outline-secondary" target="_blank" title="@Localizer["View Raw"]">
+                                <i class="align-middle" data-lucide="external-link"></i> <span
+                                    class="d-none d-sm-inline">@Localizer["Raw"]</span>
+                            </a>
+                            <button type="button" id="copy-markdown-button" class="btn btn-sm btn-outline-primary"
+                                title="@Localizer["Copy"]">
+                                <i class="align-middle" data-lucide="copy"></i> <span
+                                    class="d-none d-sm-inline">@Localizer["Copy"]</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @* --- Body: Natural Flow, No Scroll Traps --- *@
+            <div class="card-body p-0">
+                <div class="tab-content">
+                    @* Pane 1: Preview *@
+                    <div class="tab-pane active show px-4 py-2" id="preview" role="tabpanel">
+                        <div id="printable-area" class="markdown-content">
+                            @Html.Raw(Model.Content)
+                        </div>
+                    </div>
+
+                    @* Pane 2: Markdown *@
+                    <div class="tab-pane" id="markdown" role="tabpanel">
+                        @* Use a clean, borderless textarea that spans comfortably *@
+                        <textarea class="form-control border-0 p-3" id="markdown-viewer" readonly
+                            style="font-family: 'Cascadia Code', 'Consolas', monospace; font-size: 0.9rem; min-height: 600px; resize: vertical;">@Model.MarkdownContent</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // 1. Toggle Buttons based on Tab
+        const tabs = document.querySelectorAll('a[data-bs-toggle="tab"]');
+        const actionGroups = document.querySelectorAll('.action-group');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('show.bs.tab', function (event) {
+                const targetId = event.target.getAttribute('data-target-actions');
+
+                // Hide all groups
+                actionGroups.forEach(g => g.classList.add('d-none'));
+
+                // Show target group
+                const targetGroup = document.getElementById(targetId);
+                if (targetGroup) targetGroup.classList.remove('d-none');
+            });
+        });
+
+        // 2. Print Button
+        const printBtn = document.getElementById('print-button');
+        if (printBtn) {
+            printBtn.addEventListener('click', () => {
+                const printUrl = '@Url.Action("Print", "Public", new { id = ViewBag.DocumentId })';
+                window.open(printUrl, '_blank');
+            });
+        }
+
+        // 3. Copy Markdown Button
+        const copyBtn = document.getElementById('copy-markdown-button');
+        if (copyBtn) {
+            copyBtn.addEventListener('click', function () {
+                const viewer = document.getElementById('markdown-viewer');
+                if (viewer) {
+                    navigator.clipboard.writeText(viewer.value).then(() => {
+                        const originalHtml = copyBtn.innerHTML;
+                        copyBtn.innerHTML = `<i class="align-middle" data-lucide="check"></i> <span class="d-none d-sm-inline">@Localizer["Copied!"]</span>`;
+                        copyBtn.classList.replace('btn-outline-primary', 'btn-success');
+                        setTimeout(() => {
+                            copyBtn.innerHTML = originalHtml;
+                            copyBtn.classList.replace('btn-success', 'btn-outline-primary');
+                        }, 2000);
+                    });
+                }
+            });
+        }
+    });
+</script>
+
+@{
+    var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <link rel="stylesheet" href="~/node_modules/@@fontsource/cascadia-code/index.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/styles/markdown-editor.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/styles/markdown-print.css"  asp-append-version="true" />
+    @if (isDarkMode)
+    {
+        <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github-dark.min.css" asp-append-version="true" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github.min.css" asp-append-version="true" />
+    }
+
+    <style>
+        #markdown-viewer {
+            min-height: 600px;
+        }
+    </style>
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
+    <script src="~/node_modules/mermaid/dist/mermaid.min.js" asp-append-version="true"></script>
+    <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js" asp-append-version="true"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.mermaid) {
+                mermaid.initialize({
+                    startOnLoad: false,
+                    theme: '@(isDarkMode ? "dark" : "default")'
+                });
+
+                function renderMermaid() {
+                    const container = document.getElementById('printable-area');
+                    if (!container) return;
+
+                    container.querySelectorAll('pre.mermaid, .mermaid').forEach((block, index) => {
+                        if (block.getAttribute('data-processed')) return;
+
+                        const code = block.textContent || '';
+                        const id = 'm-pub-' + index + '-' + Math.random().toString(36).slice(2);
+
+                        try {
+                            mermaid.parse(code);
+                            mermaid.render(id, code).then(({ svg }) => {
+                                const div = document.createElement('div');
+                                div.innerHTML = svg;
+                                block.replaceWith(div);
+                                div.setAttribute('data-processed', 'true');
+                            });
+                        } catch (e) { console.error(e); }
+                    });
+                }
+
+                renderMermaid();
+
+                // Re-check on tab switch just in case
+                document.querySelector('a[href="#preview"]')?.addEventListener('shown.bs.tab', renderMermaid);
+
+                // --- MathJax Rendering ---
+                function renderMath() {
+                    if (window.MathJax && window.MathJax.typesetPromise) {
+                        const preview = document.getElementById('printable-area');
+                        if(preview) window.MathJax.typesetPromise([preview]);
+                    }
+                }
+                renderMath();
+                document.querySelector('a[href="#preview"]')?.addEventListener('shown.bs.tab', renderMath);
+            }
+
+            // --- Highlight.js Rendering ---
+            function renderHighlight() {
+                if (window.hljs) {
+                    hljs.highlightAll();
+                }
+            }
+            renderHighlight();
+            document.querySelector('a[href="#preview"]')?.addEventListener('shown.bs.tab', renderHighlight);
+        });
+    </script>
+}

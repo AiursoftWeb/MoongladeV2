@@ -1,0 +1,932 @@
+@using Aiursoft.MoongladeV2.Controllers
+@model Aiursoft.MoongladeV2.Models.HomeViewModels.IndexViewModel
+@inject Aiursoft.MoongladeV2.Services.FileStorage.StorageService Storage
+
+@{
+    var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
+}
+
+@if (Model.SavedSuccessfully)
+{
+    <div class="alert alert-success alert-dismissible mt-3 mx-3 shadow-sm" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <div class="alert-icon">
+            <i class="align-middle" data-lucide="check-circle"></i>
+        </div>
+        <div class="alert-message">
+            <strong>@Localizer["Success!"]</strong>
+            @Localizer["Document updated successfully."]
+        </div>
+    </div>
+}
+
+<div id="quick-save-banner" class="quick-save-banner">
+    <div class="quick-save-banner-content">
+        <i class="align-middle" data-lucide="check-circle-2"></i>
+        <span>@Localizer["Saved successfully!"]</span>
+    </div>
+</div>
+<div id="upload-error-banner" class="quick-save-banner">
+    <div class="quick-save-banner-content" style="background: linear-gradient(135deg, #ef4444, #dc2626); box-shadow: 0 8px 32px rgba(239,68,68,0.35);">
+        <i class="align-middle" data-lucide="alert-circle"></i>
+        <span>@Localizer["Image upload failed!"]</span>
+    </div>
+</div>
+
+<form asp-action="SaveNew" method="post" id="markdown-form" class="d-flex flex-column h-100 pb-0">
+    <!-- Unified Sticky Toolbar -->
+    <div class="sticky-top bg-white border-bottom py-2 px-3 mb-0 d-flex align-items-center justify-content-between z-3" style="box-shadow: 0 2px 4px rgba(0,0,0,.04);">
+        <!-- Left: View Switcher -->
+        <div class="d-flex align-items-center gap-3">
+            @* Desktop View Switcher *@
+            <div class="btn-group btn-group-sm d-none d-lg-inline-flex shadow-sm" role="group" aria-label="View mode" id="view-mode-switcher-desktop">
+                <input type="radio" class="btn-check" name="view-mode-desktop" id="view-split-desktop" value="split" autocomplete="off" checked>
+                <label class="btn btn-outline-secondary" for="view-split-desktop" title="@Localizer["Split View"]"><i class="align-middle" data-lucide="columns"></i></label>
+
+                <input type="radio" class="btn-check" name="view-mode-desktop" id="view-editor-desktop" value="editor" autocomplete="off">
+                <label class="btn btn-outline-secondary px-3" for="view-editor-desktop" title="@Localizer["Editor Only"]"><i class="align-middle" data-lucide="code-2"></i> @Localizer["Code"]</label>
+
+                <input type="radio" class="btn-check" name="view-mode-desktop" id="view-preview-desktop" value="preview" autocomplete="off">
+                <label class="btn btn-outline-secondary px-3" for="view-preview-desktop" title="@Localizer["Preview Only"]"><i class="align-middle" data-lucide="eye"></i> @Localizer["Preview"]</label>
+            </div>
+
+            @* Mobile View Switcher *@
+            <div class="btn-group btn-group-sm d-lg-none shadow-sm" role="group" aria-label="Mobile view mode" id="view-mode-switcher-mobile">
+                <input type="radio" class="btn-check" name="view-mode-mobile" id="view-editor-mobile" value="editor" autocomplete="off" checked>
+                <label class="btn btn-outline-secondary" for="view-editor-mobile" title="@Localizer["Editor"]"><i class="align-middle" data-lucide="code-2"></i></label>
+
+                <input type="radio" class="btn-check" name="view-mode-mobile" id="view-preview-mobile" value="preview" autocomplete="off">
+                <label class="btn btn-outline-secondary" for="view-preview-mobile" title="@Localizer["Preview"]"><i class="align-middle" data-lucide="eye"></i></label>
+            </div>
+        </div>
+
+        <!-- Middle: Title -->
+        <div class="flex-grow-1 px-4 text-center d-flex align-items-center justify-content-center">
+            <input type="hidden" asp-for="DocumentId" />
+            @if (Model.IsEditing)
+            {
+                <a asp-action="History" class="btn btn-sm btn-link text-muted text-decoration-none me-2 p-0" title="@Localizer["My Documents"]">
+                    <i class="align-middle" data-lucide="arrow-left" style="width: 20px; height: 20px;"></i>
+                </a>
+                <input asp-for="Title" class="form-control form-control-sm border-0 bg-transparent text-center fw-bold px-0 text-dark" style="max-width: 400px; box-shadow: none; font-size: 1.1rem;" placeholder="@Localizer["Untitled Document"]" />
+            }
+            else
+            {
+                <span class="text-muted fw-bold" style="font-size: 1.1rem;">@Localizer["Create a new document..."]</span>
+            }
+        </div>
+
+        <!-- Right: Actions -->
+        <div class="d-flex align-items-center gap-2">
+            <!-- Optional divider before actions -->
+            <div class="vr mx-2 text-muted d-none d-md-block"></div>
+
+            @if (!string.IsNullOrEmpty(Model.PublicLink))
+            {
+                <div class="input-group input-group-sm d-none d-xl-flex border rounded shadow-sm" style="width: auto; max-width: 200px;">
+                    <input type="text" class="form-control bg-light border-0" id="public-link" readonly value="@Model.PublicLink" title="@Localizer["Share Link"]" />
+                    <button class="btn btn-light border-0 text-muted" type="button" id="copy-link-button" title="@Localizer["Copy Link"]">
+                        <i class="align-middle" data-lucide="link"></i>
+                    </button>
+                </div>
+            }
+
+            @if ((User.Identity?.IsAuthenticated ?? false) && Model.IsEditing)
+            {
+                <a asp-action="ManageShares" asp-route-id="@Model.DocumentId" class="btn btn-sm btn-white text-muted shadow-sm" target="_blank" title="@Localizer["Share"]">
+                    <i class="align-middle" data-lucide="share-2"></i> <span class="d-none d-xxl-inline">@Localizer["Share"]</span>
+                </a>
+                
+                <a asp-controller="Contract" asp-action="Fill" asp-route-id="@Model.DocumentId" class="btn btn-sm btn-white text-dark shadow-sm"
+                   target="_blank" title="@Localizer["Contract Layout"]">
+                    <i class="align-middle" data-lucide="file-signature"></i> <span class="d-none d-xxl-inline">@Localizer["Contract Layout"]</span>
+                </a>
+            }
+            
+            <button type="button" id="print-button" class="btn btn-sm btn-white text-dark shadow-sm" title="@Localizer["Print"]">
+                <i class="align-middle" data-lucide="printer"></i> <span class="d-none d-xxl-inline">@Localizer["Print"]</span>
+            </button>
+            <button type="button" id="copy-button" class="btn btn-sm btn-white text-dark shadow-sm" title="@Localizer["Copy HTML"]">
+                <i class="align-middle" data-lucide="copy"></i> <span class="d-none d-xxl-inline">@Localizer["Copy HTML"]</span>
+            </button>
+
+            @if (User.Identity?.IsAuthenticated ?? false)
+            {
+                <button type="button" id="save-button" class="btn btn-sm btn-secondary shadow-sm px-3" disabled="@(Model.IsEditing ? "disabled" : null)">
+                    <i class="align-middle" data-lucide="save"></i>
+                    <span class="d-none d-md-inline ms-1 fw-bold">@Localizer["Save"]</span>
+                </button>
+            }
+        </div>
+    </div>
+
+    <!-- Content Area -->
+    <div class="row flex-grow-1 gx-0" style="height: calc(100vh - 61px); min-height: 400px; background-color: #F9FAFB;">
+
+        @* --- Left Column: Markdown Input --- *@
+        <div id="editor-column" class="col-lg-6 h-100 border-end" style="border-color: #eaecef !important;">
+            <div class="h-100 d-flex flex-column bg-white">
+                <div class="flex-grow-1 position-relative editor-wrapper">
+                    <div id="markdown-editor-container" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0;"></div>
+                    <textarea asp-for="InputMarkdown" id="markdown-editor" style="display: none;"></textarea>
+                </div>
+                <span asp-validation-for="InputMarkdown" class="text-danger px-2 bg-white"></span>
+            </div>
+        </div>
+
+        @* --- Right Column: Output & Settings --- *@
+        <div id="preview-column" class="col-lg-6 h-100 overflow-auto" style="background-color: #F9FAFB; padding-bottom: 2rem;">
+            <!-- Rendered Output (Paper Style) -->
+            <div id="printable-area" class="bg-white shadow-sm mx-auto p-4 p-md-5 my-0 my-md-4 markdown-content" style="max-width: 21cm; min-height: 29.7cm;">
+                @Html.Raw(Model.OutputHtml)
+            </div>
+            
+            <!-- Hidden HTML Output for Copying -->
+            <textarea id="html-output" style="display: none;">@Model.OutputHtml</textarea>
+        </div>
+    </div>
+</form>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <link rel="stylesheet" href="~/node_modules/@@fontsource/cascadia-code/index.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/styles/markdown-editor.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/styles/markdown-print.css"  asp-append-version="true" />
+    @if (isDarkMode)
+    {
+        <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github-dark.min.css" asp-append-version="true" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github.min.css" asp-append-version="true" />
+    }
+    <style>
+        main.content {
+            padding: 0 !important;
+        }
+        /* Toolbar adjustments for dark mode */
+        body[data-theme="dark"] .sticky-top {
+            background-color: #222e3c !important; /* AdminKit dark background */
+            border-bottom: 1px solid #323d4b !important;
+        }
+        body[data-theme="dark"] #preview-column {
+            background-color: #1e2530 !important;
+        }
+        body[data-theme="dark"] #printable-area {
+            background-color: #222e3c !important;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3) !important;
+        }
+        body[data-theme="dark"] .form-control.bg-transparent {
+            color: #e9ecef !important;
+        }
+        body[data-theme="dark"] .bg-white {
+            background-color: #222e3c !important;
+        }
+        body[data-theme="dark"] .btn-white {
+            background-color: #2f3e50 !important;
+            border-color: #3f5268 !important;
+            color: #d1d8e0 !important;
+        }
+        body[data-theme="dark"] .btn-white:hover {
+            background-color: #3f5268 !important;
+            color: #fff !important;
+        }
+        body[data-theme="dark"] .border-end {
+            border-color: #323d4b !important;
+        }
+        
+        @@media (max-width: 991.98px) {
+            #editor-column,
+            #preview-column {
+                width: 100%;
+                display: none;
+            }
+
+            .view-mode-editor #editor-column,
+            .view-mode-preview #preview-column {
+                display: block;
+            }
+        }
+        
+        /* Print adjustments to hide toolbar */
+        @@media print {
+            .sticky-top {
+                display: none !important;
+            }
+            #preview-column {
+                background-color: white !important;
+            }
+            #printable-area {
+                box-shadow: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                max-width: none !important;
+            }
+        }
+
+        /* Minor form control adjustments to match the design */
+        #Title::placeholder {
+            color: #adb5bd;
+            font-weight: normal;
+        }
+        #Title:focus {
+            background-color: rgba(0,0,0,0.03) !important;
+            border-radius: 4px;
+        }
+        body[data-theme="dark"] #Title:focus {
+            background-color: rgba(255,255,255,0.05) !important;
+        }
+
+        /* Quick save banner */
+        .quick-save-banner {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) translateY(-120%);
+            z-index: 9999;
+            pointer-events: none;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .quick-save-banner.show {
+            transform: translateX(-50%) translateY(24px);
+        }
+        .quick-save-banner-content {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 10px 28px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            box-shadow: 0 8px 32px rgba(16, 185, 129, 0.35);
+            white-space: nowrap;
+        }
+        .quick-save-banner-content i {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    @* markdown-it, mermaid, hljs MUST be loaded before Monaco's loader.js,
+       because Monaco's AMD loader hijacks global require/define, causing UMD
+       modules loaded after it to register via AMD instead of setting window globals. *@
+    <script src="~/node_modules/markdown-it/dist/markdown-it.min.js" asp-append-version="true"></script>
+    <script src="~/node_modules/mermaid/dist/mermaid.min.js" asp-append-version="true"></script>
+    <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js" asp-append-version="true"></script>
+    <script>var require = { paths: { 'vs': '/node_modules/monaco-editor/min/vs' } };</script>
+    <script src="~/node_modules/monaco-editor/min/vs/loader.js" asp-append-version="true"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            require(['vs/editor/editor.main'], function () {
+                let markdownEditorInstance;
+                const markdownEditorElement = document.getElementById('markdown-editor');
+                const monacoTheme = '@(isDarkMode ? "vs-dark" : "vs")';
+
+                // --- Monaco Editor Setup ---
+                if (markdownEditorElement) {
+                    markdownEditorInstance = monaco.editor.create(document.getElementById('markdown-editor-container'), {
+                        value: markdownEditorElement.value,
+                        language: 'markdown',
+                        theme: monacoTheme,
+                        automaticLayout: true,
+                        wordWrap: 'on',
+                        'semanticHighlighting.enabled': true,
+                        fontFamily: "'Cascadia Code', 'Consolas', 'Courier New', monospace",
+                        fontSize: 14,
+                        fontLigatures: true
+                    });
+
+                    // --- State ---
+                    let isDirty = false;
+                    const isAuthenticated = @((User.Identity?.IsAuthenticated ?? false).ToString().ToLower());
+                    const isEditing = @(Model.IsEditing.ToString().ToLower());
+                    const saveButton = document.getElementById('save-button');
+
+                    // --- Save Button State ---
+                    function updateSaveButtonState() {
+                        if (!saveButton || !isAuthenticated) return;
+                        if (!isEditing || isDirty) {
+                            saveButton.disabled = false;
+                            saveButton.classList.replace('btn-secondary', 'btn-primary');
+                        } else {
+                            saveButton.disabled = true;
+                            saveButton.classList.replace('btn-primary', 'btn-secondary');
+                        }
+                    }
+                    updateSaveButtonState();
+
+                    // --- Math plugin for markdown-it ---
+                    // Converts $...$ → \(...\) and $$...$$ → \[...\] so MathJax can render them.
+                    function mathPlugin(md) {
+                        // Block math: $$\n...\n$$
+                        md.block.ruler.before('fence', 'math_block', function (state, startLine, endLine, silent) {
+                            let pos = state.bMarks[startLine] + state.tShift[startLine];
+                            let max = state.eMarks[startLine];
+                            if (pos + 2 > max) return false;
+                            if (state.src.slice(pos, pos + 2) !== '$$') return false;
+                            if (silent) return true;
+                            let firstLine = state.src.slice(pos + 2, max).trim();
+                            let found = false, nextLine = startLine;
+                            while (nextLine < endLine) {
+                                nextLine++;
+                                if (nextLine >= endLine) break;
+                                let linePos = state.bMarks[nextLine] + state.tShift[nextLine];
+                                let lineMax = state.eMarks[nextLine];
+                                if (state.src.slice(linePos, linePos + 2) === '$$') { found = true; break; }
+                            }
+                            let lines = firstLine ? [firstLine] : [];
+                            for (let i = startLine + 1; i < nextLine; i++) {
+                                lines.push(state.src.slice(state.bMarks[i], state.eMarks[i]));
+                            }
+                            state.line = found ? nextLine + 1 : nextLine;
+                            let token = state.push('math_block', 'math', 0);
+                            token.content = lines.join('\n').trim();
+                            token.map = [startLine, state.line];
+                            token.markup = '$$';
+                            return true;
+                        });
+
+                        // Inline math: $...$ (no space after opening $, no space before closing $)
+                        md.inline.ruler.before('escape', 'math_inline', function (state, silent) {
+                            let pos = state.pos;
+                            if (state.src[pos] !== '$') return false;
+                            if (state.src[pos + 1] === '$') return false; // skip $$
+                            let start = pos + 1;
+                            if (start >= state.posMax) return false;
+                            if (state.src[start] === ' ') return false; // no leading space
+                            let end = state.src.indexOf('$', start);
+                            while (end > 0 && state.src[end - 1] === '\\') {
+                                end = state.src.indexOf('$', end + 1);
+                            }
+                            if (end < 0 || end === start) return false;
+                            if (state.src[end - 1] === ' ') return false; // no trailing space
+                            let content = state.src.slice(start, end);
+                            if (content.indexOf('\n') >= 0) return false; // single line only
+                            if (!silent) {
+                                let token = state.push('math_inline', '', 0);
+                                token.markup = '$';
+                                token.content = content;
+                            }
+                            state.pos = end + 1;
+                            return true;
+                        });
+
+                        md.renderer.rules.math_inline = function (tokens, idx) {
+                            return '\\(' + tokens[idx].content + '\\)';
+                        };
+                        md.renderer.rules.math_block = function (tokens, idx) {
+                            return '<p>\\[' + tokens[idx].content + '\\]</p>\n';
+                        };
+                    }
+
+                    // --- Real-time Markdown Preview ---
+                    const md = window.markdownit({
+                        html: false,
+                        linkify: true,
+                        typographer: true,
+                        highlight: function (str, lang) {
+                            if (lang === 'mermaid') {
+                                return `<div class="mermaid">${md.utils.escapeHtml(str)}</div>`;
+                            }
+                            if (window.hljs && window.hljs.getLanguage(lang)) {
+                                try {
+                                    return '<pre><code class="hljs language-' + lang + '">' +
+                                        window.hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
+                                        '</code></pre>';
+                                } catch (_) {}
+                            }
+                            return '<pre><code class="hljs">' + md.utils.escapeHtml(str) + '</code></pre>';
+                        }
+                    }).use(mathPlugin);
+
+                    let previewTimer = null;
+                    function schedulePreviewUpdate(markdown) {
+                        clearTimeout(previewTimer);
+                        previewTimer = setTimeout(function () {
+                            const printableArea = document.getElementById('printable-area');
+                            const htmlOutput = document.getElementById('html-output');
+                            if (!printableArea) return;
+                            const html = md.render(markdown);
+                            printableArea.innerHTML = html;
+                            if (htmlOutput) htmlOutput.value = html;
+                            stylePreviewTables();
+                            renderMermaid();
+                            renderMath();
+                        }, 300);
+                    }
+
+                    // --- Unsaved Changes Warning ---
+                    if (isAuthenticated) {
+                        window.addEventListener('beforeunload', function (e) {
+                            if (isDirty) {
+                                e.preventDefault();
+                                e.returnValue = '';
+                            }
+                        });
+
+                        const titleInput = document.getElementById('Title');
+                        if (titleInput) {
+                            titleInput.addEventListener('input', () => {
+                                isDirty = true;
+                                updateSaveButtonState();
+                            });
+                        }
+                    }
+
+                    markdownEditorInstance.onDidChangeModelContent(() => {
+                        const currentValue = markdownEditorInstance.getValue();
+                        markdownEditorElement.value = currentValue;
+                        schedulePreviewUpdate(currentValue);
+
+                        if (isAuthenticated) {
+                            isDirty = true;
+                            updateSaveButtonState();
+                        }
+                    });
+
+                    // Initial preview render
+                    schedulePreviewUpdate(markdownEditorElement.value);
+
+                    // --- Markdown All In One Features ---
+
+                    // 1. Enter Key Handler for List Continuation
+                    markdownEditorInstance.onKeyDown((e) => {
+                        if (e.keyCode === monaco.KeyCode.Enter && !e.ctrlKey && !e.altKey && !e.metaKey && !e.shiftKey) {
+                            const position = markdownEditorInstance.getPosition();
+                            const model = markdownEditorInstance.getModel();
+                            const lineContent = model.getLineContent(position.lineNumber);
+
+                            const unorderedMatch = lineContent.match(/^(\s*)([\-\*\+])\s(.*)$/);
+                            const orderedMatch = lineContent.match(/^(\s*)(\d+)(\.)\s(.*)$/);
+
+                            if (unorderedMatch) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                const indent = unorderedMatch[1];
+                                const marker = unorderedMatch[2];
+                                const content = unorderedMatch[3];
+
+                                if (!content.trim()) {
+                                    markdownEditorInstance.executeEdits('markdown-list', [{
+                                        range: new monaco.Range(position.lineNumber, 1, position.lineNumber, lineContent.length + 1),
+                                        text: '',
+                                        forceMoveMarkers: true
+                                    }]);
+                                } else {
+                                    const insertText = `\n${indent}${marker} `;
+                                    markdownEditorInstance.executeEdits('markdown-list', [{
+                                        range: new monaco.Range(position.lineNumber, position.column, position.lineNumber, position.column),
+                                        text: insertText,
+                                        forceMoveMarkers: true
+                                    }]);
+                                    markdownEditorInstance.setPosition({
+                                        lineNumber: position.lineNumber + 1,
+                                        column: insertText.length
+                                    });
+                                    markdownEditorInstance.revealPositionInCenterIfOutsideViewport(markdownEditorInstance.getPosition());
+                                }
+                            } else if (orderedMatch) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                const indent = orderedMatch[1];
+                                const number = parseInt(orderedMatch[2]);
+                                const dot = orderedMatch[3];
+                                const content = orderedMatch[4];
+
+                                if (!content.trim()) {
+                                    markdownEditorInstance.executeEdits('markdown-list', [{
+                                        range: new monaco.Range(position.lineNumber, 1, position.lineNumber, lineContent.length + 1),
+                                        text: '',
+                                        forceMoveMarkers: true
+                                    }]);
+                                } else {
+                                    const edits = [];
+                                    const nextNumber = number + 1;
+                                    const insertText = `\n${indent}${nextNumber}${dot} `;
+
+                                    edits.push({
+                                        range: new monaco.Range(position.lineNumber, position.column, position.lineNumber, position.column),
+                                        text: insertText,
+                                        forceMoveMarkers: true
+                                    });
+
+                                    for (let i = position.lineNumber + 1; i <= model.getLineCount(); i++) {
+                                        const nextLine = model.getLineContent(i);
+                                        const nextLineMatch = nextLine.match(/^(\s*)(\d+)(\.)\s(.*)$/);
+                                        if (nextLineMatch && nextLineMatch[1] === indent) {
+                                            const oldNum = parseInt(nextLineMatch[2]);
+                                            const newNum = oldNum + 1;
+                                            const newLineText = `${indent}${newNum}${dot} ${nextLineMatch[4]}`;
+                                            edits.push({
+                                                range: new monaco.Range(i, 1, i, nextLine.length + 1),
+                                                text: newLineText
+                                            });
+                                        } else {
+                                            break;
+                                        }
+                                    }
+
+                                    markdownEditorInstance.executeEdits('markdown-list-renumber', edits);
+                                    markdownEditorInstance.setPosition({
+                                        lineNumber: position.lineNumber + 1,
+                                        column: insertText.length
+                                    });
+                                    markdownEditorInstance.revealPositionInCenterIfOutsideViewport(markdownEditorInstance.getPosition());
+                                }
+                            }
+                        }
+                    });
+
+                    // 2. Shortcuts
+
+                    function wrapSelection(startStr, endStr) {
+                        const selection = markdownEditorInstance.getSelection();
+                        const model = markdownEditorInstance.getModel();
+                        const text = model.getValueInRange(selection);
+
+                        markdownEditorInstance.executeEdits('markdown-shortcut', [{
+                            range: selection,
+                            text: `${startStr}${text}${endStr}`,
+                            forceMoveMarkers: true
+                        }]);
+                    }
+
+                    markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyB, () => wrapSelection('**', '**'));
+                    markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyI, () => wrapSelection('*', '*'));
+
+                    markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyK, () => {
+                        const selection = markdownEditorInstance.getSelection();
+                        if (selection.startLineNumber !== selection.endLineNumber) {
+                            wrapSelection('```\n', '\n```');
+                        } else {
+                            wrapSelection('`', '`');
+                        }
+                    });
+
+                    markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyL, () => wrapSelection('[', '](url)'));
+
+                    for (let i = 1; i <= 6; i++) {
+                        markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | (monaco.KeyCode.Digit0 + i), () => {
+                            const position = markdownEditorInstance.getPosition();
+                            const model = markdownEditorInstance.getModel();
+                            const lineContent = model.getLineContent(position.lineNumber);
+
+                            const cleanContent = lineContent.replace(/^#+\s*/, '');
+                            const hashes = '#'.repeat(i) + ' ';
+
+                            markdownEditorInstance.executeEdits('markdown-heading', [{
+                                range: new monaco.Range(position.lineNumber, 1, position.lineNumber, lineContent.length + 1),
+                                text: hashes + cleanContent,
+                                forceMoveMarkers: true
+                            }]);
+                        });
+                    }
+
+                    // --- Unified Save ---
+                    // New doc (isEditing=false): form submit → POST SaveNew (full reload).
+                    // Existing doc (isEditing=true): AJAX → POST SaveUpdate (no reload).
+                    function doSave() {
+                        if (!isAuthenticated) return;
+                        if (isEditing && !isDirty) return;
+
+                        if (!isEditing) {
+                            // New doc: sync the hidden textarea then submit the form normally.
+                            markdownEditorElement.value = markdownEditorInstance.getValue();
+                            isDirty = false;
+                            document.getElementById('markdown-form').submit();
+                            return;
+                        }
+
+                        // Existing doc: SaveUpdate via AJAX.
+                        const tokenInput = document.querySelector('input[name="__RequestVerificationToken"]');
+                        const token = tokenInput ? tokenInput.value : '';
+                        const title = document.getElementById('Title')?.value || '';
+                        const markdown = markdownEditorInstance.getValue();
+                        const documentId = document.getElementById('DocumentId')?.value || '';
+
+                        const formData = new FormData();
+                        formData.append('InputMarkdown', markdown);
+                        formData.append('Title', title);
+                        formData.append('DocumentId', documentId);
+                        formData.append('__RequestVerificationToken', token);
+
+                        fetch('/Home/SaveUpdate', {
+                            method: 'POST',
+                            body: formData
+                        })
+                        .then(function (response) {
+                            if (!response.ok) throw new Error('Save failed');
+                            return response.json();
+                        })
+                        .then(function (data) {
+                            if (data.success) {
+                                isDirty = false;
+                                updateSaveButtonState();
+                                var banner = document.getElementById('quick-save-banner');
+                                banner.classList.add('show');
+                                setTimeout(function () { banner.classList.remove('show'); }, 1500);
+                            }
+                        })
+                        .catch(function (err) {
+                            console.error('Quick save failed:', err);
+                        });
+                    }
+
+                    if (saveButton) {
+                        saveButton.addEventListener('click', doSave);
+                    }
+                    if (isAuthenticated) {
+                        markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, doSave);
+                    }
+
+                    // --- Paste / Drop Image Upload ---
+                    const pasteUploadUrl = '@Html.Raw(Storage.GetUploadUrl("markdown-images"))';
+                    const editorDomNode = markdownEditorInstance.getDomNode();
+
+                    function uploadImageBlob(blob, ext) {
+                        const filename = 'paste-' + crypto.randomUUID().replace(/-/g, '') + '.' + (ext || 'png').replace('jpeg', 'jpg');
+                        const placeholder = '![uploading...](' + filename + ')';
+                        const selection = markdownEditorInstance.getSelection();
+                        markdownEditorInstance.executeEdits('paste-image', [{
+                            range: selection,
+                            text: placeholder,
+                            forceMoveMarkers: true
+                        }]);
+                        const form = new FormData();
+                        form.append('file', blob, filename);
+                        fetch(pasteUploadUrl, { method: 'POST', body: form })
+                            .then(function (res) {
+                                if (!res.ok) throw new Error('HTTP ' + res.status);
+                                return res.json();
+                            })
+                            .then(function (data) {
+                                const model = markdownEditorInstance.getModel();
+                                model.setValue(model.getValue().replace(placeholder, '![](' + data.InternetPath + ')'));
+                            })
+                            .catch(function (err) {
+                                const model = markdownEditorInstance.getModel();
+                                model.setValue(model.getValue().replace(placeholder, ''));
+                                console.error('Image upload failed:', err);
+                                var errBanner = document.getElementById('upload-error-banner');
+                                errBanner.classList.add('show');
+                                setTimeout(function () { errBanner.classList.remove('show'); }, 2000);
+                            });
+                    }
+
+                    // Intercept paste at document level (capture phase) so we run before
+                    // Monaco's own paste handler. Only act when Monaco has keyboard focus.
+                    document.addEventListener('paste', function (e) {
+                        if (!markdownEditorInstance.hasTextFocus()) return;
+                        var items = e.clipboardData && e.clipboardData.items;
+                        if (!items) return;
+                        for (var i = 0; i < items.length; i++) {
+                            if (!items[i].type.startsWith('image/')) continue;
+                            e.preventDefault();
+                            e.stopPropagation();
+                            uploadImageBlob(items[i].getAsFile(), items[i].type.split('/')[1]);
+                            return;
+                        }
+                    }, true);
+
+                    // Support drag-and-drop of image files onto the editor.
+                    editorDomNode.addEventListener('dragover', function (e) {
+                        var hasImage = e.dataTransfer && Array.from(e.dataTransfer.items).some(function (it) {
+                            return it.kind === 'file' && it.type.startsWith('image/');
+                        });
+                        if (hasImage) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                        }
+                    }, true);
+
+                    editorDomNode.addEventListener('drop', function (e) {
+                        var files = e.dataTransfer && e.dataTransfer.files;
+                        if (!files || files.length === 0) return;
+                        for (var i = 0; i < files.length; i++) {
+                            if (!files[i].type.startsWith('image/')) continue;
+                            e.preventDefault();
+                            e.stopPropagation();
+                            markdownEditorInstance.focus();
+                            uploadImageBlob(files[i], files[i].type.split('/')[1]);
+                            return;
+                        }
+                    }, true);
+                }
+
+                // --- Markdown Completion Provider ---
+                monaco.languages.registerCompletionItemProvider('markdown', {
+                    provideCompletionItems: function(model, position) {
+                        const word = model.getWordUntilPosition(position);
+                        const range = {
+                            startLineNumber: position.lineNumber,
+                            endLineNumber: position.lineNumber,
+                            startColumn: word.startColumn,
+                            endColumn: word.endColumn
+                        };
+                        return {
+                            suggestions: [{
+                                label: 'table',
+                                kind: monaco.languages.CompletionItemKind.Snippet,
+                                insertText: [
+                                    '| ${1:Header1} | ${2:Header2} |',
+                                    '|---|---|',
+                                    '| ${3:Content1} | ${4:Content2} |',
+                                    ''
+                                ].join('\\n'),
+                                insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+                                documentation: 'Table',
+                                range: range
+                            }]
+                        };
+                    }
+                });
+
+                // --- View Mode Switcher ---
+                const editorCol = document.getElementById('editor-column');
+                const previewCol = document.getElementById('preview-column');
+                const formRoot = document.getElementById('markdown-form');
+                const radiosDesktop = document.querySelectorAll('input[name="view-mode-desktop"]');
+                const radiosMobile = document.querySelectorAll('input[name="view-mode-mobile"]');
+
+                function isMobile() {
+                    return window.innerWidth < 992;
+                }
+
+                function setViewMode(mode, fromMobile) {
+                    if (!editorCol || !previewCol || !formRoot) return;
+                    
+                    if (isMobile() && mode === 'split') {
+                        mode = 'editor';
+                    }
+                    
+                    localStorage.setItem('markdown-view-mode', mode);
+
+                    // Sync radio buttons
+                    const desktopRadio = document.querySelector(`input[name="view-mode-desktop"][value="${mode}"]`);
+                    if (desktopRadio) desktopRadio.checked = true;
+                    const mobileRadio = document.querySelector(`input[name="view-mode-mobile"][value="${mode}"]`);
+                    if (mobileRadio) mobileRadio.checked = true;
+
+                    // Apply classes for desktop
+                    if (!isMobile()) {
+                        formRoot.classList.remove('view-mode-editor', 'view-mode-preview');
+                        if (mode === 'split') {
+                            editorCol.classList.remove('d-none', 'col-lg-12');
+                            editorCol.classList.add('col-lg-6');
+                            previewCol.classList.remove('d-none', 'col-lg-12');
+                            previewCol.classList.add('col-lg-6');
+                        } else if (mode === 'editor') {
+                            editorCol.classList.remove('d-none', 'col-lg-6');
+                            editorCol.classList.add('col-lg-12');
+                            previewCol.classList.add('d-none');
+                        } else if (mode === 'preview') {
+                            editorCol.classList.add('d-none');
+                            previewCol.classList.remove('d-none', 'col-lg-6');
+                            previewCol.classList.add('col-lg-12');
+                        }
+                    }
+
+                    // Apply classes for mobile
+                    if (isMobile()) {
+                         editorCol.classList.remove('col-lg-6', 'col-lg-12', 'd-none');
+                         previewCol.classList.remove('col-lg-6', 'col-lg-12', 'd-none');
+                         formRoot.classList.remove('view-mode-editor', 'view-mode-preview');
+                         formRoot.classList.add(`view-mode-${mode}`);
+                    }
+                    
+                    // Render interactive content when switching to preview
+                    if (mode === 'split' || mode === 'preview') {
+                        renderMermaid();
+                        renderMath();
+                        renderHighlight();
+                    }
+                }
+                
+                function applyInitialViewMode() {
+                    const savedMode = localStorage.getItem('markdown-view-mode') || 'split';
+                    setViewMode(savedMode);
+                }
+
+                radiosDesktop.forEach(r => r.addEventListener('change', (e) => setViewMode(e.target.value, false)));
+                radiosMobile.forEach(r => r.addEventListener('change', (e) => setViewMode(e.target.value, true)));
+                window.addEventListener('resize', applyInitialViewMode);
+                applyInitialViewMode();
+
+                if ($.validator) $.validator.setDefaults({ ignore: [] });
+
+                // --- Copy & Print Utils ---
+                const copyButton = document.getElementById('copy-button');
+                const htmlOutputElementForCopy = document.getElementById('html-output');
+                if (copyButton && htmlOutputElementForCopy) {
+                    copyButton.addEventListener('click', function () {
+                        const val = htmlOutputElementForCopy.value;
+                        if (!val) return;
+                        navigator.clipboard.writeText(val).then(
+                            () => { let h = copyButton.innerHTML; copyButton.innerHTML = `<i class="align-middle" data-lucide="check"></i> <span class="d-none d-xxl-inline">Copied!</span>`; setTimeout(() => copyButton.innerHTML = h, 2000); },
+                            (err) => console.error(err)
+                        );
+                    });
+                }
+                const themeBtn = document.querySelector('.js-theme-toggle');
+                if (themeBtn) themeBtn.addEventListener('click', () => setTimeout(() => document.getElementById('markdown-form').submit(), 1000));
+                const printBtn = document.getElementById('print-button');
+                if (printBtn) {
+                    printBtn.addEventListener('click', () => {
+                        const isEditing = @(Model.IsEditing.ToString().ToLower());
+                        if (isEditing) {
+                            const shareUrl = '@Url.Action("View", "Public", new { id = Model.DocumentId })';
+                            window.open(shareUrl, '_blank');
+                        } else {
+                            window.print();
+                        }
+                    });
+                }
+
+                // --- Table & Mermaid Rendering ---
+                function stylePreviewTables() {
+                    const p = document.getElementById('preview-column');
+                    if(!p) return;
+                    p.querySelectorAll('table').forEach(t => {
+                        t.classList.add('table', 'table-striped', 'table-bordered');
+                        if (!t.parentElement.classList.contains('table-responsive')) {
+                            const w = document.createElement('div'); w.className = 'table-responsive';
+                            t.parentNode.insertBefore(w, t); w.appendChild(t);
+                        }
+                    });
+                }
+                setTimeout(stylePreviewTables, 100);
+                if (window.mermaid) mermaid.initialize({ startOnLoad: false, theme: '@(isDarkMode ? "dark" : "default")' });
+                function renderMermaid() {
+                    const p = document.getElementById('preview-column');
+                    if (!p || !window.mermaid) return;
+                    p.querySelectorAll('pre.mermaid, .mermaid').forEach((b, i) => {
+                        const code = b.textContent || '';
+                        const id = 'm-' + (i + 1) + '-' + Math.random().toString(36).slice(2);
+                        try {
+                            mermaid.parse(code);
+                            mermaid.render(id, code).then(({ svg }) => {
+                                const w = document.createElement('div'); w.innerHTML = svg; b.replaceWith(w);
+                            }).catch(e => console.error(e));
+                        } catch (e) { console.error(e); }
+                    });
+                }
+
+                // --- MathJax Rendering ---
+                function renderMath() {
+                    if (window.MathJax && window.MathJax.typesetPromise) {
+                        const preview = document.getElementById('preview-column');
+                        if(preview) window.MathJax.typesetPromise([preview]);
+                    }
+                }
+
+                // --- Highlight.js Rendering ---
+                function renderHighlight() {
+                    if (window.hljs) {
+                        hljs.highlightAll();
+                    }
+                }
+                
+                // Initial render for split view or preview
+                const currentMode = localStorage.getItem('markdown-view-mode') || 'split';
+                if (currentMode === 'split' || currentMode === 'preview') {
+                    setTimeout(() => {
+                        renderMermaid();
+                        renderMath();
+                        renderHighlight();
+                    }, 200);
+                }
+
+                // --- Public Link Copy ---
+                const cpLink = document.getElementById('copy-link-button');
+                const pubInp = document.getElementById('public-link');
+                if (cpLink && pubInp) {
+                    cpLink.addEventListener('click', () => {
+                        pubInp.select();
+                        navigator.clipboard.writeText(pubInp.value).then(() => {
+                            let h = cpLink.innerHTML; cpLink.innerHTML = `<i class="align-middle" data-lucide="check"></i>`;
+                            setTimeout(() => cpLink.innerHTML = h, 2000);
+                        });
+                    });
+                }
+            });
+        });
+    </script>
+}

@@ -1,0 +1,132 @@
+using Aiursoft.MoongladeV2.Models;
+
+namespace Aiursoft.MoongladeV2.Configuration;
+
+public class SettingsMap
+{
+    public const string ProjectName = "ProjectName";
+    public const string BrandName = "BrandName";
+    public const string BrandHomeUrl = "BrandHomeUrl";
+    public const string ProjectLogo = "ProjectLogo";
+    public const string AllowUserAdjustNickname = "Allow_User_Adjust_Nickname";
+    public const string Icp = "Icp";
+    public const string CompanyAddress = "CompanyAddress";
+    public const string CompanyPhone = "CompanyPhone";
+    public const string CompanyEmail = "CompanyEmail";
+    public const string CompanyPostcode = "CompanyPostcode";
+    public const string ContractLogo = "ContractLogo";
+    public const string ShowContractHeader = "ShowContractHeader";
+
+    public class FakeLocalizer
+    {
+        public string this[string name] => name;
+    }
+
+    private static readonly FakeLocalizer Localizer = new();
+
+    public static readonly List<GlobalSettingDefinition> Definitions = new()
+    {
+        new GlobalSettingDefinition
+        {
+            Key = ProjectName,
+            Name = Localizer["Project Name"],
+            Description = Localizer["The name of the project displayed in the frontend."],
+            Type = SettingType.Text,
+            DefaultValue = "Aiursoft MoongladeV2"
+        },
+        new GlobalSettingDefinition
+        {
+            Key = BrandName,
+            Name = Localizer["Brand Name"],
+            Description = Localizer["The brand name of the company or project. E.g. Aiursoft."],
+            Type = SettingType.Text,
+            DefaultValue = "Aiursoft"
+        },
+        new GlobalSettingDefinition
+        {
+            Key = BrandHomeUrl,
+            Name = Localizer["Brand Home URL"],
+            Description = Localizer["The URL of the company or project. E.g. https://www.aiursoft.com"],
+            Type = SettingType.Text,
+            DefaultValue = "https://www.aiursoft.com"
+        },
+        new GlobalSettingDefinition
+        {
+            Key = ProjectLogo,
+            Name = Localizer["Project Logo"],
+            Description = Localizer["The logo of the project displayed in the navbar and footer. Support jpg, png, svg."],
+            Type = SettingType.File,
+            DefaultValue = "",
+            Subfolder = "project-logo",
+            AllowedExtensions = "jpg png svg",
+            MaxSizeInMb = 5
+        },
+        new GlobalSettingDefinition
+        {
+            Key = AllowUserAdjustNickname,
+            Name = Localizer["Allow User Adjust Nickname"],
+            Description = Localizer["Allow users to adjust their nickname in the profile management page."],
+            Type = SettingType.Bool,
+            DefaultValue = "True"
+        },
+        new GlobalSettingDefinition
+        {
+            Key = Icp,
+            Name = Localizer["ICP Number"],
+            Description = Localizer["The ICP license number for China mainland users. Leave empty to hide."],
+            Type = SettingType.Text,
+            DefaultValue = ""
+        },
+        new GlobalSettingDefinition
+        {
+            Key = CompanyAddress,
+            Name = Localizer["Company Address"],
+            Description = Localizer["The address of the company or project."],
+            Type = SettingType.Text,
+            DefaultValue = "西京市中关村大街 999 号"
+        },
+        new GlobalSettingDefinition
+        {
+            Key = CompanyPhone,
+            Name = Localizer["Company Phone"],
+            Description = Localizer["The phone number of the company or project."],
+            Type = SettingType.Text,
+            DefaultValue = "010-12345678"
+        },
+        new GlobalSettingDefinition
+        {
+            Key = CompanyEmail,
+            Name = Localizer["Company Email"],
+            Description = Localizer["The email address of the company or project."],
+            Type = SettingType.Text,
+            DefaultValue = "anduin@aiursoft.com"
+        },
+        new GlobalSettingDefinition
+        {
+            Key = CompanyPostcode,
+            Name = Localizer["Company Postcode"],
+            Description = Localizer["The postcode of the company or project."],
+            Type = SettingType.Text,
+            DefaultValue = "100080"
+        },
+        new GlobalSettingDefinition
+        {
+            Key = ContractLogo,
+            Name = Localizer["Contract Logo"],
+            Description = Localizer["The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo."],
+            Type = SettingType.File,
+            DefaultValue = "",
+            Subfolder = "contract-logo",
+            AllowedExtensions = "jpg png svg",
+            MaxSizeInMb = 5
+        },
+        new GlobalSettingDefinition
+        {
+            Key = ShowContractHeader,
+            Name = Localizer["Show Contract Header"],
+            Description = Localizer["Whether to show the contract header (Logo, address, etc.) in the contract view."],
+            Type = SettingType.Bool,
+            DefaultValue = "True"
+        }
+    };
+}

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Allow User Adjust Nickname" xml:space="preserve">
+    <value>อนุญาตให้ผู้ใช้แก้ไขชื่อเล่น</value>
+  </data>
+  <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
+    <value>อนุญาตให้ผู้ใช้ปรับชื่อเล่นของตนเองได้ที่หน้าจัดการโปรไฟล์</value>
+  </data>
+  <data name="Brand Home URL" xml:space="preserve">
+    <value>URL หน้าหลักของแบรนด์</value>
+  </data>
+  <data name="Brand Name" xml:space="preserve">
+    <value>ชื่อแบรนด์</value>
+  </data>
+  <data name="Company Address" xml:space="preserve">
+    <value>ที่อยู่บริษัท</value>
+  </data>
+  <data name="Company Email" xml:space="preserve">
+    <value>อีเมลบริษัท</value>
+  </data>
+  <data name="Company Phone" xml:space="preserve">
+    <value>เบอร์โทรศัพท์บริษัท</value>
+  </data>
+  <data name="Company Postcode" xml:space="preserve">
+    <value>รหัสไปรษณีย์บริษัท</value>
+  </data>
+  <data name="Contract Logo" xml:space="preserve">
+    <value>โลโก้สัญญา</value>
+  </data>
+  <data name="ICP Number" xml:space="preserve">
+    <value>เลขที่ ICP</value>
+  </data>
+  <data name="Project Logo" xml:space="preserve">
+    <value>โลโก้โครงการ</value>
+  </data>
+  <data name="Project Name" xml:space="preserve">
+    <value>ชื่อโปรเจกต์</value>
+  </data>
+  <data name="Show Contract Header" xml:space="preserve">
+    <value>แสดงส่วนหัวของสัญญา</value>
+  </data>
+  <data name="The address of the company or project." xml:space="preserve">
+    <value>ที่อยู่ของบริษัทหรือโครงการ</value>
+  </data>
+  <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
+    <value>ชื่อแบรนด์ของบริษัทหรือโครงการ ตัวอย่างเช่น Aiursoft</value>
+  </data>
+  <data name="The email address of the company or project." xml:space="preserve">
+    <value>ที่อยู่อีเมลของบริษัทหรือโครงการ</value>
+  </data>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>หมายเลขใบอนุญาต ICP สำหรับผู้ใช้ในแผ่นดินใหญ่จีน ปล่อยว่างเปล่าเพื่อซ่อน</value>
+  </data>
+  <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
+    <value>โลโก้ของสัญญาที่แสดงในส่วนหัว รองรับไฟล์ jpg, png, svg แยกต่างหากจากโลโก้ระบบ</value>
+  </data>
+  <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
+    <value>โลโก้ของโครงการที่แสดงไว้ในแถบเมนูและฟุตเตอร์ รองรับไฟล์ jpg, png, svg</value>
+  </data>
+  <data name="The name of the project displayed in the frontend." xml:space="preserve">
+    <value>ชื่อโปรเจกต์ที่แสดงในหน้าเว็บด้านหน้า</value>
+  </data>
+  <data name="The phone number of the company or project." xml:space="preserve">
+    <value>หมายเลขโทรศัพท์ของบริษัทหรือโครงการ</value>
+  </data>
+  <data name="The postcode of the company or project." xml:space="preserve">
+    <value>รหัสไปรษณีย์ของบริษัทหรือโครงการ</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>URL ของบริษัทหรือโครงการ เช่น https://www.aiursoft.com</value>
+  </data>
+  <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
+    <value>การแสดงส่วนหัวของสัญญา (โลโก้, ที่อยู่, ฯลฯ) ในมุมมองสัญญาหรือไม่</value>
+  </data>
+
+</root>

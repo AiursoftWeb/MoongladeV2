@@ -1,0 +1,196 @@
+@using Aiursoft.WebTools
+@using Microsoft.AspNetCore.Authorization
+@using Aiursoft.MoongladeV2.Authorization
+@using Aiursoft.MoongladeV2.Services.FileStorage
+@model Aiursoft.MoongladeV2.Models.AdminViewModels.UserDocumentsViewModel
+@inject IAuthorizationService AuthorizationService
+@inject StorageService StorageService
+
+@{
+    var canEditAnyDocument = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanEditAnyDocument)).Succeeded;
+    var canDeleteAnyDocument = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanDeleteAnyDocument)).Succeeded;
+    var canManageAnyShare = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAnyShare)).Succeeded;
+}
+
+<!--suppress CssUnusedSymbol -->
+<style>
+    .clickable-row {
+        cursor: pointer;
+    }
+</style>
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Documents by"] @Model.User.DisplayName</h3>
+    </div>
+    <div class="col-auto ms-auto text-end mt-n1">
+        <a asp-action="AllDocuments" class="btn btn-light">
+            <i class="align-middle" data-lucide="arrow-left"></i> @Localizer["Back to All Documents"]
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    @* Left Column: User Profile Details *@
+    <div class="col-md-4 col-xl-3">
+        <div class="card mb-3">
+            <div class="card-header">
+                <h5 class="card-title mb-0">@Localizer["Profile Details"]</h5>
+            </div>
+            <div class="card-body text-center">
+                <a href="@StorageService.RelativePathToInternetUrl(Model.User.AvatarRelativePath)" target="_blank" rel="noopener noreferrer">
+                    <img src="@StorageService.RelativePathToInternetUrl(Model.User.AvatarRelativePath)?w=256&square=true"
+                         alt="@Model.User.DisplayName" class="img-fluid rounded-circle mb-2" width="128" height="128"/>
+                </a>
+                <h5 class="card-title mb-0">@Model.User.DisplayName</h5>
+                <div class="text-muted mb-2">@Model.User.Email</div>
+            </div>
+            <div class="list-group list-group-flush">
+                <div class="list-group-item">
+                    <div class="row">
+                        <strong class="col-sm-6">@Localizer["Username"]</strong>
+                        <div class="col-sm-6 text-sm-end">@@@Model.User.UserName</div>
+                    </div>
+                </div>
+                <div class="list-group-item">
+                    <div class="row">
+                        <strong class="col-sm-6">@Localizer["Total Docs"]</strong>
+                        <div class="col-sm-6 text-sm-end">@Model.UserDocuments.Count()</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* Right Column: User's Document List *@
+    <div class="col-md-8 col-xl-9">
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex flex-column flex-md-row align-items-md-center gap-2">
+                    <div>
+                        <h5 class="card-title mb-1">@Localizer["Document List"]</h5>
+                        <h6 class="card-subtitle text-muted mb-0">@Localizer["A list of all documents created by this user."]</h6>
+                    </div>
+                    <form method="get"
+                          asp-action="UserDocuments"
+                          asp-route-id="@Model.User.Id"
+                          class="ms-md-auto w-100 w-md-auto"
+                          role="search">
+                        <div class="input-group">
+                            <input type="search"
+                                   name="search"
+                                   value="@Model.SearchQuery"
+                                   class="form-control"
+                                   placeholder="@Localizer["Search documents..."]"
+                                   aria-label="@Localizer["Search documents"]" />
+                            @if (!string.IsNullOrWhiteSpace(Model.SearchQuery))
+                            {
+                                <a asp-action="UserDocuments"
+                                   asp-route-id="@Model.User.Id"
+                                   class="btn btn-outline-secondary">
+                                    <i class="align-middle" data-lucide="x-circle"></i>
+                                    <span class="d-none d-lg-inline">@Localizer["Clear"]</span>
+                                </a>
+                            }
+                            <button class="btn btn-primary" type="submit">
+                                <i class="align-middle" data-lucide="search"></i>
+                                <span class="d-none d-sm-inline">@Localizer["Search"]</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            @if (!Model.UserDocuments.Any())
+            {
+                <div class="card-body">
+                    <div class="alert alert-info mb-0" role="alert">
+                        <div class="alert-message">
+                            @if (string.IsNullOrWhiteSpace(Model.SearchQuery))
+                            {
+                                @Localizer["This user has not created any documents yet."]
+                            }
+                            else
+                            {
+                                @Localizer["No documents found for your search query."]
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th scope="col">@Localizer["Title"]</th>
+                                <th scope="col">@Localizer["Creation Time"]</th>
+                                <th scope="col" class="text-end">@Localizer["Actions"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var doc in Model.UserDocuments)
+                            {
+                                var rowHref = canEditAnyDocument ? Url.Action("EditDocument", new { id = doc.Id }) : null;
+                                <tr class="@(rowHref != null ? "clickable-row" : "")" data-href="@rowHref">
+                                    <td>
+                                        @if (string.IsNullOrWhiteSpace(doc.Title))
+                                        {
+                                            <span class="text-muted">@Localizer["(no title)"]</span>
+                                        }
+                                        else
+                                        {
+                                            @doc.Title
+                                        }
+                                    </td>
+                                    <td>
+                                        <label class="text-muted" data-utc-time="@doc.CreationTime.ToHtmlDateTime()"></label>
+                                    </td>
+                                    <td class="text-end">
+                                        @if (canManageAnyShare)
+                                        {
+                                            <a asp-controller="Home" asp-action="ManageShares" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-info">
+                                                <i class="align-middle" data-lucide="share-2"></i> @Localizer["Manage Shares"]
+                                            </a>
+                                        }
+                                        @if (canEditAnyDocument)
+                                        {
+                                            <a asp-action="EditDocument" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-primary">
+                                                <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]
+                                            </a>
+                                        }
+                                        @if (canDeleteAnyDocument)
+                                        {
+                                            <a asp-action="DeleteDocument" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-danger">
+                                                <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
+                                            </a>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const rows = document.querySelectorAll(".clickable-row");
+            rows.forEach(row => {
+                if (row.dataset.href) {
+                    row.addEventListener("click", function (event) {
+                        const target = event.target;
+                        if (!target.matches('a, a *, button, button *')) {
+                            window.location.href = row.dataset.href;
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+}
