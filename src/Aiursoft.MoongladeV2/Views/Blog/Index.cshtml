@@ -37,16 +37,16 @@
 <main class="container py-4">
     <div class="row g-4">
         <section class="col-lg-9">
-            <div class="d-flex align-items-center justify-content-between mb-3">
+                <div class="d-flex align-items-center justify-content-between mb-3">
                 <div>
                     <h2 class="mb-0">
                         @if (!string.IsNullOrWhiteSpace(Model.CurrentTag))
                         {
-                            @($"{Localizer["Tag"]}: {Model.CurrentTag}")
+                            @Localizer["Tag"]<text>: @Model.CurrentTag</text>
                         }
                         else if (!string.IsNullOrWhiteSpace(Model.SearchQuery))
                         {
-                            @($"{Localizer["Search"]}: {Model.SearchQuery}")
+                            @Localizer["Search"]<text>: @Model.SearchQuery</text>
                         }
                         else
                         {
@@ -71,11 +71,14 @@
                         }
                     </div>
                 </div>
-                <div class="btn-group btn-group-sm">
+                    @if (!Model.UsedAiSearch)
+                    {
+                        <div class="btn-group btn-group-sm">
                     <a href="@BuildSortUrl("recent")" class="btn @(Model.SortBy == "Recent" ? "btn-dark" : "btn-outline-dark")">@Localizer["Recent"]</a>
                     <a href="@BuildSortUrl("featured")" class="btn @(Model.SortBy == "Featured" ? "btn-dark" : "btn-outline-dark")">@Localizer["Featured"]</a>
                 </div>
-            </div>
+                    }
+                </div>
 
             @if (!Model.Posts.Any())
             {
