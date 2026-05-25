@@ -99,6 +99,10 @@ public class ViewModelArgsInjector(
     
         _ = localizer["Edit Document"];
         _ = localizer["User Documents"];
+    
+        _ = localizer["Archive"];
+        _ = localizer["Post"];
+        _ = localizer["Tags"];
     }
 
     public void InjectSimple(
