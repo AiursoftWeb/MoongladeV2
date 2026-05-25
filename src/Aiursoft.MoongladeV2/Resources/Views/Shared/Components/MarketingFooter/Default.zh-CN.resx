@@ -24,6 +24,12 @@
   <data name="Aiursoft Template - A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>Aiursoft Template - 一个现代、功能丰富且高度可扩展的 Web 应用程序开发基础框架。</value>
   </data>
+  <data name="Archive" xml:space="preserve">
+    <value>归档</value>
+  </data>
+  <data name="Brand" xml:space="preserve">
+    <value>品牌</value>
+  </data>
   <data name="Community" xml:space="preserve">
     <value>社区</value>
   </data>
@@ -33,17 +39,32 @@
   <data name="Documentation" xml:space="preserve">
     <value>文档</value>
   </data>
+  <data name="Explore" xml:space="preserve">
+    <value>探索</value>
+  </data>
   <data name="Get Started" xml:space="preserve">
     <value>开始使用</value>
   </data>
   <data name="Github" xml:space="preserve">
     <value>Github</value>
   </data>
+  <data name="Home" xml:space="preserve">
+    <value>首页</value>
+  </data>
   <data name="Legal" xml:space="preserve">
     <value>法律</value>
   </data>
   <data name="Licence" xml:space="preserve">
     <value>许可证</value>
+  </data>
+  <data name="Manage" xml:space="preserve">
+    <value>管理</value>
+  </data>
+  <data name="Modern Markdown blogging with AI-powered localization and search." xml:space="preserve">
+    <value>通过 AI 驱动本地化和搜索的现代 Markdown 博客平台</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>我的文档</value>
   </data>
   <data name="Project" xml:space="preserve">
     <value>项目</value>
@@ -54,11 +75,17 @@
   <data name="Resources" xml:space="preserve">
     <value>资源</value>
   </data>
+  <data name="Settings" xml:space="preserve">
+    <value>设置</value>
+  </data>
   <data name="Social" xml:space="preserve">
     <value>社交</value>
   </data>
   <data name="Source Code" xml:space="preserve">
     <value>源代码</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>标签</value>
   </data>
 
 </root>

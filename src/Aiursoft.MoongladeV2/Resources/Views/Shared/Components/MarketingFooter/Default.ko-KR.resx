@@ -24,6 +24,12 @@
   <data name="Aiursoft Template - A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>Aiursoft Template - 다음 웹 애플리케이션을 위한 현대적이고 기능이 풍부하며 매우 확장 가능한 기반</value>
   </data>
+  <data name="Archive" xml:space="preserve">
+    <value>보관함</value>
+  </data>
+  <data name="Brand" xml:space="preserve">
+    <value>브랜드</value>
+  </data>
   <data name="Community" xml:space="preserve">
     <value>커뮤니티</value>
   </data>
@@ -33,17 +39,32 @@
   <data name="Documentation" xml:space="preserve">
     <value>문서</value>
   </data>
+  <data name="Explore" xml:space="preserve">
+    <value>탐색</value>
+  </data>
   <data name="Get Started" xml:space="preserve">
     <value>시작하기</value>
   </data>
   <data name="Github" xml:space="preserve">
     <value>Github</value>
   </data>
+  <data name="Home" xml:space="preserve">
+    <value>홈</value>
+  </data>
   <data name="Legal" xml:space="preserve">
     <value>법적</value>
   </data>
   <data name="Licence" xml:space="preserve">
     <value>라이선스</value>
+  </data>
+  <data name="Manage" xml:space="preserve">
+    <value>관리</value>
+  </data>
+  <data name="Modern Markdown blogging with AI-powered localization and search." xml:space="preserve">
+    <value>AI 기반 현지화 및 검색 기능을 갖춘 최신 Markdown 블로그</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>내 문서</value>
   </data>
   <data name="Project" xml:space="preserve">
     <value>프로젝트</value>
@@ -54,11 +75,17 @@
   <data name="Resources" xml:space="preserve">
     <value>자원</value>
   </data>
+  <data name="Settings" xml:space="preserve">
+    <value>설정</value>
+  </data>
   <data name="Social" xml:space="preserve">
     <value>소셜</value>
   </data>
   <data name="Source Code" xml:space="preserve">
     <value>소스 코드</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>태그</value>
   </data>
 
 </root>
