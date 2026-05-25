@@ -17,4 +17,6 @@ public class IndexViewModel : UiStackLayoutViewModel
     public string SortBy { get; set; } = "Recent";
     public string? SearchQuery { get; set; }
     public string? CurrentTag { get; set; }
+    public bool UsedAiSearch { get; set; }
+    public bool RateLimited { get; set; }
 }

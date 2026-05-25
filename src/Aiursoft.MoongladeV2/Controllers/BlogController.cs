@@ -12,7 +12,9 @@ namespace Aiursoft.MoongladeV2.Controllers;
 public class BlogController(
     TemplateDbContext dbContext,
     MoongladeV2Service moongladeV2Service,
-    DocumentLocalizationService localizationService) : Controller
+    DocumentLocalizationService localizationService,
+    DocumentVectorSearchService vectorSearch,
+    SearchRateLimiter rateLimiter) : Controller
 {
     private const int PageSize = 10;
 
@@ -166,42 +168,90 @@ public class BlogController(
         var normalizedTag = string.IsNullOrWhiteSpace(tag) ? null : tag.Trim();
         var normalizedQuery = string.IsNullOrWhiteSpace(query) ? null : query.Trim();
 
-        var documents = await dbContext.MarkdownDocuments
-            .AsNoTracking()
-            .Where(d => d.IsPublic)
-            .ToListAsync();
+        // ── Vector search path (only when no tag filter is active) ──────────
+        List<MarkdownDocument>? aiResults = null;
+        var usedAi = false;
+        var rateLimited = false;
+        var aiTotalCount = 0;
 
-        var filtered = documents.AsEnumerable();
-        if (!string.IsNullOrWhiteSpace(normalizedTag))
+        if (!string.IsNullOrWhiteSpace(normalizedQuery) && string.IsNullOrWhiteSpace(normalizedTag))
         {
-            filtered = filtered.Where(d => BlogTagParser.ContainsTag(d.Tags, normalizedTag));
+            var ip = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown";
+
+            if (!rateLimiter.TryConsume(ip))
+            {
+                rateLimited = true;
+            }
+            else
+            {
+                var baseQuery = dbContext.MarkdownDocuments
+                    .AsNoTracking()
+                    .Where(d => d.IsPublic);
+
+                var aiResult = await vectorSearch.SearchAsync(
+                    baseQuery, normalizedQuery, page, PageSize);
+
+                if (aiResult.UsedAi)
+                {
+                    usedAi = true;
+                    aiResults = aiResult.Results;
+                    aiTotalCount = aiResult.TotalCount;
+                }
+            }
         }
 
-        if (!string.IsNullOrWhiteSpace(normalizedQuery))
+        List<MarkdownDocument> pagedPosts;
+        int totalPosts;
+        List<MarkdownDocument> allFiltered; // used for computing top tags
+
+        if (aiResults != null)
         {
-            filtered = filtered.Where(d =>
-                (d.Title?.Contains(normalizedQuery, StringComparison.OrdinalIgnoreCase) ?? false) ||
-                (d.Content?.Contains(normalizedQuery, StringComparison.OrdinalIgnoreCase) ?? false) ||
-                (d.Tags?.Contains(normalizedQuery, StringComparison.OrdinalIgnoreCase) ?? false));
+            pagedPosts = aiResults;
+            totalPosts = aiTotalCount;
+            allFiltered = aiResults;
+        }
+        else
+        {
+            var documents = await dbContext.MarkdownDocuments
+                .AsNoTracking()
+                .Where(d => d.IsPublic)
+                .ToListAsync();
+
+            var filtered = documents.AsEnumerable();
+            if (!string.IsNullOrWhiteSpace(normalizedTag))
+            {
+                filtered = filtered.Where(d => BlogTagParser.ContainsTag(d.Tags, normalizedTag));
+            }
+
+            if (!string.IsNullOrWhiteSpace(normalizedQuery))
+            {
+                filtered = filtered.Where(d =>
+                    (d.Title?.Contains(normalizedQuery, StringComparison.OrdinalIgnoreCase) ?? false) ||
+                    (d.Content?.Contains(normalizedQuery, StringComparison.OrdinalIgnoreCase) ?? false) ||
+                    (d.Tags?.Contains(normalizedQuery, StringComparison.OrdinalIgnoreCase) ?? false));
+            }
+
+            filtered = normalizedSort switch
+            {
+                "Featured" => filtered
+                    .OrderByDescending(d => d.IsFeatured)
+                    .ThenByDescending(d => d.CreationTime),
+                _ => filtered
+                    .OrderByDescending(d => d.CreationTime)
+            };
+
+            allFiltered = filtered.ToList();
+            totalPosts = allFiltered.Count;
+            var totalPages = Math.Max(1, (int)Math.Ceiling(totalPosts / (double)PageSize));
+            var currentPage = Math.Max(1, Math.Min(page, totalPages));
+            pagedPosts = allFiltered
+                .Skip((currentPage - 1) * PageSize)
+                .Take(PageSize)
+                .ToList();
         }
 
-        filtered = normalizedSort switch
-        {
-            "Featured" => filtered
-                .OrderByDescending(d => d.IsFeatured)
-                .ThenByDescending(d => d.CreationTime),
-            _ => filtered
-                .OrderByDescending(d => d.CreationTime)
-        };
-
-        var filteredList = filtered.ToList();
-        var totalPosts = filteredList.Count;
-        var totalPages = Math.Max(1, (int)Math.Ceiling(totalPosts / (double)PageSize));
-        var currentPage = Math.Max(1, Math.Min(page, totalPages));
-        var pagedPosts = filteredList
-            .Skip((currentPage - 1) * PageSize)
-            .Take(PageSize)
-            .ToList();
+        var totalPagesFinal = Math.Max(1, (int)Math.Ceiling(totalPosts / (double)PageSize));
+        var currentPageFinal = Math.Max(1, Math.Min(page, totalPagesFinal));
 
         var (localizedTitles, localizedContents) = await localizationService.LoadLocalizedStringsAsync(pagedPosts);
 
@@ -230,7 +280,7 @@ public class BlogController(
             })
             .ToArray();
 
-        var topTags = filteredList
+        var topTags = allFiltered
             .SelectMany(d => BlogTagParser.ParseTags(d.Tags))
             .GroupBy(tagName => tagName, StringComparer.OrdinalIgnoreCase)
             .OrderByDescending(g => g.Count())
@@ -250,10 +300,12 @@ public class BlogController(
             SearchQuery = normalizedQuery,
             CurrentTag = normalizedTag,
             TotalPosts = totalPosts,
-            CurrentPage = currentPage,
-            TotalPages = totalPages,
+            CurrentPage = currentPageFinal,
+            TotalPages = totalPagesFinal,
             Posts = postCards,
-            TopTags = topTags
+            TopTags = topTags,
+            UsedAiSearch = usedAi,
+            RateLimited = rateLimited
         };
         return this.SimpleView(model, viewName: nameof(Index));
     }

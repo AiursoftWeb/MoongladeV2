@@ -71,6 +71,8 @@ public class Startup : IWebStartup
 
         // AI: embedding cache (singleton — shared by all requests for cosine-similarity search)
         services.AddSingleton<Services.DocumentEmbeddingCache>();
+        services.AddSingleton<Services.SearchRateLimiter>();
+        services.AddScoped<Services.DocumentVectorSearchService>();
 
         // AI: localization job — translates posts to configured languages
         var localizeDocsJob = services.RegisterBackgroundJob<Services.BackgroundJobs.LocalizeDocumentsJob>();

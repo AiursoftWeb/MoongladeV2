@@ -10,6 +10,7 @@ using Aiursoft.UiStack.Views.Shared.Components.FooterMenu;
 using Aiursoft.UiStack.Views.Shared.Components.LanguagesDropdown;
 using Aiursoft.UiStack.Views.Shared.Components.MegaMenu;
 using Aiursoft.UiStack.Views.Shared.Components.Navbar;
+using Aiursoft.UiStack.Views.Shared.Components.SearchForm;
 using Aiursoft.UiStack.Views.Shared.Components.SideAdvertisement;
 using Aiursoft.UiStack.Views.Shared.Components.Sidebar;
 using Aiursoft.UiStack.Views.Shared.Components.SideLogo;
@@ -103,6 +104,7 @@ public class ViewModelArgsInjector(
         _ = localizer["Archive"];
         _ = localizer["Post"];
         _ = localizer["Tags"];
+        _ = localizer["Search posts..."];
     }
 
     public void InjectSimple(
@@ -141,7 +143,13 @@ public class ViewModelArgsInjector(
         };
         toInject.Navbar = new NavbarViewModel
         {
-            ThemeSwitchApiCallEndpoint = "/api/switch-theme"
+            ThemeSwitchApiCallEndpoint = "/api/switch-theme",
+            SearchForm = new SearchFormViewModel
+            {
+                SearchUrl = "/search",
+                SearchParam = "q",
+                Placeholder = localizer["Search posts..."]
+            }
         };
 
         var currentViewingController = context.GetRouteValue("controller")?.ToString();
