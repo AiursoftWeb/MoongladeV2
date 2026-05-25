@@ -177,6 +177,9 @@
   <data name="Roles" xml:space="preserve">
     <value>역할</value>
   </data>
+  <data name="Search posts..." xml:space="preserve">
+    <value>게시물 검색...</value>
+  </data>
   <data name="Self Host" xml:space="preserve">
     <value>자체 호스팅</value>
   </data>

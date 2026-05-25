@@ -36,6 +36,9 @@
   <data name="Anonymous" xml:space="preserve">
     <value>Anonyymi</value>
   </data>
+  <data name="Archive" xml:space="preserve">
+    <value>Arkisto</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Taustatehtävät</value>
   </data>
@@ -153,6 +156,9 @@
   <data name="Personal" xml:space="preserve">
     <value>Henkilökohtainen</value>
   </data>
+  <data name="Post" xml:space="preserve">
+    <value>Kirjoitus</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>Profiili</value>
   </data>
@@ -167,6 +173,9 @@
   </data>
   <data name="Roles" xml:space="preserve">
     <value>Roolit</value>
+  </data>
+  <data name="Search posts..." xml:space="preserve">
+    <value>Hae viestejä...</value>
   </data>
   <data name="Self Host" xml:space="preserve">
     <value>Oma palvelin</value>
@@ -194,6 +203,9 @@
   </data>
   <data name="System Info" xml:space="preserve">
     <value>Järjestelmän tiedot</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Tagit</value>
   </data>
   <data name="Template" xml:space="preserve">
     <value>Malli</value>

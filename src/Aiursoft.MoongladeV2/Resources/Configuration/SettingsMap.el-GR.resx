@@ -24,11 +24,20 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Επιτρέψτε στους χρήστες να τροποποιήσουν το ψευδώνυμό τους στη σελίδα διαχείρισης προφίλ.</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Falls back to OpenAI API Token when empty." xml:space="preserve">
+    <value>Διανυσματικό token για το Endpoint Ενσωμάτωσης. Όταν είναι κενό, γίνεται αναφορά στο Token API του OpenAI.</value>
+  </data>
+  <data name="Bearer token for the OpenAI Chat Endpoint, e.g. sk-abc123. Leave empty if the endpoint does not require authentication." xml:space="preserve">
+    <value>Το token Bearer για το OpenAI Chat Endpoint, π.χ. sk-abc123. Αφήστε το κενό αν το endpoint δεν απαιτεί πιστοποίηση.</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>URL Αρχικής Σελίδας Μάρκας</value>
   </data>
   <data name="Brand Name" xml:space="preserve">
     <value>Όνομα Εταιρείας</value>
+  </data>
+  <data name="Comma-separated BCP-47 language codes to translate blog posts into, e.g. en-US,ja-JP,ko-KR,fr-FR. Leave empty to disable AI translation." xml:space="preserve">
+    <value>Κωδικοί γλώσσας BCP-47 χωρισμένοι με κόμμα, για μετάφραση των αναρτήσεων του blog, π.χ. en-US,ja-JP,ko-KR,fr-FR. Αφήστε το κενό για να απενεργοποιήσετε τη μετάφραση με AI.</value>
   </data>
   <data name="Company Address" xml:space="preserve">
     <value>Διεύθυνση Εταιρείας</value>
@@ -45,8 +54,53 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>Λογότυπο Συμβολαίου</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>Token API για Embedding</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>Σημείο πρόσβασης Embedding</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>Μοντέλο Ενσωμάτωσης</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
+    <value>Όνομα μοντέλου ενσωμάτωσης για αναζήτηση διανυσμάτων, π.χ. bge-m3:latest. Πρέπει να είναι διαθέσιμο στο Τέρμα Ενσωμάτωσης.</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>Όριο Κρυφής Μνήμης Διανυσματικών Ερωτήσεων</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>Ενεργοποίηση αναζήτησης με embeddings</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>Αριθμός ICP</value>
+  </data>
+  <data name="LLM model name used for translating blog posts, e.g. qwen3:32b or gpt-4o. Must be available at the OpenAI Chat Endpoint above." xml:space="preserve">
+    <value>Όνομα μοντέλου LLM που χρησιμοποιείται για τη μετάδοση αναρτήσεων blog, π.χ. qwen3:32b ή gpt-4o. Πρέπει να είναι διαθέσιμο στο παραπάνω OpenAI Chat Endpoint.</value>
+  </data>
+  <data name="Localization Languages" xml:space="preserve">
+    <value>Γλώσσες Τοπικοποίησης</value>
+  </data>
+  <data name="Localization Model" xml:space="preserve">
+    <value>Μοντέλο τοπικοποίησης</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) post search. When enabled and the embedding model is configured, search uses cosine similarity. Falls back silently to keyword search when disabled or not configured." xml:space="preserve">
+    <value>Κύριος διακόπτης για τη σημαντική (διανυσματική) αναζήτηση αναρτήσεων. Όταν είναι ενεργοποιημένος και έχει οριστεί το μοντέλο embedding, η αναζήτηση χρησιμοποιεί την ομοιότητα συνημιτόνου. Μεταβαίνει σιωπηρά στην αναζήτηση με λέξεις-κλειδιά όταν είναι απενεργοποιημένος ή δεν έχει ρυθμιστεί.</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>Μέγιστος αριθμός εμπεδισμένων αναπαραστάσεων ερωτήσεων αναζήτησης που έχουν αποθηκευτεί στη βάση δεδομένων (LRU). Προεπιλογή 2000.</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (vector search). Only the host is used — /api/embed is appended automatically. Falls back to OpenAI Chat Endpoint when empty. E.g. https://ollama.example.com" xml:space="preserve">
+    <value>Βασικό URL API Ollama για τη δημιουργία ενσωματώσεων εγγράφων και ερωτημάτων (αναζήτηση διανυσμάτων). Χρησιμοποιείται μόνο ο κεντρικός υπολογιστής — το /api/embed προστίθεται αυτόματα. Επιστρέφει στο OpenAI Chat Endpoint όταν είναι κενό. Π.χ. https://ollama.example.com</value>
+  </data>
+  <data name="OpenAI API Token" xml:space="preserve">
+    <value>Τιμώνα API του OpenAI</value>
+  </data>
+  <data name="OpenAI Chat Endpoint" xml:space="preserve">
+    <value>OpenAI Σημείο Τερματισμού Chat</value>
+  </data>
+  <data name="OpenAI-compatible chat completions endpoint used for post translation. E.g. https://ollama.example.com/v1/chat/completions. Leave empty to disable AI translation." xml:space="preserve">
+    <value>Τερματικό σημείο συνομιλίας συμβατό με OpenAI για συμπληρώματα, που χρησιμοποιείται για τη μετάφραση μετά την ανάρτηση. Π.χ. https://ollama.example.com/v1/chat/completions. Αφήστε το κενό για να απενεργοποιήσετε τη μετάφραση με AI.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>Λογότυπο Έργου</value>

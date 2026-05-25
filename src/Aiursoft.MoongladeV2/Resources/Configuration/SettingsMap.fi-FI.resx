@@ -24,11 +24,20 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Salli käyttäjien muuttaa nimimerkkiään profiilin hallintasivulla.</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Falls back to OpenAI API Token when empty." xml:space="preserve">
+    <value>Bearer-token Embedding Endpointille. Käytetään OpenAI API Tokenia, jos kenttä on tyhjä.</value>
+  </data>
+  <data name="Bearer token for the OpenAI Chat Endpoint, e.g. sk-abc123. Leave empty if the endpoint does not require authentication." xml:space="preserve">
+    <value>Bearer-tokeni OpenAI Chat -päätepisteelle, esim. sk-abc123. Jätä tyhjäksi, jos päätepiste ei vaadi todennusta.</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>Brändin kotisivuosoite</value>
   </data>
   <data name="Brand Name" xml:space="preserve">
     <value>Brändinimi</value>
+  </data>
+  <data name="Comma-separated BCP-47 language codes to translate blog posts into, e.g. en-US,ja-JP,ko-KR,fr-FR. Leave empty to disable AI translation." xml:space="preserve">
+    <value>Pilkuilla erotetut BCP-47-kielikoodit, joihin blogikirjoitukset käännetään, esim. en-US,ja-JP,ko-KR,fr-FR. Jätä tyhjäksi poistaaksesi tekoälykäännökset käytöstä.</value>
   </data>
   <data name="Company Address" xml:space="preserve">
     <value>Yrityksen osoite</value>
@@ -45,8 +54,53 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>Sopimuslogo</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>Upote-API-avain</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>Embedding-päätepiste</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>Upotusmalli</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
+    <value>Upotusmallin nimi vektorihakuun, esim. bge-m3:latest. Mallin on oltava saatavilla upotuspäätepisteessä.</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>Kyselyupotusvälimuistin raja</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>Käytä upotuspohjaista hakua</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP-numero</value>
+  </data>
+  <data name="LLM model name used for translating blog posts, e.g. qwen3:32b or gpt-4o. Must be available at the OpenAI Chat Endpoint above." xml:space="preserve">
+    <value>LLM-mallin nimi, jota käytetään blogitekstien kääntämiseen, esim. qwen3:32b tai gpt-4o. Tämän on oltava saatavilla yllä olevassa OpenAI Chat -päätepisteessä.</value>
+  </data>
+  <data name="Localization Languages" xml:space="preserve">
+    <value>Lokalisointikielet</value>
+  </data>
+  <data name="Localization Model" xml:space="preserve">
+    <value>Lokalisaatiomalli</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) post search. When enabled and the embedding model is configured, search uses cosine similarity. Falls back silently to keyword search when disabled or not configured." xml:space="preserve">
+    <value>Yleinen kytkin semanttiseen (vektoriin perustuvaan) viestihakemukseen. Kun kytkin on päällä ja upotusmalli on määritetty, haku käyttää kosinikulmaa. Palaa hiljaa sanahakuun, kun kytkin on pois päältä tai sitä ei ole määritetty.</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>Tietokantaan tallennettujen välimuistissa olevien hakukyselyn upauksien enimmäismäärä (LRU). Oletusarvo 2000.</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (vector search). Only the host is used — /api/embed is appended automatically. Falls back to OpenAI Chat Endpoint when empty. E.g. https://ollama.example.com" xml:space="preserve">
+    <value>Ollama API:n perus-URL-osoite asiakirja- ja kyselyvetojen (vektorihaku) luomiseen. Vain isäntäosoitetta käytetään — /api/embed liitetään automaattisesti. Tyhjänä toimii OpenAI Chat Endpointina. Esim. https://ollama.example.com</value>
+  </data>
+  <data name="OpenAI API Token" xml:space="preserve">
+    <value>OpenAI API-token</value>
+  </data>
+  <data name="OpenAI Chat Endpoint" xml:space="preserve">
+    <value>OpenAI-chat-päätepiste</value>
+  </data>
+  <data name="OpenAI-compatible chat completions endpoint used for post translation. E.g. https://ollama.example.com/v1/chat/completions. Leave empty to disable AI translation." xml:space="preserve">
+    <value>OpenAI-yhteensopainen keskustelulohkojen päätepiste, jota käytetään post-käännökseen. Esim. https://ollama.example.com/v1/chat/completions. Jätä tyhjäksi, jos haluat poistaa tekoälykäännöksen käytöstä.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>Projektin logo</value>

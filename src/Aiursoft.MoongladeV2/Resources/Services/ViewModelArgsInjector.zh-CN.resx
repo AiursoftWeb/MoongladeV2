@@ -177,6 +177,9 @@
   <data name="Roles" xml:space="preserve">
     <value>角色</value>
   </data>
+  <data name="Search posts..." xml:space="preserve">
+    <value>搜索帖子...</value>
+  </data>
   <data name="Self Host" xml:space="preserve">
     <value>自托管</value>
   </data>

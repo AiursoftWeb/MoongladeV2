@@ -36,6 +36,9 @@
   <data name="Anonymous" xml:space="preserve">
     <value>Ανώνυμος</value>
   </data>
+  <data name="Archive" xml:space="preserve">
+    <value>Αρχείο</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Ημίκλινα Εργασίες</value>
   </data>
@@ -153,6 +156,9 @@
   <data name="Personal" xml:space="preserve">
     <value>Προσωπικά</value>
   </data>
+  <data name="Post" xml:space="preserve">
+    <value>Ανάρτηση</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>Προφίλ</value>
   </data>
@@ -167,6 +173,9 @@
   </data>
   <data name="Roles" xml:space="preserve">
     <value>Ρόλοι</value>
+  </data>
+  <data name="Search posts..." xml:space="preserve">
+    <value>Αναζήτηση αναρτήσεων...</value>
   </data>
   <data name="Self Host" xml:space="preserve">
     <value>Αυτοδιαχείριση</value>
@@ -194,6 +203,9 @@
   </data>
   <data name="System Info" xml:space="preserve">
     <value>Πληροφορίες Συστήματος</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Ετικέτες</value>
   </data>
   <data name="Template" xml:space="preserve">
     <value>Πρότυπο</value>

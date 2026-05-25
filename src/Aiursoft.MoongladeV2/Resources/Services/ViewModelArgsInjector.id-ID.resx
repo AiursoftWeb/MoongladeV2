@@ -36,6 +36,9 @@
   <data name="Anonymous" xml:space="preserve">
     <value>Anonim</value>
   </data>
+  <data name="Archive" xml:space="preserve">
+    <value>Arsip</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Pekerjaan Latar Belakang</value>
   </data>
@@ -153,6 +156,9 @@
   <data name="Personal" xml:space="preserve">
     <value>Pribadi</value>
   </data>
+  <data name="Post" xml:space="preserve">
+    <value>Postingan</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>Profil</value>
   </data>
@@ -167,6 +173,9 @@
   </data>
   <data name="Roles" xml:space="preserve">
     <value>Peran</value>
+  </data>
+  <data name="Search posts..." xml:space="preserve">
+    <value>Cari postingan...</value>
   </data>
   <data name="Self Host" xml:space="preserve">
     <value>Host Sendiri</value>
@@ -194,6 +203,9 @@
   </data>
   <data name="System Info" xml:space="preserve">
     <value>Informasi Sistem</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Tag</value>
   </data>
   <data name="Template" xml:space="preserve">
     <value>Template</value>
