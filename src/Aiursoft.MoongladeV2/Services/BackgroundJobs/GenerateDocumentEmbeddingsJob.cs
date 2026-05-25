@@ -56,7 +56,7 @@ public class GenerateDocumentEmbeddingsJob(
             var currentLastId = lastId;
             var pending = await db.MarkdownDocuments
                 .Where(d => d.IsPublic &&
-                            string.Compare(d.Id.ToString(), currentLastId.ToString(), StringComparison.Ordinal) > 0 &&
+                            d.Id.CompareTo(currentLastId) > 0 &&
                             d.LastEmbeddedAt < d.UpdatedAt)
                 .OrderBy(d => d.Id)
                 .Take(10)
