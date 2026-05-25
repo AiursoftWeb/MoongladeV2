@@ -254,6 +254,7 @@ public class BlogController(
         var currentPageFinal = Math.Max(1, Math.Min(page, totalPagesFinal));
 
         var (localizedTitles, localizedContents) = await localizationService.LoadLocalizedStringsAsync(pagedPosts);
+        var localizedAbstracts = await localizationService.LoadLocalizedAbstractsAsync(pagedPosts);
 
         var postCards = pagedPosts
             .Select(d =>
@@ -264,6 +265,9 @@ public class BlogController(
                 var title = localizedTitles.TryGetValue(d.Id, out var localizedTitle)
                     ? localizedTitle
                     : d.Title ?? "Untitled";
+                var excerpt = localizedAbstracts.TryGetValue(d.Id, out var localizedAbstract)
+                    ? localizedAbstract
+                    : BuildExcerpt(content);
 
                 return new BlogPostSummaryViewModel
                 {
@@ -271,7 +275,7 @@ public class BlogController(
                     Slug = d.Slug,
                     Url = BuildPostUrl(d),
                     Title = title,
-                    Excerpt = BuildExcerpt(content),
+                    Excerpt = excerpt,
                     PublishedAt = d.CreationTime,
                     IsFeatured = d.IsFeatured,
                     HeroImageUrl = d.HeroImageUrl,
