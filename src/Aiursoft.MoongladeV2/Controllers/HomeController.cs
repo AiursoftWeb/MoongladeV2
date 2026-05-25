@@ -83,6 +83,7 @@ public class HomeController(
                 }
 
                 logger.LogInformation("Updating the document with ID: '{Id}'.", model.DocumentId);
+                documentInDb.UpdatedAt = DateTime.UtcNow;
                 documentInDb.Content = model.InputMarkdown.SafeSubstring(65535);
                 documentInDb.Title = model.Title;
             }
@@ -219,6 +220,7 @@ public class HomeController(
                 return Forbid();
             }
 
+            documentInDb.UpdatedAt = DateTime.UtcNow;
             documentInDb.Content = model.InputMarkdown.SafeSubstring(65535);
             documentInDb.Title = model.Title;
         }

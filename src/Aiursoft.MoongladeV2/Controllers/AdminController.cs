@@ -178,6 +178,7 @@ public class AdminController(
         {
             return NotFound("Document not found.");
         }
+        documentInDb.UpdatedAt = DateTime.UtcNow;
         documentInDb.Content = model.InputMarkdown.SafeSubstring(65535);
         documentInDb.Title = model.Title;
         documentInDb.UserId = model.SelectedUserId;
