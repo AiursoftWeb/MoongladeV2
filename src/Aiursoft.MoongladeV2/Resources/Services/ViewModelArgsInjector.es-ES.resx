@@ -177,6 +177,9 @@
   <data name="Roles" xml:space="preserve">
     <value>Roles</value>
   </data>
+  <data name="Search posts..." xml:space="preserve">
+    <value>Buscar publicaciones...</value>
+  </data>
   <data name="Self Host" xml:space="preserve">
     <value>Autohospedado</value>
   </data>

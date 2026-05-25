@@ -36,6 +36,9 @@
   <data name="Anonymous" xml:space="preserve">
     <value>Анонімний</value>
   </data>
+  <data name="Archive" xml:space="preserve">
+    <value>Архів</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Фонові завдання</value>
   </data>
@@ -153,6 +156,9 @@
   <data name="Personal" xml:space="preserve">
     <value>Особисті</value>
   </data>
+  <data name="Post" xml:space="preserve">
+    <value>Публікація</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>Профіль</value>
   </data>
@@ -167,6 +173,9 @@
   </data>
   <data name="Roles" xml:space="preserve">
     <value>Ролі</value>
+  </data>
+  <data name="Search posts..." xml:space="preserve">
+    <value>Пошук дописів...</value>
   </data>
   <data name="Self Host" xml:space="preserve">
     <value>Самостійне розгортання</value>
@@ -194,6 +203,9 @@
   </data>
   <data name="System Info" xml:space="preserve">
     <value>Інформація про систему</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Теги</value>
   </data>
   <data name="Template" xml:space="preserve">
     <value>Шаблон</value>

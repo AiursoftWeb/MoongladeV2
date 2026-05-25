@@ -36,6 +36,9 @@
   <data name="Anonymous" xml:space="preserve">
     <value>अनाम</value>
   </data>
+  <data name="Archive" xml:space="preserve">
+    <value>संग्रह</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>बैकग्राउंड जॉब्स</value>
   </data>
@@ -153,6 +156,9 @@
   <data name="Personal" xml:space="preserve">
     <value>व्यक्तिगत</value>
   </data>
+  <data name="Post" xml:space="preserve">
+    <value>पोस्ट</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>प्रोफ़ाइल</value>
   </data>
@@ -167,6 +173,9 @@
   </data>
   <data name="Roles" xml:space="preserve">
     <value>भूमिकाएँ</value>
+  </data>
+  <data name="Search posts..." xml:space="preserve">
+    <value>पोस्ट खोजें...</value>
   </data>
   <data name="Self Host" xml:space="preserve">
     <value>स्वयं होस्ट</value>
@@ -194,6 +203,9 @@
   </data>
   <data name="System Info" xml:space="preserve">
     <value>सिस्टम जानकारी</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>टैग्स</value>
   </data>
   <data name="Template" xml:space="preserve">
     <value>टेम्पलेट</value>

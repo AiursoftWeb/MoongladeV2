@@ -24,11 +24,20 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Izinkan pengguna menyesuaikan nama panggilan mereka di halaman pengelolaan profil.</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Falls back to OpenAI API Token when empty." xml:space="preserve">
+    <value>Token Bearer untuk Endpoint Embedding. Akan kembali ke Token API OpenAI saat kosong.</value>
+  </data>
+  <data name="Bearer token for the OpenAI Chat Endpoint, e.g. sk-abc123. Leave empty if the endpoint does not require authentication." xml:space="preserve">
+    <value>Token Bearer untuk Endpoint Chat OpenAI, misalnya sk-abc123. Kosongkan jika endpoint tidak memerlukan autentikasi.</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>URL Rumah Merek</value>
   </data>
   <data name="Brand Name" xml:space="preserve">
     <value>Nama Merek</value>
+  </data>
+  <data name="Comma-separated BCP-47 language codes to translate blog posts into, e.g. en-US,ja-JP,ko-KR,fr-FR. Leave empty to disable AI translation." xml:space="preserve">
+    <value>Kode bahasa BCP-47 yang dipisahkan koma untuk menerjemahkan postingan blog ke dalam bahasa tersebut, misalnya en-US,ja-JP,ko-KR,fr-FR. Kosongkan untuk menonaktifkan terjemahan AI.</value>
   </data>
   <data name="Company Address" xml:space="preserve">
     <value>Alamat Perusahaan</value>
@@ -45,8 +54,53 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>Logo Kontrak</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>Token API Embedding</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>Titik Akhir Embedding</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>Model Penyematan</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
+    <value>Nama model embedding untuk pencarian vektor, misalnya bge-m3:latest. Harus tersedia di Endpoint Embedding.</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>Batas Cache Kueri Embedding</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>Aktifkan Pencarian Berbasis Embedding</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>Nomor ICP</value>
+  </data>
+  <data name="LLM model name used for translating blog posts, e.g. qwen3:32b or gpt-4o. Must be available at the OpenAI Chat Endpoint above." xml:space="preserve">
+    <value>Nama model LLM yang digunakan untuk menerjemahkan postingan blog, misalnya qwen3:32b atau gpt-4o. Harus tersedia di Endpoint Chat OpenAI di atas.</value>
+  </data>
+  <data name="Localization Languages" xml:space="preserve">
+    <value>Bahasa Lokalisasi</value>
+  </data>
+  <data name="Localization Model" xml:space="preserve">
+    <value>Model Lokalisasi</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) post search. When enabled and the embedding model is configured, search uses cosine similarity. Falls back silently to keyword search when disabled or not configured." xml:space="preserve">
+    <value>Tombol utama untuk pencarian postingan semantik (berbasis vektor). Saat diaktifkan dan model embedding telah dikonfigurasi, pencarian menggunakan kesamaan kosinus. Akan beralih secara diam-diam ke pencarian kata kunci jika dinonaktifkan atau tidak dikonfigurasi.</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>Jumlah maksimum embedding kueri pencarian yang di-cache yang disimpan dalam database (LRU). Default 2000.</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (vector search). Only the host is used — /api/embed is appended automatically. Falls back to OpenAI Chat Endpoint when empty. E.g. https://ollama.example.com" xml:space="preserve">
+    <value>URL dasar API Ollama untuk menghasilkan embedding dokumen dan kueri (pencarian vektor). Hanya host yang digunakan — /api/embed akan ditambahkan secara otomatis. Akan kembali ke Endpoint Chat OpenAI jika kosong. Contoh: https://ollama.example.com</value>
+  </data>
+  <data name="OpenAI API Token" xml:space="preserve">
+    <value>Token API OpenAI</value>
+  </data>
+  <data name="OpenAI Chat Endpoint" xml:space="preserve">
+    <value>Endpoint Obrolan OpenAI</value>
+  </data>
+  <data name="OpenAI-compatible chat completions endpoint used for post translation. E.g. https://ollama.example.com/v1/chat/completions. Leave empty to disable AI translation." xml:space="preserve">
+    <value>Endpoint penyelesaian obrolan yang kompatibel dengan OpenAI dan digunakan untuk terjemahan postingan. Contoh: https://ollama.example.com/v1/chat/completions. Kosongkan untuk menonaktifkan terjemahan AI.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>Logo Proyek</value>
