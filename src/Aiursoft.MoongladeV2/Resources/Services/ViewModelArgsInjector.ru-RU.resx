@@ -36,6 +36,9 @@
   <data name="Anonymous" xml:space="preserve">
     <value>Аноним</value>
   </data>
+  <data name="Archive" xml:space="preserve">
+    <value>Архив</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Фоновые задачи</value>
   </data>
@@ -153,6 +156,9 @@
   <data name="Personal" xml:space="preserve">
     <value>Личное</value>
   </data>
+  <data name="Post" xml:space="preserve">
+    <value>Сообщение</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>Профиль</value>
   </data>
@@ -194,6 +200,9 @@
   </data>
   <data name="System Info" xml:space="preserve">
     <value>Системная информация</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Теги</value>
   </data>
   <data name="Template" xml:space="preserve">
     <value>Шаблон</value>

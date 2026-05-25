@@ -24,11 +24,20 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Permite utilizatorilor să-și ajusteze nickname-ul în pagina de gestionare a profilului.</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Falls back to OpenAI API Token when empty." xml:space="preserve">
+    <value>Tokenul Bearer pentru Endpoint-ul de Embedding. Folosește tokenul API OpenAI ca rezervă dacă este gol.</value>
+  </data>
+  <data name="Bearer token for the OpenAI Chat Endpoint, e.g. sk-abc123. Leave empty if the endpoint does not require authentication." xml:space="preserve">
+    <value>Token Bearer pentru endpoint-ul OpenAI Chat, de ex. sk-abc123. Lăsați gol dacă endpoint-ul nu necesită autentificare.</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>URL pagină principală marcă</value>
   </data>
   <data name="Brand Name" xml:space="preserve">
     <value>Numele mărcii</value>
+  </data>
+  <data name="Comma-separated BCP-47 language codes to translate blog posts into, e.g. en-US,ja-JP,ko-KR,fr-FR. Leave empty to disable AI translation." xml:space="preserve">
+    <value>Coduri de limbă BCP-47 separate prin virgulă pentru traducerea articolelor de blog, de ex. en-US,ja-JP,ko-KR,fr-FR. Lăsați gol pentru a dezactiva traducerea AI.</value>
   </data>
   <data name="Company Address" xml:space="preserve">
     <value>Adresa companiei</value>
@@ -45,8 +54,53 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>Logo Contract</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>Token API pentru Embedding</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>Endpoint de Embedding</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>Model de încorporare</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
+    <value>Numele modelului de embedding pentru căutarea vectorială, ex. bge-m3:latest. Trebuie să fie disponibil la endpoint-ul de embedding.</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>Limitul Caching-ului pentru Interogări de Încorporare</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>Activează căutarea bazată pe încorporări</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>Număr ICP</value>
+  </data>
+  <data name="LLM model name used for translating blog posts, e.g. qwen3:32b or gpt-4o. Must be available at the OpenAI Chat Endpoint above." xml:space="preserve">
+    <value>Numele modelului LLM utilizat pentru traducerea articolelor de blog, de ex. qwen3:32b sau gpt-4o. Trebuie să fie disponibil la endpoint-ul OpenAI Chat de mai sus.</value>
+  </data>
+  <data name="Localization Languages" xml:space="preserve">
+    <value>Limbi de localizare</value>
+  </data>
+  <data name="Localization Model" xml:space="preserve">
+    <value>Model de localizare</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) post search. When enabled and the embedding model is configured, search uses cosine similarity. Falls back silently to keyword search when disabled or not configured." xml:space="preserve">
+    <value>Comutator principal pentru căutarea semantică (bazată pe vectori) a postărilor. Când este activat și modelul de embedding este configurat, căutarea utilizează similaritatea cosinus. Se revine silențios la căutarea pe cuvinte cheie când este dezactivat sau neconfigurat.</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>Numărul maxim de embedding-uri stocate în cache pentru interogările de căutare, păstrate în baza de date (LRU). Implicit: 2000.</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (vector search). Only the host is used — /api/embed is appended automatically. Falls back to OpenAI Chat Endpoint when empty. E.g. https://ollama.example.com" xml:space="preserve">
+    <value>URL-ul de bază al API-ului Ollama pentru generarea embedding-urilor documentelor și interogărilor (căutare vectorială). Se utilizează doar gazda — /api/embed se adaugă automat. Se revine la OpenAI Chat Endpoint dacă este gol. Ex.: https://ollama.example.com</value>
+  </data>
+  <data name="OpenAI API Token" xml:space="preserve">
+    <value>Token API OpenAI</value>
+  </data>
+  <data name="OpenAI Chat Endpoint" xml:space="preserve">
+    <value>Endpoint OpenAI Chat</value>
+  </data>
+  <data name="OpenAI-compatible chat completions endpoint used for post translation. E.g. https://ollama.example.com/v1/chat/completions. Leave empty to disable AI translation." xml:space="preserve">
+    <value>Endpoint compatibil cu OpenAI pentru completări de chat, utilizat pentru traducerea articolelor. Ex.: https://ollama.example.com/v1/chat/completions. Lăsați gol pentru a dezactiva traducerea cu IA.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>Logo Proiect</value>

@@ -24,11 +24,20 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Tillad brugere at justere deres nickname på siden til profilhåndtering.</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Falls back to OpenAI API Token when empty." xml:space="preserve">
+    <value>Bearer-token til Embedding-endepunktet. Faller tilbage til OpenAI API-token, når den er tom.</value>
+  </data>
+  <data name="Bearer token for the OpenAI Chat Endpoint, e.g. sk-abc123. Leave empty if the endpoint does not require authentication." xml:space="preserve">
+    <value>Bearer-token til OpenAI Chat Endpoint, f.eks. sk-abc123. Lad være tomt, hvis endpointet ikke kræver autentificering.</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>Brand-website-URL</value>
   </data>
   <data name="Brand Name" xml:space="preserve">
     <value>Varenavn</value>
+  </data>
+  <data name="Comma-separated BCP-47 language codes to translate blog posts into, e.g. en-US,ja-JP,ko-KR,fr-FR. Leave empty to disable AI translation." xml:space="preserve">
+    <value>Kommaadskilte BCP-47-sprogkoder til at oversætte blogindlæg til, f.eks. en-US,ja-JP,ko-KR,fr-FR. Lad være tomt for at deaktivere AI-oversættelse.</value>
   </data>
   <data name="Company Address" xml:space="preserve">
     <value>Virksomhedens adresse</value>
@@ -45,8 +54,53 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>Kontraktlogo</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>Embedding-API-token</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>Embedding-endepunkt</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>Indlejringmodel</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
+    <value>Navn på indlejring-model til vektorsøgning, f.eks. bge-m3:latest. Skal være tilgængelig på indlejring-endepunktet.</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>Embedding-forespørgselscachegrænse</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>Aktiver indlejringbaseret søgning</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP-nummer</value>
+  </data>
+  <data name="LLM model name used for translating blog posts, e.g. qwen3:32b or gpt-4o. Must be available at the OpenAI Chat Endpoint above." xml:space="preserve">
+    <value>LLM-modelnavn, der bruges til at oversætte blogindlæg, f.eks. qwen3:32b eller gpt-4o. Skal være tilgængelig på OpenAI Chat Endpoint ovenfor.</value>
+  </data>
+  <data name="Localization Languages" xml:space="preserve">
+    <value>Lokaliseringssprog</value>
+  </data>
+  <data name="Localization Model" xml:space="preserve">
+    <value>Lokaliseringsmodel</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) post search. When enabled and the embedding model is configured, search uses cosine similarity. Falls back silently to keyword search when disabled or not configured." xml:space="preserve">
+    <value>Hovedkontakt til semantisk (vektorbaseret) indlægssøgning. Når den er aktiveret, og indlejringsmodellen er konfigureret, bruger søgningen cosinus-similarity. Falder stille tilbage til nøgleordsøgning, når den er deaktiveret eller ikke konfigureret.</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>Maksimalt antal gemte søgeforespørgsels-indlejringer, der er gemt i databasen (LRU). Standard 2000.</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (vector search). Only the host is used — /api/embed is appended automatically. Falls back to OpenAI Chat Endpoint when empty. E.g. https://ollama.example.com" xml:space="preserve">
+    <value>Ollama API base URL til generering af embeddings til dokumenter og forespørgsler (vektorsøgning). Kun værten bruges — /api/embed tilføjes automatisk. Faller tilbage til OpenAI Chat Endpoint, hvis tomt. F.eks. https://ollama.example.com</value>
+  </data>
+  <data name="OpenAI API Token" xml:space="preserve">
+    <value>OpenAI API-token</value>
+  </data>
+  <data name="OpenAI Chat Endpoint" xml:space="preserve">
+    <value>OpenAI Chat-endepunkt</value>
+  </data>
+  <data name="OpenAI-compatible chat completions endpoint used for post translation. E.g. https://ollama.example.com/v1/chat/completions. Leave empty to disable AI translation." xml:space="preserve">
+    <value>Endpoint til chat-completions, der er kompatibel med OpenAI, og som bruges til efterbehandling af oversættelser. F.eks. https://ollama.example.com/v1/chat/completions. Efterlad tomt for at deaktivere AI-oversættelse.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>Projektlogo</value>
