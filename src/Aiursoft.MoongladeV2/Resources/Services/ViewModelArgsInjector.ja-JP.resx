@@ -39,6 +39,9 @@
   <data name="Anonymous" xml:space="preserve">
     <value>匿名</value>
   </data>
+  <data name="Archive" xml:space="preserve">
+    <value>アーカイブ</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>バックグラウンドジョブ</value>
   </data>
@@ -156,6 +159,9 @@
   <data name="Personal" xml:space="preserve">
     <value>個人</value>
   </data>
+  <data name="Post" xml:space="preserve">
+    <value>投稿</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>プロフィール</value>
   </data>
@@ -197,6 +203,9 @@
   </data>
   <data name="System Info" xml:space="preserve">
     <value>システム情報</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>タグ</value>
   </data>
   <data name="Template" xml:space="preserve">
     <value>テンプレート</value>

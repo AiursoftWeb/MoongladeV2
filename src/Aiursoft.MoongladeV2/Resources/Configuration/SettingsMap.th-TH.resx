@@ -24,11 +24,20 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>อนุญาตให้ผู้ใช้ปรับชื่อเล่นของตนเองได้ที่หน้าจัดการโปรไฟล์</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Falls back to OpenAI API Token when empty." xml:space="preserve">
+    <value>โทเค็น Bearer สำหรับ Endpoint การสร้าง Embedding จะใช้โทเค็น API ของ OpenAI แทนเมื่อค่าว่าง</value>
+  </data>
+  <data name="Bearer token for the OpenAI Chat Endpoint, e.g. sk-abc123. Leave empty if the endpoint does not require authentication." xml:space="preserve">
+    <value>โทเค็น Bearer สำหรับจุดสิ้นสุดการแชท OpenAI เช่น sk-abc123. ปล่อยว่างไว้หากจุดสิ้นสุดไม่ต้องการการตรวจสอบสิทธิ์</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>URL หน้าหลักของแบรนด์</value>
   </data>
   <data name="Brand Name" xml:space="preserve">
     <value>ชื่อแบรนด์</value>
+  </data>
+  <data name="Comma-separated BCP-47 language codes to translate blog posts into, e.g. en-US,ja-JP,ko-KR,fr-FR. Leave empty to disable AI translation." xml:space="preserve">
+    <value>รหัสภาษา BCP-47 ที่คั่นด้วยเครื่องหมายจุลภาค สำหรับแปลโพสต์บล็อก เช่น en-US,ja-JP,ko-KR,fr-FR ปล่อยว่างไว้เพื่อปิดการใช้งานการแปลด้วย AI</value>
   </data>
   <data name="Company Address" xml:space="preserve">
     <value>ที่อยู่บริษัท</value>
@@ -45,8 +54,53 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>โลโก้สัญญา</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>โทเค็น API การฝังตัว</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>จุดสิ้นสุดการฝังตัว</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>แบบจำลองการฝังตัว</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
+    <value>ชื่อโมเดล Embedding สำหรับการค้นหาแบบเวกเตอร์ เช่น bge-m3:latest ต้องใช้งานได้ที่ Endpoint ของ Embedding</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>ขีดจำกัดแคชคำค้นหา Embedding</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>เปิดใช้งานการค้นหาแบบใช้การฝังตัว</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>เลขที่ ICP</value>
+  </data>
+  <data name="LLM model name used for translating blog posts, e.g. qwen3:32b or gpt-4o. Must be available at the OpenAI Chat Endpoint above." xml:space="preserve">
+    <value>ชื่อโมเดล LLM ที่ใช้สำหรับแปลโพสต์บล็อก เช่น qwen3:32b หรือ gpt-4o ต้องใช้งานได้กับ OpenAI Chat Endpoint ด้านบน</value>
+  </data>
+  <data name="Localization Languages" xml:space="preserve">
+    <value>ภาษาสำหรับการแปล</value>
+  </data>
+  <data name="Localization Model" xml:space="preserve">
+    <value>แบบจำลองการแปลภาษา</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) post search. When enabled and the embedding model is configured, search uses cosine similarity. Falls back silently to keyword search when disabled or not configured." xml:space="preserve">
+    <value>สวิตช์หลักสำหรับการค้นหาโพสต์เชิงความหมาย (แบบเวกเตอร์) เมื่อเปิดใช้งานและมีการกำหนดค่าโมเดล embedding แล้ว การค้นหาจะใช้ความคล้ายคลึงแบบโคไซน์ หากปิดใช้งานหรือไม่มีการกำหนดค่า จะย้อนกลับไปใช้การค้นหาด้วยคำคีย์เวิร์ดอย่างเงียบๆ</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>จำนวนสูงสุดของการฝังคำค้นหาที่แคชไว้ที่เก็บในฐานข้อมูล (LRU) ค่าเริ่มต้นคือ 2000</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (vector search). Only the host is used — /api/embed is appended automatically. Falls back to OpenAI Chat Endpoint when empty. E.g. https://ollama.example.com" xml:space="preserve">
+    <value>URL ฐานของ Ollama API สำหรับสร้าง embedding ของเอกสารและคำค้นหา (การค้นหาแบบเวกเตอร์) ใช้เฉพาะโฮสต์เท่านั้น — /api/embed จะถูกเพิ่มให้อัตโนมัติ จะใช้ OpenAI Chat Endpoint แทนหากว่างอยู่ ตัวอย่างเช่น https://ollama.example.com</value>
+  </data>
+  <data name="OpenAI API Token" xml:space="preserve">
+    <value>โทเค็น API ของ OpenAI</value>
+  </data>
+  <data name="OpenAI Chat Endpoint" xml:space="preserve">
+    <value>จุดปลายทางการสนทนาของ OpenAI</value>
+  </data>
+  <data name="OpenAI-compatible chat completions endpoint used for post translation. E.g. https://ollama.example.com/v1/chat/completions. Leave empty to disable AI translation." xml:space="preserve">
+    <value>จุดจบของการส่งข้อความแชทที่เข้ากันได้กับ OpenAI ใช้สำหรับการแปลหลังการโพสต์ ตัวอย่างเช่น https://ollama.example.com/v1/chat/completions ปล่อยว่างไว้เพื่อปิดใช้งานการแปลด้วย AI</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>โลโก้โครงการ</value>

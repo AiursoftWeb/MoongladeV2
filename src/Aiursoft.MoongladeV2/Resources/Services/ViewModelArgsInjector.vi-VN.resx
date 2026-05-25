@@ -39,6 +39,9 @@
   <data name="Anonymous" xml:space="preserve">
     <value>Ẩn danh</value>
   </data>
+  <data name="Archive" xml:space="preserve">
+    <value>Lưu trữ</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Các nhiệm vụ nền</value>
   </data>
@@ -156,6 +159,9 @@
   <data name="Personal" xml:space="preserve">
     <value>Cá nhân</value>
   </data>
+  <data name="Post" xml:space="preserve">
+    <value>Bài viết</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>Hồ sơ</value>
   </data>
@@ -197,6 +203,9 @@
   </data>
   <data name="System Info" xml:space="preserve">
     <value>Thông tin Hệ thống</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Thẻ</value>
   </data>
   <data name="Template" xml:space="preserve">
     <value>Mẫu</value>

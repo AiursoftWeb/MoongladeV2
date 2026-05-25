@@ -39,6 +39,9 @@
   <data name="Anonymous" xml:space="preserve">
     <value>匿名</value>
   </data>
+  <data name="Archive" xml:space="preserve">
+    <value>归档</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>后台任务</value>
   </data>
@@ -156,6 +159,9 @@
   <data name="Personal" xml:space="preserve">
     <value>个人</value>
   </data>
+  <data name="Post" xml:space="preserve">
+    <value>发布</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>个人资料</value>
   </data>
@@ -197,6 +203,9 @@
   </data>
   <data name="System Info" xml:space="preserve">
     <value>系统信息</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>标签</value>
   </data>
   <data name="Template" xml:space="preserve">
     <value>模板</value>
