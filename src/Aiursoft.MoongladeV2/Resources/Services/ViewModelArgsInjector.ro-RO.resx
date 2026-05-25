@@ -36,6 +36,9 @@
   <data name="Anonymous" xml:space="preserve">
     <value>Anonim</value>
   </data>
+  <data name="Archive" xml:space="preserve">
+    <value>Arhivă</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Joburi în fundal</value>
   </data>
@@ -153,6 +156,9 @@
   <data name="Personal" xml:space="preserve">
     <value>Personal</value>
   </data>
+  <data name="Post" xml:space="preserve">
+    <value>Articol</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>Profil</value>
   </data>
@@ -194,6 +200,9 @@
   </data>
   <data name="System Info" xml:space="preserve">
     <value>Informații despre Sistem</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Etichete</value>
   </data>
   <data name="Template" xml:space="preserve">
     <value>Șablon</value>

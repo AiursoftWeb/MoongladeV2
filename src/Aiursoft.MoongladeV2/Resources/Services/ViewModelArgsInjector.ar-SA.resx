@@ -36,6 +36,9 @@
   <data name="Anonymous" xml:space="preserve">
     <value>مجهول</value>
   </data>
+  <data name="Archive" xml:space="preserve">
+    <value>الأرشيف</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>مهام الخلفية</value>
   </data>
@@ -153,6 +156,9 @@
   <data name="Personal" xml:space="preserve">
     <value>شخصي</value>
   </data>
+  <data name="Post" xml:space="preserve">
+    <value>منشور</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>الملف الشخصي</value>
   </data>
@@ -194,6 +200,9 @@
   </data>
   <data name="System Info" xml:space="preserve">
     <value>معلومات النظام</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>الوسوم</value>
   </data>
   <data name="Template" xml:space="preserve">
     <value>قالب</value>

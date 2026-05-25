@@ -39,6 +39,9 @@
   <data name="Anonymous" xml:space="preserve">
     <value>Anónimo</value>
   </data>
+  <data name="Archive" xml:space="preserve">
+    <value>Archivado</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Tareas en segundo plano</value>
   </data>
@@ -156,6 +159,9 @@
   <data name="Personal" xml:space="preserve">
     <value>Personal</value>
   </data>
+  <data name="Post" xml:space="preserve">
+    <value>Publicación</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>Perfil</value>
   </data>
@@ -197,6 +203,9 @@
   </data>
   <data name="System Info" xml:space="preserve">
     <value>Información del sistema</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Etiquetas</value>
   </data>
   <data name="Template" xml:space="preserve">
     <value>Plantilla</value>

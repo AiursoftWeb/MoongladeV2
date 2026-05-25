@@ -24,11 +24,20 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Zezwól użytkownikom na dostosowanie swojego pseudonimu na stronie zarządzania profilem.</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Falls back to OpenAI API Token when empty." xml:space="preserve">
+    <value>Token Bearer dla punktu końcowego Embedding. W przypadku pustego pola używany jest token API OpenAI.</value>
+  </data>
+  <data name="Bearer token for the OpenAI Chat Endpoint, e.g. sk-abc123. Leave empty if the endpoint does not require authentication." xml:space="preserve">
+    <value>Token Bearer dla punktu końcowego OpenAI Chat, np. sk-abc123. Pozostaw puste, jeśli punkt końcowy nie wymaga uwierzytelnienia.</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>Adres URL strony głównej marki</value>
   </data>
   <data name="Brand Name" xml:space="preserve">
     <value>Nazwa marki</value>
+  </data>
+  <data name="Comma-separated BCP-47 language codes to translate blog posts into, e.g. en-US,ja-JP,ko-KR,fr-FR. Leave empty to disable AI translation." xml:space="preserve">
+    <value>Kody językowe BCP-47 oddzielone przecinkami, na które mają być tłumaczone wpisy na blogu, np. en-US,ja-JP,ko-KR,fr-FR. Pozostaw puste, aby wyłączyć tłumaczenie AI.</value>
   </data>
   <data name="Company Address" xml:space="preserve">
     <value>Adres firmy</value>
@@ -45,8 +54,53 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>Logo umowy</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>Token API do osadzania</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>Punkt końcowy osadzania</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>Model wbudowywania</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
+    <value>Nazwa modelu embedding do wyszukiwania wektorowego, np. bge-m3:latest. Musi być dostępny w punkcie końcowym Embedding Endpoint.</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>Limit pamięci podręcznej embeddingów zapytań</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>Włącz wyszukiwanie oparte na osadzaniu</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>Numer ICP</value>
+  </data>
+  <data name="LLM model name used for translating blog posts, e.g. qwen3:32b or gpt-4o. Must be available at the OpenAI Chat Endpoint above." xml:space="preserve">
+    <value>Nazwa modelu LLM używana do tłumaczenia postów na blogu, np. qwen3:32b lub gpt-4o. Musi być dostępna w powyższym punkcie końcowym OpenAI Chat Endpoint.</value>
+  </data>
+  <data name="Localization Languages" xml:space="preserve">
+    <value>Języki lokalizacji</value>
+  </data>
+  <data name="Localization Model" xml:space="preserve">
+    <value>Model lokalizacji</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) post search. When enabled and the embedding model is configured, search uses cosine similarity. Falls back silently to keyword search when disabled or not configured." xml:space="preserve">
+    <value>Główny przełącznik dla semantycznego (opartego na wektorach) wyszukiwania postów. Po włączeniu i skonfigurowaniu modelu embedding wyszukiwanie wykorzystuje podobieństwo kosinusowe. W przypadku wyłączenia lub braku konfiguracji cicho przechodzi do wyszukiwania słów kluczowych.</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>Maksymalna liczba buforowanych osadzeń zapytań wyszukiwania przechowywanych w bazie danych (LRU). Domyślnie 2000.</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (vector search). Only the host is used — /api/embed is appended automatically. Falls back to OpenAI Chat Endpoint when empty. E.g. https://ollama.example.com" xml:space="preserve">
+    <value>Podstawowy adres URL interfejsu API Ollama do generowania embeddingów dokumentów i zapytań (wyszukiwanie wektorowe). Używany jest wyłącznie host — ścieżka /api/embed jest dodawana automatycznie. W przypadku pustego pola, używany jest OpenAI Chat Endpoint. Np. https://ollama.example.com</value>
+  </data>
+  <data name="OpenAI API Token" xml:space="preserve">
+    <value>Token API OpenAI</value>
+  </data>
+  <data name="OpenAI Chat Endpoint" xml:space="preserve">
+    <value>Punkt końcowy czatu OpenAI</value>
+  </data>
+  <data name="OpenAI-compatible chat completions endpoint used for post translation. E.g. https://ollama.example.com/v1/chat/completions. Leave empty to disable AI translation." xml:space="preserve">
+    <value>Interfejs API uzupełnień czatu zgodny z OpenAI używany do tłumaczenia postów. Np. https://ollama.example.com/v1/chat/completions. Pozostaw puste, aby wyłączyć tłumaczenie AI.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>Logo projektu</value>

@@ -24,11 +24,20 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Kullanıcıların profil yönetimi sayfasında takma isimlerini ayarlamasına izin verin.</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Falls back to OpenAI API Token when empty." xml:space="preserve">
+    <value>Embedding Uçnoktası için Bearer token. Boş bırakıldığında OpenAI API Token değerine geri döner.</value>
+  </data>
+  <data name="Bearer token for the OpenAI Chat Endpoint, e.g. sk-abc123. Leave empty if the endpoint does not require authentication." xml:space="preserve">
+    <value>OpenAI Chat Endpoint için Bearer token, örn. sk-abc123. Uç nokta kimlik doğrulaması gerektirmiyorsa boş bırakın.</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>Marka Ana Sayfa URL&apos;si</value>
   </data>
   <data name="Brand Name" xml:space="preserve">
     <value>Marka Adı</value>
+  </data>
+  <data name="Comma-separated BCP-47 language codes to translate blog posts into, e.g. en-US,ja-JP,ko-KR,fr-FR. Leave empty to disable AI translation." xml:space="preserve">
+    <value>Blog gönderilerini çevirmek için virgülle ayrılmış BCP-47 dil kodları, örn. en-US,ja-JP,ko-KR,fr-FR. Yapay zeka çevirisini devre dışı bırakmak için boş bırakın.</value>
   </data>
   <data name="Company Address" xml:space="preserve">
     <value>Şirket Adresi</value>
@@ -45,8 +54,53 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>Sözleşme Logosu</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>Gömme API Jetonu</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>Embedding Uç Noktası</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>Gömme Modeli</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
+    <value>Vektör araması için gömme modeli adı, örn. bge-m3:latest. Gömme Uç Noktasında mevcut olmalıdır.</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>Gömme Sorgu Önbellek Sınırı</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>Embedding Tabanlı Aramayı Etkinleştir</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP Numarası</value>
+  </data>
+  <data name="LLM model name used for translating blog posts, e.g. qwen3:32b or gpt-4o. Must be available at the OpenAI Chat Endpoint above." xml:space="preserve">
+    <value>Blog yazılarını çevirmek için kullanılan LLM model adı, örn. qwen3:32b veya gpt-4o. Yukarıdaki OpenAI Chat Endpoint&apos;inde mevcut olmalıdır.</value>
+  </data>
+  <data name="Localization Languages" xml:space="preserve">
+    <value>Yerelleştirme Dilleri</value>
+  </data>
+  <data name="Localization Model" xml:space="preserve">
+    <value>Yerelleştirme Modeli</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) post search. When enabled and the embedding model is configured, search uses cosine similarity. Falls back silently to keyword search when disabled or not configured." xml:space="preserve">
+    <value>Semantik (vektör tabanlı) gönderi araması için ana anahtar. Etkinleştirildiğinde ve gömme modeli yapılandırıldığında, arama kosinüs benzerliğini kullanır. Devre dışı bırakıldığında veya yapılandırılmadığında, anahtar kelime aramasına sessizce düşer.</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>Veritabanında depolanan önbelleğe alınmış arama-sorgu gömme sayısının maksimumu (LRU). Varsayılan 2000.</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (vector search). Only the host is used — /api/embed is appended automatically. Falls back to OpenAI Chat Endpoint when empty. E.g. https://ollama.example.com" xml:space="preserve">
+    <value>Belge ve sorgu gömme (vektör araması) oluşturmak için Ollama API temel URL&apos;si. Yalnızca ana bilgisayar kullanılır — /api/embed otomatik olarak eklenir. Boş bırakıldığında OpenAI Sohbet Uç Noktasına düşer. Örn. https://ollama.example.com</value>
+  </data>
+  <data name="OpenAI API Token" xml:space="preserve">
+    <value>OpenAI API Jetonu</value>
+  </data>
+  <data name="OpenAI Chat Endpoint" xml:space="preserve">
+    <value>OpenAI Sohbet Uç Noktası</value>
+  </data>
+  <data name="OpenAI-compatible chat completions endpoint used for post translation. E.g. https://ollama.example.com/v1/chat/completions. Leave empty to disable AI translation." xml:space="preserve">
+    <value>Gönderi çevirisi için kullanılan OpenAI uyumlu sohbet tamamlama uç noktası. Örn. https://ollama.example.com/v1/chat/completions. Yapay zeka çevirisini devre dışı bırakmak için boş bırakın.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>Proje Logosu</value>
