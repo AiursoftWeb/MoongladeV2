@@ -21,8 +21,17 @@
       <data name="Aiursoft Template" xml:space="preserve">
     <value>Aiursoft Template</value>
   </data>
+  <data name="Archive" xml:space="preserve">
+    <value>Archief</value>
+  </data>
+  <data name="Categories" xml:space="preserve">
+    <value>Categorieën</value>
+  </data>
   <data name="Community" xml:space="preserve">
     <value>Gemeenschap</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Dashboard</value>
   </data>
   <data name="Documentation" xml:space="preserve">
     <value>Documentatie</value>
@@ -30,8 +39,17 @@
   <data name="GitHub" xml:space="preserve">
     <value>GitHub</value>
   </data>
+  <data name="Login" xml:space="preserve">
+    <value>Inloggen</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Zoeken</value>
+  </data>
   <data name="Source Code" xml:space="preserve">
     <value>Broncode</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Tags</value>
   </data>
   <data name="Try the dashboard" xml:space="preserve">
     <value>Probeer het dashboard</value>

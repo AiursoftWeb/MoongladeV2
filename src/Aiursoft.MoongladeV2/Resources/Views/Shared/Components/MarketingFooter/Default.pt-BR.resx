@@ -24,6 +24,12 @@
   <data name="Aiursoft Template - A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>Template Aiursoft - Uma base moderna, com recursos avançados e altamente extensível para o seu próximo aplicativo web.</value>
   </data>
+  <data name="Archive" xml:space="preserve">
+    <value>Arquivo</value>
+  </data>
+  <data name="Brand" xml:space="preserve">
+    <value>Marca</value>
+  </data>
   <data name="Community" xml:space="preserve">
     <value>Comunidade</value>
   </data>
@@ -33,17 +39,32 @@
   <data name="Documentation" xml:space="preserve">
     <value>Documentação</value>
   </data>
+  <data name="Explore" xml:space="preserve">
+    <value>Explorar</value>
+  </data>
   <data name="Get Started" xml:space="preserve">
     <value>Começar</value>
   </data>
   <data name="Github" xml:space="preserve">
     <value>Github</value>
   </data>
+  <data name="Home" xml:space="preserve">
+    <value>Início</value>
+  </data>
   <data name="Legal" xml:space="preserve">
     <value>Legal</value>
   </data>
   <data name="Licence" xml:space="preserve">
     <value>Licença</value>
+  </data>
+  <data name="Manage" xml:space="preserve">
+    <value>Gerenciar</value>
+  </data>
+  <data name="Modern Markdown blogging with AI-powered localization and search." xml:space="preserve">
+    <value>Blog moderno em Markdown com localização e busca com IA.</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>Meus documentos</value>
   </data>
   <data name="Project" xml:space="preserve">
     <value>Projeto</value>
@@ -54,11 +75,17 @@
   <data name="Resources" xml:space="preserve">
     <value>Recursos</value>
   </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Configurações</value>
+  </data>
   <data name="Social" xml:space="preserve">
     <value>Redes Sociais</value>
   </data>
   <data name="Source Code" xml:space="preserve">
     <value>Código-fonte</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Tags</value>
   </data>
 
 </root>
