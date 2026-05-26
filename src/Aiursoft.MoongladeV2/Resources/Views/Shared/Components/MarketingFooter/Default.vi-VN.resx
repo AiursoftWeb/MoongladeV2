@@ -24,6 +24,12 @@
   <data name="Aiursoft Template - A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>Aiursoft Template - Một nền tảng hiện đại, đầy đủ tính năng và có khả năng mở rộng cao cho ứng dụng web tiếp theo của bạn.</value>
   </data>
+  <data name="Archive" xml:space="preserve">
+    <value>Lưu trữ</value>
+  </data>
+  <data name="Brand" xml:space="preserve">
+    <value>Thương hiệu</value>
+  </data>
   <data name="Community" xml:space="preserve">
     <value>Cộng đồng</value>
   </data>
@@ -33,17 +39,32 @@
   <data name="Documentation" xml:space="preserve">
     <value>Tài liệu</value>
   </data>
+  <data name="Explore" xml:space="preserve">
+    <value>Khám phá</value>
+  </data>
   <data name="Get Started" xml:space="preserve">
     <value>Bắt đầu ngay</value>
   </data>
   <data name="Github" xml:space="preserve">
     <value>Github</value>
   </data>
+  <data name="Home" xml:space="preserve">
+    <value>Trang chủ</value>
+  </data>
   <data name="Legal" xml:space="preserve">
     <value>Pháp lý</value>
   </data>
   <data name="Licence" xml:space="preserve">
     <value>Giấy phép</value>
+  </data>
+  <data name="Manage" xml:space="preserve">
+    <value>Quản lý</value>
+  </data>
+  <data name="Modern Markdown blogging with AI-powered localization and search." xml:space="preserve">
+    <value>Blog Markdown hiện đại với bản địa hóa và tìm kiếm được hỗ trợ bởi AI.</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>Tài liệu của tôi</value>
   </data>
   <data name="Project" xml:space="preserve">
     <value>Dự án</value>
@@ -54,11 +75,17 @@
   <data name="Resources" xml:space="preserve">
     <value>Tài nguyên</value>
   </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Cài đặt</value>
+  </data>
   <data name="Social" xml:space="preserve">
     <value>Mạng xã hội</value>
   </data>
   <data name="Source Code" xml:space="preserve">
     <value>Mã nguồn</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Thẻ</value>
   </data>
 
 </root>
