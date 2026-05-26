@@ -24,6 +24,12 @@
   <data name="Aiursoft Template - A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>قالب Aiursoft - أساس حديث، غني بالميزات، وقابل للتوسيع بشكل كبير لتطبيق الويب التالي الخاص بك.</value>
   </data>
+  <data name="Archive" xml:space="preserve">
+    <value>الأرشيف</value>
+  </data>
+  <data name="Brand" xml:space="preserve">
+    <value>العلامة التجارية</value>
+  </data>
   <data name="Community" xml:space="preserve">
     <value>المجتمع</value>
   </data>
@@ -33,17 +39,32 @@
   <data name="Documentation" xml:space="preserve">
     <value>التوثيق</value>
   </data>
+  <data name="Explore" xml:space="preserve">
+    <value>استكشف</value>
+  </data>
   <data name="Get Started" xml:space="preserve">
     <value>ابدأ الآن</value>
   </data>
   <data name="Github" xml:space="preserve">
     <value>Github</value>
   </data>
+  <data name="Home" xml:space="preserve">
+    <value>الرئيسية</value>
+  </data>
   <data name="Legal" xml:space="preserve">
     <value>قانوني</value>
   </data>
   <data name="Licence" xml:space="preserve">
     <value>ترخيص</value>
+  </data>
+  <data name="Manage" xml:space="preserve">
+    <value>إدارة</value>
+  </data>
+  <data name="Modern Markdown blogging with AI-powered localization and search." xml:space="preserve">
+    <value>تدوين حديث باستخدام Markdown مع توطين وبحث مدعومين بالذكاء الاصطناعي.</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>مستنداتي</value>
   </data>
   <data name="Project" xml:space="preserve">
     <value>المشروع</value>
@@ -54,11 +75,17 @@
   <data name="Resources" xml:space="preserve">
     <value>المصادر</value>
   </data>
+  <data name="Settings" xml:space="preserve">
+    <value>الإعدادات</value>
+  </data>
   <data name="Social" xml:space="preserve">
     <value>الشبكات الاجتماعية</value>
   </data>
   <data name="Source Code" xml:space="preserve">
     <value>الكود المصدري</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>الوسوم</value>
   </data>
 
 </root>

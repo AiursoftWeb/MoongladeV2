@@ -21,8 +21,17 @@
       <data name="Aiursoft Template" xml:space="preserve">
     <value>Aiursoft Template</value>
   </data>
+  <data name="Archive" xml:space="preserve">
+    <value>Архив</value>
+  </data>
+  <data name="Categories" xml:space="preserve">
+    <value>Категории</value>
+  </data>
   <data name="Community" xml:space="preserve">
     <value>Сообщество</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Панель управления</value>
   </data>
   <data name="Documentation" xml:space="preserve">
     <value>Документация</value>
@@ -30,8 +39,17 @@
   <data name="GitHub" xml:space="preserve">
     <value>GitHub</value>
   </data>
+  <data name="Login" xml:space="preserve">
+    <value>Вход</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Поиск</value>
+  </data>
   <data name="Source Code" xml:space="preserve">
     <value>Исходный код</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Метки</value>
   </data>
   <data name="Try the dashboard" xml:space="preserve">
     <value>Попробуйте панель управления</value>
