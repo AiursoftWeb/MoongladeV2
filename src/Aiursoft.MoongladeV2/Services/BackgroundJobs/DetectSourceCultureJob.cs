@@ -86,7 +86,7 @@ public class DetectSourceCultureJob(
         logger.LogInformation("DetectSourceCultureJob: done. Detected {Count} language(s).", total);
     }
 
-    private async Task<string?> DetectCultureAsync(MarkdownDocument doc)
+    protected virtual async Task<string?> DetectCultureAsync(MarkdownDocument doc)
     {
         try
         {
