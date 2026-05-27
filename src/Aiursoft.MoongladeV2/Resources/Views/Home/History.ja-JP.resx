@@ -75,6 +75,9 @@
   <data name="Share" xml:space="preserve">
     <value>共有</value>
   </data>
+  <data name="Source Language" xml:space="preserve">
+    <value>ソース言語</value>
+  </data>
   <data name="Title" xml:space="preserve">
     <value>タイトル</value>
   </data>
