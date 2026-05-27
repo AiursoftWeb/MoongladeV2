@@ -21,8 +21,17 @@
       <data name="Aiursoft Template" xml:space="preserve">
     <value>Aiursoft Template</value>
   </data>
+  <data name="Archive" xml:space="preserve">
+    <value>Arhivă</value>
+  </data>
+  <data name="Categories" xml:space="preserve">
+    <value>Categorii</value>
+  </data>
   <data name="Community" xml:space="preserve">
     <value>Comunitate</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Panou de control</value>
   </data>
   <data name="Documentation" xml:space="preserve">
     <value>Documentație</value>
@@ -30,8 +39,17 @@
   <data name="GitHub" xml:space="preserve">
     <value>GitHub</value>
   </data>
+  <data name="Login" xml:space="preserve">
+    <value>Autentificare</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Caută</value>
+  </data>
   <data name="Source Code" xml:space="preserve">
     <value>Cod sursă</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Etichete</value>
   </data>
   <data name="Try the dashboard" xml:space="preserve">
     <value>Încearcă panoul de control</value>

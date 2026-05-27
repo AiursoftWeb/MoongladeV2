@@ -21,8 +21,17 @@
       <data name="Aiursoft Template" xml:space="preserve">
     <value>Aiursoft Template</value>
   </data>
+  <data name="Archive" xml:space="preserve">
+    <value>अभिलेखागार</value>
+  </data>
+  <data name="Categories" xml:space="preserve">
+    <value>श्रेणियाँ</value>
+  </data>
   <data name="Community" xml:space="preserve">
     <value>समुदाय</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>डैशबोर्ड</value>
   </data>
   <data name="Documentation" xml:space="preserve">
     <value>दस्तावेज़ीकरण</value>
@@ -30,8 +39,17 @@
   <data name="GitHub" xml:space="preserve">
     <value>GitHub</value>
   </data>
+  <data name="Login" xml:space="preserve">
+    <value>लॉगिन</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>खोजें</value>
+  </data>
   <data name="Source Code" xml:space="preserve">
     <value>सोर्स कोड</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>टैग</value>
   </data>
   <data name="Try the dashboard" xml:space="preserve">
     <value>डैशबोर्ड का प्रयास करें</value>

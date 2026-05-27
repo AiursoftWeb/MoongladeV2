@@ -24,6 +24,12 @@
   <data name="Aiursoft Template - A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>Aiursoft Template - En modern, funktionsrik och högt utbyggbar grund för din nästa webbapplikation.</value>
   </data>
+  <data name="Archive" xml:space="preserve">
+    <value>Arkiv</value>
+  </data>
+  <data name="Brand" xml:space="preserve">
+    <value>Varumärke</value>
+  </data>
   <data name="Community" xml:space="preserve">
     <value>Community</value>
   </data>
@@ -33,17 +39,32 @@
   <data name="Documentation" xml:space="preserve">
     <value>Dokumentation</value>
   </data>
+  <data name="Explore" xml:space="preserve">
+    <value>Utforska</value>
+  </data>
   <data name="Get Started" xml:space="preserve">
     <value>Kom igång</value>
   </data>
   <data name="Github" xml:space="preserve">
     <value>Github</value>
   </data>
+  <data name="Home" xml:space="preserve">
+    <value>Hem</value>
+  </data>
   <data name="Legal" xml:space="preserve">
     <value>Rättigheter</value>
   </data>
   <data name="Licence" xml:space="preserve">
     <value>Licens</value>
+  </data>
+  <data name="Manage" xml:space="preserve">
+    <value>Hantera</value>
+  </data>
+  <data name="Modern Markdown blogging with AI-powered localization and search." xml:space="preserve">
+    <value>Modern Markdown-blogging med AI-driven lokalisering och sökning.</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>Mina dokument</value>
   </data>
   <data name="Project" xml:space="preserve">
     <value>Projekt</value>
@@ -54,11 +75,17 @@
   <data name="Resources" xml:space="preserve">
     <value>Resurser</value>
   </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Inställningar</value>
+  </data>
   <data name="Social" xml:space="preserve">
     <value>Social</value>
   </data>
   <data name="Source Code" xml:space="preserve">
     <value>Källkod</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Taggar</value>
   </data>
 
 </root>

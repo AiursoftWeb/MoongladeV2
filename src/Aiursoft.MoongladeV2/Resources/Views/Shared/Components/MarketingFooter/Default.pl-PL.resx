@@ -24,6 +24,12 @@
   <data name="Aiursoft Template - A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>Szablon Aiursoft – nowoczesna, bogata w funkcje i łatwo rozwijalna podstawa dla Twojej kolejnej aplikacji internetowej.</value>
   </data>
+  <data name="Archive" xml:space="preserve">
+    <value>Archiwum</value>
+  </data>
+  <data name="Brand" xml:space="preserve">
+    <value>Marka</value>
+  </data>
   <data name="Community" xml:space="preserve">
     <value>Społeczność</value>
   </data>
@@ -33,17 +39,32 @@
   <data name="Documentation" xml:space="preserve">
     <value>Dokumentacja</value>
   </data>
+  <data name="Explore" xml:space="preserve">
+    <value>Odkryj</value>
+  </data>
   <data name="Get Started" xml:space="preserve">
     <value>Rozpocznij</value>
   </data>
   <data name="Github" xml:space="preserve">
     <value>Github</value>
   </data>
+  <data name="Home" xml:space="preserve">
+    <value>Strona główna</value>
+  </data>
   <data name="Legal" xml:space="preserve">
     <value>Prawne</value>
   </data>
   <data name="Licence" xml:space="preserve">
     <value>Licencja</value>
+  </data>
+  <data name="Manage" xml:space="preserve">
+    <value>Zarządzanie</value>
+  </data>
+  <data name="Modern Markdown blogging with AI-powered localization and search." xml:space="preserve">
+    <value>Nowoczesne blogowanie w Markdownie z lokalizacją i wyszukiwaniem wspieranymi przez AI.</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>Moje dokumenty</value>
   </data>
   <data name="Project" xml:space="preserve">
     <value>Projekt</value>
@@ -54,11 +75,17 @@
   <data name="Resources" xml:space="preserve">
     <value>Zasoby</value>
   </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Ustawienia</value>
+  </data>
   <data name="Social" xml:space="preserve">
     <value>Społeczność</value>
   </data>
   <data name="Source Code" xml:space="preserve">
     <value>Kod źródłowy</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Tagi</value>
   </data>
 
 </root>
