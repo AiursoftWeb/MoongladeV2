@@ -76,7 +76,8 @@
                 <thead>
                 <tr>
                     <th>@Localizer["Title"]</th>
-                    <th>@Localizer["Visibility"]</th> @* 新增列：可见性 *@
+                    <th>@Localizer["Source Language"]</th>
+                    <th>@Localizer["Visibility"]</th>
                     <th>@Localizer["Creation Time"]</th>
                     <th>@Localizer["Length"]</th>
                     <th class="text-end">@Localizer["Actions"]</th>
@@ -95,6 +96,16 @@
                             else
                             {
                                 @doc.Title
+                            }
+                        </td>
+                        <td>
+                            @if (doc.SourceCulture != null)
+                            {
+                                <span class="badge bg-secondary">@doc.SourceCulture</span>
+                            }
+                            else
+                            {
+                                <span class="text-muted">—</span>
                             }
                         </td>
                         <td>

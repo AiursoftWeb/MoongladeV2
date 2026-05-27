@@ -48,7 +48,6 @@ public class GenerateAbstractDocumentsJobTests
         _connection.Dispose();
     }
 
-    // Returns a fixed abstract without calling any LLM.
     private sealed class FakeAbstractGenerationService(
         GlobalSettingsService settingsService,
         ILogger<AbstractGenerationService> logger)
@@ -58,7 +57,6 @@ public class GenerateAbstractDocumentsJobTests
             => Task.FromResult($"[{language}] Summary of: {content[..Math.Min(content.Length, 20)]}...");
     }
 
-    // Returns a fixed translation without calling any LLM.
     private sealed class FakeDocumentTranslationService(
         GlobalSettingsService settingsService,
         ILogger<DocumentTranslationService> logger)
@@ -75,7 +73,7 @@ public class GenerateAbstractDocumentsJobTests
     }
 
     private static MarkdownDocument CreateDoc(Guid id, string title = "Test", string content = "Content here",
-        bool isPublic = true, DateTime? updatedAt = null)
+        bool isPublic = true, DateTime? updatedAt = null, string sourceCulture = "en-US")
     {
         return new MarkdownDocument
         {
@@ -84,6 +82,7 @@ public class GenerateAbstractDocumentsJobTests
             Content = content,
             UserId = "test-user",
             IsPublic = isPublic,
+            SourceCulture = sourceCulture,
             UpdatedAt = updatedAt ?? DateTime.UtcNow
         };
     }
@@ -163,24 +162,43 @@ public class GenerateAbstractDocumentsJobTests
         Assert.AreEqual(0, abstracts.Count);
     }
 
-    // ── 3. Skip when en-US is not in configured languages ───────────────────────
+    // ── 3. Skip when SourceCulture is null ──────────────────────────────────────
 
     [TestMethod]
-    public async Task ExecuteAsync_MissingSourceCulture_Skips()
+    public async Task ExecuteAsync_SkipsNullSourceCulture()
     {
-        var job = await CreateJobAsync(languages: "ja-JP,zh-TW");
+        var job = await CreateJobAsync();
         await using var db = new SqliteTestContext(_dbOptions);
 
-        var doc = CreateDoc(Guid.NewGuid());
+        var doc = CreateDoc(Guid.NewGuid(), sourceCulture: null!);
         await SeedAsync(db, doc);
 
         await job.ExecuteAsync();
 
         var abstracts = await db.LocalizedAbstracts.ToListAsync();
-        Assert.AreEqual(0, abstracts.Count);
+        Assert.AreEqual(0, abstracts.Count,
+            "Documents with null SourceCulture should be skipped.");
     }
 
-    // ── 4. Skips non-public documents ───────────────────────────────────────────
+    // ── 4. Skip when SourceCulture not in configured languages ──────────────────
+
+    [TestMethod]
+    public async Task ExecuteAsync_SkipsUnconfiguredSourceCulture()
+    {
+        var job = await CreateJobAsync(languages: "ja-JP,zh-TW");
+        await using var db = new SqliteTestContext(_dbOptions);
+
+        var doc = CreateDoc(Guid.NewGuid(), sourceCulture: "en-US");
+        await SeedAsync(db, doc);
+
+        await job.ExecuteAsync();
+
+        var abstracts = await db.LocalizedAbstracts.ToListAsync();
+        Assert.AreEqual(0, abstracts.Count,
+            "en-US source doc should be skipped when en-US is not a configured language.");
+    }
+
+    // ── 5. Skips non-public documents ───────────────────────────────────────────
 
     [TestMethod]
     public async Task ExecuteAsync_SkipsNonPublicDocuments()
@@ -197,7 +215,7 @@ public class GenerateAbstractDocumentsJobTests
         Assert.AreEqual(0, abstracts.Count);
     }
 
-    // ── 5. Generates en-US abstract and translates ──────────────────────────────
+    // ── 6. Generates source abstract and translates ─────────────────────────────
 
     [TestMethod]
     public async Task ExecuteAsync_GeneratesForDocumentWithNoAbstract()
@@ -223,7 +241,7 @@ public class GenerateAbstractDocumentsJobTests
             "JA abstract should be translated from en-US source.");
     }
 
-    // ── 6. Skips documents with up-to-date abstracts ────────────────────────────
+    // ── 7. Skips documents with up-to-date abstracts ────────────────────────────
 
     [TestMethod]
     public async Task ExecuteAsync_SkipsAlreadyUpToDateAbstracts()
@@ -249,7 +267,7 @@ public class GenerateAbstractDocumentsJobTests
             "Missing JA abstract should be translated from en-US.");
     }
 
-    // ── 7. Re-generates stale abstracts ─────────────────────────────────────────
+    // ── 8. Re-generates stale abstracts ─────────────────────────────────────────
 
     [TestMethod]
     public async Task ExecuteAsync_ReGeneratesStaleAbstracts()
@@ -271,7 +289,7 @@ public class GenerateAbstractDocumentsJobTests
             "Stale en-US abstract should be regenerated.");
     }
 
-    // ── 8. Process en-US only (no target cultures) ──────────────────────────────
+    // ── 9. Only source culture configured ───────────────────────────────────────
 
     [TestMethod]
     public async Task ExecuteAsync_OnlySourceCulture_GeneratesOne()
@@ -291,7 +309,7 @@ public class GenerateAbstractDocumentsJobTests
         Assert.AreEqual("en-US", abstracts[0].Culture);
     }
 
-    // ── 9. Multiple languages ───────────────────────────────────────────────────
+    // ── 10. Multiple languages ──────────────────────────────────────────────────
 
     [TestMethod]
     public async Task ExecuteAsync_ProcessesMultipleLanguages()

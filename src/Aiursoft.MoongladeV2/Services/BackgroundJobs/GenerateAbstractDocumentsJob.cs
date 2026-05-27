@@ -6,9 +6,18 @@ using Microsoft.EntityFrameworkCore;
 namespace Aiursoft.MoongladeV2.Services.BackgroundJobs;
 
 /// <summary>
-/// Periodically generates AI abstracts for public blog posts.
-/// Generates an en-US abstract from the full content, then translates it
-/// to each other configured language.
+/// Generates AI abstracts for public blog posts.
+///
+/// SourceCulture routing:
+/// - SourceCulture is null     → Skip (pending detection by DetectSourceCultureJob)
+/// - SourceCulture is set      → Phase 1: generate abstract in SourceCulture from full content
+///                               Phase 2: translate that abstract to every other configured language
+///
+/// The SourceCulture abstract is always created from scratch via the AI; target-language
+/// abstracts are always translations of the SourceCulture abstract.
+///
+/// Staleness is tracked per (document × culture) pair against
+/// <see cref="MarkdownDocument.UpdatedAt"/>.
 /// </summary>
 public class GenerateAbstractDocumentsJob(
     TemplateDbContext db,
@@ -17,12 +26,16 @@ public class GenerateAbstractDocumentsJob(
     DocumentTranslationService translator,
     ILogger<GenerateAbstractDocumentsJob> logger) : IBackgroundJob
 {
-    private const string SourceCulture = "en-US";
-
     public string Name => "Generate Abstracts";
 
     public string Description =>
-        "Generates an en-US AI abstract for each public post, then translates it to all configured languages.";
+        "Generates AI abstracts for public blog posts. " +
+        "Documents whose SourceCulture is null are skipped. " +
+        "An abstract is first generated in the document's SourceCulture from the full content. " +
+        "It is then translated to every other configured language via DocumentTranslationService. " +
+        "The SourceCulture abstract is always created from scratch; " +
+        "target-language abstracts are always translations of the SourceCulture abstract. " +
+        "Staleness is tracked per (document × culture) pair against MarkdownDocument.UpdatedAt.";
 
     public async Task ExecuteAsync()
     {
@@ -41,38 +54,18 @@ public class GenerateAbstractDocumentsJob(
             return;
         }
 
-        if (!cultures.Contains(SourceCulture))
-        {
-            logger.LogWarning(
-                "GenerateAbstractDocumentsJob: {SourceCulture} not in configured languages ({Languages}). Cannot generate abstracts.",
-                SourceCulture, string.Join(", ", cultures));
-            return;
-        }
-
-        var targetCultures = cultures.Where(c => c != SourceCulture).ToArray();
-
+        // Phase 1: Generate abstracts in each document's SourceCulture.
+        var generated = await GenerateSourceAbstractsAsync(cultures.ToHashSet());
         logger.LogInformation(
-            "GenerateAbstractDocumentsJob: source={Source}, targets={Targets}",
-            SourceCulture, string.Join(", ", targetCultures));
+            "GenerateAbstractDocumentsJob: generated {Count} source-culture abstract(s).", generated);
 
-        // Phase 1: Generate en-US abstracts from full content.
-        var generated = await GenerateSourceAbstractsAsync();
+        // Phase 2: Translate source abstracts to every other configured language.
+        var translated = await TranslateAbstractsAsync(cultures.ToHashSet());
         logger.LogInformation(
-            "GenerateAbstractDocumentsJob: generated {Count} en-US abstract(s).", generated);
-
-        // Phase 2: Translate en-US abstracts to every other language.
-        var translated = 0;
-        foreach (var targetCulture in targetCultures)
-        {
-            translated += await TranslateAbstractsAsync(targetCulture);
-        }
-
-        logger.LogInformation(
-            "GenerateAbstractDocumentsJob: done. Generated {Generated}, translated {Translated}.",
-            generated, translated);
+            "GenerateAbstractDocumentsJob: translated {Count} abstract(s) this run.", translated);
     }
 
-    private async Task<int> GenerateSourceAbstractsAsync()
+    private async Task<int> GenerateSourceAbstractsAsync(HashSet<string> configuredCultures)
     {
         var total = 0;
         var lastId = Guid.Empty;
@@ -83,10 +76,12 @@ public class GenerateAbstractDocumentsJob(
 
             var pending = await db.MarkdownDocuments
                 .Where(d => d.IsPublic &&
+                            d.SourceCulture != null &&
                             d.Id.CompareTo(currentLastId) > 0 &&
+                            configuredCultures.Contains(d.SourceCulture!) &&
                             !db.LocalizedAbstracts.Any(la =>
                                 la.DocumentId == d.Id &&
-                                la.Culture == SourceCulture &&
+                                la.Culture == d.SourceCulture &&
                                 la.LastGeneratedAt >= d.UpdatedAt))
                 .OrderBy(d => d.Id)
                 .Take(20)
@@ -96,7 +91,7 @@ public class GenerateAbstractDocumentsJob(
 
             foreach (var doc in pending)
             {
-                if (await GenerateAndSaveAbstractAsync(doc))
+                if (await GenerateAndSaveAsync(doc))
                 {
                     total++;
                     await db.SaveChangesAsync();
@@ -112,7 +107,35 @@ public class GenerateAbstractDocumentsJob(
         return total;
     }
 
-    private async Task<int> TranslateAbstractsAsync(string targetCulture)
+    private async Task<int> TranslateAbstractsAsync(HashSet<string> configuredCultures)
+    {
+        var total = 0;
+
+        // Get all distinct source cultures that exist in the database
+        var sourceCultures = await db.MarkdownDocuments
+            .Where(d => d.IsPublic && d.SourceCulture != null)
+            .Select(d => d.SourceCulture)
+            .Distinct()
+            .ToListAsync();
+
+        foreach (var sourceCulture in sourceCultures)
+        {
+            if (sourceCulture == null) continue;
+
+            var targetCultures = configuredCultures
+                .Where(c => !string.Equals(c, sourceCulture, StringComparison.OrdinalIgnoreCase))
+                .ToArray();
+
+            foreach (var targetCulture in targetCultures)
+            {
+                total += await TranslateAbstractsToCultureAsync(sourceCulture, targetCulture);
+            }
+        }
+
+        return total;
+    }
+
+    private async Task<int> TranslateAbstractsToCultureAsync(string sourceCulture, string targetCulture)
     {
         var total = 0;
         var lastId = Guid.Empty;
@@ -123,10 +146,11 @@ public class GenerateAbstractDocumentsJob(
 
             var pending = await db.MarkdownDocuments
                 .Where(d => d.IsPublic &&
+                            d.SourceCulture == sourceCulture &&
                             d.Id.CompareTo(currentLastId) > 0 &&
                             db.LocalizedAbstracts.Any(la =>
                                 la.DocumentId == d.Id &&
-                                la.Culture == SourceCulture &&
+                                la.Culture == sourceCulture &&
                                 la.LastGeneratedAt >= d.UpdatedAt) &&
                             !db.LocalizedAbstracts.Any(la =>
                                 la.DocumentId == d.Id &&
@@ -140,7 +164,7 @@ public class GenerateAbstractDocumentsJob(
 
             foreach (var doc in pending)
             {
-                if (await TranslateAndSaveAsync(doc, targetCulture))
+                if (await TranslateAndSaveAsync(doc, sourceCulture, targetCulture))
                 {
                     total++;
                     await db.SaveChangesAsync();
@@ -148,33 +172,31 @@ public class GenerateAbstractDocumentsJob(
             }
 
             lastId = pending.Max(d => d.Id);
-            logger.LogInformation(
-                "GenerateAbstractDocumentsJob: [{Culture}] batch done. Last ID: {LastId}. Total: {Total}.",
-                targetCulture, lastId, total);
         }
 
         return total;
     }
 
-    private async Task<bool> GenerateAndSaveAbstractAsync(MarkdownDocument doc)
+    private async Task<bool> GenerateAndSaveAsync(MarkdownDocument doc)
     {
         try
         {
+            var sourceCulture = doc.SourceCulture!;
             logger.LogInformation(
-                "GenerateAbstractDocumentsJob: generating abstract for '{Title}' (id={Id}) → {Culture}.",
-                doc.Title, doc.Id, SourceCulture);
+                "GenerateAbstractDocumentsJob: generating abstract for '{Title}' (source={SourceCulture}).",
+                doc.Title, sourceCulture);
 
-            var abstractText = await generator.GenerateAbstractAsync(doc.Content ?? string.Empty, SourceCulture);
+            var abstractText = await generator.GenerateAbstractAsync(doc.Content ?? string.Empty, sourceCulture);
 
             var existing = await db.LocalizedAbstracts
-                .FirstOrDefaultAsync(la => la.DocumentId == doc.Id && la.Culture == SourceCulture);
+                .FirstOrDefaultAsync(la => la.DocumentId == doc.Id && la.Culture == sourceCulture);
 
             if (existing == null)
             {
                 db.LocalizedAbstracts.Add(new LocalizedAbstract
                 {
                     DocumentId      = doc.Id,
-                    Culture         = SourceCulture,
+                    Culture         = sourceCulture,
                     Abstract        = abstractText,
                     LastGeneratedAt = DateTime.UtcNow
                 });
@@ -190,32 +212,32 @@ public class GenerateAbstractDocumentsJob(
         catch (Exception ex)
         {
             logger.LogError(ex,
-                "GenerateAbstractDocumentsJob: failed to generate abstract for '{Title}' → {Culture}.",
-                doc.Title, SourceCulture);
+                "GenerateAbstractDocumentsJob: failed for '{Title}'.", doc.Title);
             return false;
         }
     }
 
-    private async Task<bool> TranslateAndSaveAsync(MarkdownDocument doc, string targetCulture)
+    private async Task<bool> TranslateAndSaveAsync(MarkdownDocument doc,
+        string sourceCulture, string targetCulture)
     {
         try
         {
             var sourceAbstract = await db.LocalizedAbstracts
-                .Where(la => la.DocumentId == doc.Id && la.Culture == SourceCulture)
+                .Where(la => la.DocumentId == doc.Id && la.Culture == sourceCulture)
                 .Select(la => la.Abstract)
                 .FirstOrDefaultAsync();
 
             if (string.IsNullOrWhiteSpace(sourceAbstract))
             {
                 logger.LogWarning(
-                    "GenerateAbstractDocumentsJob: no source abstract for doc {Id}, skipping translation to {Culture}.",
-                    doc.Id, targetCulture);
+                    "GenerateAbstractDocumentsJob: no source abstract for doc {Id} ({Culture}), skipping translation to {Target}.",
+                    doc.Id, sourceCulture, targetCulture);
                 return false;
             }
 
             logger.LogInformation(
-                "GenerateAbstractDocumentsJob: translating abstract for '{Title}' (id={Id}) {Source} → {Target}.",
-                doc.Title, doc.Id, SourceCulture, targetCulture);
+                "GenerateAbstractDocumentsJob: translating abstract for '{Title}' {Source} → {Target}.",
+                doc.Title, sourceCulture, targetCulture);
 
             var translatedText = await translator.TranslateAsync(sourceAbstract, targetCulture);
 
@@ -243,7 +265,7 @@ public class GenerateAbstractDocumentsJob(
         catch (Exception ex)
         {
             logger.LogError(ex,
-                "GenerateAbstractDocumentsJob: failed to translate abstract for '{Title}' to {Culture}.",
+                "GenerateAbstractDocumentsJob: failed to translate for '{Title}' to {Culture}.",
                 doc.Title, targetCulture);
             return false;
         }

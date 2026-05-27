@@ -74,6 +74,10 @@ public class Startup : IWebStartup
         services.AddSingleton<Services.SearchRateLimiter>();
         services.AddScoped<Services.DocumentVectorSearchService>();
 
+        // AI: source language detection — classifies each document's original language
+        var detectSourceJob = services.RegisterBackgroundJob<Services.BackgroundJobs.DetectSourceCultureJob>();
+        services.RegisterScheduledTask(registration: detectSourceJob, period: TimeSpan.FromMinutes(10), startDelay: TimeSpan.FromSeconds(30));
+
         // AI: localization job — translates posts to configured languages
         var localizeDocsJob = services.RegisterBackgroundJob<Services.BackgroundJobs.LocalizeDocumentsJob>();
         services.RegisterScheduledTask(registration: localizeDocsJob, period: TimeSpan.FromMinutes(30), startDelay: TimeSpan.FromMinutes(2));
@@ -97,6 +101,10 @@ public class Startup : IWebStartup
         // AI: cleanup stale/orphaned abstract rows
         var cleanupAbstractsJob = services.RegisterBackgroundJob<Services.BackgroundJobs.CleanupAbstractDocumentsJob>();
         services.RegisterScheduledTask(registration: cleanupAbstractsJob, period: TimeSpan.FromHours(6), startDelay: TimeSpan.FromMinutes(20));
+
+        // Manual-only purge jobs (no schedule — trigger manually from admin UI)
+        services.RegisterBackgroundJob<Services.BackgroundJobs.PurgeLocalizedDocumentsJob>();
+        services.RegisterBackgroundJob<Services.BackgroundJobs.PurgeLocalizedAbstractsJob>();
 
         // Controllers and localization
         services.AddControllersWithViews()

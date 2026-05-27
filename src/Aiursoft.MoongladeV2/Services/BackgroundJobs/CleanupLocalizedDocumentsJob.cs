@@ -24,7 +24,10 @@ public class CleanupLocalizedDocumentsJob(
     public string Name => "Cleanup Localized Documents";
 
     public string Description =>
-        "Removes LocalizedDocument rows orphaned by deleted documents or by cultures removed from the localization settings.";
+        "Removes LocalizedDocument rows that are no longer meaningful: " +
+        "(1) rows whose parent MarkdownDocument has been deleted, " +
+        "(2) rows for cultures no longer in the LocalizationLanguages setting. " +
+        "A 10-minute staleness guard prevents ping-pong with LocalizeDocumentsJob.";
 
     public async Task ExecuteAsync()
     {

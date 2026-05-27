@@ -169,6 +169,10 @@ namespace Aiursoft.MoongladeV2.MySql.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("varchar(200)");
 
+                    b.Property<string>("SourceCulture")
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)");
+
                     b.Property<string>("Tags")
                         .HasMaxLength(500)
                         .HasColumnType("varchar(500)");

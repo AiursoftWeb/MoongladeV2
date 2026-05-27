@@ -6,12 +6,15 @@ using Microsoft.EntityFrameworkCore;
 namespace Aiursoft.MoongladeV2.Services.BackgroundJobs;
 
 /// <summary>
-/// Periodically translates public blog posts into the configured target languages.
-/// Runs until all pending (document × culture) pairs are up-to-date, saving progress
-/// after each document so a crash does not lose completed work.
-/// A pair is "pending" when no <see cref="LocalizedDocument"/> row exists for it,
-/// or when <see cref="MarkdownDocument.UpdatedAt"/> is newer than
-/// <see cref="LocalizedDocument.LastLocalizedAt"/>.
+/// Translates public blog posts into configured target languages.
+///
+/// SourceCulture routing:
+/// - SourceCulture is null            → Skip (pending detection by DetectSourceCultureJob)
+/// - targetCulture == SourceCulture   → Pass-through (copy original content, no AI call)
+/// - targetCulture != SourceCulture   → Translate (call AI to translate)
+///
+/// Staleness is tracked per (document × culture) pair against
+/// <see cref="MarkdownDocument.UpdatedAt"/>.
 /// </summary>
 public class LocalizeDocumentsJob(
     TemplateDbContext db,
@@ -22,7 +25,12 @@ public class LocalizeDocumentsJob(
     public string Name => "Localize Documents";
 
     public string Description =>
-        "Translates public blog posts into configured languages using an AI endpoint (Ollama / OpenAI-compatible).";
+        "Translates public blog posts into all configured languages. " +
+        "Documents whose SourceCulture is null are skipped (pending language detection). " +
+        "When the target language matches the document's SourceCulture, " +
+        "the original content is copied through without calling AI. " +
+        "When they differ, the content is translated via the configured AI endpoint. " +
+        "Staleness is tracked per (document × culture) pair against MarkdownDocument.UpdatedAt.";
 
     public async Task ExecuteAsync()
     {
@@ -54,9 +62,9 @@ public class LocalizeDocumentsJob(
             {
                 var currentLastId = lastId;
 
-                // Only translate public documents that are stale for this culture.
                 var pending = await db.MarkdownDocuments
                     .Where(d => d.IsPublic &&
+                                d.SourceCulture != null &&
                                 d.Id.CompareTo(currentLastId) > 0 &&
                                 !db.LocalizedDocuments.Any(ld =>
                                     ld.DocumentId == d.Id &&
@@ -94,36 +102,28 @@ public class LocalizeDocumentsJob(
     {
         try
         {
-            logger.LogInformation(
-                "LocalizeDocumentsJob: translating '{Title}' (id={Id}) → {Culture}.",
-                doc.Title, doc.Id, culture);
+            // Pass-through: same language — copy original content, no AI call.
+            if (string.Equals(doc.SourceCulture, culture, StringComparison.OrdinalIgnoreCase))
+            {
+                logger.LogInformation(
+                    "LocalizeDocumentsJob: pass-through '{Title}' (source={SourceCulture}, target={TargetCulture}).",
+                    doc.Title, doc.SourceCulture, culture);
 
-            // Translate title and content in parallel.
+                await SaveLocalizedAsync(doc, culture,
+                    doc.Title ?? string.Empty, doc.Content ?? string.Empty);
+                return true;
+            }
+
+            // Translate: different language — call AI.
+            logger.LogInformation(
+                "LocalizeDocumentsJob: translating '{Title}' (source={SourceCulture} → {TargetCulture}).",
+                doc.Title, doc.SourceCulture, culture);
+
             var titleTask   = translator.TranslateAsync(doc.Title   ?? string.Empty, culture);
             var contentTask = translator.TranslateAsync(doc.Content ?? string.Empty, culture);
             await Task.WhenAll(titleTask, contentTask);
 
-            var existing = await db.LocalizedDocuments
-                .FirstOrDefaultAsync(ld => ld.DocumentId == doc.Id && ld.Culture == culture);
-
-            if (existing == null)
-            {
-                db.LocalizedDocuments.Add(new LocalizedDocument
-                {
-                    DocumentId       = doc.Id,
-                    Culture          = culture,
-                    LocalizedTitle   = await titleTask,
-                    LocalizedContent = await contentTask,
-                    LastLocalizedAt  = DateTime.UtcNow
-                });
-            }
-            else
-            {
-                existing.LocalizedTitle   = await titleTask;
-                existing.LocalizedContent = await contentTask;
-                existing.LastLocalizedAt  = DateTime.UtcNow;
-            }
-
+            await SaveLocalizedAsync(doc, culture, await titleTask, await contentTask);
             return true;
         }
         catch (Exception ex)
@@ -132,6 +132,31 @@ public class LocalizeDocumentsJob(
                 "LocalizeDocumentsJob: failed to localize '{Title}' to {Culture}.",
                 doc.Title, culture);
             return false;
+        }
+    }
+
+    private async Task SaveLocalizedAsync(MarkdownDocument doc, string culture,
+        string title, string content)
+    {
+        var existing = await db.LocalizedDocuments
+            .FirstOrDefaultAsync(ld => ld.DocumentId == doc.Id && ld.Culture == culture);
+
+        if (existing == null)
+        {
+            db.LocalizedDocuments.Add(new LocalizedDocument
+            {
+                DocumentId       = doc.Id,
+                Culture          = culture,
+                LocalizedTitle   = title,
+                LocalizedContent = content,
+                LastLocalizedAt  = DateTime.UtcNow
+            });
+        }
+        else
+        {
+            existing.LocalizedTitle   = title;
+            existing.LocalizedContent = content;
+            existing.LastLocalizedAt  = DateTime.UtcNow;
         }
     }
 }

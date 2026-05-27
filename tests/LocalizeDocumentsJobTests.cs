@@ -48,16 +48,11 @@ public class LocalizeDocumentsJobTests
         _connection.Dispose();
     }
 
-    // Translates text by simply prepending the culture — no LLM calls.
     private sealed class FakeTranslationService(
         GlobalSettingsService settingsService)
         : DocumentTranslationService(
             settingsService,
-            null!,  // MarkdownShredder
-            null!,  // RetryEngine
-            null!,  // ILogger<OllamaBasedTranslatorEngine>
-            null!,  // ChatClient
-            null!)  // ILogger<DocumentTranslationService>
+            null!, null!, null!, null!, null!)
     {
         public override Task<string> TranslateAsync(string text, string targetLanguage)
             => Task.FromResult($"[{targetLanguage}] {text}");
@@ -70,7 +65,7 @@ public class LocalizeDocumentsJobTests
     }
 
     private static MarkdownDocument CreateDoc(Guid id, string title = "Test", bool isPublic = true,
-        DateTime? updatedAt = null)
+        DateTime? updatedAt = null, string sourceCulture = "en-US")
     {
         return new MarkdownDocument
         {
@@ -79,6 +74,7 @@ public class LocalizeDocumentsJobTests
             Content = $"Content of {title}",
             UserId = "test-user",
             IsPublic = isPublic,
+            SourceCulture = sourceCulture,
             UpdatedAt = updatedAt ?? DateTime.UtcNow
         };
     }
@@ -95,7 +91,7 @@ public class LocalizeDocumentsJobTests
     }
 
     private async Task<LocalizeDocumentsJob> CreateJobAsync(
-        string languages = "en,ja",
+        string languages = "en-US,ja-JP",
         string endpoint = "https://ollama.example.com/v1/chat/completions",
         string model = "qwen3")
     {
@@ -127,7 +123,7 @@ public class LocalizeDocumentsJobTests
     [TestMethod]
     public async Task ExecuteAsync_AiDisabled_Skips()
     {
-        var job = await CreateJobAsync(endpoint: ""); // empty endpoint disables AI
+        var job = await CreateJobAsync(endpoint: "");
         await using var db = new SqliteTestContext(_dbOptions);
 
         var doc = CreateDoc(Guid.NewGuid());
@@ -136,7 +132,7 @@ public class LocalizeDocumentsJobTests
         await job.ExecuteAsync();
 
         var translations = await db.LocalizedDocuments.ToListAsync();
-        Assert.AreEqual(0, translations.Count, "No translations should be created when AI is disabled.");
+        Assert.AreEqual(0, translations.Count);
     }
 
     // ── 2. Skip when no languages configured ────────────────────────────────────
@@ -153,10 +149,28 @@ public class LocalizeDocumentsJobTests
         await job.ExecuteAsync();
 
         var translations = await db.LocalizedDocuments.ToListAsync();
-        Assert.AreEqual(0, translations.Count, "No translations should be created when no languages are configured.");
+        Assert.AreEqual(0, translations.Count);
     }
 
-    // ── 3. Skips non-public documents ───────────────────────────────────────────
+    // ── 3. Skip when SourceCulture is null ──────────────────────────────────────
+
+    [TestMethod]
+    public async Task ExecuteAsync_SkipsNullSourceCulture()
+    {
+        var job = await CreateJobAsync();
+        await using var db = new SqliteTestContext(_dbOptions);
+
+        var doc = CreateDoc(Guid.NewGuid(), sourceCulture: null!);
+        await SeedAsync(db, doc);
+
+        await job.ExecuteAsync();
+
+        var translations = await db.LocalizedDocuments.ToListAsync();
+        Assert.AreEqual(0, translations.Count,
+            "Documents with null SourceCulture should be skipped.");
+    }
+
+    // ── 4. Skips non-public documents ───────────────────────────────────────────
 
     [TestMethod]
     public async Task ExecuteAsync_SkipsNonPublicDocuments()
@@ -170,10 +184,35 @@ public class LocalizeDocumentsJobTests
         await job.ExecuteAsync();
 
         var translations = await db.LocalizedDocuments.ToListAsync();
-        Assert.AreEqual(0, translations.Count, "Non-public documents should be skipped.");
+        Assert.AreEqual(0, translations.Count);
     }
 
-    // ── 4. Translates documents with no existing localization ────────────────────
+    // ── 5. Pass-through when SourceCulture == targetCulture ─────────────────────
+
+    [TestMethod]
+    public async Task ExecuteAsync_PassThroughForSameLanguage()
+    {
+        var job = await CreateJobAsync();
+        await using var db = new SqliteTestContext(_dbOptions);
+
+        var doc = CreateDoc(Guid.NewGuid(), title: "Hello World", sourceCulture: "en-US");
+        await SeedAsync(db, doc);
+
+        await job.ExecuteAsync();
+
+        db.ChangeTracker.Clear();
+
+        var translations = await db.LocalizedDocuments.ToListAsync();
+        Assert.AreEqual(2, translations.Count);
+        var enRow = translations.First(t => t.Culture == "en-US");
+        Assert.AreEqual("Hello World", enRow.LocalizedTitle,
+            "en-US should pass through original title without AI prefix.");
+        var jaRow = translations.First(t => t.Culture == "ja-JP");
+        Assert.AreEqual("[ja-JP] Hello World", jaRow.LocalizedTitle,
+            "ja-JP should be translated (different from source).");
+    }
+
+    // ── 6. Translates documents with no existing localization ───────────────────
 
     [TestMethod]
     public async Task ExecuteAsync_TranslatesDocumentWithNoLocalization()
@@ -186,16 +225,15 @@ public class LocalizeDocumentsJobTests
 
         await job.ExecuteAsync();
 
-        // Reset tracker to read fresh state
         db.ChangeTracker.Clear();
 
         var translations = await db.LocalizedDocuments.ToListAsync();
-        Assert.AreEqual(2, translations.Count, "Should create one row per configured language (en, ja).");
-        Assert.IsTrue(translations.Any(t => t.Culture == "en" && t.LocalizedTitle == "[en] Hello World"));
-        Assert.IsTrue(translations.Any(t => t.Culture == "ja" && t.LocalizedTitle == "[ja] Hello World"));
+        Assert.AreEqual(2, translations.Count);
+        Assert.IsTrue(translations.Any(t => t.Culture == "en-US" && t.LocalizedTitle == "Hello World"));
+        Assert.IsTrue(translations.Any(t => t.Culture == "ja-JP" && t.LocalizedTitle == "[ja-JP] Hello World"));
     }
 
-    // ── 5. Skips documents with up-to-date translations ─────────────────────────
+    // ── 7. Skips documents with up-to-date translations ─────────────────────────
 
     [TestMethod]
     public async Task ExecuteAsync_SkipsAlreadyUpToDateTranslations()
@@ -204,7 +242,7 @@ public class LocalizeDocumentsJobTests
         await using var db = new SqliteTestContext(_dbOptions);
 
         var doc = CreateDoc(Guid.NewGuid(), title: "Fresh Doc", updatedAt: DateTime.UtcNow.AddHours(-1));
-        var freshEn = CreateLocalized(doc.Id, "en", lastLocalized: DateTime.UtcNow); // newer than UpdatedAt
+        var freshEn = CreateLocalized(doc.Id, "en-US", lastLocalized: DateTime.UtcNow);
         await SeedAsync(db, doc, freshEn);
 
         await job.ExecuteAsync();
@@ -213,15 +251,15 @@ public class LocalizeDocumentsJobTests
 
         var translations = await db.LocalizedDocuments.ToListAsync();
         Assert.AreEqual(2, translations.Count);
-        var enRow = translations.First(t => t.Culture == "en");
-        Assert.AreEqual("Old en title", enRow.LocalizedTitle,
+        var enRow = translations.First(t => t.Culture == "en-US");
+        Assert.AreEqual("Old en-US title", enRow.LocalizedTitle,
             "Up-to-date EN translation should not be overwritten.");
-        var jaRow = translations.First(t => t.Culture == "ja");
-        Assert.IsTrue(jaRow.LocalizedTitle.StartsWith("[ja]"),
+        var jaRow = translations.First(t => t.Culture == "ja-JP");
+        Assert.IsTrue(jaRow.LocalizedTitle.StartsWith("[ja-JP]"),
             "Missing JA translation should be created.");
     }
 
-    // ── 6. Re-translates documents with stale translations ──────────────────────
+    // ── 8. Re-translates documents with stale translations ─────────────────────
 
     [TestMethod]
     public async Task ExecuteAsync_ReTranslatesStaleDocuments()
@@ -230,8 +268,7 @@ public class LocalizeDocumentsJobTests
         await using var db = new SqliteTestContext(_dbOptions);
 
         var doc = CreateDoc(Guid.NewGuid(), title: "Updated Doc", updatedAt: DateTime.UtcNow);
-        var staleEn = CreateLocalized(doc.Id, "en",
-            lastLocalized: DateTime.UtcNow.AddHours(-2)); // older than UpdatedAt
+        var staleEn = CreateLocalized(doc.Id, "en-US", lastLocalized: DateTime.UtcNow.AddHours(-2));
         await SeedAsync(db, doc, staleEn);
 
         await job.ExecuteAsync();
@@ -239,17 +276,17 @@ public class LocalizeDocumentsJobTests
         db.ChangeTracker.Clear();
 
         var translations = await db.LocalizedDocuments.ToListAsync();
-        var enRow = translations.First(t => t.Culture == "en");
-        Assert.AreEqual("[en] Updated Doc", enRow.LocalizedTitle,
-            "Stale translation should be overwritten with fresh content.");
+        var enRow = translations.First(t => t.Culture == "en-US");
+        Assert.AreEqual("Updated Doc", enRow.LocalizedTitle,
+            "Stale translation should be pass-through with fresh content.");
     }
 
-    // ── 7. Processes multiple languages for the same document ────────────────────
+    // ── 9. Processes multiple languages ─────────────────────────────────────────
 
     [TestMethod]
     public async Task ExecuteAsync_ProcessesMultipleLanguages()
     {
-        var job = await CreateJobAsync("en,ja,zh");
+        var job = await CreateJobAsync("en-US,ja-JP,zh-TW");
         await using var db = new SqliteTestContext(_dbOptions);
 
         var doc = CreateDoc(Guid.NewGuid(), title: "MultiLang");
@@ -261,9 +298,9 @@ public class LocalizeDocumentsJobTests
 
         var translations = await db.LocalizedDocuments.ToListAsync();
         Assert.AreEqual(3, translations.Count);
-        Assert.IsTrue(translations.Any(t => t.Culture == "en"));
-        Assert.IsTrue(translations.Any(t => t.Culture == "ja"));
-        Assert.IsTrue(translations.Any(t => t.Culture == "zh"));
+        Assert.IsTrue(translations.Any(t => t.Culture == "en-US"));
+        Assert.IsTrue(translations.Any(t => t.Culture == "ja-JP"));
+        Assert.IsTrue(translations.Any(t => t.Culture == "zh-TW"));
         Assert.IsTrue(translations.All(t => t.LocalizedTitle.Contains("MultiLang")));
     }
 }

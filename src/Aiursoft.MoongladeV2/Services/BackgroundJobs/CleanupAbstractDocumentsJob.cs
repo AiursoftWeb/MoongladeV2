@@ -22,7 +22,10 @@ public class CleanupAbstractDocumentsJob(
     public string Name => "Cleanup Abstracts";
 
     public string Description =>
-        "Removes LocalizedAbstract rows orphaned by deleted documents or by cultures removed from the localization settings.";
+        "Removes LocalizedAbstract rows that are no longer meaningful: " +
+        "(1) rows whose parent MarkdownDocument has been deleted, " +
+        "(2) rows for cultures no longer in the LocalizationLanguages setting. " +
+        "A 10-minute staleness guard prevents ping-pong with GenerateAbstractDocumentsJob.";
 
     public async Task ExecuteAsync()
     {

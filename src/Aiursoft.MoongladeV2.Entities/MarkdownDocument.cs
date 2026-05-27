@@ -62,6 +62,14 @@ public class MarkdownDocument
     // ── AI / vector search ─────────────────────────────────────────────────────
 
     /// <summary>
+    /// BCP-47 language code of the original content, e.g. "zh-CN", "en-US".
+    /// Auto-detected by <see cref="Services.BackgroundJobs.DetectSourceCultureJob"/>.
+    /// Null until detected — downstream jobs skip documents with null SourceCulture.
+    /// </summary>
+    [MaxLength(10)]
+    public string? SourceCulture { get; set; }
+
+    /// <summary>
     /// Serialized float[] embedding vector (4 bytes × N dims, little-endian).
     /// Null until the embedding background job processes this document.
     /// </summary>
