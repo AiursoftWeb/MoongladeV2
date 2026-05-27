@@ -63,8 +63,8 @@ public class MarkdownDocument
 
     /// <summary>
     /// BCP-47 language code of the original content, e.g. "zh-CN", "en-US".
-    /// Auto-detected by <see cref="Services.BackgroundJobs.DetectSourceCultureJob"/>.
-    /// Null until detected — downstream jobs skip documents with null SourceCulture.
+    /// Auto-detected by DetectSourceCultureJob. Null until detected —
+    /// downstream jobs skip documents with null SourceCulture.
     /// </summary>
     [MaxLength(10)]
     public string? SourceCulture { get; set; }
