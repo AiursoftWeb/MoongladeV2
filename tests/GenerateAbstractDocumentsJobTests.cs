@@ -58,6 +58,16 @@ public class GenerateAbstractDocumentsJobTests
             => Task.FromResult($"[{language}] Summary of: {content[..Math.Min(content.Length, 20)]}...");
     }
 
+    // Returns a fixed translation without calling any LLM.
+    private sealed class FakeDocumentTranslationService(
+        GlobalSettingsService settingsService,
+        ILogger<DocumentTranslationService> logger)
+        : DocumentTranslationService(settingsService, null!, null!, null!, null!, logger)
+    {
+        public override Task<string> TranslateAsync(string text, string targetLanguage)
+            => Task.FromResult($"[{targetLanguage}] {text}");
+    }
+
     private static async Task SeedAsync(TemplateDbContext db, params object[] entities)
     {
         db.AddRange(entities);
@@ -90,7 +100,7 @@ public class GenerateAbstractDocumentsJobTests
     }
 
     private async Task<GenerateAbstractDocumentsJob> CreateJobAsync(
-        string languages = "en,ja",
+        string languages = "en-US,ja-JP",
         string endpoint = "https://ollama.example.com/v1/chat/completions",
         string model = "qwen3")
     {
@@ -109,11 +119,13 @@ public class GenerateAbstractDocumentsJobTests
         var db = new SqliteTestContext(_dbOptions);
         var settings = new GlobalSettingsService(db, config, null!, _cache);
         var generator = new FakeAbstractGenerationService(settings, NullLogger<AbstractGenerationService>.Instance);
+        var translator = new FakeDocumentTranslationService(settings, NullLogger<DocumentTranslationService>.Instance);
 
         return new GenerateAbstractDocumentsJob(
             db,
             settings,
             generator,
+            translator,
             NullLogger<GenerateAbstractDocumentsJob>.Instance);
     }
 
@@ -151,7 +163,24 @@ public class GenerateAbstractDocumentsJobTests
         Assert.AreEqual(0, abstracts.Count);
     }
 
-    // ── 3. Skips non-public documents ───────────────────────────────────────────
+    // ── 3. Skip when en-US is not in configured languages ───────────────────────
+
+    [TestMethod]
+    public async Task ExecuteAsync_MissingSourceCulture_Skips()
+    {
+        var job = await CreateJobAsync(languages: "ja-JP,zh-TW");
+        await using var db = new SqliteTestContext(_dbOptions);
+
+        var doc = CreateDoc(Guid.NewGuid());
+        await SeedAsync(db, doc);
+
+        await job.ExecuteAsync();
+
+        var abstracts = await db.LocalizedAbstracts.ToListAsync();
+        Assert.AreEqual(0, abstracts.Count);
+    }
+
+    // ── 4. Skips non-public documents ───────────────────────────────────────────
 
     [TestMethod]
     public async Task ExecuteAsync_SkipsNonPublicDocuments()
@@ -168,7 +197,7 @@ public class GenerateAbstractDocumentsJobTests
         Assert.AreEqual(0, abstracts.Count);
     }
 
-    // ── 4. Generates abstracts for documents with none ──────────────────────────
+    // ── 5. Generates en-US abstract and translates ──────────────────────────────
 
     [TestMethod]
     public async Task ExecuteAsync_GeneratesForDocumentWithNoAbstract()
@@ -184,12 +213,17 @@ public class GenerateAbstractDocumentsJobTests
         db.ChangeTracker.Clear();
 
         var abstracts = await db.LocalizedAbstracts.ToListAsync();
-        Assert.AreEqual(2, abstracts.Count, "Should create one row per configured language.");
-        Assert.IsTrue(abstracts.Any(a => a.Culture == "en" && a.Abstract.StartsWith("[en]")));
-        Assert.IsTrue(abstracts.Any(a => a.Culture == "ja" && a.Abstract.StartsWith("[ja]")));
+        Assert.AreEqual(2, abstracts.Count);
+
+        var enRow = abstracts.First(a => a.Culture == "en-US");
+        Assert.IsTrue(enRow.Abstract.StartsWith("[en-US]"));
+
+        var jaRow = abstracts.First(a => a.Culture == "ja-JP");
+        Assert.IsTrue(jaRow.Abstract.StartsWith("[ja-JP]"),
+            "JA abstract should be translated from en-US source.");
     }
 
-    // ── 5. Skips documents with up-to-date abstracts ────────────────────────────
+    // ── 6. Skips documents with up-to-date abstracts ────────────────────────────
 
     [TestMethod]
     public async Task ExecuteAsync_SkipsAlreadyUpToDateAbstracts()
@@ -198,7 +232,7 @@ public class GenerateAbstractDocumentsJobTests
         await using var db = new SqliteTestContext(_dbOptions);
 
         var doc = CreateDoc(Guid.NewGuid(), updatedAt: DateTime.UtcNow.AddHours(-1));
-        var freshEn = CreateAbstract(doc.Id, "en", lastGenerated: DateTime.UtcNow); // newer than UpdatedAt
+        var freshEn = CreateAbstract(doc.Id, "en-US", lastGenerated: DateTime.UtcNow);
         await SeedAsync(db, doc, freshEn);
 
         await job.ExecuteAsync();
@@ -207,15 +241,15 @@ public class GenerateAbstractDocumentsJobTests
 
         var abstracts = await db.LocalizedAbstracts.ToListAsync();
         Assert.AreEqual(2, abstracts.Count);
-        var enRow = abstracts.First(a => a.Culture == "en");
-        Assert.AreEqual("Old abstract in en", enRow.Abstract,
-            "Up-to-date abstract should not be overwritten.");
-        var jaRow = abstracts.First(a => a.Culture == "ja");
-        Assert.IsTrue(jaRow.Abstract.StartsWith("[ja]"),
-            "Missing JA abstract should be generated.");
+        var enRow = abstracts.First(a => a.Culture == "en-US");
+        Assert.AreEqual("Old abstract in en-US", enRow.Abstract,
+            "Up-to-date en-US abstract should not be overwritten.");
+        var jaRow = abstracts.First(a => a.Culture == "ja-JP");
+        Assert.IsTrue(jaRow.Abstract.StartsWith("[ja-JP]"),
+            "Missing JA abstract should be translated from en-US.");
     }
 
-    // ── 6. Re-generates stale abstracts ─────────────────────────────────────────
+    // ── 7. Re-generates stale abstracts ─────────────────────────────────────────
 
     [TestMethod]
     public async Task ExecuteAsync_ReGeneratesStaleAbstracts()
@@ -224,7 +258,7 @@ public class GenerateAbstractDocumentsJobTests
         await using var db = new SqliteTestContext(_dbOptions);
 
         var doc = CreateDoc(Guid.NewGuid(), content: "Updated content", updatedAt: DateTime.UtcNow);
-        var staleEn = CreateAbstract(doc.Id, "en", lastGenerated: DateTime.UtcNow.AddHours(-2));
+        var staleEn = CreateAbstract(doc.Id, "en-US", lastGenerated: DateTime.UtcNow.AddHours(-2));
         await SeedAsync(db, doc, staleEn);
 
         await job.ExecuteAsync();
@@ -232,17 +266,37 @@ public class GenerateAbstractDocumentsJobTests
         db.ChangeTracker.Clear();
 
         var abstracts = await db.LocalizedAbstracts.ToListAsync();
-        var enRow = abstracts.First(a => a.Culture == "en");
-        Assert.IsTrue(enRow.Abstract.StartsWith("[en]"),
-            "Stale abstract should be regenerated.");
+        var enRow = abstracts.First(a => a.Culture == "en-US");
+        Assert.IsTrue(enRow.Abstract.StartsWith("[en-US]"),
+            "Stale en-US abstract should be regenerated.");
     }
 
-    // ── 7. Multiple languages ───────────────────────────────────────────────────
+    // ── 8. Process en-US only (no target cultures) ──────────────────────────────
+
+    [TestMethod]
+    public async Task ExecuteAsync_OnlySourceCulture_GeneratesOne()
+    {
+        var job = await CreateJobAsync(languages: "en-US");
+        await using var db = new SqliteTestContext(_dbOptions);
+
+        var doc = CreateDoc(Guid.NewGuid(), content: "Blog post.");
+        await SeedAsync(db, doc);
+
+        await job.ExecuteAsync();
+
+        db.ChangeTracker.Clear();
+
+        var abstracts = await db.LocalizedAbstracts.ToListAsync();
+        Assert.AreEqual(1, abstracts.Count);
+        Assert.AreEqual("en-US", abstracts[0].Culture);
+    }
+
+    // ── 9. Multiple languages ───────────────────────────────────────────────────
 
     [TestMethod]
     public async Task ExecuteAsync_ProcessesMultipleLanguages()
     {
-        var job = await CreateJobAsync("en,ja,zh");
+        var job = await CreateJobAsync("en-US,ja-JP,zh-TW");
         await using var db = new SqliteTestContext(_dbOptions);
 
         var doc = CreateDoc(Guid.NewGuid(), content: "Multi-language blog post.");
@@ -254,8 +308,8 @@ public class GenerateAbstractDocumentsJobTests
 
         var abstracts = await db.LocalizedAbstracts.ToListAsync();
         Assert.AreEqual(3, abstracts.Count);
-        Assert.IsTrue(abstracts.Any(a => a.Culture == "en"));
-        Assert.IsTrue(abstracts.Any(a => a.Culture == "ja"));
-        Assert.IsTrue(abstracts.Any(a => a.Culture == "zh"));
+        Assert.IsTrue(abstracts.Any(a => a.Culture == "en-US"));
+        Assert.IsTrue(abstracts.Any(a => a.Culture == "ja-JP"));
+        Assert.IsTrue(abstracts.Any(a => a.Culture == "zh-TW"));
     }
 }

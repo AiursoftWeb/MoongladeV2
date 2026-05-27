@@ -72,6 +72,7 @@ public class BlogController(
             .ToListAsync();
 
         var (localizedTitles, _) = await localizationService.LoadLocalizedStringsAsync(documents);
+        var localizedAbstracts = await localizationService.LoadLocalizedAbstractsAsync(documents);
 
         var months = documents
             .GroupBy(d => new DateTime(d.CreationTime.Year, d.CreationTime.Month, 1))
@@ -87,6 +88,9 @@ public class BlogController(
                     Title = localizedTitles.TryGetValue(d.Id, out var localizedTitle)
                         ? localizedTitle
                         : d.Title ?? "Untitled",
+                    Excerpt = localizedAbstracts.TryGetValue(d.Id, out var abstractStr) && !string.IsNullOrWhiteSpace(abstractStr)
+                        ? abstractStr
+                        : BuildExcerpt(d.Content ?? string.Empty),
                     PublishedAt = d.CreationTime,
                     IsFeatured = d.IsFeatured,
                     HeroImageUrl = d.HeroImageUrl,
@@ -265,8 +269,8 @@ public class BlogController(
                 var title = localizedTitles.TryGetValue(d.Id, out var localizedTitle)
                     ? localizedTitle
                     : d.Title ?? "Untitled";
-                var excerpt = localizedAbstracts.TryGetValue(d.Id, out var localizedAbstract)
-                    ? localizedAbstract
+                var excerpt = localizedAbstracts.TryGetValue(d.Id, out var abstractStr) && !string.IsNullOrWhiteSpace(abstractStr)
+                    ? abstractStr
                     : BuildExcerpt(content);
 
                 return new BlogPostSummaryViewModel

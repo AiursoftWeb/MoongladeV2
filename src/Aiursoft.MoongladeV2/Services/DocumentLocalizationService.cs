@@ -47,7 +47,8 @@ public class DocumentLocalizationService(
 
     /// <summary>
     /// Loads AI-generated localized abstracts for <paramref name="documents"/>
-    /// matching the current request culture. Falls back to empty when culture is unavailable.
+    /// matching the current request culture. Falls back to en-US when the
+    /// current culture's abstract is not available.
     /// </summary>
     public async Task<Dictionary<Guid, string>> LoadLocalizedAbstractsAsync(
         IEnumerable<MarkdownDocument> documents)
@@ -60,13 +61,23 @@ public class DocumentLocalizationService(
 
         var ids = list.Select(d => d.Id).ToList();
 
-        return await db.LocalizedAbstracts
-            .Where(la => ids.Contains(la.DocumentId) && la.Culture == culture && la.Abstract != "")
-            .ToDictionaryAsync(la => la.DocumentId, la => la.Abstract);
+        var rows = await db.LocalizedAbstracts
+            .Where(la => ids.Contains(la.DocumentId) &&
+                         (la.Culture == culture || la.Culture == "en-US"))
+            .ToListAsync();
+
+        // Prefer current culture, fall back to en-US.
+        return ids.ToDictionary(
+            id => id,
+            id => rows
+                .Where(r => r.DocumentId == id)
+                .OrderBy(r => r.Culture == culture ? 0 : 1)
+                .Select(r => r.Abstract)
+                .FirstOrDefault() ?? string.Empty);
     }
 
-    private string? CurrentCulture() =>
+    private string CurrentCulture() =>
         httpContextAccessor.HttpContext?.Features
             .Get<IRequestCultureFeature>()
-            ?.RequestCulture.Culture.Name;
+            ?.RequestCulture.Culture.Name ?? string.Empty;
 }
