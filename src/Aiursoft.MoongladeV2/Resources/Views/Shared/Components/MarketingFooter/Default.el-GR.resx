@@ -24,6 +24,12 @@
   <data name="Aiursoft Template - A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>Aiursoft Template - Ένα σύγχρονο, πλούσιο σε λειτουργίες και εξελίξιμο θεμέλιο για την επόμενη σας εφαρμογή για το διαδίκτυο.</value>
   </data>
+  <data name="Archive" xml:space="preserve">
+    <value>Αρχειοθέτηση</value>
+  </data>
+  <data name="Brand" xml:space="preserve">
+    <value>Μάρκα</value>
+  </data>
   <data name="Community" xml:space="preserve">
     <value>Κοινότητα</value>
   </data>
@@ -33,17 +39,32 @@
   <data name="Documentation" xml:space="preserve">
     <value>Εγχειρίδιο</value>
   </data>
+  <data name="Explore" xml:space="preserve">
+    <value>Εξερεύνηση</value>
+  </data>
   <data name="Get Started" xml:space="preserve">
     <value>Ξεκινήστε</value>
   </data>
   <data name="Github" xml:space="preserve">
     <value>Github</value>
   </data>
+  <data name="Home" xml:space="preserve">
+    <value>Αρχική</value>
+  </data>
   <data name="Legal" xml:space="preserve">
     <value>Νομικά</value>
   </data>
   <data name="Licence" xml:space="preserve">
     <value>Άδεια</value>
+  </data>
+  <data name="Manage" xml:space="preserve">
+    <value>Διαχείριση</value>
+  </data>
+  <data name="Modern Markdown blogging with AI-powered localization and search." xml:space="preserve">
+    <value>Σύγχρονες δημοσιεύσεις σε Markdown με εντοπισμό και αναζήτηση που χρησιμοποιούν τεχνητή νοημοσύνη.</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>Τα έγγραφά μου</value>
   </data>
   <data name="Project" xml:space="preserve">
     <value>Έργο</value>
@@ -54,11 +75,17 @@
   <data name="Resources" xml:space="preserve">
     <value>Πόροι</value>
   </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Ρυθμίσεις</value>
+  </data>
   <data name="Social" xml:space="preserve">
     <value>Κοινωνικό</value>
   </data>
   <data name="Source Code" xml:space="preserve">
     <value>Πηγαίος Κώδικας</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Ετικέτες</value>
   </data>
 
 </root>

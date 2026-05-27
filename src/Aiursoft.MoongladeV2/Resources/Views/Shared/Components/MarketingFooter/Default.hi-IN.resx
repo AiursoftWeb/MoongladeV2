@@ -24,6 +24,12 @@
   <data name="Aiursoft Template - A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>Aiursoft Template - आपके अगले वेब एप्लिकेशन के लिए आधुनिक, फीचर-समृद्ध और अत्यधिक विस्तार्य आधार</value>
   </data>
+  <data name="Archive" xml:space="preserve">
+    <value>आर्काइव</value>
+  </data>
+  <data name="Brand" xml:space="preserve">
+    <value>ब्रांड</value>
+  </data>
   <data name="Community" xml:space="preserve">
     <value>समुदाय</value>
   </data>
@@ -33,17 +39,32 @@
   <data name="Documentation" xml:space="preserve">
     <value>दस्तावेज़ीकरण</value>
   </data>
+  <data name="Explore" xml:space="preserve">
+    <value>अन्वेषण करें</value>
+  </data>
   <data name="Get Started" xml:space="preserve">
     <value>शुरुआत करें</value>
   </data>
   <data name="Github" xml:space="preserve">
     <value>Github</value>
   </data>
+  <data name="Home" xml:space="preserve">
+    <value>होम</value>
+  </data>
   <data name="Legal" xml:space="preserve">
     <value>कानूनी</value>
   </data>
   <data name="Licence" xml:space="preserve">
     <value>लाइसेंस</value>
+  </data>
+  <data name="Manage" xml:space="preserve">
+    <value>प्रबंधन</value>
+  </data>
+  <data name="Modern Markdown blogging with AI-powered localization and search." xml:space="preserve">
+    <value>AI-संचालित स्थानीयकरण और खोज के साथ आधुनिक मार्कडाउन ब्लॉगिंग।</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>मेरे दस्तावेज़</value>
   </data>
   <data name="Project" xml:space="preserve">
     <value>प्रोजेक्ट</value>
@@ -54,11 +75,17 @@
   <data name="Resources" xml:space="preserve">
     <value>संसाधन</value>
   </data>
+  <data name="Settings" xml:space="preserve">
+    <value>सेटिंग्स</value>
+  </data>
   <data name="Social" xml:space="preserve">
     <value>सोशल</value>
   </data>
   <data name="Source Code" xml:space="preserve">
     <value>स्रोत कोड</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>टैग्स</value>
   </data>
 
 </root>
