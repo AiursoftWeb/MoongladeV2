@@ -180,10 +180,10 @@ public class GenerateAbstractDocumentsJobTests
             "Documents with null SourceCulture should be skipped.");
     }
 
-    // ── 4. Skip when SourceCulture not in configured languages ──────────────────
+    // ── 4. Source abstract always generated, even when source not in configured list ──
 
     [TestMethod]
-    public async Task ExecuteAsync_SkipsUnconfiguredSourceCulture()
+    public async Task ExecuteAsync_GeneratesEvenWhenSourceNotConfigured()
     {
         var job = await CreateJobAsync(languages: "ja-JP,zh-TW");
         await using var db = new SqliteTestContext(_dbOptions);
@@ -194,8 +194,8 @@ public class GenerateAbstractDocumentsJobTests
         await job.ExecuteAsync();
 
         var abstracts = await db.LocalizedAbstracts.ToListAsync();
-        Assert.AreEqual(0, abstracts.Count,
-            "en-US source doc should be skipped when en-US is not a configured language.");
+        Assert.AreEqual(3, abstracts.Count,
+            "Source abstract (en-US) should still be generated, then translated to ja-JP and zh-TW.");
     }
 
     // ── 5. Skips non-public documents ───────────────────────────────────────────
