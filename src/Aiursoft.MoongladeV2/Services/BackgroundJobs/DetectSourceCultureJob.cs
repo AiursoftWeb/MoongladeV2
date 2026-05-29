@@ -31,11 +31,6 @@ public class DetectSourceCultureJob(
 {
     private const int ContentSampleLength = 500;
 
-    private static readonly HashSet<string> ValidCultures = CultureInfo
-        .GetCultures(CultureTypes.AllCultures)
-        .Select(c => c.Name)
-        .ToHashSet(StringComparer.OrdinalIgnoreCase);
-
     public string Name => "Detect Source Culture";
 
     public string Description =>
@@ -86,6 +81,21 @@ public class DetectSourceCultureJob(
         logger.LogInformation("DetectSourceCultureJob: done. Detected {Count} language(s).", total);
     }
 
+    private static bool IsValidCulture(string result, out string normalized)
+    {
+        try
+        {
+            var ci = CultureInfo.GetCultureInfo(result, predefinedOnly: true);
+            normalized = ci.Name;
+            return true;
+        }
+        catch (CultureNotFoundException)
+        {
+            normalized = string.Empty;
+            return false;
+        }
+    }
+
     protected virtual async Task<string?> DetectCultureAsync(MarkdownDocument doc)
     {
         try
@@ -124,11 +134,11 @@ public class DetectSourceCultureJob(
             // Normalize: strip quotes, dots, extra whitespace
             result = result.Trim('"', '.', ' ', '\n', '\r');
 
-            if (ValidCultures.Contains(result))
+            if (IsValidCulture(result, out var normalized))
             {
                 logger.LogInformation(
-                    "DetectSourceCultureJob: '{Title}' → {Culture}.", doc.Title, result);
-                return result;
+                    "DetectSourceCultureJob: '{Title}' → {Culture}.", doc.Title, normalized);
+                return normalized;
             }
 
             logger.LogWarning(
