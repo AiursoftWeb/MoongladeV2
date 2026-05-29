@@ -55,7 +55,7 @@ public class GenerateAbstractDocumentsJob(
         }
 
         // Phase 1: Generate abstracts in each document's SourceCulture.
-        var generated = await GenerateSourceAbstractsAsync(cultures.ToHashSet());
+        var generated = await GenerateSourceAbstractsAsync();
         logger.LogInformation(
             "GenerateAbstractDocumentsJob: generated {Count} source-culture abstract(s).", generated);
 
@@ -65,7 +65,7 @@ public class GenerateAbstractDocumentsJob(
             "GenerateAbstractDocumentsJob: translated {Count} abstract(s) this run.", translated);
     }
 
-    private async Task<int> GenerateSourceAbstractsAsync(HashSet<string> configuredCultures)
+    private async Task<int> GenerateSourceAbstractsAsync()
     {
         var total = 0;
         var lastId = Guid.Empty;
@@ -78,7 +78,6 @@ public class GenerateAbstractDocumentsJob(
                 .Where(d => d.IsPublic &&
                             d.SourceCulture != null &&
                             d.Id.CompareTo(currentLastId) > 0 &&
-                            configuredCultures.Contains(d.SourceCulture!) &&
                             !db.LocalizedAbstracts.Any(la =>
                                 la.DocumentId == d.Id &&
                                 la.Culture == d.SourceCulture &&
