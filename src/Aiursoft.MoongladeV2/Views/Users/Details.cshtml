@@ -71,7 +71,10 @@
                 }
                 else
                 {
-                    <p class="text-muted">@Localizer["This user has not been assigned any roles."]</p>
+                    <div class="text-center text-muted py-3">
+                        <i class="align-middle" data-lucide="award" style="width: 40px; height: 40px;"></i>
+                        <p class="mb-0 mt-2">@Localizer["This user has not been assigned any roles."]</p>
+                    </div>
                 }
             </div>
         </div>
@@ -93,7 +96,10 @@
                 else
                 {
                     <div class="list-group-item">
-                        <p class="text-muted mb-0">@Localizer["This user has no effective permissions."]</p>
+                        <div class="d-flex align-items-center text-muted">
+                            <i class="align-middle me-2" data-lucide="shield-x"></i>
+                            <span>@Localizer["This user has no effective permissions."]</span>
+                        </div>
                     </div>
                 }
             </div>
