@@ -154,7 +154,7 @@
     <value>智能深色模式，可自动适配用户的系统设置。</value>
   </data>
   <data name="Start a new project" xml:space="preserve">
-    <value>开始新项目</value>
+    <value>创建新文档</value>
   </data>
   <data name="Supports both environment variables and database-backed settings, with automatic priority given to environment variables for seamless overrides." xml:space="preserve">
     <value>支持环境变量和数据库配置，自动优先使用环境变量以实现无缝覆盖。</value>
@@ -163,13 +163,43 @@
     <value>导航栏会根据用户角色和权限自动调整。</value>
   </data>
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
-    <value>这是一个模板项目，我们将启程探索者...</value>
+    <value>一个现代化、开源、基于 Markdown 和 AI 驱动的博客引擎。</value>
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>欢迎</value>
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
-    <value>为什么使用 Aiursoft 模板？</value>
+    <value>为什么选择 MoongladeV2？</value>
+  </data>
+  <data name="Overview" xml:space="preserve">
+    <value>概览</value>
+  </data>
+  <data name="Create a new document" xml:space="preserve">
+    <value>创建新文档</value>
+  </data>
+  <data name="Total Documents" xml:space="preserve">
+    <value>文档总数</value>
+  </data>
+  <data name="Public Posts" xml:space="preserve">
+    <value>公开文章</value>
+  </data>
+  <data name="Recent Documents" xml:space="preserve">
+    <value>最近文档</value>
+  </data>
+  <data name="Updated:" xml:space="preserve">
+    <value>更新于：</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>公开</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>私有</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="No documents yet. Create your first document!" xml:space="preserve">
+    <value>还没有文档，创建你的第一篇文档吧！</value>
   </data>
 
 </root>

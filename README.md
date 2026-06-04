@@ -7,7 +7,7 @@
 [![Website](https://img.shields.io/website?url=https%3A%2F%2FmoongladeV2.aiursoft.com)](https://moongladeV2.aiursoft.com)
 [![Docker](https://img.shields.io/docker/pulls/aiursoft/moongladeV2.svg)](https://hub.docker.com/r/aiursoft/moongladeV2)
 
-A simple tool to convert your Markdown into clean, sanitized HTML.
+MoongladeV2 is a modern, high-performance blog engine built on ASP.NET Core (.NET 10). It transforms your Markdown documents into a fully-featured, searchable blog with AI-powered capabilities — deployable in minutes on your own infrastructure.
 
 ![screenshot](./screenshot.png)
 
@@ -19,17 +19,23 @@ Try a running MoongladeV2 [here](https://moongladeV2.aiursoft.com).
 
 ## Why MoongladeV2 for Your Organization
 
-MoongladeV2 is a production-ready, enterprise-grade knowledge base platform designed for teams that value simplicity without sacrificing essential features. While commercial solutions like Notion charge $10+ per user monthly and lack self-hosting options, MoongladeV2 delivers a comprehensive document collaboration system that deploys in minutes and costs nothing to run on your own infrastructure.
+MoongladeV2 is a production-ready, enterprise-grade blog engine designed for teams and individuals who want a fast, self-hosted blogging platform. Unlike hosted solutions like Medium or Substack that lock you into their ecosystem, MoongladeV2 gives you full control over your content, branding, and infrastructure — deploy in minutes at zero recurring cost.
 
-Key enterprise features include:
+Key features include:
+
+**Markdown-First Authoring.** Write all your posts in Markdown with a live preview editor. No complex WYSIWYG — just clean, version-control-friendly plain text that converts to beautiful, sanitized HTML.
+
+**AI-Powered Search.** Built-in vector search enables semantic understanding of your content, delivering more relevant results than traditional keyword matching. Readers find exactly what they're looking for, even with vague queries.
+
+**Full Blog Experience.** Tags, archives, featured posts, slugs, hero images, and RSS — everything you expect from a modern blog. Your readers get a clean, responsive reading experience optimized for both desktop and mobile.
 
 **Flexible Data Infrastructure.** Seamlessly switch between SQLite for quick deployment, MySQL for scalability, SQL Server for enterprise environments, or in-memory databases for testing. No complex configuration required.
 
 **Enterprise Authentication.** Native OpenID Connect integration allows seamless connection to your existing identity provider with automatic role synchronization. Built-in user management provides a complete authentication solution out of the box.
 
-**Fine-Grained Access Control.** Role-Based Access Control system with comprehensive permissions for users, roles, and documents. Dynamic navigation automatically adapts to user permissions, ensuring users only see what they should.
+**Fine-Grained Access Control.** Role-Based Access Control system lets you share documents internally with specific users or roles, control public visibility, and manage collaborative editing — all with automatic permission-based navigation.
 
-**Global-Ready Platform.** AI-powered translation supporting 27 languages enables worldwide team collaboration without language barriers. Comprehensive localization coverage ensures consistent user experience across cultures.
+**Global-Ready Platform.** AI-powered translation supporting 28 languages enables worldwide audience reach without language barriers. Comprehensive localization coverage ensures a consistent reading experience across cultures.
 
 ## Run in Ubuntu
 

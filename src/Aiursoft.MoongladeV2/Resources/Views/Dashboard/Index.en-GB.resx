@@ -154,7 +154,7 @@
     <value>Smart dark mode that automatically adapts to the user&apos;s system settings.</value>
   </data>
   <data name="Start a new project" xml:space="preserve">
-    <value>Start a new project</value>
+    <value>Create a new document</value>
   </data>
   <data name="Supports both environment variables and database-backed settings, with automatic priority given to environment variables for seamless overrides." xml:space="preserve">
     <value>Supports both environment variables and database-backed settings, with automatic priority given to environment variables for seamless overrides.</value>
@@ -163,13 +163,43 @@
     <value>The navigation bar automatically adjusts based on user roles and permissions.</value>
   </data>
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
-    <value>This is a template project, where we start the voyager...</value>
+    <value>A modern, open-source blog engine powered by Markdown and AI.</value>
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>Welcome</value>
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
-    <value>Why use the Aiursoft Template?</value>
+    <value>Why use MoongladeV2?</value>
+  </data>
+  <data name="Overview" xml:space="preserve">
+    <value>Overview</value>
+  </data>
+  <data name="Create a new document" xml:space="preserve">
+    <value>Create a new document</value>
+  </data>
+  <data name="Total Documents" xml:space="preserve">
+    <value>Total Documents</value>
+  </data>
+  <data name="Public Posts" xml:space="preserve">
+    <value>Public Posts</value>
+  </data>
+  <data name="Recent Documents" xml:space="preserve">
+    <value>Recent Documents</value>
+  </data>
+  <data name="Updated:" xml:space="preserve">
+    <value>Updated:</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Public</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Private</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="No documents yet. Create your first document!" xml:space="preserve">
+    <value>No documents yet. Create your first document!</value>
   </data>
 
 </root>
