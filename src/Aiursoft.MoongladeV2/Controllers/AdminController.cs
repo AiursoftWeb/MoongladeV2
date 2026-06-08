@@ -253,6 +253,7 @@ public class AdminController(
             .OrderByDescending(c => c.CreatedAt)
             .ToListAsync();
 
+        // ReSharper disable once RedundantNameQualifier
         return this.StackView(new Models.AdminViewModels.CommentsViewModel
         {
             AllComments = comments

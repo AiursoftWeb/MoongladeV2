@@ -1,5 +1,4 @@
 @using Aiursoft.WebTools
-@using Aiursoft.MoongladeV2.Authorization
 @model Aiursoft.MoongladeV2.Models.AdminViewModels.CommentsViewModel
 
 @{
@@ -77,7 +76,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <span>@(comment.User.DisplayName ?? comment.User.UserName)</span>
+                                    <span>@comment.User.DisplayName</span>
                                 </td>
                                 <td>
                                     <span class="text-truncate d-inline-block" style="max-width: 300px;">@comment.Content</span>
@@ -135,7 +134,7 @@
                                         <td></td>
                                         <td colspan="2">
                                             <span class="text-muted small">
-                                                ↳ @(reply.User.DisplayName ?? reply.User.UserName)
+                                                ↳ @reply.User.DisplayName
                                             </span>
                                         </td>
                                         <td>
@@ -169,6 +168,7 @@
     </div>
 </form>
 
+@* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
     <script>
         document.getElementById('select-all')?.addEventListener('change', function () {

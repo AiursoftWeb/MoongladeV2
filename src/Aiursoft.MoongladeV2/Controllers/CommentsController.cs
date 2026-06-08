@@ -121,7 +121,7 @@ public class CommentsController(
     [HttpPost]
     [ValidateAntiForgeryToken]
     [Authorize(Policy = AppPermissionNames.CanManageComments)]
-    public async Task<IActionResult> DeleteSelected([FromForm] List<Guid> commentIds)
+    public async Task<IActionResult> DeleteSelected([FromForm] List<Guid>? commentIds)
     {
         if (commentIds == null || commentIds.Count == 0)
             return RedirectToAction("Comments", "Admin");

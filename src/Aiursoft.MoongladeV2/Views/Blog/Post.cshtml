@@ -65,13 +65,13 @@
                             <div class="flex-shrink-0">
                                 <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center"
                                      style="width: 40px; height: 40px; font-size: 16px;">
-                                    @(comment.User.DisplayName?.FirstOrDefault().ToString().ToUpper() ?? "?")
+                                    @(comment.User.DisplayName.Length > 0 ? comment.User.DisplayName[0].ToString().ToUpper() : "?")
                                 </div>
                             </div>
                             <div class="flex-grow-1">
                                 <div class="d-flex justify-content-between align-items-center mb-1">
                                     <div>
-                                        <strong class="me-2">@(comment.User.DisplayName ?? comment.User.UserName)</strong>
+                                        <strong class="me-2">@comment.User.DisplayName</strong>
                                         <small class="text-muted"><label data-utc-time="@comment.CreatedAt.ToHtmlDateTime()"></label></small>
                                     </div>
                                     @if (User.Identity?.IsAuthenticated == true &&
@@ -97,13 +97,13 @@
                                                 <div class="flex-shrink-0">
                                                     <div class="rounded-circle bg-light border d-flex align-items-center justify-content-center"
                                                          style="width: 32px; height: 32px; font-size: 12px;">
-                                                        @(reply.User.DisplayName?.FirstOrDefault().ToString().ToUpper() ?? "?")
+                                                        @(reply.User.DisplayName.Length > 0 ? reply.User.DisplayName[0].ToString().ToUpper() : "?")
                                                     </div>
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <div class="d-flex justify-content-between align-items-center mb-1">
                                                         <div>
-                                                            <strong class="me-2">@(reply.User.DisplayName ?? reply.User.UserName)</strong>
+                                                            <strong class="me-2">@reply.User.DisplayName</strong>
                                                             <small class="text-muted"><label data-utc-time="@reply.CreatedAt.ToHtmlDateTime()"></label></small>
                                                         </div>
                                                         @if (User.Identity?.IsAuthenticated == true &&
@@ -137,7 +137,7 @@
                                                 @Html.AntiForgeryToken()
                                                 <div class="mb-1">
                                                     <textarea name="content" class="form-control form-control-sm" rows="2"
-                                                              placeholder="@string.Format(Localizer["Reply to {0}..."].Value, comment.User.DisplayName ?? comment.User.UserName)"
+                                                              placeholder="@string.Format(Localizer["Reply to {0}..."].Value, comment.User.DisplayName)"
                                                               maxlength="1000" required></textarea>
                                                 </div>
                                                 <button type="submit" class="btn btn-secondary btn-sm">@Localizer["Send Reply"]</button>
