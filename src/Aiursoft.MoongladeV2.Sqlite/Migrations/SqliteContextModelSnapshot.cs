@@ -17,6 +17,45 @@ namespace Aiursoft.MoongladeV2.Sqlite.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.8");
 
+            modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.Comment", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("DocumentId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsApproved")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<Guid?>("ParentCommentId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasMaxLength(450)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DocumentId");
+
+                    b.HasIndex("ParentCommentId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Comments");
+                });
+
             modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.DocumentShare", b =>
                 {
                     b.Property<Guid>("Id")
@@ -425,6 +464,32 @@ namespace Aiursoft.MoongladeV2.Sqlite.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.Comment", b =>
+                {
+                    b.HasOne("Aiursoft.MoongladeV2.Entities.MarkdownDocument", "Document")
+                        .WithMany("Comments")
+                        .HasForeignKey("DocumentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Aiursoft.MoongladeV2.Entities.Comment", "ParentComment")
+                        .WithMany("Replies")
+                        .HasForeignKey("ParentCommentId")
+                        .OnDelete(DeleteBehavior.NoAction);
+
+                    b.HasOne("Aiursoft.MoongladeV2.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Document");
+
+                    b.Navigation("ParentComment");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.DocumentShare", b =>
                 {
                     b.HasOne("Aiursoft.MoongladeV2.Entities.MarkdownDocument", "Document")
@@ -526,8 +591,15 @@ namespace Aiursoft.MoongladeV2.Sqlite.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.Comment", b =>
+                {
+                    b.Navigation("Replies");
+                });
+
             modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.MarkdownDocument", b =>
                 {
+                    b.Navigation("Comments");
+
                     b.Navigation("DocumentShares");
 
                     b.Navigation("LocalizedDocuments");

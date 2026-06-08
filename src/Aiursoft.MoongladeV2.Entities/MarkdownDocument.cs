@@ -88,4 +88,7 @@ public class MarkdownDocument
 
     [InverseProperty(nameof(LocalizedDocument.Document))]
     public ICollection<LocalizedDocument> LocalizedDocuments { get; init; } = new List<LocalizedDocument>();
+
+    [InverseProperty(nameof(Comment.Document))]
+    public ICollection<Comment> Comments { get; init; } = new List<Comment>();
 }
