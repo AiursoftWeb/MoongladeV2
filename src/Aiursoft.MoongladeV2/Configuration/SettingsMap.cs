@@ -17,6 +17,10 @@ public class SettingsMap
     public const string ContractLogo = "ContractLogo";
     public const string ShowContractHeader = "ShowContractHeader";
 
+    // ── Comments ──────────────────────────────────────────────────────────────
+    public const string EnableComments = "EnableComments";
+    public const string RequireCommentReview = "RequireCommentReview";
+
     // ── AI: Chat / Translation (3 settings) ────────────────────────────────────
     public const string OpenAiChatEndpoint = "OpenAiChatEndpoint";
     public const string OpenAiModel = "OpenAiModel";
@@ -144,6 +148,24 @@ public class SettingsMap
             Description = Localizer["Whether to show the contract header (Logo, address, etc.) in the contract view."],
             Type = SettingType.Bool,
             DefaultValue = "True"
+        },
+
+        // ── Comments ────────────────────────────────────────────────────────────
+        new GlobalSettingDefinition
+        {
+            Key = EnableComments,
+            Name = Localizer["Enable Comments"],
+            Description = Localizer["Enable the comment system on all blog posts."],
+            Type = SettingType.Bool,
+            DefaultValue = "True"
+        },
+        new GlobalSettingDefinition
+        {
+            Key = RequireCommentReview,
+            Name = Localizer["Require Comment Review"],
+            Description = Localizer["Require admin approval before comments are publicly visible."],
+            Type = SettingType.Bool,
+            DefaultValue = "False"
         },
 
         // ── AI: Chat / Translation ──────────────────────────────────────────────

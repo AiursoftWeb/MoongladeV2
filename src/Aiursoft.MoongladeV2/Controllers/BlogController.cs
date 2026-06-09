@@ -149,9 +149,19 @@ public class BlogController(
             ? localizedContent
             : document.Content ?? string.Empty;
 
+        var comments = await dbContext.Comments
+            .AsNoTracking()
+            .Include(c => c.User)
+            .Include(c => c.Replies)
+                .ThenInclude(r => r.User)
+            .Where(c => c.DocumentId == document.Id && c.ParentCommentId == null && c.IsApproved)
+            .OrderByDescending(c => c.CreatedAt)
+            .ToListAsync();
+
         var model = new PostViewModel
         {
             PageTitle = title,
+            DocumentId = document.Id,
             Title = title,
             AuthorName = !string.IsNullOrWhiteSpace(document.User.DisplayName)
                 ? document.User.DisplayName
@@ -159,7 +169,8 @@ public class BlogController(
             PublishedAt = document.CreationTime,
             HeroImageUrl = document.HeroImageUrl,
             ContentHtml = moongladeV2Service.ConvertMarkdownToHtml(markdownContent),
-            Tags = BlogTagParser.ParseTags(document.Tags)
+            Tags = BlogTagParser.ParseTags(document.Tags),
+            Comments = comments
         };
         return this.SimpleView(model, viewName: nameof(Post));
     }

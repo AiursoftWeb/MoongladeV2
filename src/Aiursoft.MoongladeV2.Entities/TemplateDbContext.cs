@@ -24,6 +24,8 @@ public abstract class TemplateDbContext(DbContextOptions options) : IdentityDbCo
 
     public DbSet<LocalizedAbstract> LocalizedAbstracts => Set<LocalizedAbstract>();
 
+    public DbSet<Comment> Comments => Set<Comment>();
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
@@ -32,5 +34,23 @@ public abstract class TemplateDbContext(DbContextOptions options) : IdentityDbCo
             .HasIndex(d => d.Slug)
             .IsUnique()
             .HasFilter("[Slug] IS NOT NULL");
+
+        builder.Entity<Comment>()
+            .HasOne(c => c.Document)
+            .WithMany(d => d.Comments)
+            .HasForeignKey(c => c.DocumentId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.Entity<Comment>()
+            .HasOne(c => c.User)
+            .WithMany()
+            .HasForeignKey(c => c.UserId)
+            .OnDelete(DeleteBehavior.NoAction);
+
+        builder.Entity<Comment>()
+            .HasOne(c => c.ParentComment)
+            .WithMany(c => c.Replies)
+            .HasForeignKey(c => c.ParentCommentId)
+            .OnDelete(DeleteBehavior.NoAction);
     }
 }

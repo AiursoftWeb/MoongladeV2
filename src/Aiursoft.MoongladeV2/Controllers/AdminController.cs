@@ -229,4 +229,34 @@ public class AdminController(
 
         return RedirectToAction(nameof(AllDocuments));
     }
+
+    /// <summary>
+    /// Displays a list of all comments for administration.
+    /// This action requires the 'CanManageComments' permission.
+    /// </summary>
+    [Authorize(Policy = AppPermissionNames.CanManageComments)]
+    [RenderInNavBar(
+        NavGroupName = "Administration",
+        NavGroupOrder = 9999,
+        CascadedLinksGroupName = "Comments",
+        CascadedLinksIcon = "message-square",
+        CascadedLinksOrder = 2,
+        LinkText = "Manage Comments",
+        LinkOrder = 2)]
+    public async Task<IActionResult> Comments()
+    {
+        var comments = await context.Comments
+            .AsNoTracking()
+            .Include(c => c.Document)
+            .Include(c => c.User)
+            .Include(c => c.Replies)
+            .OrderByDescending(c => c.CreatedAt)
+            .ToListAsync();
+
+        // ReSharper disable once RedundantNameQualifier
+        return this.StackView(new Models.AdminViewModels.CommentsViewModel
+        {
+            AllComments = comments
+        });
+    }
 }
