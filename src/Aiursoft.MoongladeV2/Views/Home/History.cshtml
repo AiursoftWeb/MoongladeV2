@@ -9,12 +9,12 @@
 
 <div class="row mb-2 mb-xl-3">
     <div class="col-auto d-none d-sm-block">
-        <h3>@Localizer["My Documents"]</h3>
+        <h3>@Localizer["My Posts"]</h3>
     </div>
 
     <div class="col-auto ms-auto mt-n1">
         <a asp-controller="Home" asp-action="Index" class="btn btn-primary">
-            <i class="align-middle" data-lucide="file-plus"></i> @Localizer["Create a new document"]
+            <i class="align-middle" data-lucide="file-plus"></i> @Localizer["Write a new post"]
         </a>
     </div>
 </div>
@@ -23,8 +23,8 @@
     <div class="card-header">
         <div class="d-flex flex-column flex-md-row align-items-md-center gap-2">
             <div>
-                <h5 class="card-title mb-1">@Localizer["All My Documents"]</h5>
-                <h6 class="card-subtitle text-muted mb-0">@Localizer["A list of all documents you have created."]</h6>
+                <h5 class="card-title mb-1">@Localizer["All My Posts"]</h5>
+                <h6 class="card-subtitle text-muted mb-0">@Localizer["A list of all posts you have created."]</h6>
             </div>
             <form method="get"
                   asp-action="History"
@@ -35,8 +35,8 @@
                            name="search"
                            value="@Model.SearchQuery"
                            class="form-control"
-                           placeholder="@Localizer["Search my documents..."]"
-                           aria-label="@Localizer["Search my documents"]" />
+                           placeholder="@Localizer["Search my posts..."]"
+                           aria-label="@Localizer["Search my posts"]" />
                     @if (!string.IsNullOrWhiteSpace(Model.SearchQuery))
                     {
                         <a asp-action="History" class="btn btn-outline-secondary">
@@ -62,11 +62,11 @@
                 <div class="alert-message">
                     @if (string.IsNullOrWhiteSpace(Model.SearchQuery))
                     {
-                        @Localizer["You have not created any documents yet."]
+                        @Localizer["You have not created any posts yet."]
                     }
                     else
                     {
-                        @Localizer["No documents found for your search query."]
+                        @Localizer["No posts found for your search query."]
                     }
                 </div>
             </div>

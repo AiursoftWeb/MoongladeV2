@@ -28,12 +28,12 @@ public class HomeController(
         CascadedLinksGroupName = "Home",
         CascadedLinksIcon = "home",
         CascadedLinksOrder = 1,
-        LinkText = "Convert Document",
+        LinkText = "Write Post",
         LinkOrder = 1
     )]
     public IActionResult Index()
     {
-        return this.StackView(new IndexViewModel("Untitled Document"));
+        return this.StackView(new IndexViewModel("Untitled Post"));
     }
 
     [HttpPost]
@@ -95,7 +95,9 @@ public class HomeController(
                 {
                     Id = model.DocumentId,
                     Content = model.InputMarkdown.SafeSubstring(65535),
-                    Title = model.InputMarkdown.SafeSubstring(40),
+                    Title = string.IsNullOrWhiteSpace(model.Title)
+                        ? model.InputMarkdown.SafeSubstring(40)
+                        : model.Title.Trim(),
                     UserId = userId
                 };
                 context.MarkdownDocuments.Add(newDocument);
@@ -154,7 +156,7 @@ public class HomeController(
 
         var publicLink = Url.Action(nameof(PublicController.View), "Public", new { id = document.Id }, Request.Scheme);
 
-        var model = new IndexViewModel(document.Title ?? "Empty Document")
+        var model = new IndexViewModel(document.Title ?? "Untitled Post")
         {
             DocumentId = document.Id,
             Title = document.Title,
@@ -240,7 +242,7 @@ public class HomeController(
     CascadedLinksGroupName = "Home",
     CascadedLinksIcon = "history",
     CascadedLinksOrder = 2,
-    LinkText = "My documents",
+    LinkText = "My posts",
     LinkOrder = 2)]
     public async Task<IActionResult> History([FromQuery] string? search)
     {
