@@ -69,8 +69,14 @@
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>Batas Cache Kueri Embedding</value>
   </data>
+  <data name="Enable Comments" xml:space="preserve">
+    <value>Aktifkan Komentar</value>
+  </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>Aktifkan Pencarian Berbasis Embedding</value>
+  </data>
+  <data name="Enable the comment system on all blog posts." xml:space="preserve">
+    <value>Aktifkan sistem komentar di semua postingan blog.</value>
   </data>
   <data name="ICP Number" xml:space="preserve">
     <value>Nomor ICP</value>
@@ -107,6 +113,12 @@
   </data>
   <data name="Project Name" xml:space="preserve">
     <value>Nama Proyek</value>
+  </data>
+  <data name="Require admin approval before comments are publicly visible." xml:space="preserve">
+    <value>Memerlukan persetujuan admin sebelum komentar dapat dilihat secara publik.</value>
+  </data>
+  <data name="Require Comment Review" xml:space="preserve">
+    <value>Wajib Ulasan Komentar</value>
   </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>Tampilkan Header Kontrak</value>

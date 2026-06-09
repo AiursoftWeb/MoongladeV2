@@ -69,8 +69,14 @@
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>嵌入查詢快取上限</value>
   </data>
+  <data name="Enable Comments" xml:space="preserve">
+    <value>啟用留言</value>
+  </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>啟用基於嵌入的搜尋</value>
+  </data>
+  <data name="Enable the comment system on all blog posts." xml:space="preserve">
+    <value>在所有部落格文章上啟用留言系統。</value>
   </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP編號</value>
@@ -107,6 +113,12 @@
   </data>
   <data name="Project Name" xml:space="preserve">
     <value>專案名稱</value>
+  </data>
+  <data name="Require admin approval before comments are publicly visible." xml:space="preserve">
+    <value>公開顯示留言前需經管理員審核。</value>
+  </data>
+  <data name="Require Comment Review" xml:space="preserve">
+    <value>需要留言審核</value>
   </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>顯示合約標頭</value>

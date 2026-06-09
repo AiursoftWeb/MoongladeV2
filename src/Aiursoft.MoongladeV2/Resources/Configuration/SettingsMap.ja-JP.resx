@@ -69,8 +69,14 @@
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>埋め込みクエリキャッシュの制限</value>
   </data>
+  <data name="Enable Comments" xml:space="preserve">
+    <value>コメントを有効にする</value>
+  </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>埋め込みベースの検索を有効化</value>
+  </data>
+  <data name="Enable the comment system on all blog posts." xml:space="preserve">
+    <value>すべてのブログ投稿でコメントシステムを有効にします。</value>
   </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP番号</value>
@@ -107,6 +113,12 @@
   </data>
   <data name="Project Name" xml:space="preserve">
     <value>プロジェクト名</value>
+  </data>
+  <data name="Require admin approval before comments are publicly visible." xml:space="preserve">
+    <value>コメントが公開される前に管理者の承認が必要です。</value>
+  </data>
+  <data name="Require Comment Review" xml:space="preserve">
+    <value>コメントの審査を必須にする</value>
   </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>契約ヘッダーを表示</value>

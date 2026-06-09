@@ -69,8 +69,14 @@
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>حد ذاكرة التخزين المؤقت لاستعلام التضمين</value>
   </data>
+  <data name="Enable Comments" xml:space="preserve">
+    <value>تفعيل التعليقات</value>
+  </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>تفعيل البحث القائم على التضمين</value>
+  </data>
+  <data name="Enable the comment system on all blog posts." xml:space="preserve">
+    <value>تفعيل نظام التعليقات على جميع منشورات المدونة.</value>
   </data>
   <data name="ICP Number" xml:space="preserve">
     <value>رقم ICP</value>
@@ -107,6 +113,12 @@
   </data>
   <data name="Project Name" xml:space="preserve">
     <value>اسم المشروع</value>
+  </data>
+  <data name="Require admin approval before comments are publicly visible." xml:space="preserve">
+    <value>يتطلب موافقة المسؤول قبل أن تصبح التعليقات مرئية للعامة.</value>
+  </data>
+  <data name="Require Comment Review" xml:space="preserve">
+    <value>مراجعة التعليقات مطلوبة</value>
   </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>إظهار رأس العقد</value>

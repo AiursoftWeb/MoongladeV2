@@ -18,8 +18,38 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to posts" xml:space="preserve">
+      <data name="Are you sure you want to delete this comment?" xml:space="preserve">
+    <value>Sind Sie sicher, dass Sie diesen Kommentar löschen möchten?</value>
+  </data>
+  <data name="Are you sure you want to delete this reply?" xml:space="preserve">
+    <value>Sind Sie sicher, dass Sie diese Antwort löschen möchten?</value>
+  </data>
+  <data name="Back to posts" xml:space="preserve">
     <value>Zurück zu den Beiträgen</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Kommentare</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Löschen</value>
+  </data>
+  <data name="Login to comment" xml:space="preserve">
+    <value>Anmelden, um zu kommentieren</value>
+  </data>
+  <data name="No comments yet. Be the first to leave one!" xml:space="preserve">
+    <value>Noch keine Kommentare. Sei der Erste, der einen hinterlässt!</value>
+  </data>
+  <data name="Post Comment" xml:space="preserve">
+    <value>Kommentar posten</value>
+  </data>
+  <data name="Reply" xml:space="preserve">
+    <value>Antworten</value>
+  </data>
+  <data name="Send Reply" xml:space="preserve">
+    <value>Antwort senden</value>
+  </data>
+  <data name="Write your comment…" xml:space="preserve">
+    <value>Schreibe deinen Kommentar…</value>
   </data>
 
 </root>

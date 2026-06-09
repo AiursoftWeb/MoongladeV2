@@ -69,8 +69,14 @@
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>Embedding-forespørgselscachegrænse</value>
   </data>
+  <data name="Enable Comments" xml:space="preserve">
+    <value>Aktivér kommentarer</value>
+  </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>Aktiver indlejringbaseret søgning</value>
+  </data>
+  <data name="Enable the comment system on all blog posts." xml:space="preserve">
+    <value>Aktiver kommentarsystemet på alle blogindlæg.</value>
   </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP-nummer</value>
@@ -107,6 +113,12 @@
   </data>
   <data name="Project Name" xml:space="preserve">
     <value>Projektnavn</value>
+  </data>
+  <data name="Require admin approval before comments are publicly visible." xml:space="preserve">
+    <value>Kræv administratorgodkendelse, før kommentarerne er offentligt synlige.</value>
+  </data>
+  <data name="Require Comment Review" xml:space="preserve">
+    <value>Kræv godkendelse af kommentarer</value>
   </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>Vis kontraktoverskrift</value>

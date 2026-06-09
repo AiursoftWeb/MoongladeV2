@@ -69,8 +69,14 @@
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>Лимит кэширования запросов встраивания</value>
   </data>
+  <data name="Enable Comments" xml:space="preserve">
+    <value>Включить комментарии</value>
+  </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>Включить поиск на основе встраиваний</value>
+  </data>
+  <data name="Enable the comment system on all blog posts." xml:space="preserve">
+    <value>Включите систему комментариев для всех постов в блоге.</value>
   </data>
   <data name="ICP Number" xml:space="preserve">
     <value>Номер ICP</value>
@@ -107,6 +113,12 @@
   </data>
   <data name="Project Name" xml:space="preserve">
     <value>Название проекта</value>
+  </data>
+  <data name="Require admin approval before comments are publicly visible." xml:space="preserve">
+    <value>Требовать одобрения администратора перед публичным отображением комментариев.</value>
+  </data>
+  <data name="Require Comment Review" xml:space="preserve">
+    <value>Требовать модерации комментариев</value>
   </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>Показать заголовок договора</value>

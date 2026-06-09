@@ -69,6 +69,9 @@
   <data name="Allows viewing the list of roles and their assigned permissions." xml:space="preserve">
     <value>Giver mulighed for at se listen over roller og deres tildelte tilladelser.</value>
   </data>
+  <data name="Allows viewing, approving, and deleting comments on blog posts." xml:space="preserve">
+    <value>Tillader visning, godkendelse og sletning af kommentarer på blogindlæg.</value>
+  </data>
   <data name="Assign Roles to Users" xml:space="preserve">
     <value>Tildel roller til brugere</value>
   </data>
@@ -101,6 +104,9 @@
   </data>
   <data name="Manage Any Share" xml:space="preserve">
     <value>Administrer enhver deling</value>
+  </data>
+  <data name="Manage Comments" xml:space="preserve">
+    <value>Administrer kommentarer</value>
   </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Administrer globale indstillinger</value>

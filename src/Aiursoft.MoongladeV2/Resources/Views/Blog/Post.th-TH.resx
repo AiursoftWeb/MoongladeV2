@@ -18,8 +18,38 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to posts" xml:space="preserve">
+      <data name="Are you sure you want to delete this comment?" xml:space="preserve">
+    <value>คุณต้องการลบความคิดเห็นนี้ใช่ไหม?</value>
+  </data>
+  <data name="Are you sure you want to delete this reply?" xml:space="preserve">
+    <value>คุณแน่ใจหรือไม่ว่าต้องการลบข้อความนี้?</value>
+  </data>
+  <data name="Back to posts" xml:space="preserve">
     <value>กลับไปยังบทความ</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>ความคิดเห็น</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>ลบ</value>
+  </data>
+  <data name="Login to comment" xml:space="preserve">
+    <value>เข้าสู่ระบบเพื่อแสดงความคิดเห็น</value>
+  </data>
+  <data name="No comments yet. Be the first to leave one!" xml:space="preserve">
+    <value>ยังไม่มีความคิดเห็น มาเป็น نفرแรกกัน!</value>
+  </data>
+  <data name="Post Comment" xml:space="preserve">
+    <value>แสดงความคิดเห็น</value>
+  </data>
+  <data name="Reply" xml:space="preserve">
+    <value>ตอบกลับ</value>
+  </data>
+  <data name="Send Reply" xml:space="preserve">
+    <value>ส่งคำตอบกลับ</value>
+  </data>
+  <data name="Write your comment…" xml:space="preserve">
+    <value>เขียนความคิดเห็นของคุณ…</value>
   </data>
 
 </root>

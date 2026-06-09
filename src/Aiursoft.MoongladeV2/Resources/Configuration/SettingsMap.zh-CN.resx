@@ -69,8 +69,14 @@
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>嵌入查询缓存限制</value>
   </data>
+  <data name="Enable Comments" xml:space="preserve">
+    <value>启用评论</value>
+  </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>启用基于嵌入的搜索</value>
+  </data>
+  <data name="Enable the comment system on all blog posts." xml:space="preserve">
+    <value>在所有博客文章上启用评论系统。</value>
   </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP 备案号</value>
@@ -107,6 +113,12 @@
   </data>
   <data name="Project Name" xml:space="preserve">
     <value>项目名称</value>
+  </data>
+  <data name="Require admin approval before comments are publicly visible." xml:space="preserve">
+    <value>公开显示评论前需管理员审核。</value>
+  </data>
+  <data name="Require Comment Review" xml:space="preserve">
+    <value>需要审核评论</value>
   </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>显示合同页眉</value>
