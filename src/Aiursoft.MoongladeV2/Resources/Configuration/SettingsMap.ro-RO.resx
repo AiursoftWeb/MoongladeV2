@@ -69,8 +69,14 @@
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>Limitul Caching-ului pentru Interogări de Încorporare</value>
   </data>
+  <data name="Enable Comments" xml:space="preserve">
+    <value>Activare comentarii</value>
+  </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>Activează căutarea bazată pe încorporări</value>
+  </data>
+  <data name="Enable the comment system on all blog posts." xml:space="preserve">
+    <value>Activează sistemul de comentarii pe toate postările de blog.</value>
   </data>
   <data name="ICP Number" xml:space="preserve">
     <value>Număr ICP</value>
@@ -107,6 +113,12 @@
   </data>
   <data name="Project Name" xml:space="preserve">
     <value>Numele proiectului</value>
+  </data>
+  <data name="Require admin approval before comments are publicly visible." xml:space="preserve">
+    <value>Necesită aprobarea administratorului înainte ca comentariile să fie vizibile public.</value>
+  </data>
+  <data name="Require Comment Review" xml:space="preserve">
+    <value>Necesită aprobarea comentariilor</value>
   </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>Afișează antetul contractului</value>

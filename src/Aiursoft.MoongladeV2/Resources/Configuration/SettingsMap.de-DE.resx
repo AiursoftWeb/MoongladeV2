@@ -69,8 +69,14 @@
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>Begrenzung des Embedding-Abfrage-Caches</value>
   </data>
+  <data name="Enable Comments" xml:space="preserve">
+    <value>Kommentare aktivieren</value>
+  </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>Einbettungsbasierte Suche aktivieren</value>
+  </data>
+  <data name="Enable the comment system on all blog posts." xml:space="preserve">
+    <value>Aktivieren Sie das Kommentarsystem für alle Blogbeiträge.</value>
   </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP-Nummer</value>
@@ -107,6 +113,12 @@
   </data>
   <data name="Project Name" xml:space="preserve">
     <value>Projektname</value>
+  </data>
+  <data name="Require admin approval before comments are publicly visible." xml:space="preserve">
+    <value>Vor der öffentlichen Sichtbarkeit der Kommentare ist die Freigabe durch den Administrator erforderlich.</value>
+  </data>
+  <data name="Require Comment Review" xml:space="preserve">
+    <value>Kommentarprüfung erforderlich</value>
   </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>Vertragskopf anzeigen</value>

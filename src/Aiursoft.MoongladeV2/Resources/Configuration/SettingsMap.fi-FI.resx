@@ -69,8 +69,14 @@
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>Kyselyupotusvälimuistin raja</value>
   </data>
+  <data name="Enable Comments" xml:space="preserve">
+    <value>Ota kommentointi käyttöön</value>
+  </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>Käytä upotuspohjaista hakua</value>
+  </data>
+  <data name="Enable the comment system on all blog posts." xml:space="preserve">
+    <value>Ota kommentointijärjestelmä käyttöön kaikissa blogikirjoituksissa.</value>
   </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP-numero</value>
@@ -107,6 +113,12 @@
   </data>
   <data name="Project Name" xml:space="preserve">
     <value>Projektin nimi</value>
+  </data>
+  <data name="Require admin approval before comments are publicly visible." xml:space="preserve">
+    <value>Vaadi ylläpitäjän hyväksyntä ennen kuin kommentit tulevat julkisesti näkyviin.</value>
+  </data>
+  <data name="Require Comment Review" xml:space="preserve">
+    <value>Vaadi kommenttien tarkastus</value>
   </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>Näytä sopimuksen otsikko</value>

@@ -57,6 +57,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>Clicca per accedere</value>
   </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Commenti</value>
+  </data>
   <data name="Contract" xml:space="preserve">
     <value>Contratto</value>
   </data>
@@ -131,6 +134,9 @@
   </data>
   <data name="Manage" xml:space="preserve">
     <value>Gestisci</value>
+  </data>
+  <data name="Manage Comments" xml:space="preserve">
+    <value>Gestisci commenti</value>
   </data>
   <data name="Manage shares" xml:space="preserve">
     <value>Gestisci condivisioni</value>

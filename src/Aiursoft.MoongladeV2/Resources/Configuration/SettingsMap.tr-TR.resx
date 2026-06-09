@@ -69,8 +69,14 @@
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>Gömme Sorgu Önbellek Sınırı</value>
   </data>
+  <data name="Enable Comments" xml:space="preserve">
+    <value>Yorumları Etkinleştir</value>
+  </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>Embedding Tabanlı Aramayı Etkinleştir</value>
+  </data>
+  <data name="Enable the comment system on all blog posts." xml:space="preserve">
+    <value>Tüm blog gönderilerinde yorum sistemini etkinleştir.</value>
   </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP Numarası</value>
@@ -107,6 +113,12 @@
   </data>
   <data name="Project Name" xml:space="preserve">
     <value>Proje Adı</value>
+  </data>
+  <data name="Require admin approval before comments are publicly visible." xml:space="preserve">
+    <value>Yorumlar herkese açık hale gelmeden önce yönetici onayı gerektirin.</value>
+  </data>
+  <data name="Require Comment Review" xml:space="preserve">
+    <value>Yorum İncelemesini Gerektir</value>
   </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>Sözleşme Başlığını Göster</value>

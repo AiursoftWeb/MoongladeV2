@@ -69,8 +69,14 @@
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>Όριο Κρυφής Μνήμης Διανυσματικών Ερωτήσεων</value>
   </data>
+  <data name="Enable Comments" xml:space="preserve">
+    <value>Ενεργοποίηση Σχολίων</value>
+  </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>Ενεργοποίηση αναζήτησης με embeddings</value>
+  </data>
+  <data name="Enable the comment system on all blog posts." xml:space="preserve">
+    <value>Ενεργοποίηση του συστήματος σχολίων σε όλες τις αναρτήσεις του blog.</value>
   </data>
   <data name="ICP Number" xml:space="preserve">
     <value>Αριθμός ICP</value>
@@ -107,6 +113,12 @@
   </data>
   <data name="Project Name" xml:space="preserve">
     <value>Όνομα Έργου</value>
+  </data>
+  <data name="Require admin approval before comments are publicly visible." xml:space="preserve">
+    <value>Απαιτείται έγκριση διαχειριστή πριν οι σχολιασμοί γίνουν δημόσια ορατοί.</value>
+  </data>
+  <data name="Require Comment Review" xml:space="preserve">
+    <value>Απαιτείται έλεγχος σχολίων</value>
   </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>Εμφάνιση Κεφαλίδας Συμβολαίου</value>

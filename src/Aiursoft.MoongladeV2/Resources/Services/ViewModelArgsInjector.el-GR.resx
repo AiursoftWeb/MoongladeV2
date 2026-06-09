@@ -57,6 +57,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>Κάντε κλικ για σύνδεση</value>
   </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Σχόλια</value>
+  </data>
   <data name="Contract" xml:space="preserve">
     <value>Σύμβαση</value>
   </data>
@@ -131,6 +134,9 @@
   </data>
   <data name="Manage" xml:space="preserve">
     <value>Διαχείριση</value>
+  </data>
+  <data name="Manage Comments" xml:space="preserve">
+    <value>Διαχείριση Σχολίων</value>
   </data>
   <data name="Manage shares" xml:space="preserve">
     <value>Διαχείριση κοινόχρηστων</value>

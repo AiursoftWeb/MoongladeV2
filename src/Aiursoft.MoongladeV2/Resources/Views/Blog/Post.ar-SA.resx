@@ -18,8 +18,38 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to posts" xml:space="preserve">
+      <data name="Are you sure you want to delete this comment?" xml:space="preserve">
+    <value>هل أنت متأكد أنك تريد حذف هذا التعليق؟</value>
+  </data>
+  <data name="Are you sure you want to delete this reply?" xml:space="preserve">
+    <value>هل أنت متأكد أنك تريد حذف هذا الرد؟</value>
+  </data>
+  <data name="Back to posts" xml:space="preserve">
     <value>العودة إلى المقالات</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>التعليقات</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="Login to comment" xml:space="preserve">
+    <value>تسجيل الدخول للتعليق</value>
+  </data>
+  <data name="No comments yet. Be the first to leave one!" xml:space="preserve">
+    <value>لا توجد تعليقات بعد. كن الأول في ترك تعليق!</value>
+  </data>
+  <data name="Post Comment" xml:space="preserve">
+    <value>نشر التعليق</value>
+  </data>
+  <data name="Reply" xml:space="preserve">
+    <value>الرد</value>
+  </data>
+  <data name="Send Reply" xml:space="preserve">
+    <value>إرسال الرد</value>
+  </data>
+  <data name="Write your comment…" xml:space="preserve">
+    <value>اكتب تعليقك…</value>
   </data>
 
 </root>

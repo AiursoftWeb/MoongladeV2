@@ -60,6 +60,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>Nhấp để đăng nhập</value>
   </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Bình luận</value>
+  </data>
   <data name="Contract" xml:space="preserve">
     <value>Hợp đồng</value>
   </data>
@@ -134,6 +137,9 @@
   </data>
   <data name="Manage" xml:space="preserve">
     <value>Quản lý</value>
+  </data>
+  <data name="Manage Comments" xml:space="preserve">
+    <value>Quản lý bình luận</value>
   </data>
   <data name="Manage shares" xml:space="preserve">
     <value>Quản lý chia sẻ</value>

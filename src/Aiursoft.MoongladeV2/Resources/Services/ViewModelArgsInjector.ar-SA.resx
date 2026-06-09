@@ -57,6 +57,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>انقر لتسجيل الدخول</value>
   </data>
+  <data name="Comments" xml:space="preserve">
+    <value>التعليقات</value>
+  </data>
   <data name="Contract" xml:space="preserve">
     <value>العقد</value>
   </data>
@@ -131,6 +134,9 @@
   </data>
   <data name="Manage" xml:space="preserve">
     <value>إدارة</value>
+  </data>
+  <data name="Manage Comments" xml:space="preserve">
+    <value>إدارة التعليقات</value>
   </data>
   <data name="Manage shares" xml:space="preserve">
     <value>إدارة المشاركات</value>

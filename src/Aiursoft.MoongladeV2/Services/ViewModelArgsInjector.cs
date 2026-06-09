@@ -105,6 +105,9 @@ public class ViewModelArgsInjector(
         _ = localizer["Post"];
         _ = localizer["Tags"];
         _ = localizer["Search posts..."];
+    
+        _ = localizer["Comments"];
+        _ = localizer["Manage Comments"];
     }
 
     public void InjectSimple(

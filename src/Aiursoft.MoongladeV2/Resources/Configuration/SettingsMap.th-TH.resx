@@ -69,8 +69,14 @@
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>ขีดจำกัดแคชคำค้นหา Embedding</value>
   </data>
+  <data name="Enable Comments" xml:space="preserve">
+    <value>เปิดใช้งานความคิดเห็น</value>
+  </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>เปิดใช้งานการค้นหาแบบใช้การฝังตัว</value>
+  </data>
+  <data name="Enable the comment system on all blog posts." xml:space="preserve">
+    <value>เปิดใช้งานระบบแสดงความคิดเห็น在所有บล็อกโพสต์</value>
   </data>
   <data name="ICP Number" xml:space="preserve">
     <value>เลขที่ ICP</value>
@@ -107,6 +113,12 @@
   </data>
   <data name="Project Name" xml:space="preserve">
     <value>ชื่อโปรเจกต์</value>
+  </data>
+  <data name="Require admin approval before comments are publicly visible." xml:space="preserve">
+    <value>ต้องได้รับการอนุมัติจากผู้ดูแลระบบก่อนแสดงความคิดเห็นต่อสาธารณะ</value>
+  </data>
+  <data name="Require Comment Review" xml:space="preserve">
+    <value>ต้องตรวจสอบความคิดเห็นก่อนเผยแพร่</value>
   </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>แสดงส่วนหัวของสัญญา</value>

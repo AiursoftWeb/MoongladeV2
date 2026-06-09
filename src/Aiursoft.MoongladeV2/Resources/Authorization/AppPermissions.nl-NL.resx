@@ -69,6 +69,9 @@
   <data name="Allows viewing the list of roles and their assigned permissions." xml:space="preserve">
     <value>Maakt het mogelijk de lijst met rollen en hun toegewezen machtigingen te bekijken.</value>
   </data>
+  <data name="Allows viewing, approving, and deleting comments on blog posts." xml:space="preserve">
+    <value>Staat het bekijken, goedkeuren en verwijderen van reacties op blogberichten toe.</value>
+  </data>
   <data name="Assign Roles to Users" xml:space="preserve">
     <value>Rollen toewijzen aan gebruikers</value>
   </data>
@@ -101,6 +104,9 @@
   </data>
   <data name="Manage Any Share" xml:space="preserve">
     <value>Beheer Alle Delingen</value>
+  </data>
+  <data name="Manage Comments" xml:space="preserve">
+    <value>Opmerkingen beheren</value>
   </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Algemene instellingen beheren</value>

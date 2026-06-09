@@ -60,6 +60,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>คลิกเพื่อเข้าสู่ระบบ</value>
   </data>
+  <data name="Comments" xml:space="preserve">
+    <value>ความคิดเห็น</value>
+  </data>
   <data name="Contract" xml:space="preserve">
     <value>สัญญา</value>
   </data>
@@ -134,6 +137,9 @@
   </data>
   <data name="Manage" xml:space="preserve">
     <value>จัดการ</value>
+  </data>
+  <data name="Manage Comments" xml:space="preserve">
+    <value>จัดการความคิดเห็น</value>
   </data>
   <data name="Manage shares" xml:space="preserve">
     <value>จัดการแชร์</value>

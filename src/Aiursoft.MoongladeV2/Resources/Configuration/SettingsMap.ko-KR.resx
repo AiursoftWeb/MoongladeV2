@@ -69,8 +69,14 @@
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>임베딩 쿼리 캐시 제한</value>
   </data>
+  <data name="Enable Comments" xml:space="preserve">
+    <value>댓글 활성화</value>
+  </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>임베딩 기반 검색 활성화</value>
+  </data>
+  <data name="Enable the comment system on all blog posts." xml:space="preserve">
+    <value>모든 블로그 게시글에 댓글 시스템을 활성화합니다.</value>
   </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP 번호</value>
@@ -107,6 +113,12 @@
   </data>
   <data name="Project Name" xml:space="preserve">
     <value>프로젝트 이름</value>
+  </data>
+  <data name="Require admin approval before comments are publicly visible." xml:space="preserve">
+    <value>댓글이 공개되기 전에 관리자 승인을 요구합니다.</value>
+  </data>
+  <data name="Require Comment Review" xml:space="preserve">
+    <value>댓글 검토 필요</value>
   </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>계약 헤더 표시</value>

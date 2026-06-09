@@ -69,8 +69,14 @@
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>Ліміт кешу запитів ембедінгів</value>
   </data>
+  <data name="Enable Comments" xml:space="preserve">
+    <value>Увімкнути коментарі</value>
+  </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>Увімкнути пошук на основі ембедингів</value>
+  </data>
+  <data name="Enable the comment system on all blog posts." xml:space="preserve">
+    <value>Увімкнути систему коментарів для всіх дописів у блозі.</value>
   </data>
   <data name="ICP Number" xml:space="preserve">
     <value>Номер ICP</value>
@@ -107,6 +113,12 @@
   </data>
   <data name="Project Name" xml:space="preserve">
     <value>Назва проекту</value>
+  </data>
+  <data name="Require admin approval before comments are publicly visible." xml:space="preserve">
+    <value>Вимагати схвалення адміністратором, перш ніж коментарі стануть загальнодоступними.</value>
+  </data>
+  <data name="Require Comment Review" xml:space="preserve">
+    <value>Обов&apos;язковий перегляд коментарів</value>
   </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>Показати заголовок договору</value>

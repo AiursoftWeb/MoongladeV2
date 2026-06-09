@@ -69,8 +69,14 @@
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>एम्बेडिंग क्वेरी कैश सीमा</value>
   </data>
+  <data name="Enable Comments" xml:space="preserve">
+    <value>टिप्पणियां सक्षम करें</value>
+  </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>एम्बेडिंग-आधारित खोज सक्षम करें</value>
+  </data>
+  <data name="Enable the comment system on all blog posts." xml:space="preserve">
+    <value>सभी ब्लॉग पोस्ट पर टिप्पणी प्रणाली को सक्षम करें।</value>
   </data>
   <data name="ICP Number" xml:space="preserve">
     <value>आईसीपी नंबर</value>
@@ -107,6 +113,12 @@
   </data>
   <data name="Project Name" xml:space="preserve">
     <value>प्रोजेक्ट का नाम</value>
+  </data>
+  <data name="Require admin approval before comments are publicly visible." xml:space="preserve">
+    <value>टिप्पणियाँ सार्वजनिक रूप से दिखाई देने से पहले प्रशासनिक अनुमति आवश्यक है।</value>
+  </data>
+  <data name="Require Comment Review" xml:space="preserve">
+    <value>टिप्पणी समीक्षा आवश्यक करें</value>
   </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>समझौता शीर्षक दिखाएं</value>

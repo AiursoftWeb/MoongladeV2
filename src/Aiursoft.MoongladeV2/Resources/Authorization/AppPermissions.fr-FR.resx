@@ -69,6 +69,9 @@
   <data name="Allows viewing the list of roles and their assigned permissions." xml:space="preserve">
     <value>Permet de visualiser la liste des rôles et leurs permissions attribuées.</value>
   </data>
+  <data name="Allows viewing, approving, and deleting comments on blog posts." xml:space="preserve">
+    <value>Permet de visualiser, approuver et supprimer les commentaires sur les articles de blog.</value>
+  </data>
   <data name="Assign Roles to Users" xml:space="preserve">
     <value>Attribuer des rôles aux utilisateurs</value>
   </data>
@@ -101,6 +104,9 @@
   </data>
   <data name="Manage Any Share" xml:space="preserve">
     <value>Gérer n&apos;importe quel partage</value>
+  </data>
+  <data name="Manage Comments" xml:space="preserve">
+    <value>Gérer les commentaires</value>
   </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Gérer les paramètres globaux</value>
