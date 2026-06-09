@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Handlinger</value>
+  </data>
+  <data name="All Comments" xml:space="preserve">
+    <value>Alle kommentarer</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Godkendt</value>
+  </data>
+  <data name="Are you sure you want to delete the selected comments?" xml:space="preserve">
+    <value>Er du sikker på, at du vil slette de valgte kommentarer?</value>
+  </data>
+  <data name="Are you sure you want to delete this comment and all its replies?" xml:space="preserve">
+    <value>Er du sikker på, at du vil slette denne kommentar og alle dens svar?</value>
+  </data>
+  <data name="Are you sure you want to delete this reply?" xml:space="preserve">
+    <value>Er du sikker på, at du vil slette dette svar?</value>
+  </data>
+  <data name="Author" xml:space="preserve">
+    <value>Forfatter</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Kommentar</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Dato</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Slet</value>
+  </data>
+  <data name="Delete Selected" xml:space="preserve">
+    <value>Slet udvalgte</value>
+  </data>
+  <data name="Manage Comments" xml:space="preserve">
+    <value>Administrer kommentarer</value>
+  </data>
+  <data name="No comments found." xml:space="preserve">
+    <value>Der blev ikke fundet nogen kommentarer.</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Afventer godkendelse</value>
+  </data>
+  <data name="Post" xml:space="preserve">
+    <value>Indlæg</value>
+  </data>
+  <data name="replies" xml:space="preserve">
+    <value>svar</value>
+  </data>
+  <data name="Reply:" xml:space="preserve">
+    <value>Svar:</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="total comments" xml:space="preserve">
+    <value>i alt kommentarer</value>
+  </data>
+  <data name="View, approve, and delete comments on blog posts." xml:space="preserve">
+    <value>Vis, godkend og slet kommentarer på blogindlæg.</value>
+  </data>
+
+</root>
