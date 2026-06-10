@@ -18,8 +18,38 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to posts" xml:space="preserve">
+      <data name="Are you sure you want to delete this comment?" xml:space="preserve">
+    <value>क्या आप वाकई इस टिप्पणी को हटाना चाहते हैं?</value>
+  </data>
+  <data name="Are you sure you want to delete this reply?" xml:space="preserve">
+    <value>क्या आप वाकई इस उत्तर को हटाना चाहते हैं?</value>
+  </data>
+  <data name="Back to posts" xml:space="preserve">
     <value>पोस्ट पर वापस जाएं</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>टिप्पणियाँ</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>हटाएँ</value>
+  </data>
+  <data name="Login to comment" xml:space="preserve">
+    <value>टिप्पणी लिखने के लिए लॉगिन करें</value>
+  </data>
+  <data name="No comments yet. Be the first to leave one!" xml:space="preserve">
+    <value>अभी तक कोई टिप्पणी नहीं। इसे छोड़ने वाला पहला बनें!</value>
+  </data>
+  <data name="Post Comment" xml:space="preserve">
+    <value>टिप्पणी पोस्ट करें</value>
+  </data>
+  <data name="Reply" xml:space="preserve">
+    <value>उत्तर दें</value>
+  </data>
+  <data name="Send Reply" xml:space="preserve">
+    <value>प्रतिक्रिया भेजें</value>
+  </data>
+  <data name="Write your comment…" xml:space="preserve">
+    <value>अपना टिप्पणी लिखें…</value>
   </data>
 
 </root>
