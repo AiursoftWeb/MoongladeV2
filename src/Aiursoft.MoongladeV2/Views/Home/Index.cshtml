@@ -15,7 +15,7 @@
         </div>
         <div class="alert-message">
             <strong>@Localizer["Success!"]</strong>
-            @Localizer["Document updated successfully."]
+            @Localizer["Post updated successfully."]
         </div>
     </div>
 }
@@ -34,6 +34,7 @@
 </div>
 
 <form asp-action="SaveNew" method="post" id="markdown-form" class="d-flex flex-column h-100 pb-0">
+    @Html.AntiForgeryToken()
     <!-- Unified Sticky Toolbar -->
     <div class="sticky-top bg-white border-bottom py-2 px-3 mb-0 d-flex align-items-center justify-content-between z-3" style="box-shadow: 0 2px 4px rgba(0,0,0,.04);">
         <!-- Left: View Switcher -->
@@ -44,7 +45,7 @@
                 <label class="btn btn-outline-secondary" for="view-split-desktop" title="@Localizer["Split View"]"><i class="align-middle" data-lucide="columns"></i></label>
 
                 <input type="radio" class="btn-check" name="view-mode-desktop" id="view-editor-desktop" value="editor" autocomplete="off">
-                <label class="btn btn-outline-secondary px-3" for="view-editor-desktop" title="@Localizer["Editor Only"]"><i class="align-middle" data-lucide="code-2"></i> @Localizer["Code"]</label>
+                <label class="btn btn-outline-secondary px-3" for="view-editor-desktop" title="@Localizer["Editor Only"]"><i class="align-middle" data-lucide="edit-3"></i> @Localizer["Write"]</label>
 
                 <input type="radio" class="btn-check" name="view-mode-desktop" id="view-preview-desktop" value="preview" autocomplete="off">
                 <label class="btn btn-outline-secondary px-3" for="view-preview-desktop" title="@Localizer["Preview Only"]"><i class="align-middle" data-lucide="eye"></i> @Localizer["Preview"]</label>
@@ -63,17 +64,10 @@
         <!-- Middle: Title -->
         <div class="flex-grow-1 px-4 text-center d-flex align-items-center justify-content-center">
             <input type="hidden" asp-for="DocumentId" />
-            @if (Model.IsEditing)
-            {
-                <a asp-action="History" class="btn btn-sm btn-link text-muted text-decoration-none me-2 p-0" title="@Localizer["My Documents"]">
-                    <i class="align-middle" data-lucide="arrow-left" style="width: 20px; height: 20px;"></i>
-                </a>
-                <input asp-for="Title" class="form-control form-control-sm border-0 bg-transparent text-center fw-bold px-0 text-dark" style="max-width: 400px; box-shadow: none; font-size: 1.1rem;" placeholder="@Localizer["Untitled Document"]" />
-            }
-            else
-            {
-                <span class="text-muted fw-bold" style="font-size: 1.1rem;">@Localizer["Create a new document..."]</span>
-            }
+            <a asp-action="History" class="btn btn-sm btn-link text-muted text-decoration-none me-2 p-0" title="@Localizer["My Posts"]">
+                <i class="align-middle" data-lucide="arrow-left" style="width: 20px; height: 20px;"></i>
+            </a>
+            <input asp-for="Title" class="form-control form-control-sm border-0 bg-transparent text-center fw-bold px-0 text-dark" style="max-width: 400px; box-shadow: none; font-size: 1.1rem;" placeholder="@Localizer["Untitled Post"]" />
         </div>
 
         <!-- Right: Actions -->
@@ -98,21 +92,21 @@
                 </a>
                 
                 <a asp-controller="Contract" asp-action="Fill" asp-route-id="@Model.DocumentId" class="btn btn-sm btn-white text-dark shadow-sm"
-                   target="_blank" title="@Localizer["Contract Layout"]">
-                    <i class="align-middle" data-lucide="file-signature"></i> <span class="d-none d-xxl-inline">@Localizer["Contract Layout"]</span>
+                   target="_blank" title="@Localizer["Reader Layout"]">
+                    <i class="align-middle" data-lucide="file-text"></i> <span class="d-none d-xxl-inline">@Localizer["Reader Layout"]</span>
                 </a>
             }
             
             <button type="button" id="print-button" class="btn btn-sm btn-white text-dark shadow-sm" title="@Localizer["Print"]">
                 <i class="align-middle" data-lucide="printer"></i> <span class="d-none d-xxl-inline">@Localizer["Print"]</span>
             </button>
-            <button type="button" id="copy-button" class="btn btn-sm btn-white text-dark shadow-sm" title="@Localizer["Copy HTML"]">
-                <i class="align-middle" data-lucide="copy"></i> <span class="d-none d-xxl-inline">@Localizer["Copy HTML"]</span>
+            <button type="button" id="copy-button" class="btn btn-sm btn-white text-dark shadow-sm" title="@Localizer["Copy Preview HTML"]">
+                <i class="align-middle" data-lucide="copy"></i> <span class="d-none d-xxl-inline">@Localizer["Copy Preview"]</span>
             </button>
 
             @if (User.Identity?.IsAuthenticated ?? false)
             {
-                <button type="button" id="save-button" class="btn btn-sm btn-secondary shadow-sm px-3" disabled="@(Model.IsEditing ? "disabled" : null)">
+                <button type="submit" id="save-button" class="btn btn-sm btn-secondary shadow-sm px-3" disabled="@(Model.IsEditing ? "disabled" : null)">
                     <i class="align-middle" data-lucide="save"></i>
                     <span class="d-none d-md-inline ms-1 fw-bold">@Localizer["Save"]</span>
                 </button>
@@ -127,8 +121,8 @@
         <div id="editor-column" class="col-lg-6 h-100 border-end" style="border-color: #eaecef !important;">
             <div class="h-100 d-flex flex-column bg-white">
                 <div class="flex-grow-1 position-relative editor-wrapper">
-                    <div id="markdown-editor-container" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0;"></div>
-                    <textarea asp-for="InputMarkdown" id="markdown-editor" style="display: none;"></textarea>
+                    <div id="markdown-editor-container"></div>
+                    <textarea asp-for="InputMarkdown" id="markdown-editor" class="form-control markdown-source-fallback" placeholder="@Localizer["Write your post in Markdown..."]"></textarea>
                 </div>
                 <span asp-validation-for="InputMarkdown" class="text-danger px-2 bg-white"></span>
             </div>
@@ -136,12 +130,12 @@
 
         @* --- Right Column: Output & Settings --- *@
         <div id="preview-column" class="col-lg-6 h-100 overflow-auto" style="background-color: #F9FAFB; padding-bottom: 2rem;">
-            <!-- Rendered Output (Paper Style) -->
+            <!-- Rendered Preview -->
             <div id="printable-area" class="bg-white shadow-sm mx-auto p-4 p-md-5 my-0 my-md-4 markdown-content" style="max-width: 21cm; min-height: 29.7cm;">
                 @Html.Raw(Model.OutputHtml)
             </div>
             
-            <!-- Hidden HTML Output for Copying -->
+            <!-- Hidden Preview HTML for Copying -->
             <textarea id="html-output" style="display: none;">@Model.OutputHtml</textarea>
         </div>
     </div>
@@ -234,8 +228,36 @@
             background-color: rgba(0,0,0,0.03) !important;
             border-radius: 4px;
         }
+        #markdown-editor-container {
+            position: absolute;
+            inset: 0;
+            display: none;
+        }
+        .editor-wrapper.monaco-ready #markdown-editor-container {
+            display: block;
+        }
+        .editor-wrapper.monaco-ready #markdown-editor {
+            display: none;
+        }
+        .markdown-source-fallback {
+            height: 100%;
+            min-height: 100%;
+            border: 0;
+            border-radius: 0;
+            resize: none;
+            font-family: 'Cascadia Code', 'Consolas', 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .markdown-source-fallback:focus {
+            box-shadow: none;
+        }
         body[data-theme="dark"] #Title:focus {
             background-color: rgba(255,255,255,0.05) !important;
+        }
+        body[data-theme="dark"] .markdown-source-fallback {
+            background-color: #1e2530 !important;
+            color: #e9ecef !important;
         }
 
         /* Quick save banner */
@@ -295,6 +317,18 @@
     <script id="MathJax-script" async src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            const fallbackEditorElement = document.getElementById('markdown-editor');
+            const fallbackSaveButton = document.getElementById('save-button');
+            const isEditingPage = @(Model.IsEditing.ToString().ToLower());
+
+            if (fallbackEditorElement && fallbackSaveButton) {
+                fallbackEditorElement.addEventListener('input', function () {
+                    if (!isEditingPage) return;
+                    fallbackSaveButton.disabled = false;
+                    fallbackSaveButton.classList.replace('btn-secondary', 'btn-primary');
+                });
+            }
+
             require(['vs/editor/editor.main'], function () {
                 let markdownEditorInstance;
                 const markdownEditorElement = document.getElementById('markdown-editor');
@@ -302,7 +336,9 @@
 
                 // --- Monaco Editor Setup ---
                 if (markdownEditorElement) {
-                    markdownEditorInstance = monaco.editor.create(document.getElementById('markdown-editor-container'), {
+                    const editorWrapper = document.querySelector('.editor-wrapper');
+                    const editorContainer = document.getElementById('markdown-editor-container');
+                    markdownEditorInstance = monaco.editor.create(editorContainer, {
                         value: markdownEditorElement.value,
                         language: 'markdown',
                         theme: monacoTheme,
@@ -313,12 +349,15 @@
                         fontSize: 14,
                         fontLigatures: true
                     });
+                    if (editorWrapper) editorWrapper.classList.add('monaco-ready');
+                    setTimeout(() => markdownEditorInstance.layout(), 0);
 
                     // --- State ---
                     let isDirty = false;
                     const isAuthenticated = @((User.Identity?.IsAuthenticated ?? false).ToString().ToLower());
                     const isEditing = @(Model.IsEditing.ToString().ToLower());
                     const saveButton = document.getElementById('save-button');
+                    const markdownForm = document.getElementById('markdown-form');
 
                     // --- Save Button State ---
                     function updateSaveButtonState() {
@@ -332,6 +371,13 @@
                         }
                     }
                     updateSaveButtonState();
+
+                    if (markdownForm) {
+                        markdownForm.addEventListener('submit', function () {
+                            markdownEditorElement.value = markdownEditorInstance.getValue();
+                            isDirty = false;
+                        });
+                    }
 
                     // --- Math plugin for markdown-it ---
                     // Converts $...$ → \(...\) and $$...$$ → \[...\] so MathJax can render them.
@@ -601,8 +647,8 @@
                     }
 
                     // --- Unified Save ---
-                    // New doc (isEditing=false): form submit → POST SaveNew (full reload).
-                    // Existing doc (isEditing=true): AJAX → POST SaveUpdate (no reload).
+                    // Button click uses normal form submit so fallback textarea can save too.
+                    // Ctrl+S on an existing doc uses AJAX to avoid a page reload.
                     function doSave() {
                         if (!isAuthenticated) return;
                         if (isEditing && !isDirty) return;
@@ -650,9 +696,6 @@
                         });
                     }
 
-                    if (saveButton) {
-                        saveButton.addEventListener('click', doSave);
-                    }
                     if (isAuthenticated) {
                         markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, doSave);
                     }
@@ -818,6 +861,9 @@
                         renderMath();
                         renderHighlight();
                     }
+                    if (markdownEditorInstance && (mode === 'split' || mode === 'editor')) {
+                        setTimeout(() => markdownEditorInstance.layout(), 0);
+                    }
                 }
                 
                 function applyInitialViewMode() {
@@ -830,7 +876,7 @@
                 window.addEventListener('resize', applyInitialViewMode);
                 applyInitialViewMode();
 
-                if ($.validator) $.validator.setDefaults({ ignore: [] });
+                if (window.$ && $.validator) $.validator.setDefaults({ ignore: [] });
 
                 // --- Copy & Print Utils ---
                 const copyButton = document.getElementById('copy-button');

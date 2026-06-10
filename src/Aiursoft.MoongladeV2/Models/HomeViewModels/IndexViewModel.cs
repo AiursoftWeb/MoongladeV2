@@ -10,43 +10,29 @@ public class IndexViewModel : UiStackLayoutViewModel
     [Obsolete("This constructor is only used for framework!", true)]
     public IndexViewModel()
     {
-        PageTitle = "Markdown to HTML Converter";
+        PageTitle = "Post Editor";
     }
 
     public IndexViewModel(string? articleTitle = null)
     {
         if (string.IsNullOrWhiteSpace(articleTitle))
         {
-            articleTitle = "Untitled Document";
+            articleTitle = "Untitled Post";
         }
-        PageTitle = $"{articleTitle} - Markdown to HTML Converter";
+        PageTitle = $"{articleTitle} - Post Editor";
     }
 
     [Required(ErrorMessage = "Please input your markdown content!")]
-    [NoBadWords(ErrorMessage = "The document content contains sensitive words.")]
+    [NoBadWords(ErrorMessage = "The post content contains sensitive words.")]
     public string InputMarkdown { get; set; } = """
-                                                # Hello world!
+                                                # New post
 
-                                                > Quote
+                                                Start writing your post here.
 
-                                                [Link](https://www.aiursoft.com/)
+                                                ## Notes
 
-                                                | Month    | Savings |
-                                                | -------- | ------- |
-                                                | January  | $250    |
-                                                | February | $80     |
-                                                | March    | $420    |
-
-                                                ```mermaid
-                                                graph TD
-                                                A[Start] --> B{Is it working?}
-                                                B -- Yes --> C[Great]
-                                                B -- No  --> D[Fix it]
-                                                D --> B
-                                                C --> E[Finish]
-                                                ```
-
-                                                * **Level 3（底层公理）：** $F = G \frac{m_1 m_2}{r^2}$。
+                                                - Draft the main idea.
+                                                - Add links, images, and code snippets as needed.
 
                                                 """;
 
@@ -58,7 +44,7 @@ public class IndexViewModel : UiStackLayoutViewModel
     public bool IsEditing { get; init; }
 
     [MaxLength(100)]
-    [NoBadWords(ErrorMessage = "The document title contains sensitive words.")]
+    [NoBadWords(ErrorMessage = "The post title contains sensitive words.")]
     public string? Title { get; set; }
 
     /// <summary>
