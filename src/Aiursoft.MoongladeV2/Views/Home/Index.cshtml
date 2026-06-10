@@ -106,7 +106,7 @@
 
             @if (User.Identity?.IsAuthenticated ?? false)
             {
-                <button type="button" id="save-button" class="btn btn-sm btn-secondary shadow-sm px-3" disabled="@(Model.IsEditing ? "disabled" : null)">
+                <button type="submit" id="save-button" class="btn btn-sm btn-secondary shadow-sm px-3" disabled="@(Model.IsEditing ? "disabled" : null)">
                     <i class="align-middle" data-lucide="save"></i>
                     <span class="d-none d-md-inline ms-1 fw-bold">@Localizer["Save"]</span>
                 </button>
@@ -317,6 +317,18 @@
     <script id="MathJax-script" async src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            const fallbackEditorElement = document.getElementById('markdown-editor');
+            const fallbackSaveButton = document.getElementById('save-button');
+            const isEditingPage = @(Model.IsEditing.ToString().ToLower());
+
+            if (fallbackEditorElement && fallbackSaveButton) {
+                fallbackEditorElement.addEventListener('input', function () {
+                    if (!isEditingPage) return;
+                    fallbackSaveButton.disabled = false;
+                    fallbackSaveButton.classList.replace('btn-secondary', 'btn-primary');
+                });
+            }
+
             require(['vs/editor/editor.main'], function () {
                 let markdownEditorInstance;
                 const markdownEditorElement = document.getElementById('markdown-editor');
@@ -345,6 +357,7 @@
                     const isAuthenticated = @((User.Identity?.IsAuthenticated ?? false).ToString().ToLower());
                     const isEditing = @(Model.IsEditing.ToString().ToLower());
                     const saveButton = document.getElementById('save-button');
+                    const markdownForm = document.getElementById('markdown-form');
 
                     // --- Save Button State ---
                     function updateSaveButtonState() {
@@ -358,6 +371,13 @@
                         }
                     }
                     updateSaveButtonState();
+
+                    if (markdownForm) {
+                        markdownForm.addEventListener('submit', function () {
+                            markdownEditorElement.value = markdownEditorInstance.getValue();
+                            isDirty = false;
+                        });
+                    }
 
                     // --- Math plugin for markdown-it ---
                     // Converts $...$ → \(...\) and $$...$$ → \[...\] so MathJax can render them.
@@ -627,8 +647,8 @@
                     }
 
                     // --- Unified Save ---
-                    // New doc (isEditing=false): form submit → POST SaveNew (full reload).
-                    // Existing doc (isEditing=true): AJAX → POST SaveUpdate (no reload).
+                    // Button click uses normal form submit so fallback textarea can save too.
+                    // Ctrl+S on an existing doc uses AJAX to avoid a page reload.
                     function doSave() {
                         if (!isAuthenticated) return;
                         if (isEditing && !isDirty) return;
@@ -676,9 +696,6 @@
                         });
                     }
 
-                    if (saveButton) {
-                        saveButton.addEventListener('click', doSave);
-                    }
                     if (isAuthenticated) {
                         markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, doSave);
                     }
