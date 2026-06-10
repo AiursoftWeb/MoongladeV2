@@ -111,6 +111,12 @@
   <data name="Copy link to clipboard" xml:space="preserve">
     <value>Αντιγραφή συνδέσμου στο πρόχειρο</value>
   </data>
+  <data name="Copy Preview" xml:space="preserve">
+    <value>Αντιγραφή Προεπισκόπησης</value>
+  </data>
+  <data name="Copy Preview HTML" xml:space="preserve">
+    <value>Αντιγραφή HTML προεπισκόπησης</value>
+  </data>
   <data name="Create a new document..." xml:space="preserve">
     <value>Δημιουργήστε ένα νέο έγγραφο...</value>
   </data>
@@ -198,8 +204,14 @@
   <data name="My Documents" xml:space="preserve">
     <value>Τα Έγγραφά Μου</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>Τα Δημοσιεύματά Μου</value>
+  </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>Ενσωμάτωση OpenID Connect</value>
+  </data>
+  <data name="Post updated successfully." xml:space="preserve">
+    <value>Η ανάρτηση ενημερώθηκε με επιτυχία.</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>Προεπισκόπηση</value>
@@ -230,6 +242,9 @@
   </data>
   <data name="Read the document" xml:space="preserve">
     <value>Διαβάστε το έγγραφο</value>
+  </data>
+  <data name="Reader Layout" xml:space="preserve">
+    <value>Διάταξη Αναγνώστη</value>
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>Αποκρισιμό Σχεδιασμό</value>
@@ -285,11 +300,20 @@
   <data name="Untitled Document" xml:space="preserve">
     <value>Έγγραφο χωρίς τίτλο</value>
   </data>
+  <data name="Untitled Post" xml:space="preserve">
+    <value>Μη τιτλοφορημένη ανάρτηση</value>
+  </data>
   <data name="Welcome" xml:space="preserve">
     <value>Καλώς ήρθατε</value>
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
     <value>Γιατί να χρησιμοποιήσετε το Πρότυπο Aiursoft;</value>
+  </data>
+  <data name="Write" xml:space="preserve">
+    <value>Γράψτε</value>
+  </data>
+  <data name="Write your post in Markdown..." xml:space="preserve">
+    <value>Γράψτε τη δημοσίευσή σας στο Markdown...</value>
   </data>
   <data name="Yes, Make Private" xml:space="preserve">
     <value>Ναι, Κάντε το Ιδιωτικό</value>

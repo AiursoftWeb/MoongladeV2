@@ -111,6 +111,12 @@
   <data name="Copy link to clipboard" xml:space="preserve">
     <value>نسخ الرابط إلى الحافظة</value>
   </data>
+  <data name="Copy Preview" xml:space="preserve">
+    <value>نسخ المعاينة</value>
+  </data>
+  <data name="Copy Preview HTML" xml:space="preserve">
+    <value>نسخ HTML للمعاينة</value>
+  </data>
   <data name="Create a new document..." xml:space="preserve">
     <value>إنشاء مستند جديد...</value>
   </data>
@@ -198,8 +204,14 @@
   <data name="My Documents" xml:space="preserve">
     <value>مستنداتي</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>منشوراتي</value>
+  </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>دمج OpenID Connect</value>
+  </data>
+  <data name="Post updated successfully." xml:space="preserve">
+    <value>تم تحديث المقال بنجاح.</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>معاينة</value>
@@ -230,6 +242,9 @@
   </data>
   <data name="Read the document" xml:space="preserve">
     <value>اقرأ المستند</value>
+  </data>
+  <data name="Reader Layout" xml:space="preserve">
+    <value>تخطيط القارئ</value>
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>تصميم متجاوب</value>
@@ -285,11 +300,20 @@
   <data name="Untitled Document" xml:space="preserve">
     <value>وثيقة غير معنونة</value>
   </data>
+  <data name="Untitled Post" xml:space="preserve">
+    <value>مشاركة بدون عنوان</value>
+  </data>
   <data name="Welcome" xml:space="preserve">
     <value>مرحباً بك</value>
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
     <value>لماذا تستخدم قالب Aiursoft؟</value>
+  </data>
+  <data name="Write" xml:space="preserve">
+    <value>كتابة</value>
+  </data>
+  <data name="Write your post in Markdown..." xml:space="preserve">
+    <value>اكتب منشورك باستخدام Markdown...</value>
   </data>
   <data name="Yes, Make Private" xml:space="preserve">
     <value>نعم، اجعله خاصًا</value>

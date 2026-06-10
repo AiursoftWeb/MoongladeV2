@@ -21,11 +21,17 @@
       <data name="A list of all documents you have created." xml:space="preserve">
     <value>รายการเอกสารทั้งหมดที่คุณได้สร้างขึ้น</value>
   </data>
+  <data name="A list of all posts you have created." xml:space="preserve">
+    <value>รายการโพสต์ทั้งหมดที่คุณสร้างไว้</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>การดำเนินการ</value>
   </data>
   <data name="All My Documents" xml:space="preserve">
     <value>เอกสารทั้งหมดของฉัน</value>
+  </data>
+  <data name="All My Posts" xml:space="preserve">
+    <value>โพสต์ทั้งหมดของฉัน</value>
   </data>
   <data name="Clear" xml:space="preserve">
     <value>ล้าง</value>
@@ -51,11 +57,17 @@
   <data name="My Documents" xml:space="preserve">
     <value>เอกสารของฉัน</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>โพสต์ของฉัน</value>
+  </data>
   <data name="No documents found for your search query." xml:space="preserve">
     <value>ไม่พบเอกสารใด ๆ สำหรับคำค้นหาของคุณ</value>
   </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>ไม่พบเอกสารที่ตรงกับการค้นหาของคุณ</value>
+  </data>
+  <data name="No posts found for your search query." xml:space="preserve">
+    <value>ไม่พบโพสต์ที่ตรงกับคำค้นหาของคุณ</value>
   </data>
   <data name="Private" xml:space="preserve">
     <value>ส่วนตัว</value>
@@ -72,6 +84,12 @@
   <data name="Search my documents..." xml:space="preserve">
     <value>ค้นหาเอกสารของฉัน...</value>
   </data>
+  <data name="Search my posts" xml:space="preserve">
+    <value>ค้นหาโพสต์ของฉัน</value>
+  </data>
+  <data name="Search my posts..." xml:space="preserve">
+    <value>ค้นหาโพสต์ของฉัน...</value>
+  </data>
   <data name="Share" xml:space="preserve">
     <value>แชร์</value>
   </data>
@@ -84,8 +102,14 @@
   <data name="Visibility" xml:space="preserve">
     <value>การมองเห็น</value>
   </data>
+  <data name="Write a new post" xml:space="preserve">
+    <value>เขียนบทความใหม่</value>
+  </data>
   <data name="You have not created any documents yet." xml:space="preserve">
     <value>คุณยังไม่ได้สร้างเอกสารใดๆ</value>
+  </data>
+  <data name="You have not created any posts yet." xml:space="preserve">
+    <value>คุณยังไม่ได้สร้างโพสต์ใดๆ เลย</value>
   </data>
 
 </root>

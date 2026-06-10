@@ -111,6 +111,12 @@
   <data name="Copy link to clipboard" xml:space="preserve">
     <value>Salin tautan ke papan klip</value>
   </data>
+  <data name="Copy Preview" xml:space="preserve">
+    <value>Salin Pratinjau</value>
+  </data>
+  <data name="Copy Preview HTML" xml:space="preserve">
+    <value>Salin HTML Pratinjau</value>
+  </data>
   <data name="Create a new document..." xml:space="preserve">
     <value>Buat dokumen baru...</value>
   </data>
@@ -198,8 +204,14 @@
   <data name="My Documents" xml:space="preserve">
     <value>Dokumen Saya</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>Pos Saya</value>
+  </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>Integrasi OpenID Connect</value>
+  </data>
+  <data name="Post updated successfully." xml:space="preserve">
+    <value>Postingan berhasil diperbarui.</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>Pratinjau</value>
@@ -230,6 +242,9 @@
   </data>
   <data name="Read the document" xml:space="preserve">
     <value>Baca dokumen</value>
+  </data>
+  <data name="Reader Layout" xml:space="preserve">
+    <value>Tata Letak Pembaca</value>
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>Desain Responsif</value>
@@ -285,11 +300,20 @@
   <data name="Untitled Document" xml:space="preserve">
     <value>Dokumen Tanpa Judul</value>
   </data>
+  <data name="Untitled Post" xml:space="preserve">
+    <value>Pos Tanpa Judul</value>
+  </data>
   <data name="Welcome" xml:space="preserve">
     <value>Selamat datang</value>
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
     <value>Mengapa Menggunakan Template Aiursoft?</value>
+  </data>
+  <data name="Write" xml:space="preserve">
+    <value>Tulis</value>
+  </data>
+  <data name="Write your post in Markdown..." xml:space="preserve">
+    <value>Tulis postingan Anda dalam Markdown...</value>
   </data>
   <data name="Yes, Make Private" xml:space="preserve">
     <value>Ya, Buat Pribadi</value>

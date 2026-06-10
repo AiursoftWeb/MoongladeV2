@@ -111,6 +111,12 @@
   <data name="Copy link to clipboard" xml:space="preserve">
     <value>คัดลอกลิงก์ไปยังคลิปบอร์ด</value>
   </data>
+  <data name="Copy Preview" xml:space="preserve">
+    <value>คัดลอกหน้าแสดงตัวอย่าง</value>
+  </data>
+  <data name="Copy Preview HTML" xml:space="preserve">
+    <value>คัดลอก HTML ของการดูตัวอย่าง</value>
+  </data>
   <data name="Create a new document..." xml:space="preserve">
     <value>สร้างเอกสารใหม่...</value>
   </data>
@@ -198,8 +204,14 @@
   <data name="My Documents" xml:space="preserve">
     <value>เอกสารของฉัน</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>โพสต์ของฉัน</value>
+  </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>การผสานรวม OpenID Connect</value>
+  </data>
+  <data name="Post updated successfully." xml:space="preserve">
+    <value>อัปเดตโพสต์สำเร็จแล้ว</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>แสดงตัวอย่าง</value>
@@ -230,6 +242,9 @@
   </data>
   <data name="Read the document" xml:space="preserve">
     <value>อ่านเอกสาร</value>
+  </data>
+  <data name="Reader Layout" xml:space="preserve">
+    <value>เลย์เอาต์สำหรับอ่าน</value>
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>การออกแบบที่ตอบสนองต่ออุปกรณ์</value>
@@ -285,11 +300,20 @@
   <data name="Untitled Document" xml:space="preserve">
     <value>เอกสารที่ยังไม่ได้ตั้งชื่อ</value>
   </data>
+  <data name="Untitled Post" xml:space="preserve">
+    <value>โพสต์ไร้ชื่อ</value>
+  </data>
   <data name="Welcome" xml:space="preserve">
     <value>ยินดีต้อนรับ</value>
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
     <value>ทำไมจึงควรใช้ Aiursoft Template?</value>
+  </data>
+  <data name="Write" xml:space="preserve">
+    <value>เขียน</value>
+  </data>
+  <data name="Write your post in Markdown..." xml:space="preserve">
+    <value>เขียนโพสต์ด้วย Markdown...</value>
   </data>
   <data name="Yes, Make Private" xml:space="preserve">
     <value>ใช่, ตั้งค่าเป็นส่วนตัว</value>

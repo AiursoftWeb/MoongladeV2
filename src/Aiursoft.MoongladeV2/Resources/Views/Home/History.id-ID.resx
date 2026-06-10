@@ -21,11 +21,17 @@
       <data name="A list of all documents you have created." xml:space="preserve">
     <value>Daftar semua dokumen yang telah Anda buat.</value>
   </data>
+  <data name="A list of all posts you have created." xml:space="preserve">
+    <value>Daftar semua pos yang Anda buat.</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Tindakan</value>
   </data>
   <data name="All My Documents" xml:space="preserve">
     <value>Semua Dokumen Saya</value>
+  </data>
+  <data name="All My Posts" xml:space="preserve">
+    <value>Semua Postingan Saya</value>
   </data>
   <data name="Clear" xml:space="preserve">
     <value>Hapus</value>
@@ -51,11 +57,17 @@
   <data name="My Documents" xml:space="preserve">
     <value>Dokumen Saya</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>Postingan Saya</value>
+  </data>
   <data name="No documents found for your search query." xml:space="preserve">
     <value>Tidak ditemukan dokumen untuk kata kunci pencarian Anda.</value>
   </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>Tidak ada dokumen yang cocok dengan pencarian Anda.</value>
+  </data>
+  <data name="No posts found for your search query." xml:space="preserve">
+    <value>Tidak ada posting yang ditemukan untuk kueri pencarian Anda.</value>
   </data>
   <data name="Private" xml:space="preserve">
     <value>Pribadi</value>
@@ -72,6 +84,12 @@
   <data name="Search my documents..." xml:space="preserve">
     <value>Cari dokumen saya...</value>
   </data>
+  <data name="Search my posts" xml:space="preserve">
+    <value>Cari posting saya</value>
+  </data>
+  <data name="Search my posts..." xml:space="preserve">
+    <value>Cari postingan saya...</value>
+  </data>
   <data name="Share" xml:space="preserve">
     <value>Bagikan</value>
   </data>
@@ -84,8 +102,14 @@
   <data name="Visibility" xml:space="preserve">
     <value>Visibilitas</value>
   </data>
+  <data name="Write a new post" xml:space="preserve">
+    <value>Tulis postingan baru</value>
+  </data>
   <data name="You have not created any documents yet." xml:space="preserve">
     <value>Anda belum membuat dokumen apa pun.</value>
+  </data>
+  <data name="You have not created any posts yet." xml:space="preserve">
+    <value>Anda belum membuat postingan apa pun.</value>
   </data>
 
 </root>

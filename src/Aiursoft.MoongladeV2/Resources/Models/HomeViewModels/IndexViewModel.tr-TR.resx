@@ -30,5 +30,11 @@
   <data name="The document title contains sensitive words." xml:space="preserve">
     <value>Belge başlığı hassas kelimeler içeriyor.</value>
   </data>
+  <data name="The post content contains sensitive words." xml:space="preserve">
+    <value>Gönderi içeriği hassas kelimeler içeriyor.</value>
+  </data>
+  <data name="The post title contains sensitive words." xml:space="preserve">
+    <value>Gönderi başlığı hassas kelimeler içeriyor.</value>
+  </data>
 
 </root>

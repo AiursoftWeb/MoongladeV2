@@ -153,6 +153,9 @@
   <data name="My Documents History" xml:space="preserve">
     <value>我的文件歷史</value>
   </data>
+  <data name="My posts" xml:space="preserve">
+    <value>我的文章</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>找不到</value>
   </data>
@@ -167,6 +170,9 @@
   </data>
   <data name="Post" xml:space="preserve">
     <value>文章</value>
+  </data>
+  <data name="Post Editor" xml:space="preserve">
+    <value>文章編輯器</value>
   </data>
   <data name="Profile" xml:space="preserve">
     <value>個人檔案</value>
@@ -233,6 +239,9 @@
   </data>
   <data name="Users" xml:space="preserve">
     <value>使用者</value>
+  </data>
+  <data name="Write Post" xml:space="preserve">
+    <value>撰寫文章</value>
   </data>
 
 </root>

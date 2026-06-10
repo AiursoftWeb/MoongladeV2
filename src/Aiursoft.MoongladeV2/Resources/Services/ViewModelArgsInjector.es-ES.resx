@@ -153,6 +153,9 @@
   <data name="My Documents History" xml:space="preserve">
     <value>Historial de mis documentos</value>
   </data>
+  <data name="My posts" xml:space="preserve">
+    <value>Mis publicaciones</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>No encontrado</value>
   </data>
@@ -167,6 +170,9 @@
   </data>
   <data name="Post" xml:space="preserve">
     <value>Publicación</value>
+  </data>
+  <data name="Post Editor" xml:space="preserve">
+    <value>Editor de publicaciones</value>
   </data>
   <data name="Profile" xml:space="preserve">
     <value>Perfil</value>
@@ -233,6 +239,9 @@
   </data>
   <data name="Users" xml:space="preserve">
     <value>Usuarios</value>
+  </data>
+  <data name="Write Post" xml:space="preserve">
+    <value>Escribir entrada</value>
   </data>
 
 </root>

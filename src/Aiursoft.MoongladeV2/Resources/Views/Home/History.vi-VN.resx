@@ -21,11 +21,17 @@
       <data name="A list of all documents you have created." xml:space="preserve">
     <value>Danh sách tất cả tài liệu bạn đã tạo.</value>
   </data>
+  <data name="A list of all posts you have created." xml:space="preserve">
+    <value>Danh sách tất cả các bài viết bạn đã tạo.</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Hành động</value>
   </data>
   <data name="All My Documents" xml:space="preserve">
     <value>Tất Cả Tài Liệu Của Tôi</value>
+  </data>
+  <data name="All My Posts" xml:space="preserve">
+    <value>Tất cả bài viết của tôi</value>
   </data>
   <data name="Clear" xml:space="preserve">
     <value>Xóa</value>
@@ -51,11 +57,17 @@
   <data name="My Documents" xml:space="preserve">
     <value>Tài liệu của tôi</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>Bài viết của tôi</value>
+  </data>
   <data name="No documents found for your search query." xml:space="preserve">
     <value>Không tìm thấy tài liệu nào cho truy vấn tìm kiếm của bạn.</value>
   </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>Không có tài liệu nào phù hợp với tìm kiếm của bạn.</value>
+  </data>
+  <data name="No posts found for your search query." xml:space="preserve">
+    <value>Không tìm thấy bài đăng nào phù hợp với truy vấn tìm kiếm của bạn.</value>
   </data>
   <data name="Private" xml:space="preserve">
     <value>Riêng tư</value>
@@ -72,6 +84,12 @@
   <data name="Search my documents..." xml:space="preserve">
     <value>Tìm kiếm tài liệu của tôi...</value>
   </data>
+  <data name="Search my posts" xml:space="preserve">
+    <value>Tìm kiếm bài viết của tôi</value>
+  </data>
+  <data name="Search my posts..." xml:space="preserve">
+    <value>Tìm kiếm bài viết của tôi...</value>
+  </data>
   <data name="Share" xml:space="preserve">
     <value>Chia sẻ</value>
   </data>
@@ -84,8 +102,14 @@
   <data name="Visibility" xml:space="preserve">
     <value>Mức độ hiển thị</value>
   </data>
+  <data name="Write a new post" xml:space="preserve">
+    <value>Viết bài viết mới</value>
+  </data>
   <data name="You have not created any documents yet." xml:space="preserve">
     <value>Bạn chưa tạo tài liệu nào.</value>
+  </data>
+  <data name="You have not created any posts yet." xml:space="preserve">
+    <value>Bạn chưa tạo bất kỳ bài viết nào.</value>
   </data>
 
 </root>

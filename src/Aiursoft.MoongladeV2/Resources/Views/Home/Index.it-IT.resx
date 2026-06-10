@@ -111,6 +111,12 @@
   <data name="Copy link to clipboard" xml:space="preserve">
     <value>Copia link negli appunti</value>
   </data>
+  <data name="Copy Preview" xml:space="preserve">
+    <value>Copia anteprima</value>
+  </data>
+  <data name="Copy Preview HTML" xml:space="preserve">
+    <value>Copia HTML anteprima</value>
+  </data>
   <data name="Create a new document..." xml:space="preserve">
     <value>Crea un nuovo documento...</value>
   </data>
@@ -198,8 +204,14 @@
   <data name="My Documents" xml:space="preserve">
     <value>I miei documenti</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>I miei post</value>
+  </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>Integrazione OpenID Connect</value>
+  </data>
+  <data name="Post updated successfully." xml:space="preserve">
+    <value>Post aggiornato con successo.</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>Anteprima</value>
@@ -230,6 +242,9 @@
   </data>
   <data name="Read the document" xml:space="preserve">
     <value>Leggi il documento</value>
+  </data>
+  <data name="Reader Layout" xml:space="preserve">
+    <value>Layout Lettore</value>
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>Design Reattivo</value>
@@ -285,11 +300,20 @@
   <data name="Untitled Document" xml:space="preserve">
     <value>Documento senza titolo</value>
   </data>
+  <data name="Untitled Post" xml:space="preserve">
+    <value>Articolo senza titolo</value>
+  </data>
   <data name="Welcome" xml:space="preserve">
     <value>Benvenuto</value>
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
     <value>Perché usare il Template Aiursoft?</value>
+  </data>
+  <data name="Write" xml:space="preserve">
+    <value>Scrivi</value>
+  </data>
+  <data name="Write your post in Markdown..." xml:space="preserve">
+    <value>Scrivi il tuo post in Markdown...</value>
   </data>
   <data name="Yes, Make Private" xml:space="preserve">
     <value>Sì, rendi privato</value>

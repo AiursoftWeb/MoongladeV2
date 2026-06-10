@@ -21,11 +21,17 @@
       <data name="A list of all documents you have created." xml:space="preserve">
     <value>Lista wszystkich dokumentów, które utworzyłeś.</value>
   </data>
+  <data name="A list of all posts you have created." xml:space="preserve">
+    <value>Lista wszystkich utworzonych przez Ciebie wpisów.</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Akcje</value>
   </data>
   <data name="All My Documents" xml:space="preserve">
     <value>Wszystkie moje dokumenty</value>
+  </data>
+  <data name="All My Posts" xml:space="preserve">
+    <value>Wszystkie moje wpisy</value>
   </data>
   <data name="Clear" xml:space="preserve">
     <value>Wyczyść</value>
@@ -51,11 +57,17 @@
   <data name="My Documents" xml:space="preserve">
     <value>Moje Dokumenty</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>Moje wpisy</value>
+  </data>
   <data name="No documents found for your search query." xml:space="preserve">
     <value>Nie znaleziono dokumentów dla Twojego zapytania wyszukiwania.</value>
   </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>Nie znaleziono dokumentów pasujących do wyszukiwania.</value>
+  </data>
+  <data name="No posts found for your search query." xml:space="preserve">
+    <value>Nie znaleziono wpisów dla zapytania wyszukiwania.</value>
   </data>
   <data name="Private" xml:space="preserve">
     <value>Prywatny</value>
@@ -72,6 +84,12 @@
   <data name="Search my documents..." xml:space="preserve">
     <value>Przeszukaj moje dokumenty...</value>
   </data>
+  <data name="Search my posts" xml:space="preserve">
+    <value>Szukaj w moich wpisach</value>
+  </data>
+  <data name="Search my posts..." xml:space="preserve">
+    <value>Szukaj w moich wpisach...</value>
+  </data>
   <data name="Share" xml:space="preserve">
     <value>Udostępnij</value>
   </data>
@@ -84,8 +102,14 @@
   <data name="Visibility" xml:space="preserve">
     <value>Widoczność</value>
   </data>
+  <data name="Write a new post" xml:space="preserve">
+    <value>Napisz nowy wpis</value>
+  </data>
   <data name="You have not created any documents yet." xml:space="preserve">
     <value>Nie utworzyłeś jeszcze żadnych dokumentów.</value>
+  </data>
+  <data name="You have not created any posts yet." xml:space="preserve">
+    <value>Nie utworzyłeś jeszcze żadnych wpisów.</value>
   </data>
 
 </root>

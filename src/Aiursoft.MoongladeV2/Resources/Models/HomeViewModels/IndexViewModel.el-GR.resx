@@ -30,5 +30,11 @@
   <data name="The document title contains sensitive words." xml:space="preserve">
     <value>Ο τίτλος του εγγράφου περιέχει λέξεις ευαίσθητου περιεχομένου.</value>
   </data>
+  <data name="The post content contains sensitive words." xml:space="preserve">
+    <value>Το περιεχόμενο της αναρτησης περιέχει ευαίσθητες λέξεις.</value>
+  </data>
+  <data name="The post title contains sensitive words." xml:space="preserve">
+    <value>Ο τίτλος της δημοσίευσης περιέχει ευαίσθητες λέξεις.</value>
+  </data>
 
 </root>

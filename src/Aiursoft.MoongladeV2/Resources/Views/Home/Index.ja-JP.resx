@@ -111,6 +111,12 @@
   <data name="Copy link to clipboard" xml:space="preserve">
     <value>リンクをクリップボードにコピー</value>
   </data>
+  <data name="Copy Preview" xml:space="preserve">
+    <value>プレビューをコピー</value>
+  </data>
+  <data name="Copy Preview HTML" xml:space="preserve">
+    <value>プレビューHTMLをコピー</value>
+  </data>
   <data name="Create a new document..." xml:space="preserve">
     <value>新規ドキュメントを作成...</value>
   </data>
@@ -198,8 +204,14 @@
   <data name="My Documents" xml:space="preserve">
     <value>マイドキュメント</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>投稿履歴</value>
+  </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>OpenID Connect 連携</value>
+  </data>
+  <data name="Post updated successfully." xml:space="preserve">
+    <value>投稿が正常に更新されました。</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>プレビュー</value>
@@ -230,6 +242,9 @@
   </data>
   <data name="Read the document" xml:space="preserve">
     <value>ドキュメントを読む</value>
+  </data>
+  <data name="Reader Layout" xml:space="preserve">
+    <value>読書モード</value>
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>レスポンシブデザイン</value>
@@ -285,11 +300,20 @@
   <data name="Untitled Document" xml:space="preserve">
     <value>無題ドキュメント</value>
   </data>
+  <data name="Untitled Post" xml:space="preserve">
+    <value>無題の投稿</value>
+  </data>
   <data name="Welcome" xml:space="preserve">
     <value>ようこそ</value>
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
     <value>Aiursoftテンプレートを使用する理由</value>
+  </data>
+  <data name="Write" xml:space="preserve">
+    <value>編集</value>
+  </data>
+  <data name="Write your post in Markdown..." xml:space="preserve">
+    <value>Markdownで投稿を書き込み...</value>
   </data>
   <data name="Yes, Make Private" xml:space="preserve">
     <value>はい、非公開にする</value>

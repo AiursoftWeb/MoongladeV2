@@ -30,5 +30,11 @@
   <data name="The document title contains sensitive words." xml:space="preserve">
     <value>Asiakirjan otsikko sisältää arkaluontoisia sanoja.</value>
   </data>
+  <data name="The post content contains sensitive words." xml:space="preserve">
+    <value>Julkaisun sisältö sisältää sensitiivisiä sanoja.</value>
+  </data>
+  <data name="The post title contains sensitive words." xml:space="preserve">
+    <value>Julkaisun otsikko sisältää herkkiä sanoja.</value>
+  </data>
 
 </root>

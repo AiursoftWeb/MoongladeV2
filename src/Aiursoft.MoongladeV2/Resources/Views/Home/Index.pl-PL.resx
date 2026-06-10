@@ -111,6 +111,12 @@
   <data name="Copy link to clipboard" xml:space="preserve">
     <value>Skopiuj link do schowka</value>
   </data>
+  <data name="Copy Preview" xml:space="preserve">
+    <value>Kopiuj podgląd</value>
+  </data>
+  <data name="Copy Preview HTML" xml:space="preserve">
+    <value>Kopiuj podgląd HTML</value>
+  </data>
   <data name="Create a new document..." xml:space="preserve">
     <value>Utwórz nowy dokument...</value>
   </data>
@@ -198,8 +204,14 @@
   <data name="My Documents" xml:space="preserve">
     <value>Moje Dokumenty</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>Moje wpisy</value>
+  </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>Integracja OpenID Connect</value>
+  </data>
+  <data name="Post updated successfully." xml:space="preserve">
+    <value>Post zaktualizowany pomyślnie.</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>Podgląd</value>
@@ -230,6 +242,9 @@
   </data>
   <data name="Read the document" xml:space="preserve">
     <value>Przeczytaj dokumentację</value>
+  </data>
+  <data name="Reader Layout" xml:space="preserve">
+    <value>Widok czytelniczki</value>
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>Responsywny Design</value>
@@ -285,11 +300,20 @@
   <data name="Untitled Document" xml:space="preserve">
     <value>Dokument bez tytułu</value>
   </data>
+  <data name="Untitled Post" xml:space="preserve">
+    <value>Nie zatytułowany wpis</value>
+  </data>
   <data name="Welcome" xml:space="preserve">
     <value>Witaj</value>
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
     <value>Dlaczego warto używać szablonu Aiursoft?</value>
+  </data>
+  <data name="Write" xml:space="preserve">
+    <value>Pisz</value>
+  </data>
+  <data name="Write your post in Markdown..." xml:space="preserve">
+    <value>Napisz swój wpis w Markdown...</value>
   </data>
   <data name="Yes, Make Private" xml:space="preserve">
     <value>Tak, ustaw jako prywatny</value>

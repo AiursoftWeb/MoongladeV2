@@ -21,11 +21,17 @@
       <data name="A list of all documents you have created." xml:space="preserve">
     <value>आपके द्वारा बनाए गए सभी दस्तावेज़ों की सूची।</value>
   </data>
+  <data name="A list of all posts you have created." xml:space="preserve">
+    <value>आपके द्वारा बनाई गई सभी पोस्टों की सूची।</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>कार्रवाइयाँ</value>
   </data>
   <data name="All My Documents" xml:space="preserve">
     <value>मेरे सभी दस्तावेज़</value>
+  </data>
+  <data name="All My Posts" xml:space="preserve">
+    <value>मेरी सभी प्रकाशित रचनाएँ</value>
   </data>
   <data name="Clear" xml:space="preserve">
     <value>साफ़ करें</value>
@@ -51,11 +57,17 @@
   <data name="My Documents" xml:space="preserve">
     <value>मेरे दस्तावेज़</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>मेरे पोस्ट</value>
+  </data>
   <data name="No documents found for your search query." xml:space="preserve">
     <value>आपके खोज के लिए कोई दस्तावेज़ नहीं मिले।</value>
   </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>आपकी खोज से कोई भी दस्तावेज़ मेल नहीं खाता।</value>
+  </data>
+  <data name="No posts found for your search query." xml:space="preserve">
+    <value>आपके खोज अनुरोध के लिए कोई पोस्ट नहीं मिला।</value>
   </data>
   <data name="Private" xml:space="preserve">
     <value>निजी</value>
@@ -72,6 +84,12 @@
   <data name="Search my documents..." xml:space="preserve">
     <value>मेरे दस्तावेज़ खोजें...</value>
   </data>
+  <data name="Search my posts" xml:space="preserve">
+    <value>मेरे पोस्ट खोजें</value>
+  </data>
+  <data name="Search my posts..." xml:space="preserve">
+    <value>मेरी पोस्ट खोजें...</value>
+  </data>
   <data name="Share" xml:space="preserve">
     <value>साझा करें</value>
   </data>
@@ -84,8 +102,14 @@
   <data name="Visibility" xml:space="preserve">
     <value>दृश्यता</value>
   </data>
+  <data name="Write a new post" xml:space="preserve">
+    <value>नया पोस्ट लिखें</value>
+  </data>
   <data name="You have not created any documents yet." xml:space="preserve">
     <value>आपने अभी तक कोई दस्तावेज़ नहीं बनाया है।</value>
+  </data>
+  <data name="You have not created any posts yet." xml:space="preserve">
+    <value>आपने अभी तक कोई पोस्ट नहीं बनाया है।</value>
   </data>
 
 </root>

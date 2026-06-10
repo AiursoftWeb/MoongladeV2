@@ -153,6 +153,9 @@
   <data name="My Documents History" xml:space="preserve">
     <value>내 문서 기록</value>
   </data>
+  <data name="My posts" xml:space="preserve">
+    <value>내 글</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>찾을 수 없음</value>
   </data>
@@ -167,6 +170,9 @@
   </data>
   <data name="Post" xml:space="preserve">
     <value>게시물</value>
+  </data>
+  <data name="Post Editor" xml:space="preserve">
+    <value>게시물 편집기</value>
   </data>
   <data name="Profile" xml:space="preserve">
     <value>프로필</value>
@@ -233,6 +239,9 @@
   </data>
   <data name="Users" xml:space="preserve">
     <value>사용자</value>
+  </data>
+  <data name="Write Post" xml:space="preserve">
+    <value>글 작성</value>
   </data>
 
 </root>

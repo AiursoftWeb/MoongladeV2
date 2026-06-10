@@ -111,6 +111,12 @@
   <data name="Copy link to clipboard" xml:space="preserve">
     <value>링크를 클립보드에 복사</value>
   </data>
+  <data name="Copy Preview" xml:space="preserve">
+    <value>미리보기 복사</value>
+  </data>
+  <data name="Copy Preview HTML" xml:space="preserve">
+    <value>미리보기 HTML 복사</value>
+  </data>
   <data name="Create a new document..." xml:space="preserve">
     <value>새 문서 만들기...</value>
   </data>
@@ -198,8 +204,14 @@
   <data name="My Documents" xml:space="preserve">
     <value>내 문서</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>나의 게시글</value>
+  </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>OpenID Connect 연동</value>
+  </data>
+  <data name="Post updated successfully." xml:space="preserve">
+    <value>게시물이 성공적으로 업데이트되었습니다.</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>미리보기</value>
@@ -230,6 +242,9 @@
   </data>
   <data name="Read the document" xml:space="preserve">
     <value>문서 읽기</value>
+  </data>
+  <data name="Reader Layout" xml:space="preserve">
+    <value>읽기 레이아웃</value>
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>반응형 디자인</value>
@@ -285,11 +300,20 @@
   <data name="Untitled Document" xml:space="preserve">
     <value>제목 없음 문서</value>
   </data>
+  <data name="Untitled Post" xml:space="preserve">
+    <value>제목 없는 게시글</value>
+  </data>
   <data name="Welcome" xml:space="preserve">
     <value>환영합니다</value>
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
     <value>Aiursoft 템플릿을 사용하는 이유</value>
+  </data>
+  <data name="Write" xml:space="preserve">
+    <value>작성</value>
+  </data>
+  <data name="Write your post in Markdown..." xml:space="preserve">
+    <value>마크다운으로 게시글을 작성하세요...</value>
   </data>
   <data name="Yes, Make Private" xml:space="preserve">
     <value>네, 비공개로 전환</value>

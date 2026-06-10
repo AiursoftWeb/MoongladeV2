@@ -153,6 +153,9 @@
   <data name="My Documents History" xml:space="preserve">
     <value>我的文档历史</value>
   </data>
+  <data name="My posts" xml:space="preserve">
+    <value>我的帖子</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>未找到</value>
   </data>
@@ -167,6 +170,9 @@
   </data>
   <data name="Post" xml:space="preserve">
     <value>发布</value>
+  </data>
+  <data name="Post Editor" xml:space="preserve">
+    <value>帖子编辑器</value>
   </data>
   <data name="Profile" xml:space="preserve">
     <value>个人资料</value>
@@ -233,6 +239,9 @@
   </data>
   <data name="Users" xml:space="preserve">
     <value>用户</value>
+  </data>
+  <data name="Write Post" xml:space="preserve">
+    <value>撰写帖子</value>
   </data>
 
 </root>

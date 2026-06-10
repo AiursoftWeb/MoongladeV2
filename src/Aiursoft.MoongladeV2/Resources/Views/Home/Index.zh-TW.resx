@@ -111,6 +111,12 @@
   <data name="Copy link to clipboard" xml:space="preserve">
     <value>複製連結到剪貼簿</value>
   </data>
+  <data name="Copy Preview" xml:space="preserve">
+    <value>複製預覽</value>
+  </data>
+  <data name="Copy Preview HTML" xml:space="preserve">
+    <value>複製預覽 HTML</value>
+  </data>
   <data name="Create a new document..." xml:space="preserve">
     <value>建立新文件...</value>
   </data>
@@ -198,8 +204,14 @@
   <data name="My Documents" xml:space="preserve">
     <value>我的文件</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>我的貼文</value>
+  </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>OpenID Connect 整合</value>
+  </data>
+  <data name="Post updated successfully." xml:space="preserve">
+    <value>文章更新成功。</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>預覽</value>
@@ -230,6 +242,9 @@
   </data>
   <data name="Read the document" xml:space="preserve">
     <value>閱讀文件</value>
+  </data>
+  <data name="Reader Layout" xml:space="preserve">
+    <value>閱讀者版面</value>
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>響應式設計</value>
@@ -285,11 +300,20 @@
   <data name="Untitled Document" xml:space="preserve">
     <value>未命名文件</value>
   </data>
+  <data name="Untitled Post" xml:space="preserve">
+    <value>無題文章</value>
+  </data>
   <data name="Welcome" xml:space="preserve">
     <value>歡迎</value>
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
     <value>為什麼使用 Aiursoft 模板？</value>
+  </data>
+  <data name="Write" xml:space="preserve">
+    <value>撰寫</value>
+  </data>
+  <data name="Write your post in Markdown..." xml:space="preserve">
+    <value>使用 Markdown 撰寫您的文章...</value>
   </data>
   <data name="Yes, Make Private" xml:space="preserve">
     <value>是，設為私人</value>

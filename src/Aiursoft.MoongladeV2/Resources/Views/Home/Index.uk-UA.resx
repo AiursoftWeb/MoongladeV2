@@ -111,6 +111,12 @@
   <data name="Copy link to clipboard" xml:space="preserve">
     <value>Скопіювати посилання в буфер обміну</value>
   </data>
+  <data name="Copy Preview" xml:space="preserve">
+    <value>Копіювати попередній перегляд</value>
+  </data>
+  <data name="Copy Preview HTML" xml:space="preserve">
+    <value>Копіювати HTML-код попереднього перегляду</value>
+  </data>
   <data name="Create a new document..." xml:space="preserve">
     <value>Створити новий документ...</value>
   </data>
@@ -198,8 +204,14 @@
   <data name="My Documents" xml:space="preserve">
     <value>Мої документи</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>Мої пости</value>
+  </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>Інтеграція OpenID Connect</value>
+  </data>
+  <data name="Post updated successfully." xml:space="preserve">
+    <value>Запис успішно оновлено.</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>Попередній перегляд</value>
@@ -230,6 +242,9 @@
   </data>
   <data name="Read the document" xml:space="preserve">
     <value>Прочитати документацію</value>
+  </data>
+  <data name="Reader Layout" xml:space="preserve">
+    <value>Режим читання</value>
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>Адаптивний дизайн</value>
@@ -285,11 +300,20 @@
   <data name="Untitled Document" xml:space="preserve">
     <value>Документ без назви</value>
   </data>
+  <data name="Untitled Post" xml:space="preserve">
+    <value>Позаголовок допису</value>
+  </data>
   <data name="Welcome" xml:space="preserve">
     <value>Ласкаво просимо</value>
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
     <value>Чому варто використовувати шаблон Aiursoft?</value>
+  </data>
+  <data name="Write" xml:space="preserve">
+    <value>Редагувати</value>
+  </data>
+  <data name="Write your post in Markdown..." xml:space="preserve">
+    <value>Напишіть допис у форматі Markdown...</value>
   </data>
   <data name="Yes, Make Private" xml:space="preserve">
     <value>Так, зробити приватним</value>

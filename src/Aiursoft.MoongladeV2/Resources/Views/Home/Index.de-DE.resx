@@ -111,6 +111,12 @@
   <data name="Copy link to clipboard" xml:space="preserve">
     <value>Link in die Zwischenablage kopieren</value>
   </data>
+  <data name="Copy Preview" xml:space="preserve">
+    <value>Vorschau kopieren</value>
+  </data>
+  <data name="Copy Preview HTML" xml:space="preserve">
+    <value>Vorschau-HTML kopieren</value>
+  </data>
   <data name="Create a new document..." xml:space="preserve">
     <value>Neues Dokument erstellen...</value>
   </data>
@@ -198,8 +204,14 @@
   <data name="My Documents" xml:space="preserve">
     <value>Meine Dokumente</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>Meine Beiträge</value>
+  </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>OpenID Connect-Integration</value>
+  </data>
+  <data name="Post updated successfully." xml:space="preserve">
+    <value>Beitrag erfolgreich aktualisiert.</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>Vorschau</value>
@@ -230,6 +242,9 @@
   </data>
   <data name="Read the document" xml:space="preserve">
     <value>Dokumentation lesen</value>
+  </data>
+  <data name="Reader Layout" xml:space="preserve">
+    <value>Leseransicht</value>
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>Responsives Design</value>
@@ -285,11 +300,20 @@
   <data name="Untitled Document" xml:space="preserve">
     <value>Unbenanntes Dokument</value>
   </data>
+  <data name="Untitled Post" xml:space="preserve">
+    <value>Unbenannter Beitrag</value>
+  </data>
   <data name="Welcome" xml:space="preserve">
     <value>Willkommen</value>
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
     <value>Warum das Aiursoft Template verwenden?</value>
+  </data>
+  <data name="Write" xml:space="preserve">
+    <value>Schreiben</value>
+  </data>
+  <data name="Write your post in Markdown..." xml:space="preserve">
+    <value>Schreiben Sie Ihren Beitrag in Markdown...</value>
   </data>
   <data name="Yes, Make Private" xml:space="preserve">
     <value>Ja, auf privat setzen</value>
