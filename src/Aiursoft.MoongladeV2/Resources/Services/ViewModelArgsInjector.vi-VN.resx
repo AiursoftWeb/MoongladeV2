@@ -153,6 +153,9 @@
   <data name="My Documents History" xml:space="preserve">
     <value>Lịch sử tài liệu của tôi</value>
   </data>
+  <data name="My posts" xml:space="preserve">
+    <value>Bài viết của tôi</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>Không tìm thấy</value>
   </data>
@@ -167,6 +170,9 @@
   </data>
   <data name="Post" xml:space="preserve">
     <value>Bài viết</value>
+  </data>
+  <data name="Post Editor" xml:space="preserve">
+    <value>Trình soạn thảo bài viết</value>
   </data>
   <data name="Profile" xml:space="preserve">
     <value>Hồ sơ</value>
@@ -233,6 +239,9 @@
   </data>
   <data name="Users" xml:space="preserve">
     <value>Người dùng</value>
+  </data>
+  <data name="Write Post" xml:space="preserve">
+    <value>Viết bài viết</value>
   </data>
 
 </root>

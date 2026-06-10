@@ -111,6 +111,12 @@
   <data name="Copy link to clipboard" xml:space="preserve">
     <value>Kopioi linkki leikepöydälle</value>
   </data>
+  <data name="Copy Preview" xml:space="preserve">
+    <value>Kopioi esikatselu</value>
+  </data>
+  <data name="Copy Preview HTML" xml:space="preserve">
+    <value>Kopioi esikatselun HTML</value>
+  </data>
   <data name="Create a new document..." xml:space="preserve">
     <value>Luo uusi asiakirja...</value>
   </data>
@@ -198,8 +204,14 @@
   <data name="My Documents" xml:space="preserve">
     <value>Omat asiakirjat</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>Julkaisuni</value>
+  </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>OpenID Connect -integraatio</value>
+  </data>
+  <data name="Post updated successfully." xml:space="preserve">
+    <value>Julkaisu päivitetty onnistuneesti.</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>Esikatselu</value>
@@ -230,6 +242,9 @@
   </data>
   <data name="Read the document" xml:space="preserve">
     <value>Lue dokumentti</value>
+  </data>
+  <data name="Reader Layout" xml:space="preserve">
+    <value>Lukijan näyttö</value>
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>Responsiivinen suunnittelu</value>
@@ -285,11 +300,20 @@
   <data name="Untitled Document" xml:space="preserve">
     <value>Nimetön asiakirja</value>
   </data>
+  <data name="Untitled Post" xml:space="preserve">
+    <value>Nimetön viesti</value>
+  </data>
   <data name="Welcome" xml:space="preserve">
     <value>Tervetuloa</value>
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
     <value>Miksi käyttää Aiursoft Templatea?</value>
+  </data>
+  <data name="Write" xml:space="preserve">
+    <value>Kirjoita</value>
+  </data>
+  <data name="Write your post in Markdown..." xml:space="preserve">
+    <value>Kirjoita viestisi Markdown-merkinnällä...</value>
   </data>
   <data name="Yes, Make Private" xml:space="preserve">
     <value>Kyllä, tee yksityiseksi</value>

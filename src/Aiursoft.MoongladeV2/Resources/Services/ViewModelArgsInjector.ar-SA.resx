@@ -150,6 +150,9 @@
   <data name="My Documents History" xml:space="preserve">
     <value>سجل وثائقي</value>
   </data>
+  <data name="My posts" xml:space="preserve">
+    <value>منشوراتي</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>غير موجود</value>
   </data>
@@ -164,6 +167,9 @@
   </data>
   <data name="Post" xml:space="preserve">
     <value>منشور</value>
+  </data>
+  <data name="Post Editor" xml:space="preserve">
+    <value>محرر المنشورات</value>
   </data>
   <data name="Profile" xml:space="preserve">
     <value>الملف الشخصي</value>
@@ -230,6 +236,9 @@
   </data>
   <data name="Users" xml:space="preserve">
     <value>المستخدمون</value>
+  </data>
+  <data name="Write Post" xml:space="preserve">
+    <value>اكتب منشورًا</value>
   </data>
 
 </root>

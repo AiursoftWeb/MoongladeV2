@@ -30,5 +30,11 @@
   <data name="The document title contains sensitive words." xml:space="preserve">
     <value>В названии документа содержатся слова, запрещённые к использованию.</value>
   </data>
+  <data name="The post content contains sensitive words." xml:space="preserve">
+    <value>Содержание записи содержит запрещённые слова.</value>
+  </data>
+  <data name="The post title contains sensitive words." xml:space="preserve">
+    <value>Название статьи содержит нецензурные слова.</value>
+  </data>
 
 </root>

@@ -21,11 +21,17 @@
       <data name="A list of all documents you have created." xml:space="preserve">
     <value>您创建的所有文档列表。</value>
   </data>
+  <data name="A list of all posts you have created." xml:space="preserve">
+    <value>您创建的所有文章列表。</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>操作</value>
   </data>
   <data name="All My Documents" xml:space="preserve">
     <value>我的所有文档</value>
+  </data>
+  <data name="All My Posts" xml:space="preserve">
+    <value>我的所有文章</value>
   </data>
   <data name="Clear" xml:space="preserve">
     <value>清空</value>
@@ -51,11 +57,17 @@
   <data name="My Documents" xml:space="preserve">
     <value>我的文档</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>我的文章</value>
+  </data>
   <data name="No documents found for your search query." xml:space="preserve">
     <value>未找到与您的搜索条件匹配的文档。</value>
   </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>没有找到匹配的文档。</value>
+  </data>
+  <data name="No posts found for your search query." xml:space="preserve">
+    <value>未找到与搜索条件匹配的文章。</value>
   </data>
   <data name="Private" xml:space="preserve">
     <value>私有</value>
@@ -72,6 +84,12 @@
   <data name="Search my documents..." xml:space="preserve">
     <value>搜索我的文档...</value>
   </data>
+  <data name="Search my posts" xml:space="preserve">
+    <value>搜索我的文章</value>
+  </data>
+  <data name="Search my posts..." xml:space="preserve">
+    <value>搜索我的帖子...</value>
+  </data>
   <data name="Share" xml:space="preserve">
     <value>分享</value>
   </data>
@@ -84,8 +102,14 @@
   <data name="Visibility" xml:space="preserve">
     <value>可见性</value>
   </data>
+  <data name="Write a new post" xml:space="preserve">
+    <value>写新文章</value>
+  </data>
   <data name="You have not created any documents yet." xml:space="preserve">
     <value>您尚未创建任何文档。</value>
+  </data>
+  <data name="You have not created any posts yet." xml:space="preserve">
+    <value>您尚未创建任何帖子。</value>
   </data>
 
 </root>

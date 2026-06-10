@@ -21,11 +21,17 @@
       <data name="A list of all documents you have created." xml:space="preserve">
     <value>Список усіх документів, які ви створили.</value>
   </data>
+  <data name="A list of all posts you have created." xml:space="preserve">
+    <value>Список усіх ваших створених дописів.</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Дії</value>
   </data>
   <data name="All My Documents" xml:space="preserve">
     <value>Усі мої документи</value>
+  </data>
+  <data name="All My Posts" xml:space="preserve">
+    <value>Всі мої записи</value>
   </data>
   <data name="Clear" xml:space="preserve">
     <value>Очистити</value>
@@ -51,11 +57,17 @@
   <data name="My Documents" xml:space="preserve">
     <value>Мої документи</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>Мої записи</value>
+  </data>
   <data name="No documents found for your search query." xml:space="preserve">
     <value>Документи не знайдені за вашим запитом пошуку.</value>
   </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>Жодного документа не відповідає вашому запиту.</value>
+  </data>
+  <data name="No posts found for your search query." xml:space="preserve">
+    <value>За вашим запитом не знайдено жодних дописів.</value>
   </data>
   <data name="Private" xml:space="preserve">
     <value>Приватний</value>
@@ -72,6 +84,12 @@
   <data name="Search my documents..." xml:space="preserve">
     <value>Пошук моїх документів...</value>
   </data>
+  <data name="Search my posts" xml:space="preserve">
+    <value>Шукати серед моїх публікацій</value>
+  </data>
+  <data name="Search my posts..." xml:space="preserve">
+    <value>Шукати мої дописи...</value>
+  </data>
   <data name="Share" xml:space="preserve">
     <value>Поділитися</value>
   </data>
@@ -84,8 +102,14 @@
   <data name="Visibility" xml:space="preserve">
     <value>Видимість</value>
   </data>
+  <data name="Write a new post" xml:space="preserve">
+    <value>Написати новий допис</value>
+  </data>
   <data name="You have not created any documents yet." xml:space="preserve">
     <value>Ви ще не створили жодних документів.</value>
+  </data>
+  <data name="You have not created any posts yet." xml:space="preserve">
+    <value>Ви ще не створили жодного посту.</value>
   </data>
 
 </root>

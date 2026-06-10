@@ -111,6 +111,12 @@
   <data name="Copy link to clipboard" xml:space="preserve">
     <value>Kopiera länk till urklipp</value>
   </data>
+  <data name="Copy Preview" xml:space="preserve">
+    <value>Kopiera förhandsgranskning</value>
+  </data>
+  <data name="Copy Preview HTML" xml:space="preserve">
+    <value>Kopiera förhandsgranskning HTML</value>
+  </data>
   <data name="Create a new document..." xml:space="preserve">
     <value>Skapa ett nytt dokument...</value>
   </data>
@@ -198,8 +204,14 @@
   <data name="My Documents" xml:space="preserve">
     <value>Mina dokument</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>Mina inlägg</value>
+  </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>OpenID Connect-integrering</value>
+  </data>
+  <data name="Post updated successfully." xml:space="preserve">
+    <value>Inlägget har uppdaterats.</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>Förhandsgranska</value>
@@ -230,6 +242,9 @@
   </data>
   <data name="Read the document" xml:space="preserve">
     <value>Läs dokumentet</value>
+  </data>
+  <data name="Reader Layout" xml:space="preserve">
+    <value>Läsläge</value>
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>Responsiv Design</value>
@@ -285,11 +300,20 @@
   <data name="Untitled Document" xml:space="preserve">
     <value>Namnlöst dokument</value>
   </data>
+  <data name="Untitled Post" xml:space="preserve">
+    <value>Intitrerad inlägg</value>
+  </data>
   <data name="Welcome" xml:space="preserve">
     <value>Välkommen</value>
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
     <value>Varför använda Aiursoft Template?</value>
+  </data>
+  <data name="Write" xml:space="preserve">
+    <value>Skriv</value>
+  </data>
+  <data name="Write your post in Markdown..." xml:space="preserve">
+    <value>Skriv inlägget i Markdown...</value>
   </data>
   <data name="Yes, Make Private" xml:space="preserve">
     <value>Ja, gör privat</value>

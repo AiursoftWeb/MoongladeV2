@@ -30,5 +30,11 @@
   <data name="The document title contains sensitive words." xml:space="preserve">
     <value>Tiêu đề tài liệu chứa từ ngữ nhạy cảm.</value>
   </data>
+  <data name="The post content contains sensitive words." xml:space="preserve">
+    <value>Nội dung bài viết chứa các từ nhạy cảm.</value>
+  </data>
+  <data name="The post title contains sensitive words." xml:space="preserve">
+    <value>Tiêu đề bài viết chứa các từ nhạy cảm.</value>
+  </data>
 
 </root>

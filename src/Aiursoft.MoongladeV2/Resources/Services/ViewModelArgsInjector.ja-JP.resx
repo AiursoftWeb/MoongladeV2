@@ -153,6 +153,9 @@
   <data name="My Documents History" xml:space="preserve">
     <value>マイドキュメントの履歴</value>
   </data>
+  <data name="My posts" xml:space="preserve">
+    <value>私の投稿</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>見つかりません</value>
   </data>
@@ -167,6 +170,9 @@
   </data>
   <data name="Post" xml:space="preserve">
     <value>投稿</value>
+  </data>
+  <data name="Post Editor" xml:space="preserve">
+    <value>投稿エディタ</value>
   </data>
   <data name="Profile" xml:space="preserve">
     <value>プロフィール</value>
@@ -233,6 +239,9 @@
   </data>
   <data name="Users" xml:space="preserve">
     <value>ユーザー</value>
+  </data>
+  <data name="Write Post" xml:space="preserve">
+    <value>記事を書く</value>
   </data>
 
 </root>

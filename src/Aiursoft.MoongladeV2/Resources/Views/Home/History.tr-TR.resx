@@ -21,11 +21,17 @@
       <data name="A list of all documents you have created." xml:space="preserve">
     <value>Oluşturduğunuz tüm belgelerin listesi.</value>
   </data>
+  <data name="A list of all posts you have created." xml:space="preserve">
+    <value>Oluşturduğunuz tüm gönderilerin bir listesi.</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>İşlemler</value>
   </data>
   <data name="All My Documents" xml:space="preserve">
     <value>Tüm Belgelerim</value>
+  </data>
+  <data name="All My Posts" xml:space="preserve">
+    <value>Tüm Gönderilerim</value>
   </data>
   <data name="Clear" xml:space="preserve">
     <value>Temizle</value>
@@ -51,11 +57,17 @@
   <data name="My Documents" xml:space="preserve">
     <value>Belgelerim</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>Yazılarım</value>
+  </data>
   <data name="No documents found for your search query." xml:space="preserve">
     <value>Aramanız için belge bulunamadı.</value>
   </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>Aramanızla eşleşen belge bulunamadı.</value>
+  </data>
+  <data name="No posts found for your search query." xml:space="preserve">
+    <value>Arama sorgunuz için gönderi bulunamadı.</value>
   </data>
   <data name="Private" xml:space="preserve">
     <value>Özel</value>
@@ -72,6 +84,12 @@
   <data name="Search my documents..." xml:space="preserve">
     <value>Belgelerimde ara...</value>
   </data>
+  <data name="Search my posts" xml:space="preserve">
+    <value>Gönderilerimi ara</value>
+  </data>
+  <data name="Search my posts..." xml:space="preserve">
+    <value>Gönderilerimi ara...</value>
+  </data>
   <data name="Share" xml:space="preserve">
     <value>Paylaş</value>
   </data>
@@ -84,8 +102,14 @@
   <data name="Visibility" xml:space="preserve">
     <value>Görünürlük</value>
   </data>
+  <data name="Write a new post" xml:space="preserve">
+    <value>Yeni bir gönderi yaz</value>
+  </data>
   <data name="You have not created any documents yet." xml:space="preserve">
     <value>Henüz hiç belge oluşturmadınız.</value>
+  </data>
+  <data name="You have not created any posts yet." xml:space="preserve">
+    <value>Henüz herhangi bir gönderi oluşturmadınız.</value>
   </data>
 
 </root>

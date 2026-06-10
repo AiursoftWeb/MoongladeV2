@@ -111,6 +111,12 @@
   <data name="Copy link to clipboard" xml:space="preserve">
     <value>Copiază link-ul în clipboard</value>
   </data>
+  <data name="Copy Preview" xml:space="preserve">
+    <value>Copiere previzualizare</value>
+  </data>
+  <data name="Copy Preview HTML" xml:space="preserve">
+    <value>Copiază HTML previzualizare</value>
+  </data>
   <data name="Create a new document..." xml:space="preserve">
     <value>Creează un document nou...</value>
   </data>
@@ -198,8 +204,14 @@
   <data name="My Documents" xml:space="preserve">
     <value>Documentele mele</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>Postările mele</value>
+  </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>Integrare OpenID Connect</value>
+  </data>
+  <data name="Post updated successfully." xml:space="preserve">
+    <value>Articolul a fost actualizat cu succes.</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>Previzualizare</value>
@@ -230,6 +242,9 @@
   </data>
   <data name="Read the document" xml:space="preserve">
     <value>Citește documentația</value>
+  </data>
+  <data name="Reader Layout" xml:space="preserve">
+    <value>Modul de citire</value>
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>Design Responsiv</value>
@@ -285,11 +300,20 @@
   <data name="Untitled Document" xml:space="preserve">
     <value>Document fără Titlu</value>
   </data>
+  <data name="Untitled Post" xml:space="preserve">
+    <value>Articol fără titlu</value>
+  </data>
   <data name="Welcome" xml:space="preserve">
     <value>Bun venit</value>
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
     <value>De ce să folosești Șablonul Aiursoft?</value>
+  </data>
+  <data name="Write" xml:space="preserve">
+    <value>Scrie</value>
+  </data>
+  <data name="Write your post in Markdown..." xml:space="preserve">
+    <value>Scrieți articolul în Markdown...</value>
   </data>
   <data name="Yes, Make Private" xml:space="preserve">
     <value>Da, fă-l privat</value>

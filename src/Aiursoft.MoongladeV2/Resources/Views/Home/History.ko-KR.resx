@@ -21,11 +21,17 @@
       <data name="A list of all documents you have created." xml:space="preserve">
     <value>작성하신 모든 문서 목록입니다.</value>
   </data>
+  <data name="A list of all posts you have created." xml:space="preserve">
+    <value>사용자가 작성한 모든 게시물의 목록입니다.</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>작업</value>
   </data>
   <data name="All My Documents" xml:space="preserve">
     <value>내 모든 문서</value>
+  </data>
+  <data name="All My Posts" xml:space="preserve">
+    <value>나의 모든 글</value>
   </data>
   <data name="Clear" xml:space="preserve">
     <value>지우기</value>
@@ -51,11 +57,17 @@
   <data name="My Documents" xml:space="preserve">
     <value>내 문서</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>내 게시물</value>
+  </data>
   <data name="No documents found for your search query." xml:space="preserve">
     <value>검색어에 해당하는 문서가 없습니다.</value>
   </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>검색 조건과 일치하는 문서가 없습니다.</value>
+  </data>
+  <data name="No posts found for your search query." xml:space="preserve">
+    <value>검색어와 일치하는 게시물을 찾을 수 없습니다.</value>
   </data>
   <data name="Private" xml:space="preserve">
     <value>비공개</value>
@@ -72,6 +84,12 @@
   <data name="Search my documents..." xml:space="preserve">
     <value>내 문서 검색...</value>
   </data>
+  <data name="Search my posts" xml:space="preserve">
+    <value>내 게시글 검색</value>
+  </data>
+  <data name="Search my posts..." xml:space="preserve">
+    <value>내 글 검색...</value>
+  </data>
   <data name="Share" xml:space="preserve">
     <value>공유</value>
   </data>
@@ -84,8 +102,14 @@
   <data name="Visibility" xml:space="preserve">
     <value>공개 상태</value>
   </data>
+  <data name="Write a new post" xml:space="preserve">
+    <value>새 게시물 작성</value>
+  </data>
   <data name="You have not created any documents yet." xml:space="preserve">
     <value>아직 문서를 생성하지 않았습니다.</value>
+  </data>
+  <data name="You have not created any posts yet." xml:space="preserve">
+    <value>아직 게시글을 작성하지 않았습니다.</value>
   </data>
 
 </root>

@@ -150,6 +150,9 @@
   <data name="My Documents History" xml:space="preserve">
     <value>Історія моїх документів</value>
   </data>
+  <data name="My posts" xml:space="preserve">
+    <value>Мої пости</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>Не знайдено</value>
   </data>
@@ -164,6 +167,9 @@
   </data>
   <data name="Post" xml:space="preserve">
     <value>Публікація</value>
+  </data>
+  <data name="Post Editor" xml:space="preserve">
+    <value>Редактор дописів</value>
   </data>
   <data name="Profile" xml:space="preserve">
     <value>Профіль</value>
@@ -230,6 +236,9 @@
   </data>
   <data name="Users" xml:space="preserve">
     <value>Користувачі</value>
+  </data>
+  <data name="Write Post" xml:space="preserve">
+    <value>Написати публікацію</value>
   </data>
 
 </root>

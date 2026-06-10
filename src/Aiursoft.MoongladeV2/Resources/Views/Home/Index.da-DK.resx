@@ -111,6 +111,12 @@
   <data name="Copy link to clipboard" xml:space="preserve">
     <value>Kopier link til udklipsholder</value>
   </data>
+  <data name="Copy Preview" xml:space="preserve">
+    <value>Kopier forhåndsvisning</value>
+  </data>
+  <data name="Copy Preview HTML" xml:space="preserve">
+    <value>Kopier forhåndsvisnings-HTML</value>
+  </data>
   <data name="Create a new document..." xml:space="preserve">
     <value>Opret et nyt dokument...</value>
   </data>
@@ -198,8 +204,14 @@
   <data name="My Documents" xml:space="preserve">
     <value>Mine dokumenter</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>Mine indlæg</value>
+  </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>OpenID Connect-integration</value>
+  </data>
+  <data name="Post updated successfully." xml:space="preserve">
+    <value>Indlæg opdateret med succes.</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>Forhåndsvisning</value>
@@ -230,6 +242,9 @@
   </data>
   <data name="Read the document" xml:space="preserve">
     <value>Læs dokumentationen</value>
+  </data>
+  <data name="Reader Layout" xml:space="preserve">
+    <value>Læsevisning</value>
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>Responsivt Design</value>
@@ -285,11 +300,20 @@
   <data name="Untitled Document" xml:space="preserve">
     <value>Uden titel</value>
   </data>
+  <data name="Untitled Post" xml:space="preserve">
+    <value>Uden titel</value>
+  </data>
   <data name="Welcome" xml:space="preserve">
     <value>Velkommen</value>
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
     <value>Hvorfor bruge Aiursoft Template?</value>
+  </data>
+  <data name="Write" xml:space="preserve">
+    <value>Skriv</value>
+  </data>
+  <data name="Write your post in Markdown..." xml:space="preserve">
+    <value>Skriv dit indlæg i Markdown...</value>
   </data>
   <data name="Yes, Make Private" xml:space="preserve">
     <value>Ja, gør privat</value>

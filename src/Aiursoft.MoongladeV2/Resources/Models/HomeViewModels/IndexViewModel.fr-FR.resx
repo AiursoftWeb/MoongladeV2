@@ -30,5 +30,11 @@
   <data name="The document title contains sensitive words." xml:space="preserve">
     <value>Le titre du document contient des mots sensibles.</value>
   </data>
+  <data name="The post content contains sensitive words." xml:space="preserve">
+    <value>Le contenu de l&apos;article contient des mots sensibles.</value>
+  </data>
+  <data name="The post title contains sensitive words." xml:space="preserve">
+    <value>Le titre de l&apos;article contient des mots sensibles.</value>
+  </data>
 
 </root>

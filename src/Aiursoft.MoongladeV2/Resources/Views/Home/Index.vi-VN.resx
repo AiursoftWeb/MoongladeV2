@@ -111,6 +111,12 @@
   <data name="Copy link to clipboard" xml:space="preserve">
     <value>Sao chép liên kết vào bộ nhớ tạm</value>
   </data>
+  <data name="Copy Preview" xml:space="preserve">
+    <value>Sao chép bản xem trước</value>
+  </data>
+  <data name="Copy Preview HTML" xml:space="preserve">
+    <value>Sao chép HTML trước xem</value>
+  </data>
   <data name="Create a new document..." xml:space="preserve">
     <value>Tạo tài liệu mới...</value>
   </data>
@@ -198,8 +204,14 @@
   <data name="My Documents" xml:space="preserve">
     <value>Tài liệu của tôi</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>Bài viết của tôi</value>
+  </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>Tích hợp OpenID Connect</value>
+  </data>
+  <data name="Post updated successfully." xml:space="preserve">
+    <value>Đã cập nhật bài viết thành công.</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>Xem trước</value>
@@ -230,6 +242,9 @@
   </data>
   <data name="Read the document" xml:space="preserve">
     <value>Đọc tài liệu</value>
+  </data>
+  <data name="Reader Layout" xml:space="preserve">
+    <value>Bố cục đọc</value>
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>Thiết kế đáp ứng</value>
@@ -285,11 +300,20 @@
   <data name="Untitled Document" xml:space="preserve">
     <value>Tài liệu chưa đặt tên</value>
   </data>
+  <data name="Untitled Post" xml:space="preserve">
+    <value>Bài viết chưa đặt tên</value>
+  </data>
   <data name="Welcome" xml:space="preserve">
     <value>Chào mừng</value>
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
     <value>Tại sao nên sử dụng Mẫu Aiursoft?</value>
+  </data>
+  <data name="Write" xml:space="preserve">
+    <value>Viết</value>
+  </data>
+  <data name="Write your post in Markdown..." xml:space="preserve">
+    <value>Viết bài của bạn bằng Markdown...</value>
   </data>
   <data name="Yes, Make Private" xml:space="preserve">
     <value>Có, Chuyển thành Riêng tư</value>

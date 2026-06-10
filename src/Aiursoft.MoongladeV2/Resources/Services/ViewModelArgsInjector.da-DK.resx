@@ -150,6 +150,9 @@
   <data name="My Documents History" xml:space="preserve">
     <value>Mine dokumenters historik</value>
   </data>
+  <data name="My posts" xml:space="preserve">
+    <value>Mine indlæg</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>Ikke fundet</value>
   </data>
@@ -164,6 +167,9 @@
   </data>
   <data name="Post" xml:space="preserve">
     <value>Indlæg</value>
+  </data>
+  <data name="Post Editor" xml:space="preserve">
+    <value>Indlæg Redigering</value>
   </data>
   <data name="Profile" xml:space="preserve">
     <value>Profil</value>
@@ -230,6 +236,9 @@
   </data>
   <data name="Users" xml:space="preserve">
     <value>Brugere</value>
+  </data>
+  <data name="Write Post" xml:space="preserve">
+    <value>Skriv opslag</value>
   </data>
 
 </root>

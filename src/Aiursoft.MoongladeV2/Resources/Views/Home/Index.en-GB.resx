@@ -111,6 +111,12 @@
   <data name="Copy link to clipboard" xml:space="preserve">
     <value>Copy link to clipboard</value>
   </data>
+  <data name="Copy Preview" xml:space="preserve">
+    <value>Copy Preview</value>
+  </data>
+  <data name="Copy Preview HTML" xml:space="preserve">
+    <value>Copy Preview HTML</value>
+  </data>
   <data name="Create a new document..." xml:space="preserve">
     <value>Create a new document...</value>
   </data>
@@ -198,8 +204,14 @@
   <data name="My Documents" xml:space="preserve">
     <value>My Documents</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>My Posts</value>
+  </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>OpenID Connect Integration</value>
+  </data>
+  <data name="Post updated successfully." xml:space="preserve">
+    <value>Post updated successfully.</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>Preview</value>
@@ -230,6 +242,9 @@
   </data>
   <data name="Read the document" xml:space="preserve">
     <value>Read the documentation</value>
+  </data>
+  <data name="Reader Layout" xml:space="preserve">
+    <value>Reader View</value>
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>Responsive Design</value>
@@ -285,11 +300,20 @@
   <data name="Untitled Document" xml:space="preserve">
     <value>Untitled Document</value>
   </data>
+  <data name="Untitled Post" xml:space="preserve">
+    <value>Untitled Post</value>
+  </data>
   <data name="Welcome" xml:space="preserve">
     <value>Welcome</value>
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
     <value>Why use the Aiursoft Template?</value>
+  </data>
+  <data name="Write" xml:space="preserve">
+    <value>Write</value>
+  </data>
+  <data name="Write your post in Markdown..." xml:space="preserve">
+    <value>Write your post in Markdown...</value>
   </data>
   <data name="Yes, Make Private" xml:space="preserve">
     <value>Yes, Make Private</value>

@@ -21,11 +21,17 @@
       <data name="A list of all documents you have created." xml:space="preserve">
     <value>Kaikkien luomiesi dokumenttien luettelo.</value>
   </data>
+  <data name="A list of all posts you have created." xml:space="preserve">
+    <value>Luettelo kaikista luomistasi julkaisuista.</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Toiminnot</value>
   </data>
   <data name="All My Documents" xml:space="preserve">
     <value>Kaikki Omat Dokumentit</value>
+  </data>
+  <data name="All My Posts" xml:space="preserve">
+    <value>Kaikki kirjoitukseni</value>
   </data>
   <data name="Clear" xml:space="preserve">
     <value>Tyhjennä</value>
@@ -51,11 +57,17 @@
   <data name="My Documents" xml:space="preserve">
     <value>Omat asiakirjani</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>Omat julkaisut</value>
+  </data>
   <data name="No documents found for your search query." xml:space="preserve">
     <value>Ei dokumentteja hakuehtojesi perusteella.</value>
   </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>Hakutuloksia ei löytynyt.</value>
+  </data>
+  <data name="No posts found for your search query." xml:space="preserve">
+    <value>Hakuehdoillasi ei löytynyt kirjoituksia.</value>
   </data>
   <data name="Private" xml:space="preserve">
     <value>Yksityinen</value>
@@ -72,6 +84,12 @@
   <data name="Search my documents..." xml:space="preserve">
     <value>Etsi asiakirjoistani...</value>
   </data>
+  <data name="Search my posts" xml:space="preserve">
+    <value>Etsi kirjoituksistani</value>
+  </data>
+  <data name="Search my posts..." xml:space="preserve">
+    <value>Hae kirjoituksiani...</value>
+  </data>
   <data name="Share" xml:space="preserve">
     <value>Jaa</value>
   </data>
@@ -84,8 +102,14 @@
   <data name="Visibility" xml:space="preserve">
     <value>Näkyvyys</value>
   </data>
+  <data name="Write a new post" xml:space="preserve">
+    <value>Kirjoita uusi julkaisu</value>
+  </data>
   <data name="You have not created any documents yet." xml:space="preserve">
     <value>Et ole vielä luonut yhtään dokumenttia.</value>
+  </data>
+  <data name="You have not created any posts yet." xml:space="preserve">
+    <value>Et ole vielä luonut yhtään postausta.</value>
   </data>
 
 </root>

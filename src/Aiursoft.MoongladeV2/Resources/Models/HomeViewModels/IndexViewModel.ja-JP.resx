@@ -30,5 +30,11 @@
   <data name="The document title contains sensitive words." xml:space="preserve">
     <value>文書のタイトルに不適切な表現が含まれています。</value>
   </data>
+  <data name="The post content contains sensitive words." xml:space="preserve">
+    <value>投稿内容に不適切な単語が含まれています。</value>
+  </data>
+  <data name="The post title contains sensitive words." xml:space="preserve">
+    <value>記事タイトルに不適切な言葉が含まれています。</value>
+  </data>
 
 </root>

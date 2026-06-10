@@ -111,6 +111,12 @@
   <data name="Copy link to clipboard" xml:space="preserve">
     <value>लिंक को क्लिपबोर्ड पर कॉपी करें</value>
   </data>
+  <data name="Copy Preview" xml:space="preserve">
+    <value>पूर्वावलोकन कॉपी करें</value>
+  </data>
+  <data name="Copy Preview HTML" xml:space="preserve">
+    <value>पूर्वावलोकन HTML कॉपी करें</value>
+  </data>
   <data name="Create a new document..." xml:space="preserve">
     <value>नया दस्तावेज़ बनाएं...</value>
   </data>
@@ -198,8 +204,14 @@
   <data name="My Documents" xml:space="preserve">
     <value>मेरे दस्तावेज़</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>मेरे पद</value>
+  </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>ओपनआईडी कनेक्ट एकीकरण</value>
+  </data>
+  <data name="Post updated successfully." xml:space="preserve">
+    <value>पोस्ट सफलतापूर्वक अपडेट हो गई।</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>पूर्वावलोकन</value>
@@ -230,6 +242,9 @@
   </data>
   <data name="Read the document" xml:space="preserve">
     <value>दस्तावेज़ पढ़ें</value>
+  </data>
+  <data name="Reader Layout" xml:space="preserve">
+    <value>रीडर लेआउट</value>
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>उत्तरदायी डिज़ाइन</value>
@@ -285,11 +300,20 @@
   <data name="Untitled Document" xml:space="preserve">
     <value>अनामांकित दस्तावेज़</value>
   </data>
+  <data name="Untitled Post" xml:space="preserve">
+    <value>शीर्षकहीन पोस्ट</value>
+  </data>
   <data name="Welcome" xml:space="preserve">
     <value>स्वागत है</value>
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
     <value>Aiursoft टेम्पलेट का उपयोग क्यों करें?</value>
+  </data>
+  <data name="Write" xml:space="preserve">
+    <value>लिखें</value>
+  </data>
+  <data name="Write your post in Markdown..." xml:space="preserve">
+    <value>Markdown में अपना पोस्ट लिखें...</value>
   </data>
   <data name="Yes, Make Private" xml:space="preserve">
     <value>हाँ, निजी बनाएं</value>

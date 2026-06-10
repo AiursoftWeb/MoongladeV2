@@ -150,6 +150,9 @@
   <data name="My Documents History" xml:space="preserve">
     <value>История моих документов</value>
   </data>
+  <data name="My posts" xml:space="preserve">
+    <value>Мои записи</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>Не найдено</value>
   </data>
@@ -164,6 +167,9 @@
   </data>
   <data name="Post" xml:space="preserve">
     <value>Сообщение</value>
+  </data>
+  <data name="Post Editor" xml:space="preserve">
+    <value>Редактор статей</value>
   </data>
   <data name="Profile" xml:space="preserve">
     <value>Профиль</value>
@@ -230,6 +236,9 @@
   </data>
   <data name="Users" xml:space="preserve">
     <value>Пользователи</value>
+  </data>
+  <data name="Write Post" xml:space="preserve">
+    <value>Написать пост</value>
   </data>
 
 </root>

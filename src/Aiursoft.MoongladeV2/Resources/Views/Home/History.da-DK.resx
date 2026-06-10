@@ -21,11 +21,17 @@
       <data name="A list of all documents you have created." xml:space="preserve">
     <value>En liste over alle dokumenter, du har oprettet.</value>
   </data>
+  <data name="A list of all posts you have created." xml:space="preserve">
+    <value>En liste over alle indlæg, du har oprettet.</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Handlinger</value>
   </data>
   <data name="All My Documents" xml:space="preserve">
     <value>Alle mine dokumenter</value>
+  </data>
+  <data name="All My Posts" xml:space="preserve">
+    <value>Alle mine indlæg</value>
   </data>
   <data name="Clear" xml:space="preserve">
     <value>Ryd</value>
@@ -51,11 +57,17 @@
   <data name="My Documents" xml:space="preserve">
     <value>Mine dokumenter</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>Mine indlæg</value>
+  </data>
   <data name="No documents found for your search query." xml:space="preserve">
     <value>Ingen dokumenter fundet til din søgning.</value>
   </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>Ingen dokumenter matcher din søgning.</value>
+  </data>
+  <data name="No posts found for your search query." xml:space="preserve">
+    <value>Ingen indlæg fundet for din søgeforespørgsel.</value>
   </data>
   <data name="Private" xml:space="preserve">
     <value>Privat</value>
@@ -72,6 +84,12 @@
   <data name="Search my documents..." xml:space="preserve">
     <value>Søg i mine dokumenter...</value>
   </data>
+  <data name="Search my posts" xml:space="preserve">
+    <value>Søg i mine indlæg</value>
+  </data>
+  <data name="Search my posts..." xml:space="preserve">
+    <value>Søg i mine indlæg...</value>
+  </data>
   <data name="Share" xml:space="preserve">
     <value>Del</value>
   </data>
@@ -84,8 +102,14 @@
   <data name="Visibility" xml:space="preserve">
     <value>Synlighed</value>
   </data>
+  <data name="Write a new post" xml:space="preserve">
+    <value>Skriv et nyt indlæg</value>
+  </data>
   <data name="You have not created any documents yet." xml:space="preserve">
     <value>Du har ikke oprettet nogen dokumenter endnu.</value>
+  </data>
+  <data name="You have not created any posts yet." xml:space="preserve">
+    <value>Du har ikke oprettet nogen indlæg endnu.</value>
   </data>
 
 </root>

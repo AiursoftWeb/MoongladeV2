@@ -21,11 +21,17 @@
       <data name="A list of all documents you have created." xml:space="preserve">
     <value>作成したすべてのドキュメントの一覧。</value>
   </data>
+  <data name="A list of all posts you have created." xml:space="preserve">
+    <value>あなたが作成したすべての投稿のリスト。</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>操作</value>
   </data>
   <data name="All My Documents" xml:space="preserve">
     <value>すべてのマイドキュメント</value>
+  </data>
+  <data name="All My Posts" xml:space="preserve">
+    <value>投稿一覧</value>
   </data>
   <data name="Clear" xml:space="preserve">
     <value>クリア</value>
@@ -51,11 +57,17 @@
   <data name="My Documents" xml:space="preserve">
     <value>マイドキュメント</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>マイ投稿</value>
+  </data>
   <data name="No documents found for your search query." xml:space="preserve">
     <value>検索クエリに一致する文書が見つかりませんでした。</value>
   </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>検索条件に一致するドキュメントはありません。</value>
+  </data>
+  <data name="No posts found for your search query." xml:space="preserve">
+    <value>検索条件に一致する投稿が見つかりません。</value>
   </data>
   <data name="Private" xml:space="preserve">
     <value>非公開</value>
@@ -72,6 +84,12 @@
   <data name="Search my documents..." xml:space="preserve">
     <value>ドキュメントを検索...</value>
   </data>
+  <data name="Search my posts" xml:space="preserve">
+    <value>投稿を検索</value>
+  </data>
+  <data name="Search my posts..." xml:space="preserve">
+    <value>投稿を検索...</value>
+  </data>
   <data name="Share" xml:space="preserve">
     <value>共有</value>
   </data>
@@ -84,8 +102,14 @@
   <data name="Visibility" xml:space="preserve">
     <value>公開範囲</value>
   </data>
+  <data name="Write a new post" xml:space="preserve">
+    <value>新しい投稿を書く</value>
+  </data>
   <data name="You have not created any documents yet." xml:space="preserve">
     <value>まだドキュメントが作成されていません。</value>
+  </data>
+  <data name="You have not created any posts yet." xml:space="preserve">
+    <value>まだ投稿を作成していません。</value>
   </data>
 
 </root>

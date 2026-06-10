@@ -21,11 +21,17 @@
       <data name="A list of all documents you have created." xml:space="preserve">
     <value>Μια λίστα όλων των εγγράφων που έχετε δημιουργήσει.</value>
   </data>
+  <data name="A list of all posts you have created." xml:space="preserve">
+    <value>Μια λίστα με όλα τα άρθρα που έχετε δημιουργήσει.</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Ενέργειες</value>
   </data>
   <data name="All My Documents" xml:space="preserve">
     <value>Όλα τα Έγγραφά Μου</value>
+  </data>
+  <data name="All My Posts" xml:space="preserve">
+    <value>Όλα τα άρθρα μου</value>
   </data>
   <data name="Clear" xml:space="preserve">
     <value>Καθαρισμός</value>
@@ -51,11 +57,17 @@
   <data name="My Documents" xml:space="preserve">
     <value>Τα Έγγραφά Μου</value>
   </data>
+  <data name="My Posts" xml:space="preserve">
+    <value>Οι αναρτήσεις μου</value>
+  </data>
   <data name="No documents found for your search query." xml:space="preserve">
     <value>Δεν βρέθηκαν έγγραφα για την αναζήτησή σας.</value>
   </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>Δεν βρέθηκαν έγγραφα που να αντιστοιχούν στην αναζήτησή σας.</value>
+  </data>
+  <data name="No posts found for your search query." xml:space="preserve">
+    <value>Δεν βρέθηκαν αναρτήσεις για την αναζήτησή σας.</value>
   </data>
   <data name="Private" xml:space="preserve">
     <value>Ιδιωτικό</value>
@@ -72,6 +84,12 @@
   <data name="Search my documents..." xml:space="preserve">
     <value>Αναζήτηση στα έγγραφά μου...</value>
   </data>
+  <data name="Search my posts" xml:space="preserve">
+    <value>Αναζήτηση στα δημοσιεύματά μου</value>
+  </data>
+  <data name="Search my posts..." xml:space="preserve">
+    <value>Αναζήτηση στις αναρτήσεις μου...</value>
+  </data>
   <data name="Share" xml:space="preserve">
     <value>Κοινοποίηση</value>
   </data>
@@ -84,8 +102,14 @@
   <data name="Visibility" xml:space="preserve">
     <value>Ορατότητα</value>
   </data>
+  <data name="Write a new post" xml:space="preserve">
+    <value>Γράψτε μια νέα αναρτηση</value>
+  </data>
   <data name="You have not created any documents yet." xml:space="preserve">
     <value>Δεν έχετε δημιουργήσει ακόμα κανένα έγγραφο.</value>
+  </data>
+  <data name="You have not created any posts yet." xml:space="preserve">
+    <value>Δεν έχετε δημιουργήσει ακόμη αναρτήσεις.</value>
   </data>
 
 </root>
