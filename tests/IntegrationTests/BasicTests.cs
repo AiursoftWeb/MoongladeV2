@@ -10,7 +10,7 @@ public class BasicTests : TestBase
     [TestMethod]
     [DataRow("/")]
     [DataRow("/hOmE?aaaaaa=bbbbbb")]
-    [DataRow("/hOmE/InDeX")]
+    [DataRow("/hOmE/EdItOr")]
     public async Task GetHome(string url)
     {
         var response = await Http.GetAsync(url);
