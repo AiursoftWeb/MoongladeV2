@@ -33,7 +33,6 @@ public class HomeController(
     )]
 
     [Route("/Home")]
-    [Route("/Home/Index")]
     [Route("/Home/Editor")]
     [HttpGet]
     public IActionResult Editor()
