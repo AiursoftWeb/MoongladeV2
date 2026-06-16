@@ -38,7 +38,7 @@ public class BasicTests : TestBase
         homePageResponse.EnsureSuccessStatusCode();
         
         var logOffResponse = await Http.GetAsync("/Account/LogOff");
-        AssertRedirect(logOffResponse, "/");
+        AssertRedirect(logOffResponse, "/Home/Editor");
 
         // Step 3: Log in with the newly created user and assert a successful redirect.
         var loginResponse = await PostForm("/Account/Login", new Dictionary<string, string>

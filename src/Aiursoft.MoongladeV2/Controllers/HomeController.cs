@@ -31,7 +31,12 @@ public class HomeController(
         LinkText = "Write Post",
         LinkOrder = 1
     )]
-    public IActionResult Index()
+
+    [Route("/Home")]
+    [Route("/Home/Index")]
+    [Route("/Home/Editor")]
+    [HttpGet]
+    public IActionResult Editor()
     {
         return this.StackView(new IndexViewModel("Untitled Post"));
     }
@@ -169,7 +174,7 @@ public class HomeController(
             HasInternalShares = document.DocumentShares.Any()
         };
 
-        return this.StackView(model: model, viewName: nameof(Index)); // Reuse the Index view for editing.
+        return this.StackView(model: model, viewName: nameof(Editor)); // Reuse the Index view for editing.
     }
 
     /// <summary>

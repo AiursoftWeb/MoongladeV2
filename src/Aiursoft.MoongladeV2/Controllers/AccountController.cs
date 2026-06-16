@@ -159,7 +159,7 @@ public class AccountController(
 
         await signInManager.SignOutAsync();
         logger.LogInformation(4, "User logged out locally.");
-        return RedirectToAction(nameof(HomeController.Index), "Home");
+        return RedirectToAction(nameof(HomeController.Editor), "Home");
     }
 
     [HttpGet]
@@ -218,7 +218,7 @@ public class AccountController(
             return Redirect(returnUrl);
         }
 
-        return RedirectToAction(nameof(HomeController.Index), "Home");
+        return RedirectToAction(nameof(HomeController.Editor), "Home");
     }
 
     #endregion
