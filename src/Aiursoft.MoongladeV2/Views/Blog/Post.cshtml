@@ -1,6 +1,10 @@
 @using Aiursoft.WebTools
+@using Aiursoft.MoongladeV2.Controllers
 @model Aiursoft.MoongladeV2.Models.BlogViewModels.PostViewModel
 
+@{
+    var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
+}
 <vc:marketing-navbar></vc:marketing-navbar>
 
 <main class="container py-4">
@@ -174,6 +178,12 @@
 
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
+    <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js" asp-append-version="true"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            hljs.highlightAll();
+        });
+    </script>
     <script>
         document.querySelectorAll(".toggle-reply").forEach(function (el) {
             el.addEventListener("click", function (e) {
@@ -191,4 +201,12 @@
 @section styles {
     <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/blog.css" asp-append-version="true" />
+    @if (isDarkMode)
+    {
+        <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github-dark.min.css" asp-append-version="true" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github.min.css" asp-append-version="true" />
+    }
 }
