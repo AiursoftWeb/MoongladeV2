@@ -17,7 +17,7 @@ namespace Aiursoft.MoongladeV2.MySql.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.8")
+                .HasAnnotation("ProductVersion", "10.0.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
@@ -116,8 +116,8 @@ namespace Aiursoft.MoongladeV2.MySql.Migrations
 
                     b.Property<string>("Abstract")
                         .IsRequired()
-                        .HasMaxLength(1024)
-                        .HasColumnType("varchar(1024)");
+                        .HasMaxLength(8192)
+                        .HasColumnType("varchar(8192)");
 
                     b.Property<string>("Culture")
                         .IsRequired()

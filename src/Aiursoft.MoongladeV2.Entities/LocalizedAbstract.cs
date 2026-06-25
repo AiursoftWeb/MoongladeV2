@@ -22,7 +22,7 @@ public class LocalizedAbstract
     [MaxLength(20)]
     public required string Culture { get; set; }
 
-    [MaxLength(1024)]
+    [MaxLength(8192)]
     public string Abstract { get; set; } = string.Empty;
 
     /// <summary>
