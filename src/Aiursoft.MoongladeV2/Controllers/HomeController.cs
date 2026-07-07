@@ -778,7 +778,7 @@ public class HomeController(
             culture,
             localizedTitle = localized?.LocalizedTitle ?? string.Empty,
             localizedContent = localized?.LocalizedContent ?? string.Empty,
-            lastLocalizedAt = localized?.LastLocalizedAt as DateTime?
+            lastLocalizedAt = localized?.LastLocalizedAt
         });
     }
 
@@ -829,8 +829,8 @@ public class HomeController(
         }
 
         // Truncate to entity limits
-        localizedTitle = localizedTitle?.SafeSubstring(200) ?? string.Empty;
-        localizedContent = localizedContent?.SafeSubstring(65535) ?? string.Empty;
+        localizedTitle = localizedTitle.SafeSubstring(200);
+        localizedContent = localizedContent.SafeSubstring(65535);
 
         var existing = await context.LocalizedDocuments
             .FirstOrDefaultAsync(ld => ld.DocumentId == documentId &&
