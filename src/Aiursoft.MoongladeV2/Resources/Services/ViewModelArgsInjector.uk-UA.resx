@@ -123,6 +123,9 @@
   <data name="Internal Server Error" xml:space="preserve">
     <value>Помилка внутрішнього сервера</value>
   </data>
+  <data name="Localization" xml:space="preserve">
+    <value>Локалізація</value>
+  </data>
   <data name="Lockout" xml:space="preserve">
     <value>Блокування</value>
   </data>

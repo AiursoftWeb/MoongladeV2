@@ -126,6 +126,9 @@
   <data name="Internal Server Error" xml:space="preserve">
     <value>Lỗi máy chủ nội bộ</value>
   </data>
+  <data name="Localization" xml:space="preserve">
+    <value>Bản địa hóa</value>
+  </data>
   <data name="Lockout" xml:space="preserve">
     <value>Khóa tài khoản</value>
   </data>

@@ -183,6 +183,12 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>内部 - 指定用户/角色</value>
   </data>
+  <data name="Localization" xml:space="preserve">
+    <value>本地化</value>
+  </data>
+  <data name="Localize" xml:space="preserve">
+    <value>本地化</value>
+  </data>
   <data name="Make document private" xml:space="preserve">
     <value>设为私有</value>
   </data>
