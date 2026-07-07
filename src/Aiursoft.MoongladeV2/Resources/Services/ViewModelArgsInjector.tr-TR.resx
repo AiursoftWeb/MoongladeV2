@@ -123,6 +123,9 @@
   <data name="Internal Server Error" xml:space="preserve">
     <value>İç Sunucu Hatası</value>
   </data>
+  <data name="Localization" xml:space="preserve">
+    <value>Yerelleştirme</value>
+  </data>
   <data name="Lockout" xml:space="preserve">
     <value>Hesap Kilitlendi</value>
   </data>

@@ -123,6 +123,9 @@
   <data name="Internal Server Error" xml:space="preserve">
     <value>Internal Server Error</value>
   </data>
+  <data name="Localization" xml:space="preserve">
+    <value>Τοπικοποίηση</value>
+  </data>
   <data name="Lockout" xml:space="preserve">
     <value>Μπλοκάρισμα</value>
   </data>

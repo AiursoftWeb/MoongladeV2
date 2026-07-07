@@ -126,6 +126,9 @@
   <data name="Internal Server Error" xml:space="preserve">
     <value>内部サーバーエラー</value>
   </data>
+  <data name="Localization" xml:space="preserve">
+    <value>ローカライズ</value>
+  </data>
   <data name="Lockout" xml:space="preserve">
     <value>ロックアウト</value>
   </data>

@@ -123,6 +123,9 @@
   <data name="Internal Server Error" xml:space="preserve">
     <value>आ interनल सर्वर त्रुटि</value>
   </data>
+  <data name="Localization" xml:space="preserve">
+    <value>स्थानीयकरण</value>
+  </data>
   <data name="Lockout" xml:space="preserve">
     <value>लॉकआउट</value>
   </data>

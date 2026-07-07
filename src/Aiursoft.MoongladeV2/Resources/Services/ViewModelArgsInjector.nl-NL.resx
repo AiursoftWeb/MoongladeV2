@@ -123,6 +123,9 @@
   <data name="Internal Server Error" xml:space="preserve">
     <value>Interne serverfout</value>
   </data>
+  <data name="Localization" xml:space="preserve">
+    <value>Lokalisatie</value>
+  </data>
   <data name="Lockout" xml:space="preserve">
     <value>Account vergrendeld</value>
   </data>

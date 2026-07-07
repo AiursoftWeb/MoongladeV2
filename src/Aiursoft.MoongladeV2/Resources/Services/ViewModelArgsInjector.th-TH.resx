@@ -126,6 +126,9 @@
   <data name="Internal Server Error" xml:space="preserve">
     <value>ข้อผิดพลาดเซิร์ฟเวอร์ภายใน</value>
   </data>
+  <data name="Localization" xml:space="preserve">
+    <value>การทำให้เป็นภาษาท้องถิ่น</value>
+  </data>
   <data name="Lockout" xml:space="preserve">
     <value>การถูกล็อก</value>
   </data>

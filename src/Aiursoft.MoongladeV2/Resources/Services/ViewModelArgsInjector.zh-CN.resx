@@ -126,6 +126,9 @@
   <data name="Internal Server Error" xml:space="preserve">
     <value>内部服务器错误</value>
   </data>
+  <data name="Localization" xml:space="preserve">
+    <value>本地化</value>
+  </data>
   <data name="Lockout" xml:space="preserve">
     <value>账户被锁定</value>
   </data>
