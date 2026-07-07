@@ -1,5 +1,7 @@
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using Aiursoft.CSTools.Tools;
+using Aiursoft.MoongladeV2.Configuration;
 using Aiursoft.MoongladeV2.Models.HomeViewModels;
 using Aiursoft.MoongladeV2.Services;
 using Aiursoft.UiStack.Navigation;
@@ -20,7 +22,8 @@ public class HomeController(
     UserManager<User> userManager,
     TemplateDbContext context,
     MoongladeV2Service mtohService,
-    IAuthorizationService authorizationService) : Controller
+    IAuthorizationService authorizationService,
+    GlobalSettingsService globalSettingsService) : Controller
 {
     [RenderInNavBar(
         NavGroupName = "Features",
@@ -632,5 +635,231 @@ public class HomeController(
     public IActionResult SelfHost()
     {
         return this.StackView(new SelfHostViewModel("Self host a new server"));
+    }
+
+    /// <summary>
+    /// GET: Localization editor for a document. Shows all configured languages and their translations.
+    /// </summary>
+    [Authorize]
+    [HttpGet]
+    public async Task<IActionResult> Localize([Required][FromRoute] Guid id)
+    {
+        var userId = userManager.GetUserId(User);
+        var document = await context.MarkdownDocuments
+            .Include(d => d.LocalizedDocuments)
+            .FirstOrDefaultAsync(d => d.Id == id);
+
+        if (document == null)
+        {
+            return NotFound("The document was not found.");
+        }
+
+        // Check edit permissions: owner, shared-with-edit, or admin
+        var isOwner = document.UserId == userId;
+        var canEdit = isOwner;
+
+        if (!isOwner)
+        {
+            var userRoles = await context.UserRoles
+                .Where(ur => ur.UserId == userId)
+                .Select(ur => ur.RoleId)
+                .ToListAsync();
+
+            canEdit = await context.DocumentShares
+                .AnyAsync(s => s.DocumentId == id &&
+                              s.Permission == SharePermission.Editable &&
+                              (s.SharedWithUserId == userId ||
+                               (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
+
+            if (!canEdit)
+            {
+                canEdit = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanEditAnyDocument)).Succeeded;
+            }
+        }
+
+        if (!canEdit)
+        {
+            return Forbid();
+        }
+
+        // Build the language list
+        var languagesRaw = await globalSettingsService.GetSettingValueAsync(SettingsMap.LocalizationLanguages);
+        var cultures = languagesRaw.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+        var languageList = new List<LanguageInfo>();
+
+        foreach (var code in cultures)
+        {
+            try
+            {
+                var cultureInfo = CultureInfo.GetCultureInfo(code);
+                var localized = document.LocalizedDocuments
+                    .FirstOrDefault(ld => string.Equals(ld.Culture, code, StringComparison.OrdinalIgnoreCase));
+
+                languageList.Add(new LanguageInfo
+                {
+                    Culture = code,
+                    NativeName = cultureInfo.NativeName,
+                    HasTranslation = localized != null,
+                    LastLocalizedAt = localized?.LastLocalizedAt
+                });
+            }
+            catch (CultureNotFoundException)
+            {
+                logger.LogWarning("Invalid culture code in LocalizationLanguages setting: {Code}", code);
+            }
+        }
+
+        var model = new LocalizeViewModel(document.Title ?? "Untitled Document")
+        {
+            DocumentId = document.Id,
+            DocumentTitle = document.Title ?? "Untitled Document",
+            SourceCulture = document.SourceCulture,
+            UpdatedAt = document.UpdatedAt,
+            Languages = languageList
+        };
+
+        return this.StackView(model, nameof(Localize));
+    }
+
+    /// <summary>
+    /// GET: Returns JSON with localization data for a specific document and culture.
+    /// </summary>
+    [Authorize]
+    [HttpGet]
+    public async Task<IActionResult> LocalizeData([Required] Guid id, [Required] string culture)
+    {
+        var userId = userManager.GetUserId(User);
+        var document = await context.MarkdownDocuments
+            .Include(d => d.LocalizedDocuments)
+            .FirstOrDefaultAsync(d => d.Id == id);
+
+        if (document == null)
+        {
+            return NotFound("The document was not found.");
+        }
+
+        // Same permission check as Localize GET
+        var isOwner = document.UserId == userId;
+        var canEdit = isOwner;
+
+        if (!isOwner)
+        {
+            var userRoles = await context.UserRoles
+                .Where(ur => ur.UserId == userId)
+                .Select(ur => ur.RoleId)
+                .ToListAsync();
+
+            canEdit = await context.DocumentShares
+                .AnyAsync(s => s.DocumentId == id &&
+                              s.Permission == SharePermission.Editable &&
+                              (s.SharedWithUserId == userId ||
+                               (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
+
+            if (!canEdit)
+            {
+                canEdit = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanEditAnyDocument)).Succeeded;
+            }
+        }
+
+        if (!canEdit)
+        {
+            return Forbid();
+        }
+
+        var localized = document.LocalizedDocuments
+            .FirstOrDefault(ld => string.Equals(ld.Culture, culture, StringComparison.OrdinalIgnoreCase));
+
+        return Json(new
+        {
+            documentId = document.Id,
+            documentTitle = document.Title,
+            sourceCulture = document.SourceCulture,
+            updatedAt = document.UpdatedAt,
+            culture,
+            localizedTitle = localized?.LocalizedTitle ?? string.Empty,
+            localizedContent = localized?.LocalizedContent ?? string.Empty,
+            lastLocalizedAt = localized?.LastLocalizedAt as DateTime?
+        });
+    }
+
+    /// <summary>
+    /// POST: Saves a manual localization correction via AJAX.
+    /// </summary>
+    [Authorize]
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> SaveLocalization([Required] Guid documentId, [Required] string culture,
+        string localizedTitle, string localizedContent)
+    {
+        var userId = userManager.GetUserId(User);
+        var document = await context.MarkdownDocuments
+            .FirstOrDefaultAsync(d => d.Id == documentId);
+
+        if (document == null)
+        {
+            return NotFound("The document was not found.");
+        }
+
+        // Same permission check
+        var isOwner = document.UserId == userId;
+        var canEdit = isOwner;
+
+        if (!isOwner)
+        {
+            var userRoles = await context.UserRoles
+                .Where(ur => ur.UserId == userId)
+                .Select(ur => ur.RoleId)
+                .ToListAsync();
+
+            canEdit = await context.DocumentShares
+                .AnyAsync(s => s.DocumentId == documentId &&
+                              s.Permission == SharePermission.Editable &&
+                              (s.SharedWithUserId == userId ||
+                               (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
+
+            if (!canEdit)
+            {
+                canEdit = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanEditAnyDocument)).Succeeded;
+            }
+        }
+
+        if (!canEdit)
+        {
+            return Forbid();
+        }
+
+        // Truncate to entity limits
+        localizedTitle = localizedTitle?.SafeSubstring(200) ?? string.Empty;
+        localizedContent = localizedContent?.SafeSubstring(65535) ?? string.Empty;
+
+        var existing = await context.LocalizedDocuments
+            .FirstOrDefaultAsync(ld => ld.DocumentId == documentId &&
+                                       ld.Culture == culture);
+
+        if (existing == null)
+        {
+            context.LocalizedDocuments.Add(new LocalizedDocument
+            {
+                DocumentId = documentId,
+                Culture = culture,
+                LocalizedTitle = localizedTitle,
+                LocalizedContent = localizedContent,
+                LastLocalizedAt = DateTime.UtcNow
+            });
+        }
+        else
+        {
+            existing.LocalizedTitle = localizedTitle;
+            existing.LocalizedContent = localizedContent;
+            existing.LastLocalizedAt = DateTime.UtcNow;
+        }
+
+        await context.SaveChangesAsync();
+
+        logger.LogInformation(
+            "User '{UserId}' manually updated localization for document '{DocumentId}' to culture '{Culture}'.",
+            userId, documentId, culture);
+
+        return Ok(new { success = true });
     }
 }

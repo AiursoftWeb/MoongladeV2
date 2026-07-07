@@ -1,0 +1,291 @@
+@using Aiursoft.MoongladeV2.Controllers
+@using Aiursoft.WebTools
+@model Aiursoft.MoongladeV2.Models.HomeViewModels.LocalizeViewModel
+
+@{
+    var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
+    var theme = isDarkMode ? "material" : "eclipse";
+}
+
+@Html.AntiForgeryToken()
+
+@* --- Document Metadata Header --- *@
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Localization"]: @Model.DocumentTitle</h3>
+        <p class="mb-0 text-muted">
+            @Localizer["Source Culture"]: <span class="badge bg-secondary">@(Model.SourceCulture ?? "—")</span>
+            &nbsp;|&nbsp; @Localizer["Last Modified"]: <label class="text-muted mb-0 d-inline" data-utc-time="@Model.UpdatedAt.ToHtmlDateTime()"></label>
+        </p>
+    </div>
+    <div class="col-auto ms-auto text-end mt-n1">
+        <a asp-action="Edit" asp-route-id="@Model.DocumentId" class="btn btn-outline-secondary">
+            <i class="align-middle" data-lucide="arrow-left"></i> @Localizer["Back to Editor"]
+        </a>
+    </div>
+</div>
+
+@* --- Success/Error Alerts --- *@
+@if (!string.IsNullOrEmpty(Model.SuccessMessage))
+{
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <div class="alert-icon">
+            <i class="align-middle" data-lucide="check-circle"></i>
+        </div>
+        <div class="alert-message">
+            <strong>@Localizer["Success!"]</strong> @Model.SuccessMessage
+        </div>
+    </div>
+}
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <div class="alert-icon">
+            <i class="align-middle" data-lucide="alert-circle"></i>
+        </div>
+        <div class="alert-message">
+            <strong>@Localizer["Error!"]</strong> @Model.ErrorMessage
+        </div>
+    </div>
+}
+
+@* --- Two-Column Layout: Language sidebar + Editor --- *@
+<div class="row">
+    @* Left: Language sidebar *@
+    <div class="col-lg-3">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="align-middle" data-lucide="globe"></i> @Localizer["Languages"]
+                </h5>
+            </div>
+            <div class="list-group list-group-flush" id="language-list">
+                @foreach (var lang in Model.Languages)
+                {
+                    <button type="button" class="list-group-item list-group-item-action language-item d-flex flex-column align-items-start"
+                            data-culture="@lang.Culture">
+                        <div class="d-flex w-100 justify-content-between align-items-center">
+                            <span class="fw-semibold">@lang.NativeName</span>
+                            @if (lang.HasTranslation)
+                            {
+                                <i class="align-middle text-success" data-lucide="check-circle" style="width: 16px; height: 16px;"></i>
+                            }
+                        </div>
+                        <small class="text-muted">@lang.Culture</small>
+                        @if (lang.LastLocalizedAt.HasValue)
+                        {
+                            <small class="text-muted mt-1">
+                                @Localizer["Generated"]: <label class="text-muted mb-0 d-inline" data-utc-time="@lang.LastLocalizedAt.Value.ToHtmlDateTime()"></label>
+                            </small>
+                        }
+                    </button>
+                }
+            </div>
+        </div>
+    </div>
+
+    @* Right: Editor area *@
+    <div class="col-lg-9">
+        <div class="card" id="editor-card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="align-middle" data-lucide="languages"></i>
+                    <span id="editor-language-label">@Localizer["Select a language"]</span>
+                </h5>
+            </div>
+            <div class="card-body">
+                <div id="localization-editor-area">
+                    @* Title input *@
+                    <div class="mb-3">
+                        <label for="localized-title" class="form-label">@Localizer["Localized Title"]</label>
+                        <input type="text" id="localized-title" class="form-control form-control-lg"
+                               placeholder="@Localizer["Translated title"]" maxlength="200" />
+                    </div>
+                    @* CodeMirror textarea *@
+                    <div class="mb-3">
+                        <label for="localized-content-editor" class="form-label">@Localizer["Localized Content"]</label>
+                        <textarea id="localized-content-editor" class="form-control"
+                                  placeholder="@Localizer["Translated markdown content"]"></textarea>
+                    </div>
+                    @* Save button + status *@
+                    <div class="d-flex align-items-center">
+                        <button type="button" id="save-localization-btn" class="btn btn-primary btn-lg" disabled>
+                            <i class="align-middle" data-lucide="save"></i>
+                            @Localizer["Save Translation"]
+                        </button>
+                        <span id="save-status" class="ms-3"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <link rel="stylesheet" href="~/node_modules/@@fontsource/cascadia-code/index.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/node_modules/codemirror/lib/codemirror.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/node_modules/codemirror/theme/@(theme).css" asp-append-version="true" />
+    <style>
+        .CodeMirror {
+            border: 1px solid #dee2e6;
+            height: 50vh;
+            font-family: 'Cascadia Code', 'Consolas', 'Courier New', monospace;
+        }
+        body[data-theme="dark"] .CodeMirror {
+            border-color: #323d4b;
+        }
+    </style>
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script src="~/node_modules/codemirror/lib/codemirror.js" asp-append-version="true"></script>
+    <script src="~/node_modules/codemirror/mode/markdown/markdown.js" asp-append-version="true"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var codeMirrorInstance = null;
+            var currentCulture = null;
+            var documentId = '@Model.DocumentId';
+
+            // --- Initialize CodeMirror ---
+            if (typeof CodeMirror !== 'undefined') {
+                var editorElement = document.getElementById('localized-content-editor');
+                if (editorElement && !editorElement.CodeMirror) {
+                    codeMirrorInstance = CodeMirror.fromTextArea(editorElement, {
+                        lineNumbers: true,
+                        mode: 'markdown',
+                        theme: '@(theme)',
+                        viewportMargin: Infinity
+                    });
+
+                    codeMirrorInstance.on('change', function () {
+                        codeMirrorInstance.save();
+                    });
+                }
+            }
+
+            // --- Language Selection ---
+            var languageItems = document.querySelectorAll('.language-item');
+            var langLabel = document.getElementById('editor-language-label');
+            var titleInput = document.getElementById('localized-title');
+            var saveBtn = document.getElementById('save-localization-btn');
+
+            function highlightSelectedLang(culture) {
+                languageItems.forEach(function (item) {
+                    item.classList.remove('active');
+                    if (item.dataset.culture === culture) {
+                        item.classList.add('active');
+                    }
+                });
+            }
+
+            function loadTranslation(culture, nativeName) {
+                currentCulture = culture;
+                langLabel.textContent = nativeName + ' (' + culture + ')';
+                saveBtn.disabled = false;
+                highlightSelectedLang(culture);
+
+                var url = '/Home/LocalizeData?id=' + encodeURIComponent(documentId) + '&culture=' + encodeURIComponent(culture);
+                fetch(url)
+                    .then(function (r) {
+                        if (!r.ok) throw new Error('Failed to load translation data');
+                        return r.json();
+                    })
+                    .then(function (data) {
+                        titleInput.value = data.localizedTitle || '';
+                        if (codeMirrorInstance) {
+                            codeMirrorInstance.setValue(data.localizedContent || '');
+                        } else {
+                            document.getElementById('localized-content-editor').value = data.localizedContent || '';
+                        }
+                    })
+                    .catch(function (err) {
+                        console.error('Failed to load translation:', err);
+                        showStatus('error', '@Localizer["Failed to load translation."]');
+                    });
+            }
+
+            // --- Save ---
+            saveBtn.addEventListener('click', function () {
+                if (!currentCulture) return;
+
+                var tokenInput = document.querySelector('input[name="__RequestVerificationToken"]');
+                var token = tokenInput ? tokenInput.value : '';
+                var content = codeMirrorInstance ? codeMirrorInstance.getValue() : document.getElementById('localized-content-editor').value;
+
+                var formData = new FormData();
+                formData.append('documentId', documentId);
+                formData.append('culture', currentCulture);
+                formData.append('localizedTitle', titleInput.value);
+                formData.append('localizedContent', content);
+                formData.append('__RequestVerificationToken', token);
+
+                saveBtn.disabled = true;
+                showStatus('saving', '@Localizer["Saving..."]');
+
+                fetch('/Home/SaveLocalization', {
+                    method: 'POST',
+                    body: formData
+                })
+                    .then(function (r) {
+                        if (!r.ok) throw new Error('Save failed');
+                        return r.json();
+                    })
+                    .then(function (data) {
+                        if (data.success) {
+                            showStatus('success', '@Localizer["Saved successfully!"]');
+                            setTimeout(function () { clearStatus(); }, 2000);
+                        } else {
+                            showStatus('error', data.error || '@Localizer["Save failed."]');
+                        }
+                    })
+                    .catch(function (err) {
+                        console.error('Save failed:', err);
+                        showStatus('error', '@Localizer["Save failed."]');
+                    })
+                    .finally(function () {
+                        saveBtn.disabled = false;
+                    });
+            });
+
+            // --- Status display helpers ---
+            function showStatus(type, message) {
+                var el = document.getElementById('save-status');
+                var color = type === 'success' ? 'text-success' : type === 'error' ? 'text-danger' : 'text-muted';
+                el.className = color + ' ms-3';
+                el.textContent = message;
+            }
+
+            function clearStatus() {
+                var el = document.getElementById('save-status');
+                el.textContent = '';
+            }
+
+            // --- Wire up language click handlers ---
+            languageItems.forEach(function (item) {
+                item.addEventListener('click', function () {
+                    var culture = item.dataset.culture;
+                    var nameSpan = item.querySelector('span.fw-semibold');
+                    var name = nameSpan ? nameSpan.textContent.trim() : culture;
+                    if (name.endsWith(culture)) {
+                        name = name.substring(0, name.length - culture.length).trim();
+                    }
+                    loadTranslation(culture, name);
+                });
+            });
+
+            // --- Initial: load the first language automatically ---
+            @if (Model.Languages.Any())
+            {
+                var firstLang = Model.Languages.First();
+                var firstName = System.Globalization.CultureInfo.GetCultureInfo(firstLang.Culture).NativeName;
+                <text>
+                loadTranslation('@firstLang.Culture', '@Html.Raw(firstName)');
+                </text>
+            }
+        });
+    </script>
+}
