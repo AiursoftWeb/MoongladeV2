@@ -183,6 +183,12 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>Interno - Utilizadores/funções específicos</value>
   </data>
+  <data name="Localization" xml:space="preserve">
+    <value>Localização</value>
+  </data>
+  <data name="Localize" xml:space="preserve">
+    <value>Localizar</value>
+  </data>
   <data name="Make document private" xml:space="preserve">
     <value>Tornar documento privado</value>
   </data>

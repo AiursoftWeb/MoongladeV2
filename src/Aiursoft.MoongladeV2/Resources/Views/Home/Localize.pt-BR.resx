@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Back to Editor" xml:space="preserve">
+    <value>Voltar ao editor</value>
+  </data>
+  <data name="Error!" xml:space="preserve">
+    <value>Erro!</value>
+  </data>
+  <data name="Failed to load translation." xml:space="preserve">
+    <value>Falha ao carregar a tradução.</value>
+  </data>
+  <data name="Generated" xml:space="preserve">
+    <value>Gerado</value>
+  </data>
+  <data name="Languages" xml:space="preserve">
+    <value>Idiomas</value>
+  </data>
+  <data name="Last Modified" xml:space="preserve">
+    <value>Última Modificação</value>
+  </data>
+  <data name="Localization" xml:space="preserve">
+    <value>Localização</value>
+  </data>
+  <data name="Localized Content" xml:space="preserve">
+    <value>Conteúdo Localizado</value>
+  </data>
+  <data name="Localized Title" xml:space="preserve">
+    <value>Título Localizado</value>
+  </data>
+  <data name="Save failed." xml:space="preserve">
+    <value>Falha ao salvar.</value>
+  </data>
+  <data name="Save Translation" xml:space="preserve">
+    <value>Salvar Tradução</value>
+  </data>
+  <data name="Saved successfully!" xml:space="preserve">
+    <value>Salvo com sucesso!</value>
+  </data>
+  <data name="Saving..." xml:space="preserve">
+    <value>Salvando...</value>
+  </data>
+  <data name="Select a language" xml:space="preserve">
+    <value>Selecione um idioma</value>
+  </data>
+  <data name="Source Culture" xml:space="preserve">
+    <value>Cultura de Origem</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Sucesso!</value>
+  </data>
+  <data name="Translated markdown content" xml:space="preserve">
+    <value>Conteúdo traduzido em markdown</value>
+  </data>
+  <data name="Translated title" xml:space="preserve">
+    <value>Título traduzido</value>
+  </data>
+
+</root>
