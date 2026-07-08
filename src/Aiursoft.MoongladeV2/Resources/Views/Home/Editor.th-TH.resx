@@ -183,6 +183,12 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>ภายใน - ผู้ใช้/บทบาทเฉพาะ</value>
   </data>
+  <data name="Localization" xml:space="preserve">
+    <value>การแปลภาษา</value>
+  </data>
+  <data name="Localize" xml:space="preserve">
+    <value>ทำให้เป็นภาษาไทย</value>
+  </data>
   <data name="Make document private" xml:space="preserve">
     <value>ทำให้เอกสารเป็นส่วนตัว</value>
   </data>
