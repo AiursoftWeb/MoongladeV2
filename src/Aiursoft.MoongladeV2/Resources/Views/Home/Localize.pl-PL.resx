@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Back to Editor" xml:space="preserve">
+    <value>), like this:
+
+```
+Translated word here...
+```
+
+So we need to translate &quot;Back to Editor&quot;. The context is a button that leads back to the editor. In Polish, &quot;Back to Editor&quot; could be &quot;Powrót do edytora&quot; or &quot;Wróć do edytora&quot;? Usually &quot;Back to Editor&quot; -&gt; &quot;Powrót do edytora&quot;. But &quot;Wstecz&quot; sometimes for &quot;Back&quot;. However, typical translation: &quot;Wróć do edytora&quot;. However &quot;Back to Editor&quot; might be &quot;Powrót do edytora&quot; which is more formal.
+
+Given the phrase &quot;Back to Editor&quot; is an English phrase. The translation to Polish: &quot;Wróć do edytora&quot;. Is that correct? Let&apos;s think.
+
+We can consider typical translation of &quot;Back to Editor&quot;. The phrase &quot;Back to&quot; can be &quot;Wróć do&quot;, &quot;Powrót do&quot;. &quot;Back to Editor&quot; might be &quot;Wróć do edytora&quot;. &quot;Powrót do edytora&quot; is also possible but less natural. &quot;Wróć do edytora&quot; is more like &quot;Return to the editor&quot;. However, the user wants only the translation. So we need to output something like:
+
+```
+Powrót do edytora
+```
+
+or &quot;Wróć do edytora&quot;. Let&apos;s consider typical UI translation in Polish. &quot;Back to Editor&quot; often is &quot;Wróć do edytora&quot;. &quot;Wróć&quot; is imperative of &quot;wrócić&quot;. So &quot;Wróć do edytora&quot;. That seems correct.
+
+Alternatively &quot;Powrót do edytora&quot; is noun phrase, but less common for a button. A button often says &quot;Wróć do edytora&quot;. So I think we should translate to &quot;Wróć do edytora&quot;. The phrase &quot;Wróć do edytora&quot; includes the word &quot;Wróć&quot; (imperative) and &quot;do edytora&quot;. In Polish, &quot;edytora&quot; is the genitive singular of &quot;edytor&quot;. &quot;Wróć do edytora&quot; is fine.
+
+Alternatively, &quot;Powrót do edytora&quot;. That is &quot;Return to the editor&quot;. But &quot;Wróć do edytora&quot; is more common.
+
+We should output just the translation inside triple backticks.
+
+Thus output:
+
+```
+Wróć do edytora
+```
+
+I think that&apos;s correct.
+
+We need to ensure we output only the translation. So answer with triple backticks with text.
+&lt;/think&gt;
+
+``` 
+Wróć do edytora</value>
+  </data>
+  <data name="Error!" xml:space="preserve">
+    <value>Błąd!
+```
+
+But need to ensure proper formatting: three backticks, with content exactly the translation. The user says: &quot;Only output the translated content and wrap it in three backticks, like this:
+
+```
+Translated word here...
+```&quot;
+
+So we must output exactly a code block with three backticks containing &quot;Błąd!&quot;. No additional content.
+
+Thus final answer: code block with Błąd! (including exclamation). Should we include exclamation? Yes.
+
+Thus final.
+&lt;/think&gt;
+
+```Błąd!</value>
+  </data>
+  <data name="Failed to load translation." xml:space="preserve">
+    <value>Nie udało się wczytać tłumaczenia.```
+
+We must not output any other content. So final answer with just that code block.
+
+Check instructions: &quot;Do NOT output any other content. Only output the translated content and wrap it in three backticks, like this: ``` Translated word here...```&quot;
+
+Thus we output the code block with translation.
+
+Make sure it&apos;s correct. The phrase &quot;Failed to load translation.&quot; is an error message from the JavaScript fetch error handler. The translation should be in Polish. &quot;Nie udało się wczytać tłumaczenia.&quot; is correct. Alternative translation &quot;Nie udało się wczytać tłumaczenia&quot;. But include period. Use a period inside the quotes for consistency. Yes.
+
+Thus final answer.
+&lt;/think&gt;
+
+```Nie udało się wczytać tłumaczenia.</value>
+  </data>
+  <data name="Generated" xml:space="preserve">
+    <value>Wygenerowano
+```
+
+That&apos;s all.
+
+Check no other content. Should not output anything else.
+
+Thus final answer.
+&lt;/think&gt;
+
+```
+Wygenerowano</value>
+  </data>
+  <data name="Languages" xml:space="preserve">
+    <value>Języki
+```
+
+But check user wants: output only the translated content and wrap in three backticks. So the answer is:
+
+``` 
+Języki
+```
+
+But need to output exactly three backticks with language code maybe? The instruction: &quot;wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+So we need to output:
+
+```
+Języki
+```
+
+Yes.
+
+Let&apos;s consider if there&apos;s any nuance: Maybe &quot;Languages&quot; could be &quot;Języki&quot;. Also &quot;Languages&quot; could be &quot;Języki&quot; (plural noun). In Polish, &quot;Languages&quot; often is &quot;Języki&quot; (as in &quot;Languages (list of languages)&quot;. &quot;Języki&quot; is indeed plural. There&apos;s also &quot;Język&quot; singular, &quot;Języki&quot; plural. So correct translation is &quot;Języki&quot;. Good.
+
+Make sure not to include any other content. So final answer: three backticks with &quot;Języki&quot;. Probably no need for extra whitespace.
+
+Thus final.
+&lt;/think&gt;
+
+``` 
+Języki</value>
+  </data>
+  <data name="Last Modified" xml:space="preserve">
+    <value>)&quot;.
+
+Thus output:
+
+```
+Ostatnia zmiana
+```
+
+Alternatively could be &quot;Ostatnia modyfikacja&quot;. Let&apos;s choose &quot;Ostatnia zmiana&quot;. Let&apos;s also note that the user says &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; Not needed.
+
+Thus the answer: &quot;Ostatnia zmiana&quot;.
+
+We must output exactly three backticks with the translated content inside, no extra content. According to guidelines, we should output only translation. So output:
+
+``` 
+Ostatnia zmiana
+```
+
+But we need to include three backticks on separate lines? The instruction: &quot;wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus we output:
+
+```
+Ostatnia zmiana
+```
+
+Make sure there are three backticks on separate lines? The example shows the content inside triple backticks, with the content itself on a line? Actually they want: 
+```
+Translated word here...
+```
+So three backticks, then line(s) containing the content, then closing triple backticks. So output exactly:
+
+```
+Ostatnia zmiana
+```
+
+Thus final.
+&lt;/think&gt;
+
+``` 
+Ostatnia zmiana</value>
+  </data>
+  <data name="Localization" xml:space="preserve">
+    <value>Lokalizacja
+```
+
+Wrap in three backticks. Ensure nothing else appears.
+
+We should double-check translation: &quot;Localization&quot; is a noun meaning &quot;the process of localizing&quot;. In Polish, &quot;lokalizacja&quot; (lowercase) is used. However, there is also &quot;lokalizacja&quot; as a noun. So yes.
+
+We need to output only the translation and nothing else.
+
+Thus final answer: ```Lokalizacja```.
+
+Make sure we follow instructions: &quot;Do not output any other content. Only output the translated content and wrap it in three backticks.&quot;
+
+Thus answer:
+
+``` 
+Lokalizacja 
+```
+
+But inside the triple backticks. Should be:
+
+```
+Lokalizacja
+```
+&lt;/think&gt;
+
+```Lokalizacja</value>
+  </data>
+  <data name="Localized Content" xml:space="preserve">
+    <value>Lokalizowana zawartość
+```
+
+Check user instruction: &quot;Please translate only the sentence or word `Localized Content` in the paragraph into the target language pl-PL, Polski (Polska).&quot; So that is the translation.
+
+Now consider if &quot;Localized Content&quot; might be a proper noun, a name, trademark. It&apos;s not. It&apos;s a UI string. So translation is needed.
+
+Thus output exactly that. Also note: they said &quot;Do not output any other content! Only output the translated content and wrap it in three backticks, like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus answer: triple backticks with Polish translation.
+
+Thus final.
+&lt;/think&gt;
+
+```Lokalizowana zawartość</value>
+  </data>
+  <data name="Localized Title" xml:space="preserve">
+    <value>Lokalizowany tytuł
+```
+
+But maybe &quot;Localized Title&quot; could be &quot;Tytuł lokalizacji&quot;? Let&apos;s consider typical UI translation for &quot;Localized Title&quot;. Usually &quot;Lokalalizacja&quot; is the process. &quot;Localized Title&quot; means &quot;Title (that has been) localized&quot;. In Polish that is &quot;Tytuł zlokalizowany&quot;. However, &quot;zlokalizowany&quot; is past participle, meaning &quot;has been localized&quot;. &quot;Tytuł zlokalizowany&quot; is more precise.
+
+Let&apos;s consider morphological nuance: &quot;zlokalizowany&quot; is a past participle from &quot;zlokalizować&quot; (to localize). &quot;Lokalizowany&quot; is present passive participle from &quot;lokalizować&quot; (to localize). &quot;Lokalizowany tytuł&quot; implies &quot;title being localized&quot;. &quot;Zlokalizowany tytuł&quot; implies &quot;title that has been localized&quot;. Which is more appropriate depends on context: if it&apos;s a field to input the localized title, you may want &quot;Tytuł zlokalizowany&quot;. But many UI translations use &quot;lokalizowany&quot; for &quot;localized&quot;. For instance, &quot;localized resource&quot; could be &quot;zasób lokalizowany&quot;. However, &quot;zlokalizowany&quot; is also used.
+
+We need to choose one. Let&apos;s see typical translations in .NET UI scaffolding: In ASP.NET Core UI scaffolding for &quot;Localized Title&quot;, there might be translations like &quot;Tytuł lokalizacji&quot; not sure. Actually let&apos;s think: If you have a resource file called &quot;LocalizedTitle&quot; maybe it&apos;s a label. I think &quot;Lokalizowany tytuł&quot; is more straightforward.
+
+But perhaps we can check typical Polish translations: The phrase &quot;Lokalizowany tytuł&quot; is rarely used. Usually you would say &quot;Tytuł lokalizacji&quot; (title of localization) or &quot;Lokalny tytuł&quot; (local title). But &quot;Localized Title&quot; in UI could be &quot;Tytuł dla lokalizacji&quot;? Hard to know.
+
+Let&apos;s examine the context: The paragraph includes a UI for a localization editor. The &quot;Localized Title&quot; is likely a label for an input field where you enter the localized title for a language. For example, when editing a localized article, you have fields &quot;Title&quot; and &quot;Localized Title&quot;. The UI code snippet:
+
+```
+&lt;label for=&quot;localized-title&quot; class=&quot;form-label&quot;&gt;@Localizer[&quot;Localized Title&quot;]&lt;/label&gt;
+&lt;input type=&quot;text&quot; id=&quot;localized-title&quot; class=&quot;form-control form-control-lg&quot;
+                       placeholder=&quot;@Localizer[&quot;Translated title&quot;]&quot; maxlength=&quot;200&quot; /&gt;
+```
+
+Thus &quot;Localized Title&quot; is a label. The placeholder for the input is &quot;Translated title&quot;. So we need to translate &quot;Localized Title&quot;. In Polish UI, you could translate this as &quot;Lokalizowany tytuł&quot;. However, &quot;Lokalizowany&quot; is a present participle meaning &quot;being localized&quot;. The placeholder &quot;Translated title&quot; maybe &quot;Przetłumaczony tytuł&quot;. If placeholder is &quot;Translated title&quot;, then &quot;Localized Title&quot; could be &quot;Tytuł lokalny&quot;? Not exactly.
+
+Let&apos;s think about translation of &quot;Localized Title&quot; as &quot;Lokalizowany tytuł&quot;. It&apos;s not a typical phrase, but it&apos;s plausible.
+
+Alternatively, &quot;Tytuł lokalizacji&quot;. In many UI translations, they use &quot;Lokalizacja&quot; as a noun, but &quot;title&quot; is &quot;Tytuł&quot;. So &quot;Tytuł lokalizacji&quot; is unnatural: &quot;title of the localization&quot;. Could be &quot;Lokalizacja tytułu&quot;? Not likely.
+
+Better might be &quot;Lokalny tytuł&quot; (local title) but &quot;Localized Title&quot; is specific to &quot;Localized Title&quot;. Many UI frameworks use &quot;Lokalizacja&quot; but &quot;Lokalizacja&quot; itself is noun meaning &quot;localization&quot;. So &quot;Localized Title&quot; could be &quot;Lokalizacja tytułu&quot;? But that sounds like &quot;Localization of the title&quot;. For an input label, perhaps &quot;Lokalizowany tytuł&quot; is okay.
+
+Alternatively, &quot;Tytuł zlokalizowany&quot;. That would be &quot;title localized&quot;. If placeholder is &quot;Translated title&quot; (przetłumaczony tytuł), then &quot;Localized Title&quot; maybe &quot;Zlokalizowany tytuł&quot;. But &quot;zlokalizowany&quot; may not be the best for UI labeling, as it&apos;s more like &quot;has been localized&quot;. But &quot;Localized Title&quot; as a label perhaps expects &quot;Localized Title&quot; to be &quot;Lokalizowany tytuł&quot;. It&apos;s ambiguous.
+
+Let&apos;s see typical usage: In Polish, &quot;lokalizacja&quot; is the noun, &quot;lokalizowany&quot; is the present passive participle of &quot;lokalizować&quot;. &quot;lokalizowany&quot; means &quot;being localized&quot;. &quot;zlokalizowany&quot; is &quot;has been localized&quot;. &quot;Localized Title&quot; could be &quot;Tytuł do lokalizacji&quot;? Or &quot;Tytuł do przetłumaczenia&quot;? Actually &quot;Translated title&quot; placeholder &quot;Przetłumaczony tytuł&quot;. &quot;Localized Title&quot; might be &quot;Tytuł przetłumaczony&quot;. But that&apos;s not typical.
+
+Let&apos;s search memory: Many UI translations for &quot;Localized Title&quot; in e-commerce platform? Could be &quot;Tytuł lokalizacji&quot;. But that phrase is &quot;title of localization&quot;. Not correct. &quot;Lokalizowany tytuł&quot; seems plausible. Let&apos;s check usage in translation memory. I don&apos;t have actual translation memory, but typical translation for &quot;Localized Title&quot; is &quot;Lokalizowany tytuł&quot;. I think that&apos;s the answer.
+
+Thus I will output:
+
+```
+Lokalizowany tytuł
+```
+
+But we need to be careful about the instruction: &quot;Only output the translated content and wrap it in three backticks&quot;. So output should be exactly:
+
+```
+Lokalizowany tytuł
+```
+
+Thus final answer: triple backticks with the translation.
+
+Given the user instruction &quot;Do NOT output any other content. Only output the translated content and wrap it in three backticks&quot;, we must output only that.
+
+Thus final answer.
+&lt;/think&gt;
+
+```Lokalizowany tytuł</value>
+  </data>
+  <data name="Save failed." xml:space="preserve">
+    <value>Zapis nie powiódł się. 
+```
+
+But they said to output only the translated content and wrap it in three backticks, like this:
+
+```
+Translated word here...
+```
+
+Thus we output exactly:
+
+```
+Zapis nie powiódł się.
+```
+
+Be careful about punctuation: The original has a period at the end. In translation we should keep a period. In Polish, &quot;Zapis nie powiódł się.&quot; includes period. So output is &quot;Zapis nie powiódł się.&quot; We should include period. Yes.
+
+Thus final answer: wrap in triple backticks, no extra text.
+
+Check: The user wants translation only for &quot;Save failed.&quot; They specifically say: &quot;Please translate only the sentence or word `Save failed.` in the paragraph into the target language pl-PL, Polski (Polska).&quot; So we output only the translation. So answer:
+
+``` 
+Zapis nie powiódł się. 
+```
+
+Make sure no extra content. Use three backticks. Let&apos;s output exactly that.
+
+Potential nuance: They want the translated conclusion and nothing else. So no extra explanation. Just the translation. Use triple backticks. Good.
+
+Thus answer.
+&lt;/think&gt;
+
+``` 
+Zapis nie powiódł się.</value>
+  </data>
+  <data name="Save Translation" xml:space="preserve">
+    <value>Zapisz tłumaczenie
+```
+
+But careful: In some locales, &quot;Save Translation&quot; button might be &quot;Zapisz tłumaczenie&quot;. It&apos;s a common translation.
+
+Now check if any special rules: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Save Translation` is one of them.&quot;
+
+&quot;Save Translation&quot; is not a proper noun, it&apos;s a phrase. So translate.
+
+Thus output: ```Zapisz tłumaczenie```. The user explicitly said: &quot;Do **NOT** output any other content. Only output the translated content and wrap it in three backticks&quot;. So we must output only the triple backticks with the content. No extra text. So answer should be:
+
+``` 
+Zapisz tłumaczenie
+```
+
+But must be exactly three backticks, and content inside. Should we include newline after opening backticks? The typical format: ``` Translated word here... ```. But they gave example: 
+```
+Translated word here...
+```
+So we need to output:
+
+```
+Zapisz tłumaczenie
+```
+
+No extra lines. Just that. Ensure no extra content.
+
+Thus final.
+&lt;/think&gt;
+
+``` 
+Zapisz tłumaczenie</value>
+  </data>
+  <data name="Saved successfully!" xml:space="preserve">
+    <value>Zapisano pomyślnie!
+```
+
+Yes.
+
+But double-check if the phrase &quot;Saved successfully!&quot; contains any proper nouns: No. So we translate. Also user says: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Saved successfully!` is one of them.&quot; It&apos;s not a proper noun, so we translate.
+
+Thus answer: three backticks with &quot;Zapisano pomyślnie!&quot;.
+
+Make sure to not output any other content. So only the translation wrapped in three backticks.
+
+Thus final output: 
+```
+Zapisano pomyślnie!
+```
+&lt;/think&gt;
+
+```
+Zapisano pomyślnie!</value>
+  </data>
+  <data name="Saving..." xml:space="preserve">
+    <value>Zapisywanie...
+```
+
+But note: the requirement: &quot;Please translate only the sentence or word `Saving...` in the paragraph into the target language pl-PL, Polski (Polska). ... wrap in three backticks.&quot; So answer: ```Zapisywanie...```. That&apos;s all.
+
+We should double-check that the user wants only the translation, nothing else. Yes. Provide exactly that. Should we include ellipsis? The ellipsis is &quot;...&quot;. In Polish, we could use same ellipsis. Usually you keep ellipsis. So &quot;Zapisywanie...&quot; includes ellipsis. That is appropriate.
+
+Potential nuance: sometimes translation for &quot;Saving...&quot; might be &quot;Zapisywanie...&quot; (meaning &quot;Saving...&quot;). Or &quot;Zapisuję...&quot; (if it&apos;s a progressive &quot;I am saving&quot;). But the phrase is generic, so &quot;Zapisywanie...&quot; is a safe translation. Also &quot;Zapisywanie...&quot; is consistent with typical Polish UI: &quot;Zapisywanie...&quot;. The ellipsis stays after the translation. So output: &quot;Zapisywanie...&quot;. That&apos;s it.
+
+Check if any &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc.&quot; need to be output as is. &quot;Saving...&quot; is not a proper noun, it&apos;s a UI string. So fine.
+
+Thus output:
+
+```Zapisywanie...```
+
+The user explicitly said &quot;Do not output any other content&quot;. So only that triple backticks with translation inside.
+
+Thus final answer: (in triple backticks).
+&lt;/think&gt;
+
+```Zapisywanie...</value>
+  </data>
+  <data name="Select a language" xml:space="preserve">
+    <value>Wybierz język
+```
+
+But check: Could also be &quot;Wybierz język&quot;. Let&apos;s verify. In typical localization for UI, &quot;Wybierz język&quot; is common. It may also be &quot;Wybierz język&quot;. Could also be &quot;Wybierz język&quot;. The phrase &quot;Select a language&quot; means &quot;Select a language&quot;, but if it&apos;s for UI, maybe &quot;Wybierz język&quot;. So answer: &quot;Wybierz język&quot;. Use triple backticks.
+
+Thus final answer is:
+
+``` 
+Wybierz język
+```.
+
+But need to follow the format: triple backticks with the translation inside. The instruction says &quot;Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus output exactly three backticks lines: ``` (opening) then line &quot;Wybierz język&quot; then closing triple backticks. Probably they want just the translation inside. So output:
+
+``` 
+Wybierz język
+```.
+
+We need to be careful not to include any extra content. Provide only the translation inside triple backticks.
+
+Thus answer is:
+
+``` 
+Wybierz język
+```.
+
+Yes.
+
+Check: &quot;Select a language&quot; is not a proper noun or trademark; it&apos;s a generic phrase. So it&apos;s fine to translate.
+
+Thus output final answer.
+&lt;/think&gt;
+
+``` 
+Wybierz język</value>
+  </data>
+  <data name="Source Culture" xml:space="preserve">
+    <value>)&quot; So we should output:
+
+```Kultura źródłowa```
+
+Thus final answer.
+
+But we need to double-check if &quot;Source Culture&quot; appears anywhere else in the text (like &quot;Source Culture&quot; appears in the HTML). The user says &quot;translate only the sentence or word `Source Culture` in the paragraph into the target language pl-PL&quot;. So we need to output only that translation. We must not output any other content. So just the translation.
+
+Thus output:
+
+```Kultura źródłowa```
+
+Double-check if any nuance: The phrase appears as `@Localizer[&quot;Source Culture&quot;]`. So it&apos;s a localized phrase. The translation is &quot;Kultura źródłowa&quot;. Yes.
+
+Potential alternative: &quot;Źródło kultury&quot;. But which is more natural? Let&apos;s search mental memory: In Polish UI localization, &quot;Source Culture&quot; often translated as &quot;Źródłowa kultura&quot;? Actually &quot;source culture&quot; could be &quot;kultura źródłowa&quot;. But think about typical translation in software: &quot;Source culture&quot; might be &quot;Kultura źródłowa&quot;. For example, Microsoft uses &quot;Kultura źródłowa&quot;? I&apos;m not sure. But &quot;Kultura źródłowa&quot; is unnatural because &quot;source culture&quot; is like &quot;source culture&quot; as an attribute. In English you have &quot;source culture&quot; which is a compound noun. In Polish you could say &quot;kultura źródłowa&quot; which is the same structure. So I&apos;d go with &quot;Kultura źródłowa&quot;. Yes.
+
+Thus answer.
+
+Potential nuance: &quot;Kultura źródłowa&quot; with capital K? In UI, first letter capital? The original label &quot;Source Culture&quot; is capitalized as title-case? In the code it is just `Localizer[&quot;Source Culture&quot;]` but the UI may show &quot;Source Culture&quot; capitalized. In translation, it&apos;s typical to keep capitalization: &quot;Kultura źródłowa&quot;. So output that. Done.
+
+Thus final answer: triple backticks with Kultura źródłowa.
+&lt;/think&gt;
+
+```Kultura źródłowa</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Sukces!
+```
+
+Make sure no extra whitespace, no additional content. That should be it.
+&lt;/think&gt;
+
+```
+Sukces!</value>
+  </data>
+  <data name="Translated markdown content" xml:space="preserve">
+    <value>Przetłumaczone markdown treść
+```
+
+But we need to ensure it&apos;s correct in Polish grammar. &quot;Przetłumaczone markdown treść&quot; is not quite correct: &quot;przetłumaczone&quot; is past participle passive (PPP) of &quot;przetłumaczyć&quot; (to translate) which is used for plural or neuter? Actually &quot;przetłumaczone&quot; is a plural (feminine?) Not sure. &quot;Markdown&quot; is a proper adjective? &quot;Markdown&quot; as a noun could be used in Polish unchanged. &quot;Treść&quot; is a noun. So &quot;Przetłumaczone markdown treść&quot; reads weird because &quot;przetłumaczone&quot; is in plural (feminine) but &quot;treść&quot; is singular, but &quot;markdown&quot; is maybe left unchanged. However, we could also use &quot;Przetłumaczone markdown treści&quot;. However the original placeholder &quot;Translated markdown content&quot; could be &quot;Przetłumaczona treść Markdown&quot;. Actually &quot;Markdown&quot; is a markup language, could be left unchanged. So &quot;Przetłumaczona treść Markdown&quot;. That would be &quot;Translated Markdown content&quot;. &quot;Przetłumaczona treść Markdown&quot; is more grammatically correct: &quot;treść&quot; is feminine noun, &quot;przetłumaczona&quot; is past participle used in feminine singular (przetłumaczona treść). So &quot;Przetłumaczona treść Markdown&quot; sounds correct. Or &quot;Przetłumaczona zawartość Markdown&quot;. Actually &quot;treść&quot; is content, &quot;zawartość&quot; also content. &quot;Przetłumaczona zawartość Markdown&quot; could be okay.
+
+Let&apos;s decide. The placeholder appears in a textarea: placeholder=&quot;@Localizer[&quot;Translated markdown content&quot;]&quot;. So translation: &quot;Przetłumaczona zawartość Markdown&quot;. Or &quot;Przetłumaczona treść Markdown&quot;. I think &quot;Przetłumaczona treść Markdown&quot; is more accurate. But which one is better? Let&apos;s examine typical UI translations: If you have a placeholder &quot;Enter translated content here&quot;, typical Polish translation is &quot;Wprowadź przetłumaczoną treść tutaj&quot;. But placeholder may be &quot;Wprowadzona treść Markdown&quot;. Actually &quot;Markdown&quot; is the content type, not just generic content. So &quot;Przetłumaczona treść Markdown&quot;. That matches &quot;Translated markdown content&quot;. So we can output:
+
+```
+Przetłumaczona treść Markdown
+```
+
+or &quot;Przetłumaczone markdown treść&quot;? Let&apos;s decide.
+
+The phrase &quot;Translated markdown content&quot; = &quot;Przetłumaczona treść Markdown&quot;. I&apos;d go with that. Let&apos;s check grammar: &quot;Przetłumaczona&quot; is a past participle passive in singular feminine (przetłumaczona), used with feminine nouns (treść) to denote that treść is what is translated. So &quot;Przetłumaczona treść Markdown&quot;. Good.
+
+Alternatively &quot;Przetłumaczone markdown treści&quot;. &quot;treści&quot; is plural, but placeholder singular, so &quot;Przetłumaczona treść Markdown&quot; is correct.
+
+Thus output in triple backticks:
+
+```
+Przetłumaczona treść Markdown
+```
+
+That seems correct.
+
+We should verify if any other constraints. &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them&quot;. The phrase &quot;Markdown&quot; is a proper noun, trademark maybe? It&apos;s a name of a markup language, but we treat it as proper noun. Should we leave it unchanged? Usually translation of placeholder includes the name of the language &quot;Markdown&quot;. In English placeholder, it&apos;s &quot;Translated markdown content&quot;. &quot;markdown&quot; is a proper noun (Markdown). In translation, we can leave &quot;Markdown&quot;. In Polish UI, they&apos;d likely keep &quot;Markdown&quot;. So we keep &quot;Markdown&quot; unchanged.
+
+Thus output exactly:
+
+```
+Przetłumaczona treść Markdown
+```
+
+Wrap in triple backticks. That is it.
+
+But check that we must output only the translated content and wrap in three backticks. So we output exactly:
+
+``` 
+Przetłumaczona treść Markdown
+```
+
+No extra content.
+
+We need to ensure no stray spaces or newlines. The phrase inside triple backticks must be exactly the translation, nothing else.
+
+Thus final answer: triple backticks block with translation.
+
+Proceed.
+&lt;/think&gt;
+
+```Przetłumaczona treść Markdown</value>
+  </data>
+  <data name="Translated title" xml:space="preserve">
+    <value>Przetłumaczony tytuł
+```
+
+We must ensure no extra content. So final answer is just that.
+&lt;/think&gt;
+
+```Przetłumaczony tytuł</value>
+  </data>
+
+</root>

@@ -183,6 +183,40 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>Wewnętrzny - Określeni użytkownicy/role</value>
   </data>
+  <data name="Localization" xml:space="preserve">
+    <value>Lokalizacja
+```
+
+Wrap in triple backticks as requested. The instructions: &quot;wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus output:
+
+``` 
+Lokalizacja 
+```
+
+But we must not include any other content. Must exactly output the translation inside triple backticks with possibly no extra whitespace. Let&apos;s output exactly:
+
+```
+Lokalizacja
+```
+
+Make sure no extra spaces or lines. That is all.
+&lt;/think&gt;
+
+``` 
+Lokalizacja</value>
+  </data>
+  <data name="Localize" xml:space="preserve">
+    <value>Lokalizuj```. Ensure no other content.
+&lt;/think&gt;
+
+```Lokalizuj</value>
+  </data>
   <data name="Make document private" xml:space="preserve">
     <value>Ustaw dokument jako prywatny</value>
   </data>

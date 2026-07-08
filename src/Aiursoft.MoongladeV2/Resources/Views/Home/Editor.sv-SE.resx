@@ -183,6 +183,93 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>Intern - Specifika användare/roller</value>
   </data>
+  <data name="Localization" xml:space="preserve">
+    <value>Lokalisation</value>
+  </data>
+  <data name="Localize" xml:space="preserve">
+    <value>@using Aiursoft.MoongladeV2.Controllers
+@model Aiursoft.MoongladeV2.Models.HomeViewModels.IndexViewModel
+@inject Aiursoft.MoongladeV2.Services.FileStorage.StorageService Storage
+@{
+    var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
+}
+@if (Model.SavedSuccessfully)
+{
+    &lt;div class=&quot;alert alert-success alert-dismissible mt-3 mx-3 shadow-sm&quot; role=&quot;alert&quot;&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+        &lt;div class=&quot;alert-icon&quot;&gt;
+            &lt;i class=&quot;align-middle&quot; data-lucide=&quot;check-circle&quot;&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;alert-message&quot;&gt;
+            &lt;strong&gt;@Localizer[&quot;Success!&quot;]&lt;/strong&gt;
+            @Localizer[&quot;Post updated successfully.&quot;]
+        &lt;/div&gt;
+    &lt;/div&gt;
+}
+&lt;div id=&quot;quick-save-banner&quot; class=&quot;quick-save-banner&quot;&gt;
+    &lt;div class=&quot;quick-save-banner-content&quot;&gt;
+        &lt;i class=&quot;align-middle&quot; data-lucide=&quot;check-circle-2&quot;&gt;&lt;/i&gt;
+        &lt;span&gt;@Localizer[&quot;Saved successfully!&quot;]&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;upload-error-banner&quot; class=&quot;quick-save-banner&quot;&gt;
+    &lt;div class=&quot;quick-save-banner-content&quot; style=&quot;background: linear-gradient(135deg, #ef4444, #dc2626); box-shadow: 0 8px 32px rgba(239,68,68,0.35);&quot;&gt;
+        &lt;i class=&quot;align-middle&quot; data-lucide=&quot;alert-circle&quot;&gt;&lt;/i&gt;
+        &lt;span&gt;@Localizer[&quot;Image upload failed!&quot;]&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;form asp-action=&quot;SaveNew&quot; method=&quot;post&quot; id=&quot;markdown-form&quot; class=&quot;d-flex flex-column h-100 pb-0&quot;&gt;
+    @Html.AntiForgeryToken()
+    &lt;!-- Unified Sticky Toolbar --&gt;
+    &lt;div class=&quot;sticky-top bg-white border-bottom py-2 px-3 mb-0 d-flex align-items-center justify-content-between z-3&quot; style=&quot;box-shadow: 0 2px 4px rgba(0,0,0,.04);&quot;&gt;
+        &lt;!-- Left: View Switcher --&gt;
+        &lt;div class=&quot;d-flex align-items-center gap-3&quot;&gt;
+            @* Desktop View Switcher *@
+            &lt;div class=&quot;btn-group btn-group-sm d-none d-lg-inline-flex shadow-sm&quot; role=&quot;group&quot; aria-label=&quot;View mode&quot; id=&quot;view-mode-switcher-desktop&quot;&gt;
+                &lt;input type=&quot;radio&quot; class=&quot;btn-check&quot; name=&quot;view-mode-desktop&quot; id=&quot;view-split-desktop&quot; value=&quot;split&quot; autocomplete=&quot;off&quot; checked&gt;
+                &lt;label class=&quot;btn btn-outline-secondary&quot; for=&quot;view-split-desktop&quot; title=&quot;@Localizer[&quot;Split View&quot;]&quot;&gt;&lt;i class=&quot;align-middle&quot; data-lucide=&quot;columns&quot;&gt;&lt;/i&gt;&lt;/label&gt;
+                &lt;input type=&quot;radio&quot; class=&quot;btn-check&quot; name=&quot;view-mode-desktop&quot; id=&quot;view-editor-desktop&quot; value=&quot;editor&quot; autocomplete=&quot;off&quot;&gt;
+                &lt;label class=&quot;btn btn-outline-secondary px-3&quot; for=&quot;view-editor-desktop&quot; title=&quot;@Localizer[&quot;Editor Only&quot;]&quot;&gt;&lt;i class=&quot;align-middle&quot; data-lucide=&quot;edit-3&quot;&gt;&lt;/i&gt; @Localizer[&quot;Write&quot;]&lt;/label&gt;
+                &lt;input type=&quot;radio&quot; class=&quot;btn-check&quot; name=&quot;view-mode-desktop&quot; id=&quot;view-preview-desktop&quot; value=&quot;preview&quot; autocomplete=&quot;off&quot;&gt;
+                &lt;label class=&quot;btn btn-outline-secondary px-3&quot; for=&quot;view-preview-desktop&quot; title=&quot;@Localizer[&quot;Preview Only&quot;]&quot;&gt;&lt;i class=&quot;align-middle&quot; data-lucide=&quot;eye&quot;&gt;&lt;/i&gt; @Localizer[&quot;Preview&quot;]&lt;/label&gt;
+```
+
+But the user explicitly said: &quot;Please translate only the sentence or word `Localize` in the paragraph into the target language sv-SE, Svenska (Sverige).&quot;
+
+Now, we need to check: Is `Localize` a word that appears in the paragraph? The paragraph seems to be code that uses `@Localizer` (a C# variable for localization). The user wrote `Localize` as a word (maybe a string literal inside `@Localizer[&quot;...&quot;]`). However, the only place &quot;Localize&quot; could be is in the code snippet but not explicitly shown. There is no string &quot;Localize&quot; inside the paragraph. Could be that they want to translate the word &quot;Localize&quot; itself (the verb &quot;Localize&quot;?). Or they might want to translate &quot;Localize&quot; string which is used as a placeholder for a tab title? Actually the paragraph is a code snippet showing how the view uses localizer. But the word &quot;Localize&quot; itself is not present in the paragraph. The only occurrence is the code snippet `Localizer`, which is not a string to translate. Could be that the user expects that &quot;Localize&quot; is a placeholder word that they need to translate for a different context (like a button or label). Maybe they have omitted the string &quot;Localize&quot; in the paragraph and they want translation for that.
+
+Let&apos;s think: The user wants to translate a sentence or word `Localize` in the paragraph. They may have &quot;Localize&quot; somewhere in the view? Actually, no. The paragraph includes many string literals inside `@Localizer[&quot;...&quot;]`. The &quot;Localize&quot; could be a string literal &quot;Localize&quot;? The paragraph doesn&apos;t show it. Could it be that the user mistakenly omitted the string &quot;Localize&quot;? The user says: &quot;Please translate only the sentence or word `Localize` in the paragraph.&quot; Could be they want to translate &quot;Localize&quot; (verb) into Swedish. So translation: &quot;Lokalisera&quot;. In Swedish, &quot;localize&quot; (verb) is &quot;lokalisera&quot;. Or maybe &quot;Lokaliser&quot;? But &quot;Localize&quot; in English can be &quot;Lokalisera&quot;. Or &quot;Översätt&quot;? But &quot;Localize&quot; as a verb meaning &quot;to make local&quot;. In Swedish, &quot;lokalisera&quot; is a direct translation of &quot;to localize&quot;. So the translation could be &quot;Lokalisera&quot;. So we need to output that.
+
+But also note the instruction: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Localize` is one of them.&quot; So &quot;Localize&quot; is not a proper noun; it&apos;s a generic word. So we translate it. The user wants only the translated content. Output must be wrapped in three backticks.
+
+Thus the answer: &quot;Lokalisera&quot;.
+
+But let&apos;s double-check translation nuance. &quot;Localize&quot; could also be &quot;Lokalisera&quot;. In Swedish, &quot;localization&quot; is &quot;lokalisering&quot;. The verb &quot;to localize&quot; is &quot;lokalisera&quot;. So translation: &quot;Lokalisera&quot;. That&apos;s it.
+
+Thus the final output is:
+
+```
+Lokalisera
+```
+
+Make sure to wrap in three backticks.
+
+One more nuance: The user said &quot;Please translate only the sentence or word `Localize` in the paragraph into the target language sv-SE, Svenska (Sverige).&quot; If there is no such word, they may want to output &quot;Localize&quot; as is. But the user explicitly said they want translation; if no instance of &quot;Localize&quot; exists, maybe they want to translate the word &quot;Localize&quot; anyway. So it&apos;s okay.
+
+Thus output exactly:
+
+```
+Lokalisera
+```
+
+Wrap in triple backticks.
+
+Proceed accordingly.
+&lt;/think&gt;
+
+``` 
+Lokalisera</value>
+  </data>
   <data name="Make document private" xml:space="preserve">
     <value>Gör dokument privat</value>
   </data>
