@@ -183,6 +183,34 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>Внутрішній - Конкретні користувачі/ролі</value>
   </data>
+  <data name="Localization" xml:space="preserve">
+    <value>Локалізація
+```.
+
+Make sure to follow format: three backticks with translation inside, no other content.
+
+Thus answer: 
+
+```
+Локалізація
+```
+
+That is all.
+&lt;/think&gt;
+
+``` 
+Локалізація</value>
+  </data>
+  <data name="Localize" xml:space="preserve">
+    <value>Локалізувати
+```
+
+That is it.
+&lt;/think&gt;
+
+``` 
+Локалізувати</value>
+  </data>
   <data name="Make document private" xml:space="preserve">
     <value>Зробити документ приватним</value>
   </data>

@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Back to Editor" xml:space="preserve">
+    <value>Înapoi la Editor
+```
+&lt;/think&gt;
+
+```Înapoi la Editor</value>
+  </data>
+  <data name="Error!" xml:space="preserve">
+    <value>Translated word here...
+```
+
+The user also says: &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; The translation of &quot;Error!&quot; into Romanian should be something like &quot;Eroare!&quot; or &quot;Eroare!&quot; with an exclamation mark. Usually &quot;Error!&quot; = &quot;Eroare!&quot;. In Romanian, the exclamation mark is same. So the translation is &quot;Eroare!&quot; The request says &quot;If you don&apos;t understand what you want to translate, please output it as it is&quot;. We can translate &quot;Error!&quot; to &quot;Eroare!&quot; So output:
+
+```
+Eroare!
+```
+
+Make sure we output only that. The user specifically asked to output only the translated content, wrapped in three backticks, no other content. So we must output exactly:
+
+```
+Eroare!
+```
+
+Thus answer.
+&lt;/think&gt;
+
+``` 
+Eroare!</value>
+  </data>
+  <data name="Failed to load translation." xml:space="preserve">
+    <value>Încărcarea traducerii a eșuat.
+```
+
+But we need to be sure about the punctuation. The original: &quot;Failed to load translation.&quot; includes a period. So translation should include a period. So &quot;Încărcarea traducerii a eșuat.&quot; That&apos;s a proper translation. However maybe we want &quot;Eroare la încărcarea traducerii.&quot; Or &quot;Nu s-a putut încărca traducerea.&quot; Let&apos;s think about typical Romanian UI message: &quot;Încărcarea traducerii nu a reușit.&quot; Might be unnatural. Usually &quot;Încărcarea traducerii a eșuat.&quot; is okay.
+
+Better: &quot;Traducerea nu a putut fi încărcată.&quot; That is more literal: translation could not be loaded. That is also fine.
+
+But which is more natural? In Romanian, &quot;Failed to load translation.&quot; could be translated as &quot;Nu s-a putut încărca traducerea.&quot; That reads &quot;Nu s-a putut încărca traducerea.&quot; It ends with period. That is probably the best.
+
+&quot;Failed to load translation.&quot; can be &quot;Nu s-a putut încărca traducerea.&quot; includes a period. That is direct.
+
+Thus final output: triple backticks containing &quot;Nu s‑a putut încărca traducerea.&quot; But note that the user expects a translation of &quot;Failed to load translation.&quot; The phrase is used as a status message. It appears in the code: `showStatus(&apos;error&apos;, &apos;@Localizer[&quot;Failed to load translation.&quot;]&apos;);` So they want the translation of that string: &quot;Failed to load translation.&quot; So translation: &quot;Eroare la încărcarea traducerii.&quot; That is common.
+
+The user wants only the translation output and nothing else. So output:
+
+```
+Eroare la încărcarea traducerii.
+```
+
+But must consider punctuation: Include period. So &quot;Eroare la încărcarea traducerii.&quot; That&apos;s fine.
+
+Thus answer: inside triple backticks: `Eroare la încărcarea traducerii.`
+
+Alternatively, &quot;Încărcarea traducerii a eșuat.&quot; Could also be used.
+
+Which translation is best? Let&apos;s analyze typical Romanian UI error messages: When something fails to load, we often use &quot;Încărcarea [something] nu a reușit.&quot; But &quot;Eroare la încărcarea...&quot; is common. &quot;Eroare la încărcarea traducerii.&quot; So the translation &quot;Eroare la încărcarea traducerii.&quot; is natural.
+
+Thus final answer: triple backticks with content &quot;Eroare la încărcarea traducerii.&quot;
+
+Will output that.
+&lt;/think&gt;
+
+```ro
+Eroare la încărcarea traducerii.</value>
+  </data>
+  <data name="Generated" xml:space="preserve">
+    <value>), like this: ```Translated word here...```.&quot; So we output:
+
+```
+Generat
+```
+
+Check: Should we output exactly &quot;Generat&quot;? Yes. Or &quot;Generată&quot;? Let&apos;s consider nuance.
+
+The original string is &quot;Generated&quot;. In Romanian UI, &quot;Generated&quot; often translates to &quot;Generat&quot; (past participle). If it&apos;s used as a heading label: &quot;Generated&quot;. So &quot;Generat&quot;. That&apos;s correct.
+
+But we need to consider whether the translation is &quot;Generat&quot; or &quot;Generata&quot; (feminine). Past participle form for masculine is &quot;generat&quot;. For feminine, it&apos;s &quot;generată&quot;. But the string likely is used for both sexes? The phrase &quot;Generated&quot; is generic, not a participle but an adjective? It could be &quot;Generat&quot; (m). If they want to keep the same generic translation, &quot;Generat&quot;. That seems right.
+
+Alternatively, maybe they&apos;d use &quot;Generată&quot;. Let&apos;s examine Romanian language usage: &quot;Generat&quot; is past participle of &quot;genera&quot;. The form &quot;Generat&quot; is used for masculine singular. In UI translation contexts, &quot;Generated&quot; as an adjective is often translated as &quot;Generat&quot; for masculine and &quot;Generată&quot; for feminine. But if it&apos;s used in a generic context (like a label), &quot;Generat&quot; is likely fine. However, sometimes they use &quot;Generat&quot; for masculine nouns and &quot;Generată&quot; for feminine nouns; but the UI might have both. In this case, it&apos;s not describing a specific noun; it&apos;s a label that could be considered a masculine noun (like &quot;Generated&quot; -&gt; &quot;Generat&quot;). In Romanian, &quot;Generat&quot; is also used as a noun meaning &quot;generated (something)&quot;. &quot;Generat&quot; can be used as a noun: &quot;Generat&quot; is a masculine noun meaning &quot;the generated thing&quot;. So &quot;Generated:&quot; -&gt; &quot;Generat:&quot; is plausible.
+
+Therefore I think &quot;Generat&quot; is correct.
+
+Thus output:
+
+```
+Generat
+```
+
+Make sure to include triple backticks around it. So final answer:
+
+```
+Generat
+```
+&lt;/think&gt;
+
+```Generat</value>
+  </data>
+  <data name="Languages" xml:space="preserve">
+    <value>Limbi```.
+
+But check if any nuance: Possibly &quot;Languages&quot; should be &quot;Limbi&quot; or &quot;Limbi de limbă&quot;. The phrase &quot;Languages&quot; maybe they want &quot;Limbi&quot;. In Romanian, &quot;Languages&quot; plural noun is &quot;Limbi&quot;. So answer accordingly.
+
+Thus final: just ```Limbi```.
+&lt;/think&gt;
+
+```Limbi</value>
+  </data>
+  <data name="Last Modified" xml:space="preserve">
+    <value>Ultima modificare
+```
+
+I must not output any other content. Just the translation inside triple backticks.
+&lt;/think&gt;
+
+```
+Ultima modificare</value>
+  </data>
+  <data name="Localization" xml:space="preserve">
+    <value>Localizare
+```
+
+We must not output any other content. So just the translation. According to instructions, we must output only the translated content and wrap it in three backticks.
+
+Thus final answer:
+
+```
+Localizare
+```
+
+Double-check: The user says &quot;Please translate only the sentence or word `Localization` in the paragraph into the target language ro-RO, Română (România).&quot; So translation is &quot;Localizare&quot;. Should we consider that the word is maybe &quot;Localization&quot; (capital L). In Romanian translation &quot;Localizare&quot; is capital? Typically translation of a proper noun? &quot;Localization&quot; is not a proper noun; it&apos;s a term. So we can translate as &quot;Localizare&quot;. Could also be &quot;Localizare (Localizare)&quot;? No. Just &quot;Localizare&quot;. So answer.
+
+But careful: The user says &quot;Do not output any other content!&quot; and &quot;only output the translated content and wrap it in three backticks (```).&quot; So answer exactly:
+
+```Localizare```
+
+Yes. Ensure no extra spaces or lines. Just exactly three backticks with content. Use triple backticks and newline? The format they gave:
+
+```
+Translated word here...
+```
+
+Should be exactly:
+
+```
+Localizare
+```
+
+Thus final answer.
+&lt;/think&gt;
+
+```Localizare</value>
+  </data>
+  <data name="Localized Content" xml:space="preserve">
+    <value>Conținut localizat
+```
+
+But need to ensure no other content. Just that.
+
+Check if &quot;Localized Content&quot; is a UI label. The translation should be &quot;Continut localizat&quot;? Actually &quot;Continut&quot; spelled as &quot;Conținut&quot;. So we output exactly:
+
+```
+Conținut localizat
+```
+
+Double-check: Romanian language uses &quot;ț&quot; and &quot;ș&quot;. Should be fine. The phrase &quot;Conținut localizat&quot; is correct. Also &quot;Continut&quot; without diacritics is wrong.
+
+Thus answer is that.
+
+One potential nuance: The translation might need to preserve case? The source is &quot;Localized Content&quot;. That is capitalized as a title. In UI labels, often &quot;Localized Content&quot; is used as a label with capitalized first letters. In Romanian translation, we could keep capital letters: &quot;Conținut localizat&quot;. That would be capitalized first letter only.
+
+Thus output:
+
+```
+Conținut localizat
+```
+
+We must wrap it in three backticks. So:
+
+``` 
+Conținut localizat
+```
+
+We must ensure we don&apos;t add any other content. So final answer is exactly that.
+
+Thus answer: `` Conținut localizat `` with backticks.
+
+Double-check instructions: &quot;Please output the translated conclusion and nothing else. Do not output any other content!&quot; So output only the translation, wrapped in three backticks, as described: &quot;``` Translated word here... ```&quot;. So we should output:
+
+```
+Conținut localizat
+```
+
+Yes.
+
+Thus final answer: just the backticks with translation inside.
+
+Proceed.
+&lt;/think&gt;
+
+``` 
+Conținut localizat</value>
+  </data>
+  <data name="Localized Title" xml:space="preserve">
+    <value>Titlu localizat
+```
+
+That&apos;s it.
+
+Potential nuance: In Romanian, maybe &quot;Titlu localizat&quot; or &quot;Titlu localizat&quot; is correct. Also could be &quot;Titlu local&quot;. But &quot;Localized Title&quot; likely is &quot;Titlu localizat&quot;. Also could be &quot;Titlu localizat&quot; as per usage of localizing content.
+
+User wants only translation. So output exactly that.
+
+Thus answer: ```
+Titlu localizat
+```
+&lt;/think&gt;
+
+``` 
+Titlu localizat</value>
+  </data>
+  <data name="Save failed." xml:space="preserve">
+    <value>Salvarea nu a reușit.``` That&apos;s it.
+&lt;/think&gt;
+
+```Salvarea nu a reușit.</value>
+  </data>
+  <data name="Save Translation" xml:space="preserve">
+    <value>Translated word here...
+```
+
+We need to output the translation of the phrase &quot;Save Translation&quot; into Romanian (Română), i.e., ro-RO locale. The phrase &quot;Save Translation&quot; is likely to be translated as &quot;Salvează Traducerea&quot; or &quot;Salvează traducere&quot;. Let&apos;s check. Usually translation of &quot;Save Translation&quot; as a button or command may be &quot;Salvează traducere&quot;. However, &quot;Save&quot; could be &quot;Salvează&quot;. &quot;Translation&quot; is &quot;Traducere&quot; (noun). So &quot;Save Translation&quot; maybe &quot;Salvează Traducerea&quot;. But in Romanian, the phrase may be capitalized if button text is &quot;Salvează traducerea&quot;. So we need to decide the correct translation.
+
+We must output the translated word wrapped in triple backticks. The instruction: &quot;Only output the translated content and wrap it in three backticks (```), like this: ``` Translated word here...```&quot;. So we must output something like:
+
+```Salvează traducerea```
+
+or maybe &quot;Salvează traducerea&quot;. Let&apos;s consider the context: In the paragraph, it&apos;s inside a button:
+
+&lt;button type=&quot;button&quot; id=&quot;save-localization-btn&quot; class=&quot;btn btn-primary btn-lg&quot; disabled&gt;
+    &lt;i class=&quot;align-middle&quot; data-lucide=&quot;save&quot;&gt;&lt;/i&gt;
+    @Localizer[&quot;Save Translation&quot;]
+&lt;/button&gt;
+
+So the translation for &quot;Save Translation&quot; should be the translation of the string &quot;Save Translation&quot;. In a button, perhaps &quot;Salvează Traducere&quot;. But in Romanian, the phrase &quot;Save Translation&quot; might be &quot;Salvează Traducerea&quot;. Let&apos;s check typical localization of Save and translation in UI. In many UI frameworks (ASP.NET), you might have a string for Save Translation, for button text. Usually &quot;Salvează traducerea&quot;. Or &quot;Salvează traducerea&quot; is more natural. It could be &quot;Salvează traducerea&quot; (imperative singular). Or &quot;Salvează traducere&quot;. The phrase &quot;Save Translation&quot; is singular, maybe &quot;Salvează traducerea&quot;. So I think &quot;Salvează traducerea&quot; is appropriate.
+
+But the user instruction: &quot;Please translate only the sentence or word `Save Translation` in the paragraph into the target language ro-RO, Română (România).&quot; They want only the translated content inside triple backticks.
+
+Thus we output:
+
+```Salvează traducerea```
+
+However, they said &quot;Only output the translated content and wrap it in three backticks&quot;. So output exactly:
+
+```Salvează traducerea```
+
+But check: they want the translation only, not the triple backticks? They said &quot;wrap it in three backticks (```)&quot;. Yes.
+
+Thus final answer: triple backticks with translation.
+
+Now check if there are any nuance: They said &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; But we understand. So translation &quot;Salvează traducerea&quot;. Should we include any other content? No.
+
+Thus final answer.
+&lt;/think&gt;
+
+```Salvează traducerea</value>
+  </data>
+  <data name="Saved successfully!" xml:space="preserve">
+    <value>Salvat cu succes!
+```
+
+Make sure to only output that. No extra content.
+
+Check: They ask &quot;please translate only the sentence or word Saved successfully! in the paragraph into the target language ro-RO, Română (România).&quot; So translation: &quot;Salvat cu succes!&quot; It&apos;s straightforward.
+
+Edge cases: Could also be &quot;Salvat cu succes!&quot; with exclamation mark. Yes.
+
+Thus final answer: three backticks with content &quot;Salvat cu succes!&quot;
+
+Make sure we output exactly that, no extra text.
+&lt;/think&gt;
+
+```Salvat cu succes!</value>
+  </data>
+  <data name="Saving..." xml:space="preserve">
+    <value>Se salvează...
+```
+
+But they want three backticks on its own lines? They said output the translated content and wrap it in three backticks, like this:
+
+```
+Translated word here...
+```
+
+So output the translation in code fences triple backticks with the translation inside. They gave example with no language spec. So just output:
+
+```
+Se salvează...
+```
+
+Make sure no extra text.
+
+Thus final answer is:
+
+```
+Se salvează...
+```
+&lt;/think&gt;
+
+```Se salvează...</value>
+  </data>
+  <data name="Select a language" xml:space="preserve">
+    <value>Selectați o limbă
+```
+
+Make sure no extra content. Should we add any punctuation? The phrase ends with a word &quot;language&quot;. Probably just translation. Should we preserve capitalization? The original phrase is &quot;Select a language&quot;. In Romanian translation, capitalizing first letter might not be required. We could output &quot;Selectați o limbă&quot;. That is capitalized &quot;Selectați&quot;. That is okay.
+
+Thus final answer: triple backticks containing &quot;Selectați o limbă&quot;.
+&lt;/think&gt;
+
+``` Selectați o limbă</value>
+  </data>
+  <data name="Source Culture" xml:space="preserve">
+    <value>).&quot;
+
+We need to translate &quot;Source Culture&quot; into Romanian (Romanian), ro-RO. &quot;Source Culture&quot; is a phrase: likely &quot;Sursă Cultură&quot;? Actually &quot;Source Culture&quot; in localization context often means the source language culture? &quot;Sursă culturală&quot;? In Romanian, translation likely &quot;Sursă culturală&quot; or &quot;Cultuură sursă&quot;? Let&apos;s think. The phrase is used as a label: &quot;Source Culture&quot;. In Romanian, one would translate &quot;Source Culture&quot; as &quot;Sursă culturală&quot;. However, note that &quot;Sursă culturală&quot; is close. Or &quot;Sursă de cultură&quot;? Let&apos;s think about typical usage. In translation UI, they often label &quot;Source Culture&quot; meaning the culture of the source. In Romanian UI, one would say &quot;Sursă cultură&quot;? Usually &quot;Sursă culturală&quot; is an adjective, but &quot;Sursă&quot; is &quot;source&quot;. &quot;Cultură&quot; is &quot;culture&quot;. So &quot;Sursă Cultură&quot; could be &quot;Sursă cultură&quot;. But &quot;Sursă culturală&quot; would be &quot;source cultural&quot;, but not exactly &quot;source culture&quot;. Could also be &quot;Cultură sursă&quot;? That doesn&apos;t make sense. The phrase &quot;Source Culture&quot; is a UI label, so translate as &quot;Sursă culturală&quot; maybe.
+
+Better to translation: &quot;Cultură sursă&quot;? Wait, &quot;Source&quot; can be &quot;sursă&quot;. &quot;Culture&quot; can be &quot;cultură&quot;. So &quot;Sursă Cultură&quot; would be &quot;Sursă Cultură&quot;? Actually &quot;Cultură sursă&quot; doesn&apos;t make sense. The proper translation of &quot;source culture&quot; as a phrase is &quot;cultura sursă&quot;? Actually &quot;source culture&quot; as a noun phrase could be &quot;cultură de origine&quot;? But not.
+
+In localization, sometimes &quot;Source Culture&quot; is displayed as &quot;Source Culture&quot;. Could translate as &quot;Cultura sursă&quot;? But no.
+
+Let&apos;s see typical Romanian UI: &quot;Sursă culturală&quot; is often used for &quot;source culture&quot;. Let&apos;s search memory: In .NET, there is a concept &quot;CultureInfo&quot;. UI labels often use &quot;Source Culture&quot;. In Romanian translation for &quot;Source Culture&quot;, I&apos;ve seen &quot;Sursă culturală&quot;. Let&apos;s verify by cross referencing known translation resources: I recall some translations: &quot;source culture&quot; -&gt; &quot;cultură sursă&quot;? But not.
+
+Consider typical pattern: &quot;Source language&quot; translates as &quot;Limba sursă&quot;. For &quot;culture&quot;, &quot;cultură&quot;. So &quot;Source Culture&quot; might be &quot;Sursă cultură&quot;? But that seems unnatural. Usually Romanian would phrase &quot;cultură sursă&quot; meaning &quot;source culture&quot; as &quot;cultură de origine&quot;? But I&apos;d prefer &quot;Sursă culturală&quot; if they want an adjective. &quot;Source Culture&quot; likely meaning the culture (culture info) of the source. So I&apos;d translate &quot;Source Culture&quot; as &quot;Cultură sursă&quot;? That doesn&apos;t make sense. Let&apos;s think.
+
+Better approach: In Romanian, &quot;Sursă culturală&quot; is a phrase meaning &quot;cultural source&quot;. But &quot;source culture&quot; likely means the source&apos;s culture. So &quot;cultura sursă&quot;. However, &quot;sursă&quot; is a noun meaning &quot;source&quot;. &quot;Cultură&quot; is also a noun. If you want to say &quot;source culture&quot;, you might use &quot;cultura de origine&quot; (origin culture). But it&apos;s more like &quot;cultură originală&quot;. Could be &quot;Cultură de origine&quot;. However, the translation should be straightforward.
+
+The user requests to translate only the word `Source Culture` in the paragraph into ro-RO. So we need to output just the translated term. So we need to output &quot;Sursă cultură&quot;? Let&apos;s decide.
+
+Let&apos;s see if &quot;Sursă cultură&quot; is correct. In Romanian, &quot;sursă&quot; is a noun, &quot;cultură&quot; is a noun, so &quot;sursă cultură&quot; is two nouns, not typical phrase. &quot;Sursă culturală&quot; uses &quot;culturală&quot; as adjective, meaning &quot;cultural source&quot;. But they want &quot;Source Culture&quot;. Actually &quot;Source Culture&quot; is a label indicating the source culture. So &quot;Sursă cultură&quot; might be unnatural; &quot;Sursă de cultură&quot; could be &quot;source of culture&quot;. But &quot;Source Culture&quot; as a UI label could be translated as &quot;Sursă Cultură&quot;? Let&apos;s think about typical UI translation guidelines: they often use simple direct translation: &quot;Sursă cultură&quot;. However, I&apos;d prefer &quot;Cultură sursă&quot;? No.
+
+What about &quot;Cultură sursă&quot;? The phrase order in Romanian usually follows &quot;Sursă culturală&quot; meaning &quot;source cultural&quot;? That seems odd. The phrase &quot;Cultural source&quot; vs &quot;source culture&quot;. Actually &quot;source culture&quot; could be considered a composite noun. In many languages, you would say &quot;cultură de origine&quot;. So translation could be &quot;Cultură de origine&quot;. But that changes meaning. They might accept &quot;Cultură de origine&quot;. But the user likely expects a simple translation, like &quot;Sursă cultură&quot;.
+
+Let&apos;s check typical translation of &quot;Source culture&quot; in localization UI: If we have a UI with &quot;Source Culture: en-US&quot; they&apos;d translate &quot;Source Culture&quot; as &quot;Sursă cultură&quot;. For example, I recall some translation memory: &quot;Sursă: ...&quot; but &quot;Source Culture&quot; would be &quot;Sursă cultură&quot;. For Romanian, &quot;sursă&quot; = &quot;source&quot;. &quot;Cultură&quot; = &quot;culture&quot;. So &quot;Sursă cultură&quot; could be seen as a phrase. It&apos;s not perfect grammar, but it&apos;s literal.
+
+Alternatively &quot;Cultură sursă&quot;. Could be &quot;cultură de origine&quot;. &quot;Cultuură de origine&quot; maybe.
+
+The instruction: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Source Culture` is one of them.&quot; So &quot;Source Culture&quot; is a UI label, not a proper noun, not a trademark. So we should translate. If we don&apos;t know, output as is.
+
+We need to decide the translation.
+
+Given the target language ro-RO, Română (România). The translation for &quot;Source Culture&quot; could be &quot;Sursă culturală&quot; if we treat &quot;cultural&quot; as an adjective. But &quot;Source Culture&quot; maybe not &quot;cultural&quot;. Let&apos;s search memory: In some Microsoft .NET locale, they use &quot;Source culture&quot; in English UI. The Romanian translation for &quot;source culture&quot; might be &quot;Sursă de cultură&quot;. Actually I found some translation memory: &quot;source culture&quot; = &quot;sursă de cultură&quot;. I recall some translation examples from Microsoft .NET: &quot;source culture&quot; is &quot;sursă de cultură&quot;. Yes, that seems plausible: &quot;source&quot; = &quot;sursă&quot;, &quot;culture&quot; = &quot;cultură&quot;. So &quot;sursă de cultură&quot;. This is a phrase &quot;source of culture&quot;. That is a literal translation, a common pattern: &quot;de&quot; expresses the relationship. So &quot;Sursă de cultură&quot;. That is probably the correct translation.
+
+Thus I propose the translation: &quot;Sursă de cultură&quot;. That matches typical translation.
+
+Alternatively, &quot;Cultură de origine&quot;? But not.
+
+So answer should be:
+
+```
+Sursă de cultură
+```
+
+Wrap in triple backticks.
+
+Thus final answer: three backticks containing &quot;Sursă de cultură&quot;. No other content.
+
+Check: user wants only output the translated content and wrap it in three backticks. So:
+
+```
+Sursă de cultură
+```
+
+That&apos;s it.
+&lt;/think&gt;
+
+```
+Sursă de cultură</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Succes!
+```
+
+But check: Romanian language uses diacritic? Not needed. &quot;Succes!&quot; is correct. However, sometimes they might use &quot;Succes&quot; without exclamation? Let&apos;s check typical Romanian UI phrase: &quot;Succes&quot; or &quot;Succes!&quot;. Let&apos;s search memory. In many apps (like in Romanian translations) they use &quot;Succes!&quot; for success messages. Eg: &quot;Succes!&quot; is indeed a standard translation. For error: &quot;Eroare!&quot; maybe. So likely &quot;Succes!&quot;.
+
+But the user said: &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; In this case we understand. So we output the translation.
+
+Thus output in triple backticks:
+
+```
+Succes!
+```
+
+That&apos;s all.
+
+But need to double-check no hidden instructions. The system message says &quot;You are a helpful assistant.&quot; No mention of policies. There&apos;s no conflict. So we can output the translation.
+
+Thus final answer: &quot;Succes!&quot;. Use backticks.
+
+We need to follow the instruction: &quot;wrap it in three backticks, like this: ``` Translated word here...```&quot;. So we output:
+
+```
+Succes!
+```
+&lt;/think&gt;
+
+```
+Succes!</value>
+  </data>
+  <data name="Translated markdown content" xml:space="preserve">
+    <value>Translated word here...
+```
+
+But we have to consider that &quot;Translated markdown content&quot; might be a placeholder text that appears in a translation UI. They want to translate &quot;Translated markdown content&quot; into Romanian language. The language code is ro-RO. So we need to translate &quot;Translated markdown content&quot; into Romanian.
+
+Now, we have to translate &quot;Translated markdown content&quot; into Romanian. In Romanian, &quot;Translated markdown content&quot; would be something like &quot;Conținut markdown tradus&quot;. However, &quot;markdown&quot; is maybe not a word that should be translated, but it&apos;s a term: &quot;markdown&quot;. In localization, we often keep the term &quot;markdown&quot; unchanged, or we could translate it to &quot;conținut markdown tradus&quot;. In Romanian, &quot;markdown&quot; is often kept as &quot;markdown&quot; or maybe &quot;Conținut Markdown tradus&quot;. Since the instruction says we shouldn&apos;t translate nicknames, proper nouns, trademarks, symbols, etc. &quot;Markdown&quot; is a specific term ( trademark? It is a software name, a brand). Should we keep it unchanged? Possibly. Usually for UI translation, we translate the rest of the phrase but keep &quot;markdown&quot; as a technical term unchanged. However, the user explicitly says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Translated markdown content` is one of them.&quot;
+
+So we need to decide whether &quot;markdown&quot; is a proper noun/trademark. Markdown is a trademark? The Markdown name is a trademark? It is a software naming convention. Some sources treat it as a proper noun and not translate. It&apos;s a generic term but often not translated. It can be left as &quot;markdown&quot;. For safety, we can keep &quot;markdown&quot; unchanged. So the translation would be something like &quot;Continut markdown tradus&quot; or &quot;Continut markdown tradus&quot;. But &quot;Continut&quot; is wrong; Romanian uses &quot;Conținut&quot;. So &quot;Conținut markdown tradus&quot;. However, the English phrase: &quot;Translated markdown content&quot; has the structure: &quot;Translated&quot; (past participle) and &quot;markdown content&quot;. In Romanian, &quot;Conținut markdown tradus&quot; is a phrase meaning &quot;translated markdown content&quot;. But &quot;translated&quot; is &quot;tradus&quot;, and &quot;markdown&quot; is unchanged. So &quot;Conținut markdown tradus&quot;. But also maybe &quot;Continut markdown tradus&quot;? There&apos;s an accent? &quot;Conținut&quot; includes a diacritic &quot;ț&quot;. So we should write &quot;Conținut markdown tradus&quot;. But we might also consider &quot;Continut&quot; no diacritic is wrong. Use proper &quot;Conținut&quot;. So &quot;Conținut markdown tradus&quot;. However, the phrase may be used as a placeholder in a textarea: placeholder=&quot;@Localizer[&quot; Translated markdown content &quot;]&quot;. They want to translate the placeholder text. So the Romanian translation of &quot;Translated markdown content&quot; is &quot;Conținut markdown tradus&quot;. But the original phrase is &quot;Translated markdown content&quot;. So the translation: &quot;Conținut markdown tradus&quot;. But note the order: &quot;Conținut markdown tradus&quot;. But in English it&apos;s &quot;Translated markdown content&quot;. So a direct translation: &quot;Continut markdown tradus&quot;? Actually, the structure: The phrase is a noun phrase: &quot;Translated markdown content&quot;. &quot;Translated&quot; acts as a past participle, &quot;markdown content&quot; is a noun phrase. In Romanian, you could translate as &quot;Continut markdown tradus&quot;. But you could also translate as &quot;Continut tradus markdown&quot;. But that would change order. The best translation preserving meaning: &quot;Continut markdown tradus&quot;. But &quot;Conținut&quot; (with diacritic) is correct.
+
+Thus output:
+
+```
+Conținut markdown tradus
+```
+
+But we need to double-check: Should we keep &quot;markdown&quot; unchanged? It&apos;s likely considered a trademark (Markdown is a trademark of Daring, originally created by John Gruber). It is a proper noun, but often not translated. The instruction says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them!&quot; So &quot;markdown&quot; is a proper noun, but is it a trademark? It&apos;s a software or format, might be considered a trademark. So we keep it unchanged. So &quot;Conținut markdown tradus&quot; would be the translation.
+
+Now we need to check if &quot;Translated markdown content&quot; might be a phrase that is not a UI string but maybe something else. But it&apos;s inside placeholder attribute. So it&apos;s fine.
+
+Thus we output just the translation wrapped in triple backticks.
+
+Now: &quot;Translated markdown content&quot; - we need to translate. The correct translation could be &quot;Continut markdown tradus&quot;. But we need to check Romanian grammar: &quot;Continut&quot; is wrong: it should be &quot;Conținut&quot;. So &quot;Conținut markdown tradus&quot;. However, &quot;Conținut markdown tradus&quot; is ambiguous: it could be interpreted as &quot;Conținut markdown tradus&quot; meaning &quot;markdown content translated&quot;. That&apos;s okay.
+
+Thus output:
+
+```csharp? no, just plain text, but triple backticks.
+
+We have to output exactly the translation, no extra text, no code fences beyond needed? The instruction: &quot;Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+So we output a triple backticks block containing the translation only, no other content. So output:
+
+```
+Conținut markdown tradus
+```
+
+Thus answer.
+
+Check the instructions: They want &quot;Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus we output exactly as required. Ensure no extra content. So final answer: triple backticks block with translation.
+
+Thus final answer: ```Conținut markdown tradus``` but inside triple backticks.
+
+One more nuance: Could &quot;Translated markdown content&quot; be considered a phrase that might be used as a placeholder in a textarea, showing what to input: a &quot;translated markdown content&quot;. So the translation: &quot;Continut markdown tradus&quot; maybe &quot;Continut markdown tradus&quot;. But &quot;Conținut&quot; spelled correctly.
+
+Thus answer: 
+
+``` 
+Conținut markdown tradus 
+``` 
+
+We need to ensure proper formatting: triple backticks, newline after opening triple backticks, translation, newline then closing triple backticks. That should be fine.
+
+Thus output as required.
+
+Now we must not include any extra explanation. So just output the code block.
+&lt;/think&gt;
+
+```
+Conținut markdown tradus</value>
+  </data>
+  <data name="Translated title" xml:space="preserve">
+    <value>...some translation...
+```
+
+But they also gave a note: &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; So if we don&apos;t know translation, output the original.
+
+We need to determine what the phrase &quot;Translated title&quot; means. In context, it&apos;s used as placeholder for a localized title input. In English, &quot;Translated title&quot;. In Romanian, &quot;Titlu tradus&quot;. However, check translation guidelines: &quot;Translated title&quot; likely translates to &quot;Titlu tradus&quot;. Or &quot;Titlu tradus&quot;. Could also be &quot;Titlu tradus&quot; (with &quot;Titlu tradus&quot; maybe more natural: &quot;Titlu tradus&quot; is ambiguous? Usually &quot;Titlu tradus&quot; is correct? Let&apos;s think: &quot;Translated title&quot; as noun phrase: Title that has been translated. In Romanian, &quot;Titlu tradus&quot; is correct (titlu = title, tradus = translated). Could also be &quot;Titlu tradus&quot;. I think it&apos;s fine.
+
+Thus output &quot;Titlu tradus&quot;. Should we add quotes? No, just the translation in backticks. So output:
+
+```
+Titlu tradus
+```
+
+Make sure to only output that, no extra content. The user said &quot;only output the translated content and wrap it in three backticks&quot;. So output exactly:
+
+```
+Titlu tradus
+```
+
+That&apos;s all.
+
+But also note the phrase &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So if &quot;Translated title&quot; is considered a proper noun? Not a name, it&apos;s a phrase. But it&apos;s okay to translate. It&apos;s not a trademark.
+
+Thus final answer is backticks with translation.
+
+Now check any other nuance: They say &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; So we must output translation: &quot;Titlu tradus&quot;. Or &quot;Titlu tradus&quot;? Wait &quot;titlu tradus&quot; is correct Romanian: &quot;titlu&quot; is masculine noun, &quot;tradus&quot; is past participle of &quot;a traduce&quot;. So &quot;Titlu tradus&quot;. Should it be capitalized? Possibly &quot;Titlu tradus&quot;. The placeholder might be capitalized as &quot;Titlu tradus&quot;. But they wrote &quot;Translated title&quot; with capital T? They wrote &quot;Translated title&quot; where &quot;Translated&quot; capitalised? Actually &quot;Translated title&quot; is capitalized on &quot;Translated&quot;? Let&apos;s check: The code snippet shows placeholder=&quot;@Localizer[&quot;Translated title&quot;]&quot;. So &quot;Translated title&quot; as placeholder. In English, both words capital T? Actually &quot;Translated title&quot;. So it&apos;s capitalized: &quot;Translated title&quot;. So translation may need to reflect proper capitalization: &quot;Titlu tradus&quot;. That seems fine.
+
+Thus output:
+
+```
+Titlu tradus
+```
+
+Wrap in triple backticks. Also ensure no extra whitespace or line breaks. That&apos;s all.
+&lt;/think&gt;
+
+``` 
+Titlu tradus</value>
+  </data>
+
+</root>
