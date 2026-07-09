@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Back to Editor" xml:space="preserve">
+    <value>संपादक पर वापस
+```
+
+Check: No extra content.
+
+Thus answer: a code block with translation only.
+&lt;/think&gt;
+
+``` संपादक पर वापस</value>
+  </data>
+  <data name="Error!" xml:space="preserve">
+    <value>त्रुटि!``` with no extra content. Also include only translation. Let&apos;s do that.
+
+But note: The user instructions: &quot;Please translate only the sentence or word `Error!` in the paragraph into the target language hi-IN, हिन्दी (भारत). ... Do NOT output any other content. Only output the translated content and wrap it in three backticks...&quot;
+
+Thus final answer should be:
+
+```त्रुटि!```
+
+No extra content. Ensure it is exactly in three backticks and no other content. Let&apos;s do that.
+
+Potential concerns: Should it be &quot;त्रुटि!&quot; or &quot;त्रुटि!?&quot; Hindi often uses &quot;!&quot; exclamation as &quot;!&quot; same as English. So we can keep exclamation. Good.
+
+Thus final output: ```त्रुटि!```.
+
+Check: The user says &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; But we do understand.
+
+Thus final answer: ```त्रुटि!```.
+&lt;/think&gt;
+
+```त्रुटि!</value>
+  </data>
+  <data name="Failed to load translation." xml:space="preserve">
+    <value>अनुवाद लोड करने में विफल।
+```
+
+But need to check if they want &quot;Failed to load translation.&quot; in Hindi ( भारत ), &quot;अनुवाद लोड करने में विफल रहा।&quot;? Usually &quot;load translation&quot; implies &quot;translation file&quot; or &quot;translation data&quot;. In the code, error thrown: &quot;Failed to load translation data&quot;. The localized message is &quot;Failed to load translation.&quot; That appears in the code in showStatus(&apos;error&apos;, &apos;@Localizer[&quot;Failed to load translation.&quot;]&apos;); That is the string to be localized. So translation should be &quot;अनुवाद लोड करने में विफल।&quot;. That seems appropriate.
+
+Thus output only translation inside triple backticks.
+
+Thus final answer:
+
+```
+अनुवाद लोड करने में विफल।
+```
+
+Make sure it&apos;s the only content. No other explanation.
+
+Yes.
+&lt;/think&gt;
+
+```hi
+अनुवाद लोड करने में विफल।</value>
+  </data>
+  <data name="Generated" xml:space="preserve">
+    <value>Translated word here...
+```
+
+So we need to output just the translation for &quot;Generated&quot;. The word &quot;Generated&quot; in Hindi can be &quot;उत्पादित&quot; or &quot;जनित&quot; depending on context. &quot;Generated&quot; as past participle of generate would be &quot;जनित&quot; (janita). In Hindi, &quot;जनित&quot; is used as &quot;generated&quot;. But &quot;जनित&quot; is not common; &quot;जनित&quot; may be &quot;produced&quot;. But &quot;जनित&quot; is seldom used; &quot;उत्पादित&quot; means &quot;produced&quot;. However, the UI is likely a label for &quot;Generated&quot;. Usually UI translation uses &quot;जनरेटेड&quot; as the transliteration for &quot;Generated&quot;. But typical translation guidelines: if the UI string &quot;Generated&quot; appears in English and you need Hindi translation, you can either transliterate (i.e., &quot;जनरेटेड&quot;) or provide translation &quot;जनरेटेड&quot; (meaning &quot;generated&quot;). I think the standard translation for &quot;Generated&quot; in Hindi could be &quot;जनरेटेड&quot;. But maybe better: &quot;जनरेटेड&quot; is too literal. For translation of a label for a timestamp, I&apos;d use &quot;जनरेटेड&quot;. But maybe they&apos;d want &quot;उत्पन्न&quot; (produced). Let&apos;s think.
+
+Given the context: In a localization tool UI, &quot;Generated&quot; is a label indicating the date/time that a language was last localized. Usually in UI, they may use the phrase &quot;Generated: &lt;label&gt;&quot; which in Hindi would be &quot;जनरेटेड&quot;. But we need to think about translation guidelines: If the UI label &quot;Generated&quot; is used as a title, it&apos;s likely transliteration &quot;जनरेटेड&quot;. However, &quot;जनरेटेड&quot; is not a common Hindi word; it&apos;s a transliteration of the English word &quot;Generated&quot;. It&apos;s not typical to see &quot;जनरेटेड&quot; in Hindi UI, but it&apos;s common to see &quot;जनरेटेड&quot; because it&apos;s just the English word transliterated using Devanagari script. For example, many Indian UI translations use transliteration for technical terms like &quot;Generated&quot;. For instance, &quot;Generated&quot; could be &quot;जनरेटेड&quot;. In Indian languages, transliteration is often used for terms like &quot;Generated&quot;. For example, in Hindi you see &quot;जनरेटेड&quot; in some UI (like &quot;Generated on [date]&quot;). But typical translation is &quot;जनरेटेड&quot;. But might be &quot;जनरेटेड&quot; is unnatural; they&apos;d probably want &quot;जनरेटेड&quot;. But let&apos;s check typical translation: &quot;Generated on&quot; could be &quot;जनरेटेड&quot;. But I&apos;d need to decide.
+
+However, the instruction says: &quot;Do not output any other content. Only output the translated content and wrap it in three backticks&quot;. So they want the translation of &quot;Generated&quot;. So we output something like:
+
+```
+जनरेटेड
+```
+
+But maybe they want the translation &quot;जनित&quot;. Let&apos;s see typical Hindi translations: &quot;Generated&quot; in a context like &quot;Generated: &lt;date&gt;&quot; in Hindi is &quot;जनित&quot; (janita). For example, &quot;Generated by&quot; can be &quot;जनित द्वारा&quot;. &quot;जनित&quot; is a Hindi word meaning &quot;generated&quot;. It is derived from &quot;जनित&quot; (past participle of &quot;जनना&quot; meaning &quot;to be generated&quot;). Actually &quot;जनित&quot; is an adjective meaning &quot;generated&quot;. It is used sometimes. For instance, &quot;जनित&quot; could be &quot;generated&quot; as an adjective. So &quot;जनित&quot; might be appropriate.
+
+But &quot;जनित&quot; is less common than &quot;जनरेटेड&quot;. In typical Hindi UI, they&apos;d often use &quot;जनरेटेड&quot;. But &quot;जनित&quot; might be considered more appropriate. Let&apos;s check translation guidelines: The word &quot;generate&quot; in Hindi &quot;उत्पन्न करना&quot; or &quot;जनना&quot;? &quot;जनना&quot; is &quot;to be born&quot;. &quot;जनित&quot; is &quot;generated&quot;. &quot;जनित&quot; could be correct.
+
+The user may expect a simple Hindi transliteration &quot;जनरेटेड&quot;. But it&apos;s ambiguous.
+
+Given the context, &quot;Generated&quot; is a label before a timestamp: &quot;Generated: &lt;label data-utc-time ...&quot;. So the translation likely would be &quot;जनरेटेड&quot;. Many translation tools (like I can imagine a localization UI) have translations for &quot;Generated&quot; as &quot;जनरेटेड&quot;. But we need to be careful: The user says &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; So if we are uncertain, we can output the original &quot;Generated&quot;. But we likely can translate.
+
+Given that &quot;Generated&quot; is a simple word, translation to Hindi &quot;जनरेटेड&quot;. But some might prefer &quot;जनित&quot;. Let&apos;s examine usage of &quot;जनित&quot; in Hindi: It is used as a past participle: &quot;जनित&quot; means &quot;produced&quot;, &quot;generated&quot;. Example: &quot;यह संदेश जनित किया गया&quot; (this message was generated). But &quot;जनित&quot; is rarely used alone as &quot;Generated&quot;. However, it&apos;s used in technical contexts: &quot;जनित रूप से&quot; not common.
+
+But &quot;जनरेटेड&quot; is a transliteration of English &quot;Generated&quot;. It&apos;s often used in Hindi for UI labels. For example, &quot;Generated by&quot; can be &quot;जनरेटेड बाय&quot;. Many Indian language UI uses transliteration for technical terms like &quot;Generated&quot;.
+
+Thus I think the appropriate translation is &quot;जनरेटेड&quot;. So output:
+
+```
+जनरेटेड
+```
+
+Wrap in triple backticks.
+
+But is there any requirement to preserve the original punctuation? The word &quot;Generated&quot; itself is just a word. So translation is &quot;जनरेटेड&quot;. The user wants only the translation. So output &quot;जनरेटेड&quot;. So final answer:
+
+``` 
+जनरेटेड
+```
+But they want the output wrapped in triple backticks, like this:
+
+```
+जनरेटेड
+```
+
+Check if any special formatting: They said &quot;wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus we need to output exactly three backticks on a line, then the translation, then closing triple backticks. So:
+
+```
+जनरेटेड
+```
+
+Yes.
+
+Thus answer.
+&lt;/think&gt;
+
+``` 
+जनरेटेड</value>
+  </data>
+  <data name="Languages" xml:space="preserve">
+    <value>&lt;some translation&gt;
+```
+
+So we need to translate &quot;Languages&quot; into Hindi (हिन्दी). The word &quot;Languages&quot; is plural, so we might translate it as &quot;भाषाएँ&quot; (Bhashaayen) for &quot;Languages&quot;. In Hindi, &quot;भाषा&quot; means language, plural &quot;भाषाएँ&quot;. However, in UI context, they might want &quot;भाषाएँ&quot; or &quot;भाषाओं&quot; but they ask to translate &quot;Languages&quot;. Usually &quot;Languages&quot; in English is plural of &quot;language&quot;. In Hindi, the translation might be &quot;भाषाएँ&quot; (Bhashaen). However, sometimes they might want &quot;भाषाओं&quot;. We need to consider typical UI translation.
+
+The user says: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Languages` is one of them.&quot; So &quot;Languages&quot; is a word that likely needs translation.
+
+Thus we need to output &quot;भाषाएँ&quot;. Or perhaps &quot;भाषाओं&quot; is the standard plural of &quot;भाषा&quot;. In Hindi, &quot;भाषाओं&quot; is the plural form (like &quot;भाषा&quot; plus suffix). &quot;भाषाएँ&quot; is also used but less common. The typical UI translation for &quot;Languages&quot; would be &quot;भाषाओं&quot;. Let&apos;s consider standard translation: &quot;Languages&quot; -&gt; &quot;भाषाएँ&quot; (plural) or &quot;भाषाओं&quot;. Which is more appropriate? In Hindi UI translations, &quot;Languages&quot; is often translated as &quot;भाषाओं&quot;. Eg, in many websites &quot;Languages&quot; becomes &quot;भाषाओं&quot;. So answer should be &quot;भाषाओं&quot;. Let&apos;s check standard translation: &quot;Languages&quot; is plural, but in Hindi plural we can say &quot;भाषाओं&quot;. The translation for singular &quot;Language&quot; would be &quot;भाषा&quot;. So &quot;Languages&quot; -&gt; &quot;भाषाओं&quot;. I&apos;d output that.
+
+Thus output:
+
+```
+भाषाओं
+```
+
+We need to output only the translated content wrapped in three backticks. The instructions say &quot;wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+So output:
+
+```
+भाषाओं
+```
+
+Thus final answer: three backticks containing &quot;भाषाओं&quot;. That&apos;s it.
+
+Check: The user says &quot;Do not output any other content. Only output the translated content and wrap it in three backticks&quot;. So answer should be exactly three backticks with content inside.
+
+Thus output: 
+
+``` 
+भाषाओं 
+```
+
+Make sure no extra spaces or lines. The content inside should be just &quot;भाषाओं&quot;. We&apos;ll put no extra spaces. The backticks should be on separate lines? The example shows:
+
+```
+Translated word here...
+```
+
+It appears they want triple backticks line with content on same line, then close with triple backticks. So output:
+
+``` 
+भाषाओं 
+```
+
+But note the triple backticks line itself, not in code block? They want the output exactly as code block with backticks. So output:
+
+```
+भाषाओं
+```
+
+That is the final answer.
+
+Thus respond with only that.
+&lt;/think&gt;
+
+```भाषाओं</value>
+  </data>
+  <data name="Last Modified" xml:space="preserve">
+    <value>Translated word here...
+```
+
+Thus we need to translate &quot;Last Modified&quot; into Hindi (भारत). &quot;Last Modified&quot; means something like &quot;अंतिम संशोधित&quot; or &quot;अंतिम बार संशोधित&quot;. In localization contexts, often &quot;Last Modified&quot; is translated as &quot;अंतिम बार संशोधित&quot; or &quot;अंतिम बार संशोधित&quot;. Actually typical translation: &quot;अंतिम बार संशोधित&quot;. But we can also use &quot;अंतिम संशोधित&quot;. Let&apos;s check typical Hindi translation: &quot;अंतिम बार संशोधित&quot;. But let&apos;s think: &quot;Last Modified&quot; is used in many software UI contexts. In Hindi, I think &quot;अंतिम बार संशोधित&quot; or &quot;अंतिम संशोधित&quot; is the literal translation. Also &quot;Last Modified Date&quot; would be &quot;अंतिम संशोधित तिथि&quot;. However &quot;Last Modified&quot; as a label would be &quot;अंतिम बार संशोधित&quot;. Or simply &quot;अंतिम संशोधन&quot;. Could also be &quot;पिछली बार संशोधित&quot;. Let&apos;s see typical Hindi translation of &quot;Last Modified&quot;:
+
+Google Translate: &quot;अंतिम बार संशोधित&quot;. Yes.
+
+Thus translation: &quot;अंतिम बार संशोधित&quot;.
+
+Thus output:
+
+```
+अंतिम बार संशोधित
+```
+
+But note: they said &quot;Only output the translated content and wrap it in three backticks&quot;. So we need exactly that. But do we need to output &quot;अंतिम बार संशोधित&quot; exactly? Yes.
+
+One question: does &quot;Last Modified&quot; considered a proper noun? Not really. It&apos;s a phrase. So we translate.
+
+Thus output with backticks: ```अंतिम बार संशोधित```.
+
+But the instruction: &quot;Please translate only the sentence or word `Last Modified` in the paragraph into the target language hi-IN, हिन्दी (भारत).&quot; So we translate only the &quot;Last Modified&quot; phrase. Not the whole paragraph. So we output just the translation.
+
+Thus answer: ```अंतिम बार संशोधित```.
+
+We need to ensure no extra content. Output exactly that.
+
+Thus final answer.
+&lt;/think&gt;
+
+```अंतिम बार संशोधित</value>
+  </data>
+  <data name="Localization" xml:space="preserve">
+    <value>स्थानीयकरण
+```
+
+The instruction says: &quot;Please translate only the sentence or word `Localization` in the paragraph into the target language hi-IN, हिन्दी (भारत). Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Localization` is one of them.&quot;
+
+If &quot;Localization&quot; is a proper noun? It&apos;s a concept but not a human name; it&apos;s a noun. Should we translate it? Yes, translate &quot;Localization&quot;. So output translation.
+
+Thus we output the translation: &quot;स्थानीयकरण&quot;.
+
+We need to wrap in three backticks exactly. Probably also include no other content. So final answer:
+
+```
+स्थानीयकरण
+```
+
+That&apos;s it.
+&lt;/think&gt;
+
+```स्थानीयकरण</value>
+  </data>
+  <data name="Localized Content" xml:space="preserve">
+    <value>स्थानीयकृत सामग्री
+```
+
+We must not output any other content. So answer is triple backticks with translation. Let&apos;s do that.
+
+Check that the translation is correct: &quot;Localized Content&quot; -&gt; &quot;स्थानीयकृत सामग्री&quot;. In Hindi, &quot;Content&quot; is &quot;सामग्री&quot;. So that phrase is correct.
+
+Thus answer: ```स्थानीयकृत सामग्री```.
+
+But let&apos;s double-check: Could also be &quot;स्थानिकृत सामग्री&quot;? &quot;स्थानिकृत&quot; would be &quot;Localized&quot;. But &quot;स्थानीयकृत&quot; is more common. Indeed, &quot;स्थानीयकृत&quot; is derived from &quot;स्थानीय&quot; meaning local, &quot;कृत&quot; meaning made. So &quot;स्थानीयकृत&quot; means &quot;made local&quot;. &quot;स्थानिकृत&quot; is similar but less common. I&apos;d use &quot;स्थानीयकृत सामग्री&quot;. That&apos;s a straightforward translation.
+
+Thus output.
+
+One more nuance: The instruction says: &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; I think I understand. So I can provide translation.
+
+Thus final answer: three backticks with translation.
+
+Proceed to final.
+&lt;/think&gt;
+
+```स्थानीयकृत सामग्री</value>
+  </data>
+  <data name="Localized Title" xml:space="preserve">
+    <value>)&quot;. So we output only the translation, wrapped in triple backticks.
+
+Thus the answer: ```स्थानीय शीर्षक```.
+
+But check: The phrase &quot;Localized Title&quot; might also be &quot;लोकलाइज़ड शीर्षक&quot; if we want to preserve the meaning that it is the localized version. However, &quot;स्थानीय शीर्षक&quot; is fine.
+
+Check if we need to preserve case? The phrase is capitalized: &quot;Localized Title&quot;. The translation can be with same case? Hindi doesn&apos;t have case. So it&apos;s fine.
+
+We need to output just that. So final answer:
+
+```
+स्थानीय शीर्षक
+```
+
+Alternatively, &quot;अनुवादित शीर्षक&quot;. Which one is more appropriate? Let&apos;s think about translation of &quot;Localized Title&quot;. &quot;Localized&quot; in software localization context often means &quot;अनुवादित&quot;. But &quot;अनुवादित&quot; is &quot;translated&quot;. &quot;Localized&quot; means &quot;स्थानीयकृत&quot; maybe. But &quot;स्थानीय शीर्षक&quot; is more natural.
+
+Let&apos;s see typical Hindi UI translation: If English phrase is &quot;Localized Title&quot;, the Hindi translation would be &quot;स्थानीय शीर्षक&quot;. That matches.
+
+Thus answer will be &quot;स्थानीय शीर्षक&quot;.
+
+One more consideration: The user said &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; But we do understand.
+
+Thus final answer: wrap in triple backticks: ```स्थानीय शीर्षक```.
+
+Thus output: 
+```
+स्थानीय शीर्षक
+```
+&lt;/think&gt;
+
+```स्थानीय शीर्षक</value>
+  </data>
+  <data name="Save failed." xml:space="preserve">
+    <value>सहेजना विफल रहा।
+```
+
+I need to wrap it in three backticks as instructed.
+&lt;/think&gt;
+
+```सहेजना विफल रहा।</value>
+  </data>
+  <data name="Save Translation" xml:space="preserve">
+    <value>), like this: ``` Translated word here... ```&quot;
+
+Thus the answer: just the Hindi translation of &quot;Save Translation&quot;. Usually &quot;Save Translation&quot; means &quot;अनुवाद सहेजें&quot; maybe? Let&apos;s think.
+
+In Hindi, &quot;Save Translation&quot; could be &quot;अनुवाद सहेजें&quot; (meaning &quot;Save the translation&quot;). Or &quot;अनुवाद सहेजें&quot; is a verb phrase. Alternatively &quot;सहेजें अनुवाद&quot;. But the phrase &quot;Save Translation&quot; may be used as a button label. Usually button labels are imperative: &quot;अनुवाद सहेजें&quot; (Anuvad Save karo?). &quot;अनुवाद सहेजें&quot; is more literal. Another possible translation: &quot;अनुवाद सहेजें&quot;. That is indeed the translation.
+
+Thus output:
+
+```अनुवाद सहेजें```
+
+But note: &quot;Save Translation&quot; might also be translated as &quot;अनुवाद सहेजें&quot;. Also could be &quot;अनुवाद को सहेजें&quot;. But typical UI translation for &quot;Save Translation&quot; would be &quot;अनुवाद सहेजें&quot;. Use that.
+
+Thus final output:
+
+```अनुवाद सहेजें```
+
+Make sure only that line with backticks.
+
+Thus answer.
+&lt;/think&gt;
+
+```अनुवाद सहेजें</value>
+  </data>
+  <data name="Saved successfully!" xml:space="preserve">
+    <value>सहेजा गया!``` or maybe &quot;सफलतापूर्वक सहेजा गया!&quot;? Which is correct? The typical UI translation for &quot;Saved successfully!&quot; in Hindi is &quot;सहेजा गया!&quot;? Let&apos;s check typical translations: &quot;Successfully saved!&quot; -&gt; &quot;सफलतापूर्वक सहेजा गया!&quot;? Many times translation of &quot;Saved successfully!&quot; could be &quot;सफलतापूर्वक सहेजा गया!&quot; but that&apos;s a bit unnatural. Hindi often uses &quot;सफलतापूर्वक सहेजा गया!&quot; but more natural might be &quot;सहेजा गया!&quot; but then it loses &quot;successfully&quot;. Let&apos;s see what commonly used translation in Indian government/hindi UI. If we look at typical Indian Hindi translations, &quot;Saved successfully!&quot; could be &quot;सफलतापूर्वक सहेजा गया!&quot; but that phrase is unnatural as a status message. Usually &quot;Saved successfully!&quot; is &quot;सहेजा गया!&quot; (Saved!). Or &quot;सफलतापूर्वक सहेजा गया!&quot; also fine.
+
+I think the best translation: &quot;सहेजा गया!&quot; is concise and matches typical UI translation. But &quot;Saved successfully!&quot; includes the adverb &quot;successfully&quot;. In Hindi, &quot;सफलतापूर्वक&quot; means &quot;successfully&quot;. So &quot;सफलतापूर्वक सहेजा गया!&quot; is a literal translation: &quot;Successfully saved&quot;. But typical Hindi UI translations: &quot;सफलतापूर्वक सहेजा गया!&quot; used? Let&apos;s search memory: In many Hindi apps, &quot;Save success&quot; is &quot;सहेजा गया&quot;. For example in WhatsApp Hindi, &quot;Saved successfully&quot; may be &quot;सहेज लिया गया&quot;. But likely &quot;सहेजा गया!&quot;.
+
+The user is a programmer. They likely want the translation that will be inserted into the string: &apos;@Localizer[&quot;Saved successfully!&quot;]&apos; -&gt; in Hindi: &apos;@Localizer[&quot;सहेजा गया!&quot;]&apos; or &apos;@Localizer[&quot;सफलतापूर्वक सहेजा गया!&quot;]&apos;. Considering typical translation, I&apos;d choose &quot;सहेजा गया!&quot;. Let&apos;s check standard translations: The phrase &quot;Successfully saved!&quot; often becomes &quot;सफलतापूर्वक सहेजा गया!&quot; in official translation. But &quot;Successfully saved!&quot; is &quot;सफलतापूर्वक सहेजा गया!&quot; maybe. However &quot;Saved successfully!&quot; is &quot;सफलतापूर्वक सहेजा गया!&quot; is okay.
+
+But we must be careful about context: The original phrase is &quot;Saved successfully!&quot; (with exclamation). In Hindi UI, exclamation marks are used same. So translation: &quot;सफलतापूर्वक सहेजा गया!&quot; might be a literal translation. Yet a more natural translation: &quot;सहेजा गया!&quot; (without successfully). If the user wants exact translation: &quot;सहेजा गया!&quot; is less literal but still conveys success.
+
+Given the user says &quot;translate only the sentence or word `Saved successfully!` in the paragraph into the target language hi-IN, हिन्दी (भारत)&quot;. I&apos;d propose the translation: &quot;सफलतापूर्वक सहेजा गया!&quot; because it uses both &quot;successfully&quot; and &quot;saved&quot;. However many translation resources (e.g., Microsoft .NET Localizer) translate &quot;Saved successfully!&quot; as &quot;सहेजा गया!&quot;? Let&apos;s check typical .NET localizer: In ASP.NET MVC, there is a sample `Localizer[&quot;Saved successfully!&quot;]` and translation used in some projects: &quot;सफलतापूर्वक सहेजा गया!&quot;. For example in some Hindi UI translation I recall &quot;Successfully saved!&quot; =&gt; &quot;सफलतापूर्वक सहेजा गया&quot;. But maybe they want &quot;सहेजा गया!&quot; only.
+
+Check typical UI messages: &quot;Saved successfully!&quot; could also be &quot;सहेजा गया!&quot;. This is used in many Hindi UI: &quot;सहेजा गया&quot; means &quot;Saved&quot;. The exclamation maybe omitted. But okay.
+
+I&apos;ll propose &quot;सफलतापूर्वक सहेजा गया!&quot; as translation.
+
+But need to output only the translation in triple backticks, as per instruction.
+
+Thus final answer: ```सफलतापूर्वक सहेजा गया!```.
+
+Make sure no other content.
+
+Thus answer is:
+
+```
+सफलतापूर्वक सहेजा गया!
+```
+&lt;/think&gt;
+
+```सफलतापूर्वक सहेजा गया!</value>
+  </data>
+  <data name="Saving..." xml:space="preserve">
+    <value>सहेज रहा है...
+```
+
+But we need to be careful: The user wants to translate the sentence or word &quot;Saving...&quot;. They want only the translated content wrapped in three backticks, like:
+
+```
+Translated word here...
+```
+
+Thus we must output exactly:
+
+``` 
+सहेज रहा है...
+```
+
+But we need to double-check guidelines: They said &quot;Do **NOT** output any other content. Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus we output a code block with three backticks, then the translated word in Hindi, then close with three backticks. Also they said &quot;Please translate only the sentence or word `Saving...` in the paragraph into the target language hi-IN, हिन्दी (भारत).&quot;
+
+Thus the translation is &quot;सहेज रहा है...&quot;. That seems correct.
+
+Double-check: &quot;Saving...&quot; might also be &quot;सहेजा जा रहा है...&quot; but that&apos;s too long.
+
+Alternatively, &quot;सहेज रहा है...&quot; might be slightly ambiguous as to gender. However, UI translation often uses &quot;सहेज रहा है...&quot;. So it&apos;s fine.
+
+Check if there are any hidden references: &quot;Saving...&quot; appears as part of a status message: `showStatus(&apos;saving&apos;, &apos;@Localizer[&quot;Saving...&quot;]&apos;);` This is a server side tag that gets the translation from a resource. The user wants only the translation. So we output the Hindi translation.
+
+Thus final answer: a code block with three backticks containing the translation: &quot;सहेज रहा है...&quot; (including ellipsis). Possibly include the ellipsis as part of translation: &quot;सहेज रहा है...&quot;. That is exactly the translation.
+
+One nuance: Should we include ellipsis? The original phrase includes &quot;...&quot;. We could preserve ellipsis after translation: &quot;सहेज रहा है...&quot;. Yes.
+
+Thus final answer: triple backticks with translation: `सहेज रहा है...`. Ensure no extra content.
+
+Thus output:
+
+``` 
+सहेज रहा है...
+```.
+
+Wait, the specification: &quot;Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus we need to output a code block starting with triple backticks, then the translation, then triple backticks. So final answer will be:
+
+``` 
+सहेज रहा है...
+```.
+
+Yes.
+
+Let&apos;s output that.
+&lt;/think&gt;
+
+``` 
+सहेज रहा है...</value>
+  </data>
+  <data name="Select a language" xml:space="preserve">
+    <value>), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus the response must be a code block with triple backticks and inside the Hindi translation.
+
+So answer: ``` भाषा चुनें ```. Should we include any trailing spaces? The output should be exactly that with triple backticks. The instructions: &quot;wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus answer: ``` भाषा चुनें ``` (But inside triple backticks we need exactly the translation). Let&apos;s output exactly:
+
+```भाषा चुनें```
+
+But note that the code fences need triple backticks, and then the content. Should we include a newline? Usually they want:
+
+```
+भाषा चुनें
+```
+
+But the example shows:
+
+```
+Translated word here...
+```
+
+That includes a newline and the translation is on its own line. So we should output:
+
+```
+भाषा चुनें
+```
+
+Thus exactly. Let&apos;s output that.
+
+We need to be careful: The user said &quot;Do NOT output any other content. Only output the translated content and wrap it in three backticks&quot;. So we must not have any extra text outside the code block. So we should output only the triple backticks with content inside, nothing else.
+
+Thus the final answer is:
+
+```भाषा चुनें```
+
+We must not include any extra text or markdown. The code fences must be triple backticks. So final answer: ```भाषा चुनें```.
+
+Now, check if any potential nuance: &quot;Select a language&quot; might be &quot;भाषा का चयन करें&quot;. But &quot;भाषा चुनें&quot; is correct. Might also be &quot;भाषा चुनें&quot; which is more natural. Let&apos;s go with that. Also note that we should preserve any punctuation? &quot;Select a language&quot; is just the phrase; translation is &quot;भाषा चुनें&quot;. No punctuation needed.
+
+Thus answer: ```भाषा चुनें```.
+&lt;/think&gt;
+
+```भाषा चुनें</value>
+  </data>
+  <data name="Source Culture" xml:space="preserve">
+    <value>स्रोत संस्कृति```
+
+But the instructions: &quot;Please translate only the sentence or word `Source Culture` in the paragraph into the target language hi-IN, हिन्दी (भारत).&quot; So translation of the word &quot;Source Culture&quot;. There&apos;s also mention: &quot;Human names, nicknames, proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Source Culture` is one of them.&quot; So we treat it as a translatable phrase. So translation &quot;स्रोत संस्कृति&quot;. Might also be &quot;स्रोत संस्कृति&quot; or &quot;स्रोत संस्कृति&quot;. Let&apos;s confirm typical phrasing: Usually &quot;Source Culture&quot; is a label, often &quot;Source Culture&quot;. In Hindi, it may be &quot;स्रोत संस्कृति&quot;. Another possibility: &quot;स्रोत संस्कृति&quot; (source culture). Many localizers might use &quot;स्रोत संस्कृति&quot;. Yes.
+
+Thus output:
+
+```स्रोत संस्कृति```
+
+Check the guidelines: output must be wrapped in three backticks (```). It says output the translated content and wrap it in three backticks, like this:
+
+```
+Translated word here...
+```
+
+Thus final answer should be:
+
+```स्रोत संस्कृति```
+
+That&apos;s it.
+&lt;/think&gt;
+
+```स्रोत संस्कृति</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>सफलता!
+```
+
+We must not output any other content. Only the translated content inside triple backticks.
+
+Thus answer:
+
+```
+सफलता!
+```
+&lt;/think&gt;
+
+```yaml
+सफलता!</value>
+  </data>
+  <data name="Translated markdown content" xml:space="preserve">
+    <value>अनुवादित मार्कडाउन सामग्री```
+&lt;/think&gt;
+
+```अनुवादित मार्कडाउन सामग्री</value>
+  </data>
+  <data name="Translated title" xml:space="preserve">
+    <value>अनुवादित शीर्षक
+```
+
+But we need to check the user instructions: &quot;Please translate only the sentence or word `Translated title` in the paragraph into the target language hi-IN, हिन्दी (भारत). Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Translated title` is one of them.&quot;
+
+The phrase &quot;Translated title&quot; could be considered a placeholder. In Hindi, it could be &quot;अनुवादित शीर्षक&quot;. That&apos;s a typical translation.
+
+But also we need to ensure no other content. So only output the translated phrase. They want exactly the translated content wrapped in three backticks.
+
+So output:
+
+```अनुवादित शीर्षक
+```
+
+But we need to double-check: maybe they want translation &quot;Translated title&quot; is something like &quot;अनुवादित शीर्षक&quot;. Also possible &quot;शीर्षक का अनुवाद&quot;. But &quot;Translated title&quot; is a phrase. In software localization, placeholder text &quot;Translated title&quot; is likely something like &quot;अनुवादित शीर्षक&quot;. That&apos;s fine.
+
+But perhaps we should be careful about any context. The phrase is within placeholder attribute: placeholder=&quot;@Localizer[&quot;Translated title&quot;]&quot;. So it&apos;s a placeholder for a localized title. So yes translation &quot;अनुवादित शीर्षक&quot;. Or maybe &quot;अनुवादित शीर्षक&quot;. Could also be &quot;अनुवादित शीर्षक&quot;. Typically translation of &quot;Title&quot; is &quot;शीर्षक&quot;. So &quot;Translated title&quot; becomes &quot;अनुवादित शीर्षक&quot;. But we could also consider &quot;अनुवादित शीर्षक&quot; or &quot;अनुवादित शीर्षक&quot;. That seems fine.
+
+Now ensure we output only the translation in a code block.
+
+Thus final answer: wrap in triple backticks.
+
+Check for any hidden requirement: They say &quot;Do not output any other content.&quot; So we must only output the translation inside triple backticks. No extra explanation. So output exactly:
+
+```अनुवादित शीर्षक
+```
+&lt;/think&gt;
+
+```अनुवादित शीर्षक</value>
+  </data>
+
+</root>

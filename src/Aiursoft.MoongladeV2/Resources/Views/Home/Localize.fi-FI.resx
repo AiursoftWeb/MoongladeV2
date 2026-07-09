@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Back to Editor" xml:space="preserve">
+    <value>Takaisin muokkaimeen
+ ```
+
+ Or should I consider if &quot;Editor&quot; might be kept in English? No, the instruction says to translate, and &quot;Editor&quot; is a common word that can be translated.
+
+ Actually, let me reconsider. In Finnish software localization:
+ - &quot;Back to Editor&quot; could be &quot;Takaisin muokkaimeen&quot; or &quot;Takaisin muokkausnäkymään&quot;
+ - But the most standard translation for &quot;Back to [something]&quot; in Finnish is &quot;Takaisin [something]:een/seen/etc.&quot;
+
+ For a software context, &quot;Takaisin muokkaimeen&quot; seems appropriate.
+
+ However, I want to make sure I&apos;m providing the most accurate translation. Let me think about common Finnish UI patterns:
+
+ - &quot;Takaisin&quot; = back, return
+ - &quot;muokkaimeen&quot; = to the editor (muokkain is the editor/muokkaaja is one who edits)
+
+ Actually, &quot;Takaisin editoriin&quot; is also used, but &quot;Takaisin muokkaimeen&quot; is more natural in Finnish.
+
+ Wait, I need to be careful here. The user said &quot;Only output the translated content and wrap it in three backticks.&quot; So I should output:
+
+ ```Takaisin muokkaimeen```
+
+ But let me think once more - is there a standard translation for this in Finnish? In many Finnish software localizations:
+ - &quot;Back to Editor&quot; is often translated as &quot;Takaisin muokkaimeen&quot; or &quot;Takaisin muikkaimeen&quot; (informal)
+ - Or simply &quot;Takaisin muokkaukseen&quot;
+
+ Actually, looking at common patterns in Finnish UI:
+ - &quot;Takaisin muokkaimeen&quot; seems correct
+ - &quot;Takaisin muokkausnäkymään&quot; is too long
+ - &quot;Takaisin muokkaukseen&quot; could work but &quot;muokkaimeen&quot; is better for the object
+
+ I think &quot;Takaisin muokkaimeen&quot; is the best translation.
+
+ Let me verify the structure:
+ - &quot;Back to&quot; = &quot;Takaisin&quot; (adverb) 
+ - &quot;Editor&quot; = &quot;muokkaimeen&quot; (illative case of muokkain = editor)
+ - &quot;Takaisin muokkaimeen&quot; = Back to the editor
+
+ Yes, this is correct.
+
+ However, I should consider if &quot;Editor&quot; is a proper noun or trademark. The instruction says: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them!&quot;
+
+ Is &quot;Editor&quot; in this context a proper noun? No, it&apos;s a common noun referring to the editor function in the software. It&apos;s not a trademark or specific name, so it should be translated.
+
+ Final decision: &quot;Takaisin muokkaimeen&quot;
+
+ Actually, wait. I want to double-check my Finnish cases:
+ - muokkain (editor) -&gt; illative (into/to) = muokkaimeen
+ - Yes, that&apos;s correct.
+
+ Another option could be &quot;Takaisin muokkausnäkymään&quot; but that&apos;s more complex.
+
+ Let me provide the translation as requested: &quot;Takaisin muokkaimeen&quot;
+
+ Wait, I should consider if &quot;Back to Editor&quot; might mean &quot;return to the editing interface&quot; and if Finnish users would prefer &quot;Takaisin muokkaimeen&quot; or perhaps &quot;Takaisin muokkaukseen&quot; (back to editing).
+
+ &quot;Takaisin muokkaimeen&quot; implies &quot;back to the editor (software/tool)&quot;
+ &quot;Takaisin muokkaukseen&quot; would mean &quot;back to the editing&quot;
+
+ Both are valid, but &quot;Takaisin muokkaimeen&quot; is more direct and matches the English structure &quot;Back to [noun]&quot;.
+
+ I&apos;ll go with &quot;Takaisin muokkaimeen&quot;.
+&lt;/think&gt;
+
+```Takaisin muokkaimeen</value>
+  </data>
+  <data name="Error!" xml:space="preserve">
+    <value>Virhe!
+```
+
+That is the translation of &quot;Error!&quot; into Finnish. In Finnish, error messages are &quot;Virhe!&quot; Usually &quot;Error!&quot; is &quot;Virhe!&quot;. There may also be &quot;Virhe!&quot; (exclamation mark). So we output exactly that.
+
+Double-check: They said &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot;. We understand that &quot;Error!&quot; is an English term for error. In Finnish it&apos;s &quot;Virhe!&quot;. So we output &quot;Virhe!&quot; inside backticks.
+
+Thus answer:
+
+```
+Virhe!
+```
+&lt;/think&gt;
+
+```Virhe!</value>
+  </data>
+  <data name="Failed to load translation." xml:space="preserve">
+    <value>Käännöksen lataaminen epäonnistui.
+```
+
+But note: The original sentence includes a period: &quot;Failed to load translation.&quot; So we should include a period. The Finnish translation &quot;Käännöksen lataaminen epäonnistui.&quot; is correct.
+
+Thus output:
+
+```
+Käännöksen lataaminen epäonnistui.
+```
+&lt;/think&gt;
+
+``` 
+Käännöksen lataaminen epäonnistui.</value>
+  </data>
+  <data name="Generated" xml:space="preserve">
+    <value>@Localizer[&quot;Generated&quot;]
+```
+
+It is used as a label before a date/time: &quot;Generated: &lt;label data-utc-time ...&quot; So it&apos;s a label indicating that the following text is &quot;Generated&quot; or &quot;Generated at &lt;date&gt;&quot; maybe. In Finnish, &quot;Generated&quot; could be &quot;Luotu&quot;, &quot;Generated&quot; might be &quot;Luotu&quot;, but &quot;Generated&quot; as a past participle could be &quot;luotu&quot;. However, Finnish translation for &quot;Generated&quot; is likely &quot;Luotu&quot;. However, if they want &quot;Generated&quot; as a simple label, maybe it&apos;s &quot;Luotu&quot;. Or &quot;Generated&quot; could be &quot;generoitu&quot;? But &quot;Generated&quot; is an English word meaning &quot;produced&quot; or &quot;generated&quot;. In Finnish, &quot;generated&quot; as past participle &quot;generated&quot; could be &quot;luotu&quot; (created). But if it&apos;s used as a label indicating that the date is the generation timestamp, maybe &quot;Generated&quot; is used in UI for localization? In English UI patterns, it&apos;s often &quot;Generated&quot;. In Finnish, &quot;Generated&quot; could be &quot;Luotu&quot;. Also, it could be &quot;Generoitu&quot;. However, &quot;Luotu&quot; is common for &quot;created&quot;. But &quot;Generated&quot; may also be &quot;Generoitu&quot;. Let&apos;s check typical localization patterns: Usually in .NET Core&apos;s default scaffolding UI, they use &quot;Generated&quot; as a label for date time stamps. In Finnish, that might be &quot;Luotu&quot;. For instance, &quot;Generated&quot; in .NET Core Identity scaffolding (like the ManageLogins.cshtml) uses &quot;Generated&quot; label? Actually in ASP.NET Core&apos;s scaffolding there is &quot;Generated&quot; for the identity UI? I&apos;m not sure. But the user explicitly says: &quot;translate only the sentence or word `Generated` in the paragraph into the target language fi-FI, Suomi (Suomi).&quot; So we need to provide the translation. It should be &quot;Luotu&quot;. But &quot;Luotu&quot; is the past participle of &quot;luoda&quot; (to create). However, &quot;Generated&quot; might be &quot;Generoitu&quot;. But &quot;Generoitu&quot; is rarely used; it&apos;s more like &quot;generated&quot; in a technical sense could be &quot;generoitu&quot;. In Finnish, &quot;generated&quot; in IT context could be &quot;generoitu&quot;. But typical Finnish translation for &quot;Generated&quot; is &quot;Luotu&quot; or &quot;Tuotettu&quot;? Let&apos;s check typical Finnish UI translations: &quot;Generated&quot; often translated as &quot;Luotu&quot;. For example, in Visual Studio or .NET translations, &quot;Generated&quot; as &quot;Luotu&quot;. I&apos;m not certain. But we can search memory: .NET Core Identity&apos;s default translation for &quot;Generated&quot; might be &quot;Luotu&quot;? Actually I recall some .resx files: the default strings for &quot;Generated&quot; may be &quot;Generated&quot;. In ASP.NET Identity, there&apos;s &quot;Generated&quot; used for external login. I&apos;m not sure.
+
+Let&apos;s consider Finnish translation of &quot;Generated&quot;. Could be &quot;Generoitu&quot;. But that seems odd. &quot;Generoitu&quot; would be a direct translation: &quot;generated&quot; as past participle of &quot;generoida&quot;. That is &quot;generoitu&quot;. In Finnish, &quot;generated&quot; is often &quot;generoitu&quot;. For example, if you generate a random number, you might say &quot;generoitu&quot;. So &quot;Generated&quot; could be &quot;Generoitu&quot;. However, &quot;Generoitu&quot; is rarely used as a noun label. Usually they use &quot;Luotu&quot; (created) in UI. Which one is more appropriate?
+
+Let&apos;s think about context: The line is:
+
+```
+@if (lang.LastLocalizedAt.HasValue)
+{
+    &lt;small class=&quot;text-muted mt-1&quot;&gt;
+        @Localizer[&quot;Generated&quot;]: &lt;label class=&quot;text-muted mb-0 d-inline&quot; data-utc-time=&quot;@lang.LastLocalizedAt.Value.ToHtmlDateTime()&quot;&gt;&lt;/label&gt;
+    &lt;/small&gt;
+}
+```
+
+This is a small text that says &quot;Generated: &lt;timestamp&gt;&quot;. So the label &quot;Generated&quot; precedes a timestamp. In Finnish UI, you might want &quot;Luotu&quot; or &quot;Generoitu&quot;. Let&apos;s search memory: In Microsoft .NET Identity UI, there is a translation file for &quot;Generated&quot;. I think it&apos;s &quot;Generated&quot;. In many languages, they have &quot;Generated&quot;. Let&apos;s look at typical translations: &quot;Generated&quot; in German is &quot;Generiert&quot;. But in Finnish, &quot;Generated&quot; could be &quot;Generoitu&quot;. But I think they might use &quot;Generoitu&quot;. However, typical Finnish phrase for &quot;Generated on: ...&quot; would be &quot;Luotu&quot;. I&apos;m leaning toward &quot;Generoitu&quot;. But we need to decide.
+
+The instruction: &quot;Do not output any other content. Only output the translated content and wrap it in three backticks.&quot;
+
+Thus answer: either &quot;Generoitu&quot; or &quot;Luotu&quot;. Let&apos;s check what .NET identity translations use for Finnish. I recall that .NET identity translations for &quot;Generated&quot; in Finnish are something like &quot;Generoitu&quot;. Not sure.
+
+We can also think about if &quot;Generated&quot; is used as a label for a &quot;last generated&quot; timestamp. In many UI contexts, it&apos;s &quot;Generated&quot; but the Finnish translation could be &quot;Luotu&quot;. For example, in SharePoint, the translation of &quot;Generated&quot; is &quot;Luotu&quot;. In Outlook, &quot;Generated&quot; is &quot;Generoitu&quot;? Not sure.
+
+Let&apos;s search memory: There is a localization string &quot;Generated&quot; in ASP.NET Core&apos;s scaffolding for the &quot;Language&quot; sidebar. That might be part of a localization UI for translation management. The phrase &quot;Generated&quot; could be part of a translation tool that shows when a language&apos;s translation was last generated. It could be &quot;Generated&quot; meaning &quot;Generated at &lt;date&gt;&quot;. So in Finnish, &quot;Generated at&quot; could be &quot;Luotu&quot;. But it&apos;s a label &quot;Generated&quot;. &quot;Generoitu&quot; is okay but more literal. &quot;Luotu&quot; is past participle of &quot;luoda&quot;. But &quot;luoda&quot; means &quot;to create&quot;, not &quot;generate&quot;. &quot;Generate&quot; in Finnish is &quot;generoida&quot;. So &quot;generoitu&quot; is correct translation of &quot;generated&quot;. &quot;Generoitu&quot; is the past participle of &quot;generoida&quot;. It is used in technical contexts.
+
+Thus translation: &quot;Generoitu&quot;. However, it&apos;s possible they want &quot;Generoitu&quot;. Let&apos;s see which one is more common for UI labels. Let&apos;s check typical UI translations for &quot;Generated&quot;. Microsoft uses &quot;Generated&quot; in many UI strings for &quot;.NET&quot; but not always. The Microsoft .NET resource for &quot;Generated&quot; in Finnish might be &quot;Generoitu&quot;. Indeed, &quot;Generated&quot; in .NET identity UI might be used as a label for &quot;Last generated timestamp&quot;. In the .NET identity, there is a &quot;ManageLogins&quot; page that has a &quot;Generated&quot; label for external login providers. The Finnish translation for that might be &quot;Generoitu&quot;. I&apos;m not 100% sure, but it&apos;s plausible.
+
+Thus answer: &quot;Generoitu&quot;. Or &quot;Luotu&quot;. Which one is more likely? The instruction: &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; So they want to output the translation. If I&apos;m uncertain, I could output it as is? But they specifically ask to translate only the sentence or word &quot;Generated&quot;. So I need to decide.
+
+Let&apos;s think about typical Finnish translation of &quot;Generated&quot; in a software context. If the UI is for a localization tool, they may have used &quot;Generated&quot; as a label indicating when a translation was generated (i.e., created). So &quot;Generated&quot; could be &quot;Generoitu&quot;. I&apos;d go with &quot;Generoitu&quot;. However, maybe &quot;Generoitu&quot; sounds unnatural; maybe &quot;Luotu&quot; is used. But let&apos;s examine typical Finnish translation for &quot;Generated&quot; in the context of &quot;Generated: &lt;label&gt;&quot;. Microsoft .NET localization guidelines often have Finnish translations for &quot;Generated&quot; as &quot;Generoitu&quot;. I recall reading some .resx files for ASP.NET Core Identity that have Finnish translations: &quot;Generated&quot; -&gt; &quot;Generoitu&quot;. I think that&apos;s correct.
+
+Thus I will output &quot;Generoitu&quot;. Wrapped in three backticks.
+
+Hence output:
+
+```
+Generoitu
+```
+&lt;/think&gt;
+
+```
+Generoitu</value>
+  </data>
+  <data name="Languages" xml:space="preserve">
+    <value>Kielet
+```
+
+We need to wrap in triple backticks.
+
+Thus answer: just triple backticks containing &quot;Kielet&quot;. Ensure no other content.
+
+Thus final: ```Kielet```. Let&apos;s output that.
+&lt;/think&gt;
+
+```Kielet</value>
+  </data>
+  <data name="Last Modified" xml:space="preserve">
+    <value>Viimeksi muokattu
+```
+
+Make sure not to include any extra content. The output must be just the translation wrapped in three backticks, with no extra commentary.
+
+Thus answer.
+&lt;/think&gt;
+
+``` 
+Viimeksi muokattu</value>
+  </data>
+  <data name="Localization" xml:space="preserve">
+    <value>Translated word here...```&quot;. So output:
+
+```
+Lokalisaatio
+```
+
+But we need to consider if &quot;Localization&quot; is a proper noun? It&apos;s not a proper noun; it&apos;s a generic term. So we translate.
+
+Thus final answer: ```Lokalisaatio```.
+
+Make sure we don&apos;t include any other content.
+
+Hence output:
+
+```
+Lokalisaatio
+```
+&lt;/think&gt;
+
+```Lokalisaatio</value>
+  </data>
+  <data name="Localized Content" xml:space="preserve">
+    <value>Lokalisoitu sisältö
+```
+
+But check: They may want just the translation of that string: &quot;Localized Content&quot;. So we output &quot;Lokalisoitu sisältö&quot;. Let&apos;s check if any specifics: The phrase &quot;Localized Content&quot; is a noun phrase. In Finnish, we could also translate as &quot;Siirrettävä sisältö&quot;? No. &quot;Lokalisoitu sisältö&quot; is correct.
+
+Thus output that.
+&lt;/think&gt;
+
+``` 
+Lokalisoitu sisältö</value>
+  </data>
+  <data name="Localized Title" xml:space="preserve">
+    <value>). No other content. The word is &quot;Localized Title&quot;. So we need to translate that phrase into Finnish. Typically &quot;Localized Title&quot; could be &quot;Lokalisoitu otsikko&quot; or &quot;Lokaliizs&quot;? Actually &quot;Localized Title&quot; is a phrase meaning &quot;title that is localized&quot;. In Finnish &quot;Lokalisoitu otsikko&quot; maybe. Or &quot;Lokalinna&quot;? Let&apos;s think typical UI translation: &quot;Localized Title&quot; -&gt; &quot;Lokalisoitu otsikko&quot;. Or &quot;Sijainti&quot;? Let&apos;s think. The phrase &quot;Localized Title&quot; is used as a label for a form input. In UI, it&apos;s common to say &quot;Lokalisoidu otsikko&quot;? In Finnish, &quot;localized title&quot; can be &quot;Lokalisoidu otsikko&quot;. But the translation should be accurate. Use &quot;Lokalisoidu otsikko&quot;? Actually &quot;Localized Title&quot; is a phrase used in UI translation context: you have a title that is localized for a particular language. In Finnish you might want &quot;Sijainti&quot;? No. I think &quot;Lokalisoidu otsikko&quot;. However, typical translation for &quot;Localized Title&quot; in a software localization context might be &quot;Lokalisoitu otsikko&quot;. Let&apos;s confirm: &quot;Localized&quot; = &quot;localized&quot;, &quot;Lokalisoidu&quot;, &quot;Lokalisoitu&quot;? In Finnish, past participle: &quot;localized&quot; =&gt; &quot;localisoitu&quot;? Actually &quot;localized&quot; as adjective might be &quot;lokalisoitu&quot;. Finnish: &quot;lokalisoitu&quot; is the past participle of &quot;lokalisoia&quot;? The base verb &quot;lokalisoiti&quot;? Not sure. Let&apos;s check typical translation: In UI context (localization software), often the label &quot;Localized Title&quot; is translated as &quot;Lokalisoidu otsikko&quot;? Actually &quot;Lokalisoidu&quot; may not be correct. Let&apos;s think of Finnish morphological: &quot;localized&quot; = &quot;lokalisoitu&quot;? The Finnish verb &quot;lokalisoia&quot;? There is &quot;lokalisoitua&quot;? In Finnish, the verb &quot;lokalisoia&quot;? Actually &quot;lokalisoitua&quot; is reflexive? &quot;Lokalisoitu&quot; could be an adjective? &quot;Lokalisoidu&quot; is not typical. The most common phrase could be &quot;Lokalisoitu otsikko&quot;. Let&apos;s check typical translation for &quot;Localized Title&quot; in UI: Search memory: &quot;Localized Title&quot; in English UI: &quot;Lokalisoidu&quot;? Let&apos;s recall that many UI translation projects use &quot;Lokalisoitu otsikko&quot;. I think &quot;Lokalisoidu otsikko&quot; is plausible. But we need to be careful: maybe the phrase &quot;Localized Title&quot; is a label for input field; might be translated as &quot;Lokalisoitu otsikko&quot;. That would be &quot;Lokalisoitu otsikko&quot;. Another possibility: &quot;Sijainti Otsikko&quot;? No.
+
+The user wants only the translated content wrapped in triple backticks. So output: ```Lokalisoitu otsikko```.
+
+But ensure not to output any other content. Just the code block.
+
+Thus final answer: ```Lokalisoitu otsikko```.
+
+Check: Should we include &quot;Localized Title&quot; as is if ambiguous? It&apos;s not ambiguous. It&apos;s a phrase. In Finnish &quot;Localized Title&quot; translates to &quot;Lokalisoidu Otsikko&quot;? We need to decide correct translation. Let&apos;s examine Finnish grammar:
+
+&quot;Title&quot; = &quot;otsikko&quot;. &quot;Localized&quot; = &quot;lokalisoitu&quot;. So &quot;Localized Title&quot; = &quot;Lokalisoidu Otsikko&quot;? Actually &quot;lokalisoitu&quot; is past participle of &quot;lokalisoitua&quot;? But &quot;lokalisoitu&quot; as an adjective maybe &quot;lokalisoitu&quot; (like &quot;localized&quot;) in Finnish. So &quot;lokalisoitu otsikko&quot;. That seems correct.
+
+Check typical translation for UI label &quot;Localized Title&quot;. Many translation teams use &quot;Lokalisoidu Otsikko&quot;? Let&apos;s check typical translation for &quot;Localized Title&quot; in .NET resources. For example, in .resx files, string &quot;Localized Title&quot; might be &quot;Lokalisoitu Otsikko&quot;. I&apos;ve seen such translations. So &quot;Lokalisoidu Otsikko&quot;? That seems odd. &quot;Lokalisoidu&quot; is not a standard Finnish word. &quot;Lokalisoitu&quot; is a correct adjective. So &quot;Lokalisoitu otsikko&quot;.
+
+Thus answer: ```Lokalisoitu otsikko```.
+
+Double-check: &quot;Localized Title&quot; might be a UI element label. The translation should be &quot;Lokalisoitu otsikko&quot;. It&apos;s not a trademark, not a name. So fine.
+
+Thus output exactly:
+
+```
+Lokalisoitu otsikko
+```
+
+Check guidelines: only output code block. Not extra content. So output triple backticks with content.
+
+Thus final answer: code block with &quot;Lokalisoitu otsikko&quot;.
+&lt;/think&gt;
+
+```Lokalisoitu otsikko</value>
+  </data>
+  <data name="Save failed." xml:space="preserve">
+    <value>Tallennus epäonnistui.
+```
+
+But we need to be careful: The user says &quot;Do **NOT** output any other content. Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus we output:
+
+```
+Tallennus epäonnistui.
+```
+
+The translation includes a period. If they want &quot;Save failed.&quot; maybe they want &quot;Tallennus epäonnistui.&quot; or &quot;Tallennus epäonnistui.&quot; The period is part of the translation. Should we include a period? In Finnish messages, they often use a period. The original phrase ends with a period. So we should keep it.
+
+Thus final answer is triple backtick code block with translation. We&apos;ll output only that.
+
+Potential nuance: &quot;Save failed.&quot; can be &quot;Tallennus epäonnistui.&quot; The word &quot;failed&quot; is a verb (past tense), but Finnish uses &quot;epäonnistui&quot; (past tense third person singular). &quot;Tallennus&quot; is the gerund noun of &quot;tallentaa&quot; (to save). &quot;Tallennus epäonnistui.&quot; It reads like &quot;Save failed.&quot; This is accurate.
+
+Thus final answer is code block.
+&lt;/think&gt;
+
+```tunnel
+Tallennus epäonnistui.</value>
+  </data>
+  <data name="Save Translation" xml:space="preserve">
+    <value>Tallenna käännös```.
+
+But double-check: The context includes &quot;@Localizer[&quot;Save Translation&quot;]&quot; which is a localization key. The translation should be exactly &quot;Tallenna käännös&quot;. Finnish translation for &quot;Save Translation&quot;. Yes.
+
+Thus output exactly as required.
+
+But note: The user wants only the translated content and wrap it in three backticks, like this: ```
+Translated word here...
+``` So we output:
+
+```
+Tallenna käännös
+```
+
+Make sure we only output that and nothing else.
+&lt;/think&gt;
+
+``` 
+Tallenna käännös</value>
+  </data>
+  <data name="Saved successfully!" xml:space="preserve">
+    <value>Tallennettu onnistuneesti
+```
+
+Or with exclamation mark: &quot;Tallennettu onnistuneesti!&quot;. The user says &quot;sentence or word &apos;Saved successfully!&apos;&quot;. The exclamation mark is likely part of it, but we can preserve it. Finnish translation often uses exclamation mark. So final answer: &quot;Tallennettu onnistuneesti&quot;. Let&apos;s include exclamation mark? I&apos;d say &quot;Tallennettu onnistuneesti&quot;. But if we want to keep exclamation, we could use &quot;Tallennettu onnistuneesti!&quot;. However, the translation guidelines: The original English phrase ends with exclamation point. In Finnish UI, sometimes we keep it. So output &quot;Tallennettu onnistuneesti&quot;. It could also be &quot;Tallennettu onnistuneesti!&quot;. The difference is minor. I&apos;d choose &quot;Tallennettu onnistuneesti&quot;. It might be better to preserve exclamation: &quot;Tallennettu onnistuneesti&quot;. So final answer.
+
+Thus answer:
+
+``` 
+Tallennettu onnistuneesti 
+``` 
+
+But should be inside triple backticks only. So final.
+&lt;/think&gt;
+
+``` 
+Tallennettu onnistuneesti</value>
+  </data>
+  <data name="Saving..." xml:space="preserve">
+    <value>Tallennetaan...
+```
+
+We need to output only that, wrapped in triple backticks. Ensure no other content.
+
+Thus answer.
+&lt;/think&gt;
+
+``` 
+Tallennetaan...</value>
+  </data>
+  <data name="Select a language" xml:space="preserve">
+    <value>Valitse kieli
+```
+&lt;/think&gt;
+
+``` 
+Valitse kieli</value>
+  </data>
+  <data name="Source Culture" xml:space="preserve">
+    <value>Lähdekulttuuri```
+&lt;/think&gt;
+
+```Lähdekulttuuri</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Onnistui!
+```
+
+But we must consider: The instructions say: output only the translated content and wrap in three backticks. They also say: if you don&apos;t understand what you want to translate, output it as it is. We understand translation. So final answer is translation.
+
+Thus final.
+&lt;/think&gt;
+
+```Onnistui!</value>
+  </data>
+  <data name="Translated markdown content" xml:space="preserve">
+    <value>), like this:
+
+```
+Translated word here...
+```
+
+So we need to translate &quot;Translated markdown content&quot; into Finnish (fi-FI). Typically, &quot;Translated markdown content&quot; would translate to Finnish as &quot;Muokattu markdown-sisältö&quot;? But we need to be accurate. &quot;Translated markdown content&quot; means &quot;käännetty markdown-sisältö&quot;? Actually &quot;Translated markdown content&quot; likely means &quot;Translated markdown content&quot; as a placeholder for a text field that expects a translation of markdown content. In localization, placeholder values often are the same across languages. For Finnish, the placeholder should be a Finnish phrase meaning &quot;Translated markdown content&quot;. So we might translate as &quot;Käännetty markdown-sisältö&quot;. However, the phrase &quot;Translated markdown content&quot; may be a placeholder for text input: placeholder=&quot;@Localizer[&quot;Translated markdown content&quot;]&quot;. In a localized version, you would replace with Finnish translation: &quot;Käännetty markdown-sisältö&quot;. But perhaps it&apos;s better to translate as &quot;Muokattu markdown-sisältö&quot;? Let&apos;s think.
+
+&quot;Translated&quot; can be &quot;käännetty&quot;. &quot;markdown content&quot; can be &quot;markdown-sisältö&quot;. So &quot;käännetty markdown-sisältö&quot;. That seems correct. &quot;Käännetty&quot; is past participle of &quot;kääntää&quot; (translate). &quot;markdown-sisältö&quot; is a compound noun &quot;markdown content&quot;. The phrase &quot;käännetty markdown-sisältö&quot; is probably correct. However, &quot;translated&quot; could also be &quot;muokattu&quot; (modified), but &quot;translate&quot; vs &quot;modify&quot; are different. The placeholder probably means &quot;this is the translated markdown content&quot;. So &quot;käännetty markdown-sisältö&quot;.
+
+Alternatively, &quot;Translated markdown content&quot; could be &quot;Käännetty markdown-sisältö&quot;. This seems straightforward. In Finnish, it&apos;s common to place the adjective before the noun, and use hyphen as compound. So &quot;Käännetty markdown-sisältö&quot;. Also note that Finnish uses lower case? The placeholder might be capitalized or not. The placeholder original is capitalized: &quot;Translated markdown content&quot;. So &quot;Käännetty markdown-sisältö&quot;. However, Finnish may not capitalize adjectives unless they are nouns. &quot;Käännetty&quot; could be capitalized if it&apos;s used as a noun? In a placeholder, it&apos;s fine to have capital letter as first word. So &quot;Käännetty markdown-sisältö&quot;. Or &quot;Käännetty Markdown‑sisältö&quot;? Typically &quot;Markdown&quot; is a proper noun, but we treat as is. So &quot;Käännetty Markdown-sisältö&quot;. But the original phrase uses &quot;markdown&quot; lower case. So keep &quot;markdown&quot;. So we get &quot;Käännetty markdown-sisältö&quot;. That seems appropriate.
+
+Now check if any other nuance: Should we output the translation only, wrapped in triple backticks with the content? Yes. Output:
+
+```
+Käännetty markdown‑sisältö
+```
+
+Make sure not to add any extra content. Only that line.
+
+One more nuance: The placeholder could be used for an input field that expects a translation of markdown content, so maybe &quot;Käännetty markdown‑sisältö&quot; is fine. The hyphen in Finnish compound can be used for readability: &quot;markdown-sisältö&quot;. That works. Should we add a hyphen? Usually the compound form for &quot;markdown content&quot; is &quot;markdown‑sisältö&quot;. There&apos;s a hyphen used to separate compound but it&apos;s okay. Another variant: &quot;Käännetty markdown‑sisältö&quot;. That is correct.
+
+Thus output:
+
+``` 
+Käännetty markdown‑sisältö
+```
+
+Make sure no extra whitespace. Provide triple backticks and content inside.
+
+Thus answer.
+&lt;/think&gt;
+
+``` 
+Käännetty markdown‑sisältö</value>
+  </data>
+  <data name="Translated title" xml:space="preserve">
+    <value>Käännetty otsikko
+```
+
+We must not output any other content. Just that code block.
+
+Make sure to preserve correct characters. &quot;Käännetty otsikko&quot;. That is correct.
+
+Thus final answer.
+&lt;/think&gt;
+
+```kotlin
+Käännetty otsikko</value>
+  </data>
+
+</root>
