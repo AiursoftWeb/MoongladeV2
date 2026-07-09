@@ -183,6 +183,26 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>Εσωτερικό - Συγκεκριμένοι χρήστες/ρόλοι</value>
   </data>
+  <data name="Localization" xml:space="preserve">
+    <value>Τοπικοποίηση```.
+
+But need to be careful: &quot;Localization&quot; appears as a title attribute `title=&quot;@Localizer[&quot;Localization&quot;]&quot;`. The translation must be the Greek word &quot;Τοπικοποίηση&quot;. So output the translation only. Wrap in triple backticks.
+
+Thus final answer: ```Τοπικοποίηση```.
+
+Make sure no extra content. Provide only the translation.
+&lt;/think&gt;
+
+```Τοπικοποίηση</value>
+  </data>
+  <data name="Localize" xml:space="preserve">
+    <value>Τοπικοποίηση
+```
+&lt;/think&gt;
+
+``` 
+Τοπικοποίηση</value>
+  </data>
   <data name="Make document private" xml:space="preserve">
     <value>Κάνε το έγγραφο ιδιωτικό</value>
   </data>

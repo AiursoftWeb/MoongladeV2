@@ -183,6 +183,73 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>Sisäinen - Tietyt käyttäjät/roolit</value>
   </data>
+  <data name="Localization" xml:space="preserve">
+    <value>&lt;a asp-action=&quot;Localize&quot; asp-route-id=&quot;@Model.DocumentId&quot; class=&quot;btn btn-sm btn-white text-dark shadow-sm&quot; title=&quot;@Localizer[&quot;Localization&quot;]&quot;&gt;
+```
+
+The word &quot;Localize&quot; appears in the action and maybe in the label.
+
+The user says &quot;translate only the sentence or word `Localization`&quot;. So we need to output the translation of &quot;Localization&quot;. The context is title=&quot;@Localizer[&quot;Localization&quot;]&quot;. So the translation should be the Finnish word for &quot;Localization&quot;. So output &quot;Lokalisaatio&quot;? Or &quot;Lokalisointi&quot;? Which is more appropriate for UI title? We need to decide. Let&apos;s examine typical usage in Finnish: &quot;Localization&quot; in UI often uses &quot;Lokalisaatio&quot; (maybe because of direct translation of &quot;localization&quot; from English). But &quot;Lokalisointi&quot; is also used. Let&apos;s check dictionaries:
+
+- &quot;Localization&quot; = &quot;lokalisaatio&quot;. In Finnish, &quot;lokalisaatio&quot; appears in computing contexts: e.g., &quot;lokalisaatio&quot; (noun). For example, &quot;Ohjelman lokalisaatio&quot; is used (program localization). But also &quot;lokalisaatio&quot; is used. &quot;Lokalisointi&quot; is also used: &quot;Ohjelman lokalisointi&quot;. I think both are possible, but &quot;lokalisaatio&quot; is more directly borrowed from English &quot;localization&quot;. &quot;Lokalisointi&quot; is the process noun derived from localiso? Finnish nouns can be &quot;lokalisaatio&quot; (feminine maybe? Actually &quot;lokalisaatio&quot; ends with &quot;-aatio&quot;, which is a typical borrowed noun ending. Also &quot;lokalisaatio&quot; might be a proper term.
+
+Let&apos;s see typical translations: In a .NET environment, the resource string might be &quot;Localization&quot;. In many UI translations, &quot;Localization&quot; is translated as &quot;Lokalizace&quot;? That&apos;s Czech. In Finnish, I think it&apos;s &quot;Lokalisaatio&quot;. For example, open-source projects have Finnish translation: &quot;Lokalisaatio&quot; appears frequently. Let&apos;s search memory: I recall seeing &quot;Lokalisaatio&quot; in UI. Actually &quot;Lokalisaatio&quot; is the term for &quot;Localize&quot; in Finnish .NET? Not sure. Let&apos;s check Google &quot;Finnish localization translation&quot;. I think &quot;Lokalisointi&quot; is more Finnish typical: &quot;Ohjelman lokalisointi&quot;. But &quot;Lokalisaatio&quot; may also be used. Let’s search mental memory: In &quot;Microsoft .NET&quot; documentation Finnish translation (maybe for Visual Studio?), &quot;localization&quot; is &quot;lokalisaatio&quot;. I&apos;ve seen &quot;Lokalisaatio&quot; in some UI. But also &quot;Lokalisointi&quot; is used. There&apos;s a minor difference: &quot;Lokalisaatio&quot; is a direct translation of the English word &quot;localization&quot; (from French &quot;localisation&quot;?). &quot;Lokalisointi&quot; is a Finnish derivative.
+
+Let&apos;s look up dictionary: &quot;localisation&quot; = &quot;lokalisaatio&quot;? I&apos;m not certain. Could be &quot;lokalisation&quot;? There&apos;s also &quot;lokalisaatio&quot; synonyms.
+
+Let’s check typical usage: On the Finnish version of the Wikipedia page &quot;Software localization&quot; is &quot;ohjelmistojen lokalisointi&quot;. So it&apos;s &quot;Lokalisointi&quot;. Indeed the Wikipedia article &quot;Software localization&quot; in Finnish is &quot;Ohjelmistojen lokalisointi&quot;. So &quot;Lokalisointi&quot; is correct.
+
+Thus &quot;Localization&quot; -&gt; &quot;Lokalisointi&quot;. However &quot;Localization&quot; (the process) can be &quot;Lokalisointi&quot;. So we should output &quot;Lokalisointi&quot;. Let&apos;s confirm via known references: &quot;Localization&quot; - &quot;lokalizacja&quot;? That&apos;s Polish. &quot;Lokalisointi&quot; is indeed a Finnish noun. Finnish has a term &quot;lokalisaatio&quot;? Let&apos;s check: Finnish uses &quot;lokalisaatio&quot; for &quot;localization&quot;? I&apos;m not sure. There&apos;s &quot;lokalisaatio&quot; used in computer science: &quot;lokalisaatio&quot; maybe used in mathematics, but I&apos;m not sure.
+
+Let&apos;s think about morphological reasons: The suffix &quot;-onti&quot; in Finnish forms nouns meaning action: e.g., &quot;organisaatio&quot; (organization) from &quot;organise&quot;. Similarly &quot;lokalisaatio&quot; (maybe). &quot;Lokalisointi&quot; is from the verb &quot;lokalisoitua&quot;? Finnish verb &quot;lokalisoitua&quot; maybe. Actually &quot;lokalisoitua&quot; means &quot;to become localized&quot;. &quot;Lokalisointi&quot; could be derived from &quot;lokalisoiminen&quot;? Honestly both could be plausible. Many Finnish translations use &quot;Lokalisointi&quot;. Example: &quot;Open-source ohjelmistojen lokalisointi&quot;. Yes, I&apos;ve seen that.
+
+Thus translation: &quot;Lokalisointi&quot;. If we output that, it&apos;s likely correct.
+
+But check user request: &quot;Please translate only the sentence or word `Localization` in the paragraph into the target language fi-FI, Suomi (Suomi). ... Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Localization` is one of them.&quot;
+
+&quot;Localization&quot; is not a proper noun. It&apos;s a technical term. So we translate.
+
+Thus output: `Lokalisointi`. Possibly capitalizing first letter? Title case: &quot;Lokalisointi&quot;. In UI strings, might be &quot;Lokalisointi&quot;. That is fine.
+
+Thus output in code block: `Lokalisointi`.
+
+Will they accept? Should we add period? No.
+
+Thus final answer:
+
+```
+Lokalisointi
+```
+&lt;/think&gt;
+
+``` 
+Lokalisointi</value>
+  </data>
+  <data name="Localize" xml:space="preserve">
+    <value>Lokalisoi
+```
+
+But need to be careful: The user also says: &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; This is not ambiguous: we know the word &quot;Localize&quot;. Finnish translation: &quot;Lokalisoi&quot;. That is the verb in imperative form. However, &quot;Localize&quot; could also be a noun &quot;Localize&quot;? No. &quot;Localize&quot; is a verb imperative (command). In Finnish UI you&apos;d use &quot;Lokalisoi&quot;. Yes.
+
+Check synonyms: &quot;Localise&quot; in British English is the same. Finnish translation of &quot;localize&quot; is &quot;lokalisoida&quot;. Imperative present second person singular is &quot;lokalisoi&quot;. However, maybe they want &quot;Lokalisoi&quot;. Or &quot;Lokalisoidu&quot;? &quot;Lokalisoi&quot; is correct.
+
+Alternatively, &quot;localize&quot; might be &quot;lokaliso&quot; (if we borrowed English). However, it&apos;s more Finnish to use &quot;lokalisoima&quot;? But no, &quot;lokalisoida&quot; is the verb. Imperative singular: &quot;lokalisoi&quot;. Let&apos;s check Finnish verb: &quot;lokalisoida&quot; is transitive, meaning &quot;to localise (something)&quot;. Present third person singular: &quot;lokalisoit&quot; maybe not. Actually &quot;lokalisoida&quot; is a regular verb: infinitive &quot;lokalisoida&quot;. Present indicative: &quot;lokalisoit&quot; (you localize). Imperative: &quot;lokalisoikä&quot;? No, imperative second person singular is &quot;lokalisoikä&quot;? Wait, Finnish imperative for second person singular uses &quot;-kä&quot; or &quot;?&quot; The imperative mood forms: &quot;lokalisoikä&quot;? That seems weird. Finnish rarely uses imperative for second person singular; often uses &quot;lokaliso&quot; not sure. Actually, Finnish language doesn&apos;t have an imperative form for second person singular; uses present indicative. But UI may use &quot;Lokalisoi&quot; as a command, from &quot;lokalisoida&quot;. I think it&apos;s okay to output &quot;Lokalisoi&quot;. That is the translation.
+
+Thus answer: wrap in triple backticks: ```Lokalisoi```.
+
+Double-check if the user expects translation of the entire line &quot;Localize&quot;? It says &quot;Please translate only the sentence or word `Localize` in the paragraph&quot;. So just the word. Output must be only the translation and nothing else. So we must output:
+
+```
+Lokalisoi
+```
+
+Make sure we follow instructions: wrap in three backticks.
+
+Thus answer.
+&lt;/think&gt;
+
+```Lokalisoi</value>
+  </data>
   <data name="Make document private" xml:space="preserve">
     <value>Tee dokumentista yksityinen</value>
   </data>

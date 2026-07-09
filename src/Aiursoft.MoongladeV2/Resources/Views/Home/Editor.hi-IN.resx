@@ -183,6 +183,94 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>आंतरिक - विशिष्ट उपयोगकर्ता/भूमिकाएँ</value>
   </data>
+  <data name="Localization" xml:space="preserve">
+    <value>&lt;a asp-action=&quot;Localize&quot; asp-route-id=&quot;@Model.DocumentId&quot; class=&quot;btn btn-sm btn-white text-dark shadow-sm&quot; title=&quot;@Localizer[&quot;Localization&quot;]&quot;&gt;
+```
+
+Also there is a comment line: `&lt;!-- Middle: Title --&gt;`, etc. But the user only wants to translate the word &quot;Localization&quot; into Hindi. This is a UI term &quot;Localization&quot;. In Hindi, &quot;Localization&quot; can be translated as &quot;स्थानीयकरण&quot;. Usually UI translation: &quot;Localization&quot; -&gt; &quot;स्थानीयकरण&quot;. That is the Hindi term for localization. However we need to check context: Are there any similar UI terms already localized? Let&apos;s see the snippet:
+
+- There&apos;s `@Localizer[&quot;Preview&quot;]`
+- `@Localizer[&quot;My Posts&quot;]`
+- `@Localizer[&quot;Untitled Post&quot;]`
+- `@Localizer[&quot;Share Link&quot;]`
+- `@Localizer[&quot;Copy Link&quot;]`
+- `@Localizer[&quot;Share&quot;]`
+- `@Localizer[&quot;Localize&quot;]` (maybe used for action name &quot;Localize&quot;? Actually there&apos;s also `@Localizer[&quot;Localization&quot;]` in title attribute.)
+- `@Localizer[&quot;Reader Layout&quot;]`
+- `@Localizer[&quot;Print&quot;]`
+- `@Localizer[&quot;Copy Preview HTML&quot;]`
+- `@Localizer[&quot;Copy Preview&quot;]`
+- `@Localizer[&quot;Save&quot;]`
+
+So the word &quot;Localization&quot; appears inside `Localizer[&quot;Localization&quot;]`. So we need to output translation of &quot;Localization&quot;. The translation of &quot;Localization&quot; in Hindi could be &quot;स्थानीयकरण&quot;. The user asks to output only the translated content, wrapped in three backticks. So output:
+
+```
+स्थानीयकरण
+```
+
+But note: The user says &quot;Do not output any other content.&quot; So just the backticks with content. They also want only the translated word. So output:
+
+```
+स्थानीयकरण
+```
+
+Make sure it&apos;s wrapped in three backticks.
+
+Thus answer.
+&lt;/think&gt;
+
+```स्थानीयकरण</value>
+  </data>
+  <data name="Localize" xml:space="preserve">
+    <value>स्थानीय करें
+```
+
+But we need to ensure we output nothing else. The instruction says &quot;Do NOT output any other content. Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+So we should output exactly three backticks, newline, Hindi translation, newline, three backticks.
+
+Thus:
+
+```
+स्थानीय करें
+```
+
+But maybe the translation could be &quot;स्थानीय बनाएं&quot; or &quot;स्थानीय बनाएं&quot; is more accurate? Let&apos;s think. The word &quot;Localize&quot; means to adapt something for a particular locale. In UI, &quot;Localize&quot; may be used as an action to translate a piece of content. In Hindi, &quot;स्थानीय बनाएं&quot; is a literal translation: &quot;Make Local&quot;. But &quot;Localize&quot; in context of translation may be &quot;अनुवाद करें&quot;? No, that&apos;s translate. &quot;Localize&quot; means adapt to local language and culture. So &quot;स्थानीय बनाएं&quot; is plausible. But &quot;स्थानीय करें&quot; also plausible.
+
+But the user explicitly says &quot;Please translate only the sentence or word `Localize` in the paragraph into the target language hi-IN, हिन्दी (भारत).&quot; So we need to output the translation of &quot;Localize&quot;. Which is presumably a verb. Hindi translation: &quot;स्थानीय बनाएं&quot;. But which form? The UI might show &quot;Localize&quot;. In UI translation, &quot;Localize&quot; often translates to &quot;स्थानीय बनाएं&quot;. But we need to decide.
+
+Let&apos;s think about typical translation for &quot;Localize&quot; in common Hindi UI. There&apos;s a similar translation for &quot;Localize&quot; in Microsoft .NET resources: &quot;स्थानीय बनाएं&quot; (Make Local). But I&apos;m not entirely sure. However, we can try to find a standard translation: &quot;स्थानीय करें&quot; is less common. Might be &quot;स्थानीय बनाएं&quot;. &quot;Localize&quot; as a verb: &quot;स्थानीय बनाएं&quot; (imperative). For UI labels, imperative is used. So &quot;Localize&quot; might be &quot;स्थानीय बनाएं&quot;.
+
+Thus translation: &quot;स्थानीय बनाएं&quot;. This is the second person imperative. So we output:
+
+```
+स्थानीय बनाएं
+```
+
+Thus we output only that. So final answer:
+
+``` 
+स्थानीय बनाएं
+```
+But we need to wrap in three backticks, like:
+
+```
+स्थानीय बनाएं
+```
+
+Make sure there are three backticks at start and end. Also ensure no extra text. So final answer:
+
+``` 
+स्थानीय बनाएं
+```
+&lt;/think&gt;
+
+```स्थानीय बनाएं</value>
+  </data>
   <data name="Make document private" xml:space="preserve">
     <value>दस्तावेज़ निजी बनाएं</value>
   </data>
