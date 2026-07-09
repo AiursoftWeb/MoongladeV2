@@ -27,6 +27,31 @@
   <data name="Back to posts" xml:space="preserve">
     <value>Back to posts</value>
   </data>
+  <data name="By" xml:space="preserve">
+    <value>By
+```
+
+Yes, that&apos;s it.
+
+But wait: The instruction says &quot;Do not output any other content! Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+So we output the translation exactly inside triple backticks. So answer: ```By```.
+
+But perhaps they want something else: Might be &quot;By&quot; should be &quot;By&quot; (capitalization). Already it&apos;s capitalized in the code: `@Localizer[&quot;By&quot;]` . So output &quot;By&quot;. The word &quot;By&quot; is capitalized, but it might be used in a context where it appears capitalized in the UI. So we output &quot;By&quot;.
+
+Thus final answer is:
+
+```
+By
+```
+&lt;/think&gt;
+
+```By</value>
+  </data>
   <data name="Comments" xml:space="preserve">
     <value>Comments</value>
   </data>
@@ -42,11 +67,41 @@
   <data name="Post Comment" xml:space="preserve">
     <value>Post Comment</value>
   </data>
+  <data name="Published" xml:space="preserve">
+    <value>Published```.
+&lt;/think&gt;
+
+```Published</value>
+  </data>
   <data name="Reply" xml:space="preserve">
     <value>Reply</value>
   </data>
   <data name="Send Reply" xml:space="preserve">
     <value>Send Reply</value>
+  </data>
+  <data name="Write your comment..." xml:space="preserve">
+    <value>Write your comment...
+```
+
+But note: the placeholder text includes ellipsis &quot;...&quot;. So the phrase is &quot;Write your comment...&quot;. So output exactly that, wrapped in three backticks.
+
+Check if any part: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Write your comment...` is one of them.&quot; This phrase is not a proper noun, etc. So translation into en-GB yields same. So output that.
+
+Thus final answer:
+
+``` 
+Write your comment...
+``` 
+
+Wrap in three backticks.
+
+Thus final answer: three backticks containing phrase.
+
+Make sure not to output any other content. So just the code block.
+&lt;/think&gt;
+
+``` 
+Write your comment...</value>
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>Write your comment…</value>

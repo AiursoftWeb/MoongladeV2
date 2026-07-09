@@ -27,6 +27,31 @@
   <data name="Archive" xml:space="preserve">
     <value>归档</value>
   </data>
+  <data name="Blog pagination" xml:space="preserve">
+    <value>博客分页
+```
+
+But must we include any extra text? The instruction: &quot;Only output the translated content and wrap it in three backticks, like this: ``` Translated word here...```.&quot; So we need to output the translation, wrapped in three backticks. That is it.
+
+Thus final answer:
+
+```
+博客分页
+```
+
+Double check if &quot;Blog pagination&quot; might be considered a proper noun? It could be a UI string. It&apos;s not a trademark. So translation is appropriate.
+
+Thus output accordingly.
+
+Make sure no extra content. Just the translation wrapped in three backticks.
+
+One thing: The user says &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; but we understand. So output &quot;博客分页&quot;.
+
+Thus final answer: three backticks with translation.
+&lt;/think&gt;
+
+```博客分页</value>
+  </data>
   <data name="Explore" xml:space="preserve">
     <value>探索</value>
   </data>
@@ -38,6 +63,43 @@
   </data>
   <data name="Keywords" xml:space="preserve">
     <value>关键词</value>
+  </data>
+  <data name="Modern Markdown blogging with AI-powered localization and search." xml:space="preserve">
+    <value>现代 Markdown 博客，具备 AI 驱动的本地化和搜索功能。
+```
+
+But check the request: &quot;Please translate only the sentence or word `Modern Markdown blogging with AI-powered localization and search.` in the paragraph into the target language zh-CN, 中文 (中国大陆).&quot;
+
+We need to output only the translated conclusion and nothing else. Output only the translated content and wrap it in three backticks. So we need to output the translated sentence in Chinese, wrapped in triple backticks.
+
+Now, we need to consider translation. The sentence is: &quot;Modern Markdown blogging with AI-powered localization and search.&quot; It describes a blog platform that uses modern markdown, AI-powered localization and search. For Chinese translation, we should convey the meaning: &quot;Modern Markdown blogging with AI-powered localization and search.&quot; The term &quot;Modern Markdown blogging&quot; can be translated as &quot;现代化的 Markdown 博客&quot; or &quot;现代 Markdown 博客&quot;. &quot;AI-powered localization&quot; can be &quot;AI 驱动的本地化&quot;. &quot;Search&quot; can be &quot;搜索&quot;. So a possible translation: &quot;现代化的 Markdown 博客，支持 AI 驱动的本地化和搜索。&quot; But we need to be accurate: &quot;Modern Markdown blogging with AI-powered localization and search.&quot;
+
+Let&apos;s translate it properly: &quot;现代化的 Markdown 博客，具备 AI 驱动的本地化和搜索功能。&quot; This seems appropriate.
+
+But we need to consider if &quot;Modern Markdown blogging with AI-powered localization and search.&quot; contains any proper nouns or trademarks. &quot;Markdown&quot; is a proper noun for a syntax, but in translation guidelines we may preserve &quot;Markdown&quot; unchanged. &quot;AI&quot; may be considered an abbreviation but it&apos;s also a proper noun, but translation may keep &quot;AI&quot;. However the user says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Modern Markdown blogging with AI-powered localization and search.` is one of them.&quot;
+
+The sentence includes &quot;Modern Markdown blogging with AI-powered localization and search.&quot; It includes proper nouns like &quot;Markdown&quot; and &quot;AI&quot;. According to guidelines, we may keep those terms unchanged, but we still need to translate the rest. So we can translate &quot;Modern&quot; as &quot;现代化&quot; or &quot;现代&quot;. &quot;Markdown&quot; may be kept as &quot;Markdown&quot;. &quot;blogging&quot; could be &quot;博客&quot;. &quot;AI-powered&quot; we could translate as &quot;AI驱动的&quot;. &quot;localization&quot; is &quot;本地化&quot;. &quot;search&quot; is &quot;搜索&quot;. So the translation could be: &quot;现代 Markdown 博客，具备 AI驱动的本地化和搜索功能。&quot; But we should keep &quot;Markdown&quot; and &quot;AI&quot; unchanged, but we can translate &quot;AI-powered&quot; as &quot;AI驱动&quot;. Typically &quot;AI-powered&quot; may be kept as &quot;AI驱动的&quot; or &quot;AI驱动的&quot;. In Chinese, &quot;AI驱动的本地化&quot; is okay. &quot;Search&quot; could be &quot;搜索&quot;. Let&apos;s decide.
+
+The translation needs to be fluent, accurate. So something like: &quot;现代 Markdown 博客，具备 AI驱动的本地化和搜索功能。&quot; Another option: &quot;现代 Markdown 博客，支持 AI驱动的本地化和搜索。&quot; Both are okay. Let&apos;s try to produce a natural translation:
+
+&quot;现代 Markdown 博客，具备 AI驱动的本地化和搜索功能。&quot; That seems good.
+
+Now, check if &quot;AI-powered&quot; could be &quot;AI驱动的&quot;. &quot;AI-powered localization and search&quot; could be &quot;AI驱动的本地化和搜索&quot;. &quot;Markdown blogging&quot; is &quot;Markdown 博客&quot;. We can also say &quot;Markdown 博客写作&quot;. But &quot;Modern Markdown blogging&quot; could be &quot;现代化的 Markdown 博客&quot;. But &quot;现代化&quot; maybe a bit formal. &quot;现代&quot; is okay.
+
+So final translation: &quot;现代 Markdown 博客，具备 AI驱动的本地化和搜索功能。&quot; Or &quot;现代 Markdown 博客，提供 AI驱动的本地化和搜索功能。&quot; Both are fine. Which one is more natural? &quot;提供&quot; may be okay. &quot;具备&quot; also okay. Let&apos;s choose &quot;具备&quot;. So final: &quot;现代 Markdown 博客，具备 AI驱动的本地化和搜索功能。&quot;
+
+Now, the user also wants to preserve proper nouns and not change them: &quot;Markdown&quot; stays as &quot;Markdown&quot;. &quot;AI&quot; stays as &quot;AI&quot;. The rest is translated. The translation must be output in a code block with triple backticks. No extra content.
+
+Thus we output:
+
+```现代 Markdown 博客，具备 AI驱动的本地化和搜索功能。```
+
+Make sure it&apos;s exactly that. Also ensure no extra spaces. Use Chinese punctuation? Usually Chinese uses fullwidth punctuation. &quot;，&quot; is used. The translation includes Chinese punctuation: &quot;、&quot; maybe used, but we can use Chinese comma &quot;，&quot;. So it&apos;s fine.
+
+Thus output only that.
+&lt;/think&gt;
+
+```现代 Markdown 博客，具备 AI驱动的本地化和搜索功能。</value>
   </data>
   <data name="Next" xml:space="preserve">
     <value>下一页</value>
@@ -63,8 +125,87 @@
   <data name="Search based on AI (Vector Database)" xml:space="preserve">
     <value>基于 AI 的搜索（向量数据库）</value>
   </data>
+  <data name="Sort posts" xml:space="preserve">
+    <value>排序帖子
+```
+or maybe &quot;排序帖子&quot; or &quot;排序文章&quot; depending on context. Let&apos;s consider translation of &quot;Sort posts&quot;. In Chinese, &quot;Sort posts&quot; could be translated as &quot;排序帖子&quot; (sort posts) or &quot;排序文章&quot;. Usually &quot;posts&quot; in a blog context often means &quot;帖子&quot; (common Chinese forum term) or &quot;文章&quot; (articles). The phrase &quot;Sort posts&quot; is a UI label meaning &quot;sort the posts&quot; which could be &quot;排序帖子&quot; (literal sort posts) or &quot;排序文章&quot;. Which one is more appropriate? In Chinese UI, &quot;Sort posts&quot; often appears as &quot;排序帖子&quot;? I&apos;m not entirely sure. In a blog site, &quot;post&quot; might be &quot;文章&quot; as blog posts are often called &quot;文章&quot;. &quot;Sort posts&quot; could be &quot;排序文章&quot;. Also &quot;排序帖子&quot; is less common but possible. In Chinese mainland, &quot;帖子&quot; is used in forums, while &quot;文章&quot; is used for blog posts. Considering it&apos;s a blog, I&apos;d go with &quot;排序文章&quot;. However the phrase might be &quot;排序帖子&quot;. Let&apos;s check context: In the paragraph, we see &quot;Sort posts&quot; used as aria-label and possibly as UI button text &quot;Recent&quot;, &quot;Featured&quot;. The aria label is &quot;Sort posts&quot;. Typically in Chinese UI they&apos;d say &quot;排序帖子&quot;. But I&apos;ve also seen &quot;排序文章&quot; used. Let&apos;s consider if &quot;posts&quot; is a proper noun? &quot;Posts&quot; is not a proper noun; it&apos;s generic. So translation is allowed.
+
+Thus we output a code block with translation: &quot;排序帖子&quot; or &quot;排序文章&quot;. Which one to choose? We need to consider typical translation of &quot;Sort posts&quot; in a blog. Searching mental memory: On Chinese websites, they often use &quot;排序帖子&quot; when they refer to sorting forum posts, e.g., &quot;排序帖子&quot; in some blogs? Not sure. Let&apos;s check typical translation patterns: &quot;Sort by&quot; may be &quot;排序&quot; or &quot;排序&quot;. But &quot;Sort posts&quot; as a label might be &quot;排序帖子&quot;. But perhaps they&apos;d use &quot;排序文章&quot;. I&apos;m leaning &quot;排序帖子&quot;. However many Chinese blog UI use &quot;排序文章&quot; for &quot;Sort posts&quot;? Let&apos;s think: In Chinese, &quot;post&quot; can be &quot;文章&quot; (article) or &quot;帖子&quot; (forum). In a blog like &quot;Moonglade&quot;, posts likely refer to &quot;文章&quot;. So &quot;Sort posts&quot; likely &quot;排序文章&quot;. Usually in blog UI, they might say &quot;排序文章&quot;. Also &quot;posts&quot; could be &quot;posts&quot; in the sense of &quot;blog posts&quot;, which are &quot;文章&quot;. So translation &quot;排序文章&quot;. Let&apos;s choose &quot;排序文章&quot;. This is more plausible.
+
+Thus final answer: code block with translation &quot;排序文章&quot;. Alternatively &quot;排序帖子&quot;. But I think &quot;排序文章&quot; is correct.
+
+So output:
+
+``` 
+排序文章
+```
+
+Make sure to output only the translation inside code block, no extra text.
+
+Thus final answer.
+&lt;/think&gt;
+
+``` 
+排序文章</value>
+  </data>
   <data name="Tag" xml:space="preserve">
     <value>标签</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Translated word here...
+```
+
+So we output:
+
+```
+标签
+```
+
+But must be careful: The user says: &quot;Please translate only the sentence or word `Tags` in the paragraph into the target language zh-CN, 中文 (中国大陆). Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Tags` is one of them.
+
+If you don&apos;t understand what you want to translate, please output it as it is!&quot;
+
+Thus &quot;Tags&quot; is a word that is not a proper noun. So we can translate to Chinese: &quot;标签&quot;. That is standard.
+
+Therefore output:
+
+``` 
+标签
+```
+
+Wrap in three backticks. But the instruction says &quot;Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus answer: &quot;```标签```&quot;. But they said wrap in three backticks, like:
+
+```
+Translated word here...
+```
+
+So we must output exactly that: a code block with three backticks, containing the translated content. So:
+
+```
+标签
+```
+
+Thus final answer is that.
+
+Check for possible nuance: maybe &quot;Tags&quot; is plural of &quot;tag&quot;. In Chinese &quot;标签&quot; is indeed used for tags. Yes.
+
+Thus answer: 
+
+```
+标签
+```
+
+We must not output any extra content. So just that code block.
+&lt;/think&gt;
+
+``` 
+标签</value>
   </data>
   <data name="Too many searches. AI search temporarily limited; showing keyword results." xml:space="preserve">
     <value>搜索次数过多。AI搜索暂时受限；显示关键词结果。</value>

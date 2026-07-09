@@ -27,6 +27,9 @@
   <data name="Archive" xml:space="preserve">
     <value>存檔</value>
   </data>
+  <data name="Blog pagination" xml:space="preserve">
+    <value>部落格分頁</value>
+  </data>
   <data name="Explore" xml:space="preserve">
     <value>探索</value>
   </data>
@@ -38,6 +41,20 @@
   </data>
   <data name="Keywords" xml:space="preserve">
     <value>關鍵字</value>
+  </data>
+  <data name="Modern Markdown blogging with AI-powered localization and search." xml:space="preserve">
+    <value>現代 Markdown 部落格，具備 AI驅動的本地化與搜尋功能。
+```
+
+Check if any missing punctuation. The original ends with a period. Chinese punctuation uses full-width period &quot;。&quot; but we can also use English period. The user didn&apos;t specify. They want translation. Using Chinese punctuation is okay. Let&apos;s output with Chinese full stop &quot;。&quot; at end. So: &quot;現代 Markdown 部落格，具備 AI驅動的本地化與搜尋功能。&quot; So final output.
+
+Double-check: Is &quot;Modern Markdown blogging with AI-powered localization and search.&quot; includes &quot;Modern&quot; which we translate to &quot;現代&quot;. &quot;Markdown&quot; keep. &quot;blogging&quot; we translate as &quot;部落格&quot;. Chinese term for blog: &quot;部落格&quot; is used in Traditional Chinese (Taiwan). &quot;with&quot; can be &quot;具備&quot;. &quot;AI-powered&quot; =&gt; &quot;AI驅動&quot;. &quot;localization&quot; =&gt; &quot;本地化&quot;. &quot;search&quot; =&gt; &quot;搜尋&quot;. &quot;and&quot; =&gt; &quot;與&quot;. &quot;AI-powered localization and search&quot; =&gt; &quot;AI驅動的本地化與搜尋&quot;. &quot;Modern Markdown blogging&quot; =&gt; &quot;現代 Markdown 部落格&quot;. Combined: &quot;現代 Markdown 部落格，具備 AI驅動的本地化與搜尋功能。&quot; Yes.
+
+Now ensure no extra content. Must output only the translation inside triple backticks. Use three backticks with no language spec. So final answer.
+&lt;/think&gt;
+
+```
+現代 Markdown 部落格，具備 AI驅動的本地化與搜尋功能。</value>
   </data>
   <data name="Next" xml:space="preserve">
     <value>下一頁</value>
@@ -63,8 +80,106 @@
   <data name="Search based on AI (Vector Database)" xml:space="preserve">
     <value>AI 搜尋 (向量資料庫)</value>
   </data>
+  <data name="Sort posts" xml:space="preserve">
+    <value>排序文章
+```
+
+Or maybe they prefer &quot;排序贴文&quot;? Let&apos;s think about which is more natural: &quot;排序贴文&quot; vs &quot;排序文章&quot;. The phrase &quot;Sort posts&quot; could be &quot;排序贴文&quot;. Let&apos;s see typical translation in Chinese for &quot;Sort posts&quot;:
+
+- In English: &quot;Sort posts&quot;
+- In Simplified Chinese: &quot;帖子排序&quot; maybe. But in Chinese translation memory for WordPress &quot;Sort posts&quot; would be &quot;排序帖子&quot;. Traditional Chinese translation might use &quot;排序贴文&quot; (since Traditional Chinese uses &quot;贴文&quot; to refer to posts). But &quot;贴文&quot; is not typical; &quot;贴文&quot; appears in Chinese as &quot;post&quot; from forum? Actually &quot;贴文&quot; appears in some Chinese (Taiwan) as &quot;post&quot;. For example, &quot;贴文&quot; is used to refer to posts on a bulletin board, but also &quot;贴文&quot; in Chinese can be a &quot;post&quot;. &quot;排序贴文&quot; seems plausible.
+
+In blog context, &quot;文章&quot; is used for posts. So &quot;排序文章&quot;. Let&apos;s see typical translation for a &quot;blog&quot; UI: WordPress translation (Simplified Chinese: &quot;对帖子排序&quot;) but they often use &quot;排序文章&quot;. Many Chinese blog UI use &quot;排序文章&quot; (e.g., &quot;Sort articles&quot;).
+
+In the translation memory for blog platforms in Chinese (Traditional), &quot;Sort posts&quot; -&gt; &quot;排序文章&quot;. But not 100% sure.
+
+We can try to decide based on the target: zh-TW. In Taiwan, &quot;文章&quot; is commonly used for blog posts. For instance, in the phrase &quot;Modern Markdown blogging with AI-powered localization and search.&quot; in the paragraph, the translation likely uses &quot;部落格文章&quot; or &quot;贴文&quot;? But in Chinese, &quot;post&quot; can be &quot;文章&quot;. So &quot;排序文章&quot;. Let&apos;s search memory: In Traditional Chinese, &quot;排序&quot; is &quot;排序&quot;. &quot;排序&quot; also used for &quot;sort&quot;. So &quot;排序文章&quot;. That sounds natural.
+
+Thus translation: &quot;排序文章&quot;. Let&apos;s verify if &quot;文章&quot; is proper: The term &quot;post(s)&quot; in a blog context often referred to as &quot;文章&quot;. So &quot;排序文章&quot; fits.
+
+Now check if &quot;Sort posts&quot; includes a plural &quot;posts&quot;? Chinese rarely uses plural, but we can just &quot;排序文章&quot;. So the answer will be:
+
+```
+排序文章
+```
+
+But the user wants &quot;only output the translated content and wrap it in three backticks, like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus we need to output exactly three backticks with the translation inside. Should we also include line break? The example shows:
+
+```
+Translated word here...
+```
+
+Thus we output:
+
+```
+排序文章
+```
+
+Now check instruction: &quot;Please translate only the sentence or word `Sort posts` in the paragraph into the target language zh-TW, 中文 (台灣).&quot; So they want only the translation.
+
+We also need to consider the note: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Sort posts` is one of them.&quot; It&apos;s not a proper noun, it&apos;s a UI phrase.
+
+Thus output &quot;排序文章&quot;. That is the translation.
+
+Check if there&apos;s any nuance about &quot;posts&quot; being plural vs singular. In Chinese we can have &quot;文章&quot; (singular and plural). The phrase is &quot;Sort posts&quot;. So &quot;排序文章&quot; is correct.
+
+Thus answer: three backticks with &quot;排序文章&quot;. Let&apos;s output that.
+&lt;/think&gt;
+
+```排序文章</value>
+  </data>
   <data name="Tag" xml:space="preserve">
     <value>標籤</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Translated word here...```&quot;
+
+We need to translate the word &quot;Tags&quot; into Chinese (Taiwan). Likely &quot;標籤&quot; (Tag in Chinese). However we need to consider the context: &quot;Tags&quot; could be plural but just a word. In Chinese it&apos;s &quot;標籤&quot; (Biaoqian). Could also be &quot;标签&quot; in simplified Chinese, but for Traditional Chinese Taiwan it&apos;s often &quot;標籤&quot;. So the translation is &quot;標籤&quot;. But also could be &quot;標記&quot;? However &quot;Tags&quot; is a noun meaning &quot;tags&quot;. In HTML, a list of tags might be labelled &quot;標籤&quot;. So we output just &quot;標籤&quot;. However need to think about whether &quot;Tags&quot; is a proper noun or trademark. It&apos;s not. It&apos;s just a word. So we translate as &quot;標籤&quot;.
+
+But wait, the instruction says: &quot;Please translate only the sentence or word `Tags` in the paragraph into the target language zh-TW, 中文 (台灣).&quot; So we need to output &quot;標籤&quot;. But we must wrap in three backticks and output nothing else.
+
+Thus output:
+
+```
+標籤
+```
+
+Check for any exceptions: user wants translation only, no other content. Must output only the translated content and wrap it in three backticks. So answer: ```標籤```.
+
+Note: The user instruction: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Tags` is one of them.&quot;
+
+&quot;Tags&quot; is not a proper noun, it&apos;s a generic term. So fine.
+
+Thus output exactly as they want. Provide just the content inside triple backticks.
+
+But check also the style: the example shows:
+
+```
+Translated word here...
+```
+
+So we should output &quot;標籤&quot;. However, perhaps &quot;Tags&quot; might be plural but they likely want &quot;標籤&quot;. If we think about localization: in a blog, tags may be displayed as a list. In Chinese, &quot;標籤&quot; is the typical translation for tags. So it&apos;s done.
+
+Thus answer is:
+
+```
+標籤
+```
+
+Double-check: The user also says &quot;Do not output any other content. Only output the translated content and wrap it in three backticks, like this: ```Translated word here...```&quot;. So we output exactly:
+
+```標籤```
+
+Thus final answer: just that.
+&lt;/think&gt;
+
+```標籤</value>
   </data>
   <data name="Too many searches. AI search temporarily limited; showing keyword results." xml:space="preserve">
     <value>搜尋次數過多。AI 搜尋暫時受限；顯示關鍵字結果。</value>

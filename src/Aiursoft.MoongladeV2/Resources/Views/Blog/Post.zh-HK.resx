@@ -27,6 +27,45 @@
   <data name="Back to posts" xml:space="preserve">
     <value>返回文章列表</value>
   </data>
+  <data name="By" xml:space="preserve">
+    <value>作者
+```
+
+But note that they request to output the translated conclusion and nothing else. Only output the translated content and wrap it in three backticks, like this: ```
+Translated word here...
+```.
+
+Thus we need to output the translation inside triple backticks.
+
+Thus final answer:
+
+```
+作者
+```
+
+Make sure no extra content.
+
+However, let&apos;s double-check: The user wants &quot;Please translate only the sentence or word `By` in the paragraph into the target language zh-HK, 中文 (香港).&quot; So we must output the translation. It&apos;s &quot;作者&quot;. But maybe they want &quot;由&quot;. Let&apos;s consider context: The code shows:
+
+&lt;span class=&quot;post-meta-label&quot;&gt;@Localizer[&quot;By&quot;]&lt;/span&gt;
+
+So &quot;By&quot; is a localized string, used as a label before the author name. In Traditional Chinese for Hong Kong, the label &quot;作者&quot; is common. But also &quot;作者&quot; is typical in both simplified and traditional Chinese. In Traditional Chinese, &quot;作者&quot; is also used. So translation &quot;作者&quot;. Should we include a colon? No, it&apos;s just the label. The translation should be just the word &quot;作者&quot;.
+
+Thus answer: ```作者```.
+
+But we need to be careful: The user said &quot;Do not output any other content! Only output the translated content and wrap it in three backticks&quot;. So output exactly:
+
+```
+作者
+```
+
+That&apos;s it.
+
+Thus final.
+&lt;/think&gt;
+
+```作者</value>
+  </data>
   <data name="Comments" xml:space="preserve">
     <value>留言</value>
   </data>
@@ -42,11 +81,53 @@
   <data name="Post Comment" xml:space="preserve">
     <value>發佈留言</value>
   </data>
+  <data name="Published" xml:space="preserve">
+    <value>已發佈
+```
+
+But is that correct? The instruction: &quot;Do not output any other content.&quot; So we should output exactly:
+
+```
+已發佈
+```
+
+Thus final answer: three backticks with &quot;已發佈&quot;. We need to output just that.
+
+Potential nuance: In Chinese, &quot;Published&quot; is also &quot;已发布&quot; (Simplified) or &quot;已發佈&quot; (Traditional). Hong Kong uses Traditional Chinese characters. So &quot;已發佈&quot;. Yes.
+
+Hence answer: &quot;已發佈&quot;.
+
+Make sure to wrap in three backticks exactly.
+
+Thus final.
+&lt;/think&gt;
+
+```已發佈</value>
+  </data>
   <data name="Reply" xml:space="preserve">
     <value>回覆</value>
   </data>
   <data name="Send Reply" xml:space="preserve">
     <value>發送回覆</value>
+  </data>
+  <data name="Write your comment..." xml:space="preserve">
+    <value>寫下你的留言...
+```
+
+But need to be sure: In Hong Kong Chinese, the typical phrase for &quot;Write your comment...&quot; could be &quot;寫下你的留言...&quot; or &quot;寫下你的評論...&quot;. The phrase placeholder in English is &quot;Write your comment...&quot;. The placeholder used in the code: placeholder=&quot;@Localizer[&quot;Write your comment...&quot;]&quot; So we need to translate that placeholder. &quot;Write your comment...&quot; could be &quot;寫下你的留言...&quot; (transliteration). Or &quot;撰寫留言...&quot;. Typically in Chinese: &quot;寫下你的留言...&quot; seems appropriate. Hong Kong Chinese often uses Traditional Chinese characters, not simplified. Traditional characters: &quot;寫下你的留言...&quot; uses &quot;寫&quot; (traditional, not &quot;写&quot;), &quot;下&quot; is same, &quot;你&quot; &quot;的&quot; &quot;留言&quot;. So translation: &quot;寫下你的留言...&quot;. That seems correct.
+
+However, might be &quot;寫下你的回應...&quot; but typical placeholder is &quot;寫下你的留言...&quot;.
+
+Let&apos;s think about user instructions: &quot;Please output the translated conclusion and nothing else. Do not output any other content!&quot; The assistant must output only the translated word(s) wrapped in three backticks.
+
+Thus answer: ```寫下你的留言...```. Ensure no extra whitespace, exactly as requested.
+
+Double-check: Should we include ellipsis? The English phrase includes &quot;...&quot; after comment. So translation also includes ellipsis: &quot;...&quot; is same three dots. So output is &quot;寫下你的留言...&quot;. That includes three dots. In Chinese, ellipsis can be &quot;...&quot; as three periods. So fine.
+
+Thus final answer: wrap in triple backticks.
+&lt;/think&gt;
+
+```寫下你的留言...</value>
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>撰寫你的留言…</value>
