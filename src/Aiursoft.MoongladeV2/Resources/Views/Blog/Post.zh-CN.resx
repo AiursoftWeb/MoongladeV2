@@ -27,6 +27,83 @@
   <data name="Back to posts" xml:space="preserve">
     <value>返回文章列表</value>
   </data>
+  <data name="By" xml:space="preserve">
+    <value>&lt;span class=&quot;post-meta-label&quot;&gt;@Localizer[&quot;By&quot;]&lt;/span&gt;
+```
+
+So the translator will output the localized string for &quot;By&quot;. In Chinese, the label would be &quot;作者&quot;. For &quot;Published&quot; the translation is &quot;发布于&quot;. So &quot;By&quot; can be &quot;作者&quot;. That is appropriate.
+
+Thus output:
+
+```作者
+```
+
+But we need to output only the translated content and wrap it in three backticks. So output:
+
+```
+作者
+```
+
+Make sure it&apos;s inside triple backticks, as per instruction: &quot;wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus output exactly:
+
+```作者
+``` 
+
+No extra text. The user specifically says &quot;Only output the translated content and wrap it in three backticks&quot;. So we need exactly three backticks, content line(s), three backticks? The example shows:
+
+```
+Translated word here...
+```
+
+That is a code block with three backticks and the content inside. So we should output:
+
+```作者
+```
+
+(But the example had newline after backticks? The example: &quot;```\nTranslated word here...\n```&quot;. So we should follow same style: triple backticks line, newline, translation, newline, triple backticks. However the instruction: &quot;Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+So they want code block with translated word(s) inside. So output:
+
+```作者
+``` ???
+
+But that would be ambiguous: triple backticks line then content then triple backticks line? Actually they wrote:
+
+``` 
+Translated word here...
+```
+
+That is three backticks on one line, then content, then three backticks on another line. So they want just a code block with the translation inside.
+
+Thus we should output:
+
+```
+作者
+```.
+
+That matches their example.
+
+We should not output any other content. So we should output exactly that code block. No extra explanation.
+
+Thus final answer: a code block containing &quot;作者&quot;. That&apos;s it.
+
+Check if any nuance: The translation should be appropriate for zh-CN. &quot;作者&quot; (zuò zhě) is correct. &quot;By&quot; could also be &quot;由&quot;. But &quot;作者&quot; is the label for author. The context: &quot;By&quot; label preceding author name, so translation is &quot;作者&quot;. Good.
+
+Thus output final answer.
+&lt;/think&gt;
+
+```作者</value>
+  </data>
   <data name="Comments" xml:space="preserve">
     <value>评论</value>
   </data>
@@ -42,11 +119,77 @@
   <data name="Post Comment" xml:space="preserve">
     <value>发布评论</value>
   </data>
+  <data name="Published" xml:space="preserve">
+    <value>), like this:
+
+```
+Translated word here...
+```&quot;
+
+We need to translate &quot;Published&quot; into zh-CN (Simplified Chinese). The translation is &quot;发布&quot; or &quot;已发布&quot;? The typical translation for &quot;Published&quot; as a label is &quot;已发布&quot;. But &quot;Published&quot; is a past participle meaning &quot;published (date)&quot;. In the context, it&apos;s used as a label before a date: &quot;@Localizer[&quot;Published&quot;]&quot;. So the translation should be &quot;已发布&quot; or &quot;发布时间&quot;? Usually, Chinese translation for &quot;Published&quot; as a label could be &quot;发布&quot; or &quot;已发布&quot;. In UI context, often &quot;已发布&quot; is used. However, Chinese UI often uses &quot;发布于&quot; or &quot;发布时间&quot;. But we need to translate the specific word &quot;Published&quot;. The simplest translation is &quot;已发布&quot;. In Chinese, &quot;已发布&quot; means &quot;Published&quot;. The phrase &quot;Published&quot; as a label could be &quot;发布时间&quot;. But it&apos;s used as a label preceding a date, so &quot;发布时间&quot; is the label, but the user said to translate the word &quot;Published&quot;. In many UI translations, &quot;Published&quot; as a label is &quot;发布于&quot; or just &quot;发布&quot;. But &quot;发布&quot; is a verb, not a past participle. In typical blog UI (like standard .NET Core blog template &quot;Orchard&quot; maybe?), they translate &quot;Published&quot; as &quot;已发布&quot;. For example, see the standard &quot;publish&quot; label: &quot;Published&quot; -&gt; &quot;Published&quot; in English; in Chinese, they might translate to &quot;已发布&quot;. So translation should be &quot;已发布&quot;.
+
+Thus output should be:
+
+```
+已发布
+```
+
+Wrap in three backticks. The user said output nothing else. So just the translated word in triple backticks.
+
+Thus answer: ```已发布```.
+
+Check: The user says &quot;Please translate only the sentence or word `Published` in the paragraph into the target language zh-CN, 中文 (中国大陆).&quot; So translation is &quot;已发布&quot;. That is correct.
+
+Thus final answer: triple backticks with &quot;已发布&quot;.
+&lt;/think&gt;
+
+```已发布</value>
+  </data>
   <data name="Reply" xml:space="preserve">
     <value>回复</value>
   </data>
   <data name="Send Reply" xml:space="preserve">
     <value>发送回复</value>
+  </data>
+  <data name="Write your comment..." xml:space="preserve">
+    <value>写下你的评论...
+```
+
+But we need to consider that the phrase includes ellipsis &quot;...&quot;. In Chinese, you could preserve ellipsis as &quot;...&quot; or use the Chinese full-width ellipsis &quot;…&quot; but often we can just keep &quot;...&quot;. But the placeholder includes three dots: &quot;Write your comment...&quot;. So translation can be &quot;写下你的评论...&quot; (with ellipsis). That seems fine.
+
+Make sure to wrap in three backticks and nothing else.
+
+Thus final answer: 
+
+``` 
+写下你的评论...
+``` 
+
+But we need to wrap in three backticks, not with a blank line. It says output three backticks like this:
+
+```
+Translated word here...
+```
+
+Thus we need:
+
+```
+写下你的评论...
+```
+
+We must ensure not to output any extra content. So just the backticks and translation.
+
+Potential nuance: The placeholder includes three dots at end. Should we preserve them? It&apos;s &quot;Write your comment...&quot; which in Chinese might be &quot;写下你的评论...&quot; (with three dots). So translation: &quot;写下你的评论...&quot;. That seems correct.
+
+Thus final output: 
+
+```
+写下你的评论...
+``` 
+That&apos;s it.
+&lt;/think&gt;
+
+```写下你的评论...</value>
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>写下您的评论…</value>
