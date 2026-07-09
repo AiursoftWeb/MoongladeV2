@@ -1,3 +1,4 @@
+@using System.Globalization
 @model Aiursoft.MoongladeV2.Models.BlogViewModels.IndexViewModel
 
 @{
@@ -30,162 +31,171 @@
 
         return Url.Action("Index", "Blog", new { sort = Model.SortBy, page }) ?? "/";
     }
+
+    var pageHeading = Localizer["All Posts"].Value;
+    if (!string.IsNullOrWhiteSpace(Model.CurrentTag))
+    {
+        pageHeading = $"{Localizer["Tag"].Value}: {Model.CurrentTag}";
+    }
+    else if (!string.IsNullOrWhiteSpace(Model.SearchQuery))
+    {
+        pageHeading = $"{Localizer["Search"].Value}: {Model.SearchQuery}";
+    }
 }
 
 <vc:marketing-navbar></vc:marketing-navbar>
 
-<main class="container py-4">
-    <div class="row g-4">
-        <section class="col-lg-9">
-                <div class="d-flex align-items-center justify-content-between mb-3">
-                <div>
-                    <h2 class="mb-0">
-                        @if (!string.IsNullOrWhiteSpace(Model.CurrentTag))
-                        {
-                            @Localizer["Tag"]<text>: @Model.CurrentTag</text>
-                        }
-                        else if (!string.IsNullOrWhiteSpace(Model.SearchQuery))
-                        {
-                            @Localizer["Search"]<text>: @Model.SearchQuery</text>
-                        }
-                        else
-                        {
-                            @Localizer["All Posts"]
-                        }
-                    </h2>
-                    <div class="text-muted small">
-                        @Model.TotalPosts @Localizer["posts"]
+<main class="moonglade-blog-shell">
+    <section class="profile-mobile d-block d-sm-none">
+        <div class="card-bkimg-container">
+            <img class="card-bkimg" src="~/images/default-avatar.jpg" alt="" />
+        </div>
+        <div class="blogger-intro-content">
+            <div class="row align-items-center">
+                <div class="col-3">
+                    <img src="~/images/default-avatar.jpg" alt="Moonglade" class="rounded-circle blogger-head-pic" />
+                </div>
+                <div class="col-9">
+                    <h4 class="text-center">@Localizer["Modern Markdown blogging with AI-powered localization and search."]</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container py-4 py-lg-5">
+        <div class="row g-4">
+            <section class="col-lg-9">
+                <div class="d-flex align-items-center mb-3 blog-index-heading">
+                    <h3 class="mb-0">@pageHeading</h3>
+                    <span class="flex-spacer"></span>
+
+                    @if (!Model.UsedAiSearch)
+                    {
+                        <div class="btn-group btn-group-sm" role="group" aria-label="@Localizer["Sort posts"]">
+                            <a href="@BuildSortUrl("recent")" class="btn @(Model.SortBy == "Recent" ? "btn-accent" : "btn-outline-accent")">@Localizer["Recent"]</a>
+                            <a href="@BuildSortUrl("featured")" class="btn @(Model.SortBy == "Featured" ? "btn-accent" : "btn-outline-accent")">@Localizer["Featured"]</a>
+                        </div>
+                    }
+                </div>
+                <hr class="blog-heading-rule" />
+
+                @if (Model.UsedAiSearch || Model.RateLimited)
+                {
+                    <div class="blog-search-state mb-4">
                         @if (Model.UsedAiSearch)
                         {
-                            <span class="badge bg-success-subtle text-success-emphasis border border-success-subtle ms-2">
-                                <i class="align-middle me-1" data-lucide="cpu" style="width:14px;height:14px;"></i>
-                                @Localizer["Search based on AI (Vector Database)"]
-                            </span>
+                            <span class="badge text-bg-success">@Localizer["Search based on AI (Vector Database)"]</span>
                         }
                         @if (Model.RateLimited)
                         {
-                            <span class="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle ms-2">
-                                <i class="align-middle me-1" data-lucide="alert-triangle" style="width:14px;height:14px;"></i>
-                                @Localizer["Too many searches. AI search temporarily limited; showing keyword results."]
-                            </span>
+                            <span class="badge text-bg-warning">@Localizer["Too many searches. AI search temporarily limited; showing keyword results."]</span>
                         }
                     </div>
-                </div>
-                    @if (!Model.UsedAiSearch)
-                    {
-                        <div class="btn-group btn-group-sm">
-                    <a href="@BuildSortUrl("recent")" class="btn @(Model.SortBy == "Recent" ? "btn-dark" : "btn-outline-dark")">@Localizer["Recent"]</a>
-                    <a href="@BuildSortUrl("featured")" class="btn @(Model.SortBy == "Featured" ? "btn-dark" : "btn-outline-dark")">@Localizer["Featured"]</a>
-                </div>
-                    }
-                </div>
+                }
 
-            @if (!Model.Posts.Any())
-            {
-                <div class="alert alert-info" role="alert">
-                    <div class="alert-icon">
-                        <i class="align-middle" data-lucide="info"></i>
-                    </div>
-                    <div class="alert-message">
-                        @Localizer["No posts found."]
-                    </div>
-                </div>
-            }
-            else
-            {
-                @foreach (var post in Model.Posts)
+                @if (!Model.Posts.Any())
                 {
-                    <article class="card border-0 shadow-sm mb-3 blog-summary-card">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="text-muted small">@post.PublishedAt.ToString("yyyy-MM-dd")</span>
-                                @if (post.IsFeatured)
+                    <div class="alert alert-info">@Localizer["No posts found."]</div>
+                }
+                else
+                {
+                    @foreach (var post in Model.Posts)
+                    {
+                        <article class="article-post-summary d-flex" lang="@CultureInfo.CurrentCulture.TwoLetterISOLanguageName">
+                            <div class="post-date-box d-none d-md-block font-sairas me-4">
+                                <div class="post-date-day">@post.PublishedAt.Day.ToString("00", CultureInfo.InvariantCulture)</div>
+                                <div class="post-date-month text-white">@post.PublishedAt.ToString("MMM", CultureInfo.CurrentCulture).ToUpper(CultureInfo.CurrentCulture)</div>
+                            </div>
+
+                            <div class="post-summary-box">
+                                <time datetime="@post.PublishedAt.ToString("O", CultureInfo.InvariantCulture)" class="d-none">
+                                    @post.PublishedAt.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)
+                                </time>
+
+                                <h4 class="post-summary-title mb-3">
+                                    <a href="@post.Url">@post.Title</a>
+                                    @if (post.IsFeatured)
+                                    {
+                                        <span class="post-featured-star" title="@Localizer["Featured"]">★</span>
+                                    }
+                                </h4>
+
+                                @if (!string.IsNullOrWhiteSpace(post.HeroImageUrl))
                                 {
-                                    <span class="badge text-bg-warning">@Localizer["Featured"]</span>
+                                    <a href="@post.Url" class="post-summary-hero-link">
+                                        <img src="@post.HeroImageUrl" alt="@post.Title" class="post-summary-hero" loading="lazy" />
+                                    </a>
+                                }
+
+                                <p class="post-summary-text">@post.Excerpt</p>
+
+                                @if (post.Tags.Any())
+                                {
+                                    <div class="post-summary-tags pt-2">
+                                        @foreach (var tag in post.Tags)
+                                        {
+                                            <a asp-controller="Blog" asp-action="Tag" asp-route-tag="@tag" class="d-inline-block me-1 mb-1 btn btn-sm btn-accent">@tag</a>
+                                        }
+                                    </div>
                                 }
                             </div>
-                            <h3 class="h4 mb-2">
-                                <a class="text-decoration-none text-dark" href="@post.Url">@post.Title</a>
-                            </h3>
-                            @if (!string.IsNullOrWhiteSpace(post.HeroImageUrl))
-                            {
-                                <a href="@post.Url">
-                                    <img src="@post.HeroImageUrl" alt="@post.Title" class="img-fluid rounded mb-3 blog-card-hero" loading="lazy" />
-                                </a>
-                            }
-                            <p class="text-muted mb-3">@post.Excerpt</p>
-                            @if (post.Tags.Any())
-                            {
-                                <div class="d-flex flex-wrap gap-2">
-                                    @foreach (var tag in post.Tags)
-                                    {
-                                        <a class="badge rounded-pill text-bg-light border text-decoration-none" asp-controller="Blog" asp-action="Tag" asp-route-tag="@tag">@tag</a>
-                                    }
-                                </div>
-                            }
-                        </div>
-                    </article>
+                        </article>
+                        <div class="mb-4 d-none d-md-block"></div>
+                        <hr class="d-none d-md-block blog-post-separator" />
+                    }
                 }
-            }
 
-            @if (Model.TotalPages > 1)
-            {
-                <nav aria-label="Blog pagination">
-                    <ul class="pagination">
-                        <li class="page-item @(Model.CurrentPage <= 1 ? "disabled" : string.Empty)">
-                            <a class="page-link" href="@BuildPageUrl(Model.CurrentPage - 1)">@Localizer["Previous"]</a>
-                        </li>
-                        @for (var i = 1; i <= Model.TotalPages; i++)
-                        {
-                            <li class="page-item @(Model.CurrentPage == i ? "active" : string.Empty)">
-                                <a class="page-link" href="@BuildPageUrl(i)">@i</a>
+                @if (Model.TotalPages > 1)
+                {
+                    <nav aria-label="@Localizer["Blog pagination"]">
+                        <ul class="pagination justify-content-end">
+                            <li class="page-item @(Model.CurrentPage <= 1 ? "disabled" : string.Empty)">
+                                <a class="page-link" href="@BuildPageUrl(Model.CurrentPage - 1)">@Localizer["Previous"]</a>
                             </li>
-                        }
-                        <li class="page-item @(Model.CurrentPage >= Model.TotalPages ? "disabled" : string.Empty)">
-                            <a class="page-link" href="@BuildPageUrl(Model.CurrentPage + 1)">@Localizer["Next"]</a>
-                        </li>
-                    </ul>
-                </nav>
-            }
-        </section>
+                            @for (var i = 1; i <= Model.TotalPages; i++)
+                            {
+                                <li class="page-item @(Model.CurrentPage == i ? "active" : string.Empty)">
+                                    <a class="page-link" href="@BuildPageUrl(i)">@i</a>
+                                </li>
+                            }
+                            <li class="page-item @(Model.CurrentPage >= Model.TotalPages ? "disabled" : string.Empty)">
+                                <a class="page-link" href="@BuildPageUrl(Model.CurrentPage + 1)">@Localizer["Next"]</a>
+                            </li>
+                        </ul>
+                    </nav>
+                }
+            </section>
 
-        <aside class="col-lg-3">
-            <div class="card border-0 shadow-sm mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">@Localizer["Search"]</h5>
+            <aside class="col-lg-3 blog-sidebar">
+                <section class="box mt-4">
+                    <h5>@Localizer["Search"]</h5>
                     <form asp-controller="Blog" asp-action="Search" method="get">
-                        <div class="input-group">
+                        <div class="input-group input-group-sm">
                             <input type="text" name="q" class="form-control" value="@Model.SearchQuery" placeholder="@Localizer["Keywords"]" />
-                            <button class="btn btn-dark" type="submit">@Localizer["Go"]</button>
+                            <button class="btn btn-accent" type="submit">@Localizer["Go"]</button>
                         </div>
                     </form>
-                </div>
-            </div>
+                </section>
 
-            <div class="card border-0 shadow-sm mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">@Localizer["Popular Tags"]</h5>
-                    <div class="d-flex flex-wrap gap-2">
+                <section class="box mt-4">
+                    <h5>@Localizer["Tags"]</h5>
+                    <div class="post-summary-tags">
                         @foreach (var item in Model.TopTags.Take(20))
                         {
-                            <a class="badge rounded-pill text-bg-light border text-decoration-none" asp-controller="Blog" asp-action="Tag" asp-route-tag="@item.Tag">
-                                @item.Tag <span class="text-muted">(@item.Count)</span>
+                            <a class="d-inline-block me-1 mb-1 btn btn-sm btn-outline-accent" asp-controller="Blog" asp-action="Tag" asp-route-tag="@item.Tag">
+                                @item.Tag <span class="tag-count">@item.Count</span>
                             </a>
                         }
                     </div>
-                </div>
-            </div>
+                    <hr />
+                    <a asp-controller="Blog" asp-action="Tags">@Localizer["All tags"]</a>
+                </section>
 
-            <div class="card border-0 shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title">@Localizer["Explore"]</h5>
-                    <ul class="list-unstyled mb-0">
-                        <li class="mb-2"><a asp-controller="Blog" asp-action="Tags">@Localizer["All tags"]</a></li>
-                        <li><a asp-controller="Blog" asp-action="Archive">@Localizer["Archive"]</a></li>
-                    </ul>
-                </div>
-            </div>
-        </aside>
+                <section class="text-center mt-4">
+                    <a asp-controller="Blog" asp-action="Archive" class="btn btn-sm btn-round btn-outline-secondary">@Localizer["Archive"]</a>
+                </section>
+            </aside>
+        </div>
     </div>
 </main>
 
