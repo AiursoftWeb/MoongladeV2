@@ -183,6 +183,61 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>Intern - Utilizatori/roluri specifice</value>
   </data>
+  <data name="Localization" xml:space="preserve">
+    <value>Localizare</value>
+  </data>
+  <data name="Localize" xml:space="preserve">
+    <value>Localizează
+```
+
+But check: the user wants &quot;the translated conclusion and nothing else.&quot; They want to output only the translated content and wrap it in three backticks.
+
+Thus output:
+
+```
+Localizează
+```
+
+But maybe they&apos;d prefer &quot;Localizează&quot;. However, need to be careful about proper Romanian: &quot;Localizează&quot; is the correct third person singular form for imperative? Actually, in Romanian, the verb &quot;a localiză&quot; (to localize) is &quot;localiza&quot;. Imperative second person singular of &quot;localiza&quot; is &quot;localizază&quot;? Wait, check: the infinitive &quot;a localiză&quot;? That doesn&apos;t sound right. &quot;a localiza&quot;. So the verb &quot;localiza&quot;. The imperative (imperativ) for second person singular is &quot;localizază&quot;. Yes. So &quot;Localizează&quot; is imperative, second person singular, which is the appropriate translation for a command &quot;Localize&quot;. So that works.
+
+Alternatively, if it&apos;s a noun, &quot;Localizare&quot; meaning &quot;Localization&quot;. But the line is &quot;Localize&quot;. It is ambiguous. In typical UI, a button labeled &quot;Localize&quot; is a verb command: &quot;Localize&quot; (the action). So I&apos;d translate it as &quot;Localizează&quot;. If it&apos;s a noun, &quot;Localizare&quot; is the noun. But &quot;Localize&quot; as a noun is not typical. So I think it&apos;s &quot;Localizează&quot;. Also the user might want the translation &quot;Localizează&quot;. We&apos;ll go with that.
+
+Thus output: ```Localizează```.
+
+Double-check: Does &quot;Localize&quot; appear elsewhere? Only at the beginning of the code snippet. The snippet:
+
+```
+@using Aiursoft.MoongladeV2.Controllers
+@model Aiursoft.MoongladeV2.Models.HomeViewModels.IndexViewModel
+@inject Aiursoft.MoongladeV2.Services.FileStorage.StorageService Storage
+@{
+    var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
+}
+@if (Model.SavedSuccessfully)
+{
+    &lt;div class=&quot;alert alert-success alert-dismissible mt-3 mx-3 shadow-sm&quot; role=&quot;alert&quot;&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+        &lt;div class=&quot;alert-icon&quot;&gt;
+            &lt;i class=&quot;align-middle&quot; data-lucide=&quot;check-circle&quot;&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;alert-message&quot;&gt;
+            &lt;strong&gt;@Localizer[&quot;Success!&quot;]&lt;/strong&gt;
+            @Localizer[&quot;Post updated successfully.&quot;]
+        &lt;/div&gt;
+    &lt;/div&gt;
+}
+...
+```
+
+The word &quot;Localize&quot; might be a button somewhere else. But the user wants to translate the sentence or word `Localize`. So we provide translation.
+
+Thus final answer: wrap in triple backticks.
+
+Now I&apos;ll produce final.
+&lt;/think&gt;
+
+```Localizează</value>
+  </data>
   <data name="Make document private" xml:space="preserve">
     <value>Faceți documentul privat</value>
   </data>

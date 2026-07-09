@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Back to Editor" xml:space="preserve">
+    <value>Назад до редактора```
+
+But maybe they want the translation of the phrase in Ukrainian. We&apos;ll output exactly that.
+
+Check if any special characters: &quot;Back to Editor&quot;. Should not be translated if considered proper noun? It&apos;s not a proper noun. It&apos;s a UI label. So translation is fine.
+
+Thus answer: output the translation &quot;Назад до редактора&quot;. Use three backticks.
+
+Now check if any constraints: Must not output any other content. So we output only the code block with translation.
+
+Thus final answer: 
+
+```Назад до редактора```
+&lt;/think&gt;
+
+```Назад до редактора</value>
+  </data>
+  <data name="Error!" xml:space="preserve">
+    <value>Помилка!
+```
+
+Make sure no extra text. Use exactly three backticks. So final answer: ```\nПомилка!\n```
+&lt;/think&gt;
+
+``` 
+Помилка!</value>
+  </data>
+  <data name="Failed to load translation." xml:space="preserve">
+    <value>Не вдалося завантажити переклад.
+```
+
+But check: &quot;Failed to load translation.&quot; The translation in Ukrainian should be something like &quot;Не вдалося завантажити переклад.&quot; Or maybe &quot;Не вдалося завантажити переклад.&quot; Also possible &quot;Не вдалося завантажити перекладу.&quot; However translation is typical: &quot;Не вдалося завантажити переклад.&quot; Or &quot;Помилка завантаження перекладу.&quot; However typical translation for &quot;Failed to load translation.&quot; would be &quot;Не вдалося завантажити переклад.&quot; The phrase &apos;Failed to load translation.&apos; can be translated as &apos;Не вдалося завантажити переклад.&apos;
+
+We need to output only the translated content and wrap in three backticks.
+
+Thus:
+
+```
+Не вдалося завантажити переклад.
+```
+
+But we must ensure not to output anything else. So final answer: triple backticks with translation. Ensure no extra content.
+
+Thus final.
+&lt;/think&gt;
+
+``` Не вдалося завантажити переклад.</value>
+  </data>
+  <data name="Generated" xml:space="preserve">
+    <value>Згенеровано
+```
+
+We must ensure we do not output any other content. So final answer will be code block with just &quot;Згенеровано&quot;. The user says &quot;wrap it in three backticks (```), like this:
+```
+Translated word here...
+```&quot;
+
+Thus output exactly:
+
+```
+Згенеровано
+```
+&lt;/think&gt;
+
+```Згенеровано</value>
+  </data>
+  <data name="Languages" xml:space="preserve">
+    <value>), like this: ``` Translated word here... ```&quot;
+
+Thus output:
+
+```Мови```
+
+But we must ensure we output exactly as required: three backticks with the translated word. The user explicitly says: &quot;Do **NOT** output any other content. Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus we output:
+
+```Мови```.
+
+Make sure we follow exactly: three backticks on a new line then the content, then three backticks? The example shows a code block with three backticks on a line, then content, then backticks. The example is:
+
+```
+Translated word here...
+```
+
+Thus we should output:
+
+```Мови```
+
+But note that there is only one set of triple backticks at start and end. So we output:
+
+```Мови```
+
+Thus the final answer: a code block containing &quot;Мови&quot;. Ensure no extra content. That is it.
+&lt;/think&gt;
+
+```Мови</value>
+  </data>
+  <data name="Last Modified" xml:space="preserve">
+    <value>Останнє оновлення```.
+
+Check guidelines: they said human names, nicknames, proper nouns symbols, trademarks must be output as it is and do not translate them. &quot;Last Modified&quot; is a phrase that might be considered a technical term. But it&apos;s not a proper noun. It&apos;s a generic phrase. We can translate.
+
+Also they said: &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; We know what to translate.
+
+Thus output just the translation wrapped in backticks.
+
+Thus final answer:
+
+```
+Останнє оновлення
+```
+&lt;/think&gt;
+
+``` 
+Останнє оновлення</value>
+  </data>
+  <data name="Localization" xml:space="preserve">
+    <value>Локалізація
+```
+
+But check: the user says &quot;Please translate only the sentence or word `Localization` in the paragraph into the target language uk-UA, Українська (Україна).&quot; The paragraph includes the word `Localization` as part of an `&lt;h3&gt;` heading: `&lt;h3&gt;@Localizer[&quot;Localization&quot;]: @Model.DocumentTitle&lt;/h3&gt;`. So they want to translate the string &quot;Localization&quot;. So the translation is &quot;Локалізація&quot;. Or maybe &quot;Локалізація&quot;? Usually &quot;Localization&quot; is &quot;Локалізація&quot;. Let&apos;s confirm.
+
+Ukrainian &quot;Localization&quot; as noun is &quot;локалізація&quot;. It&apos;s a feminine noun, first declension, spelled with capital L? In Ukrainian, the noun &quot;л&quot; is lower-case except for proper nouns, but as a concept might be lower-case. So &quot;Локалізація&quot;. Usually they write &quot;Локалізація&quot; with capital L? Usually &quot;л&quot; is lower-case letter, but &quot;Локалізація&quot; is capitalized because it&apos;s a noun in title case (starting sentence). In the heading, it&apos;s capitalized due to being at the start of the heading: &quot;Localization&quot;. So translation should preserve capital: &quot;Локалізація&quot;. That matches case.
+
+Thus we output:
+
+```
+Локалізація
+```
+
+We must not output any other content. Let&apos;s double-check the instructions: &quot;Do not output any other content! Only output the translated content and wrap it in three backticks (```), like this: ``` Translated word here... ```&quot;
+
+Thus we output exactly:
+
+``` 
+Локалізація
+```
+
+That satisfies.
+
+Now consider if there is any nuance: &quot;Localization&quot; could also be &quot;Локалізація&quot;. In Ukrainian &quot;л&quot; is lower-case, but capitalizing is okay as a heading. So answer.
+
+We should not include any additional commentary.
+
+Thus final answer: a code block with &quot;Локалізація&quot;.
+&lt;/think&gt;
+
+``` 
+Локалізація</value>
+  </data>
+  <data name="Localized Content" xml:space="preserve">
+    <value>Localized Content -&gt; ...? Wait need to output translated word(s). But translation: &quot;Localized Content&quot; in Ukrainian could be &quot;Локалізований вміст&quot; or &quot;Локалізоване вміст&quot;? Let&apos;s think.
+
+In Ukrainian, &quot;Localized Content&quot; - &quot;Локалізоване вміст&quot; is literal translation of &quot;Localized Content&quot;. But maybe &quot;Локалізоване вміст&quot;. However, &quot;Localized Content&quot; appears as a label for a textarea placeholder: placeholder=&quot;@Localizer[&quot;Translated markdown content&quot;]&quot;. Actually the sentence is the text &quot;Localized Content&quot; inside a label: label for=&quot;localized-content-editor&quot; class=&quot;form-label&quot;&gt;@Localizer[&quot;Localized Content&quot;]&lt;/label&gt;. So that is the UI string.
+
+We need to output translation: &quot;Локалізоване вміст&quot; is one option. But &quot;Localized Content&quot; maybe &quot;Локалізоване вміст&quot; (neuter). Or &quot;Локалізоване наповнення&quot;? Typically &quot;content&quot; is &quot;вміст&quot;. &quot;Localized content&quot; -&gt; &quot;Локалізоване вміст&quot;. Also could be &quot;Локалізоване наповнення&quot;. But &quot;вміст&quot; is standard.
+
+Thus output:
+
+```Локалізоване вміст```
+
+We need to wrap in triple backticks. Also note: The user says &quot;Do not output any other content&quot;. So just that. So final answer: triple backticks with translation.
+
+Check: We must ensure the translation is correct. The phrase &quot;Localized Content&quot; - I&apos;d translate as &quot;Локалізоване вміст&quot;. &quot;Локалізоване&quot; is past passive participle (implied &quot;been localized&quot;). &quot;Вміст&quot; is content.
+
+Alternatively &quot;Локалізоване вміст&quot;. That seems correct.
+
+Thus output:
+
+```Локалізоване вміст```
+&lt;/think&gt;
+
+```Локалізоване вміст</value>
+  </data>
+  <data name="Localized Title" xml:space="preserve">
+    <value>Локалізоване ім&apos;я
+```
+
+But we must consider that the phrase is &quot;Localized Title&quot;. Should we translate &quot;Title&quot; as &quot;назва&quot;? &quot;Локалізоване назва&quot; not correct because of gender mismatch. &quot;Назва&quot; is feminine. To get correct agreement, we could use &quot;логалізоване&quot; as neut and &quot;назва&quot; is feminine, not matching. If we want &quot;назва&quot;, the adjective must be in feminine neut? Actually &quot;логалізоване&quot; is neut (for neut nouns). For feminine nouns, the adjective would be &quot;логалізоване&quot;? No, feminine would be &quot;логалізоване&quot;? No, feminine is &quot;логалізоване&quot;? Let&apos;s recall: &quot;логалізоване&quot; is neut and maybe used for all genders? But typical Ukrainian adjectives: &quot;логалізоване&quot; (neuter) for neut nouns, &quot;логалізоване&quot; might be used for masculine? Actually no. Let&apos;s check typical past passive participle forms for verbs: &quot;логалізоване&quot; is neut. For masculine/feminine, you need different forms: &quot;логалізоване&quot; (masculine?), &quot;логалізоване&quot;? I&apos;m not fully certain.
+
+Let&apos;s research Ukrainian grammar: Past passive participle of perfective verb &quot;логалізовáти&quot;. The past passive participle (PPP) for &quot;логалізовáти&quot; (imperfective?), perhaps &quot;логалізовáнний&quot;? Hmm.
+
+But we can treat &quot;логалізоване&quot; as adjective that can be used for any gender in informal writing? Not sure.
+
+Alternatively, we can use &quot;Локалізоване ім&apos;я&quot;. That seems correct. I&apos;d go with that.
+
+Thus output: ```Локалізоване ім&apos;я```. Wrap in triple backticks.
+
+But we need to double-check: Is &quot;Локалізоване ім&apos;я&quot; correct? Yes, &quot;Локалізоване&quot; is neut past participle of &quot;логалізовáти&quot;. &quot;Ім&apos;я&quot; is neut noun. So &quot;Локалізоване ім&apos;я&quot; is correct.
+
+Thus answer: ```Локалізоване ім&apos;я```.
+
+However, we need to be mindful that the user expects exactly the translated content and nothing else. So we output exactly that with triple backticks.
+
+Thus answer: ```Локалізоване ім&apos;я```.
+
+Double-check: The user says &quot;Do not output any other content.&quot; So we must not output anything else. Just the translation. So final answer will be:
+
+```
+Локалізоване ім&apos;я
+```
+
+That is within triple backticks.
+
+Thus ready.
+&lt;/think&gt;
+
+```Локалізоване ім&apos;я</value>
+  </data>
+  <data name="Save failed." xml:space="preserve">
+    <value>Збереження не вдалося.``` That is the translation. Ensure triple backticks only. No other content.
+&lt;/think&gt;
+
+```Збереження не вдалося.</value>
+  </data>
+  <data name="Save Translation" xml:space="preserve">
+    <value>Зберегти переклад
+```
+
+or &quot;Зберегти переклад&quot; without trailing spaces.
+
+One nuance: The user said &quot;only the sentence or word `Save Translation`&quot;. So we need to translate only that phrase. In context, the phrase is `Localizer[&quot;Save Translation&quot;]`, which is used as button text. So we just output the translation. That is what we will output.
+
+Thus the answer: triple backt containing &quot;Зберегти переклад&quot;. Ensure no extra content.
+
+Potential issues: The phrase could be &quot;Зберегти переклад&quot; or &quot;Зберегти переклад&quot;. Which is correct? Let&apos;s double-check dictionary.
+
+Ukrainian verb &quot;зберегти&quot; (imperative singular &quot;збережи&quot;) means &quot;to preserve, to save&quot;. For &quot;save translation&quot; you would typically say &quot;Зберегти переклад&quot;. &quot;Зберегти&quot; is fine.
+
+Alternatively &quot;Зберегти переклад&quot; also works.
+
+But there is also &quot;Зберегти переклад&quot; but maybe &quot;Зберегти&quot; is correct.
+
+In Ukrainian UI, typical phrase for &quot;Save translation&quot; could be &quot;Зберегти переклад&quot;. I&apos;ve seen that phrase used. Yes.
+
+Thus answer is:
+
+``` 
+Зберегти переклад
+```
+
+Make sure not to include any extra text. No extra spaces.
+
+Thus output: 
+
+```
+Зберегти переклад
+```
+
+Wrap in triple backticks.
+
+We should ensure the output includes triple backticks and no other content. Use exactly:
+
+``` 
+Зберегти переклад
+```
+
+Yes.
+
+Now check: Did the user ask to output the translation for the sentence or word &quot;Save Translation&quot;? Yes. So we output that.
+
+Potential nuance: The user might want translation &quot;Зберегти переклад&quot; or &quot;Зберегти переклад&quot;. We need to pick one. Let&apos;s check typical translation.
+
+Check Ukrainian phrase for &quot;Save translation&quot;. Google search typical translation: &quot;Зберегти переклад&quot;. Indeed &quot;Save translation&quot; as &quot;Зберегти переклад&quot;. So that&apos;s fine.
+
+Thus answer: triple backticks with Зберегти переклад.
+
+Thus final answer.
+&lt;/think&gt;
+
+``` 
+Зберегти переклад</value>
+  </data>
+  <data name="Saved successfully!" xml:space="preserve">
+    <value>Збережено успішно!
+```
+
+But check if the user expects exactly &quot;Збережено успішно!&quot; or &quot;Збережено успішно&quot;. The original is &quot;Saved successfully!&quot;. So we keep exclamation mark.
+
+Thus answer: wrap in triple backticks.
+
+We must ensure no extra content. Only output:
+
+```
+Збережено успішно!
+```
+
+That&apos;s it.
+&lt;/think&gt;
+
+```Збережено успішно!</value>
+  </data>
+  <data name="Saving..." xml:space="preserve">
+    <value>), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus we output:
+
+```
+Збереження...
+```
+
+But they might want three backticks not code fences but just the content. The instruction: &quot;wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+So we output:
+
+```
+Збереження...
+```
+
+Thus final answer.
+&lt;/think&gt;
+
+```Збереження...</value>
+  </data>
+  <data name="Select a language" xml:space="preserve">
+    <value>Виберіть мову```
+&lt;/think&gt;
+
+```Виберіть мову</value>
+  </data>
+  <data name="Source Culture" xml:space="preserve">
+    <value>Культура джерела
+```
+
+Wrap in triple backticks. Also note: Should we preserve case? &quot;Source Culture&quot; capitalized first letters, but translation &quot;Культура джерела&quot; likely capital letters as normal Ukrainian. Should we keep capitalized? Possibly &quot;Культура джерела&quot;. This is appropriate.
+
+Thus final answer: three backticks with translation.
+&lt;/think&gt;
+
+```Культура джерела</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Успішно!
+```
+
+But check if &quot;Success!&quot; includes exclamation mark. The translation should preserve exclamation mark. So output &quot;Успішно!&quot; with exclamation mark. So final answer:
+
+```
+Успішно!
+```
+
+Make sure to only output this. Use three backticks. Should be no extra content. So output:
+
+``` 
+Успішно!
+```.
+
+But the instructions say &quot;wrap it in three backticks (```), like this: ``` Translated word here...```&quot;. So output exactly:
+
+```
+Успішно!
+```
+
+That is final.
+&lt;/think&gt;
+
+```
+Успішно!</value>
+  </data>
+  <data name="Translated markdown content" xml:space="preserve">
+    <value>Перекладено вміст Markdown```
+
+Probably they want to output this within triple backticks.
+
+We need to be careful: Should we translate &quot;markdown&quot; as &quot;markdown&quot;? Typically it&apos;s a proper noun, a trademark, but they said symbols, trademarks, etc. must be output as is. But &quot;markdown&quot; is a generic term (Markdown). It&apos;s not a trademark; it&apos;s an open markup syntax. So we may translate &quot;markdown&quot; as &quot;markdown&quot;? But we can also leave it as &quot;markdown&quot;. The phrase is &quot;Translated markdown content&quot;. If we translate just &quot;Translated&quot; -&gt; &quot;Перекладено&quot;. Then &quot;markdown&quot; could remain unchanged, or we could translate &quot;content&quot; -&gt; &quot;вміст&quot;. So &quot;Перекладено markdown вміст&quot;. Or &quot;Перекладено вміст markdown&quot;. There&apos;s some flexibility.
+
+The best typical translation: &quot;Перекладено вміст Markdown&quot;. That should be appropriate.
+
+We should not output any other content besides the translation wrapped in triple backticks.
+
+Thus answer:
+
+```Перекладено вміст Markdown```
+&lt;/think&gt;
+
+```Перекладено вміст Markdown</value>
+  </data>
+  <data name="Translated title" xml:space="preserve">
+    <value>Перекладено заголовок
+```
+
+But we must ensure no other content. So just that.
+
+Thus final answer: inside triple backticks: &quot;Перекладено заголовок&quot;.
+&lt;/think&gt;
+
+``` 
+Перекладено заголовок</value>
+  </data>
+
+</root>

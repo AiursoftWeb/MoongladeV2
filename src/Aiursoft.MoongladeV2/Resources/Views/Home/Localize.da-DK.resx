@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Back to Editor" xml:space="preserve">
+    <value>Tilbage til editoren
+```
+
+But we need to be sure: The translation for &quot;Back to Editor&quot; might be &quot;Tilbage til editoren&quot;. We can also use &quot;Tilbage til redigering&quot;? But likely &quot;Tilbage til editoren&quot;. Or &quot;Tilbage til editor&quot;. In Danish, &quot;Editor&quot; may be &quot;redigeringsprogram&quot;. However, it&apos;s okay to translate as &quot;Tilbage til editoren&quot;. Also we can use &quot;Tilbage til redigeringsvisning&quot;? No, typical translation: &quot;Back to editor&quot; is &quot;Tilbage til editor&quot;. So output &quot;Tilbage til editoren&quot; or &quot;Tilbage til editor&quot;. Let&apos;s decide: &quot;Back to Editor&quot; is used as a navigation link. In many UI frameworks, the translation for &quot;Back to Editor&quot; is &quot;Zurück zum Editor&quot; in German, &quot; terug naar editor&quot; in Dutch, &quot;Retour au rédacteur&quot; in French? Actually French is &quot;Retour à l&apos;éditeur&quot;. In Danish, &quot;Tilbage til editoren&quot;. That&apos;s correct.
+
+Thus final answer: ```Tilbage til editoren```.
+
+Make sure we wrap exactly in triple backticks and output nothing else. Also note: they say &quot;Do not output any other content!&quot; So just that triple backticks block. They also say &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; But we understand.
+
+Thus final: ```Tilbage til editoren```.
+
+Double-check: Should we use &quot;Tilbage til redigeringsprogram&quot;? No, better &quot;Tilbage til editoren&quot;.
+
+Thus final answer.
+&lt;/think&gt;
+
+```Tilbage til editoren</value>
+  </data>
+  <data name="Error!" xml:space="preserve">
+    <value>Fejl!```
+&lt;/think&gt;
+
+```Fejl!</value>
+  </data>
+  <data name="Failed to load translation." xml:space="preserve">
+    <value>Translated word here...
+```
+
+We need to output only that content. So we must output a code block with the translation only. But they also said &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; But we do understand.
+
+Thus output something like:
+
+```
+Kunne ikke indlæse oversættelse.
+```
+
+Alternatively &quot;Fejl ved indlæsning af oversættelse.&quot; Might be more appropriate. Let&apos;s see typical error message in Danish: &quot;Fejl ved indlæsning af oversættelse.&quot; That seems like a direct translation.
+
+But maybe better: &quot;Oversættelsen kunne ikke indlæses.&quot; That is a translation. The user likely expects something like &quot;Kunne ikke indlæse oversættelse.&quot; But we need to decide.
+
+Given typical error messages in Danish, &quot;Failed to load translation.&quot; -&gt; &quot;Oversættelsen kunne ikke indlæses.&quot; That&apos;s a good translation.
+
+We could also do: &quot;Fejl ved indlæsning af oversættelse.&quot; That is more generic. However, &quot;Failed to load translation.&quot; could be &quot;Indlæsning af oversættelse mislykkedes.&quot; That sounds unnatural.
+
+Better: &quot;Kunne ikke indlæse oversættelse.&quot;
+
+Let&apos;s check: &quot;Failed to load translation.&quot; In English, &quot;load&quot; as verb can be &quot;indlæse&quot; (to load), &quot;oversættelse&quot; is translation. So &quot;Failed to load translation&quot; could be &quot;Kunne ikke indlæse oversættelse.&quot; That is correct.
+
+Thus output that.
+
+Check if any part of the sentence is a proper noun or trademark: No.
+
+Thus we will output:
+
+```
+Kunne ikke indlæse oversættelse.
+```
+
+But maybe they want &quot;Fejl ved indlæsning af oversættelse.&quot; Let&apos;s weigh which is more natural.
+
+In Danish UI translation guidelines, error messages often start with &quot;Fejl&quot; for error: &quot;Fejl ved indlæsning af oversættelse.&quot; That is a direct translation: &quot;Error while loading translation.&quot; The original says &quot;Failed to load translation.&quot; It&apos;s about failing to load translation. So &quot;Fejl ved indlæsning af oversættelse.&quot; is a plausible translation.
+
+However, which one is more idiomatic? Many Danish translations use &quot;Kunne ikke indlæse oversættelse.&quot; as the translation of &quot;Failed to load translation.&quot; This phrase is direct and simple.
+
+Let&apos;s see if there is a nuance: The original code: `showStatus(&apos;error&apos;, &apos;@Localizer[&quot;Failed to load translation.&quot;]&apos;);` So it&apos;s used as a status error message. In Danish, you would typically write something like &quot;Kunne ikke indlæse oversættelse&quot; or &quot;Fejl ved indlæsning af oversættelse&quot;. Both are okay, but which is more likely?
+
+In typical localization, they often translate similar messages like &quot;Failed to load translation.&quot; as &quot;Kunne ikke indlæse oversættelse.&quot; For instance, if we had an example: &quot;Failed to load data.&quot; =&gt; &quot;Kunne ikke indlæse data.&quot; So it&apos;s likely they&apos;d want &quot;Kunne ikke indlæse oversættelse.&quot;
+
+But we need to be careful: The user specifically says &quot;Do not output any other content! Only output the translated content and wrap it in three backticks.&quot; So we must output just the code block. No extra text.
+
+Thus answer: a code block with the translation.
+
+We need to output:
+
+``` 
+Kunne ikke indlæse oversættelse.
+```
+
+But the formatting: they want three backticks, like:
+
+```
+Kunne ikke indlæse oversættelse.
+```
+
+So we output:
+
+```
+Kunne ikke indlæse oversættelse.
+```
+
+Now check: no extra content, just the translation inside a code block. That&apos;s it.
+
+But note that they said &quot;Output the translated conclusion and nothing else.&quot; So we output only the translation.
+
+Thus final answer: code block with translation.
+&lt;/think&gt;
+
+```
+Kunne ikke indlæse oversættelse.</value>
+  </data>
+  <data name="Generated" xml:space="preserve">
+    <value>@Localizer[&quot;Generated&quot;]: &lt;label class=&quot;text-muted mb-0 d-inline&quot; data-utc-time=&quot;@lang.LastLocalizedAt.Value.ToHtmlDateTime()&quot;&gt;&lt;/label&gt;
+```
+
+Thus translation for &quot;Generated&quot; is a string for localization. In Danish, &quot;Genereret&quot; is the past participle of &quot;generere&quot;. Could also be &quot;Genereret&quot;. Could also be &quot;Oprettet&quot;? But &quot;Generated&quot; in English when referring to a time stamp about when something was generated. In Danish, &quot;Genereret&quot; is okay. However, &quot;Generated&quot; could also be &quot;Genereret&quot;. &quot;Generated&quot; could be &quot;Generert&quot;? No, &quot;Genereret&quot;. Let&apos;s verify typical translation: For example, in ASP.NET Core&apos;s default scaffolded page they have &quot;Generated by&quot; translation: &quot;Genereret den&quot; etc. Many Danish translations use &quot;Genereret&quot;. So answer should be &quot;Genereret&quot;. Use three backticks: ```Genereret```.
+
+User says output only the translated content and wrap in three backticks. So answer must be:
+
+```
+Genereret
+```
+
+Check no extra content. Should be just that. So final answer:
+
+```Genereret```? Actually they said wrap in three backticks, like:
+
+```
+Translated word here...
+```
+
+Thus output:
+
+```
+Genereret
+```
+
+Thus final.
+&lt;/think&gt;
+
+```Genereret</value>
+  </data>
+  <data name="Languages" xml:space="preserve">
+    <value>Sprog
+```
+
+But check: The original sentence is `Languages`. In Danish, &quot;Languages&quot; could be &quot;Sprog&quot;. It&apos;s a heading. So output &quot;Sprog&quot;. The user wants only the translated content and wrap in three backticks.
+
+Thus answer:
+
+```
+Sprog
+```
+
+But we need to ensure not to include any other content. Provide only the translation. So output exactly:
+
+```
+Sprog
+```
+
+Yes. Ensure no extra lines.
+&lt;/think&gt;
+
+``` 
+Sprog</value>
+  </data>
+  <data name="Last Modified" xml:space="preserve">
+    <value>Sidst redigeret
+```
+
+Or maybe &quot;Senest redigeret&quot;? Which is more accurate? Let&apos;s think about typical translation.
+
+- &quot;Last Modified&quot; as a label in UI can be &quot;Senest redigeret&quot;. Many translation memory references for &quot;Last Modified&quot;: &quot;Senest redigeret&quot; is a known translation.
+
+We could also consider &quot;Last Modified&quot; as in file metadata: &quot;Sidste ændringsdato&quot; or &quot;Ændret sidste gang&quot;. But the user might want &quot;Last Modified&quot; =&gt; &quot;Sidst redigeret&quot;. Let&apos;s see if any official Danish translation of &quot;Last Modified&quot; appears in translation resources. For example, in Microsoft .NET UI, &quot;Last Modified&quot; for documents often translates to &quot;Senest redigeret&quot;. For &quot;Date modified&quot; property: &quot;Ændringsdato&quot;. But &quot;Last Modified&quot; is a property displayed as &quot;Last Modified: [date]&quot;. In the context of ASP.NET Moonglade likely uses an &quot;UpdatedAt&quot; field for &quot;Last Modified&quot;. So translation should be &quot;Sidst redigeret&quot;. However, we could also use &quot;Senest redigeret&quot;. Let&apos;s see which one is more idiomatic.
+
+Common UI phrase: &quot;Last modified: 12/Dec/2022&quot;. In Danish translation, I think they&apos;d use &quot;Senest redigeret&quot;. Eg: &quot;Senest redigeret: 12. dec. 2022&quot;. This is plausible. Another possibility is &quot;Sidste ændringsdato&quot;. But that phrase includes &quot;date&quot;, which might not be needed.
+
+We can check known translation patterns for &quot;Last Modified&quot; used in &quot;Google Docs&quot;, &quot;Microsoft SharePoint&quot;. For example, SharePoint&apos;s &quot;Last Modified&quot; column is &quot;Senest ændret&quot;. Actually, in SharePoint Online, the column &quot;Last Modified&quot; translation in Danish is &quot;Senest ændret&quot;. Let&apos;s verify: In the translation for &quot;Last Modified&quot; in SharePoint, I think they use &quot;Senest ændret&quot;. Wait, SharePoint uses &quot;Last Modified By&quot; -&gt; &quot;Senest ændret af&quot;. Let’s search memory: In Danish translation &quot;Last Modified&quot; is &quot;Sidste ændring&quot;. But I&apos;m not certain. Let&apos;s recall from Danish UI guidelines: &quot;Last Modified&quot; is usually &quot;Senest redigeret&quot; (most recently edited). For instance, in the WordPress translation for a plugin &quot;Last Modified&quot; is &quot;Senest opdateret&quot; but that might be for &quot;Last Updated&quot;. WordPress uses &quot;Senest opdateret&quot; for &quot;Last Updated&quot;. For &quot;Last Modified&quot;, WordPress uses &quot;Senest redigeret&quot;. However, there might be variation.
+
+Thus, the translation &quot;Sidst redigeret&quot; is plausible, but &quot;Senest redigeret&quot; may be more natural. Let&apos;s examine typical translations for &quot;Last Modified&quot;. In the context of file metadata in Windows, &quot;Date modified&quot; is &quot;Ændringsdato&quot;. But &quot;Last modified&quot; could be &quot;Senest ændret&quot;. In Windows 10/11, the property &quot;Date modified&quot; translates to &quot;Ændringsdato&quot;. But &quot;Last modified&quot; phrase is not used, but &quot;Last Modified&quot; may be used as column header: &quot;Senest ændret&quot;. That is used for &quot;Last Modified&quot;. For example, in a file list in Windows Explorer, the column header &quot;Date modified&quot; becomes &quot;Ændringsdato&quot;. For &quot;Last Modified&quot; (maybe in some UI) they might use &quot;Senest ændret&quot;. Could be &quot;Sidst ændret&quot;. But &quot;Last Modified&quot; might be considered a phrase meaning &quot;most recent modification&quot;. In Danish, &quot;senest ændret&quot; means &quot;most recently changed&quot;. So &quot;Senest ændret&quot; might be more idiomatic.
+
+But &quot;Last Modified&quot; is a noun phrase, a label for a date. In many localization projects, the translation for &quot;Last Modified&quot; is &quot;Senest redigeret&quot;. Let&apos;s search mental memory: I&apos;ve seen translation memory for &quot;Last Modified&quot; in .NET resource files: &quot;Last Modified&quot;: &quot;Senest redigeret&quot;. For example, in a .resx file for a .NET application, they often have entry: &lt;data name=&quot;LastModified&quot; xml:space=&quot;preserve&quot;&gt;&lt;value&gt;Last Modified&lt;/value&gt;... The Danish translation often is &quot;Senest redigeret&quot;. For example, in .NET MVC application, &quot;Last Modified&quot; used in scaffolding perhaps &quot;Senest redigeret&quot;. So likely translation &quot;Senest redigeret&quot;.
+
+Thus I&apos;d output &quot;Sidst redigeret&quot;? But which is more natural? &quot;Sidst redigeret&quot; is maybe less common; &quot;Senest redigeret&quot; is used more. Let&apos;s see if &quot;Sidst redigeret&quot; is used. &quot;Sidst redigeret&quot; could be taken as &quot;Last edited&quot;. People might prefer &quot;Senest redigeret&quot; as a phrase meaning &quot;Most recently edited&quot;. In Danish, &quot;Senest&quot; is an adverb meaning &quot;most recently&quot;. &quot;Sidst&quot; is also adverb meaning &quot;last&quot;. &quot;Sidst redigeret&quot; means &quot;last edited&quot;. It&apos;s okay.
+
+&quot;Last Modified&quot; as a phrase in code is often &quot;Last Modified:&quot;. So translation &quot;Senest redigeret&quot;. I think that is correct.
+
+Thus output: &quot;Sidst redigeret&quot;? Let&apos;s decide.
+
+We need to check if &quot;Last Modified&quot; can be considered a proper noun or not. It&apos;s a UI label, not a proper noun.
+
+Thus we output the translation. We must output only the translated word in triple backticks.
+
+Thus:
+
+```Sidst redigeret
+```
+
+But maybe they want &quot;Senest redigeret&quot;. Which one is more appropriate? Let&apos;s examine potential nuance: &quot;Last Modified&quot; vs &quot;Modified&quot;. The phrase &quot;Modified&quot; is a past participle meaning &quot;changed&quot;. &quot;Last&quot; meaning the most recent. So &quot;Last Modified&quot; = &quot;senest ændret&quot; or &quot;sidste ændring&quot;. Actually &quot;senest redigeret&quot; implies &quot;most recently edited (as a verb)&quot;. &quot;Senest redigeret&quot; would be a passive past participle: &quot;most recently edited&quot;. It matches &quot;modified&quot; meaning &quot;edited&quot;. The phrase &quot;senest redigeret&quot; is used for document property &quot;Last Modified&quot;. However &quot;senest redigeret&quot; maybe too literal; typical translation of &quot;Last Modified&quot; for file details in Windows is &quot;Senest ændret&quot;. Let&apos;s check real world translation: In Danish, &quot;Last modified&quot; in a file list is often &quot;Senest ændret&quot;. Eg: In SharePoint translation, &quot;Last modified&quot; becomes &quot;Senest ændret&quot;. In the translation for &quot;Last Modified Date&quot; maybe &quot;Senest ændret den&quot;. Actually, I recall that the translation for &quot;Last Modified&quot; for file lists in Office may be &quot;Senest ændret&quot;. For example, in the translation of Microsoft Office, &quot;Last Modified&quot; column header appears as &quot;Senest ændret&quot;. Let&apos;s verify.
+
+We can search memory: In the Danish version of Microsoft Word, the &quot;Date Modified&quot; property is &quot;Ændringsdato&quot;. However &quot;Last Modified&quot; might be &quot;Senest ændret&quot;. In the translation for &quot;Last Modified By&quot; maybe &quot;Senest ændret af&quot;. The phrase &quot;Last Modified&quot; (label) probably becomes &quot;Senest ændret&quot;. For instance, in a PDF file properties dialog, the property &quot;Date modified&quot; is &quot;Ændringsdato&quot;. In a custom property &quot;Last Modified&quot; could be &quot;Senest ændret&quot;.
+
+Thus translation &quot;Senest ændret&quot; may be more correct. However &quot;Senest ændret&quot; uses past participle &quot;ændret&quot;. &quot;Ändret&quot; is past participle of &quot;ændre&quot;. So &quot;senest ændret&quot; means &quot;most recently changed&quot;. That is a good translation.
+
+But &quot;Last Modified&quot; in English could be &quot;Last Modified&quot;. In Danish, &quot;Last Modified&quot; could be &quot;Sidst redigeret&quot;. I&apos;m not entirely sure. Let&apos;s consider typical translation of &quot;Last Modified&quot; in a localization context for a developer tool. For example, in &quot;Stack Overflow&quot; the &quot;last modified&quot; property is &quot;sidste ændring&quot;. Let&apos;s check typical translation for &quot;last modified&quot;. In Wikipedia article, translation for &quot;Last modified&quot; in &quot;Wikitext&quot; is &quot;senest redigeret&quot;. In the Wikipedia front page, &quot;Last modified&quot; shows &quot;senest redigeret&quot;. That is &quot;senest redigeret&quot;. Actually, Wikipedia&apos;s &quot;Last modified&quot; is phrase &quot;Last modified: ...&quot;. In Danish version, the phrase appears as &quot;Senest redigeret&quot;. Let&apos;s verify: On the Danish Wikipedia article page, at the top, there is a line &quot;Denne artikel er senest redigeret den ...&quot;. Yes! In Danish Wikipedia (Wikipedia DA), the phrase used is &quot;senest redigeret&quot;. Indeed, I recall that in the &quot;article info&quot; box it says &quot;Denne artikel er senest redigeret den...&quot;. So translation for &quot;Last modified&quot; is &quot;senest redigeret&quot;. This strongly suggests that the proper translation is &quot;senest redigeret&quot;. This is a well-known phrase used in Wikipedia.
+
+Thus the translation for &quot;Last Modified&quot; is &quot;senest redigeret&quot;. That is the translation.
+
+Thus we output:
+
+```senest redigeret
+```
+
+But note that the user wants the translation of the word &quot;Last Modified&quot;. They also want to output only the translation wrapped in triple backticks. However, they also want to output only the translated content and nothing else. So we must output a code block containing &quot;senest redigeret&quot;. Should we preserve case? In English, &quot;Last Modified&quot; capital L and M. In Danish translation we may keep &quot;Senest redigeret&quot; (capital first letter?). But likely &quot;senest redigeret&quot; (lowercase). In UI labels, we often keep capital first letter. The original English label &quot;Last Modified&quot; appears with capital letters. So translation likely is &quot;Senest redigeret&quot;. So we output &quot;Senest redigeret&quot;. However, the original English label appears capitalized: &quot;Last Modified&quot;. In Danish UI, the translation is &quot;Senest redigeret&quot;. That is capitalized. So we can output &quot;Senest redigeret&quot;. The case is capital S for Senest. So output &quot;Senest redigeret&quot;. That&apos;s appropriate.
+
+Thus we output:
+
+```Senest redigeret
+```
+
+Will that be considered correct? Yes.
+
+Thus answer: a triple backticks containing &quot;Senest redigeret&quot;. We must not output any other content. Just the translation. So final answer will be:
+
+```Senest redigeret
+```
+
+We must ensure no extra content.
+&lt;/think&gt;
+
+```Senest redigeret</value>
+  </data>
+  <data name="Localization" xml:space="preserve">
+    <value>Lokalisering
+```
+
+Check instructions: &quot;Do not output any other content. Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+So output exactly:
+
+```
+Lokalisering
+```
+
+But we need to ensure it&apos;s correct. &quot;Localization&quot; is &quot;Lokalisering&quot; in Danish. Let&apos;s double-check semantics: In software localization, the term &quot;localization&quot; is often used as &quot;lokalalisering&quot;? Let&apos;s search memory. Many Danish resources: &quot;Lokalisering&quot; or &quot;Lokalisation&quot;? In Danish, &quot;lokalisation&quot; is the location. Actually &quot;lokalisation&quot; may be more correct. Let&apos;s examine usage: &quot;Lokalisering&quot; is a noun meaning &quot;the act of localizing&quot;. In Danish, &quot;lokal&quot; is &quot;local&quot;, &quot;lokaliser&quot; is not a verb, &quot;lokaliser&quot; maybe &quot;to locate&quot;. &quot;Lokalisering&quot; is used as a term in software engineering. For example, &quot;Lokalisering&quot; appears in the phrase &quot;Lokalisering af software&quot;. Wikipedia in Danish uses &quot;Lokalisering&quot; as translation for &quot;Localization&quot;. Let&apos;s check memory: The Danish Wikipedia page for &quot;Lokalisering (computing)&quot;? The term &quot;Lokalisering&quot; might be correct. I recall reading &quot;Lokalisering&quot; as translation for &quot;Localization&quot;. Actually I think the correct term is &quot;Lokalisering&quot;. Let&apos;s search memory: &quot;Lokalisering&quot; vs &quot;Lokalisering&quot;? There&apos;s &quot;Lokalisering&quot; also used. Let&apos;s check usage: In .NET, there is &quot;Localization&quot; often in code comments. Danish developers might say &quot;Lokalisering&quot;. Eg. &quot;ASP.NET Core Lokalisering&quot; is &quot;Lokalisering&quot; or &quot;Lokalisering&quot;? I&apos;ve seen &quot;Lokalisering&quot; as the translation for &quot;Localization&quot; in .NET documentation. Yes, .NET docs in Danish: &quot;Lokalisering&quot; is used. So I&apos;d go with &quot;Lokalisering&quot;. Good.
+
+Now ensure we output only that word and nothing else.
+
+Thus output:
+
+```
+Lokalisering
+```
+
+But check if they want the entire sentence? The instructions: &quot;Please translate only the sentence or word `Localization` in the paragraph into the target language da-DK, Dansk (Danmark).&quot; So the translation for the word &quot;Localization&quot; is &quot;Lokalisering&quot;. That&apos;s it.
+
+Thus final answer: ```Lokalisering```.
+&lt;/think&gt;
+
+```
+Lokalisering</value>
+  </data>
+  <data name="Localized Content" xml:space="preserve">
+    <value>Lokaliseret indhold
+```
+
+Make sure the output is only the translation, wrapped in triple backticks. They said &quot;please output the translated conclusion and nothing else. Do not output any other content!&quot;. So just output the translation wrapped.
+
+Thus final answer:
+
+```
+Lokaliseret indhold
+```
+&lt;/think&gt;
+
+``` 
+Lokaliseret indhold</value>
+  </data>
+  <data name="Localized Title" xml:space="preserve">
+    <value>), like this: ``` Translated word here...```&quot;
+
+So I should output:
+```
+Lokaliseret Titel
+```
+
+But wait, I need to be careful. The user said &quot;translate... into the target language da-DK, Dansk (Danmark)&quot;. So yes, Danish.
+
+Let me think if there are any other considerations. The phrase appears to be a label for an input field in a localization editor. &quot;Localized Title&quot; would be the English label for the translated title. In Danish, this would be &quot;Lokaliseret Titel&quot;.
+
+Alternatively, could it be &quot; Oversat Titel&quot;? No, &quot;localized&quot; specifically means adapted for the local culture/language, so &quot;lokaliseret&quot; is the correct translation.
+
+So the final output should be just the translation wrapped in triple backticks.
+&lt;/think&gt;
+
+```
+Lokaliseret Titel</value>
+  </data>
+  <data name="Save failed." xml:space="preserve">
+    <value>Gem mislykkedes.
+```
+
+Wrap in three backticks: ```Gem mislykkedes.```.
+
+We must not output any other content. Only the translation. So final answer: backticks with translation.
+
+Thus answer: triple backticks containing &quot;Gem mislykkedes.&quot;.
+&lt;/think&gt;
+
+```Gem mislykkedes.</value>
+  </data>
+  <data name="Save Translation" xml:space="preserve">
+    <value>Gem oversættelse
+```
+
+But we need to be careful: they want translation of &quot;Save Translation&quot;. In Danish, &quot;Gem oversættelse&quot; is a plausible translation. However, could be &quot;Gem oversættelsen&quot;. Let&apos;s consider typical localization best practices: The phrase &quot;Save translation&quot; (the action) is often &quot;Gem oversættelse&quot;. The indefinite singular could be &quot;Gem oversættelse&quot;. &quot;Gem oversættelsen&quot; would be definite. Usually UI strings are indefinite: &quot;Save translation&quot;. So &quot;Gem oversættelse&quot;. So output that. I&apos;ll output exactly that.
+
+Thus final answer: ```Gem oversættelse```.
+&lt;/think&gt;
+
+```Gem oversættelse</value>
+  </data>
+  <data name="Saved successfully!" xml:space="preserve">
+    <value>Gemt!```
+
+But &quot;Gemt!&quot; might be too short but it&apos;s okay. Let&apos;s check alternative: &quot;Gemt succesfuldt!&quot; This is longer. The user might want &quot;Gemt!&quot; is okay. However, some context: &quot;Saved successfully!&quot; is typical English UI message. In Danish UI, often &quot;Gemt!&quot; or &quot;Gemt!&quot; could be considered as &quot;Saved successfully!&quot;. I&apos;d choose &quot;Gemt!&quot; as simple.
+
+The instructions say &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot;. We understand. So we output translation &quot;Gemt!&quot;.
+
+One nuance: The user says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them!&quot; That&apos;s not relevant.
+
+Thus final answer: &quot;Gemt!&quot; inside triple backticks.
+
+Let&apos;s ensure we output only the translation, no other content, just three backticks with the translation inside.
+
+Thus answer:
+
+```Gemt!```
+&lt;/think&gt;
+
+```Gemt!</value>
+  </data>
+  <data name="Saving..." xml:space="preserve">
+    <value>Gemmer...```.
+
+Double-check: The user wants translation only, not other content. So output only &quot;Gemmer...&quot; inside triple backticks. Should we include a newline? The sample they gave: ``` ... ``` (block). So output:
+
+```Gemmer...
+```
+
+But they said &quot;wrap it in three backticks, like this: ``` Translated word here...```&quot;. So we need to output exactly three backticks, then newline? Actually they show:
+
+```
+Translated word here...
+```
+
+So we need to output:
+
+```Gemmer...
+```
+
+Yes. Probably that&apos;s correct. Let&apos;s answer accordingly.
+&lt;/think&gt;
+
+```Gemmer...</value>
+  </data>
+  <data name="Select a language" xml:space="preserve">
+    <value>Vælg et sprog
+```
+
+Make sure no extra content. The translation must be accurate: &quot;Vælg et sprog&quot; is standard. Another possibility: &quot;Vælg et sprog&quot;. Some may use &quot;Vælg en sprogfane&quot;? But usually &quot;Vælg et sprog&quot;. So the output will be exactly that, inside triple backticks.
+
+But check the instruction: &quot;Please output the translated conclusion and nothing else. Do not output any other content!&quot; The user gave a long paragraph but wants only the translation of the sentence or word `Select a language` in the paragraph into Danish. They said: &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; The translation is straightforward.
+
+Thus final answer: code block containing &quot;Vælg et sprog&quot;. Ensure no extra content. Should be exactly:
+
+```
+Vælg et sprog
+```
+&lt;/think&gt;
+
+``` 
+Vælg et sprog</value>
+  </data>
+  <data name="Source Culture" xml:space="preserve">
+    <value>Kildekultur```.
+
+But the user instruction says: &quot;Do not output any other content. Only output the translated content and wrap it in three backticks (```)&quot;. So output must be exactly:
+
+```
+Kildekultur
+```
+
+We must ensure to output only that and no other text.
+
+Thus final answer is:
+
+``` 
+Kildekultur
+```
+But note that they want just three backticks with content. So final: 
+``` 
+Kildekultur 
+``` 
+
+Make sure no extra backticks or newline after? The instruction: wrap in three backticks, like this: 
+```
+Translated word here...
+```
+Thus output exactly:
+
+```
+Kildekultur
+```
+That&apos;s it.
+
+Thus answer.
+
+However, check if there might be more nuance: The phrase &quot;Source Culture&quot; appears in the paragraph. It&apos;s used as a label before a badge showing the source culture of the document. In Danish translation, they&apos;d maybe use &quot;Kildens kultur&quot;. But &quot;Kildens kultur&quot; is a phrase with two words, not a single word. The original phrase is two words, but in translation, we can treat it as a phrase. But they want to translate the sentence or word &quot;Source Culture&quot;. That is a phrase consisting of two words. So translation &quot;Kildekultur&quot; would be one word; maybe &quot;Kilde kultur&quot; is two words but unnatural. They could also translate as &quot;Kilde kultur&quot; (Kilde + kultur) which is two words. But in Danish, the phrase &quot;source culture&quot; could be &quot;kilde kultur&quot;? Actually &quot;kilde&quot; is a noun meaning source; &quot;kultur&quot; is another noun meaning culture. In Danish, to form a phrase like &quot;source culture&quot; you could indeed write &quot;kilde kultur&quot;. But typical translation might be &quot;kilde kultur&quot;. However, that seems weird because there is a space between two nouns that normally would combine. But for readability, you could keep a space: &quot;kilde kultur&quot;. Or &quot;Kildekultur&quot; if you combine.
+
+Better to translate as &quot;Kilde kultur&quot;. But what about the capitalisation? The original label: &quot;Source Culture&quot;. Capitalized initial for each word. In translation, you would also capitalise: &quot;Kilde Kultur&quot;? But Danish capitalizes nouns differently: first letter capital only for proper nouns. But labels often capitalized. So &quot;Kilde Kultur&quot; maybe. But they ask only to output translated content; not specify case. I&apos;d output &quot;Kildekultur&quot;. That is one word capitalised as proper noun. In Danish, &quot;Kildekultur&quot; (one word) maybe not standard but plausible.
+
+Alternatively, &quot;Kilde kultur&quot; could be considered as two words, which could be the translation. However, we need to decide which is more correct. Let&apos;s think about typical Danish translation patterns for UI labels. Example: In ASP.NET Identity localizations for Danish (da), they may have translations like &quot;Kilde&quot; or &quot;Oprindelse&quot;. Let&apos;s search memory: In the .NET official localization, they have &quot;Source culture&quot; =&gt; &quot;Zdrojová kultura&quot; (Czech). For Danish, I recall they used &quot;Kilde&quot; as &quot;source&quot;. But &quot;source culture&quot; maybe &quot;Kildekultur&quot;. I&apos;m not sure.
+
+Search offline memory: I recall some Microsoft translation for &quot;Source culture&quot; in Danish: I&apos;ve seen &quot;Kilde&quot; as &quot;source&quot;. But not sure.
+
+Let&apos;s consider typical translation for &quot;source culture&quot; phrase in UI context. It is used in a page that shows the document&apos;s source culture, like en-US. The label &quot;Source Culture&quot; then displays the source culture of a document. So it&apos;s like &quot;Source culture: en-US&quot;. So translation of the label should be something like &quot;Kildens kultur&quot;. But &quot;Kildens kultur&quot; is &quot;source&apos;s culture&quot;. That might be unnatural, but could be used.
+
+But we can also choose &quot;Kildekultur&quot;. That&apos;s a compound of &quot;kilde&quot; + &quot;kultur&quot;. In Danish, many compound words are formed by concatenating nouns: &quot;kildekultur&quot; would be a noun meaning &quot;source culture&quot;. It&apos;s plausible. However, &quot;kildekultur&quot; is not a common word; but for UI label, it&apos;s okay.
+
+Alternatively, &quot;Oprindelseskultur&quot; might be plausible? &quot;Oprindelse&quot; means origin, &quot;kultur&quot;. That would be &quot;Oprindelseskultur&quot;. That is a compound word meaning &quot;origin culture&quot;. Might be a better translation. Indeed &quot;Oprindelse&quot; is &quot;origin&quot; or &quot;source&quot;. So &quot;Oprindelseskultur&quot;. But &quot;Oprindelseskultur&quot; is a bit long. However, it&apos;s plausible.
+
+But the phrase is &quot;Source Culture&quot; i.e., the culture (locale) of the source (document). So &quot;Kildekultur&quot; is straightforward.
+
+Now check if there is a standard translation for &quot;Source culture&quot; in Danish. Could be &quot;Kildens kultur&quot;. That is also two words, but with genitive &apos;s&apos; suffix. That could be &quot;Kildens kultur&quot;. However, Danish often uses genitive in labels? Could be &quot;Kildens kultur&quot;. That seems unnatural too.
+
+Let&apos;s see what typical translations for &quot;Source culture&quot; in other languages: For Spanish, &quot;Culture de origen&quot;? Actually &quot;Culture Source&quot; maybe &quot;Source Culture&quot; in Spanish &quot;Cultura de origen&quot;. In French &quot;Culture source&quot;. In German &quot;Quellkultur&quot;. In Portuguese &quot;Cultura de origem&quot;. For Danish maybe &quot;Kildekultur&quot;. Indeed &quot;Quellkultur&quot; in German uses &quot;Quell&quot; = source, &quot;kultur&quot; = culture, combined as &quot;Quellkultur&quot;. So &quot;Kildekultur&quot; is analogous.
+
+Thus I think &quot;Kildekultur&quot; is the best translation.
+
+But the user specifically: &quot;Please translate only the sentence or word `Source Culture` in the paragraph into the target language da-DK, Dansk (Danmark).&quot; So answer is the translation.
+
+Thus final answer: wrap in triple backticks:
+
+```
+Kildekultur
+```
+
+Now output that only.
+&lt;/think&gt;
+
+```Kildekultur</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Succes!
+```
+
+But ensure we output only the translated content, wrapped in three backticks, like:
+
+```
+Succes!
+```
+
+Check: The instruction: &quot;Only output the translated content and wrap it in three backticks, like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus we should output three backticks with content &quot;Succes!&quot;. Must not output any extra content. So final answer:
+
+```
+Succes!
+```
+&lt;/think&gt;
+
+```
+Succes!</value>
+  </data>
+  <data name="Translated markdown content" xml:space="preserve">
+    <value>Oversat markdown-indhold
+```
+
+Check that the translation is correct: &quot;Oversat markdown-indhold&quot;. Another option &quot; Oversat markdown-indhold&quot;. Might also be &quot; Oversat markdown-indhold&quot;. There&apos;s no punctuation needed. Use no quotes. Should we preserve the capitalization? &quot;Translated&quot; =&gt; &quot;Oversat&quot;. So &quot;Oversat markdown-indhold&quot;. That&apos;s fine.
+
+Double-check Danish usage: &quot;markdown&quot; is often used unchanged, but sometimes &quot;Markdown-indhold&quot;. &quot;Oversat markdown-indhold&quot;. Could also be &quot; Oversat markdown-indhold&quot;. The phrase &quot;markdown content&quot; likely used as placeholder for translation. So &quot;markdown-indhold&quot; is a compound noun. That is correct.
+
+Thus answer: wrap in triple backticks: ```Oversat markdown-indhold```.
+
+We must not output any other content. So final answer: triple backticks with translation. Ensure no other commentary.
+&lt;/think&gt;
+
+```Oversat markdown-indhold</value>
+  </data>
+  <data name="Translated title" xml:space="preserve">
+    <value>Oversat titel
+```
+
+Make sure no extra content.
+
+Thus output.
+
+Potential issues: Should we preserve the capitalization? &quot;Translated title&quot; capitalizes &quot;title&quot;? It&apos;s lowercase &quot;title&quot;. In Danish, &quot;titel&quot; is common noun; no capitalization. So &quot;Oversat titel&quot;. Good.
+
+But maybe &quot;Translated title&quot; is a label used as a form label, not placeholder. Actually reading code: `&lt;label for=&quot;localized-title&quot; class=&quot;form-label&quot;&gt;@Localizer[&quot;Localized Title&quot;]&lt;/label&gt;` - but they ask for translation of &quot;Translated title&quot;. The placeholder is placeholder=&quot;@Localizer[&quot;Translated title&quot;]&quot;. So they want the translation of that phrase. So answer: &quot;Oversat titel&quot;. Yes.
+
+Check the user&apos;s instructions: Only output the translated content and wrap it in three backticks. No other content.
+
+Thus answer: ```Oversat titel```.
+
+We should not include any explanation.
+
+Thus final.
+&lt;/think&gt;
+
+```Oversat titel</value>
+  </data>
+
+</root>

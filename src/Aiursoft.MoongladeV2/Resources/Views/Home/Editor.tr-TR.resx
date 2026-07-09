@@ -183,6 +183,83 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>İç - Belirli kullanıcılar/roller</value>
   </data>
+  <data name="Localization" xml:space="preserve">
+    <value>Translated word here...
+```
+
+So they want the translation of &quot;Localization&quot;. The target language is Turkish (tr-TR). &quot;Localization&quot; in Turkish would be &quot;Yerelleştirme&quot;. However there might be nuance. In Turkish, &quot;Localization&quot; is &quot;Yerelleştirme&quot; (noun) or &quot;Yerelleştirme&quot;? Let&apos;s check standard usage: The act of adapting a product to a specific locale is &quot;yerelleştirme&quot; (in Turkish). In Turkish computing contexts, &quot;yerelleştirme&quot; or &quot;lokalizasyon&quot; is used? Actually &quot;localization&quot; is often translated as &quot;yerelleştirme&quot;. For example, in .NET, they use &quot;yerelleştirme&quot;. Also &quot;Localization&quot; is &quot;Yerelleştirme&quot;. Usually &quot;Localization&quot; in UI: &quot;Yerelleştirme&quot;. The word &quot;Localization&quot; also appears in the code: title=&quot;@Localizer[&quot;Localization&quot;]&quot; . So we need to translate &quot;Localization&quot; into Turkish. Let&apos;s propose &quot;Yerelleştirme&quot;. However, we must ensure that we are not outputting any other content. Just the translation. So output:
+
+```
+Yerelleştirme
+```
+
+But we must check if &quot;Localization&quot; is a proper noun, a trademark, etc. It&apos;s not. It&apos;s a generic word. It&apos;s okay to translate.
+
+Double-check: &quot;Localization&quot; is a noun. In Turkish, &quot;Localization&quot; (noun) is &quot;Yerelleştirme&quot;. Might also be &quot;Lokalizasyon&quot;? But Turkish generally uses &quot;Yerelleştirme&quot;. &quot;Localization&quot; is indeed commonly used as &quot;Yerelleştirme&quot;. So output that.
+
+Thus answer: 
+
+```
+Yerelleştirme
+```
+
+Make sure no extra text. Should we include three backticks? They said: wrap in three backticks, like this:
+
+```
+Translated word here...
+```
+
+So we should output exactly:
+
+```
+Yerelleştirme
+```
+
+The instruction: &quot;Do NOT output any other content. Only output the translated content and wrap it in three backticks, like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus output exactly that with three backticks.
+
+Thus answer: backticks with Yerelleştirme. Should be correct.
+
+But we must be careful: The translation &quot;Yerelleştirme&quot; is the noun. Some might prefer &quot;Yerel&quot; as &quot;local&quot;. But &quot;Yerelleştirme&quot; is standard. Let&apos;s search memory: In Turkish computing dictionary, &quot;localization&quot; (yazılımda) = &quot;yerelleştirme&quot;. For example: &quot;Localization is the process of adapting a product for a specific locale, e.g., translation of user interface text and formatting of dates, numbers, currency, etc.&quot; Turkish translation: &quot;Yerelleştirme, belirli bir yerel ayara (locale) göre bir ürünün uyarlanması sürecidir.&quot; So indeed &quot;Yerelleştirme&quot;. In UI strings they&apos;d often use &quot;Yerelleştirme&quot;. So we can output that.
+
+One nuance: The word &quot;Localization&quot; could also be &quot;Yerelleştirme&quot; with the capital Y? Usually start uppercase: &quot;Yerelleştirme&quot;. That would be appropriate as a title. So output &quot;Yerelleştirme&quot;. Should we preserve uppercase? The original is &quot;Localization&quot; with capital L. In Turkish, we can also capitalized &quot;Yerelleştirme&quot;. That is fine.
+
+Thus answer: wrap in triple backticks:
+
+```
+Yerelleştirme
+```
+
+Now check any special requirement: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Localization` is one of them.&quot; Localization is not a proper noun (except maybe a term). It&apos;s a generic term. So we can translate.
+
+Thus final answer.
+&lt;/think&gt;
+
+```Yerelleştirme</value>
+  </data>
+  <data name="Localize" xml:space="preserve">
+    <value>Yerelleştir```.
+
+We need to output exactly that inside triple backticks. The user says &quot;wrap it in three backticks&quot;. They gave an example: 
+```
+Translated word here...
+```
+So output must be a code block with triple backticks, containing the translated word. No other content. So answer: 
+``` 
+Yerelleştir 
+``` 
+Probably no extra spaces.
+
+Thus final answer: triple backticks with &quot;Yerelleştir&quot;.
+&lt;/think&gt;
+
+```Yerelleştir</value>
+  </data>
   <data name="Make document private" xml:space="preserve">
     <value>Belgeyi Gizli Yap</value>
   </data>
