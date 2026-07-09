@@ -13,6 +13,10 @@
     --gray-5: #666;
     --gray-6: #555;
     --gray-7: #333;
+    --gray-9: #111;
+    --moca-dark: #171717;
+    --moca-dark-1: #1d2124;
+    --moca-dark-2: #343a40;
 }
 
 body {
@@ -20,7 +24,9 @@ body {
 }
 
 .moonglade-blog-shell {
+    background-color: var(--gray-1);
     font-size: 0.9rem;
+    min-height: 100vh;
 }
 
 .moonglade-blog-shell a {
@@ -43,7 +49,7 @@ body {
 }
 
 .font-sairas {
-    font-family: "Arial Narrow", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: "Arial Narrow", "Roboto Condensed", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 .flex-spacer {
@@ -276,6 +282,10 @@ h1.post-title,
 }
 
 .post-title {
+    color: var(--gray-7);
+    font-weight: normal;
+    letter-spacing: 0;
+    line-height: 1.25;
     margin-bottom: 1rem;
 }
 
@@ -302,6 +312,7 @@ h1.post-title,
 
 .post-content {
     color: var(--gray-7);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Microsoft YaHei";
 }
 
 .post-content h2 {
@@ -316,6 +327,23 @@ h1.post-title,
     font-size: 1.15rem;
 }
 
+.post-content h1,
+.post-content h2 {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+    font-weight: normal;
+    margin-bottom: 0.75rem;
+    margin-top: 1.4rem;
+}
+
 .post-content p {
     font-size: 0.95rem;
     line-height: 1.6rem;
@@ -325,6 +353,14 @@ h1.post-title,
 
 .post-content a {
     border-bottom: 1px dashed var(--accent-color1);
+    color: var(--accent-color1);
+    text-decoration: none;
+}
+
+.post-content a:hover,
+.post-content a:focus {
+    color: var(--accent-color3);
+    text-decoration: none;
 }
 
 .post-content blockquote,
@@ -344,12 +380,104 @@ h1.post-title,
 .post-content img {
     border-radius: 3px;
     cursor: pointer;
+    height: auto;
     max-width: 100%;
 }
 
 .post-content pre,
 .post-content code {
     font-family: "Cascadia Code", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.post-content code {
+    background-color: var(--gray-1);
+    border-radius: 3px;
+    color: var(--gray-7);
+    padding: 0.2em 0.4em;
+}
+
+.post-content pre {
+    background-color: #f6f8fa;
+    border-radius: 3px;
+    margin-bottom: 1rem;
+    overflow: auto;
+    padding: 1rem;
+}
+
+.post-content pre code {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+}
+
+.post-content table {
+    display: block;
+    margin: 1rem 0;
+    overflow-x: auto;
+    width: 100%;
+}
+
+.post-content table th,
+.post-content table td {
+    border: 1px solid var(--gray-2);
+    padding: 6px 13px;
+}
+
+.post-content table th {
+    background-color: var(--gray-1);
+    font-weight: 600;
+}
+
+.post-content table tr:nth-child(2n) {
+    background-color: #f6f8fa;
+}
+
+.darkmode.moonglade-blog-shell {
+    background-color: var(--moca-dark);
+}
+
+.darkmode .box {
+    background-color: var(--moca-dark);
+    border-color: var(--gray-7) !important;
+}
+
+.darkmode .post-title,
+.darkmode .post-content {
+    color: var(--bs-white);
+}
+
+.darkmode .post-content a,
+.darkmode.moonglade-blog-shell a {
+    color: var(--gray-3);
+}
+
+.darkmode .post-content blockquote,
+.darkmode .post-content .blockquote {
+    border-left-color: var(--gray-6);
+    color: var(--gray-4);
+}
+
+.darkmode .post-content code {
+    background-color: var(--moca-dark-1);
+    color: var(--gray-3);
+}
+
+.darkmode .post-content pre,
+.darkmode .post-content table th,
+.darkmode .post-content table tr:nth-child(2n),
+.darkmode .comment-avatar-sm {
+    background-color: var(--moca-dark-1);
+}
+
+.darkmode .post-content table th,
+.darkmode .post-content table td,
+.darkmode .comment-bubble,
+.darkmode .comment-replies {
+    border-color: var(--gray-7);
+}
+
+.darkmode .comment-avatar-sm {
+    color: var(--gray-3);
 }
 
 .comment-form-containter {
@@ -401,6 +529,10 @@ h1.post-title,
         padding-right: 1rem;
     }
 
+    .moonglade-blog-shell {
+        background-color: var(--bs-white);
+    }
+
     .article-post-slug.box {
         border: none !important;
         box-shadow: none;
@@ -415,6 +547,10 @@ h1.post-title,
 
     .body-post-slug {
         background-color: var(--bs-white);
+    }
+
+    .darkmode.moonglade-blog-shell {
+        background-color: var(--moca-dark);
     }
 
     .post-publish-info {

@@ -9,12 +9,12 @@
 
 <vc:marketing-navbar></vc:marketing-navbar>
 
-<main class="moonglade-blog-shell body-post-slug">
+<main class="moonglade-blog-shell body-post-slug @(isDarkMode ? "darkmode" : null)">
     <div class="container py-4 py-lg-5">
         <article class="article-post-slug box border position-relative mb-4" data-postid="@Model.DocumentId" lang="@CultureInfo.CurrentCulture.TwoLetterISOLanguageName">
             <header class="post-header text-center">
                 <a class="post-back-link" asp-controller="Blog" asp-action="Index">@Localizer["Back to posts"]</a>
-                <h1 class="post-title">@Model.Title</h1>
+                <h1 class="post-title font-sairas">@Model.Title</h1>
 
                 <div class="post-publish-info text-muted mb-2">
                     <span class="me-2">
@@ -198,6 +198,7 @@
 
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section styles {
+    <link rel="stylesheet" href="~/node_modules/@@fontsource/cascadia-code/index.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/blog.css" asp-append-version="true" />
     @if (isDarkMode)
