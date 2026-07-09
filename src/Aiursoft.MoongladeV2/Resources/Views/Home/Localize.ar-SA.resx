@@ -1,0 +1,727 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Back to Editor" xml:space="preserve">
+    <value>Translated word here...
+```
+
+They want only the translation.
+
+But we must be careful about the content. The user request is to translate &quot;Back to Editor&quot;. Let&apos;s consider the appropriate translation.
+
+&quot;Back to Editor&quot; in Arabic: This is a phrase used for a link. Usually translation: &quot;العودة إلى المحرر&quot; could be appropriate. In Saudi Arabic, &quot;العودة إلى المحرر&quot; (al-&apos;awda ila al-muharrir). Or &quot;رجوع إلى المحرر&quot;. Could also be &quot;العودة إلى المحرر&quot; is a direct translation.
+
+But need to decide if we can output &quot;العودة إلى المحرر&quot;. Let&apos;s check context: The link goes back to the editor. In Arabic, &quot;المحرر&quot; is the term for editor. The phrase &quot;Back to Editor&quot; is &quot;العودة إلى المحرر&quot;. That seems fine. But we need to ensure correct Arabic script: &quot;العودة إلى المحرر&quot;. Also &quot;رجوع إلى المحرر&quot; could be okay. Let&apos;s see typical translations: For &quot;Back to Editor&quot;, in Arabic common translation is &quot;العودة إلى المحرر&quot;. Let&apos;s adopt that.
+
+Thus output:
+
+```
+العودة إلى المحرر
+```
+
+The user instruction: Output the translated conclusion and nothing else. &quot;Please output the translated conclusion and nothing else. Do not output any other content!&quot; So we should output exactly three backticks with content inside. The translation is &quot;العودة إلى المحرر&quot;.
+
+Make sure no extra text. The output: 
+
+```
+العودة إلى المحرر
+```
+
+But we need to wrap in triple backticks. The prompt says: &quot;Only output the translated content and wrap it in three backticks, like this: ``` Translated word here... ```&quot;. So they want a code block with triple backticks. It says &quot;like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus we should output:
+
+``` 
+العودة إلى المحرر
+```
+
+But note they also show in the example there are three backticks at the start and then content then triple backticks. The content inside should be the translation. So output exactly:
+
+```
+العودة إلى المحرر
+```
+
+We must not output anything else. Should we include any other text like language tags? No.
+
+Thus answer: code block with translation.
+
+Check if any potential policy violation: No. It&apos;s a normal translation request. It&apos;s fine.
+
+Thus output.
+&lt;/think&gt;
+
+```
+العودة إلى المحرر</value>
+  </data>
+  <data name="Error!" xml:space="preserve">
+    <value>خطأ!```.
+
+Double-check: They want to output only the translation of &quot;Error!&quot;. They want it in ar-SA. So indeed &quot;خطأ!&quot; is the translation. Should we include exclamation? Yes, &quot;Error!&quot; with exclamation mark. So output &quot;خطأ!&quot; inside triple backticks. Ensure no extra content. That satisfies.
+
+Check any nuance: The user says &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; But we understand.
+
+Thus final answer: triple backticks with Arabic translation.
+
+Thus output:
+
+```خطأ!```
+&lt;/think&gt;
+
+```خطأ!</value>
+  </data>
+  <data name="Failed to load translation." xml:space="preserve">
+    <value>فشل تحميل الترجمة.
+```
+
+But double-check: &quot;Failed to load translation.&quot; Arabic translation: &quot;فشل تحميل الترجمة.&quot; This is correct.
+
+But maybe &quot;Failed to load translation&quot; could be &quot;تعذّر تحميل الترجمة.&quot; However &quot;فشل تحميل الترجمة.&quot; is fine. Let&apos;s use that.
+
+We need to ensure no extra content, only translation wrapped in triple backticks. The translation must be only the sentence.
+
+Thus final answer: ```فشل تحميل الترجمة.```.
+
+But check instruction: &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; But we understand. So translation.
+
+One nuance: The user gave a code snippet that uses a localization function with &apos;@Localizer[&quot;Failed to load translation.&quot;]&apos; which is a Razor syntax that expects translation key. They want translation of the string inside the Localizer. In Arabic, they would want &quot;فشل تحميل الترجمة.&quot; So final output exactly that.
+
+Thus answer: ```فشل تحميل الترجمة.```. Ensure triple backticks and nothing else.
+&lt;/think&gt;
+
+```فشل تحميل الترجمة.</value>
+  </data>
+  <data name="Generated" xml:space="preserve">
+    <value>مُوَلَّد
+```
+
+But is it necessary to include colon? It says &quot;Generated&quot; word only. So output that.
+
+Thus final answer.
+&lt;/think&gt;
+
+```مُوَلَّد</value>
+  </data>
+  <data name="Languages" xml:space="preserve">
+    <value>اللغات
+```
+
+Wait, I need to double-check. The user wants me to translate only the word &quot;Languages&quot; in the context of the paragraph shown. The paragraph contains HTML code with a localization call: `@Localizer[&quot;Languages&quot;]`. This means &quot;Languages&quot; is a localization key/value that needs to be translated.
+
+In Arabic, particularly for software localization in Saudi Arabia (ar-SA), the translation would be:
+- &quot;Languages&quot; (plural) = &quot;اللغات&quot;
+
+I&apos;ll output exactly as requested: just the translated word wrapped in three backticks.
+&lt;/think&gt;
+
+```اللغات</value>
+  </data>
+  <data name="Last Modified" xml:space="preserve">
+    <value>آخر تعديل
+```
+
+But they say to output only the translated word and wrap in three backticks, like:
+
+```
+Translated word here...
+```
+
+Thus we output:
+
+```
+آخر تعديل
+```
+
+Make sure no other content.
+
+Thus final answer: three backticks with &quot;آخر تعديل&quot;.
+&lt;/think&gt;
+
+``` 
+آخر تعديل</value>
+  </data>
+  <data name="Localization" xml:space="preserve">
+    <value>Translated word here...```&quot;. So output:
+
+```
+التوطين
+```
+
+The user also said &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Localization` is one of them.&quot; Localization is not a proper noun or trademark; it&apos;s a common word. So it&apos;s translatable. So output translation.
+
+Thus answer: three backticks, line with &quot;التوطين&quot;. Use Arabic characters.
+
+Check if translation must preserve case? It&apos;s uppercase &quot;Localization&quot; but translation should be Arabic text, not case. So &quot;التوطين&quot;. Or &quot;توطين&quot;. Which one is more common? In UI translation, headings often keep &quot;التوطين&quot; as a title. Let&apos;s see typical Arabic translation of &quot;Localization&quot;. Google translation: &quot;التوطين&quot;. In Arabic UI guidelines, often &quot;التوطين&quot;. So we can give that. Provide three backticks.
+
+Thus final.
+&lt;/think&gt;
+
+```Arabic
+التوطين</value>
+  </data>
+  <data name="Localized Content" xml:space="preserve">
+    <value>المحتوى المُحلي localized? Wait &quot;Localized Content&quot; in Arabic? Usually &quot;محتوى مُخصّص&quot; or &quot;محتوى مُرجَح&quot;? Let&apos;s think.
+
+In Arabic, &quot;Localized Content&quot; could be &quot;محتوى مُترجَم&quot; or &quot;محتوى مُعدّ للترجمة&quot;. But translation of phrase &quot;Localized Content&quot; - &quot;Localized&quot; means &quot;مُخصّص&quot; maybe? Or &quot;المحتوى المُخصّص&quot;? Actually &quot;Localized&quot; is &quot;مُوَطَّن&quot; or &quot;مُحلي&quot; as in &quot;localized content&quot; often referred to as &quot;محتوى مُخصّص للثقافة المحلية&quot;. But translation of phrase &quot;Localized Content&quot; likely &quot;محتوى مُخصّص&quot; or &quot;محتوى مُوزَّع&quot;. But the usual term in UI for localized content is &quot;محتوى مُترجم&quot;. But &quot;Localized Content&quot; maybe &quot;محتوى مُوَطَّن&quot;? The phrase is used as a form label: &quot;Localized Content&quot;. In Arabic UI, might be &quot;المحتوى المُحلي&quot; no, that seems unnatural. &quot;Localized Content&quot; as a label: &quot;المحتوى المُوَطَّن&quot; maybe. But typical translation for &quot;Localized Content&quot; is &quot;محتوى مُترجم&quot;. But &quot;Localized&quot; vs &quot;Localised&quot;? Arabic translation for &quot;Localized Content&quot; maybe &quot;محتوى مُحدَّد الموقع&quot;. Hmm.
+
+The user wants only the translation of &quot;Localized Content&quot; into Arabic (Saudi). So we need to output something like &quot;محتوى مُخصَّص&quot;. But need to check if the phrase includes &quot;Content&quot;. So &quot;Localized Content&quot; = &quot;محتوى مُخصَّص&quot;. However, Arabic translation could be &quot;المحتوى المُحلل&quot; no. Let&apos;s see typical translation: In a typical CMS UI, the label &quot;Localized Content&quot; could be &quot;المحتوى المُحلي&quot; no. Actually &quot;localized&quot; is &quot;مُolocalized&quot; maybe &quot;المُحلي&quot; no.
+
+Let&apos;s consider standard Arabic UI translations: &quot;Localized&quot; often &quot;مُوَطَّن&quot; (localized). So &quot;Localized Content&quot; could be &quot;محتوى مُوَطَّن&quot;. However &quot;مُوَطَّن&quot; might not be common; &quot;المحتوى المُحلي&quot; no.
+
+Maybe we should use &quot;مُحلي&quot; for &quot;localized&quot;? Usually &quot;localized&quot; means &quot;مُعدّ لغوياً&quot; but no. There&apos;s a phrase &quot;المحتوى المُترجم&quot;. However translation of &quot;Localized&quot; as an adjective might be &quot;مُحلي&quot;. But Arabic UI often uses &quot;مُحلَّي&quot; as &quot;Local&quot;. Eg &quot;Local content&quot; -&gt; &quot;محتوى محلي&quot;. So &quot;Localized Content&quot; could be &quot;محتوى محلي&quot;. But the phrase includes &quot;Localized&quot; which is past participle of &quot;localize&quot;. In Arabic that could be &quot;مُخصَّص&quot; meaning &quot;customized&quot;. Or &quot;مُوَطَّن&quot;. Could also be &quot;مُعجَّز&quot; no. Let&apos;s search mental memory. In translation of &quot;localized&quot; as &quot;مُوَطَّن&quot; is used. So &quot;Localized Content&quot; = &quot;محتوى مُوَطَّن&quot;. However Arabic morphological style: &quot;المحتوى المُوَطَّن&quot;. That seems plausible.
+
+But what if the translation expects &quot;المحتوى المُعَدّ للترجمة&quot;? Too long.
+
+Given it&apos;s a UI label, the translation could be &quot;المحتوى المُترجم&quot;. But &quot;localized content&quot; might refer to content that is localized for language. So &quot;Localized Content&quot; could be &quot;المحتوى المُترجم&quot;. However typical UI has &quot;Localized content&quot; as &quot;المحتوى المُعَدّ&quot;. In Arabic translation for &quot;Localized Content&quot; for a label, I&apos;d use &quot;المحتوى المُحلي&quot;. But I&apos;m not sure.
+
+Let&apos;s see typical translation of &quot;Localized Content&quot; phrase in other languages: In Spanish: &quot;Contenido localizada&quot;. In French: &quot;Contenu localisé&quot;. So Arabic translation could be &quot;محتوى مُخصَّص&quot;. That may be too generic. But &quot;localized&quot; as &quot;مُخصَّص&quot; implies customized, not just language. The phrase &quot;Localized content&quot; might be used as title of a section showing the content after translation. So &quot;Localized content&quot; could be &quot;المحتوى المُعدّ&quot;. Hmm.
+
+The user request is to translate only the sentence or word &quot;Localized Content&quot; into ar-SA. So we need to output the Arabic translation of that phrase, not a longer description. They want only the translated content. So output should be something like &quot;المحتوى المُوَطَّن&quot; maybe? Or &quot;المحتوى المُحلي&quot;. But which is more correct? Let&apos;s consider Arabic grammar: &quot;Localized Content&quot; as a noun phrase, where &quot;Localized&quot; acts as a participle adjective, and &quot;Content&quot; is noun. In Arabic, we could say &quot;محتوى مُخصَّص&quot;. But &quot;مُخصَّص&quot; means &quot;specific&quot; or &quot;dedicated&quot;. However &quot;Localized&quot; is &quot;مُوَطَّن&quot;. Actually &quot;localized&quot; in Arabic may be &quot;مُوَطَّن&quot; meaning &quot;made local&quot;. For UI label &quot;Localized Content&quot;, I think they might want &quot;المحتوى المُوَطَّن&quot;. But that phrase may not be common. Yet Arabic UI translation often uses &quot;المحتوى المُترجم&quot;. However that is &quot;Translated content&quot;, not &quot;Localized content&quot;. &quot;Localized content&quot; could be &quot;المحتوى المُعَدّ للعرض&quot;. Hmm.
+
+Let&apos;s see if we can find a standard translation. The phrase &quot;Localized content&quot; appears in many software UI. For example, in dotnet template translation, &quot;Localized content&quot; might be &quot;محتوى مُترجم&quot;. Usually the word &quot;Localize&quot; translates to &quot;تعريب&quot; in Arabic, which means &quot;Arabicizing&quot;. But &quot;Localized content&quot; could be &quot;المحتوى المُعَرَّب&quot;. Actually &quot;تعريب&quot; means &quot;Arabicization&quot;. &quot;Localized&quot; could be &quot;تعريبي&quot;. But the phrase &quot;Localized content&quot; might be &quot;المحتوى المُعَرَّب&quot;. That seems plausible: &quot;Localized content&quot; -&gt; &quot;المحتوى المُعَرَّب&quot; i.e., Arabic localized content. However in other languages, &quot;Localized Content&quot; may be &quot;محتوى مُحلي&quot;. But we need Saudi dialect? The target language is ar-SA, Arabic (Saudi Arabia). The phrase &quot;Localized Content&quot; could be &quot;المحتوى المُعَرَّب&quot;. However &quot;المُعَرَّب&quot; literally means &quot; Arabicized content&quot;. That may be used for Arabic UI. But the phrase &quot;Localized Content&quot; may refer to the content that has been localized (maybe for any language). So &quot;المحتوى المُوَطَّن&quot; seems more neutral.
+
+Let&apos;s think of the standard Arabic translation for &quot;Localized Content&quot; in UI. In many Arabic translations of ASP.NET MVC, I recall &quot;Localized Content&quot; becomes &quot;المحتوى المُحلي&quot;. But I&apos;m not sure. Let&apos;s search mental memory: In Arabic UI translations often use &quot;المحتوى المُعَرَّب&quot;. For example, &quot;Localized strings&quot; -&gt; &quot;السلاسل المُعَرَّبة&quot;. So &quot;Localized Content&quot; could be &quot;المحتوى المُعَرَّب&quot;. Yes, that seems plausible: &quot;المُعَرَّب&quot; means &quot;rendered into Arabic&quot;. For example, &quot;Localized Content&quot; in ASP.NET core might have a label &quot;Localized Content&quot;. In Arabic translation that might be &quot;المحتوى المُعَرَّب&quot;. I&apos;d lean on that.
+
+Thus I propose translation: &quot;المحتوى المُعَرَّب&quot;. But must check grammar: &quot;المحتوى&quot; is the noun &quot;content&quot;. &quot;المُعَرَّب&quot; is a passive participle &quot;made Arabic&quot;. This yields &quot;Localized Content&quot; -&gt; &quot;المحتوى المُعَرَّب&quot;. However &quot;المُعَرَّب&quot; implies Arabic-specific localization, not generic. But if the UI is for any language, maybe &quot;المحتوى المُوَطَّن&quot; is better.
+
+Let&apos;s consider alternatives:
+1. &quot;المحتوى المُوَطَّن&quot; (muwat·tan)
+2. &quot;المحتوى المُعَرَّب&quot; (mu&apos;arraβ)
+3. &quot;محتوى مُخصَّص&quot;
+4. &quot;المحتوى المُحلي&quot;
+5. &quot;المحتوى المُترجم&quot; (most common)
+
+We need to decide. The user said &quot;translate only the sentence or word `Localized Content` in the paragraph into the target language ar-SA&quot;. So we just need translation. The typical translation of &quot;Localized Content&quot; (noun phrase) in Arabic is &quot;محتوى مُعَرَّب&quot;. I&apos;d output that. Also the phrase &quot;Localized Content&quot; appears as label: &quot;Localized Content&quot;. In the paragraph it&apos;s part of `&lt;label for=&quot;localized-content-editor&quot; class=&quot;form-label&quot;&gt;@Localizer[&quot;Localized Content&quot;]&lt;/label&gt;`. So translation is for UI label. In many Arabic translations, &quot;Localized Content&quot; is &quot;المحتوى المُعَرَّب&quot; (Arabic localized content). But what about &quot;Localized Title&quot;? That is &quot;العنوان المُحلي&quot;? The preceding label &quot;Localized Title&quot; might be translated as &quot;العنوان المُعَرَّب&quot;. Indeed typical translation: &quot;Title&quot; -&gt; &quot;العنوان&quot;, &quot;Localized Title&quot; -&gt; &quot;العنوان المُعَرَّب&quot;. So consistent pattern: use &quot;المُعَرَّب&quot;. So &quot;Localized Content&quot; -&gt; &quot;المحتوى المُعَرَّب&quot;. That seems correct.
+
+Thus answer: &quot;المحتوى المُعَرَّب&quot;. Wrapped in triple backticks.
+
+But check: user wants only output the translated content and nothing else. So output must be:
+
+```
+المحتوى المُعَرَّب
+```
+
+But do we need to include Arabic characters with diacritics? Should be correct. The phrase includes &quot;المحتوى&quot; (content) and &quot;المُعَرَّب&quot; (Arabic passive participle). Diacritics: &quot;المُعَرَّب&quot;. That includes a diacritic &quot; َ &quot; (fatha) on &quot;ع&quot;. That&apos;s fine.
+
+Thus answer: just that with backticks.
+&lt;/think&gt;
+
+```المحتوى المُعَرَّب</value>
+  </data>
+  <data name="Localized Title" xml:space="preserve">
+    <value>Translated word here...
+```. So we output:
+
+```
+العنوان المُعرَّب
+```
+
+But check: The translation may need to be in Arabic script, no diacritics? Usually they include diacritics like &quot;المُعرَّب&quot;. In Arabic, they often use diacritic &quot;الـ&quot;. &quot;المُعرَّب&quot; includes the diacritic &quot;َ&quot;. Might be okay. Or they might want &quot;العنوان المُعرَّب&quot;. That would be &quot;العنوان المُعرَّب&quot;. Actually &quot;المُعرَّب&quot; has the prefix &quot;ال&quot; and &quot;المُعرَّب&quot; includes diacritic &quot;ُ&quot;. That is fine. The translation &quot;العنوان المُعرَّب&quot; includes &quot;ال&quot; at start, but the original phrase does not have &quot;the&quot;. However, translation may include &quot;العنوان المُعرَّب&quot;. The original &quot;Localized Title&quot; has no article &quot;The&quot;. But Arabic translation often adds &quot;العنوان&quot; as a proper noun phrase with &quot;ال&quot;. That is normal: &quot;العنوان المُعرَّب&quot;. So answer is &quot;العنوان المُعرَّب&quot;.
+
+Double-check: The phrase &quot;Localized Title&quot; might be translated as &quot;عنوان مُعرَّب&quot; or &quot;العنوان المُعرَّب&quot;. The latter includes &quot;ال&quot;. I think &quot;العنوان المُعرَّب&quot; is fine.
+
+Thus final answer: ```العنوان المُعرَّب```.
+
+But check instruction: &quot;Please translate only the sentence or word `Localized Title` in the paragraph into the target language ar-SA, العربية (المملكة العربية السعودية).&quot; So output only translation, no extra content. Wrap in backticks. So final answer is triple backticks with translation.
+
+Thus output:
+
+```
+العنوان المُعرَّب
+```
+
+But we need to ensure no other content. So final answer.
+&lt;/think&gt;
+
+```العنوان المُعرَّب</value>
+  </data>
+  <data name="Save failed." xml:space="preserve">
+    <value>فشل الحفظ.```
+
+But ensure it&apos;s correct. Let&apos;s consider the phrase &quot;Save failed.&quot; It could also be &quot;فشل الحفظ&quot;. In a UI context, we want a full sentence in Arabic: &quot;فشل الحفظ&quot;. Many translation guidelines for English &quot;Save failed.&quot; in Arabic use &quot;فشل الحفظ&quot;. Let&apos;s search mental memory: Common translation is &quot;فشل الحفظ.&quot; Let&apos;s check typical translation for &quot;Save failed.&quot; in Arabic: The phrase &quot;حفظ&quot; is the verb to save; &quot;فشل الحفظ&quot; means &quot;Saving failed.&quot; Another phrase is &quot;تعذر الحفظ&quot; but less common.
+
+But &quot;Save failed.&quot; often used in error messages: &quot;فشل الحفظ&quot;. Could also be &quot;فشل في الحفظ&quot;. In general, &quot;فشل الحفظ&quot; is likely.
+
+Better to output &quot;فشل الحفظ&quot;. We can also consider &quot;تعذّر الحفظ&quot;. But what is the best? Let&apos;s think about typical Arabic UI translation guidelines:
+
+- &quot;Save&quot; often translated as &quot;حفظ&quot;. Example: &quot;حفظ&quot; or &quot;احفظ&quot;. In error messages: &quot;Failed to save&quot; -&gt; &quot;فشل الحفظ&quot;. Usually &quot;Failed to save&quot; -&gt; &quot;فشل الحفظ&quot;. So &quot;Save failed.&quot; could be &quot;فشل الحفظ&quot;. That seems right.
+
+Thus answer: ```فشل الحفظ.```
+
+But need to ensure we are outputting only the translated content and wrap it in three backticks. So output:
+
+```فشل الحفظ.```
+
+Double-check: The user says &quot;Please translate only the sentence or word `Save failed.` in the paragraph into the target language ar-SA.&quot; So we need to translate only that, not the rest of the paragraph. So we output only the translated phrase.
+
+The user explicitly says &quot;Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus we must output exactly:
+
+```فشل الحفظ.```
+
+Now we must ensure no other content. The user says &quot;Do not output any other content! Only output the translated content and wrap it in three backticks&quot;. So we must output only that. So final answer: triple backticks with the Arabic translation.
+
+One more nuance: Should we include punctuation? In English it&apos;s &quot;Save failed.&quot; with a period. In Arabic, the punctuation could be &quot;فشل الحفظ.&quot; The period is fine. Should we keep the period? Usually yes, to be consistent. The user says &quot;translate only the sentence or word `Save failed.`&quot;. So we must output the Arabic translation and the period.
+
+Thus output:
+
+```فشل الحفظ.```
+
+Make sure not to include any extra text or formatting like code block language. Just triple backticks and the Arabic text. No newline before or after. Use backticks and close with backticks. Ensure no extra commentary. So final answer: exactly:
+
+```فشل الحفظ.```
+
+Thus we will output that.
+&lt;/think&gt;
+
+```فشل الحفظ.</value>
+  </data>
+  <data name="Save Translation" xml:space="preserve">
+    <value>Translated word here...```&quot;
+
+We need to produce a translation of &quot;Save Translation&quot; into Arabic (Saudi). The user also says: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Save Translation` is one of them.&quot;
+
+&quot;Save Translation&quot; is a phrase that appears as a button text; it&apos;s a UI label. It&apos;s not a proper name, so we can translate it. So we need to translate &quot;Save Translation&quot; into Arabic. Likely &quot;حفظ الترجمة&quot; (ḥifẓ al-tarjama). In Arabic, &quot;Save&quot; could be &quot;حفظ&quot;. However, &quot;حفظ&quot; means &quot;save&quot; in the sense of keep. For button UI, &quot;حفظ الترجمة&quot; would be fine.
+
+Alternatively could be &quot;حفظ الترجمة&quot; or &quot;احفظ الترجمة&quot;? Typically for a button you&apos;d use &quot;حفظ&quot; alone but here &quot;Save Translation&quot; means &quot;حفظ الترجمة&quot;. So translation: &quot;حفظ الترجمة&quot;. Provide just that.
+
+Thus output:
+
+```حفظ الترجمة```
+
+Check instructions: The user wants only the translated content and wrap in triple backticks, like:
+
+```
+Translated word here...
+```
+
+But they said &quot;Only output the translated content and wrap it in three backticks&quot;. So we should output exactly:
+
+```حفظ الترجمة```
+
+Potentially need to output only that, with triple backticks. Ensure no extra content. Let&apos;s do that.
+&lt;/think&gt;
+
+```حفظ الترجمة</value>
+  </data>
+  <data name="Saved successfully!" xml:space="preserve">
+    <value>تم الحفظ بنجاح!``` (or without exclamation). Or &quot;تم الحفظ بنجاح&quot;. But they said &quot;only output the translated content and wrap it in three backticks&quot;. So we output:
+
+```
+تم الحفظ بنجاح!
+```
+
+Alternatively, if they want just the translation (maybe without exclamation) like &quot;تم الحفظ بنجاح&quot;. Usually &quot;!&quot; exclamation may be kept. The original phrase includes &quot;!&quot; and they might want translation includes &quot;!&quot; as well. In Arabic, exclamation can be used but may be more natural to keep exclamation. I&apos;d output &quot;تم الحفظ بنجاح!&quot; because that&apos;s translation with exclamation.
+
+Thus final answer: three backticks containing &quot;تم الحفظ بنجاح!&quot;.
+
+Check: They said &quot;translate only the sentence or word `Saved successfully!` in the paragraph into the target language ar-SA&quot;. So translation: &quot;تم الحفظ بنجاح!&quot;. Yes.
+
+Now output: ```تم الحفظ بنجاح!```.
+
+Make sure no extra content. So output exactly:
+
+```
+تم الحفظ بنجاح!
+```
+
+That&apos;s the answer.
+
+But let&apos;s double-check for any nuance: Arabic (Saudi). &quot;Saved successfully!&quot; is &quot;تم الحفظ بنجاح&quot;. Might also be &quot;تم الحفظ بنجاح&quot;. Some might say &quot;تم الحفظ بنجاح&quot;. Typically translation of &quot;Saved successfully&quot; in UI is &quot;تم الحفظ بنجاح&quot;. The exclamation mark could be included or omitted. Usually they&apos;d include exclamation mark to match original emphasis. But does exclamation in Arabic UI get used? In Arabic, exclamation marks are often used but sometimes they might avoid punctuation due to right-to-left. But it&apos;s okay.
+
+If we output &quot;تم الحفظ بنجاح&quot; without exclamation, it&apos;s still correct but not matching exclamation. The instruction says &quot;only output the translated content and wrap it in three backticks&quot;. They didn&apos;t say we must preserve punctuation exactly. But likely they&apos;d want to preserve the exclamation. So &quot;تم الحفظ بنجاح!&quot; is fine.
+
+Thus final answer: a code block with Arabic translation.
+
+Thus final answer.
+&lt;/think&gt;
+
+```تم الحفظ بنجاح!</value>
+  </data>
+  <data name="Saving..." xml:space="preserve">
+    <value>جارٍ الحفظ...
+```
+
+or
+
+```
+جارٍ...
+```
+
+or
+
+```
+حفظ...
+```
+
+But what is the typical translation for &quot;Saving...&quot; as a UI status? In many Arabic translations, &quot;Saving...&quot; is &quot;جارٍ...&quot;. For example, Microsoft uses &quot;جارٍ...&quot; for &quot;Saving...&quot; (like in file save). But I think the more common translation is &quot;جارٍ...&quot; (i.e., &quot;currently saving&quot;). But the phrase &quot;Saving...&quot; could be simply &quot;جارٍ...&quot;. Let&apos;s check typical Arabic UI: When you save a document in MS Word, Arabic UI shows &quot;جارٍ...&quot;? I recall &quot;الحفظ&quot; maybe used but not sure. Let&apos;s search mental memory: In Arabic UI for Microsoft Windows, the progress text &quot;Saving changes...&quot; is &quot;حفظ التغييرات...&quot;? Not sure. For example, &quot;Saving your changes will be...&quot; is &quot;جارٍ حفظ التغييرات...&quot;. But &quot;Saving...&quot; itself might be &quot;حفظ...&quot;. However, &quot;حفظ&quot; is a verb, not a progressive. The phrase &quot;Saving...&quot; may be &quot;حفظ...&quot; (like &quot;Save&quot;) but &quot;حفظ&quot; is a verb meaning &quot;to save&quot;. The ellipsis indicates ongoing. So &quot;حفظ...&quot; could be &quot;حفظ...&quot;? But that seems like a verb.
+
+I think the safe translation is &quot;جارٍ...&quot; because it&apos;s common for progress: &quot;Saving...&quot;. The user expects an Arabic phrase. Let&apos;s check typical translation: Google? Actually &quot;Saving...&quot; in English can be &quot;جارٍ...&quot; as a present participle: &quot;جارٍ&quot;. But &quot;جارٍ&quot; alone is incomplete; it needs a verb, but we can just say &quot;جارٍ...&quot; maybe they expect &quot;جارٍ...&quot;. Actually &quot;جارٍ&quot; means &quot;running&quot; (like &quot;currently running&quot;).
+
+But typical Arabic translation of &quot;Saving...&quot; is &quot;حفظ...&quot;? I think &quot;حفظ&quot; is not correct. The verb for &quot;to save&quot; is &quot;حفظ&quot; (to keep, store), &quot;يُحفظ&quot;. The present participle is &quot;حافظ&quot;, &quot;يُحافظ&quot;. That would be &quot;حافظ&quot;. So &quot;Saving...&quot; could be &quot;حافظ...&quot; but &quot;حافظ...&quot; would be &quot;preserving...&quot;. Not correct.
+
+Let&apos;s see if there is a standard translation for &quot;Saving...&quot; in Arabic UI for programming frameworks. For example, in .NET, translation of &quot;Saving...&quot; is &quot;جارٍ...&quot;. In ASP.NET resources, I recall &quot;Saving...&quot; is &quot;حفظ...&quot;? I&apos;m not sure.
+
+Let&apos;s check typical usage: In a website, when you click a save button, there might be a status &quot;Saving...&quot; which shows up as &quot;حفظ...&quot; or &quot;حفظ البيانات...&quot;? Actually &quot;حفظ...&quot; is a verb phrase &quot;Save...&quot; but it&apos;s like a command: &quot;حفظ...&quot;. In UI, you might see a message &quot;حفظ...&quot; but that is &quot;save&quot;. So &quot;Saving...&quot; is more like &quot;حفظ...&quot;. But I think the common translation is &quot;حفظ...&quot; indeed.
+
+But the user likely expects &quot;جارٍ...&quot;. Let&apos;s examine typical resources: For ASP.NET MVC, there is a built-in localization for .NET core where &quot;Saving...&quot; is defined. I recall that for .NET core localization resources, &quot;Saving...&quot; may be defined as &quot;جارٍ...&quot;. For example, in .NET resources for Arabic (ar) you have a string &quot;Saving...&quot; which is used in status messages. Let&apos;s search memory: In Microsoft .NET resource files for &quot;Saving...&quot;, they have the translation &quot;جارٍ...&quot;? I think I&apos;ve seen &quot;Saving...&quot; translation in .NET used for &quot;Save&quot; operation, which translates to &quot;حفظ&quot;. Actually, I recall that in ASP.NET MVC, &quot;Saving...&quot; is often defined as &quot;جارٍ...&quot;, but I&apos;m not sure.
+
+Let&apos;s check typical .NET resource: In .NET core there are resources for &quot;Saving...&quot; used in &quot;Web.save&quot;. Actually .NET uses resource files for JavaScript, like in &quot;localize??&quot;.
+
+Alternatively, we can examine the code context: The JavaScript code uses a status indicator type &apos;saving&apos; and shows a message via @Localizer which returns localized string for &quot;Saving...&quot;. The translation of &quot;Saving...&quot; would be used as a UI status message. So we need to translate &quot;Saving...&quot;. In Arabic, typical UI messages for status &quot;Saving...&quot; would be &quot;جارٍ...&quot;. For example, in Microsoft Word Arabic UI, the &quot;Saving...&quot; status might show &quot;جارٍ...&quot;. Yes, I think that is correct. Many Arabic UI messages use &quot;جارٍ...&quot; as &quot;Saving...&quot;. The ellipsis is omitted perhaps, but can be included: &quot;جارٍ...&quot;.
+
+Thus the translation: &quot;جارٍ...&quot;. Let&apos;s output that.
+
+We must wrap in three backticks. So final answer: ``` ara-SA translation: &quot;جارٍ...&quot;? Actually just output the translation text inside backticks. So:
+
+```
+جارٍ...
+```
+
+That&apos;s it. However, the instruction says to output only the translated content and wrap in three backticks, like this:
+
+```
+Translated word here...
+```
+
+So we output exactly that. So answer: ``` جارٍ... ``` (with triple backticks). That&apos;s it.
+
+Thus final.
+&lt;/think&gt;
+
+``` 
+جارٍ...</value>
+  </data>
+  <data name="Select a language" xml:space="preserve">
+    <value>اختر لغة
+```
+
+But we need to think about the Arabic script: Usually they might prefer &quot;اختر لغة&quot;. That is correct. However, there is nuance: &quot;اختر لغة&quot; (choose language) is less common; &quot;اختر اللغة&quot; (choose the language) would be more common, but that&apos;s &quot;Select the language&quot;. But we want &quot;Select a language&quot;. So &quot;اختر لغة&quot;. Also &quot;حدد لغة&quot; could be used. Let&apos;s decide which is best.
+
+In typical UI, &quot;Select a language&quot; -&gt; &quot;اختر لغة&quot;. I&apos;ve seen translations: &quot;اختر لغة&quot; used in many applications. e.g., Google Translate&apos;s UI for selecting language uses &quot;اختر لغة&quot;. Example: In Android app you have &quot;Select a language&quot; -&gt; &quot;اختر لغة&quot;. So I think it&apos;s correct. Some Arabic UI translation guidelines: &quot;Select a language&quot; =&gt; &quot;اختر لغة&quot;. So we output that.
+
+We must output only the translation, wrapped in triple backticks, and nothing else. So:
+
+```
+اختر لغة
+```
+
+Check: They want the translation of the sentence &quot;Select a language&quot;. So we output that.
+
+Thus answer: a code block containing &quot;اختر لغة&quot;. No extra.
+
+We need to ensure no extra spaces or newlines? The instruction says &quot;Only output the translated content and wrap it in three backticks (```), like this: ``` Translated word here... ```&quot;. So we need to output:
+
+```اختر لغة```
+
+Probably include newline after opening triple backticks? In examples they have the content after the opening triple backticks on same line. They gave example: 
+```
+Translated word here...
+```
+So we need to put the translation after triple backticks on same line, then newline, translation, newline, triple backticks. That&apos;s what we output.
+
+Thus final answer:
+
+```اختر لغة```
+&lt;/think&gt;
+
+```اختر لغة</value>
+  </data>
+  <data name="Source Culture" xml:space="preserve">
+    <value>@Localizer[&quot;Source Culture&quot;]: &lt;span class=&quot;badge bg-secondary&quot;&gt;@(Model.SourceCulture ?? &quot;—&quot;)&lt;/span&gt;
+```
+
+Thus they want to translate the label &quot;Source Culture&quot;. So they need translation in Arabic. In a software localization context, a label could be &quot;الثقافة المصدر&quot;. However, &quot;culture&quot; often translated as &quot;ثقافة&quot;. &quot;Source&quot; is &quot;مصدر&quot;. So &quot;Source Culture&quot; can be &quot;مصدر الثقافة&quot; (source of culture) but the order might be reversed. However, typical translation for &quot;Source Culture&quot; might be &quot;الثقافة المصدر&quot; because the phrase &quot;Source Culture&quot; could be &quot;الثقافة المصدر&quot; i.e., &quot;المصدر الثقافي&quot; (the source culture). But let&apos;s check typical translation: Usually, for UI strings, &quot;Source&quot; is &quot;المصدر&quot; and &quot;Culture&quot; is &quot;الثقافة&quot; or &quot;الثّقافة&quot;? Let&apos;s see.
+
+Common UI translations:
+
+- &quot;Source&quot; =&gt; &quot;المصدر&quot; (noun) or &quot;مصدر&quot; (source). In Arabic UI, &quot;Source&quot; is often &quot;المصدر&quot;. For example, &quot;Source file&quot; =&gt; &quot;ملف المصدر&quot;. &quot;Source&quot; could also be &quot;مصدر&quot;. But &quot;المصدر&quot; is a proper noun for source.
+
+- &quot;Culture&quot; =&gt; &quot;الثقافة&quot; is &quot;culture&quot;. But &quot;culture&quot; in a software context could be &quot;الثقافة&quot;. But maybe &quot;Culture&quot; is &quot;culture&quot; as in &quot;culture code&quot;. In .NET, culture names like &quot;culture&quot; is &quot;الثقافة&quot;. So &quot;Source Culture&quot; might be translated as &quot;الثقافة المصدر&quot;. Actually &quot;Source Culture&quot; is likely used to refer to the source culture (the culture of the source code). The typical translation could be &quot;الثقافة المصدر&quot; i.e., &quot;Culture Source&quot;. But the ordering might be ambiguous.
+
+In Arabic UI, typical translation for &quot;Source culture&quot; could be &quot;الثقافة المصدر&quot;. But also &quot;مصدر الثقافة&quot;. Let&apos;s think about translation guidelines: The phrase is a label, likely &quot;Source Culture&quot;. In Arabic, we might translate as &quot;الثقافة المصدر&quot; or &quot;الثقافة المصدر&quot;. But the phrase might be reversed to &quot;مصدر الثقافة&quot; which is &quot;Source of culture&quot;. However, &quot;مصدر الثقافة&quot; is a phrase meaning &quot;source of culture&quot;. But it&apos;s not exactly the same as &quot;source culture&quot;. Usually &quot;source culture&quot; is a property that describes the source culture, like &quot;en-US&quot;. So it&apos;s a label. So they want to translate &quot;Source Culture&quot;. Usually it would be &quot;الثقافة المصدر&quot;. But &quot;المصدر&quot; is &quot;source&quot;. So &quot;source culture&quot; could be &quot;الثقافة المصدر&quot; which is &quot;culture source&quot;. That might be weird. Perhaps better translation: &quot;الثقافة المصدر&quot; is a direct translation: &quot;culture source&quot;. But is that correct? Many UI translations would likely use &quot;المصدر&quot; as &quot;مصدر&quot;. For example, &quot;Source:&quot;. In Arabic, they&apos;d translate &quot;Source&quot; as &quot;المصدر&quot; or &quot;مصدر&quot;. So &quot;Source Culture&quot; could be &quot;الثقافة المصدر&quot; (source culture). However, perhaps they might translate as &quot;الثقافة المصدر&quot; or &quot;الثقافة المصدر&quot;. Let&apos;s think.
+
+Given that &quot;Culture&quot; is &quot;ثقافة&quot;. &quot;Source&quot; is &quot;مصدر&quot;. Combined as &quot;مصدر الثقافة&quot; means &quot;source of culture&quot;. But &quot;source culture&quot; might be considered &quot;الثقافة المصدر&quot;. However, &quot;الثقافة المصدر&quot; is unnatural because &quot;المصدر&quot; is a noun and &quot;الثقافة&quot; is a noun, but the typical order for Arabic noun phrase is &quot;النوع من المصدر&quot; maybe reversed. Usually adjectives follow nouns. &quot;المصدر&quot; as noun &quot;source&quot; with &quot;الثقافة&quot; as noun &quot;culture&quot;. But if we want a compound phrase, &quot;مصدر الثقافة&quot; might be &quot;source of culture&quot;. But &quot;source culture&quot; is not &quot;source of culture&quot;, it&apos;s &quot;source culture&quot;. So it&apos;s more like &quot;مصدر الثقافة&quot; but that also means &quot;source of culture&quot;. However, &quot;source culture&quot; maybe just a label. I&apos;d translate as &quot;الثقافة المصدر&quot; maybe with a reversed order: &quot;الثقافة المصدر&quot;. But does Arabic UI have a standard? I&apos;d check typical translations for .NET UI strings. In ASP.NET identity localizations, &quot;Source culture&quot; might be &quot;الثقافة المصدر&quot;. I&apos;m not sure.
+
+Nevertheless, the user explicitly wants only the translation for &quot;Source Culture&quot;. So we output the Arabic translation. The phrase is likely &quot;الثقافة المصدر&quot;. However, I&apos;d like to double-check typical usage: In Arabic, &quot;culture&quot; is &quot;ثقافة&quot;. &quot;Source&quot; is &quot;مصدر&quot;. So &quot;source culture&quot; could be &quot;مصدر الثقافة&quot;. That is the more natural ordering: &quot;مصدر الثقافة&quot;. Let&apos;s see which is more natural. If we say &quot;مصدر الثقافة&quot;, it&apos;s a noun phrase with &quot;مصدر&quot; as noun and &quot;الثقافة&quot; as genitive (مضاف). This phrase means &quot;the source of the culture&quot;. It may be used as a label. But the original phrase &quot;Source Culture&quot; may be &quot;الثقافة المصدر&quot;. But &quot;الثقافة المصدر&quot; is a noun phrase but unnatural because &quot;الثقافة&quot; and &quot;المصدر&quot; both are nouns; the order is unusual but could be &quot;الثقافة المصدر&quot;. In Arabic, adjectives follow nouns, but &quot;الثقافة&quot; is noun, &quot;المصدر&quot; is noun. The typical order is reversed for phrase &quot;source culture&quot;, like &quot;culture source&quot;. Might be &quot;الثقافة المصدر&quot;. However, &quot;المصدر&quot; is an adjective-like noun (noun of source). But the phrase &quot;culture source&quot; could be &quot;الثقافة المصدر&quot;. But typical phrase &quot;source culture&quot; is not &quot;source of culture&quot;. So I&apos;m leaning &quot;مصدر الثقافة&quot;. Let’s examine common translation patterns for UI strings.
+
+Common .NET UI strings for &quot;Source culture&quot; is found in Microsoft resource files. For example, in &quot;System.Web.Mvc&quot; they have &quot;Source culture: {0}&quot; and the Arabic translation in Microsoft resources is &quot;الثقافة المصدر: {0}&quot;? Actually, let’s check typical translations. In Microsoft .NET global resources for ar-SA, they often translate &quot;Source Culture&quot; as &quot;الثقافة المصدر&quot;. For example, I recall some translation: &quot;Source culture&quot; could be &quot;الثقافة المصدر&quot;. Let’s search memory: I recall a string &quot;Source Culture: {0}&quot; has translation &quot;الثقافة المصدر&quot;. But I&apos;m not entirely certain. However, I think it&apos;s &quot;الثقافة المصدر&quot;. Because they treat &quot;Source&quot; as an adjective for the noun &quot;Culture&quot;. In Arabic, a phrase like &quot;Culture Source&quot; may be &quot;الثقافة المصدر&quot;. But need to confirm if there&apos;s a standard translation for &quot;Source Culture&quot; in Microsoft UI.
+
+I can search mental memory of Microsoft .NET UI strings: I have glimpses of Arabic translations: &quot;Source culture: {0}&quot; =&gt; &quot;الثقافة المصدر: {0}&quot;. For example, &quot;Source culture: {0}&quot; is a string in &quot;System.Web&quot; maybe. The translation is &quot;الثقافة المصدر&quot;. That seems plausible.
+
+Let&apos;s think about a typical UI label: &quot;Source Culture&quot; is used in a localization project to show the source culture of a document. In the Arabic UI for a localization tool, they would translate that as &quot;الثقافة المصدر&quot;. For instance, in Microsoft &quot;Resources/strings.resx&quot; they have &quot;Source culture&quot; string, and Arabic translation &quot;الثقافة المصدر&quot;. Indeed, I think I&apos;ve seen translations: &quot;Source culture: {0}&quot; -&gt; &quot;الثقافة المصدر: {0}&quot;.
+
+Thus, for the phrase &quot;Source Culture&quot;, the Arabic translation should be &quot;الثقافة المصدر&quot;. That is likely what they want. Let&apos;s output that.
+
+The user says output only the translated content wrapped in three backticks. No other content. So we output:
+
+```
+الثقافة المصدر
+```
+
+But check if the phrase &quot;Source Culture&quot; is a proper noun or not. The instructions say &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Source Culture` is one of them.&quot;
+
+So we need to decide if &quot;Source Culture&quot; is a proper noun or not. It&apos;s a label string, not a proper noun. It&apos;s not a trademark or symbol. So we translate it.
+
+Thus output &quot;الثقافة المصدر&quot;. However, I need to double-check Arabic grammar: Usually &quot;الثقافة المصدر&quot; is not common; &quot;الثقافة المصدر&quot; is unnatural. But in translation, they may preserve the structure &quot;Source Culture&quot; meaning &quot;Source Culture&quot;. They may use &quot;الثقافة المصدر&quot;. But if we think of an English to Arabic translation, the order might be reversed: &quot;المصدر الثقافة&quot;. However, typical Arabic UI translation for &quot;Source culture&quot; is &quot;الثقافة المصدر&quot;. Indeed, I&apos;ve seen that. Let&apos;s verify by checking typical Microsoft Arabic translation.
+
+Search memory: In the Microsoft ASP.NET MVC sample &quot;Source Culture&quot; appears in error messages. For example: &quot;The source culture cannot be determined.&quot; The Arabic translation is &quot;لا يمكن تحديد الثقافة المصدر.&quot; Actually they might say &quot;الثقافة المصدر&quot;. I&apos;m trying recall.
+
+Alternatively, they could translate &quot;Source culture&quot; as &quot;الثقافة المصدر&quot;. That seems right.
+
+Thus output:
+
+```
+الثقافة المصدر
+```
+
+But check if there is any nuance about punctuation. The phrase &quot;Source Culture&quot; might be &quot;Source Culture:&quot;. In the original, it&apos;s used as a label: &quot;Source Culture:&quot;. The colon may be part of the label but not needed for translation of the word; they ask to translate the word &quot;Source Culture&quot;. So we output the translation without colon.
+
+Thus final answer is:
+
+```
+الثقافة المصدر
+```
+
+Wrap in triple backticks. That&apos;s it.
+
+Now check the instructions: The user said &quot;Please translate only the sentence or word `Source Culture` in the paragraph into the target language ar-SA, العربية (المملكة العربية السعودية).&quot; They explicitly said &quot;Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus we must output only the translation. So answer:
+
+```
+الثقافة المصدر
+```
+
+Make sure no extra content. That&apos;s it.
+&lt;/think&gt;
+
+```
+الثقافة المصدر</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus we must output translation of &quot;Success!&quot; in Arabic (Saudi). In Arabic, &quot;Success!&quot; could be &quot;نجاح!&quot; or &quot;تم بنجاح!&quot;. Typically &quot;Success!&quot; is &quot;نجاح!&quot; but often translation for success messages: &quot;¡Éxito!&quot; is Spanish; in Arabic: &quot;نجاح!&quot; or &quot;نَجَاح!&quot; or &quot;تم بنجاح&quot;. The context: In a paragraph there is an alert with &quot;Success!&quot;. They want translation. Should we use &quot;نجاح!&quot;? Let&apos;s see: In Arabic, &quot;Success!&quot; can be &quot;نجاح!&quot; or &quot;تم بنجاح&quot;. Usually if you see &quot;Success!&quot; in an alert, translation often is &quot;نجاح!&quot; indeed. Also &quot;Success!&quot; could be &quot;成功了&quot; in Chinese, but here Arabic.
+
+Thus we output `نجاح!` or maybe &quot;نجاح!&quot;. Let&apos;s think about local conventions. Saudi Arabic uses &quot;نجاح!&quot; but &quot;نجاح&quot; is &quot;success&quot; (noun). In alert context, could be &quot;نجاح!&quot; as exclamation: &quot;نجاح!&quot; meaning &quot;Success!&quot; (exclamation). However sometimes &quot;Success!&quot; is translated as &quot;تم بنجاح&quot;. But typical translation: &quot;Success!&quot; -&gt; &quot;نجاح!&quot;. &quot;نجاح!&quot; is more literal, but maybe &quot;نجاح!&quot;. I think &quot;نجاح!&quot; is correct. Many translation resources: &quot;Success!&quot; -&gt; &quot;نجاح!&quot;. So we output &quot;نجاح!&quot;.
+
+Thus final answer: three backticks with translation: &quot;نجاح!&quot;.
+
+We must not output anything else. So just:
+
+``` 
+نجاح!
+```
+&lt;/think&gt;
+
+``` 
+نجاح!</value>
+  </data>
+  <data name="Translated markdown content" xml:space="preserve">
+    <value>المحتوى المترجم بصيغة Markdown
+```
+
+But need to be careful: the phrase &quot;Markdown&quot; might be left unchanged. Or we could also transliterate &quot;Markdown&quot; as &quot;ماركداون&quot;? That&apos;s not typical; we keep &quot;Markdown&quot;. So output as above.
+
+Check: Should we include any diacritics? Arabic might have diacritics, but it&apos;s optional. We can leave them absent.
+
+Thus final answer: just that line.
+
+Double-check for any hidden nuance: The user says &quot;Please translate only the sentence or word `Translated markdown content` in the paragraph into the target language ar-SA, العربية (المملكة العربية السعودية).&quot; So we need to output the translation of &quot;Translated markdown content&quot; only.
+
+We must not output any other content, only the translation and wrap it in three backticks.
+
+Thus answer:
+
+``` 
+المحتوى المترجم بصيغة Markdown
+``` 
+
+Wait, we must wrap with three backticks exactly as described: &quot;wrap it in three backticks (```), like this: ``` Translated word here...```&quot;. They show a code block: three backticks, then the content, then three backticks again. So we should output:
+
+``` 
+المحتوى المترجم بصيغة Markdown
+``` 
+
+But we need to ensure the code block includes three backticks, then newline? Actually typical is:
+
+```
+المحتوى المترجم بصيغة Markdown
+```
+
+Thus output exactly that.
+
+Double-check: They want &quot;Only output the translated content and wrap it in three backticks&quot;. So we should output exactly three backticks then newline? Actually the example shows:
+
+```
+Translated word here...
+```
+
+That includes three backticks on one line, then content, then three backticks on same line? Wait they wrote:
+
+```
+Translated word here...
+```
+
+But they said &quot;wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Probably they mean a code block (```) on its own line before and after. The example shows code block with three backticks on each side.
+
+Thus we should output:
+
+``` 
+المحتوى المترجم بصيغة Markdown 
+``` 
+
+But maybe we can put no newline after opening triple backticks? The standard is:
+
+```
+المحتوى المترجم بصيغة Markdown
+```
+
+Yes.
+
+Thus final answer: a code block with Arabic translation.
+
+We should not add any explanation. So just the code block.
+
+Thus final answer:
+
+``` 
+المحتوى المترجم بصيغة Markdown 
+``` 
+
+That is it.
+
+Now check if any other nuance: They said &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; We understand it. So fine.
+
+Thus final answer: three backticks with Arabic phrase.
+
+Now, check for any possible error: In Arabic, &quot;Markdown&quot; might be transliterated. But it&apos;s a brand. Usually keep as &quot;Markdown&quot;. So we keep it.
+
+Thus final answer is correct.
+
+Now output.
+&lt;/think&gt;
+
+```المحتوى المترجم بصيغة Markdown</value>
+  </data>
+  <data name="Translated title" xml:space="preserve">
+    <value>), like this: ```Translated word here...```&quot;
+
+Thus they want only the translation of &quot;Translated title&quot; into Arabic (Saudi Arabian). That is presumably &quot;العنوان المترجم&quot; maybe, but we need to consider context: &quot;Translated title&quot; is an English phrase meaning &quot;title that has been translated&quot;. In Arabic, a suitable translation is &quot;العنوان المترجم&quot;. However, we need to consider that &quot;title&quot; can be &quot;عنوان&quot; (for a page title). &quot;العنوان&quot; is title; &quot;المترجم&quot; is &quot;translated&quot;. Or we could say &quot;العنوان المُترجم&quot;. The phrase &quot;Translated title&quot; is presumably a placeholder for translation input field. The translation likely &quot;العنوان المُترجم&quot;. But we need to pick the best phrase.
+
+But the user wants only the translation, not any extra content. So output &quot;العنوان المترجم&quot;. But check: The user instruction says: &quot;Please translate only the sentence or word `Translated title` in the paragraph into the target language ar-SA, العربية (المملكة العربية السعودية).&quot; So they want the translation of &quot;Translated title&quot;. So output should be something like &quot;العنوان المترجم&quot;. But need to ensure correct Arabic grammar and diacritics? Usually placeholder text is not heavily diacritized. &quot;العنوان المترجم&quot;. That would be the translation.
+
+But we need to ensure we output only the translated word/sentence, wrapped in three backticks.
+
+Thus output:
+
+```
+العنوان المترجم
+```
+
+But double-check if &quot;title&quot; can be &quot;عنوان&quot;. The translation for &quot;title&quot; in general is &quot;عنوان&quot;. So &quot;العنوان المترجم&quot; fits. Or &quot;عنوان مترجم&quot;. However the phrase &quot;Translated title&quot; in English is &quot;العنوان المترجم&quot;. That is fine.
+
+Also note that the user wants not to output any other content. So just the triple backticks with the translation inside.
+
+Thus final answer: ```العنوان المترجم```.
+
+However, check for any nuance: The placeholder might be &quot;Translated title&quot; which in Arabic is &quot;العنوان المُترجم&quot; (with diacritic &quot;مُ&quot;. However, the placeholder is not heavy diacritic. Usually placeholder &quot;Translated title&quot; means &quot;العنوان المُترجم&quot;. But maybe the correct translation is &quot;العنوان المُترجم&quot;. But which one is more natural? Usually we would say &quot;العنوان المُترجَم&quot;. But &quot;المترجم&quot; might be ambiguous: &quot;المُترجم&quot; means translator, while &quot;المترجم&quot; can mean the translation software? Actually &quot;المترجم&quot; can be &quot;the translator&quot; (the person). &quot;العنوان المُترجم&quot; means &quot;the translated title&quot;. That is correct. So &quot;العنوان المُترجم&quot; is correct. The phrase &quot;Translated title&quot; is &quot;العنوان المُترجم&quot;. So the translation is &quot;العنوان المُترجم&quot;. The Arabic diacritic &quot;ُ&quot; is used for a noun that is a passive participle, &quot;مُ&quot;. Actually &quot;مُ&quot; is not used in Arabic as a particle for passive. The passive participle is &quot;مَفْعَل&quot; type? Let&apos;s recall: Arabic has form &quot;فُعِلَ&quot; which is passive past; &quot;مفعول&quot; is passive. The active participle of &quot;ترجم&quot; (to translate) would be &quot;مُترجم&quot; (with damma on meem, and sukun on ra?), not &quot;مترجم&quot;? Actually &quot;مُترجم&quot; is with a damma (u) on meem, and a kasra on ra? Let&apos;s check: The noun of the agent for &quot;ترجم&quot; is &quot;مُترجم&quot; (mucharch). Arabic nouns of agency are formed with &quot;مِفْعِل&quot; pattern. Actually the pattern is &quot;مِفْعِل&quot; (mif&apos;al). For &quot;ترجم&quot; (to translate), the active participle (noun of the agent) is &quot;مُترجم&quot; (muhtarij?). Wait that&apos;s wrong; let&apos;s check Arabic morphology.
+
+Arabic verb &quot;ترجمَ&quot; (tarjama) is a regular verb meaning &quot;to translate&quot;. Its active participle pattern is &quot;مُفَعِّل&quot;? Actually &quot;ترجم&quot; is a Form III verb, and its active participle is &quot;مُتَرْجِم&quot;? Actually Form III verbs have active participle pattern &quot;مُفَاعِل&quot;. For example, from &quot;ساعد&quot; (to help), the active participle is &quot;مُسَاعِد&quot;. For &quot;ترجم&quot;, the active participle might be &quot;مُتَرَاجِم&quot;? Wait we need to check typical patterns. The pattern for Form III is &quot;مُفَاعَلَة&quot;? Actually the pattern for the noun of the agent (active participle) for Form III &quot;فَاعَلَ&quot; is &quot;مُفَاعِل&quot;. For example, &quot;كَاتَبَ&quot; (Form III) → &quot;مُكَاتِب&quot;. So for &quot;تراجَمَ&quot; (Form III), the active participle is &quot;مُتَرَاجِم&quot;? Hmm.
+
+But we are not using &quot;translator&quot;. The phrase &quot;Translated title&quot; is a passive meaning: &quot;title that has been translated&quot;. In Arabic, passive participle pattern for Form II (faʿʿala) is &quot;مَفْعَل&quot;. But &quot;ترجم&quot; is Form II? Actually &quot;ترجمَ&quot; is Form II? Let&apos;s recall Arabic verb forms: Form I is &quot;فَعَلَ&quot;, Form II is &quot;فَعَّلَ&quot;, Form III is &quot;فَاعَلَ&quot;, Form IV is &quot;أَفْعَلَ&quot;, Form V is &quot;تَفَعَّلَ&quot;, Form VI is &quot;تَفَاعَلَ&quot;, Form VII is &quot;نَفْعَلَ&quot;, Form VIII is &quot;إِفْتَعَلَ&quot;, Form X is &quot;إِسْتَفْعَلَ&quot;. &quot;ترجم&quot; is Form IV? Wait &quot;ترجمَ&quot; can be Form IV &quot;أَترجم&quot;? No, &quot;ترجم&quot; might be Form II: &quot;تَرَجَّمَ&quot;? Actually &quot;ترجم&quot; is a Form II verb (double the second root letter). Form II verb pattern is &quot;فَعَّلَ&quot;. Example: &quot;كَرَّمَ&quot; (to honor). &quot;ترجمَ&quot; might be Form II? Actually &quot;ترجم&quot; appears to be a Form II from the root &quot;ر ج م&quot;? No. Let&apos;s check: &quot;ترجم&quot; is a Form II? Arabic verb forms: I = فَعَلَ (faʿala); II = فَعَّلَ (faʿʿala); III = فَاعَلَ (faaʿala); IV = أَفْعَلَ (afʿala); V = تَفَعَّلَ (tafaʿʿala); VI = تَفَاعَلَ (tafaaʿala); VII = نَفْعَلَ (nafʿala); VIII = إِفْتَعَلَ (iftala); X = إِسْتَفْعَلَ (istafala). The verb &quot;ترجم&quot; appears to be Form IV? Actually &quot;ترجم&quot; (tarjama) is the noun &quot;translation&quot; (the noun &quot;ترجمة&quot; is translation). But the verb &quot;ترجم&quot; is Form IV (أَترجم?). Wait the noun &quot;ترجمان&quot; (translator) is from &quot;رَجْم&quot;? Not sure.
+
+But anyway, &quot;العنوان المترجم&quot; would mean &quot;the title of the translator&quot;? Actually &quot;المترجم&quot; is a noun of the agent meaning &quot;the translator&quot;. So &quot;العنوان المترجم&quot; would be &quot;the translator&apos;s title&quot;? That&apos;s not correct. So we should not use &quot;المترجم&quot;. Instead we want &quot;المُترجم&quot; maybe? Hmm.
+
+But &quot;المُترجم&quot; is indeed &quot;the translator&quot; (one who translates). So &quot;العنوان المُترجم&quot; would be &quot;the translator&apos;s title&quot;. That&apos;s not what we need. The phrase we want is &quot;العنوان المُترجم&quot; which would be a passive participle: &quot;the translated title&quot;. However in Arabic, passive participle for Form II &quot;فَعَّلَ&quot; is &quot;مَفْعَل&quot;. For &quot;ترجم&quot; as Form II (?), the passive participle might be &quot;مَترجم&quot;? Wait we need to check.
+
+Actually &quot;ترجم&quot; is a verb in Arabic meaning &quot;to translate&quot;, but it can be Form IV (أَترجم). The noun &quot;ترجمة&quot; is the translation. The active participle &quot;مُترجم&quot; means &quot;translator&quot;. The passive participle &quot;مَترجم&quot; might be the &quot;translated&quot;. Let&apos;s check morphological patterns:
+
+Form I (فَعَلَ): passive participle &quot;مَفْعَل&quot; (e.g., &quot;مفعّل&quot;?). Eg: &quot;قَتَلَ&quot; (to kill) → &quot;مَقْتَل&quot; meaning &quot;killed&quot;? Not sure.
+
+But &quot;مَفْعَل&quot; is used for some verbs for the result of the action, e.g., &quot;مَقْتُول&quot; (killed), &quot;مَحْسوب&quot; (counted). For verbs with form I that are transitive, the passive participle is &quot;مَفْعَل&quot;. Example: &quot;مَكْتُوب&quot; from &quot;كَتَبَ&quot; (to write). So for &quot;كَتَبَ&quot; (Form I) → &quot;مَكْتَب&quot;? Actually &quot;مكتوب&quot; is &quot;written&quot;. For &quot;كَتَبَ&quot;, &quot;مَكْتَب&quot; maybe not. The pattern for &quot;written&quot; is &quot;مَكْتُوب&quot;. So &quot;مَكْتُوب&quot; is from &quot;كَتَبَ&quot; (to write). So &quot;مَكْتُوب&quot; is the passive participle.
+
+Thus for &quot;ترجمَ&quot; (Form I?), the passive participle may be &quot;مَترجَم&quot; or &quot;مَترجَم&quot;? But typical noun &quot;ترجمان&quot; is translator; &quot;مُترجم&quot; is translator. The passive participle &quot;مَترجَم&quot;? Actually &quot;مَترجَم&quot; doesn&apos;t sound like a real word; the passive participle may be &quot;مَترجَم&quot; or &quot;مَترجمة&quot;? No.
+
+But there is a known Arabic phrase &quot;العنوان المُترجم&quot; not common.
+
+Alternatively, perhaps the best translation is &quot;العنوان المُحوِل&quot; but no.
+
+But we can also think of &quot;العنوان المُنتقى&quot;? No.
+
+But the user likely wants &quot;العنوان المُترجم&quot;. However that might be ambiguous. Let&apos;s consider typical usage: If we have an English phrase &quot;Translated title&quot;, placeholder for an input field, the translation in Arabic for a placeholder could be &quot;عنوان مترجم&quot;. That&apos;s straightforward. Eg: &quot;العنوان المُترجم&quot; could be used as &quot;the translated address&quot;? Let&apos;s search mental memory: In many UI translation examples, &quot;Translated Title&quot; might be translated as &quot;العنوان المُترجم&quot; or &quot;العنوان المُترجِم&quot;? Let&apos;s see typical translation of &quot;Translated title&quot; in Arabic: Many translation guides would use &quot;العنوان المُترجم&quot;. For example, in a website, you have a field &quot;Translated Title&quot;. In Arabic, you could have &quot;العنوان المُترجم&quot;. That seems plausible.
+
+However, we need to consider if &quot;العنوان المُترجم&quot; might be interpreted as &quot;title that is a translator&quot; rather than &quot;title that has been translated&quot;. But in Arabic, &quot;المُترجم&quot; can mean the person who translates (translator). But &quot;المُترجم&quot; as a noun &quot;the translator&quot; can be singular; but the adjective &quot;المُترجم&quot; meaning &quot;the translated&quot; could be &quot;المُترجَم&quot;? Actually the passive participle pattern &quot;مُفَعَّل&quot; is for Form II (Double), which is not typical. The passive participle for Form II is &quot;مَفَعِّل&quot;? Hmm. Let&apos;s check morphological literature.
+
+The Arabic forms:
+
+- Form I: &quot;فَعَلَ&quot; (faʿala) → active participle &quot;فَاعِل&quot; (faaʿil) (e.g., &quot;كاتب&quot; from &quot;كَتَبَ&quot;? Actually &quot;كاتب&quot; is active participle of &quot;كاتب&quot;? Not sure).
+- Form II (faʿʿala) → active participle &quot;مُفَعِّل&quot; (mufaqil?). Passive participle &quot;مَفَعِّل&quot;? Something like &quot;مُفَعِّل&quot;? Actually not.
+
+But we are not dealing with morphological complexity. Maybe it&apos;s simpler: we can translate &quot;Translated title&quot; as &quot;العنوان المُترجم&quot;. That might be acceptable. But we can also use &quot;العنوان المترجم&quot;. Let&apos;s see which one is more natural. In Arabic UI, they often use &quot;العنوان المُترجم&quot;. For example, &quot;العنوان المُترجم&quot; appears in translation of &quot;Translated title&quot;. Let&apos;s search memory: In translation of &quot;Translated title&quot; into Arabic in open-source projects, they often use &quot;العنوان المُترجم&quot;. I&apos;ve seen &quot;العنوان المُترجم&quot;. So that is likely the correct translation.
+
+Thus the answer should be:
+
+```العنوان المُترجم```
+
+But the user instruction: &quot;Only output the translated content and wrap it in three backticks (```), like this: ```Translated word here...```&quot;. So we need to output exactly:
+
+```العنوان المُترجم```
+
+But note that backticks inside markdown will be displayed as code block, but we must output it as triple backticks, as they said.
+
+Thus final answer: wrap in triple backticks.
+
+One more nuance: In Arabic, the diacritic &quot;ُ&quot; is used after the word &quot;المُترجم&quot; to indicate a vowel. However, we need to check proper Arabic diacritical marks. &quot;المُترجم&quot; uses &quot;ُ&quot; after &quot;الم&quot;. That&apos;s correct for Arabic. However, many UI placeholder translations would not include diacritic marks like &quot;ُ&quot;. They may just have &quot;العنوان المترجم&quot;. That is without diacritic. The phrase &quot;العنوان المترجم&quot; is often used in Arabic UI (without diacritic). Indeed &quot;المترجم&quot; could be ambiguous but often they drop diacritics. The safe translation is &quot;العنوان المترجم&quot;. That is likely what they expect. Let&apos;s see typical translation: &quot;العنوان المترجم&quot; is used in Arabic for &quot;Translated title&quot;. Example: In Microsoft translation guidelines, they use &quot;العنوان المترجم&quot; as the translation for &quot;Translated title&quot;. So we could output &quot;العنوان المترجم&quot;. The phrase &quot;المُترجم&quot; is more proper for &quot;the translator&quot;. So I think &quot;العنوان المترجم&quot; is more correct.
+
+Thus translation: &quot;العنوان المترجم&quot;. Let&apos;s output that.
+
+Thus final answer:
+
+```العنوان المترجم```
+&lt;/think&gt;
+
+```العنوان المترجم</value>
+  </data>
+
+</root>

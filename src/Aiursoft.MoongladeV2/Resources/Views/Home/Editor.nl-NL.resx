@@ -183,6 +183,68 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>Intern - Specifieke gebruikers/rollen</value>
   </data>
+  <data name="Localization" xml:space="preserve">
+    <value>), like this:
+
+```
+Translated word here...
+```&quot;
+
+So we output:
+
+```
+Localisatie
+```
+
+Yes.
+
+Check: The word is &quot;Localization&quot;. In Dutch, translation is &quot;Localisatie&quot;. That is correct.
+
+Double-check: &quot;Localization&quot; in Dutch is indeed &quot;Localisatie&quot;. Example: &quot; localisation&quot; (sic) is translated as &quot;localisatie&quot;. There&apos;s also &quot;localiseren&quot; (verb) but &quot;Localization&quot; noun is &quot;Localisatie&quot;. So answer.
+
+Now check if any nuance: maybe it&apos;s part of a UI label: &quot;Localize&quot;. But user said &quot;only the sentence or word Localization&quot;. So they want just that word translation. So output &quot;Localisatie&quot;.
+
+Thus final answer.
+&lt;/think&gt;
+
+```Localisatie</value>
+  </data>
+  <data name="Localize" xml:space="preserve">
+    <value>Lokaliseren
+```
+
+But double-check: &quot;Localize&quot; may be a noun? It&apos;s a verb. In Dutch, &quot;Lokaliseren&quot; is an infinitive. If &quot;Localize&quot; is used as a command name, could be &quot;Lokalisatie&quot; (noun). However, &quot;Localize&quot; as a command is likely used as a verb phrase. Usually UI translation guidelines: For command names, use infinitive. So &quot;Localize&quot; -&gt; &quot;Lokaliseren&quot;. Yes.
+
+Thus answer should be:
+
+```
+Lokaliseren
+```
+
+The user wants output only the translated content and wrapped in three backticks, like this:
+
+```
+Translated word here...
+```
+
+Thus output:
+
+``` 
+Lokaliseren 
+```
+
+But no extra spaces. Provide exactly triple backticks with content.
+
+Thus final answer:
+
+```
+Lokaliseren
+```
+&lt;/think&gt;
+
+``` 
+Lokaliseren</value>
+  </data>
   <data name="Make document private" xml:space="preserve">
     <value>Document privé maken</value>
   </data>
