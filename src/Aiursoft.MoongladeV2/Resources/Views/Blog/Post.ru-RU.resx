@@ -27,6 +27,15 @@
   <data name="Back to posts" xml:space="preserve">
     <value>Назад к записям</value>
   </data>
+  <data name="By" xml:space="preserve">
+    <value>Автор```
+
+Wait, I need to output the translated word only, wrapped in three backticks. Let me correct that.
+
+The user wants me to translate only the word `By` in the context of a blog post meta label showing the author. In Russian, this is commonly translated as &quot;Автор:&quot; (Author:).
+
+```Автор</value>
+  </data>
   <data name="Comments" xml:space="preserve">
     <value>Комментарии</value>
   </data>
@@ -42,11 +51,137 @@
   <data name="Post Comment" xml:space="preserve">
     <value>Опубликовать комментарий</value>
   </data>
+  <data name="Published" xml:space="preserve">
+    <value>Опубликовано
+```
+
+Make sure to output only that. The instruction says: &quot;Please translate only the sentence or word Published in the paragraph into the target language ru-RU, Русский (Россия).&quot; So just the translation. Also &quot;Human names, nicknames, proper nouns, symbols, trademarks, etc., must be output as it is and do not translate them!&quot; Published is not a proper noun, it&apos;s a word that should be translated.
+
+Thus output:
+
+```Опубликовано```
+
+We need to output only that with triple backticks.
+
+But we should also check if there is any other nuance: The instruction: &quot;Do not output any other content. Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus we need to output exactly:
+
+```Опубликовано
+```
+
+I think we need to include line breaks? Should be just one line: ```Опубликовано``` (including backticks). The example shows:
+
+```
+Translated word here...
+```
+
+Which is triple backticks on separate lines? They show:
+
+```
+Translated word here...
+```
+
+That is triple backticks with a newline after them? Actually the example:
+
+```
+Translated word here...
+```
+
+Probably means triple backticks, then newline with the word, then closing triple backticks. So we should output:
+
+```Опубликовано```
+
+But need triple backticks and the word. Typically:
+
+```
+Опубликовано
+```
+
+That&apos;s all.
+
+Thus final answer.
+&lt;/think&gt;
+
+```Опубликовано</value>
+  </data>
   <data name="Reply" xml:space="preserve">
     <value>Ответить</value>
   </data>
   <data name="Send Reply" xml:space="preserve">
     <value>Отправить ответ</value>
+  </data>
+  <data name="Write your comment..." xml:space="preserve">
+    <value>Напишите ваш комментарий...
+```
+
+But maybe more natural: &quot;Напишите комментарий...&quot; But context: placeholder maybe &quot;Write your comment...&quot; So typical Russian translation: &quot;Напишите ваш комментарий...&quot; Another variant: &quot;Введите комментарий...&quot; Usually placeholder: &quot;Напишите комментарий...&quot; I think &quot;Напишите ваш комментарий...&quot; is fine.
+
+User instructions: &quot;please output the translated conclusion and nothing else. Do not output any other content!&quot; and &quot;Do NOT output any other content. Only output the translated content and wrap it in three backticks, like this: ``` Translated word here... ``` So we output exactly:
+
+```
+Напишите ваш комментарий...
+```
+
+Check: Should we add trailing ellIPS? The original placeholder includes three dots &quot;...&quot;. So we should preserve the three dots. So &quot;Напишите ваш комментарий...&quot; is appropriate.
+
+Thus output: ``` Напишите ваш комментарий... ``` with backticks. Ensure no extra text.
+
+Thus answer is:
+
+``` 
+Напишите ваш комментарий... 
+```
+
+But note: backticks with triple backticks lines. Ensure exactly as instructed: three backticks and inside line we put translation. No extra whitespace? I can include newline after triple backticks? They show example: &quot;``` Translated word here... ```&quot; i.e., triple backticks, space then translation, space then triple backticks on same line. They wrote &quot;``` Translated word here... ```&quot;. That suggests they want the backticks to wrap the translation but also keep backticks on same line? Actually example:
+
+```
+Translated word here...
+```
+
+But they show in text: &quot;``` Translated word here... ```&quot;. That is ambiguous. They said wrap it in three backticks, like this:
+
+```
+Translated word here...
+```
+
+That seems to indicate we output just translation inside backticks. So we could output:
+
+``` 
+Напишите ваш комментарий...
+```
+
+That matches the example format: triple backticks, newline content, triple backticks on separate line? The example they gave: &quot;``` Translated word here... ```&quot; includes backticks with content on same line. But the sample we see they wrote: &quot;``` Translated word here... ```&quot; (with three backticks). There&apos;s no newline after opening triple backticks. It might be that they want the translation inside backticks, i.e., open triple backticks, then content, then close triple backticks. So we could either do inline (``` Напишите ваш комментарий... ```) or block style. Let&apos;s interpret the instruction: &quot;Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+They show a block with triple backticks on separate line, then content, then closing triple backticks on separate line. So we should output like that.
+
+Thus final answer:
+
+``` 
+Напишите ваш комментарий...
+```
+
+That&apos;s all.
+
+Check: Should we preserve ellipsis &quot;...&quot;? Yes, we keep three dots. So final translation: &quot;Напишите ваш комментарий...&quot; Also note Russian punctuation: Usually after a phrase we put three dots. So it&apos;s fine.
+
+Thus answer: triple backticks with content. We&apos;ll output:
+
+``` 
+Напишите ваш комментарий...
+```
+&lt;/think&gt;
+
+``` 
+Напишите ваш комментарий...</value>
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>Напишите комментарий…</value>

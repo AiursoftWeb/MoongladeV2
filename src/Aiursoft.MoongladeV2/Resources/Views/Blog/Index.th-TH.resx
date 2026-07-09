@@ -27,6 +27,28 @@
   <data name="Archive" xml:space="preserve">
     <value>คลัง</value>
   </data>
+  <data name="Blog pagination" xml:space="preserve">
+    <value>การแบ่งหน้าเว็บบล็อก```
+
+or
+
+```การแบ่งหน้าบล็อก```
+
+Which one is more accurate? Let&apos;s examine Thai translation standards.
+
+&quot;Blog pagination&quot; can be broken down: Blog = &quot;เว็บบล็อก&quot; (a website blog). Pagination = &quot;การแบ่งหน้า&quot;. In context of a web page, &quot;Blog pagination&quot; can be &quot;การแบ่งหน้าเว็บบล็อก&quot;. This phrase appears in many Thai websites: &quot;การแบ่งหน้าเว็บบล็อก&quot;. But I&apos;d like to check if &quot;เว็บบล็อก&quot; is a typical term. Actually &quot;เว็บบล็อก&quot; is rarely used; people more commonly transliterate &quot;blog&quot; as &quot;บล็อก&quot;. For example &quot;บล็อก&quot; or &quot;เว็บบล็อก&quot;? Google search shows &quot;เว็บบล็อก&quot; yields some results like &quot;เว็บบล็อกคือ...&quot; but I&apos;m not sure. People also call &quot;บล็อก&quot; (blog). Many Thai websites have &quot;บล็อก&quot; or &quot;บล็อก&quot; as a category: &quot;บล็อก&quot; means &quot;blog&quot;. So &quot;Blog pagination&quot; could be &quot;การแบ่งหน้าเว็บบล็อก&quot; or &quot;การแบ่งหน้าบล็อก&quot;. Which one is more natural? Probably &quot;การแบ่งหน้าบล็อก&quot; is more concise and understandable: &quot;การแบ่งหน้า&quot; is a noun phrase meaning &quot;the act of dividing pages&quot;. Adding &quot;บล็อก&quot; clarifies that it&apos;s pagination for blog posts.
+
+Thus translation: &quot;การแบ่งหน้าบล็อก&quot;. That seems correct. Let&apos;s see if the phrase &quot;การแบ่งหน้าบล็อก&quot; is used anywhere. Searching mental memory, I&apos;m not sure but plausible.
+
+Thus I think &quot;การแบ่งหน้าบล็อก&quot; is appropriate. Provide that.
+
+The user wants only the translation for the sentence or word &quot;Blog pagination&quot;. So answer is:
+
+```การแบ่งหน้าบล็อก```
+&lt;/think&gt;
+
+```การแบ่งหน้าบล็อก</value>
+  </data>
   <data name="Explore" xml:space="preserve">
     <value>สำรวจ</value>
   </data>
@@ -38,6 +60,27 @@
   </data>
   <data name="Keywords" xml:space="preserve">
     <value>คำค้นหา</value>
+  </data>
+  <data name="Modern Markdown blogging with AI-powered localization and search." xml:space="preserve">
+    <value>การเขียนบล็อก Markdown ทันสมัยพร้อมการแปลงเป็นภาษาท้องถิ่นและการค้นหาด้วย AI
+```
+
+Alternatively &quot;บล็อก Markdown สมัยใหม่พร้อมการแปลงเป็นภาษาท้องถิ่นและการค้นหาด้วย AI&quot;. Which is more natural? Thai often uses &quot;บล็อก&quot; rather than &quot;การเขียนบล็อก&quot;. &quot;บล็อก&quot; is loan from English &quot;blog&quot;. So &quot;บล็อก Markdown สมัยใหม่พร้อมการแปลงเป็นภาษาท้องถิ่นและการค้นหาด้วย AI&quot;. This seems good.
+
+Thus final answer: triple backticks with Thai translation.
+
+Check if any part is proper nouns: &quot;Markdown&quot; is a proper noun? Should be preserved as is. &quot;AI-powered&quot; is also part of phrase. The translation can keep &quot;Markdown&quot;, &quot;AI&quot;. The translation includes &quot;AI&quot; not changed. So we keep &quot;Markdown&quot; and &quot;AI&quot;. Good.
+
+Thus final output: triple backticks containing Thai translation.
+
+We should double-check if any guidelines restrict certain characters? No. Just translation.
+
+Thus final answer: include translation within triple backticks and nothing else.
+
+Proceed.
+&lt;/think&gt;
+
+``` การเขียนบล็อก Markdown ทันสมัยพร้อมการแปลงเป็นภาษาท้องถิ่นและการค้นหาด้วย AI</value>
   </data>
   <data name="Next" xml:space="preserve">
     <value>ถัดไป</value>
@@ -63,8 +106,48 @@
   <data name="Search based on AI (Vector Database)" xml:space="preserve">
     <value>ค้นหาโดยใช้ AI (ฐานข้อมูลเวกเตอร์)</value>
   </data>
+  <data name="Sort posts" xml:space="preserve">
+    <value>เรียงโพสต์
+```
+
+Alternatively, &quot;จัดเรียงโพสต์&quot;. Which is more accurate? &quot;Sort posts&quot; -&gt; &quot;จัดเรียงโพสต์&quot;. Let&apos;s see typical translation: In Thai, &quot;sort&quot; is &quot;เรียง&quot;, &quot;จัดเรียง&quot;. In UI translations for &quot;Sort posts&quot;, I recall the phrase &quot;จัดเรียงโพสต์&quot; is used. Another possibility: &quot;เรียงโพสต์ตาม&quot; but that&apos;s not needed.
+
+Given the context of a blog, there is also &quot;เรียงลำดับโพสต์&quot;. But that is &quot;sort order posts&quot;.
+
+I think &quot;เรียงโพสต์&quot; is appropriate. But it&apos;s ambiguous. Let&apos;s examine the guidelines: The user says they want the translation of &quot;Sort posts&quot; into Thai. They want only the translated content and nothing else, wrapped in triple backticks. So we need to output only a code block with the Thai translation.
+
+Thus answer: ```เรียงโพสต์```.
+
+Double-check that it&apos;s correct: &quot;Sort posts&quot; -&gt; &quot;เรียงโพสต์&quot; indeed means &quot;sort posts&quot;. Might also be &quot;จัดเรียงโพสต์&quot;. But I think &quot;เรียงโพสต์&quot; is acceptable. Let&apos;s see if we can find any standard translation. If I search memory: In Thai language UI, &quot;Sort posts&quot; could be &quot;เรียงโพสต์&quot; or &quot;จัดเรียงโพสต์&quot;. Both could be used. The user didn&apos;t specify nuance. It&apos;s not a proper noun. So we can translate. Let&apos;s decide on &quot;เรียงโพสต์&quot;. That is simplest.
+
+Thus final answer: ```เรียงโพสต์```.
+
+Check no extra content. Only code block. Use triple backticks. So output:
+
+```เรียงโพสต์```
+
+Make sure no other text.
+&lt;/think&gt;
+
+```เรียงโพสต์</value>
+  </data>
   <data name="Tag" xml:space="preserve">
     <value>แท็ก</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>แท็ก
+```
+
+But we must consider if &quot;Tags&quot; is a proper noun? It&apos;s not a trademark. It&apos;s a generic word. So it&apos;s translatable.
+
+Thus answer: three backticks with &quot;แท็ก&quot;. Ensure no extra content.
+
+Potential nuance: Should we include proper Thai context? They want translation of &quot;Tags&quot;. So we output &quot;แท็ก&quot;. Use three backticks.
+
+Hence final answer: ```แท็ก```
+&lt;/think&gt;
+
+```แท็ก</value>
   </data>
   <data name="Too many searches. AI search temporarily limited; showing keyword results." xml:space="preserve">
     <value>ค้นหาบ่อยเกินไป การค้นหาด้วย AI ถูกจำกัดชั่วคราว; แสดงผลลัพธ์แบบคำหลัก</value>

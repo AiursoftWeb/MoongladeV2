@@ -27,6 +27,27 @@
   <data name="Archive" xml:space="preserve">
     <value>Архив</value>
   </data>
+  <data name="Blog pagination" xml:space="preserve">
+    <value>Пагинация блога
+```
+
+We must not output any extra. Check: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Blog pagination` is one of them.&quot; It&apos;s not a proper noun or trademark. So we translate.
+
+Thus output as required.
+
+One nuance: The translation may also be &quot;Блог — постраничная навигация&quot;? The simplest is &quot;Пагинация блога&quot;. But &quot;Blog pagination&quot; is a phrase, maybe &quot;Блог — постраничная навигация&quot;. However &quot;pagination&quot; is a noun; &quot;pagination&quot; is &quot;постраничная нумерация&quot;. In UI strings, &quot;pagination&quot; often appears as &quot;Разбиение на страницы&quot;. But &quot;Blog pagination&quot; as a label? The original uses aria-label=&quot;@Localizer[&quot;Blog pagination&quot;]&quot;. So it&apos;s a UI label for the nav element. The Russian translation likely &quot;Пагинация блога&quot; (blog pagination). That&apos;s fine.
+
+Thus output triple backticks: ``` Пагинация блога ```. But we need to be careful: The output must be exactly wrapped in triple backticks and nothing else. So:
+
+```
+Пагинация блога
+```
+
+That&apos;s it. Ensure no extra spaces. Also ensure no commentary.
+&lt;/think&gt;
+
+``` Пагинация блога</value>
+  </data>
   <data name="Explore" xml:space="preserve">
     <value>Обзор</value>
   </data>
@@ -38,6 +59,38 @@
   </data>
   <data name="Keywords" xml:space="preserve">
     <value>Ключевые слова</value>
+  </data>
+  <data name="Modern Markdown blogging with AI-powered localization and search." xml:space="preserve">
+    <value>Современный Markdown‑блог с AI‑локализацией и поиском.```
+
+But check: &quot;AI-powered localization&quot; can be &quot;AI-локализация&quot; meaning AI-powered localization. So &quot;AI-powered localization and search&quot; becomes &quot;AI‑локализация и поиск&quot;. So phrase &quot;Modern Markdown blogging with AI-powered localization and search.&quot; becomes &quot;Современный Markdown‑блог с AI‑локализацией и поиском.&quot;
+
+But maybe &quot;search&quot; can be &quot;поиск&quot;. So final translation: &quot;Современный Markdown-блог с AI-локализацией и поиском.&quot;
+
+But need to ensure that it matches the original tone: &quot;Modern Markdown blogging with AI-powered localization and search.&quot; This is likely a tagline for a blog platform.
+
+Thus output with triple backticks:
+
+```Современный Markdown‑блог с AI‑локализацией и поиском.```
+
+Check that we only output the translation inside triple backticks and nothing else. The prompt says &quot;Do not output any other content! Only output the translated content and wrap it in three backticks (```), like this: ``` Translated word here...```.&quot;
+
+Thus answer: triple backticks with translation.
+
+But we must consider that the user says &quot;Please translate only the sentence or word `Modern Markdown blogging with AI-powered localization and search.` in the paragraph into the target language ru-RU&quot;. So they want translation for that sentence only. It is indeed used inside an HTML element: `&lt;h4 class=&quot;text-center&quot;&gt;@Localizer[&quot;Modern Markdown blogging with AI-powered localization and search.&quot;]&lt;/h4&gt;`. So they want translation. So our answer is just the translation inside triple backticks. Should we include quotes? No, just translation.
+
+Thus final output:
+
+```Современный Markdown‑блог с AI‑локализацией и поиском.```
+
+Double-check for correctness: &quot;Markdown&quot; is a proper noun (software name), should be kept as is. &quot;AI-powered&quot; is maybe kept as &quot;AI‑&quot;. Russian: &quot;Современный Markdown‑блог с AI‑локализацией и поиском.&quot; That looks correct. Alternatively: &quot;Современный Markdown‑блог с AI-powered локализацией и поиском.&quot; But that would be a mix of English phrase &quot;AI-powered&quot;. It&apos;s okay but maybe &quot;AI-powered&quot; is considered a trademark? Possibly not. Safer to translate &quot;AI-powered&quot; as &quot;AI‑&quot;, but &quot;AI‑powered localization&quot; could be &quot;AI-локализация&quot;. In Russian &quot;AI-локализация&quot; is often used.
+
+Thus final answer: triple backticks with translation.
+
+Proceed.
+&lt;/think&gt;
+
+```Современный Markdown‑блог с AI‑локализацией и поиском.</value>
   </data>
   <data name="Next" xml:space="preserve">
     <value>Далее</value>
@@ -63,8 +116,96 @@
   <data name="Search based on AI (Vector Database)" xml:space="preserve">
     <value>Поиск на основе ИИ (векторная база данных)</value>
   </data>
+  <data name="Sort posts" xml:space="preserve">
+    <value>Translated word here...
+```
+
+Thus I need to output the translation of &quot;Sort posts&quot; into Russian.
+
+The phrase &quot;Sort posts&quot; can be translated as &quot;Сортировка сообщений&quot;, &quot;Сортировать сообщения&quot;, &quot;Сортировка постов&quot;. Usually in UI, &quot;Sort posts&quot; is a label for sorting posts, like &quot;Сортировка постов&quot;. The phrase &quot;Sort posts&quot; might be used as a heading or aria-label. It should be translated to Russian: &quot;Сортировка постов&quot;. Since &quot;posts&quot; are probably &quot;посты&quot; (common translation). &quot;Sort&quot; can be &quot;Сортировать&quot;, &quot;Сортировка&quot;, but as a verb phrase maybe &quot;Сортировать посты&quot;. However, typical UI translation for &quot;Sort posts&quot; would be &quot;Сортировать посты&quot;. But as a label, it might be &quot;Сортировка постов&quot;. Let&apos;s think: The user asks &quot;please translate only the sentence or word &apos;Sort posts&apos; in the paragraph into the target language ru-RU&quot;. So we output &quot;Сортировать посты&quot; or &quot;Сортировка постов&quot;. Which one is appropriate? The context: in the HTML, we have an aria-label attribute that might have value `aria-label=&quot;@Localizer[&quot;Sort posts&quot;]&quot;`. So it&apos;s a label for a group of buttons, likely used for accessibility. It&apos;s the phrase &quot;Sort posts&quot;. The UI translation of such labels should be &quot;Сортировать посты&quot; perhaps. In many Russian interfaces, they would use &quot;Сортировка постов&quot;. Actually, if it&apos;s a heading like &quot;Sort posts&quot;, they might use &quot;Сортировка постов&quot;. For a button group label, they often use &quot;Сортировать&quot; or &quot;Сортировка&quot;. Let&apos;s check typical translations.
+
+The phrase &quot;Sort posts&quot; likely appears in the aria-label of a button group with &quot;Recent&quot; and &quot;Featured&quot; options. Usually the group label is something like &quot;Sort posts&quot; meaning the group is &quot;Sort posts&quot;. In Russian translation, they might translate it as &quot;Сортировать посты&quot;. But sometimes it&apos;s &quot;Сортировка&quot;. Let&apos;s search memory of typical translation: In many WordPress admin UI, &quot;Sort posts&quot; is &quot;Сортировать сообщения&quot;. But in Russian they might prefer &quot;Сортировка&quot;. Example: In WordPress (in Russian) translation &quot;Sort posts by&quot; =&gt; &quot;Сортировать посты по&quot;. That doesn&apos;t sound right. Actually &quot;Sort posts by&quot; is &quot;Сортировать посты по&quot;. In a UI for a blog, &quot;Sort posts&quot; likely is &quot;Сортировка постов&quot;. That&apos;s a noun phrase.
+
+Consider typical Russian UI: &quot;Sort by&quot; is &quot;Сортировать по&quot;. &quot;Sort posts&quot; is &quot;Сортировать посты&quot;. I think &quot;Сортировать посты&quot; is correct.
+
+However, the user wants to output only the translated content wrapped in three backticks.
+
+Thus answer should be:
+
+```
+Сортировать посты
+```
+
+But maybe it&apos;s &quot;Сортировка постов&quot;? Let&apos;s examine typical translation patterns. In a UI label like &quot;Sort posts&quot;, it&apos;s often &quot;Сортировать посты&quot;. For example, in an English blog template: &quot;Sort posts&quot; might be a heading for a section that sorts posts (like a list). In Russian, they&apos;d likely translate it as &quot;Сортировать посты&quot;. That&apos;s the imperative form &quot;Sort (verb) posts&quot;. It could also be &quot;Сортировка постов&quot;. Which one is more natural? Let&apos;s think about how Russian UI developers handle this. In many translation files for .NET projects, they often have keys like &quot;Sort posts&quot; = &quot;Сортировка постов&quot;. I&apos;ve seen many translation files like this: &quot;Sort posts&quot; =&gt; &quot;Сортировать посты&quot;. Example: In a typical .NET MVC project, a translation table might have &quot;Sort posts&quot; =&gt; &quot;Сортировать посты&quot;. But I&apos;m not entirely sure.
+
+Let&apos;s examine similar translations: In WordPress translation file: &quot;Sort posts by&quot; is &quot;Сортировать посты по&quot;. In other contexts, &quot;Sort posts&quot; appears as a heading for a sorting area. I recall that in Russian translations of WordPress themes, they use &quot;Сортировать посты&quot;. For instance, the translation of the phrase &quot;Sort posts&quot; in a popular WordPress theme: &quot;Сортировать посты&quot;. I&apos;d like to search memory: In the default WordPress twenty twenty theme, the phrase &quot;Sort posts&quot; is used as an aria-label maybe. The translation might be &quot;Сортировать посты&quot;. But also &quot;Сортировка постов&quot; is used.
+
+Let&apos;s look at typical .NET Core localization. In .NET, they might have something like:
+
+```
+&quot;Sort posts&quot;: &quot;Сортировать посты&quot;
+```
+
+But also they might have &quot;Sort posts&quot; = &quot;Сортировка постов&quot;. Which one is more appropriate? In .NET localization, they sometimes have keys like &quot;Sort posts&quot; and they&apos;d translate as &quot;Сортировать посты&quot;. For example, in the localization file for a blog like &quot;Blogifier&quot;, they might have &quot;Sort posts&quot; = &quot;Сортировать посты&quot;. But I&apos;m not sure.
+
+Better to search memory: I recall a typical .NET MVC blog project called &quot;Moonglade&quot;. That might be the source. The phrase &quot;Sort posts&quot; could be part of the Moonglade project. I&apos;m not aware of that project&apos;s translations. Moonglade is a blogging platform by Blogifier. I recall that in the Moonglade project they have localized strings like &quot;Sort posts&quot;. I might search the internet memory: I&apos;ve seen something like &quot;Sort posts&quot; = &quot;Сортировать посты&quot;. But not sure.
+
+Nevertheless, the user explicitly wants only the translation. So we need to output something like:
+
+```
+Сортировать посты
+```
+
+But we also need to consider the phrase &quot;Sort posts&quot; maybe they want &quot;Сортировка постов&quot;. Let&apos;s think about if &quot;Sort posts&quot; is a heading, not a verb phrase, maybe they want a noun phrase &quot;Сортировка постов&quot;. Many UI headings use &quot;Сортировка постов&quot;. For example, &quot;Сортировка постов&quot; (post sorting). In Russian, if you want a heading like &quot;Sort posts&quot;, it&apos;s natural to use &quot;Сортировка постов&quot;. If it&apos;s a label for a group of buttons, &quot;Сортировка постов&quot; works. Example: In a blog template you might see:
+
+```html
+&lt;div class=&quot;btn-group btn-group-sm&quot; role=&quot;group&quot; aria-label=&quot;@Localizer[&quot;Sort posts&quot;]&quot;&gt;
+```
+
+If we translate that, we can use &quot;Сортировка постов&quot;. That seems plausible.
+
+Let&apos;s examine typical usage: If the aria-label says &quot;Sort posts&quot;, it&apos;s a label for a group of buttons (Recent, Featured). In Russian UI, that aria-label might be &quot;Сортировка постов&quot;. That&apos;s a noun phrase. Or &quot;Сортировать посты&quot; as a verb phrase? Usually for aria-label, you might want a short description like &quot;Сортировка постов&quot;. If you want a verb, you might use &quot;Сортировать&quot;. But &quot;Сортировать посты&quot; is verb phrase meaning &quot;Sort posts&quot; as an action. However, an aria-label may be used for screen readers; a short phrase &quot;Сортировка постов&quot; is appropriate.
+
+Alternatively, &quot;Сортировать посты&quot; is also okay.
+
+Let&apos;s see typical translation patterns for &quot;Sort posts&quot;. In .NET localization, I think it&apos;s &quot;Сортировать посты&quot;. For example, in &quot;Orchard&quot; (CMS) they have &quot;Sort posts&quot; = &quot;Сортировать посты&quot;. In the admin panel of &quot;Orchard&quot;, they have &quot;Sort posts&quot; under a group. I&apos;ve seen &quot;Sort posts&quot; translated as &quot;Сортировать посты&quot;. It&apos;s plausible.
+
+Therefore I will output &quot;Сортировать посты&quot;. That is a straightforward translation.
+
+Now the user instruction: &quot;Please translate only the sentence or word `Sort posts` in the paragraph into the target language ru-RU, Русский (Россия). Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Sort posts` is one of them.&quot; So we need to output only the translated content, wrapped in three backticks. So answer: ```Сортировать посты```.
+
+Make sure we do not include any other content. So output exactly:
+
+```Сортировать посты```
+
+That is it.
+
+Now check if there are any possible issues: We need to output only the translation, nothing else. Ensure we wrap in three backticks (```). So answer is:
+
+```Сортировать посты```
+
+No other text.
+
+Thus final answer.
+&lt;/think&gt;
+
+```Сортировать посты</value>
+  </data>
   <data name="Tag" xml:space="preserve">
     <value>Тег</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Теги
+```
+
+We must not add any other text. Must be exactly three backticks wrapping. So final answer:
+
+```
+Теги
+```
+&lt;/think&gt;
+
+``` Теги</value>
   </data>
   <data name="Too many searches. AI search temporarily limited; showing keyword results." xml:space="preserve">
     <value>Слишком много поисковых запросов. Поиск с ИИ временно ограничен; отображаются результаты по ключевым словам.</value>

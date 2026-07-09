@@ -27,6 +27,22 @@
   <data name="Back to posts" xml:space="preserve">
     <value>Voltar aos posts</value>
   </data>
+  <data name="By" xml:space="preserve">
+    <value>Por
+```
+
+Make sure to not output any other content, only the translation wrapped in backticks. The question says &quot;Please translate only the sentence or word `By` in the paragraph into the target language pt-BR, Português (Brasil).&quot; So answer is `Por`. Also they say if you don&apos;t understand what you want to translate, output it as it is. But we understand &quot;By&quot;. So output:
+
+```
+Por
+```
+
+Thus final answer.
+&lt;/think&gt;
+
+``` 
+Por</value>
+  </data>
   <data name="Comments" xml:space="preserve">
     <value>Comentários</value>
   </data>
@@ -42,11 +58,134 @@
   <data name="Post Comment" xml:space="preserve">
     <value>Publicar Comentário</value>
   </data>
+  <data name="Published" xml:space="preserve">
+    <value>Publicado
+```
+
+But wait, they said &quot;wrap it in three backticks (```) like this: ``` Translated word here...```. So we need to output exactly triple backticks and inside the translated content. According to formatting, we can output triple backticks with newline after them? They gave example: &quot;``` Translated word here...```&quot;. Actually they wrote: wrap it in three backticks (```), like this: ``` Translated word here...```. That suggests they want:
+
+```
+Publicado
+```
+
+with triple backticks on both sides. Eg:
+
+``` 
+Publicado
+```
+
+But they said &quot;wrap it in three backticks (```), like this: ``` Translated word here...```&quot;. Actually they wrote triple backticks, then space, then content, then triple backticks? The example shows &quot;``` Translated word here...```&quot;. That&apos;s ambiguous: they wrote three backticks, a space, then content, then three backticks? Actually triple backticks are fences that can contain content. If they want the output to be wrapped in three backticks, they&apos;d likely want something like:
+
+``` 
+Publicado
+```
+
+But we must output exactly three backticks, newline content, three backticks? Usually markdown triple backticks is a code block. They might want the content to be inside a code block: &quot;``` ... ```&quot;. The example &quot;``` Translated word here...```&quot; is weird: they wrote triple backticks, then space, then content, then triple backticks. Actually they might want the code block fences like:
+
+``` 
+Publicado
+```
+
+But they wrote &quot;wrap it in three backticks (```), like this: ``` Translated word here...```&quot;. Possibly they want:
+
+```Published word here...```
+
+But they want three backticks, then content, then three backticks? The typical formatting is:
+
+``` 
+Translated word here...
+```
+
+with newline after opening triple backticks. But they wrote &quot;like this: ``` Translated word here...```&quot;. That seems like they want a code block but not in newline. Actually typical markdown:
+
+``` 
+Translated word here...
+```
+
+One could also have:
+
+``` Translated word here... ```
+
+But that&apos;s not typical; you&apos;d need a newline after the opening backticks.
+
+The safe answer: output a code block containing the translation. Something like:
+
+```
+Publicado
+```
+
+But they explicitly said wrap it in three backticks, like this: ``` Translated word here...```. The example appears to be three backticks, a space, then the content, then three backticks, all on the same line: &quot;``` Translated word here...```&quot;. The request is ambiguous: maybe they want that form. However, they said &quot;wrap it in three backticks (```), like this: ``` Translated word here...```&quot;. So they want something like:
+
+```Publicado```
+
+i.e., a code block that begins and ends with three backticks with no newline after opening backticks. But that is not typical; a code block normally starts with triple backticks on a line, then content, then triple backticks on its own line. However, they may accept an inline code block (backticks). But they said &quot;wrap it in three backticks&quot;. Could be like a fenced code block.
+
+We can output:
+
+```Publicado```
+
+But that would be a code block starting with triple backticks, then the content, then closing triple backticks on same line, not a newline. That&apos;s not valid because you need newline after opening backticks for a fenced code block. But it could be accepted.
+
+Let&apos;s examine the user instructions: &quot;wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;. They gave an example with &quot;``` Translated word here...```&quot;. Actually the example uses three backticks, then space, then &quot;Translated word here...&quot;, then three backticks. It doesn&apos;t show newline. The triple backticks may be used as an inline code: ```code``` but that is one pair of backticks around code. But they used triple backticks, not single. So they likely want a fenced code block. The typical form is:
+
+``` 
+Translated word here...
+```
+
+But they might accept &quot;```Publicado```&quot;. Let&apos;s check the instruction: &quot;wrap it in three backticks (```), like this: ``` Translated word here...```&quot;. That suggests they want the opening and closing fences on the same line. Perhaps they want &quot;```Published```&quot;. However, they specifically said &quot;wrap it in three backticks (```), like this: ``` Translated word here...```&quot;. So maybe they want something like:
+
+```Publicado```
+
+That&apos;s consistent: triple backticks, then content, then triple backticks. This is an inline code block (though not typical). But it&apos;s allowed in Markdown as a code span? In Markdown, code spans are with single backticks, not triple. Triple backticks are fences for code blocks. Inline code can be with triple backticks as well? Actually standard Markdown uses single backticks for inline code. Triple backticks are used for fenced code blocks. So &quot;```Publicado```&quot; is not standard. However some rendering might treat it as a code block with no line break? In typical Markdown, you need a newline after opening fences. But the example given is &quot;``` Translated word here...```&quot;. This could be considered a code block with content on same line and closing fences on same line too. In typical markdown that would be not parsed as code block because fences must be on separate lines. So maybe they used triple backticks just to highlight the text: they want the content to be wrapped in triple backticks for readability. So we should output triple backticks on separate lines.
+
+Thus we should output:
+
+```
+Publicado
+```
+
+That matches &quot;wrap it in three backticks (```), like this:&quot; with an example code block. So answer will be:
+
+``` 
+Publicado
+```
+
+But we need to output exactly three backticks, then newline content, then three backticks. Let&apos;s do that. Also we need to follow &quot;Only output the translated content and nothing else&quot;. So no explanation. Just code block.
+
+Thus final answer: three backticks newline, &quot;Publicado&quot;, newline three backticks. Let&apos;s output that.
+&lt;/think&gt;
+
+```Publicado</value>
+  </data>
   <data name="Reply" xml:space="preserve">
     <value>Responder</value>
   </data>
   <data name="Send Reply" xml:space="preserve">
     <value>Enviar Resposta</value>
+  </data>
+  <data name="Write your comment..." xml:space="preserve">
+    <value>Escreva seu comentário...```.
+
+But check if they want exactly as shown, with three backticks. &quot;Do **NOT** output any other content. Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus we output:
+
+```
+Escreva seu comentário...
+```
+
+Thus final answer.
+&lt;/think&gt;
+
+```Escreva seu comentário...</value>
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>Escreva seu comentário…</value>
