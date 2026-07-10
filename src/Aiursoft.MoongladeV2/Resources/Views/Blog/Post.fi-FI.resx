@@ -27,6 +27,9 @@
   <data name="Back to posts" xml:space="preserve">
     <value>Takaisin julkaisuihin</value>
   </data>
+  <data name="By" xml:space="preserve">
+    <value>Tekijä</value>
+  </data>
   <data name="Comments" xml:space="preserve">
     <value>Kommentit</value>
   </data>
@@ -42,11 +45,17 @@
   <data name="Post Comment" xml:space="preserve">
     <value>Julkaise kommentti</value>
   </data>
+  <data name="Published" xml:space="preserve">
+    <value>Julkaistu</value>
+  </data>
   <data name="Reply" xml:space="preserve">
     <value>Vastaa</value>
   </data>
   <data name="Send Reply" xml:space="preserve">
     <value>Lähetä vastaus</value>
+  </data>
+  <data name="Write your comment..." xml:space="preserve">
+    <value>Kirjoita kommenttisi...</value>
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>Kirjoita kommenttisi…</value>

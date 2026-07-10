@@ -27,6 +27,9 @@
   <data name="Back to posts" xml:space="preserve">
     <value>Tilbage til indlæg</value>
   </data>
+  <data name="By" xml:space="preserve">
+    <value>Af</value>
+  </data>
   <data name="Comments" xml:space="preserve">
     <value>Kommentarer</value>
   </data>
@@ -42,11 +45,17 @@
   <data name="Post Comment" xml:space="preserve">
     <value>Indsend kommentar</value>
   </data>
+  <data name="Published" xml:space="preserve">
+    <value>Offentliggjort</value>
+  </data>
   <data name="Reply" xml:space="preserve">
     <value>Svar</value>
   </data>
   <data name="Send Reply" xml:space="preserve">
     <value>Send svar</value>
+  </data>
+  <data name="Write your comment..." xml:space="preserve">
+    <value>Skriv din kommentar...</value>
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>Skriv din kommentar…</value>

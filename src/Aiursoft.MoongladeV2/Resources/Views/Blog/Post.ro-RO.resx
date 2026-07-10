@@ -27,6 +27,9 @@
   <data name="Back to posts" xml:space="preserve">
     <value>Înapoi la postări</value>
   </data>
+  <data name="By" xml:space="preserve">
+    <value>De</value>
+  </data>
   <data name="Comments" xml:space="preserve">
     <value>Comentarii</value>
   </data>
@@ -42,11 +45,17 @@
   <data name="Post Comment" xml:space="preserve">
     <value>Publicare comentariu</value>
   </data>
+  <data name="Published" xml:space="preserve">
+    <value>Publicat</value>
+  </data>
   <data name="Reply" xml:space="preserve">
     <value>Răspunde</value>
   </data>
   <data name="Send Reply" xml:space="preserve">
     <value>Trimite răspunsul</value>
+  </data>
+  <data name="Write your comment..." xml:space="preserve">
+    <value>Scrieți comentariul dumneavoastră...</value>
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>Scrie comentariul tău…</value>
