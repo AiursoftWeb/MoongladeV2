@@ -27,6 +27,9 @@
   <data name="Back to posts" xml:space="preserve">
     <value>Επιστροφή στα άρθρα</value>
   </data>
+  <data name="By" xml:space="preserve">
+    <value>Από</value>
+  </data>
   <data name="Comments" xml:space="preserve">
     <value>Σχόλια</value>
   </data>
@@ -42,11 +45,17 @@
   <data name="Post Comment" xml:space="preserve">
     <value>Αποστολή σχολίου</value>
   </data>
+  <data name="Published" xml:space="preserve">
+    <value>Δημοσιεύτηκε</value>
+  </data>
   <data name="Reply" xml:space="preserve">
     <value>Απάντηση</value>
   </data>
   <data name="Send Reply" xml:space="preserve">
     <value>Αποστολή απάντησης</value>
+  </data>
+  <data name="Write your comment..." xml:space="preserve">
+    <value>Γράψτε το σχόλιό σας...</value>
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>Γράψτε το σχόλιό σας…</value>

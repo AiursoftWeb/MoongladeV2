@@ -27,6 +27,9 @@
   <data name="Back to posts" xml:space="preserve">
     <value>पोस्ट पर वापस जाएं</value>
   </data>
+  <data name="By" xml:space="preserve">
+    <value>द्वारा</value>
+  </data>
   <data name="Comments" xml:space="preserve">
     <value>टिप्पणियाँ</value>
   </data>
@@ -42,11 +45,17 @@
   <data name="Post Comment" xml:space="preserve">
     <value>टिप्पणी पोस्ट करें</value>
   </data>
+  <data name="Published" xml:space="preserve">
+    <value>प्रकाशित</value>
+  </data>
   <data name="Reply" xml:space="preserve">
     <value>उत्तर दें</value>
   </data>
   <data name="Send Reply" xml:space="preserve">
     <value>प्रतिक्रिया भेजें</value>
+  </data>
+  <data name="Write your comment..." xml:space="preserve">
+    <value>अपना टिप्पणी लिखें...</value>
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>अपना टिप्पणी लिखें…</value>

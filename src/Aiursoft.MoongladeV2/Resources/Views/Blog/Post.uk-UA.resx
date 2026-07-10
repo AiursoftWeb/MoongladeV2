@@ -27,6 +27,9 @@
   <data name="Back to posts" xml:space="preserve">
     <value>Назад до публікацій</value>
   </data>
+  <data name="By" xml:space="preserve">
+    <value>Автор</value>
+  </data>
   <data name="Comments" xml:space="preserve">
     <value>Коментарі</value>
   </data>
@@ -42,11 +45,17 @@
   <data name="Post Comment" xml:space="preserve">
     <value>Додати коментар</value>
   </data>
+  <data name="Published" xml:space="preserve">
+    <value>Опубліковано</value>
+  </data>
   <data name="Reply" xml:space="preserve">
     <value>Відповісти</value>
   </data>
   <data name="Send Reply" xml:space="preserve">
     <value>Надіслати відповідь</value>
+  </data>
+  <data name="Write your comment..." xml:space="preserve">
+    <value>Напишіть ваш коментар...</value>
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>Напишіть свій коментар…</value>
