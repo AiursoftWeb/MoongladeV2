@@ -27,6 +27,31 @@
   <data name="Back to posts" xml:space="preserve">
     <value>Voltar aos artigos</value>
   </data>
+  <data name="By" xml:space="preserve">
+    <value>Por
+```
+
+Wrap it in three backticks. The instruction says: Output the translated conclusion and nothing else. Provide only the translation. Should be in code block.
+
+Thus final answer: ```Por```.
+
+But check if any nuance: &quot;By&quot; in English could be translated &quot;Por&quot; or &quot;Por&quot;. Let&apos;s double-check Portuguese (Portugal) translation conventions. &quot;By&quot; in a metadata label for author: often &quot;Por&quot;. For example, in blog posts you might see &quot;Por&quot; (author). Some might use &quot;Autor:&quot; but that&apos;s not the case. The word &quot;By&quot; could also be &quot;Por&quot;. So output &quot;Por&quot;. That is correct.
+
+Edge Cases: &quot;By&quot; could be also &quot;Por&quot; (capital P). It&apos;s a short translation.
+
+Thus final answer:
+
+```
+Por
+```
+
+We need to output exactly that with triple backticks.
+
+No extra text. Should be final.
+&lt;/think&gt;
+
+```Por</value>
+  </data>
   <data name="Comments" xml:space="preserve">
     <value>Comentários</value>
   </data>
@@ -42,11 +67,56 @@
   <data name="Post Comment" xml:space="preserve">
     <value>Publicar Comentário</value>
   </data>
+  <data name="Published" xml:space="preserve">
+    <value>Publicado
+```
+
+Check: In Portuguese (Portugal), &quot;Published&quot; can be translated as &quot;Publicado&quot; (past participle). But &quot;Published&quot; is likely used as a label, like &quot;Published on date&quot;. In European Portuguese, &quot;Publicado&quot; is the standard translation. Could also be &quot;Publicada&quot;. But &quot;Published&quot; is likely an adjective used for both masculine and feminine? In Portuguese, the past participle &quot;publicado&quot; is masculine; if label is generic maybe &quot;Publicado&quot;. For singular masculine, &quot;Publicado&quot;. So output:
+
+```
+Publicado
+```
+
+Should we use localized string? It says output only the translated word, wrap in three backticks.
+
+Thus output:
+
+```
+Publicado
+```
+
+Make sure we do not add any extra content.
+
+Thus final answer is a code block with the translation.
+&lt;/think&gt;
+
+``` 
+Publicado</value>
+  </data>
   <data name="Reply" xml:space="preserve">
     <value>Resposta</value>
   </data>
   <data name="Send Reply" xml:space="preserve">
     <value>Enviar resposta</value>
+  </data>
+  <data name="Write your comment..." xml:space="preserve">
+    <value>Translated word here...
+```
+
+Thus we must output the translation of &quot;Write your comment...&quot;. This phrase is a placeholder for a text area in a web form. In Portuguese (Portugal), &quot;Write your comment...&quot; would be &quot;Escreva o seu comentário...&quot; or maybe &quot;Escreva o seu comentário...&quot;. Let&apos;s see the context: placeholder text. In Portuguese, the placeholder often used is &quot;Escreva o seu comentário...&quot; or &quot;Escreva aqui o seu comentário...&quot;. The phrase &quot;Write your comment...&quot; could be &quot;Escreva o seu comentário...&quot;. So we output that translation.
+
+But we should consider if any part is a proper noun? The phrase &quot;Write your comment...&quot; doesn&apos;t contain any proper nouns, but it&apos;s a placeholder. So translation: &quot;Escreva o seu comentário...&quot;. That seems appropriate. Use only Portuguese (Portugal). That is standard. Provide in triple backticks.
+
+Thus final answer:
+
+```
+Escreva o seu comentário...
+```
+
+Make sure to follow exactly the format: three backticks with content. Should not include any extra text. No other content. So output that.
+&lt;/think&gt;
+
+``` Escreva o seu comentário...</value>
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>Escreva o seu comentário…</value>

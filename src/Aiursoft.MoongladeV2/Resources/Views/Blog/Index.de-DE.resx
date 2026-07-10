@@ -27,6 +27,29 @@
   <data name="Archive" xml:space="preserve">
     <value>Archiv</value>
   </data>
+  <data name="Blog pagination" xml:space="preserve">
+    <value>Blog-Paginierung
+```
+
+But need to decide the correct German phrase. Let&apos;s search mental translation: &quot;Blog pagination&quot; is similar to &quot;Blog-Seiten&quot;. &quot;Pagination&quot; can be &quot;Seiten&quot;, but &quot;Blog pagination&quot; is a title. Typically you&apos;d use &quot;Blog Pagination&quot; for ARIA label, but we can translate as &quot;Blog-Seitennummerierung&quot;. However &quot;Paginierung&quot; is indeed a term but maybe not as common as &quot;Seitennummerierung&quot;. Let&apos;s think about typical UI usage: In German, &quot;pagination&quot; is often &quot;Seiten&quot;, &quot;Seitennummerierung&quot;. For a heading like &quot;Blog pagination&quot; maybe &quot;Blog Pagination&quot; is used but translation is &quot;Blog-Navigation&quot;. But let&apos;s think about typical translations: In many localization jobs, &quot;Pagination&quot; is translated as &quot;Seitennummerierung&quot; or &quot;Seiten&quot;. For example, &quot;Page 1 of 10&quot; uses &quot;Seite&quot;. For a section like &quot;Blog pagination&quot;, you could use &quot;Blog pagination&quot; as &quot;Blog Pagination&quot;. But the instruction says &quot;Please translate only the sentence or word `Blog pagination`&quot; So we need a translation, not a note.
+
+The output: &quot;Blog-Paginierung&quot;. Does that exist? It&apos;s not common. &quot;Blog-Übersicht&quot;? No.
+
+We need to consider the context: In the HTML, they have `aria-label=&quot;@Localizer[&quot;Blog pagination&quot;]&quot;`. They likely want a German translation for &quot;Blog pagination&quot;. In German, a simple translation could be &quot;Blog-Übersicht&quot;? No, that is blog overview. Not correct.
+
+Perhaps we can use &quot;Blog Pagination&quot; (German may keep the English term, but translation guidelines suggests you must translate). In German, you would say &quot;Blog-Startseite&quot;? No.
+
+Let&apos;s think about typical German UI phrase: &quot;Blog pagination&quot; is likely to be used as &quot;Blog pagination&quot; label for screen readers, meaning it&apos;s a navigation section for blog pages. In German, you could say &quot;Blog-Navigation&quot;. &quot;Navigation&quot; is generic but it might be used. However &quot;pagination&quot; specifically implies page number navigation. The phrase &quot;Blog pagination&quot; could be &quot;Blog Pagination&quot;, but maybe &quot;Blog pagination&quot; is a label like &quot;Blog pagination&quot;. In German you might say &quot;Blog-Startseiten&quot; no. The best translation is &quot;Blog-Seitennummerierung&quot;. But is that phrase correct? It sounds awkward.
+
+Let&apos;s think about &quot;pagination&quot; translation: In German, &quot;pagination&quot; can be &quot;Seitenumbruch&quot; (page break) or &quot;Seitennummerierung&quot; (numbering of pages). For UI, &quot;pagination&quot; is often &quot;Paginierung&quot;. Wikipedia: Paginierung (latin: paginatio) is &quot;page numbering&quot;. It&apos;s used in computing as &quot;pagination&quot;. So &quot;Paginierung&quot; is a good translation for &quot;pagination&quot;. So &quot;Blog-Paginierung&quot;. That seems plausible.
+
+So output &quot;Blog-Paginierung&quot;. Let&apos;s see if they want &quot;Blog-Paginierung&quot; or &quot;Blog Pagination&quot;. They want only the translation. So we can output &quot;Blog-Paginierung&quot;. Wrap in triple backticks.
+
+Thus final answer: ```Blog-Paginierung```.
+&lt;/think&gt;
+
+```Blog-Paginierung</value>
+  </data>
   <data name="Explore" xml:space="preserve">
     <value>Entdecken</value>
   </data>
@@ -38,6 +61,29 @@
   </data>
   <data name="Keywords" xml:space="preserve">
     <value>Suchbegriffe</value>
+  </data>
+  <data name="Modern Markdown blogging with AI-powered localization and search." xml:space="preserve">
+    <value>Modernes Markdown-Bloggen mit AI-powered Lokalisierung und Suche.
+```
+
+But we need to decide if we keep &quot;AI-powered&quot;. If we think it&apos;s a proper noun (like trademark) we keep it as is. If we think it&apos;s okay to translate, we might use &quot;KI-gestützter&quot;. But the phrase &quot;AI-powered localization&quot; could be &quot;KI-gestützter Lokalisierung&quot;. However, &quot;AI-powered&quot; might be considered a proper noun? Not exactly. However, the instruction &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them!&quot; does not include &quot;AI-powered&quot;. It&apos;s not a name, it&apos;s an adjective. It&apos;s not a trademark. But it&apos;s a brand name? AI maybe? AI is not a trademark but a concept. So we can translate. The safe approach is to translate &quot;AI-powered&quot; as &quot;KI-gestützt&quot;. The phrase &quot;localization&quot; can be &quot;Lokalisierung&quot;. &quot;Search&quot; is &quot;Suche&quot;. So final translation: &quot;Modernes Markdown-Bloggen mit KI-gestützter Lokalisierung und Suche.&quot;
+
+Now check grammar: &quot;Modernes Markdown-Bloggen&quot; uses &quot;Bloggen&quot; as a noun (gerund). &quot;Modernes&quot; is an adjective, declines accordingly (moderne? But &quot;Modernes&quot; is a capitalized adjective; we can say &quot;Modernes Markdown-Bloggen&quot;. That is okay. &quot;mit KI-gestützter Lokalisierung und Suche.&quot;
+
+Thus final output: ```Modernes Markdown-Bloggen mit KI-gestützter Lokalisierung und Suche.``` That seems plausible.
+
+But ensure we are not adding any extra content. Only output the translated sentence, wrapped in three backticks.
+
+Thus answer: three backticks with translation.
+
+I&apos;ll output:
+
+```
+Modernes Markdown-Bloggen mit KI-gestützter Lokalisierung und Suche.
+```
+&lt;/think&gt;
+
+```Modernes Markdown-Bloggen mit KI-gestützter Lokalisierung und Suche.</value>
   </data>
   <data name="Next" xml:space="preserve">
     <value>Weiter</value>
@@ -63,8 +109,81 @@
   <data name="Search based on AI (Vector Database)" xml:space="preserve">
     <value>KI-basierte Suche (Vektordatenbank)</value>
   </data>
+  <data name="Sort posts" xml:space="preserve">
+    <value>Beiträge sortieren```
+
+But maybe it&apos;s &quot;Beiträge sortieren&quot; or &quot;Beiträge sortieren&quot;. Let&apos;s check context: In the code:
+
+```
+aria-label=&quot;@Localizer[&quot;Sort posts&quot;]&quot;
+```
+
+Thus the translation is a label for an aria label. So we want &quot;Beiträge sortieren&quot;. Also possible &quot;Beiträge sortieren&quot; or &quot;Beiträge sortieren&quot;. But &quot;Beiträge&quot; plural of &quot;Beitrag&quot; is correct for posts. &quot;Sortieren&quot; is verb. So &quot;Beiträge sortieren&quot;. Yes.
+
+Thus output:
+
+```Beiträge sortieren```
+
+Make sure not to output any other content. Just that.
+
+Check if any nuance: Should we consider if the phrase is a proper noun? It&apos;s not a proper noun. Should we keep any capitalisation? &quot;Sort posts&quot; is capitalised &quot;Sort posts&quot;? The original appears as &quot;Sort posts&quot; with capital S? It&apos;s capitalized &quot;Sort posts&quot; because it&apos;s used as a label inside a Localizer string. In code it&apos;s `&quot;Sort posts&quot;`. So we need translation &quot;Beiträge sortieren&quot;. The capitalisation: In German, &quot;Beiträge sortieren&quot;. The first word capitalised because noun. So &quot;Beiträge sortieren&quot;. Good.
+
+Thus answer.
+
+But must check: The instructions say &quot;Do not output any other content. Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus answer: ```Beiträge sortieren``` with backticks. But we need exactly three backticks and then line break? They show code block with triple backticks and then text and then triple backticks. So we need to output:
+
+```Beiträge sortieren```
+
+Yes. No extra content. So final answer: code block with translation.
+
+Thus produce:
+
+```Beiträge sortieren```
+&lt;/think&gt;
+
+```Beiträge sortieren</value>
+  </data>
   <data name="Tag" xml:space="preserve">
     <value>Tag</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>&lt;article class=&quot;article-post-summary ...&gt;
+...
+@foreach (var tag in post.Tags)
+{
+&lt;a ...&gt;@tag&lt;/a&gt;
+}
+```
+
+But the word &quot;Tags&quot; appears maybe as a heading preceding a list of tags? Actually the code shown does not include a heading &quot;Tags&quot;. The only place &quot;Tags&quot; appears is at the top of the question: The sentence is `Tags`. The paragraph is something about the blog listing. The user wants to translate only that &quot;Tags&quot;. It&apos;s probably a header like &quot;Tags&quot;. So translation: &quot;Tags&quot;. In German, the direct translation would be &quot;Tags&quot;. Many UI design uses &quot;Tags&quot; unchanged. So answer: &quot;Tags&quot;. However, sometimes we might want &quot;Schlagwörter&quot;. But the guidelines: If you don&apos;t understand, output as is. We are not sure which is more appropriate. But we can try to produce the translation: &quot;Tags&quot;. The user explicitly says &quot;Do not output any other content. Only output the translated content and wrap it in three backticks&quot;. So we output:
+
+```
+Tags
+```
+
+But wait, that would be just the same as original. However, perhaps they want German &quot;Tags&quot;. But if they wanted German translation, they&apos;d expect something else. Let&apos;s think about the semantics: &quot;Tags&quot; is a plural noun. In German, &quot;Tags&quot; (plural) is used as &quot;Schlagwörter&quot; for tag labels. Word &quot;Tag&quot; (singular) means &quot;day&quot;. &quot;Tags&quot; can be used as &quot;Tags&quot; for a specific meaning. In German, &quot;Tag&quot; can also be used in plural &quot;Tage&quot;. &quot;Tags&quot; as plural of &quot;Tag&quot; (like day) doesn&apos;t make sense. So &quot;Tags&quot; is English &quot;tags&quot;. Many German speakers use &quot;Tags&quot; as a borrowed noun, like &quot;Die Tags&quot;. It&apos;s used in e-marketing: &quot;die Tags&quot;. It&apos;s used in German. So it&apos;s common.
+
+But the question: &quot;Tags&quot; in the paragraph is a sentence word. It might be a header for a block showing tags. Usually German UI would use &quot;Tags&quot; unchanged. But is that considered a translation? Yes, but it&apos;s the same. But the user expects a translation output. They said &quot;Please translate only the sentence or word `Tags` in the paragraph into the target language de-DE, Deutsch (Deutschland).&quot; The target language is German. They want translation. The translation could be &quot;Tags&quot;. That is not different. However, if we want to be more German, we could use &quot;Schlagwörter&quot; which is more natural for German. But is that typical? Let&apos;s search memory: In many blog software localized for German, &quot;Tags&quot; is often left unchanged as &quot;Tags&quot;. For instance, in &quot;BlogEngine.NET&quot; translation, they might have &quot;Tags&quot;. In WordPress, the heading for tags used in a blog is &quot;Tags&quot;. So maybe they want &quot;Tags&quot;. Let&apos;s consider the phrase &quot;Tags&quot; as a heading: In English blog, a heading might be &quot;Tags&quot;. In German, one could say &quot;Schlagwörter&quot; but also &quot;Tags&quot;. Since the UI uses English &quot;Tags&quot;, translation is not needed. It&apos;s a brand or UI term. But the user says &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; So if uncertain, output as is.
+
+Thus, I think answer: &quot;Tags&quot;. Provide that in triple backticks.
+
+But maybe they want a German translation, not just the same. Let&apos;s decide: The user wants translation: The sentence &quot;Tags&quot; is probably the header for tags on a page. In German UI, one would use &quot;Tags&quot; or &quot;Schlagwörter&quot;. Which one is more likely? Let&apos;s check typical German blog translation &quot;Tags&quot; as heading. In English UI, &quot;Tags&quot; is common. In German UI, I&apos;d expect &quot;Tags&quot;. For instance, in WordPress default theme, the translation for &quot;Tags&quot; is &quot;Tags&quot;. I can verify by checking typical WordPress .po file: &quot;Tags&quot; =&gt; &quot;Tags&quot;. Yes, WordPress translation uses &quot;Tags&quot;. So they&apos;d want &quot;Tags&quot;. So answer: &quot;Tags&quot;.
+
+Thus we output:
+
+```
+Tags
+```
+&lt;/think&gt;
+
+``` 
+Tags</value>
   </data>
   <data name="Too many searches. AI search temporarily limited; showing keyword results." xml:space="preserve">
     <value>Zu viele Suchanfragen. Die KI-Suche vorübergehend eingeschränkt; es werden Schlüsselwortergebnisse angezeigt.</value>
