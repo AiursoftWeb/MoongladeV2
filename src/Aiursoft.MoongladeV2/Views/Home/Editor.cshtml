@@ -95,6 +95,10 @@
                     <i class="align-middle" data-lucide="languages"></i> <span class="d-none d-xxl-inline">@Localizer["Localize"]</span>
                 </a>
 
+                <a asp-action="AbstractLocalize" asp-route-id="@Model.DocumentId" class="btn btn-sm btn-white text-dark shadow-sm" title="@Localizer["Abstract Localization"]">
+                    <i class="align-middle" data-lucide="book-open"></i> <span class="d-none d-xxl-inline">@Localizer["Abstract"]</span>
+                </a>
+
                 <a asp-controller="Contract" asp-action="Fill" asp-route-id="@Model.DocumentId" class="btn btn-sm btn-white text-dark shadow-sm"
                    target="_blank" title="@Localizer["Reader Layout"]">
                     <i class="align-middle" data-lucide="file-text"></i> <span class="d-none d-xxl-inline">@Localizer["Reader Layout"]</span>

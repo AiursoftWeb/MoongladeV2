@@ -862,4 +862,259 @@ public class HomeController(
 
         return Ok(new { success = true });
     }
+
+    /// <summary>
+    /// GET: Abstract localization editor for a document. Shows all configured languages and their abstracts.
+    /// </summary>
+    [Authorize]
+    [HttpGet]
+    public async Task<IActionResult> AbstractLocalize([Required][FromRoute] Guid id)
+    {
+        var userId = userManager.GetUserId(User);
+        var document = await context.MarkdownDocuments
+            .FirstOrDefaultAsync(d => d.Id == id);
+
+        if (document == null)
+        {
+            return NotFound("The document was not found.");
+        }
+
+        // Check edit permissions: owner, shared-with-edit, or admin
+        var isOwner = document.UserId == userId;
+        var canEdit = isOwner;
+
+        if (!isOwner)
+        {
+            var userRoles = await context.UserRoles
+                .Where(ur => ur.UserId == userId)
+                .Select(ur => ur.RoleId)
+                .ToListAsync();
+
+            canEdit = await context.DocumentShares
+                .AnyAsync(s => s.DocumentId == id &&
+                              s.Permission == SharePermission.Editable &&
+                              (s.SharedWithUserId == userId ||
+                               (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
+
+            if (!canEdit)
+            {
+                canEdit = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanEditAnyDocument)).Succeeded;
+            }
+        }
+
+        if (!canEdit)
+        {
+            return Forbid();
+        }
+
+        // Build the language list from LocalizedAbstracts (single query, then match in memory)
+        var languagesRaw = await globalSettingsService.GetSettingValueAsync(SettingsMap.LocalizationLanguages);
+        var cultures = languagesRaw.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+
+        var allAbstracts = await context.LocalizedAbstracts
+            .Where(la => la.DocumentId == id)
+            .ToListAsync();
+
+        var languageList = new List<AbstractLanguageInfo>();
+
+        foreach (var code in cultures)
+        {
+            try
+            {
+                var cultureInfo = CultureInfo.GetCultureInfo(code);
+                var localized = allAbstracts
+                    .FirstOrDefault(la => string.Equals(la.Culture, code, StringComparison.OrdinalIgnoreCase));
+
+                languageList.Add(new AbstractLanguageInfo
+                {
+                    Culture = code,
+                    NativeName = cultureInfo.NativeName,
+                    HasTranslation = localized != null,
+                    LastGeneratedAt = localized?.LastGeneratedAt,
+                    IsSourceCulture = string.Equals(code, document.SourceCulture, StringComparison.OrdinalIgnoreCase)
+                });
+            }
+            catch (CultureNotFoundException)
+            {
+                logger.LogWarning("Invalid culture code in LocalizationLanguages setting: {Code}", code);
+            }
+        }
+
+        var model = new AbstractLocalizeViewModel(document.Title ?? "Untitled Document")
+        {
+            DocumentId = document.Id,
+            DocumentTitle = document.Title ?? "Untitled Document",
+            SourceCulture = document.SourceCulture,
+            UpdatedAt = document.UpdatedAt,
+            Languages = languageList
+        };
+
+        return this.StackView(model, nameof(AbstractLocalize));
+    }
+
+    /// <summary>
+    /// GET: Returns JSON with abstract data for a specific document and culture.
+    /// </summary>
+    [Authorize]
+    [HttpGet]
+    public async Task<IActionResult> AbstractLocalizeData([Required] Guid id, [Required] string culture)
+    {
+        var userId = userManager.GetUserId(User);
+        var document = await context.MarkdownDocuments
+            .FirstOrDefaultAsync(d => d.Id == id);
+
+        if (document == null)
+        {
+            return NotFound("The document was not found.");
+        }
+
+        // Same permission check as AbstractLocalize GET
+        var isOwner = document.UserId == userId;
+        var canEdit = isOwner;
+
+        if (!isOwner)
+        {
+            var userRoles = await context.UserRoles
+                .Where(ur => ur.UserId == userId)
+                .Select(ur => ur.RoleId)
+                .ToListAsync();
+
+            canEdit = await context.DocumentShares
+                .AnyAsync(s => s.DocumentId == id &&
+                              s.Permission == SharePermission.Editable &&
+                              (s.SharedWithUserId == userId ||
+                               (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
+
+            if (!canEdit)
+            {
+                canEdit = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanEditAnyDocument)).Succeeded;
+            }
+        }
+
+        if (!canEdit)
+        {
+            return Forbid();
+        }
+
+        var localized = await context.LocalizedAbstracts
+            .FirstOrDefaultAsync(la => la.DocumentId == id &&
+                                       la.Culture == culture);
+
+        var isSourceCulture = string.Equals(culture, document.SourceCulture, StringComparison.OrdinalIgnoreCase);
+
+        return Json(new
+        {
+            documentId = document.Id,
+            documentTitle = document.Title,
+            sourceCulture = document.SourceCulture,
+            culture,
+            abstractText = localized?.Abstract ?? string.Empty,
+            lastGeneratedAt = localized?.LastGeneratedAt,
+            isSourceCulture
+        });
+    }
+
+    /// <summary>
+    /// POST: Saves a manual abstract correction via AJAX.
+    /// If saving the source-culture abstract, all other language abstracts are invalidated
+    /// so the background job will re-translate them.
+    /// </summary>
+    [Authorize]
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> SaveAbstractLocalization([Required] Guid documentId, [Required] string culture,
+        string abstractText)
+    {
+        var userId = userManager.GetUserId(User);
+        var document = await context.MarkdownDocuments
+            .FirstOrDefaultAsync(d => d.Id == documentId);
+
+        if (document == null)
+        {
+            return NotFound("The document was not found.");
+        }
+
+        // Same permission check
+        var isOwner = document.UserId == userId;
+        var canEdit = isOwner;
+
+        if (!isOwner)
+        {
+            var userRoles = await context.UserRoles
+                .Where(ur => ur.UserId == userId)
+                .Select(ur => ur.RoleId)
+                .ToListAsync();
+
+            canEdit = await context.DocumentShares
+                .AnyAsync(s => s.DocumentId == documentId &&
+                              s.Permission == SharePermission.Editable &&
+                              (s.SharedWithUserId == userId ||
+                               (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
+
+            if (!canEdit)
+            {
+                canEdit = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanEditAnyDocument)).Succeeded;
+            }
+        }
+
+        if (!canEdit)
+        {
+            return Forbid();
+        }
+
+        // Truncate to entity limit
+        abstractText = abstractText.SafeSubstring(8192);
+
+        var existing = await context.LocalizedAbstracts
+            .FirstOrDefaultAsync(la => la.DocumentId == documentId &&
+                                       la.Culture == culture);
+
+        if (existing == null)
+        {
+            context.LocalizedAbstracts.Add(new LocalizedAbstract
+            {
+                DocumentId = documentId,
+                Culture = culture,
+                Abstract = abstractText,
+                LastGeneratedAt = DateTime.UtcNow
+            });
+        }
+        else
+        {
+            existing.Abstract = abstractText;
+            existing.LastGeneratedAt = DateTime.UtcNow;
+        }
+
+        var isSourceCulture = string.Equals(culture, document.SourceCulture, StringComparison.OrdinalIgnoreCase);
+
+        // If saving the source-culture abstract, invalidate all other language abstracts
+        // so the background job re-translates them from the updated source.
+        if (isSourceCulture)
+        {
+            var otherAbstracts = await context.LocalizedAbstracts
+                .Where(la => la.DocumentId == documentId &&
+                             la.Culture != culture)
+                .ToListAsync();
+
+            foreach (var other in otherAbstracts)
+            {
+                other.LastGeneratedAt = DateTime.MinValue;
+            }
+
+            logger.LogInformation(
+                "User '{UserId}' updated source abstract for document '{DocumentId}' ({Culture}). " +
+                "{Count} other language abstract(s) invalidated for re-translation.",
+                userId, documentId, culture, otherAbstracts.Count);
+        }
+        else
+        {
+            logger.LogInformation(
+                "User '{UserId}' manually updated abstract for document '{DocumentId}' to culture '{Culture}'.",
+                userId, documentId, culture);
+        }
+
+        await context.SaveChangesAsync();
+
+        return Ok(new { success = true, isSourceCulture });
+    }
 }

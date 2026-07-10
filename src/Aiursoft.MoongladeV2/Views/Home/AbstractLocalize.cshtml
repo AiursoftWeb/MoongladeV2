@@ -1,0 +1,301 @@
+@using Aiursoft.MoongladeV2.Controllers
+@using Aiursoft.WebTools
+@model Aiursoft.MoongladeV2.Models.HomeViewModels.AbstractLocalizeViewModel
+
+@Html.AntiForgeryToken()
+
+@* --- Document Metadata Header --- *@
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Abstract Localization"]: @Model.DocumentTitle</h3>
+        <p class="mb-0 text-muted">
+            @Localizer["Source Culture"]: <span class="badge bg-secondary">@(Model.SourceCulture ?? "—")</span>
+            &nbsp;|&nbsp; @Localizer["Last Modified"]: <label class="text-muted mb-0 d-inline" data-utc-time="@Model.UpdatedAt.ToHtmlDateTime()"></label>
+        </p>
+    </div>
+    <div class="col-auto ms-auto text-end mt-n1">
+        <a asp-action="Edit" asp-route-id="@Model.DocumentId" class="btn btn-outline-secondary">
+            <i class="align-middle" data-lucide="arrow-left"></i> @Localizer["Back to Editor"]
+        </a>
+    </div>
+</div>
+
+@* --- Success/Error Alerts --- *@
+@if (!string.IsNullOrEmpty(Model.SuccessMessage))
+{
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <div class="alert-icon">
+            <i class="align-middle" data-lucide="check-circle"></i>
+        </div>
+        <div class="alert-message">
+            <strong>@Localizer["Success!"]</strong> @Model.SuccessMessage
+        </div>
+    </div>
+}
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <div class="alert-icon">
+            <i class="align-middle" data-lucide="alert-circle"></i>
+        </div>
+        <div class="alert-message">
+            <strong>@Localizer["Error!"]</strong> @Model.ErrorMessage
+        </div>
+    </div>
+}
+
+@* --- Two-Column Layout: Language sidebar + Editor --- *@
+<div class="row">
+    @* Left: Language sidebar *@
+    <div class="col-lg-3">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="align-middle" data-lucide="globe"></i> @Localizer["Languages"]
+                </h5>
+            </div>
+            <div class="list-group list-group-flush" id="language-list">
+                @foreach (var lang in Model.Languages)
+                {
+                    <button type="button" class="list-group-item list-group-item-action language-item d-flex flex-column align-items-start"
+                            data-culture="@lang.Culture"
+                            data-is-source="@lang.IsSourceCulture.ToString().ToLower()">
+                        <div class="d-flex w-100 justify-content-between align-items-center">
+                            <span class="fw-semibold">
+                                @if (lang.IsSourceCulture)
+                                {
+                                    <i class="align-middle text-warning" data-lucide="star" style="width: 14px; height: 14px;"></i>
+                                }
+                                @lang.NativeName
+                            </span>
+                            @if (lang.HasTranslation)
+                            {
+                                <i class="align-middle text-success" data-lucide="check-circle" style="width: 16px; height: 16px;"></i>
+                            }
+                        </div>
+                        <small class="text-muted">
+                            @lang.Culture
+                            @if (lang.IsSourceCulture)
+                            {
+                                <span class="badge bg-warning text-dark ms-1">@Localizer["Source"]</span>
+                            }
+                        </small>
+                        @if (lang.LastGeneratedAt.HasValue)
+                        {
+                            <small class="text-muted mt-1">
+                                @Localizer["Generated"]: <label class="text-muted mb-0 d-inline" data-utc-time="@lang.LastGeneratedAt.Value.ToHtmlDateTime()"></label>
+                            </small>
+                        }
+                    </button>
+                }
+            </div>
+        </div>
+    </div>
+
+    @* Right: Editor area *@
+    <div class="col-lg-9">
+        <div class="card" id="editor-card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="align-middle" data-lucide="file-text"></i>
+                    <span id="editor-language-label">@Localizer["Select a language"]</span>
+                </h5>
+            </div>
+            <div class="card-body">
+                @* Source culture warning *@
+                <div id="source-warning" class="alert alert-warning d-none" role="alert">
+                    <div class="alert-icon">
+                        <i class="align-middle" data-lucide="alert-triangle"></i>
+                    </div>
+                    <div class="alert-message">
+                        <strong>@Localizer["Warning!"]</strong> @Localizer["Editing the source abstract will trigger re-translation of all other language abstracts. The background job will regenerate all translations from this updated source."]
+                    </div>
+                </div>
+
+                <div id="localization-editor-area">
+                    @* Abstract textarea *@
+                    <div class="mb-3">
+                        <label for="abstract-editor" class="form-label">@Localizer["Abstract"]</label>
+                        <textarea id="abstract-editor" class="form-control"
+                                  placeholder="@Localizer["Translated abstract"]" maxlength="8192"
+                                  style="min-height: 200px; resize: vertical;"></textarea>
+                        <div class="form-text text-end" id="abstract-char-count">0 / 8192</div>
+                    </div>
+                    @* Save button + status *@
+                    <div class="d-flex align-items-center">
+                        <button type="button" id="save-abstract-btn" class="btn btn-primary btn-lg" disabled>
+                            <i class="align-middle" data-lucide="save"></i>
+                            @Localizer["Save Abstract"]
+                        </button>
+                        <span id="save-status" class="ms-3"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var currentCulture = null;
+            var documentId = '@Model.DocumentId';
+
+            // --- Language Selection ---
+            var languageItems = document.querySelectorAll('.language-item');
+            var langLabel = document.getElementById('editor-language-label');
+            var abstractEditor = document.getElementById('abstract-editor');
+            var charCount = document.getElementById('abstract-char-count');
+            var saveBtn = document.getElementById('save-abstract-btn');
+            var sourceWarning = document.getElementById('source-warning');
+
+            function highlightSelectedLang(culture) {
+                languageItems.forEach(function (item) {
+                    item.classList.remove('active');
+                    if (item.dataset.culture === culture) {
+                        item.classList.add('active');
+                    }
+                });
+            }
+
+            function updateCharCount() {
+                var len = abstractEditor.value.length;
+                charCount.textContent = len + ' / 8192';
+                if (len > 7500) {
+                    charCount.classList.add('text-warning');
+                } else {
+                    charCount.classList.remove('text-warning');
+                }
+                if (len > 8100) {
+                    charCount.classList.add('text-danger');
+                    charCount.classList.remove('text-warning');
+                } else if (len <= 7500) {
+                    charCount.classList.remove('text-danger');
+                }
+            }
+
+            abstractEditor.addEventListener('input', updateCharCount);
+
+            function loadAbstract(culture, nativeName, isSource) {
+                currentCulture = culture;
+                langLabel.textContent = nativeName + ' (' + culture + ')';
+                saveBtn.disabled = false;
+                highlightSelectedLang(culture);
+
+                // Toggle source warning
+                if (isSource) {
+                    sourceWarning.classList.remove('d-none');
+                } else {
+                    sourceWarning.classList.add('d-none');
+                }
+
+                var url = '/Home/AbstractLocalizeData?id=' + encodeURIComponent(documentId) + '&culture=' + encodeURIComponent(culture);
+                fetch(url)
+                    .then(function (r) {
+                        if (!r.ok) throw new Error('Failed to load abstract data');
+                        return r.json();
+                    })
+                    .then(function (data) {
+                        abstractEditor.value = data.abstractText || '';
+                        updateCharCount();
+                    })
+                    .catch(function (err) {
+                        console.error('Failed to load abstract:', err);
+                        showStatus('error', '@Localizer["Failed to load abstract."]');
+                    });
+            }
+
+            // --- Save ---
+            saveBtn.addEventListener('click', function () {
+                if (!currentCulture) return;
+
+                var tokenInput = document.querySelector('input[name="__RequestVerificationToken"]');
+                var token = tokenInput ? tokenInput.value : '';
+
+                var formData = new FormData();
+                formData.append('documentId', documentId);
+                formData.append('culture', currentCulture);
+                formData.append('abstractText', abstractEditor.value);
+                formData.append('__RequestVerificationToken', token);
+
+                saveBtn.disabled = true;
+                showStatus('saving', '@Localizer["Saving..."]');
+
+                fetch('/Home/SaveAbstractLocalization', {
+                    method: 'POST',
+                    body: formData
+                })
+                    .then(function (r) {
+                        if (!r.ok) throw new Error('Save failed');
+                        return r.json();
+                    })
+                    .then(function (data) {
+                        if (data.success) {
+                            if (data.isSourceCulture) {
+                                showStatus('success', '@Localizer["Saved! All translations will be regenerated."]');
+                            } else {
+                                showStatus('success', '@Localizer["Saved successfully!"]');
+                            }
+                            setTimeout(function () { clearStatus(); }, 3000);
+                        } else {
+                            showStatus('error', data.error || '@Localizer["Save failed."]');
+                        }
+                    })
+                    .catch(function (err) {
+                        console.error('Save failed:', err);
+                        showStatus('error', '@Localizer["Save failed."]');
+                    })
+                    .finally(function () {
+                        saveBtn.disabled = false;
+                    });
+            });
+
+            // --- Status display helpers ---
+            function showStatus(type, message) {
+                var el = document.getElementById('save-status');
+                var color = type === 'success' ? 'text-success' : type === 'error' ? 'text-danger' : 'text-muted';
+                el.className = color + ' ms-3';
+                el.textContent = message;
+            }
+
+            function clearStatus() {
+                var el = document.getElementById('save-status');
+                el.textContent = '';
+            }
+
+            // --- Wire up language click handlers ---
+            languageItems.forEach(function (item) {
+                item.addEventListener('click', function () {
+                    var culture = item.dataset.culture;
+                    var isSource = item.dataset.isSource === 'true';
+                    var nameSpan = item.querySelector('span.fw-semibold');
+                    var name = nameSpan ? nameSpan.textContent.trim() : culture;
+                    // Remove the star icon text if present (nativeName might include it)
+                    if (name.startsWith('★')) {
+                        name = name.substring(1).trim();
+                    }
+                    loadAbstract(culture, name, isSource);
+                });
+            });
+
+            // --- Initial: auto-load the source culture language first ---
+            @{
+                var sourceLang = Model.Languages.FirstOrDefault(l => l.IsSourceCulture);
+                if (sourceLang == null)
+                {
+                    sourceLang = Model.Languages.FirstOrDefault();
+                }
+            }
+            @if (sourceLang != null)
+            {
+                var firstName = System.Globalization.CultureInfo.GetCultureInfo(sourceLang.Culture).NativeName;
+                <text>
+                loadAbstract('@sourceLang.Culture', '@Html.Raw(firstName)', @(sourceLang.IsSourceCulture.ToString().ToLower()));
+                </text>
+            }
+        });
+    </script>
+}
