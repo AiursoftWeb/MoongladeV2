@@ -27,6 +27,32 @@
   <data name="Back to posts" xml:space="preserve">
     <value>Powrót do wpisów</value>
   </data>
+  <data name="By" xml:space="preserve">
+    <value>przez```
+
+But the instruction: &quot;Only output the translated content and wrap it in three backticks, like this: ``` Translated word here...```&quot;. So we output:
+
+```przez```
+
+But we need to consider whether to capitalize: &quot;przez&quot;. The word &quot;By&quot; is capitalized? In English maybe &quot;By&quot; is capitalized as a label? In the code, it&apos;s within a Localizer, likely they will capitalize the first letter in translation. But we can just output &quot;przez&quot;. Should we output lower-case? The translation should be correct for context. The label probably has no special capitalization; if it&apos;s a label, it might be capitalized (e.g., &quot;By&quot; is capitalized in English). In Polish, &quot;przez&quot; is lower-case. However, if the code expects &quot;By&quot; to be capitalized, maybe they will set the translation to &quot;Przez&quot;. Actually, if they use &quot;@Localizer[&quot;By&quot;]&quot; and then later use the translation, they might want the translation exactly like &quot;Przez&quot;. In English it&apos;s capital B because it&apos;s part of a phrase. But in Polish translation, maybe they want &quot;Przez&quot;. So we should output &quot;Przez&quot;. Usually translation guidelines: Keep capitalization if it&apos;s a label that is capitalized in source. So &quot;By&quot; is capital B in source. The translation &quot;Przez&quot; with capital P may be more appropriate.
+
+Thus output:
+
+```Przez```
+
+Double-check: The instructions: &quot;Only output the translated content and wrap it in three backticks, like this: ``` Translated word here...```&quot;. So we output:
+
+```Przez```
+
+Yes.
+
+Make sure no extra content.
+
+Thus final answer.
+&lt;/think&gt;
+
+```Przez</value>
+  </data>
   <data name="Comments" xml:space="preserve">
     <value>Komentarze</value>
   </data>
@@ -42,11 +68,52 @@
   <data name="Post Comment" xml:space="preserve">
     <value>Opublikuj komentarz</value>
   </data>
+  <data name="Published" xml:space="preserve">
+    <value>Opublikowano
+```
+
+Thus we output a code block containing &quot;Opublikowano&quot;. That should be correct. The user says: &quot;Do not output any other content. Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus we output:
+
+```Opublikowano```
+
+But need to follow exactly the format: three backticks on separate lines? The example shows:
+
+```
+Translated word here...
+```
+
+Meaning start and end code fences with triple backticks, and then the text inside. It might be a single line after triple backticks. The format is:
+
+```
+Opublikowano
+```
+
+Thus we output exactly that. Ensure no extra whitespace or explanation. Just that.
+
+Therefore final answer: a code block with Opublikowano.
+&lt;/think&gt;
+
+```Opublikowano</value>
+  </data>
   <data name="Reply" xml:space="preserve">
     <value>Odpowiedz</value>
   </data>
   <data name="Send Reply" xml:space="preserve">
     <value>Wyślij odpowiedź</value>
+  </data>
+  <data name="Write your comment..." xml:space="preserve">
+    <value>Napisz swój komentarz...
+```
+&lt;/think&gt;
+
+``` 
+Napisz swój komentarz...</value>
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>Napisz swój komentarz…</value>

@@ -27,6 +27,23 @@
   <data name="Archive" xml:space="preserve">
     <value>Arkiv</value>
   </data>
+  <data name="Blog pagination" xml:space="preserve">
+    <value>Bloggsidnumrering
+```
+
+But also note: They ask to output only the translation and wrap in triple backticks. So output:
+
+```
+Bloggsidnumrering
+```
+
+Make sure to not output any other content. So final answer: triple backticks with translation.
+
+Thus answer: &quot;Bloggsidnumrering&quot;.
+&lt;/think&gt;
+
+```Bloggsidnumrering</value>
+  </data>
   <data name="Explore" xml:space="preserve">
     <value>Utforska</value>
   </data>
@@ -38,6 +55,27 @@
   </data>
   <data name="Keywords" xml:space="preserve">
     <value>Sökord</value>
+  </data>
+  <data name="Modern Markdown blogging with AI-powered localization and search." xml:space="preserve">
+    <value>Modern Markdown-bloggning med AI-driven lokalisering och sökning.
+```
+
+We should consider if the phrase &quot;Markdown&quot; is a proper noun/trademark. According to the instruction, &quot;Modern Markdown blogging with AI-powered localization and search.&quot; It contains the word &quot;Markdown&quot;. Markdown is a trademark (original trademark) and they said to not translate names, proper nouns, symbols, trademarks, etc. So &quot;Markdown&quot; is a proper noun, a trademark. So we must keep &quot;Markdown&quot; as is. &quot;AI-powered&quot; is not a name? It&apos;s an adjective. But &quot;AI-powered&quot; might be considered a phrase rather than a name. However, &quot;AI&quot; could be considered an abbreviation but not a name. It likely is fine to translate. The phrase &quot;Modern Markdown blogging with AI-powered localization and search.&quot; The phrase includes &quot;Modern&quot;, &quot;Markdown&quot;, &quot;AI-powered&quot;, &quot;localization&quot;, &quot;search&quot;. &quot;Markdown&quot; should remain unchanged. &quot;AI-powered&quot; likely can be translated as &quot;AI-driven&quot; or &quot;AI-baserad&quot;. Should we keep &quot;AI-powered&quot;? The instruction says not to translate proper nouns, symbols, trademarks. &quot;AI&quot; is an abbreviation for Artificial Intelligence, not a trademark. It&apos;s okay to translate. So we can translate &quot;AI-powered&quot; to &quot;AI-driven&quot;. Keep &quot;Markdown&quot;. So final translation: &quot;Modern Markdown-bloggning med AI-driven lokalisering och sökning.&quot; Yes.
+
+Double-check translation: &quot;Modern Markdown-bloggning med AI-driven lokalisering och sökning.&quot; The phrase &quot;localization&quot; could be &quot;lokalisering&quot; (which is a direct translation) or &quot;lokalanpassning&quot;. &quot;Search&quot; is &quot;sökning&quot;. So &quot;lokalisering&quot; fits. So: &quot;Modern Markdown-bloggning med AI-driven lokalisering och sökning.&quot; That seems correct.
+
+Thus output should be:
+
+```
+Modern Markdown-bloggning med AI-driven lokalisering och sökning.
+```
+
+Make sure to wrap in triple backticks with language unspecified. Use three backticks.
+
+Thus final answer.
+&lt;/think&gt;
+
+```Modern Markdown-bloggning med AI-driven lokalisering och sökning.</value>
   </data>
   <data name="Next" xml:space="preserve">
     <value>Nästa</value>
@@ -63,8 +101,58 @@
   <data name="Search based on AI (Vector Database)" xml:space="preserve">
     <value>Sök med AI (vektordatabas)</value>
   </data>
+  <data name="Sort posts" xml:space="preserve">
+    <value>Sortera inlägg?
+```
+
+But what is correct Swedish translation for &quot;Sort posts&quot;? It could be &quot;Sortera inlägg&quot;. However we need to consider context: &quot;Sort posts&quot; is used as an aria-label for a button group. In Swedish, that would be &quot;Sortera inlägg&quot;. But maybe there is nuance: &quot;Sortera&quot; is infinitive; &quot;Sortera inlägg&quot; is plausible. But perhaps &quot;Sortera poster&quot;? &quot;Inlägg&quot; is correct for posts. &quot;Sortera inlägg&quot;. Or &quot;Sortera artiklar&quot;? However context is about blog posts, so &quot;Inlägg&quot; is more natural. &quot;Sortera inlägg&quot;. Or &quot;Sortera inlägg&quot; as a phrase.
+
+Check translation guidelines: translation for &quot;Sort posts&quot; might be &quot;Sortera inlägg&quot;. Let&apos;s check typical Swedish translation of &quot;Sort posts&quot; in UI: Many Swedish UIs use &quot;Sortera inlägg&quot;. E.g., in WordPress admin: &quot;Sortera inlägg&quot;. So yes.
+
+Thus output: 
+
+```
+Sortera inlägg
+```
+
+Wrap in triple backticks.
+
+We must not output any other content. Ensure we output only the translation. Use triple backticks. So final answer:
+
+```
+Sortera inlägg
+```
+
+Check instructions: &quot;Do NOT output any other content. Only output the translated content and wrap it in three backticks, like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus output exactly that.
+
+Thus final answer: triple backticks with content &quot;Sortera inlägg&quot;.
+&lt;/think&gt;
+
+``` 
+Sortera inlägg</value>
+  </data>
   <data name="Tag" xml:space="preserve">
     <value>Etikett</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Taggar
+```
+
+Make sure to output exactly that with triple backticks, nothing else.
+
+Be careful: The instructions: &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; We understand. So output &quot;Taggar&quot;.
+
+Thus final answer.
+&lt;/think&gt;
+
+``` 
+Taggar</value>
   </data>
   <data name="Too many searches. AI search temporarily limited; showing keyword results." xml:space="preserve">
     <value>För många sökningar. AI-sökning tillfälligt begränsad; visar sökordsbaserade resultat.</value>

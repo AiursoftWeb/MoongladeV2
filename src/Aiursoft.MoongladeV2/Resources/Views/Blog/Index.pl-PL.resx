@@ -27,6 +27,62 @@
   <data name="Archive" xml:space="preserve">
     <value>Archiwum</value>
   </data>
+  <data name="Blog pagination" xml:space="preserve">
+    <value>Paginacja bloga
+```
+
+But let me double-check if there is any nuance: The user wants &quot;only the sentence or word Blog pagination in the paragraph&quot;. So the translation is &quot;Paginacja bloga&quot;. There&apos;s no need to output the HTML or surrounding context.
+
+Now, is &quot;Blog pagination&quot; a proper noun? Not exactly, but &quot;Blog&quot; is a proper noun (it refers to a blog). However, the user says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them!&quot; Does that apply to &quot;Blog&quot;? In a web context, &quot;Blog&quot; is often a generic term, not a proper noun like a specific brand name. Usually in localization, &quot;blog&quot; is treated as a common noun and can be translated as &quot;blog&quot; (the same word in Polish) or &quot;blok&quot; (but usually &quot;blog&quot;).
+
+Polish uses the word &quot;blog&quot; as loanword. So &quot;Blog pagination&quot; could be left as &quot;Blog pagination&quot; or translated as &quot;Paginacja bloga&quot;. Typically &quot;blog&quot; is not translated; it&apos;s a proper noun (like a brand). However, in localization, it&apos;s common to translate the noun &quot;blog&quot; to &quot;blog&quot; still because it&apos;s not a proper noun in this context, but sometimes &quot;blog&quot; is left unchanged.
+
+The user specifically says: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Blog pagination` is one of them.&quot;
+
+If &quot;Blog&quot; is considered a proper noun (like a product name), it might be left unchanged. But it&apos;s more likely a generic term. The user might want to keep &quot;Blog pagination&quot; unchanged, but the instruction says to translate it into pl-PL, Polski. So we should translate it. The &quot;pagination&quot; can be &quot;paginacja&quot; (the most common term in web UI). The translation could be &quot;Paginacja bloga&quot; or &quot;Paginacja wpisów&quot;. But given &quot;Blog pagination&quot;, I think &quot;Paginacja bloga&quot; is correct.
+
+But maybe they want &quot;Paginacja bloga&quot;. Let&apos;s double-check typical Polish translation for &quot;Blog pagination&quot; in web contexts. Searching my internal knowledge: In Polish, &quot;pagination&quot; is often &quot;paginacja&quot;. &quot;Blog pagination&quot; would be &quot;paginacja bloga&quot; (lowercase &quot;paginacja&quot; because it&apos;s a UI label). So &quot;Paginacja bloga&quot;.
+
+Thus, output should be:
+
+```
+Paginacja bloga
+```
+
+Wrap in triple backticks.
+
+Thus answer: the translation is:
+
+``` 
+Paginacja bloga
+```
+
+But need to ensure no extra content. The output must be exactly those three backticks with translation. Possibly need to follow the format: &quot;``` Translated word here...```&quot;. The example shows: &quot;```\nTranslated word here...\n```&quot;. So we output:
+
+```
+Paginacja bloga
+```
+
+Now check the instruction: &quot;Do NOT output any other content. Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus we output just that block. So final answer: 
+
+```
+Paginacja bloga
+```
+
+One nuance: The translation &quot;Paginacja bloga&quot; uses &quot;blog&quot; as a common noun (the Polish noun &quot;blog&quot; is used). That might be acceptable. If we want to preserve &quot;Blog&quot; unchanged, we could use &quot;Blog – paginacja&quot;? But likely &quot;Paginacja bloga&quot;. There&apos;s no need for hyphen.
+
+Thus answer: &quot;Paginacja bloga&quot;. So final.
+&lt;/think&gt;
+
+``` 
+Paginacja bloga</value>
+  </data>
   <data name="Explore" xml:space="preserve">
     <value>Odkrywaj</value>
   </data>
@@ -38,6 +94,24 @@
   </data>
   <data name="Keywords" xml:space="preserve">
     <value>Słowa kluczowe</value>
+  </data>
+  <data name="Modern Markdown blogging with AI-powered localization and search." xml:space="preserve">
+    <value>Nowoczesne blogowanie w Markdown z lokalizacją i wyszukiwaniem wspieranymi przez AI.```
+
+Make sure to not include any extra text. Only the translation inside triple backticks.
+
+Thus final answer is the translation.
+
+Check: The user wants only the translation wrapped in triple backticks. No extra content. Ensure we output exactly:
+
+```
+Nowoczesne blogowanie w Markdown z lokalizacją i wyszukiwaniem wspieranymi przez AI.
+```
+
+Thus final.
+&lt;/think&gt;
+
+```Nowoczesne blogowanie w Markdown z lokalizacją i wyszukiwaniem wspieranymi przez AI.</value>
   </data>
   <data name="Next" xml:space="preserve">
     <value>Dalej</value>
@@ -63,8 +137,38 @@
   <data name="Search based on AI (Vector Database)" xml:space="preserve">
     <value>Wyszukiwanie na podstawie AI (Baza wektorowa)</value>
   </data>
+  <data name="Sort posts" xml:space="preserve">
+    <value>Sortuj posty
+```
+
+Make sure it&apos;s in triple backticks.
+
+Thus answer.
+&lt;/think&gt;
+
+``` 
+Sortuj posty</value>
+  </data>
   <data name="Tag" xml:space="preserve">
     <value>Tag</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Tagi```
+
+But we need to consider what they expect: they want output only the translated word wrapped in triple backticks, like:
+
+```
+Tagi
+```
+
+Thus final answer: triple backticks with Tagi. The instruction says &quot;Do not output any other content! Only output the translated content and wrap it in three backticks&quot;. So answer:
+
+```
+Tagi
+```
+&lt;/think&gt;
+
+```Tagi</value>
   </data>
   <data name="Too many searches. AI search temporarily limited; showing keyword results." xml:space="preserve">
     <value>Zbyt wiele wyszukiwań. Wyszukiwanie AI zostało tymczasowo ograniczone; wyświetlane są wyniki słów kluczowych.</value>
