@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="root">
+        <xs:element name="root" ns1:IsDataSet="true">
 
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-
-        </xsd:element>
-    </xsd:schema>
+        </xs:element>
+    </xs:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -28,24 +27,7 @@
     <value>게시물로 돌아가기</value>
   </data>
   <data name="By" xml:space="preserve">
-    <value>작성자```.
-
-But check: The instruction says output only the translated content and wrap in three backticks. So output:
-
-```
-작성자
-```
-
-That&apos;s it.
-
-Potential nuance: Could &quot;By&quot; be just &quot;By&quot; in English and they want translation as &quot;By&quot;. Since they say &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot;. They want translation of &quot;By&quot; to Korean. So &quot;작성자&quot; is appropriate.
-
-Thus answer: ```작성자```.
-
-Make sure no other content. Output exactly three backticks with content.
-&lt;/think&gt;
-
-```작성자</value>
+    <value>작성자</value>
   </data>
   <data name="Comments" xml:space="preserve">
     <value>댓글</value>
@@ -63,10 +45,7 @@ Make sure no other content. Output exactly three backticks with content.
     <value>댓글 작성</value>
   </data>
   <data name="Published" xml:space="preserve">
-    <value>게시일```. Ensure no extra text.
-&lt;/think&gt;
-
-```게시일</value>
+    <value>게시일</value>
   </data>
   <data name="Reply" xml:space="preserve">
     <value>답글</value>
@@ -75,23 +54,7 @@ Make sure no other content. Output exactly three backticks with content.
     <value>답변 보내기</value>
   </data>
   <data name="Write your comment..." xml:space="preserve">
-    <value>댓글을 입력하세요...
-```
-
-That is the translation. The instruction says: &quot;Do NOT output any other content. Only output the translated content and wrap it in three backticks&quot;. So output exactly:
-
-```
-댓글을 입력하세요...
-```
-
-Note: The user says: &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; But we know the translation.
-
-Thus final answer: ```댓글을 입력하세요...```.
-
-We must ensure no extra content.
-&lt;/think&gt;
-
-```댓글을 입력하세요...</value>
+    <value>댓글을 입력하세요...</value>
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>댓글을 작성하세요…</value>

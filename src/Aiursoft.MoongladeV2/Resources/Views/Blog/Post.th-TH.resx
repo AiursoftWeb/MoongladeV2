@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="root">
+        <xs:element name="root" ns1:IsDataSet="true">
 
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-
-        </xsd:element>
-    </xsd:schema>
+        </xs:element>
+    </xs:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -28,20 +27,7 @@
     <value>กลับไปยังบทความ</value>
   </data>
   <data name="By" xml:space="preserve">
-    <value>โดย```.
-
-But ensure that no other content is output. Must only output the translation, wrapped in triple backticks.
-
-Hence final answer: ```โดย```. Ensure no extra spaces.
-
-Double-check: Should we include trailing spaces? No. So output exactly:
-
-```
-โดย
-```
-&lt;/think&gt;
-
-```โดย</value>
+    <value>โดย</value>
   </data>
   <data name="Comments" xml:space="preserve">
     <value>ความคิดเห็น</value>
@@ -59,14 +45,7 @@ Double-check: Should we include trailing spaces? No. So output exactly:
     <value>แสดงความคิดเห็น</value>
   </data>
   <data name="Published" xml:space="preserve">
-    <value>เผยแพร่```.
-
-Double-check: Could be &quot;เผยแพร่&quot; or &quot;เผยแพร่แล้ว&quot;? Let&apos;s decide. In WordPress &quot;Published&quot; is indeed &quot;เผยแพร่&quot;. That is the standard. So we output that.
-
-Thus final.
-&lt;/think&gt;
-
-```เผยแพร่</value>
+    <value>เผยแพร่</value>
   </data>
   <data name="Reply" xml:space="preserve">
     <value>ตอบกลับ</value>
@@ -75,37 +54,7 @@ Thus final.
     <value>ส่งคำตอบกลับ</value>
   </data>
   <data name="Write your comment..." xml:space="preserve">
-    <value>เขียนความคิดเห็นของคุณ...
-```
-
-But we need to consider the ellipsis: The original placeholder includes &quot;...&quot; after the phrase. Should we preserve the ellipsis? Usually placeholder text includes &quot;...&quot; after the phrase. So translation might be &quot;เขียนความคิดเห็นของคุณ...&quot; with ellipsis. However, maybe better to preserve the ellipsis in the translation: &quot;เขียนความคิดเห็นของคุณ...&quot;. Yes.
-
-Thus output exactly:
-
-```
-เขียนความคิดเห็นของคุณ...
-```
-
-Make sure not to output any other content. Use triple backticks. Should not add any extra commentary. So final answer is that.
-
-Check if any Thai nuance: &quot;เขียนความคิดเห็นของคุณ...&quot; This is appropriate. Alternatively &quot;เขียนความเห็นของคุณ...&quot; But &quot;ความคิดเห็น&quot; is a bit formal; &quot;ความเห็น&quot; means comment/opinion. &quot;เขียนความเห็นของคุณ...&quot; is also fine. Which one is more natural? In Thai placeholder texts often used &quot;เขียนความเห็น...&quot; but also &quot;เขียนความคิดเห็น...&quot; I think &quot;เขียนความเห็นของคุณ...&quot; is more direct. I&apos;d choose &quot;เขียนความเห็นของคุณ...&quot;. Or &quot;เขียนความคิดเห็นของคุณ...&quot; I think either is okay.
-
-Maybe better &quot;เขียนความคิดเห็นของคุณ...&quot; (Write your comment...), but &quot;comment&quot; could be &quot;ความเห็น&quot; or &quot;ความคิดเห็น&quot;. Both synonyms. &quot;ความคิดเห็น&quot; is more formal, &quot;ความเห็น&quot; is shorter. In Thai UI placeholder texts, commonly they use &quot;เขียนความเห็นของคุณ...&quot; Actually I&apos;ve seen &quot;เขียนความเห็น...&quot; is used on some websites.
-
-Given the instruction to be accurate and fluent, I&apos;d choose &quot;เขียนความเห็นของคุณ...&quot;. So final answer:
-
-```
-เขียนความเห็นของคุณ...
-```
-
-Double-check: The original placeholder includes three dots after phrase. In Thai translation, we might keep the three dots after the phrase. So final answer should be exactly with three backticks, then translation with ellipsis. Ensure no extra whitespace or line breaks beyond needed.
-
-Thus output.
-
-Now produce final answer.
-&lt;/think&gt;
-
-```เขียนความเห็นของคุณ...</value>
+    <value>เขียนความเห็นของคุณ...</value>
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>เขียนความคิดเห็นของคุณ…</value>

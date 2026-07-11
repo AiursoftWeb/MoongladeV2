@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="root">
+        <xs:element name="root" ns1:IsDataSet="true">
 
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-
-        </xsd:element>
-    </xsd:schema>
+        </xs:element>
+    </xs:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -28,17 +27,7 @@
     <value>Tillbaka till inlägg</value>
   </data>
   <data name="By" xml:space="preserve">
-    <value>Av
-```
-
-But the instructions: &quot;Please translate only the sentence or word `By` in the paragraph into the target language sv-SE, Svenska (Sverige).&quot; So output the translation of the word &quot;By&quot;. That is &quot;Av&quot;. Must be wrapped in three backticks.
-
-Thus final answer: ```Av```.
-
-Make sure no extra content. Just backticks.
-&lt;/think&gt;
-
-```Av</value>
+    <value>Av</value>
   </data>
   <data name="Comments" xml:space="preserve">
     <value>Kommentarer</value>
@@ -56,69 +45,7 @@ Make sure no extra content. Just backticks.
     <value>Skicka kommentar</value>
   </data>
   <data name="Published" xml:space="preserve">
-    <value>Translated word here...
-```
-
-We must not output any other content. Only the translated word. So what is the translation for &quot;Published&quot; in Swedish? It could be &quot;Publicerat&quot; (if it&apos;s a past participle meaning &quot;published&quot;), but the context is showing a meta label: `@Localizer[&quot;Published&quot;]`. So it&apos;s probably used as a label for the date of publication. In Swedish, it would be &quot;Publicerat&quot; if it&apos;s the past participle, but as a label, common translations are &quot;Publicerat&quot; or &quot;Publicerad&quot; depending on gender. Typically &quot;Published&quot; would be &quot;Publicerat&quot; (neutral past participle). However, the phrase &quot;Published&quot; is used as a heading label maybe like &quot;Published&quot; on a blog post: &quot;Published&quot; is a label showing the date of publishing. In Swedish, the typical translation is &quot;Publicerat&quot; (if it&apos;s an adjective). But there might be nuance: the word &quot;Published&quot; may be used as a past participle used as an adjective. In Swedish, the past participle of &quot;publicera&quot; is &quot;publicerat&quot;. It&apos;s an invariable form; the adjective &quot;publicerad&quot; is the past participle used as a passive form. But as a label for date, you could also use &quot;Publicerad&quot;, but that is the short form used for masculine/feminine? Actually, &quot;publicerad&quot; is the past participle of &quot;publicera&quot; used as an adjective for any noun: e.g., &quot;den publicerade artikeln&quot;. If the label is just a single word, &quot;Publicerat&quot; is used for neuter? Let&apos;s recall Swedish grammar: &quot;publicera&quot; (verb). Past participle: &quot;publicerat&quot;. That&apos;s the supine form (adverbial?). Actually, in Swedish, the past participle is &quot;publicerad&quot; (if regular), but some verbs have supine forms: &quot;publicerat&quot;. Let&apos;s check: &quot;publicera&quot; is a regular verb of the first conjugation? It ends with -era, which usually has past participle &quot;publicerad&quot;. But I think &quot;publicerat&quot; is the supine past active participle used with auxiliary &quot;ha&quot;. Usually you have &quot;publicerad&quot; for masculine/feminine, &quot;publicerat&quot; for neutrum. Eg. &quot;den publicerade artikeln&quot; (article). If it&apos;s &quot;Publicerat&quot; it&apos;s like &quot;Published (neut)&quot;. For a label, &quot;Publicerat&quot; is used often as an adjective? For example, in Swedish translation of &quot;published&quot; as a past participle in generic usage: &quot;Publicerat&quot; is used for &quot;published&quot; (neut). However, in web UI labels, it&apos;s common to see &quot;Publicerad&quot; or &quot;Publicerades&quot;? For a blog post date, you might see &quot;Publicerad&quot;. But &quot;Publicerat&quot; is also common.
-
-Let&apos;s search memory of Swedish translations for &quot;Published&quot;: Many websites have &quot;Publicerad&quot; as the label for the date of publishing. For example, &quot;Published&quot; on Stack Overflow in Swedish is &quot;Publicerad&quot;. In typical blog translations, &quot;Published on&quot; is &quot;Publicerades den&quot; or &quot;Publicerades&quot;. But &quot;Publicerad&quot; is an adjective, while &quot;Publicerat&quot; is used as an invariable form.
-
-Let&apos;s think about common translations: In Swedish translation of WordPress for example, &quot;Published&quot; is &quot;Publicerat&quot;. In WP admin panel, it&apos;s &quot;Publicerat&quot;. So likely &quot;Publicerat&quot;. However, also &quot;Publicerad&quot; is used if singular.
-
-Let&apos;s check usage: The sentence is `Published`. It appears as a label for the time. The code uses `@Localizer[&quot;Published&quot;]`. In a localization file for a .NET project, you would store a string &quot;Published&quot; in the default language (English). In Swedish, the translation would be something like &quot;Publicerat&quot;. For example, in a Swedish version of Microsoft .NET Core, the label &quot;Published&quot; for blog posts appears as &quot;Publicerat&quot;. Let&apos;s search memory: The default translation for &quot;Published&quot; in the Microsoft resource (ASP.NET MVC) is &quot;Publicerades&quot;? Actually, I recall &quot;Published&quot; becomes &quot;Publicerades&quot; in some contexts. But &quot;Publicerades&quot; is past tense, &quot;was published&quot;. But &quot;Published&quot; could be &quot;Publicerades&quot;. However, typical translation is &quot;Publicerad&quot; or &quot;Publicerat&quot;. Let&apos;s see examples:
-
-- In Swedish translation of &quot;Published by&quot;, we have &quot;Publicerad av&quot;. That is &quot;Published by&quot;. But &quot;Published&quot; can be &quot;Publicerad&quot;. For example, &quot;Published by author&quot; could be &quot;Publicerad av författaren&quot;. However, &quot;Published on date&quot; is &quot;Publicerades den&quot;. That&apos;s past tense &quot;Published on&quot; in Swedish is &quot;Publicerades den&quot;. But the label could be just &quot;Publicerades&quot; or &quot;Publicerat&quot;.
-
-Let&apos;s consider typical usage in .NET&apos;s built-in localization. The label &quot;Published&quot; is likely used in blog contexts, like &quot;Published on 2023-01-23&quot;. The Swedish translation could be &quot;Publicerat den&quot; but that sounds unnatural. Better &quot;Publicerades den&quot; means &quot;Was published on&quot;. However, the label &quot;Published&quot; without &quot;on&quot; is often a simple adjective. In Swedish, you could say &quot;Publicerat den&quot; but that&apos;s unnatural; you&apos;d more likely say &quot;Publicerades den&quot;. But that adds a subject &quot;den&quot;. Actually &quot;Publicerad&quot; might be used as &quot;Published&quot;. In Swedish you could say &quot;Publicerad den&quot; (feminine). For example, &quot;Publicerad den 2022-12-01&quot;. However, the phrase &quot;Publicerad den&quot; is used sometimes. But typical translation for &quot;Published&quot; in a blog label is &quot;Publicerad&quot;. For instance, WordPress Swedish translation uses &quot;Publicerad&quot; for &quot;Published&quot; (maybe &quot;Publicerad&quot;). Let&apos;s verify: WordPress translation &quot;Published&quot; to Swedish is &quot;Publicerad&quot;. Yes, WordPress uses &quot;Publicerad&quot;. WordPress default text &quot;Published&quot; appears as &quot;Publicerad&quot;. But WordPress also uses &quot;Publicerad den&quot; as a label for date. However, sometimes they use &quot;Publicerades&quot;. Let&apos;s check the Swedish translation from WP (source: https://translate.wordpress.org/). I can try recall: WordPress translation for &quot;Published&quot; is &quot;Publicerad&quot;. For example, they have &quot;Published &lt;span%1$s&lt;/span&gt; by %2$s&quot; translation: &quot;Publicerad &lt;span%1$s&lt;/span&gt; av %2$s&quot;. So &quot;Published&quot; becomes &quot;Publicerad&quot;. So &quot;Published&quot; (without a date) is &quot;Publicerad&quot;. But sometimes there is also &quot;Publicerat&quot; for neut. But WordPress uses &quot;Publicerad&quot; (feminine? Actually Swedish adjectives can be used attributively with common gender; &quot;publicerad&quot; works for any gender, but there is no separate form for neutrum as an adjective: &quot;publicerad&quot; is the same for all genders. For neutrum, you use &quot;publicerat&quot;. Actually, Swedish adjectives have a base form and a comparative form for neutrum: &quot;publicerad&quot; is the past participle; but if used attributively with a noun, you may need neutrum if the noun is indefinite? Eg. &quot;en publicerad artikel&quot; =&gt; article is common gender (en), so &quot;publicerad&quot; is correct; for neutrum &quot;ett publicerat verk&quot;? But &quot;publicerat&quot; is used as past participle when the verb is used as an adjective? Let&apos;s check: In Swedish, the past participle can be used as an adjective with attributive position; it has no variation for gender or number, but it has a variation for neutrum? Actually, Swedish adjectives have a base form (grundform), and the neutrum form is formed by adding -t: e.g., &quot;fin&quot; (common), &quot;fint&quot; (neuter). But for past participle adjectives derived from verbs, there may be variation: &quot;publicerad&quot; is the past participle, but neutrum form is &quot;publicerat&quot;? Example: &quot;ett publicerat dokument&quot;? The past participle is &quot;publicerad&quot; and &quot;publicerat&quot;? I think Swedish past participle behaves like an adjective with inflection for gender and number, like &quot;publicerad&quot; is used for common gender, &quot;publicerat&quot; for neutrum. Example: &quot;den publicerade artikeln&quot; (feminine?), &quot;det publicerade dokumentet&quot;. But we can check actual usage: In Swedish, the past participle of a verb can be used as an adjective, and it has a comparative form for neutrum: &quot;publicerad&quot; (common), &quot;publicerat&quot; (neuter). E.g., &quot;en publicerad artikel&quot; (article is common gender), &quot;ett publicerat dokument&quot; (document is neutrum). So if the noun is neutrum, we need &quot;publicerat&quot;. In WordPress, they use &quot;Publicerad&quot; for &quot;Published&quot; (the text of a post label). For example: &quot;Published &lt;time ...&gt;&quot; with a time tag after it. The translation is &quot;Publicerad&quot;. So they just translate &quot;Published&quot; as &quot;Publicerad&quot;. That suggests that &quot;Publicerad&quot; is acceptable for that context.
-
-Thus, translation of &quot;Published&quot; is likely &quot;Publicerad&quot;. However, the user says we should output only the translated content, and wrap it in three backticks. So we need to output something like:
-
-```
-Publicerad
-```
-
-Alternatively, maybe &quot;Publicerat&quot;. Let&apos;s think carefully. The user says: &quot;Please translate only the sentence or word `Published` in the paragraph into the target language sv-SE, Svenska (Sverige).&quot; So just &quot;Published&quot;. They want the translation of the word &quot;Published&quot;. They also say: &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; So if we are not sure, we can output &quot;Published&quot; unchanged. But we think we know. However, we need to be sure about the correct translation. The target language is Swedish (sv-SE). We need to consider what is the best translation for a label &quot;Published&quot;. It is used as a meta label, likely &quot;Publicerad&quot;. Let&apos;s check Swedish lexical resources. In Swedish, &quot;published&quot; as an adjective meaning &quot;has been published&quot;, e.g., &quot;the published article&quot;. The past participle of &quot;publicera&quot; is &quot;publicerad&quot;. It can be used attributively: &quot;en publicerad artikel&quot; (common), &quot;ett publicerat dokument&quot; (neuter). The base form is &quot;publicerad&quot;. So the translation for &quot;Published&quot; is &quot;Publicerad&quot;. If they wanted neutrum they&apos;d use &quot;Publicerat&quot;. But since it&apos;s used as a label, perhaps &quot;Publicerat&quot;. Let&apos;s examine typical .NET localized strings from Microsoft. The .NET Core localization often uses &quot;Publicerad&quot; for &quot;Published&quot;. For example, in the .NET source code &quot;Published&quot; is localized in many languages. I&apos;m aware that Swedish translations for &quot;Published&quot; often are &quot;Publicerad&quot;. For instance, in Swedish .NET UI: &quot;Published: {0}&quot; could be &quot;Publicerad: {0}&quot;. The past participle &quot;Publicerad&quot; is used. Many translation resources show &quot;Publicerad&quot; for &quot;Published&quot;. For instance, Microsoft .NET resources on GitHub: &quot;Published&quot; -&gt; &quot;Publicerad&quot;. In a Swedish translation of ASP.NET Core identity: &quot;Published&quot; becomes &quot;Publicerad&quot;. For example, in &quot;Published&quot; for a blog article, they use &quot;Publicerad&quot;. So I think &quot;Publicerad&quot; is correct.
-
-Thus output:
-
-``` 
-Publicerad
-```
-
-Wrap in triple backticks. So final answer: 
-
-```
-Publicerad
-```
-
-But we must ensure we output only the translated content, wrapped in triple backticks, and nothing else. So final answer is exactly:
-
-```
-Publicerad
-```
-
-That&apos;s it. No extra text.
-
-But we need to double-check the instructions: The user says &quot;Do not output any other content! ... Only output the translated content and wrap it in three backticks (```), like this: ``` Translated word here...```&quot;. So we output exactly that triple backticks with the translation inside.
-
-Thus final answer: 
-
-``` 
-Publicerad 
-``` (with backticks). Should we include trailing spaces? Probably not. Just triple backticks line, newline, translation, newline, triple backticks.
-
-So answer:
-
-```
-Publicerad
-```
-
-Make sure no extra text.
-
-Proceed.
-&lt;/think&gt;
-
-```Publicerad</value>
+    <value>Publicerad</value>
   </data>
   <data name="Reply" xml:space="preserve">
     <value>Svara</value>
@@ -127,26 +54,7 @@ Proceed.
     <value>Skicka svar</value>
   </data>
   <data name="Write your comment..." xml:space="preserve">
-    <value>Skriv din kommentar...
-```
-
-Make sure to wrap in three backticks. That&apos;s all.
-
-But we need to ensure no extra content. So answer must be just that. The user specifically said: &quot;Do **NOT** output any other content. Only output the translated content and wrap it in three backticks (```), like this:
-
-```
-Translated word here...
-```&quot;
-
-Thus final answer:
-
-```
-Skriv din kommentar...
-```
-&lt;/think&gt;
-
-``` 
-Skriv din kommentar...</value>
+    <value>Skriv din kommentar...</value>
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>Skriv din kommentar…</value>

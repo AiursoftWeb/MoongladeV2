@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="root">
+        <xs:element name="root" ns1:IsDataSet="true">
 
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-
-        </xsd:element>
-    </xsd:schema>
+        </xs:element>
+    </xs:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -28,21 +27,7 @@
     <value>← Retour aux articles</value>
   </data>
   <data name="By" xml:space="preserve">
-    <value>Par
-```
-
-Make sure to follow the instruction: wrap in three backticks. Nothing else.
-
-Thus answer: ```Par```.
-
-We have to be mindful not to add any extra content. The assistant should output only the translation and nothing else, wrapped in three backticks.
-
-We need to ensure no additional commentary.
-
-Thus final answer: just code block with &quot;Par&quot;.
-&lt;/think&gt;
-
-```Par</value>
+    <value>Par</value>
   </data>
   <data name="Comments" xml:space="preserve">
     <value>Commentaires</value>
@@ -60,18 +45,7 @@ Thus final answer: just code block with &quot;Par&quot;.
     <value>Publier un commentaire</value>
   </data>
   <data name="Published" xml:space="preserve">
-    <value>Publiée```
-
-But check if they want the translation of &quot;Published&quot; only? The user says &quot;Please translate only the sentence or word `Published` in the paragraph into the target language fr-FR.&quot; So they want only the translation. Output inside three backticks.
-
-Thus answer: ```Publiée```. They might want &quot;Publiée&quot;. Let&apos;s do that.
-
-Check for any issues: There&apos;s no instruction to keep capital letters. They didn&apos;t mention &quot;capitalization&quot;. In French, often translation of &quot;Published&quot; is &quot;Publiée&quot;. But if it&apos;s capitalized like &quot;Published&quot;, maybe they want &quot;Publiée&quot; with capital P as first letter? In French translation, labels often start with capital letter as well. So &quot;Publiée&quot;. Should we preserve capital P? The original is &quot;Published&quot;. It starts with capital P. In French translation, &quot;Publiée&quot; can be capitalized: &quot;Publiée&quot;. So final answer: ```Publiée```.
-
-Thus answer.
-&lt;/think&gt;
-
-```Publiée</value>
+    <value>Publiée</value>
   </data>
   <data name="Reply" xml:space="preserve">
     <value>Répondre</value>
@@ -80,20 +54,7 @@ Thus answer.
     <value>Envoyer la réponse</value>
   </data>
   <data name="Write your comment..." xml:space="preserve">
-    <value>Écrivez votre commentaire...```.
-
-Check for any nuance: The phrase includes &quot;...&quot; after comment. In French, &quot;Écrivez votre commentaire...&quot; is fine.
-
-Thus output:
-
-```
-Écrivez votre commentaire...
-```
-
-Make sure to wrap in triple backticks. No extra content. That&apos;s it.
-&lt;/think&gt;
-
-```Écrivez votre commentaire...</value>
+    <value>Écrivez votre commentaire...</value>
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>Écrivez votre commentaire…</value>

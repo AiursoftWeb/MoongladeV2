@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="root">
+        <xs:element name="root" ns1:IsDataSet="true">
 
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-
-        </xsd:element>
-    </xsd:schema>
+        </xs:element>
+    </xs:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -25,7 +24,7 @@
     <value>Повне рішення для аутентифікації користувачів та управління профілями, готове до використання відразу після встановлення.</value>
   </data>
   <data name="A fully responsive layout that looks great on both desktop and mobile devices." xml:space="preserve">
-    <value>Адаптивний макет, який чудово виглядає як на настільних комп&apos;ютерах, так і на мобільних пристроях.</value>
+    <value>Адаптивний макет, який чудово виглядає як на настільних комп'ютерах, так і на мобільних пристроях.</value>
   </data>
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>Сучасна, багатофункціональна та високо розширювана основа для вашої наступної веб-програми.</value>
@@ -40,7 +39,7 @@
     <value>Переклади на основі ШІ</value>
   </data>
   <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
-    <value>Усі залежності автоматично реєструються та завжди доступні через ін&apos;єкцію конструктора.</value>
+    <value>Усі залежності автоматично реєструються та завжди доступні через ін'єкцію конструктора.</value>
   </data>
   <data name="An error occurred." xml:space="preserve">
     <value>Сталася помилка.</value>
@@ -58,7 +57,7 @@
     <value>Автоматичний темний режим</value>
   </data>
   <data name="Automatic Dependency Injection" xml:space="preserve">
-    <value>Автоматична ін&apos;єкція залежностей</value>
+    <value>Автоматична ін'єкція залежностей</value>
   </data>
   <data name="Automatic, AI-driven translation into 28 languages for global reach." xml:space="preserve">
     <value>Автоматичний переклад за допомогою штучного інтелекту на 28 мов для глобального охоплення.</value>
@@ -133,7 +132,7 @@
     <value>Динамічна навігаційна панель</value>
   </data>
   <data name="Easily switch between providers like SQLite, MySQL, SQL Server, and an in-memory database for testing." xml:space="preserve">
-    <value>Легко перемикайтеся між провайдерами, такими як SQLite, MySQL, SQL Server, та оперативною пам&apos;яттю для тестування.</value>
+    <value>Легко перемикайтеся між провайдерами, такими як SQLite, MySQL, SQL Server, та оперативною пам'яттю для тестування.</value>
   </data>
   <data name="Editor" xml:space="preserve">
     <value>Редактор</value>
@@ -184,32 +183,10 @@
     <value>Внутрішній - Конкретні користувачі/ролі</value>
   </data>
   <data name="Localization" xml:space="preserve">
-    <value>Локалізація
-```.
-
-Make sure to follow format: three backticks with translation inside, no other content.
-
-Thus answer: 
-
-```
-Локалізація
-```
-
-That is all.
-&lt;/think&gt;
-
-``` 
-Локалізація</value>
+    <value>Локалізація</value>
   </data>
   <data name="Localize" xml:space="preserve">
-    <value>Локалізувати
-```
-
-That is it.
-&lt;/think&gt;
-
-``` 
-Локалізувати</value>
+    <value>Локалізувати</value>
   </data>
   <data name="Make document private" xml:space="preserve">
     <value>Зробити документ приватним</value>
@@ -301,7 +278,7 @@ That is it.
   <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
     <value>Поділіться цим документом публічно за допомогою унікального посилання, яке будь-хто зможе відкрити без входу в систему.</value>
   </data>
-  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
+  <data name="Smart dark mode that automatically adapts to the user's system settings." xml:space="preserve">
     <value>Розумний темний режим, який автоматично адаптується до системних налаштувань користувача.</value>
   </data>
   <data name="Split View" xml:space="preserve">

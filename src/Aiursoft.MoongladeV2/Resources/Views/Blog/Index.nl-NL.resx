@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="root">
+        <xs:element name="root" ns1:IsDataSet="true">
 
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-
-        </xsd:element>
-    </xsd:schema>
+        </xs:element>
+    </xs:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -28,48 +27,7 @@
     <value>Archief</value>
   </data>
   <data name="Blog pagination" xml:space="preserve">
-    <value>Blog paginering
-```
-
-But note: Should we include any extra formatting? They said wrap in three backticks, like:
-
-```
-Translated word here...
-```
-
-So we output:
-
-```
-Blog paginering
-```
-
-However, the user explicitly said: &quot;Please translate only the sentence or word `Blog pagination` in the paragraph into the target language nl-NL, Nederlands (Nederland).&quot; So translation should be &quot;Blog paginering&quot;. That is the correct translation.
-
-Potential nuance: &quot;Blog pagination&quot; as a UI label could be &quot;Blognavigatie&quot;. But &quot;navigatie&quot; may refer to navigation. &quot;Pagination&quot; is more about page numbers. So &quot;Blog paginering&quot;. The phrase &quot;Blog pagination&quot; could be &quot;Blog-paginering&quot;. In Dutch, hyphen usage: &quot;Blog-paginering&quot;. The phrase &quot;Blog pagination&quot; is not a trademark, so it&apos;s fine.
-
-Thus answer with triple backticks and translation: `Blog paginering` (or `Blog-paginering`). Let&apos;s double-check: In Dutch, &quot;blog&quot; is a common word, &quot;paginering&quot; is &quot;pagination&quot;. So &quot;Blog paginering&quot; is fine. Also &quot;Blog pagination&quot; could be &quot;Blog navigatie&quot; but that&apos;s less literal. Let&apos;s check usage: Some UI labels: &quot;Blognummering&quot;, &quot;Blog paginering&quot;, &quot;Pagina&apos;s&quot;, &quot;Pagina&apos;s&quot;, &quot;Pagina&apos;s&quot;. The phrase &quot;Blog pagination&quot; in English might be used as &quot;Blog pagination&quot; label for a navigation element. In Dutch, one could use &quot;Blognummers&quot; for page numbers. However, &quot;Blog pagination&quot; as a phrase might be &quot;Blognummers&quot;. But &quot;pagination&quot; refers to page numbers. So &quot;Blognummers&quot;. Hmm. Actually &quot;Blog pagination&quot; as a heading for a blog list page might be just &quot;Blog&quot;. But the string appears in `aria-label=&quot;@Localizer[&quot;Blog pagination&quot;]` inside a `&lt;nav&gt;` element. So for screen readers, &quot;Blog pagination&quot; is read. In Dutch, they&apos;d want &quot;Blognummers&quot;. Could be &quot;Blog paginering&quot;. Which is more literal? &quot;Blog pagination&quot; -&gt; &quot;Blog paginering&quot;. Or &quot;Blognummers&quot;. &quot;Nummers&quot; means numbers (like page numbers). &quot;Paginering&quot; is &quot;pagination&quot; (the act of paginating). I think &quot;Blog paginering&quot; is more accurate translation for &quot;Blog pagination&quot;. Indeed &quot;pagination&quot; is a noun &quot;paginering&quot;. So &quot;Blog paginering&quot;.
-
-Thus output:
-
-```
-Blog paginering
-```
-
-But the user instructions are to output only the translated content and wrap in three backticks, like &quot;```Translated word here...```&quot;. So we will output exactly that.
-
-Thus final answer:
-
-```
-Blog paginering
-```
-
-Make sure it&apos;s in triple backticks.
-
-Proceed.
-&lt;/think&gt;
-
-``` 
-Blog paginering</value>
+    <value>Blog paginering</value>
   </data>
   <data name="Explore" xml:space="preserve">
     <value>Verken</value>
@@ -84,53 +42,7 @@ Blog paginering</value>
     <value>Trefwoorden</value>
   </data>
   <data name="Modern Markdown blogging with AI-powered localization and search." xml:space="preserve">
-    <value>Translated word here...
-```
-
-Thus, we must output exactly that: the translated sentence in Dutch.
-
-But the user says: &quot;Please translate only the sentence or word `Modern Markdown blogging with AI-powered localization and search.` in the paragraph into the target language nl-NL, Nederlands (Nederland).&quot;
-
-Thus translation: we need to translate that sentence into Dutch, while respecting that proper nouns, trademarks, etc., remain unchanged. The sentence contains &quot;Modern Markdown blogging with AI-powered localization and search.&quot; This includes &quot;Markdown&quot;, &quot;AI-powered&quot;, &quot;localization&quot;, &quot;search&quot;. &quot;Markdown&quot; is a trademark? It&apos;s a brand name, proper noun. The instruction says: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them.&quot; So &quot;Markdown&quot;, &quot;AI-powered&quot;, &quot;localization&quot;, &quot;search&quot; are maybe not proper nouns except &quot;Markdown&quot; and &quot;AI-powered&quot;? &quot;AI-powered&quot; is not a trademark but it&apos;s a concept. Probably &quot;Markdown&quot; is a trademarked format? Actually Markdown is a trademark? The trademark is &quot;Markdown&quot;. According to policy, we should keep &quot;Markdown&quot; unchanged. Also &quot;AI-powered&quot; is a phrase; it might be considered a proper noun? It&apos;s likely fine to translate &quot;AI-powered&quot; as &quot;AI-gestuurd&quot;? In Dutch we would say &quot;AI-gestuurd&quot;? But careful about trademark: &quot;AI-powered&quot; is a phrase but not necessarily trademark. However &quot;AI-powered&quot; could be left unchanged or translated. Since it&apos;s not a trademark and &quot;AI&quot; is an abbreviation, but it is commonly used as &quot;AI-gestuurd&quot;. But it&apos;s not required to preserve &quot;AI-powered&quot;. The user instruction says: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them.&quot; &quot;AI-powered&quot; is not a trademark but it&apos;s a technical term. Should we preserve it as is? The instruction about &quot;proper nouns&quot; includes words like &quot;Markdown&quot; is likely proper noun. &quot;AI-powered&quot; is perhaps a compound term but not a proper noun. However, we might preserve it to be safe. The user probably expects translation but also preserve &quot;Markdown&quot; and &quot;AI&quot;. The instruction says &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; The user is definitely the translator: we know the translation.
-
-We must output only the translation wrapped in triple backticks.
-
-Thus the translation: &quot;Moderne Markdown-bloggen met door AI ondersteunde lokalisatie en zoekfunctie.&quot; Or &quot;Moderne Markdown-bloggen met AI-gestuurde lokalisatie en zoekfunctie.&quot; Which one is more natural? In Dutch, &quot;AI-powered localization&quot; could be &quot;door AI aangedreven lokalisatie&quot; but that would be translation. However preserve &quot;AI-powered&quot;? I&apos;d propose &quot;Moderne Markdown-bloggen met AI-gestuurde lokalisatie en zoeken.&quot; But &quot;search&quot; is &quot;zoeken&quot;. &quot;Localization&quot; is &quot;lokalisatie&quot;. So translation: &quot;Moderne Markdown-bloggen met AI-gestuurde lokalisatie en zoeken.&quot; That&apos;s not quite accurate because &quot;zoeken&quot; is &quot;searching&quot;, but &quot;search&quot; is &quot;zoek&quot;. Probably &quot;zoekfunctie&quot;. So &quot;Moderne Markdown-bloggen met door AI aangedreven lokalisatie en zoekfunctie.&quot;
-
-But we need to decide about &quot;AI-powered&quot;. &quot;AI&quot; is abbreviation, but we can translate &quot;AI-powered&quot; as &quot;door AI aangedreven&quot;. This matches typical translation style. However user may want to preserve &quot;AI-powered&quot; as is? The instruction about &quot;trademarks&quot; says keep them unchanged. &quot;AI-powered&quot; is not a trademark but might be considered a trademark? It&apos;s not a trademarked name. So we can translate it.
-
-Thus translation: &quot;Moderne Markdown-bloggen met door AI aangedreven lokalisatie en zoekfunctie.&quot;
-
-Check natural Dutch: &quot;Moderne Markdown-bloggen met door AI aangedreven lokalisatie en zoekfunctie.&quot; That&apos;s acceptable.
-
-Alternative: &quot;Moderne Markdown-bloggen met AI-gestuurde lokalisatie en zoekfunctie.&quot; That might be more succinct. &quot;AI-gestuurd&quot; is an adjective meaning &quot;AI-driven&quot;. Could be &quot;AI-gestuurde&quot;. So &quot;Moderne Markdown-bloggen met AI-gestuurde lokalisatie en zoekfunctie.&quot;
-
-Better: &quot;Moderne Markdown-bloggen met AI-gestuurde lokalisatie en zoekfunctie.&quot; That&apos;s good.
-
-Now check if we must preserve &quot;Markdown&quot;. Yes keep &quot;Markdown&quot;. &quot;AI-powered&quot; we can translate. &quot;Modern&quot; becomes &quot;Moderne&quot;. &quot; blogging&quot; becomes &quot;bloggen&quot;. &quot;with&quot; becomes &quot;met&quot;. &quot;localization&quot; becomes &quot;lokalisatie&quot;. &quot;and search&quot; becomes &quot;en zoekfunctie&quot;. So &quot;Modern Markdown blogging with AI-powered localization and search.&quot; =&gt; &quot;Moderne Markdown-bloggen met AI-gestuurde lokalisatie en zoekfunctie.&quot; That seems fine.
-
-We must output only that translation wrapped in triple backticks.
-
-Thus answer:
-
-```Moderne Markdown-bloggen met AI-gestuurde lokalisatie en zoekfunctie.```
-
-Check for period: original has a period at end. Should we include period? The translation should probably include period as well. So &quot;Moderne Markdown-bloggen met AI-gestuurde lokalisatie en zoekfunctie.&quot; Add period.
-
-Thus output:
-
-```
-Moderne Markdown-bloggen met AI-gestuurde lokalisatie en zoekfunctie.
-```
-
-Check that &quot;Markdown&quot; stays unchanged. &quot;AI-gestuurde&quot; retains &quot;AI&quot;. &quot;zoekfunctie&quot; translates search.
-
-Yes.
-
-Thus final answer.
-&lt;/think&gt;
-
-```Moderne Markdown-bloggen met AI-gestuurde lokalisatie en zoekfunctie.</value>
+    <value>Moderne Markdown-bloggen met AI-gestuurde lokalisatie en zoekfunctie.</value>
   </data>
   <data name="Next" xml:space="preserve">
     <value>Volgende</value>
@@ -157,129 +69,13 @@ Thus final answer.
     <value>Zoeken op basis van AI (Vector Database)</value>
   </data>
   <data name="Sort posts" xml:space="preserve">
-    <value>&lt;div class=&quot;btn-group btn-group-sm&quot; role=&quot;group&quot; aria-label=&quot;@Localizer[&quot;Sort posts&quot;]&quot;&gt;
-    &lt;a href=&quot;@BuildSortUrl(&quot;recent&quot;)&quot; ...&gt;@Localizer[&quot;Recent&quot;]&lt;/a&gt;
-    &lt;a href=&quot;@BuildSortUrl(&quot;featured&quot;)&quot; ...&gt;@Localizer[&quot;Featured&quot;]&lt;/a&gt;
-&lt;/div&gt;
-```
-
-The aria-label &quot;Sort posts&quot; is likely the label for the whole group of sort buttons. In Dutch, it&apos;s &quot;Berichten sorteren&quot;. Also maybe &quot;Sorteer berichten&quot;. Let&apos;s think about typical localization. In typical translation guidelines for ASP.NET MVC, they often use the pattern of &quot;Sort posts&quot; label, which in Dutch would be &quot;Berichten sorteren&quot;. For example, Microsoft UI uses &quot;Berichten sorteren&quot;. However I&apos;m not 100% sure. Let&apos;s search memory: In Dutch, &quot;Sort posts&quot; could be translated as &quot;Berichten sorteren&quot;. Another option &quot;Sorteer berichten&quot;. The phrase &quot;Sort posts&quot; is short, likely a label. &quot;Berichten sorteren&quot; seems like a gerund phrase, like &quot;Sorting posts&quot;. &quot;Sorteer berichten&quot; is imperative.
-
-If we were to choose a translation, we must consider the context. The aria-label for the group of buttons &quot;Recent&quot; and &quot;Featured&quot;. The group label likely describes the grouping: &quot;Sort posts&quot;. The group is just a set of options for sorting. So &quot;Sort posts&quot; maybe not imperative but a description, like &quot;Sortering van berichten&quot; or &quot;Berichten sorteren&quot;. The phrase &quot;Sort posts&quot; could be just a noun phrase. In UI translations for Dutch, typical translations:
-
-- &quot;Sort posts&quot; = &quot;Berichten sorteren&quot;
-- &quot;Recent&quot; = &quot;Recente&quot;
-- &quot;Featured&quot; = &quot;Aanbevolen&quot; or &quot;Uitgelicht&quot;
-
-Let&apos;s check typical translations: In WordPress, &quot;Sort posts&quot; is &quot;Berichten sorteren&quot;. For a blog system, they likely want &quot;Berichten sorteren&quot;. Another option &quot;Berichten weergeven&quot; is not sorting. So &quot;Berichten sorteren&quot; is likely correct.
-
-Thus translation: &quot;Berichten sorteren&quot;. Output in triple backticks.
-
-But must also consider the requirement: &quot;Do NOT output any other content. Only output the translated content and wrap it in three backticks (```), like this: ``` Translated word here... ```&quot;. So we output:
-
-```
-Berichten sorteren
-```
-
-But wait: The user says &quot;Please output the translated conclusion and nothing else.&quot; They also say &quot;Do not output any other content&quot;. So we should output exactly the translation and nothing else. So we should output a code block with translation only, no other text.
-
-Thus answer:
-
-```
-Berichten sorteren
-```
-
-That is it.
-
-Double-check: The translation must be accurate. Let&apos;s ensure that no other content is output. Should we include triple backticks or just the translation? The instruction says &quot;Only output the translated content and wrap it in three backticks (```), like this: ``` Translated word here... ```&quot;. So we must output three backticks, then the translation, then triple backticks. So a code block with content &quot;Berichten sorteren&quot;. That matches instructions. So answer is:
-
-``` 
-Berichten sorteren
-```.
-
-Potential nuance: Must we include triple backticks or code fences? The instruction says to output only the translated content and wrap it in three backticks. So we output a code fence: ``` ... ``` with translation inside.
-
-Thus answer: 
-
-```Berichten sorteren```? Wait, must be wrapped in three backticks. Should it be like:
-
-```
-Berichten sorteren
-```
-
-That&apos;s exactly three backticks before and after, and inside the translation. So output exactly:
-
-```
-Berichten sorteren
-```
-
-Make sure there&apos;s no extra newline before or after. That should be fine.
-
-Now check if any potential rule about &quot;human names, nicknames, proper nouns, symbols, trademarks, etc. must be output as is and do not translate them&quot;. &quot;Sort posts&quot; is not a proper noun; it&apos;s a UI label. So we need to translate.
-
-Thus final answer: triple backticks with translation.
-
-Double-check for possible alternative translations: Could also be &quot;Sorteer berichten&quot;. Which is more idiomatic? Let&apos;s think about localization guidelines: In Dutch, &quot;Sort posts&quot; is often translated as &quot;Berichten sorteren&quot;. For example, in WordPress theme, &quot;Sort posts by&quot; is &quot;Sorteer berichten op&quot;. But &quot;Sort posts&quot; alone could be &quot;Sorteer berichten&quot;. But which one is better?
-
-Search memory: I recall a similar UI element from Microsoft .NET localization resources: &quot;Sort posts&quot; translation could be &quot;Berichten sorteren&quot;. However I need to verify that &quot;Sort posts&quot; is indeed used as a UI label in a group, so &quot;Sorteer berichten&quot; might be used as a heading: &quot;Sorteer berichten&quot; is imperative: &quot;Sort the posts&quot;. &quot;Berichten sorteren&quot; is &quot;Sorting posts&quot;. In UI, imperative could be used. But typical translation for a button group label might be a noun phrase like &quot;Berichten sorteren&quot;. The button group is for sorting posts, so the group label is &quot;Berichten sorteren&quot;. It&apos;s a noun phrase.
-
-In a similar localization for a blog system &quot;Sort posts&quot; could be &quot;Berichten sorteren&quot;. Also note that the localizer key &quot;Sort posts&quot; likely used for aria-label, but maybe also for a heading like &quot;Sort posts&quot; appears in the paragraph as a translation key `Localizer[&quot;Sort posts&quot;]`. The localizer will produce the Dutch translation. So we just need to provide the translation for &quot;Sort posts&quot;. So we can output &quot;Berichten sorteren&quot;.
-
-Thus answer is:
-
-```Berichten sorteren```? Wait, the triple backticks should be separate lines. So:
-
-```
-Berichten sorteren
-```
-
-That&apos;s it.
-
-We should be mindful not to include any additional content like commentary. So final answer is a code block with translation.
-
-Thus the assistant final.
-&lt;/think&gt;
-
-```Berichten sorteren</value>
+    <value>Berichten sorteren</value>
   </data>
   <data name="Tag" xml:space="preserve">
     <value>Tag</value>
   </data>
   <data name="Tags" xml:space="preserve">
-    <value>Tags
-```
-
-But we need to be sure about the output format: The user says: &quot;Only output the translated content and wrap it in three backticks (```), like this:
-
-```
-Translated word here...
-```&quot;
-
-Thus we output:
-
-```
-Tags
-```
-
-But we need to double-check: Are there any other instances of &quot;Tags&quot;? The snippet includes &quot;Tags&quot; possibly in the comment? No. The string &quot;Tags&quot; is not present in the snippet, but they ask to translate only the word &quot;Tags&quot;. So we can output the translation as &quot;Tags&quot;. But maybe we should output the Dutch translation &quot;Tags&quot;. However, there might be nuance: In Dutch, the word &quot;Tags&quot; might be written as &quot;Tags&quot; or &quot;Label&quot;. Let&apos;s consider typical translations: In WordPress nl_NL, the string &quot;Tags&quot; is translated as &quot;Labels&quot;. Wait, I recall that WordPress has translation strings for &quot;Tags&quot; vs &quot;Categories&quot;. In WordPress Dutch translation, &quot;Tags&quot; is &quot;Labels&quot;? Actually WordPress translation for &quot;Tags&quot; is &quot;Tags&quot; (still English). But I&apos;m not entirely sure. Let&apos;s check translation memory: For WordPress, the string &quot;Tags&quot; is translated to &quot;Tags&quot; in Dutch? Actually WordPress uses the word &quot;Tags&quot; for posts tags, and translation in many languages uses the same word. For example, in the Twenty Twenty theme, the translation for &quot;Tags&quot; is &quot;Tags&quot;. In Dutch, I think it&apos;s &quot;Tags&quot;. Indeed, the WordPress translation for &quot;Tags&quot; is &quot;Tags&quot;. For categories, it&apos;s &quot;categorieën&quot;. So &quot;Tags&quot; remains &quot;Tags&quot;. So output &quot;Tags&quot;.
-
-Thus final answer: wrap in triple backticks: &quot;Tags&quot;. Provide only that.
-
-Thus output:
-
-```
-Tags
-```
-
-Yes.
-
-But the user instructions: &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; So if we are uncertain, we output it as is. But we are fairly sure that &quot;Tags&quot; is the translation and it&apos;s okay to output &quot;Tags&quot;. But let&apos;s double-check if &quot;Tags&quot; can be considered a proper noun? Not. So we can translate to &quot;Tags&quot;. So answer: &quot;Tags&quot;. Output only the translated word.
-
-Thus final.
-&lt;/think&gt;
-
-```
-Tags</value>
+    <value>Tags</value>
   </data>
   <data name="Too many searches. AI search temporarily limited; showing keyword results." xml:space="preserve">
     <value>Te veel zoekopdrachten. AI-zoekfunctie tijdelijk beperkt; toont trefwoordresultaten.</value>

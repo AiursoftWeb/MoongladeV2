@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="root">
+        <xs:element name="root" ns1:IsDataSet="true">
 
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-
-        </xsd:element>
-    </xsd:schema>
+        </xs:element>
+    </xs:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -28,59 +27,7 @@
     <value>Archivio</value>
   </data>
   <data name="Blog pagination" xml:space="preserve">
-    <value>Paginazione Blog
-```
-
-But need to check if &quot;Blog&quot; is a proper noun and should not be translated. The user says: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Blog pagination` is one of them.&quot;
-
-&quot;Blog&quot; is a term that may be considered a common noun, but in many contexts it&apos;s a generic term for a type of website. In translation guidelines, &quot;Blog&quot; is often left unchanged as &quot;blog&quot; in Italian (maybe &quot;blog&quot; is used as a loanword). However, &quot;Blog pagination&quot; is a phrase used in the aria-label: &quot;aria-label=&quot;@Localizer[&quot;Blog pagination&quot;]&quot;. The aria-label is for screen readers to read out loud, thus it should be localized. So &quot;Blog pagination&quot; likely should be translated to Italian. The user wants translation of the sentence or word &quot;Blog pagination&quot;. So translation is needed.
-
-We need to decide: Should we translate &quot;Blog&quot; as &quot;Blog&quot; (keep as is) and &quot;pagination&quot; as &quot;paginazione&quot;? The phrase &quot;Blog pagination&quot; could be translated as &quot;Paginazione Blog&quot;. But &quot;Blog&quot; might be left unchanged. In Italian, &quot;blog&quot; is a masculine noun (il blog, blogs). So &quot;Paginazione blog&quot; is okay. Or &quot;Paginazione del blog&quot;. The phrase &quot;Paginazione blog&quot; might be more appropriate. Or &quot;Impaginazione blog&quot;? In web contexts, &quot;paginazione&quot; is the typical word for pagination. So &quot;Paginazione blog&quot;. But we need to consider &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them!&quot; Does &quot;Blog&quot; count as a proper noun? In this context, &quot;Blog&quot; is not a proper noun, but a generic term. However, in many translation guidelines, &quot;Blog&quot; is left unchanged as &quot;blog&quot;. So we could output &quot;Paginazione blog&quot;. The &quot;blog&quot; could be left unchanged. Or we could output &quot;Paginazione del Blog&quot;. But &quot;Blog&quot; as capitalized is more a proper noun? Possibly not. The user says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them!&quot; This includes proper nouns. But &quot;Blog&quot; is not a proper noun; it&apos;s a generic term. So we can translate &quot;pagination&quot; to &quot;paginazione&quot;. So &quot;Blog pagination&quot; -&gt; &quot;Paginazione blog&quot;. But the phrase is a noun phrase; &quot;Blog&quot; as a noun. So translation: &quot;Paginazione blog&quot;. That seems reasonable.
-
-Alternatively, &quot;Impaginazione blog&quot;. But &quot;paginazione&quot; is more common. &quot;Pagination&quot; is &quot;paginazione&quot;. So &quot;Blog pagination&quot; -&gt; &quot;Paginazione blog&quot;. But &quot;blog&quot; might be &quot;Blog&quot;. Should we keep the capital B? Possibly &quot;Blog&quot; is capitalized because it&apos;s part of the string. In Italian, &quot;blog&quot; is lower case, but we could keep &quot;Blog&quot;. The user says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is&quot;. &quot;Blog&quot; may be considered a trademark? Not sure. But &quot;blog&quot; is a generic term; but they might not want to translate &quot;Blog&quot;. So we should not translate &quot;Blog&quot;. So keep &quot;Blog&quot; as &quot;Blog&quot;. Then &quot;pagination&quot; -&gt; &quot;paginazione&quot;. So &quot;Blog paginazione&quot;. That seems odd: &quot;Blog paginazione&quot;. In Italian, &quot;paginazione&quot; is noun; we might want &quot;Blog paginazione&quot; (Blog pagination). Or &quot;Paginazione Blog&quot;. But we must decide which order? The original phrase is &quot;Blog pagination&quot;. In Italian, you might phrase it as &quot;Paginazione Blog&quot; or &quot;Blog Paginazione&quot;? Typically we keep &quot;Blog&quot; as proper noun, &quot;Paginazione&quot; as translation of pagination. The typical order might be &quot;Blog - Paginazione&quot; or &quot;Paginazione Blog&quot;? In many translation guidelines, you keep proper nouns at the start or end? Usually you keep &quot;Blog&quot; as a proper noun at the start, but you might translate the noun phrase in a natural order. The phrase &quot;Blog pagination&quot; is a title, likely &quot;Blog pagination&quot;. If you want to translate to Italian, you could say &quot;Paginazione Blog&quot;. In English, you might want &quot;Blog Pagination&quot; with capital B and P. In Italian, you might want &quot;Paginazione Blog&quot;. So I&apos;d output &quot;Paginazione Blog&quot;. But check if &quot;Blog&quot; must stay as &quot;Blog&quot;. The phrase &quot;Human names, Nicknames, Proper nouns ... must be output as it is and do not translate them!&quot; &quot;Blog&quot; is not a human name, not a nickname, but it&apos;s a generic term. However, the user says &quot;Proper nouns, symbols, trademarks, etc.&quot; must be output as is. &quot;Blog&quot; could be considered a trademark? Not really. But it&apos;s a generic term used commonly. But they want to keep it unchanged. So we output &quot;Blog paginazione&quot;? That seems unnatural. However, they want translation, but they also want to keep the &quot;proper nouns&quot; unchanged. So we keep &quot;Blog&quot;. Then &quot;pagination&quot; -&gt; &quot;paginazione&quot;. So output &quot;Blog paginazione&quot;. That would be the literal translation: keep &quot;Blog&quot; unchanged, translate &quot;pagination&quot; to &quot;paginazione&quot;. That seems plausible.
-
-But is &quot;paginazione&quot; correct? Yes, &quot;paginazione&quot; is Italian for pagination. Alternatively, &quot;impaginazione&quot; (impaginazione is more for page layout). &quot;paginazione&quot; is more common for web pagination. So &quot;Blog paginazione&quot; might be okay.
-
-But could we output &quot;Blog paginazione&quot;? The user expects the translation to be wrapped in triple backticks and nothing else. So answer: ```Blog paginazione```.
-
-Check: The user says &quot;translate only the sentence or word `Blog pagination` in the paragraph into the target language it-IT&quot;. So they only want that translation, not the entire paragraph.
-
-Thus output:
-
-```Blog paginazione```
-
-But need to consider that &quot;Blog paginazione&quot; might be considered unnatural because &quot;Blog&quot; is capitalized and &quot;paginazione&quot; is lower-case. In Italian, &quot;paginazione&quot; is lower-case but might be capitalized if at start of sentence. But here it&apos;s a translation of the string that is probably used as aria-label for screen readers, not a title. So it&apos;s okay.
-
-But could we output &quot;Paginazione Blog&quot;? That would be &quot;Paginazione Blog&quot;. That is also possible. But they want only the translation of the phrase &quot;Blog pagination&quot;. So if we output &quot;Paginazione Blog&quot;, we are moving &quot;Blog&quot; to the end. That might be acceptable as a translation. But which is more natural? If you see &quot;Blog pagination&quot;, you could interpret as &quot;Pagination for blog&quot; or &quot;Blog&apos;s pagination&quot;. In Italian, &quot;Paginazione del Blog&quot; would be typical: &quot;Paginazione del blog&quot;. But they said not to translate proper nouns, but &quot;Blog&quot; is a generic noun. However, &quot;Blog&quot; in Italian is also a loan word, used as &quot;il blog&quot;, &quot;i blog&quot;. So it&apos;s not a proper noun. So we can translate &quot;Blog&quot; to &quot;blog&quot;. But &quot;Blog pagination&quot; could be translated as &quot;paginazione del blog&quot;. But that would include &quot;del&quot;, which is not present in original. So maybe not.
-
-Thus likely &quot;Blog paginazione&quot;. Or &quot;Paginazione blog&quot;. Let&apos;s see typical translation guidelines for aria-label: The original string might be used for screen readers. For example: aria-label=&quot;@Localizer[&quot;Blog pagination&quot;]&quot;. In Italian, you&apos;d want something like &quot;Paginazione Blog&quot;. In English, you might have &quot;Blog pagination&quot;. So &quot;Blog pagination&quot; -&gt; &quot;Paginazione Blog&quot;. That seems good. &quot;Paginazione&quot; is a noun. &quot;Blog&quot; is left unchanged. So &quot;Paginazione Blog&quot;. That seems consistent: translation of &quot;pagination&quot; to &quot;paginazione&quot;, and &quot;Blog&quot; remains as &quot;Blog&quot;. So output is &quot;Paginazione Blog&quot;. That seems plausible.
-
-But the user explicitly wants only the translation of the word &quot;Blog pagination&quot;. They want only the translation, nothing else. So we need to output something like:
-
-```Paginazione Blog```
-
-Now, check if &quot;Blog&quot; must be capitalized. In the original string, it&apos;s &quot;Blog pagination&quot;. The capitalization &quot;Blog&quot; is capitalized as a proper noun? It&apos;s a generic term, but capitalized in the original phrase. It may be left unchanged. So &quot;Paginazione Blog&quot;. That seems okay.
-
-Alternatively, &quot;Blog paginazione&quot;. That also is fine. Which is more natural? &quot;Paginazione Blog&quot; seems more natural as a phrase, because in Italian you often place the noun first then the other noun. But &quot;Blog paginazione&quot; is unnatural.
-
-Let&apos;s see typical web UI translation: For example, in WordPress you might have &quot;Blog pagination&quot;. In Italian translation, they&apos;d probably use &quot;Paginazione Blog&quot;. Yes, that seems likely.
-
-Check if any trademark or proper noun. &quot;Blog&quot; is a generic term but often used as a brand? Not sure.
-
-Thus I think the correct answer is:
-
-```
-Paginazione Blog
-```
-
-But we need to double-check if &quot;Paginazione&quot; is the correct Italian translation for &quot;pagination&quot;. In Italian, &quot;paginazione&quot; is used for &quot;pagination&quot; in web contexts. Yes. So &quot;Paginazione Blog&quot;. In English, &quot;Blog pagination&quot; is a noun phrase; Italian translation often is &quot;Paginazione Blog&quot;. That seems correct.
-
-Thus answer: ```Paginazione Blog```.
-
-But we must ensure we wrap in triple backticks and nothing else. So final answer is triple backticks with content. Provide just the translation. Let&apos;s output accordingly.
-&lt;/think&gt;
-
-```Paginazione Blog</value>
+    <value>Paginazione Blog</value>
   </data>
   <data name="Explore" xml:space="preserve">
     <value>Esplora</value>
@@ -95,43 +42,7 @@ But we must ensure we wrap in triple backticks and nothing else. So final answer
     <value>Parole chiave</value>
   </data>
   <data name="Modern Markdown blogging with AI-powered localization and search." xml:space="preserve">
-    <value>Blogging moderno con Markdown e localizzazione e ricerca alimentate da AI.
-```
-
-But also we could include &quot;AI-powered&quot; phrase as &quot;AI-powered&quot; unchanged: &quot;Blogging moderno con Markdown e AI-powered localization and search.&quot; That&apos;s not Italian. The phrase &quot;AI-powered&quot; is a trademark? Probably not; it&apos;s an English phrase describing the product. But they said &quot;Do not translate ... symbols, trademarks, etc.&quot; So &quot;Markdown&quot; should be unchanged. &quot;AI-powered&quot; maybe unchanged, but it&apos;s not a trademark. But maybe we can keep &quot;AI-powered&quot; unchanged as a brand phrase. However the phrase is &quot;AI-powered localization and search&quot;. The translation should convey the meaning. The safest is to translate &quot;AI-powered&quot; as &quot;basata su AI&quot; or &quot;alimentata da AI&quot;. Let&apos;s decide.
-
-We need to output only the translation and nothing else. So we should produce the Italian translation. The user request: &quot;Please translate only the sentence or word `Modern Markdown blogging with AI-powered localization and search.` in the paragraph into the target language it-IT, Italiano (Italia). ... If you don&apos;t understand what you want to translate, please output it as it is!&quot;
-
-Thus output: &quot;Blogging moderno con Markdown e localizzazione e ricerca basate su AI.&quot; Check if that is good.
-
-Better: &quot;Blogging moderno con Markdown e localizzazione e ricerca alimentate da AI.&quot; That is more literal.
-
-However the phrase &quot;Modern Markdown blogging with AI-powered localization and search.&quot; maybe more accurately: &quot;Blogging moderno con Markdown, localizzazione e ricerca alimentate da AI.&quot; The punctuation is important.
-
-We should keep the phrase &quot;Markdown&quot; unchanged, &quot;AI-powered&quot; maybe we translate to &quot;alimentate da AI&quot; or &quot;basate su AI&quot;. Let&apos;s choose &quot;alimentate da AI&quot;. So: &quot;Blogging moderno con Markdown e localizzazione e ricerca alimentate da AI.&quot; This is straightforward.
-
-But note the original phrase uses &quot;Modern Markdown blogging with AI-powered localization and search.&quot; Could also be &quot;Modern Markdown blogging with AI-powered localization and search.&quot; Possibly we need to preserve the order: &quot;Modern&quot; is an adjective. In Italian we might say &quot;Blogging Markdown moderno con localizzazione e ricerca alimentate da AI.&quot; That is good.
-
-Let&apos;s propose translation: &quot;Blogging moderno con Markdown e localizzazione e ricerca alimentate da AI.&quot;
-
-Alternatively, &quot;Blogging Markdown moderno con localizzazione e ricerca basate su AI.&quot; But &quot;Markdown&quot; appears after &quot;Modern&quot;. So &quot;Modern Markdown blogging&quot; could be &quot;blogging Markdown moderno&quot; which is unnatural. Better to reorder: &quot;Blogging moderno con Markdown e localizzazione e ricerca alimentate da AI.&quot;
-
-Thus final output: 
-```
-Blogging moderno con Markdown e localizzazione e ricerca alimentate da AI.
-```
-
-Check if any part is proper noun/trademark: &quot;Markdown&quot; is a trademark; we keep it. &quot;AI&quot; is abbreviation; we keep it? But we replaced &quot;AI-powered&quot; with &quot;alimentate da AI&quot;. Should we keep &quot;AI-powered&quot;? The user might expect &quot;AI-powered&quot; unchanged, but it&apos;s not a trademark, but it&apos;s an English phrase. However they said &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them!&quot; That suggests we keep &quot;Markdown&quot; unchanged, and &quot;AI-powered&quot; is a phrase but not a proper noun. But we could keep &quot;AI-powered&quot; unchanged and translate only other parts, like &quot;localization&quot; and &quot;search&quot;. However &quot;localization&quot; is &quot;localizzazione&quot; and &quot;search&quot; is &quot;ricerca&quot;. So we could output: &quot;Blogging Markdown moderno con localizzazione e ricerca AI-powered.&quot; But that mixes languages.
-
-Better to translate fully: &quot;Blogging moderno con Markdown e localizzazione e ricerca alimentate da AI.&quot; The phrase &quot;AI-powered&quot; might be considered a trademark? It&apos;s not. So we translate it to &quot;alimentate da AI&quot;. That&apos;s okay.
-
-Thus output that. They want only the translation, wrapped in three backticks. So final answer: 
-```
-Blogging moderno con Markdown e localizzazione e ricerca alimentate da AI.
-```
-&lt;/think&gt;
-
-``` Blogging moderno con Markdown e localizzazione e ricerca alimentate da AI.</value>
+    <value>Blogging moderno con Markdown e localizzazione e ricerca alimentate da AI.</value>
   </data>
   <data name="Next" xml:space="preserve">
     <value>Successivo</value>
@@ -158,82 +69,13 @@ Blogging moderno con Markdown e localizzazione e ricerca alimentate da AI.
     <value>Ricerca basata su AI (Database vettoriale)</value>
   </data>
   <data name="Sort posts" xml:space="preserve">
-    <value>Ordina i post
-```
-
-The user instruction: &quot;Only output the translated content and wrap it in three backticks, like this: ``` Translated word here...```&quot;. So we must output the translated phrase inside three backticks, with maybe nothing else. So answer: ```Ordina i post```.
-
-But need to check: Is &quot;Sort posts&quot; a human name? No. Is it a proper noun? No. So we can translate.
-
-Thus final answer: three backticks with &quot;Ordina i post&quot;. Should we include &quot;...&quot; after? The user says output only the translated content and wrap in three backticks like this: ``` Translated word here...```. They didn&apos;t specify if we need ellipsis. The example: they wrote:
-
-```
-Translated word here...
-```
-
-So we must output exactly that? Actually they gave an example: &quot;Translated word here...&quot; inside the triple backticks. They said &quot;like this: ``` Translated word here...```&quot;. That suggests we must output a triple backticks block, with the translated content inside, and maybe some trailing ellipsis? The example shows three backticks opening, then a space, then &quot;Translated word here...&quot;, then three backticks closing. In other words:
-
-```
-Translated word here...
-```
-
-So we need to output exactly:
-
-```
-Ordina i post
-```
-
-No trailing ellipsis? The example includes ellipsis after the word. But I&apos;m not sure if they want ellipsis or just translation. Usually they&apos;d want just translation, but they said &quot;like this&quot;. Let&apos;s read the instruction: &quot;Do **NOT** output any other content. Only output the translated content and wrap it in three backticks (```), like this:
-
-```
-Translated word here...
-```&quot;
-
-Thus they want the translation inside triple backticks, as the example. So we must output triple backticks with translation. Should we include the ellipsis? No, they said &quot;Translated word here...&quot; as placeholder, not required. So we will output:
-
-```
-Ordina i post
-```
-
-Hence final answer: triple backticks with translation. No other content.
-&lt;/think&gt;
-
-```Ordina i post</value>
+    <value>Ordina i post</value>
   </data>
   <data name="Tag" xml:space="preserve">
     <value>Tag</value>
   </data>
   <data name="Tags" xml:space="preserve">
-    <value>Translated word here...```.
-
-Thus output:
-
-```Tag```
-
-But we need to consider &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; We understand it&apos;s &quot;Tags&quot;. So we output &quot;Tag&quot;. They want only the translated conclusion. So answer: &quot;Tag&quot;. Use triple backticks.
-
-Thus final output: ```Tag```.
-
-Double-check: The word &quot;Tags&quot; is a plural noun. In Italian, &quot;tag&quot; is also used for both singular and plural? Actually &quot;tag&quot; is an English masculine noun borrowed into Italian. Plural may remain same: &quot;i tag&quot;. So &quot;Tags&quot; might translate to &quot;Tag&quot;. That seems right.
-
-Thus final answer: ```Tag```.
-
-But let&apos;s be thorough: In Italian, &quot;Tags&quot; could also be &quot;Etichette&quot; or &quot;Tag&quot;. However, in web contexts, &quot;tags&quot; is usually &quot;tag&quot;. The phrase &quot;Tags&quot; in English is used as heading for a list of tags. In Italian, it&apos;s common to keep the English word &quot;tag&quot;. For example, in many Italian websites, they use &quot;Tag&quot;. So translation is &quot;Tag&quot;.
-
-Thus final output should be exactly:
-
-```
-Tag
-```
-
-Yes.
-
-Potential nuance: Should we consider &quot;Tag&quot; capitalized? The original word is &quot;Tags&quot;. The translation could be &quot;Tag&quot;. Usually headings are capitalized. So &quot;Tag&quot;. Should we preserve case? Not needed.
-
-Thus final answer is triple backticks with &quot;Tag&quot;.
-&lt;/think&gt;
-
-```Tag</value>
+    <value>Tag</value>
   </data>
   <data name="Too many searches. AI search temporarily limited; showing keyword results." xml:space="preserve">
     <value>Troppe ricerche. Ricerca IA temporaneamente limitata; vengono visualizzati i risultati per parole chiave.</value>

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="root">
+        <xs:element name="root" ns1:IsDataSet="true">
 
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-
-        </xsd:element>
-    </xsd:schema>
+        </xs:element>
+    </xs:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -19,470 +18,58 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
       <data name="Back to Editor" xml:space="preserve">
-    <value>Geriye Düzenleyici
-```
-
-But we must be careful: the phrase &quot;Back to Editor&quot; is likely &quot;Editöre Geri&quot; or something. Let&apos;s think about the translation. Usually &quot;Back to Editor&quot; in a UI might be &quot;Editöre Geri&quot; or &quot;Editör&apos;e Geri&quot;. Turkish translations often use &quot;Geri&quot; for &quot;Back&quot;. &quot;Editor&quot; is &quot;Editör&quot; (or &quot;Düzenleyici&quot;?). In Turkish, &quot;Back to Editor&quot; could be &quot;Editöre Geri&quot; but might be &quot;Editöre Dön&quot; or &quot;Editör&apos;e Geri Dön&quot;. Let&apos;s see what translation is common.
-
-We need to translate &quot;Back to Editor&quot;. Usually &quot;Back&quot; in Turkish is &quot;Geri&quot; (or &quot;Geriye&quot; if direction). &quot;to Editor&quot; would be &quot;Editöre&quot;. So &quot;Back to Editor&quot; -&gt; &quot;Editöre Geri&quot;. But might be &quot;Editör&apos;e Geri&quot;. But also could be &quot;Editör&apos;e Dön&quot;. In many UI translation guidelines for Turkish, &quot;Back to Editor&quot; could be &quot;Editör&apos;e Dön&quot;. Since &quot;Back&quot; means returning, &quot;Geri&quot; or &quot;Geriye&quot; can be used. &quot;Editör&quot; is a noun meaning Editor. The phrase &quot;Back to Editor&quot; in a hyperlink with arrow-left likely means returning to the editor interface. So translation might be &quot;Editöre Dön&quot; (return to editor). But let&apos;s see the context: It&apos;s a link that goes back to the editor page. So translation might be &quot;Editör&apos;e Dön&quot;. Indeed typical translations: &quot;Back to Editor&quot; -&gt; &quot;Editöre Dön&quot; (Return to Editor). But &quot;Editör&quot; is also &quot;Editor&quot;. In Turkish it&apos;s &quot;Editör&quot;. &quot;Editöre Dön&quot; could be unnatural; maybe &quot;Editör&apos;e Dön&quot;. The phrase &quot;Editör&apos;e Dön&quot;. Let&apos;s think about typical usage: For example, &quot;Back to Dashboard&quot; is often &quot;Gösterge Paneline Geri Dön&quot; or &quot;Gösterge Paneline Dön&quot;. For &quot;Back to Editor&quot;, &quot;Editör&apos;e Dön&quot; seems likely. But is &quot;Editör&apos;e Dön&quot; idiomatic? In Turkish, you would use &quot;Editör&apos;e Dön&quot; or &quot;Editör&apos;e Geri Dön&quot;. The user may want an accurate translation.
-
-We should output only the translation wrapped in triple backticks. So something like:
-
-```
-Editör&apos;e Dön
-```
-
-But we need to think about the case: &quot;Back to Editor&quot; could be &quot;Editör&apos;e Dön&quot;. In Turkish, &quot;Editör&quot; is not as common; &quot;Editör&quot; is the same word, but maybe they&apos;d use &quot;Editor&quot; unchanged but in Turkish it&apos;s &quot;Editör&quot;. So &quot;Editör&apos;e Dön&quot;. Or &quot;Editöre Dön&quot;? Let&apos;s see.
-
-We need to be careful: The user explicitly said: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Back to Editor` is one of them.&quot; So is &quot;Back to Editor&quot; a proper noun? Probably not; it&apos;s a generic UI phrase. So we must translate it.
-
-Thus output:
-
-```turkish
-Editör&apos;e Dön
-```
-
-But maybe they&apos;d want &quot;Editöre Dön&quot; (with diacritic?), but &quot;Editör&quot; vs &quot;Editör&quot;. Use correct Turkish &quot;Editör&quot;. So &quot;Editör&apos;e Dön&quot;. Actually &quot;Editör&apos;e Dön&quot; is &quot;Editör&apos;e Dön&quot; with apostrophe? In Turkish, the accusative or locative case uses &quot;e&quot; suffix, &quot;Editör&apos;e&quot;. Usually you would say &quot;Editör&apos;e dön&quot; (lowercase &quot;dön&quot;). Title case? The translation should be in title case maybe not needed. The user didn&apos;t specify case. Could be &quot;Editör&apos;e Dön&quot;. Let&apos;s output that.
-
-But we need to confirm the translation: &quot;Back to Editor&quot; -&gt; &quot;Editör&apos;e Dön&quot;. That seems correct.
-
-Now, check for nuance: &quot;Back to Editor&quot; could also be &quot;Editor&apos;a Geri Dön&quot;. But I&apos;d say &quot;Editör&apos;e Dön&quot;. That&apos;s fine.
-
-Thus output only:
-
-```
-Editör&apos;e Dön
-```
-
-But the user may want the translation in Turkish for &quot;Back to Editor&quot; exactly. So we output that.
-
-Thus final answer: wrapped in triple backticks, no other content.
-
-Now check any hidden instructions: The system prompt says &quot;You are a helpful assistant.&quot; The user wants only the translated content, no extra output. So we must only output the translation, in a code block using triple backticks, with the translation. Should we include &quot;turkish&quot; after the backticks? The user said &quot;wrap it in three backticks (```), like this:
-
-```
-Translated word here...
-```
-
-So we need to output:
-
-```Editör&apos;e Dön```
-
-But the example shows triple backticks with the translation inside. So we output:
-
-```
-Editör&apos;e Dön
-```
-
-Yes.
-
-Thus final.
-&lt;/think&gt;
-
-```Editör&apos;e Dön</value>
+    <value>Editör'e Dön</value>
   </data>
   <data name="Error!" xml:space="preserve">
-    <value>Hata!
-```
-
-But we must output only the translated content and wrap it in three backticks, like this:
-
-```
-Translated word here...
-```
-
-So we should output backticks with Hata! inside.
-
-Thus answer: backticks containing Hata!. Possibly with exclamation? Already includes exclamation. Output exactly:
-
-```
-Hata!
-```
-
-Will that be accepted? Yes.
-
-Therefore final answer.
-&lt;/think&gt;
-
-```Hata!</value>
+    <value>Hata!</value>
   </data>
   <data name="Failed to load translation." xml:space="preserve">
-    <value>Çeviri yüklenemedi.
-```
-
-Make sure to output only the translation. Use three backticks.
-
-Thus answer.
-&lt;/think&gt;
-
-``` 
-Çeviri yüklenemedi.</value>
+    <value>Çeviri yüklenemedi.</value>
   </data>
   <data name="Generated" xml:space="preserve">
-    <value>Üretildi
-```
-&lt;/think&gt;
-
-``` 
-Üretildi</value>
+    <value>Üretildi</value>
   </data>
   <data name="Languages" xml:space="preserve">
-    <value>Diller
-```
-
-But we need to consider if &quot;Languages&quot; is a proper noun or not. The human names, nicknames, proper nouns, symbols, trademarks are to be output as is. &quot;Languages&quot; is a generic word, not a trademark, so translate it. So output &quot;Diller&quot;. Wrap in three backticks.
-
-Thus final answer:
-
-``` 
-Diller
-```
-
-But they said wrap it in three backticks, like
-
-```
-Translated word here...
-```
-
-So output:
-
-``` 
-Diller
-```
-
-Actually they gave an example: &quot;``` Translated word here...```&quot;. So we need to output three backticks then newline? The example: 
-```
-Translated word here...
-```
-We need to follow that. So output:
-
-``` 
-Diller
-```
-
-Probably they want exactly that pattern: three backticks with newline after them, then content, then newline and triple backticks.
-
-Thus final answer is:
-
-``` 
-Diller
-```
-&lt;/think&gt;
-
-``` 
-Diller</value>
+    <value>Diller</value>
   </data>
   <data name="Last Modified" xml:space="preserve">
-    <value>@Localizer[&quot;Source Culture&quot;]: &lt;span class=&quot;badge bg-secondary&quot;&gt;@(Model.SourceCulture ?? &quot;—&quot;)&lt;/span&gt;
-            &amp;nbsp;|&amp;nbsp; @Localizer[&quot;Last Modified&quot;]: &lt;label class=&quot;text-muted mb-0 d-inline&quot; data-utc-time=&quot;@Model.UpdatedAt.ToHtmlDateTime()&quot;&gt;&lt;/label&gt;
-```
-
-So the label &quot;Last Modified&quot; appears before a date/time label. So the translation likely expects &quot;Son Değişiklik&quot; or &quot;Son Değişiklik Tarihi&quot;. Let&apos;s think about typical UI labels. For example, in English, you might have &quot;Last Modified: 2023-09-22&quot;. In Turkish, you might have &quot;Son Değişiklik: 2023-09-22&quot;. However, &quot;Tarihi&quot; adds &quot;date&quot;. So &quot;Son Değişiklik Tarihi&quot; would be &quot;Last Modified Date&quot;. But the phrase &quot;Last Modified&quot; often includes the date, so &quot;Son Değişiklik Tarihi&quot;. But in many UI, they just say &quot;Son Değişiklik&quot; and the date is displayed next to it.
-
-Thus translation: &quot;Son Değişiklik&quot;. Let&apos;s check if &quot;Son Değişiklik&quot; is indeed correct. The phrase &quot;Last Modified&quot; (adjective + past participle) indicates the last time the item was modified. In Turkish, you can say &quot;Son Değişiklik&quot;. That is like &quot;latest change&quot;. It can be used as a noun phrase. So &quot;Last Modified&quot; -&gt; &quot;Son Değişiklik&quot;. That seems plausible.
-
-Alternatively, &quot;En Son Değişiklik&quot; would be more literal &quot;Most recent modification&quot;. But typical translation is &quot;Son Değişiklik&quot;. In the context of metadata, they might want &quot;En Son Değişiklik&quot;. But &quot;En Son Değişiklik&quot; might be better: &quot;En Son Değişiklik&quot;. But is that used? Let&apos;s search mental memory: In many Turkish UI strings, &quot;Last updated&quot; becomes &quot;En son güncelleme&quot;. Example: &quot;Last updated: 12/31/2022&quot;. Turkish translation: &quot;En son güncelleme: 12/31/2022&quot;. So &quot;Last updated&quot; is &quot;En son güncelleme&quot;. So &quot;Last Modified&quot; could be &quot;En son değiştirme&quot;. But &quot;En son değiştirme&quot; is less common. Better &quot;Son Değişiklik&quot;.
-
-Thus translation: &quot;Son Değişiklik&quot;. I think that&apos;s safe.
-
-Now output only the translation inside triple backticks. So final answer:
-
-```
-Son Değişiklik
-```
-
-But need to check if they want to output only the translation and nothing else. Yes, they want only that. So we output exactly:
-
-```
-Son Değişiklik
-```
-
-Thus answer is that.
-
-Make sure no extra content.
-
-Proceed.
-&lt;/think&gt;
-
-``` 
-Son Değişiklik</value>
+    <value>Son Değişiklik</value>
   </data>
   <data name="Localization" xml:space="preserve">
-    <value>Yerelleştirme
-```
-
-Make sure no extra content. Return just that.
-
-But check: The instruction: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Localization` is one of them. If you don&apos;t understand what you want to translate, please output it as it is!&quot; So &quot;Localization&quot; is a noun and not a proper noun, so we translate it. So output &quot;Yerelleştirme&quot;.
-
-Thus final answer: wrap in backticks.
-
-But double-check: In Turkish, &quot;Yerelleştirme&quot; is used. However, the phrase &quot;Yerelleştirme&quot; includes a capital Y? Not needed. Should be &quot;Yerelleştirme&quot;. That is a noun.
-
-Thus final answer: ```Yerelleştirme```.
-
-Double-check: The user says &quot;only the sentence or word `Localization` in the paragraph... output only the translated content and wrap in three backticks.&quot; So we output exactly:
-
-```
-Yerelleştirme
-```
-
-Make sure no extra text. Should not include any additional commentary.
-
-Thus final.
-&lt;/think&gt;
-
-```Yerelleştirme</value>
+    <value>Yerelleştirme</value>
   </data>
   <data name="Localized Content" xml:space="preserve">
-    <value>Translated word here...
-```
-
-We must not output any other content. So just output the translation. The word &quot;Localized Content&quot; in the code: it seems like a label in an HTML. In the snippet:
-
-```
-&lt;label for=&quot;localized-content-editor&quot; class=&quot;form-label&quot;&gt;@Localizer[&quot;Localized Content&quot;]&lt;/label&gt;
-```
-
-So they want to translate &quot;Localized Content&quot;. That likely should be &quot;Yerelleştirilmiş İçerik&quot;. Actually &quot;Localized&quot; can be &quot;Yerelleştirilmiş&quot; or &quot;Yerelleştirilmiş&quot;, but usually &quot;Localized&quot; =&gt; &quot;Yerelleştirilmiş&quot;. So &quot;Localized Content&quot; =&gt; &quot;Yerelleştirilmiş İçerik&quot;. Turkish translation could be &quot;Yerelleştirilmiş İçerik&quot;. We need to see if there is any nuance: The language code is tr-TR; Turkish uses &quot;Yerelleştirilmiş İçerik&quot;. Actually &quot;Localized Content&quot; could also be &quot;Yerelleştirilmiş İçerik&quot;. Might also be &quot;Yerel İçerik&quot;? No, &quot;Localized&quot; maybe &quot;Yerel&quot;. But &quot;Yerel&quot; means &quot;local&quot;. &quot;Yerelleştirilmiş&quot; is &quot;has been made local&quot; i.e., &quot;Localized&quot;. So likely &quot;Yerelleştirilmiş İçerik&quot;. But we should consider if &quot;Localized Content&quot; is a label that is used in placeholder? The placeholder is &quot;Translated markdown content&quot;. So maybe they want to display &quot;Localized Content&quot; label for the textarea. So translation in Turkish: &quot;Yerelleştirilmiş İçerik&quot;. Usually they&apos;d use &quot;Yerelleştirilmiş İçerik&quot;. The phrase &quot;Localized Content&quot; in English could also be &quot;Yerel İçerik&quot;, but that would mean &quot;Local Content&quot;. &quot;Yerelleştirilmiş&quot; is more accurate for &quot;localized&quot;. So I&apos;d translate as &quot;Yerelleştirilmiş İçerik&quot;. Possibly &quot;Yerelleştirilmiş İçerik&quot;. That&apos;s fine.
-
-Make sure to output only the translated word in code fences: triple backticks with content:
-
-```
-Yerelleştirilmiş İçerik
-```
-
-But we must output exactly as they ask: &quot;wrap it in three backticks (```), like this: ``` Translated word here... ```&quot;. So we output:
-
-``` 
-Yerelleştirilmiş İçerik
-```
-
-Make sure no extra text.
-
-Thus final answer: triple backticks with the translation.
-&lt;/think&gt;
-
-```Yerelleştirilmiş İçerik</value>
+    <value>Yerelleştirilmiş İçerik</value>
   </data>
   <data name="Localized Title" xml:space="preserve">
-    <value>Translated word here...
-```
-
-We need to output the translation of &quot;Localized Title&quot;. The target language is Turkish (tr-TR). The phrase &quot;Localized Title&quot; likely translates as &quot;Yerelleştirilmiş Başlık&quot;. However, check the instruction: &quot;Please translate only the sentence or word `Localized Title` in the paragraph into the target language tr-TR, Türkçe (Türkiye).&quot; So we need to output the translation. There&apos;s also a note that if we don&apos;t understand what you want to translate, output it as it is. We understand the phrase. So translation: &quot;Yerelleştirilmiş Başlık&quot;. But we need to consider if &quot;Localized Title&quot; is a proper noun? It&apos;s not a trademark or symbol, it&apos;s a generic phrase. So translation appropriate.
-
-Thus output:
-
-```
-Yerelleştirilmiş Başlık
-```
-
-But we must consider that in Turkish, &quot;Localized Title&quot; might be &quot;Yerelleştirilmiş Başlık&quot; or &quot;Yerel Başlık&quot;? Let&apos;s think: &quot;Localized Title&quot; is used in UI as a label. The context: this is a form label for an input field for localized title. In Turkish UI, one would say &quot;Yerelleştirilmiş Başlık&quot; perhaps. However, there is a nuance: &quot;Localized Title&quot; might be &quot;Yerel Başlık&quot; but that would mean &quot;Local Title&quot;. &quot;Localized Title&quot; as a phrase likely translates to &quot;Yerelleştirilmiş Başlık&quot;. In Turkish, &quot;yerelleştirme&quot; is the process of making something local. The past participle &quot;yerelleştirilmiş&quot; means &quot;has been localized&quot;. So &quot;Yerelleştirilmiş Başlık&quot;. This seems correct.
-
-However, we might also consider alternative &quot;Yerelleştirilmiş Başlık&quot;. Double-check: &quot;Localized Title&quot; is often translated as &quot;Yerel Başlık&quot; but that could be ambiguous. Turkish UI translation guidelines: for a form field that expects a localized title, they might use &quot;Yerel Başlık&quot;. But &quot;Localized Title&quot; is &quot;Yerelleştirilmiş Başlık&quot; indeed. The phrase &quot;Localized Title&quot; probably indicates the title that has been localized (like after translation). So &quot;Yerelleştirilmiş Başlık&quot; is plausible.
-
-We must output just the translation, wrapped in three backticks. So output exactly:
-
-```
-Yerelleştirilmiş Başlık
-```
-
-Make sure no extra content. So answer with only that. Ensure no additional commentary.
-
-Proceed.
-&lt;/think&gt;
-
-``` 
-Yerelleştirilmiş Başlık</value>
+    <value>Yerelleştirilmiş Başlık</value>
   </data>
   <data name="Save failed." xml:space="preserve">
-    <value>Kaydetme başarısız.
-```
-
-But ensure correct punctuation. Turkish punctuation: &quot;Kaydetme başarısız.&quot; Or &quot;Kaydetme başarısız.&quot; is fine.
-
-Thus final answer: just the translation in backticks. No other content.
-
-But check if &quot;Save failed.&quot; includes a period at the end. Yes, &quot;Save failed.&quot; includes a period. So translation must also include period.
-
-Thus output:
-
-```
-Kaydetme başarısız.
-```
-
-Wrap in triple backticks.
-
-Check for any special characters or context: The user says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Save failed.` is one of them.&quot; So we should not treat it as a proper noun. It&apos;s a simple error message, not a proper noun, so translate.
-
-Thus answer: ``Kaydetme başarısız.`` in backticks.
-
-One more thought: Should we include the period? Yes.
-
-Also note: The translation must be accurate. &quot;Kaydetme başarısız&quot; might be considered unnatural. Many translations use &quot;Kaydetme başarısız.&quot; Let&apos;s check typical translations from Microsoft: If you search &quot;Kaydetme başarısız&quot;, you find that phrase appears often. For instance, &quot;Save failed.&quot; often translates to &quot;Kaydetme başarısız.&quot; I&apos;d like to verify with known sources: In Turkish translation of WordPress, &quot;Save failed&quot; could be &quot;Kaydetme başarısız.&quot; In Visual Studio Code, &quot;Save failed&quot; is &quot;Kaydetme başarısız.&quot; Indeed, VS code uses &quot;Kaydetme başarısız.&quot; That might be correct.
-
-Alternatively &quot;Kaydetme hatası.&quot; is used for generic error. &quot;Kaydetme başarısız&quot; implies the operation failed, more literal.
-
-Better to choose &quot;Kaydetme başarısız.&quot; because it&apos;s direct translation with &quot;başarısız&quot; meaning &quot;unsuccessful&quot;. It&apos;s correct grammar: &quot;Kaydetme başarısız.&quot; The phrase &quot;Kaydetme başarısız&quot; is a noun phrase, not exactly a verb phrase, but error messages often use noun forms. Could also be &quot;Kaydetme işlemi başarısız.&quot; which is more explicit.
-
-But which one is more likely? Let&apos;s consider typical Turkish error messages: &quot;Kaydetme hatası.&quot; is a common phrase for &quot;Save error&quot;. For instance, &quot;Kayıt hatası&quot; is &quot;Record error&quot;. &quot;Kaydetme hatası&quot; maybe used. However, &quot;Kaydetme hatası&quot; sounds like &quot;Save error&quot;. &quot;Kaydetme başarısız&quot; is more &quot;Save failed&quot;. I think it&apos;s a direct translation of &quot;failed&quot; =&gt; &quot;başarısız&quot;. So &quot;Kaydetme başarısız.&quot; I&apos;d go with that.
-
-Thus final answer: triple backticks with translation.
-
-Make sure no other content.
-
-Ok.
-&lt;/think&gt;
-
-```Kaydetme başarısız.</value>
+    <value>Kaydetme başarısız.</value>
   </data>
   <data name="Save Translation" xml:space="preserve">
-    <value>Çeviriyi Kaydet
-```
-
-Check if they want &quot;Save Translation&quot; as a single phrase. They ask &quot;Please translate only the sentence or word `Save Translation` in the paragraph into the target language tr-TR, Türkçe (Türkiye).&quot; So we need to output Turkish translation: &quot;Çeviriyi Kaydet&quot;. Alternatively &quot;Çeviriyi Kaydet&quot; (imperative, second person singular). That seems correct.
-
-Thus final answer: ```Çeviriyi Kaydet```.
-
-Check guidelines: must not output any other content. Only output the translated content wrapped in three backticks. So final answer must be triple backticks with content. The user expects exactly that. So answer with triple backticks containing translation.
-
-Thus final answer:
-
-```Çeviriyi Kaydet```
-&lt;/think&gt;
-
-```Çeviriyi Kaydet</value>
+    <value>Çeviriyi Kaydet</value>
   </data>
   <data name="Saved successfully!" xml:space="preserve">
-    <value>Kaydedildi!
-```
-
-But check: user says &quot;Do not output any other content. Only output the translated content and wrap it in three backticks.&quot; So output:
-
-```
-Kaydedildi!
-```
-
-Yes. Ensure no extra content.
-&lt;/think&gt;
-
-```Kaydedildi!</value>
+    <value>Kaydedildi!</value>
   </data>
   <data name="Saving..." xml:space="preserve">
-    <value>Kaydediliyor...```
-
-We must not output any other content. Should we include trailing ellipsis? The phrase includes &quot;...&quot;. In Turkish, you can keep &quot;Kaydediliyor...&quot;. Yes.
-
-Thus final.
-&lt;/think&gt;
-
-```Kaydediliyor...</value>
+    <value>Kaydediliyor...</value>
   </data>
   <data name="Select a language" xml:space="preserve">
-    <value>Translated word here...
-```
-
-We need to output the translation only, not any explanation.
-
-The phrase &quot;Select a language&quot; should be translated into Turkish. In Turkish, a common translation is &quot;Bir dil seçin&quot;. However, there is nuance: In UI, often &quot;Select a language&quot; could be &quot;Bir dil seçin&quot; or &quot;Dil seçin&quot;. Another phrase &quot;Select a language&quot; can be &quot;Dil seçin&quot;. Could also be &quot;Bir dil seçin&quot;. The user wants accurate translation.
-
-We need to output only the translation wrapped in triple backticks. No other content.
-
-The user instructions: &quot;Do not output any other content. Only output the translated content and wrap it in three backticks (```), like this:
-
-```
-Translated word here...
-```&quot;
-
-Thus we need to output something like:
-
-```
-Bir dil seçin
-```
-
-But we must consider context: The phrase is &quot;Select a language&quot;. In Turkish, the most natural translation is &quot;Bir dil seçin&quot;. That is correct. However, we must also consider that the phrase appears inside a label: `&lt;span id=&quot;editor-language-label&quot;&gt;@Localizer[&quot;Select a language&quot;]&lt;/span&gt;`. So it&apos;s a UI label. So &quot;Bir dil seçin&quot; would be fine.
-
-Now we need to output only the translation, no extra text. So:
-
-```
-Bir dil seçin
-```
-
-But check if there are any proper nouns or trademarked items: The phrase &quot;Select a language&quot; does not contain any proper nouns or trademark. So we can translate.
-
-Thus answer: &quot;Bir dil seçin&quot;. Wrap in triple backticks.
-
-We need to ensure no extra text, only translation.
-
-Thus final answer: triple backticks with translation.
-&lt;/think&gt;
-
-```Bir dil seçin</value>
+    <value>Bir dil seçin</value>
   </data>
   <data name="Source Culture" xml:space="preserve">
-    <value>Kaynak Kültür```.
-
-But we must check if any edge cases: The phrase &quot;Source Culture&quot; appears inside a larger string: `@Localizer[&quot;Source Culture&quot;]: &lt;span class=&quot;badge bg-secondary&quot;&gt;...`. They want only translation of `Source Culture`. So answer: ```Kaynak Kültür```.
-
-We must not output any other content. Must not include any explanation. Just wrap translation.
-
-Thus final.
-&lt;/think&gt;
-
-```Kaynak Kültür</value>
+    <value>Kaynak Kültür</value>
   </data>
   <data name="Success!" xml:space="preserve">
-    <value>Başarı!
-```
-
-But we need to be careful: The translation must be exactly what we think. &quot;Success!&quot; -&gt; &quot;Başarı!&quot; (exclamation). Another possibility: &quot;Başarılı!&quot; (if used as &quot;Success!&quot; as &quot;Successful!&quot;). Which one is more common? Let&apos;s check typical localization. In .NET resources, you often have &quot;Success!&quot; as &quot;Başarılı!&quot;? Example: In Turkish translations for Microsoft .NET, &quot;Success!&quot; is &quot;Başarılı!&quot;? I&apos;m not sure. Let&apos;s search memory: In many UI translations, &quot;Success!&quot; is often &quot;Başarılı!&quot; as an exclamation? For example, in WordPress or other typical translation: &quot;Success!&quot; is &quot;Başarı!&quot; in Turkish? I recall common translations: &quot;Success&quot; -&gt; &quot;Başarı&quot;. Eg. &quot;Success notification&quot; is &quot;Başarı bildirimi&quot;. For a success message, &quot;Success!&quot; would be &quot;Başarı!&quot; but also &quot;İşlem başarılı!&quot; (Operation succeeded). But &quot;Başarı!&quot; is a noun, exclamation. &quot;Başarılı!&quot; is adjective &quot;successful&quot;, used as exclamation &quot;Successful!&quot;, but not &quot;Success!&quot;. The phrase &quot;Success!&quot; can be &quot;Başarı!&quot; indeed. However, sometimes &quot;Success!&quot; is used as a phrase &quot;Well done!&quot; -&gt; &quot;Aferin!&quot; but that&apos;s not typical.
-
-Thus likely answer: &quot;Başarı!&quot;.
-
-We need to output in triple backticks: 
-```
-Başarı!
-```
-
-Wrap in three backticks. Ensure no other content.
-&lt;/think&gt;
-
-``` 
-Başarı!</value>
+    <value>Başarı!</value>
   </data>
   <data name="Translated markdown content" xml:space="preserve">
-    <value>Çevrilmiş markdown içeriği
-```
-
-Make sure triple backticks. So final answer is just that code block.
-&lt;/think&gt;
-
-```csharp
-Çevrilmiş markdown içeriği</value>
+    <value>Çevrilmiş markdown içeriği</value>
   </data>
   <data name="Translated title" xml:space="preserve">
-    <value>Çevrilmiş başlık
-```
-
-We need to be careful: The user specifically says &quot;Please translate only the sentence or word `Translated title` in the paragraph into the target language tr-TR, Türkçe (Türkiye).&quot; So we only output the translation for &quot;Translated title&quot;. Not the entire paragraph or any other content. So we output just that translation, inside triple backticks. Should we include any extra text? No, only output the translation, wrapped in triple backticks, as described. Should we include the translation as plain text without any markup? Yes. Just the translation.
-
-Thus output:
-
-```
-Çevrilmiş başlık
-```
-
-Double-check if capitalisation matters. Usually in Turkish UI translations, they may keep the capital letter as &quot;Çevrilmiş başlık&quot;. Title is capitalized: &quot;Başlık&quot; is capital B? But &quot;Başlık&quot; might be capitalized because &quot;Başlık&quot; is a noun and maybe they want it capitalized. However, Turkish does not capitalize nouns in UI unless starting a sentence. Placeholder might be a lower-case phrase &quot;Translated title&quot;. So translation &quot;Çevrilmiş başlık&quot; is correct.
-
-Thus final answer.
-
-But the instructions: &quot;Please output the translated conclusion and nothing else. Do not output any other content.&quot; So we must output only the translation and nothing else. So we must output exactly the triple backticks with translation inside.
-
-Thus answer.
-&lt;/think&gt;
-
-``` 
-Çevrilmiş başlık</value>
+    <value>Çevrilmiş başlık</value>
   </data>
 
 </root>

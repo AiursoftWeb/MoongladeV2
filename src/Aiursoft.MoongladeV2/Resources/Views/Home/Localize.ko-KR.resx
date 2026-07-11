@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="root">
+        <xs:element name="root" ns1:IsDataSet="true">
 
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-
-        </xsd:element>
-    </xsd:schema>
+        </xs:element>
+    </xs:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -37,42 +36,7 @@
     <value>최종 수정일</value>
   </data>
   <data name="Localization" xml:space="preserve">
-    <value>地域化```? Wait, that seems wrong. Let&apos;s check: The user says we need to output only the translated content, wrapped in three backticks. So we need to output the translation, not include any markup.
-
-But we need to consider the translation: &quot;Localization&quot; -&gt; &quot;지역화&quot;. So output:
-
-``` 
-지역화
-```? But they said wrap in three backticks. So we output:
-
-```
-지역화
-```
-
-The user explicitly wants the output to be only the translated content. So we output:
-
-```
-지역화
-```
-
-But we need to double-check the instructions about not outputting other content, including markup. The example says:
-
-```
-Translated word here...
-```
-
-So we need to output exactly the translation, wrapped in three backticks, with the translation string.
-
-Thus final answer: ```地域化```? No, that&apos;s Chinese. We need Korean: &quot;지역화&quot;. Let&apos;s double-check that &quot;지역화&quot; is correct. Yes, &quot;지역화&quot; is the standard translation for &quot;localization&quot;.
-
-Thus final answer: ```지역화```.
-
-We need to output only this, no extra text.
-
-Thus final answer: ```지역화```.
-&lt;/think&gt;
-
-```지역화</value>
+    <value>지역화</value>
   </data>
   <data name="Localized Content" xml:space="preserve">
     <value>지역화된 콘텐츠</value>

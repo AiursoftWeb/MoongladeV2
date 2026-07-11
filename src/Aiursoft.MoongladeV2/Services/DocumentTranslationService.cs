@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using Aiursoft.Canon;
 using Aiursoft.Dotlang.Shared;
 using Aiursoft.GptClient.Services;
@@ -7,13 +8,7 @@ using Microsoft.Extensions.Options;
 
 namespace Aiursoft.MoongladeV2.Services;
 
-/// <summary>
-/// Translates Markdown text using Dotlang's <see cref="OllamaBasedTranslatorEngine"/>,
-/// which automatically shreds code blocks, retries on failure, and preserves Markdown syntax.
-/// Settings are read from <see cref="GlobalSettingsService"/> at call time so admin
-/// changes take effect immediately.
-/// </summary>
-public class DocumentTranslationService(
+public partial class DocumentTranslationService(
     GlobalSettingsService settingsService,
     MarkdownShredder shredder,
     RetryEngine retryEngine,
@@ -44,6 +39,38 @@ public class DocumentTranslationService(
         });
 
         var engine = new OllamaBasedTranslatorEngine(options, retryEngine, engineLogger, chatClient, shredder);
-        return await engine.TranslateAsync(text, targetLanguage);
+        var result = await engine.TranslateAsync(text, targetLanguage);
+        return CleanThinkingTraces(result);
+    }
+
+    [GeneratedRegex(@"```[\s\S]*?```")]
+    private static partial Regex CodeBlockRegex();
+
+    private static string CleanThinkingTraces(string result)
+    {
+        if (string.IsNullOrWhiteSpace(result))
+            return result;
+
+        var thinkEnd = result.LastIndexOf("</think>", StringComparison.OrdinalIgnoreCase);
+        if (thinkEnd >= 0)
+        {
+            result = result[(thinkEnd + 8)..].Trim();
+        }
+
+        var matches = CodeBlockRegex().Matches(result);
+        if (matches.Count > 0)
+        {
+            var last = matches[^1].Value;
+            var inner = last[3..^3].Trim();
+            var newlineIdx = inner.IndexOf('\n');
+            if (newlineIdx > 0 && newlineIdx < 20 && inner[..newlineIdx].Trim().All(c => char.IsLetterOrDigit(c) || c is '-' or '_'))
+            {
+                inner = inner[(newlineIdx + 1)..].Trim();
+            }
+            if (!string.IsNullOrWhiteSpace(inner))
+                return inner;
+        }
+
+        return result.Trim();
     }
 }

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="root">
+        <xs:element name="root" ns1:IsDataSet="true">
 
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-
-        </xsd:element>
-    </xsd:schema>
+        </xs:element>
+    </xs:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -19,576 +18,58 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
       <data name="Back to Editor" xml:space="preserve">
-    <value>), like this: ``` Translated word here...```&quot;. So we output something like:
-
-```
-Πίσω στον Επεξεργαστή
-```
-
-But perhaps better: &quot;Επιστροφή στον επεξεργαστή&quot;. Let&apos;s decide.
-
-The phrase &quot;Back to Editor&quot; appears in many software UI strings. In Greek translations of common apps, &quot;Back to Editor&quot; could be &quot;Πίσω στον επεξεργαστή&quot;. The user may want exact translation; we can also use &quot;Επιστροφή στον επεξεργαστή&quot;. But which one is more natural? Greek UI often uses &quot;Πίσω στον επεξεργαστή&quot;. However &quot;Πίσω&quot; is less used as &quot;Back&quot;. The typical Greek translation for &quot;Back to ...&quot; is &quot;Πίσω στο ...&quot;. For example: &quot;Back to Dashboard&quot; -&gt; &quot;Πίσω στον Πίνακα&quot;. So &quot;Back to Editor&quot; -&gt; &quot;Πίσω στον επεξεργαστή&quot;. So that seems okay.
-
-Thus output: &quot;Πίσω στον επεξεργαστή&quot;. If we consider proper nouns: &quot;Editor&quot; may be proper name? It&apos;s generic. So we translate. &quot;Επεξεργαστή&quot; is the Greek term for &quot;Editor&quot;. In Greek, &quot;editor&quot; can be &quot;επεξεργαστή&quot;. Indeed &quot;επεξεργαστής&quot; is the Greek term. However &quot;επεξεργαστή&quot; is maybe not correct spelling? &quot;Επεξεργαστής&quot; is correct Greek word for &quot;editor&quot; (noun). So &quot;Πίσω στον επεξεργαστή&quot; is correct.
-
-We should output just the translation in Greek. Wrap in triple backticks. So final answer:
-
-```Πίσω στον επεξεργαστή```
-
-But check the instruction: &quot;Only output the translated content and wrap it in three backticks (```), like this: ``` Translated word here...```&quot;. So we must output:
-
-```Πίσω στον επεξεργαστή```
-
-We must not output any other content. So the answer is just that.
-
-Potential nuance: the phrase &quot;Επεξεργαστή&quot; vs &quot;Επεξεργαστή&quot;. Let&apos;s check Greek morphological declensions: &quot;επεξεργαστής&quot; is the masculine noun. In accusative &quot;τον επεξεργαστή&quot;. So &quot;Πίσω στον επεξεργαστή&quot;. That&apos;s correct. The word &quot;Επεξεργαστή&quot; is feminine? Not typical. So use &quot;Πίσω στον επεξεργαστή&quot;. Good.
-
-Thus final answer is triple backticks with Greek translation.
-
-Make sure no extra content. Provide only that.
-&lt;/think&gt;
-
-```Πίσω στον επεξεργαστή</value>
+    <value>Πίσω στον επεξεργαστή</value>
   </data>
   <data name="Error!" xml:space="preserve">
-    <value>Σφάλμα!
-```
-
-Alternatively maybe &quot;Λάθος!&quot;? The typical Greek translation of &quot;Error!&quot; in UI is &quot;Σφάλμα!&quot; is quite formal; &quot;Λάθος!&quot; is also okay but less common. Let&apos;s choose &quot;Σφάλμα!&quot;. Let&apos;s verify usage: In Greek, &quot;error&quot; = &quot;σφάλμα&quot;. In UI, exclamation &quot;Error!&quot; is translated as &quot;Σφάλμα!&quot;. Also &quot;Σφάλμα!&quot; is used in Greek messages (like in ASP.NET Greek). I think &quot;Σφάλμα!&quot; is fine.
-
-Thus final answer: three backticks with &quot;Σφάλμα!&quot;. Use exactly that.
-
-Thus answer:
-
-```
-Σφάλμα!
-```
-&lt;/think&gt;
-
-``` 
-Σφάλμα!</value>
+    <value>Σφάλμα!</value>
   </data>
   <data name="Failed to load translation." xml:space="preserve">
-    <value>Αποτυχία φόρτωσης μετάφρασης.
-```
-
-But check Greek grammar: &quot;Αποτυχία φόρτωσης μετάφρασης&quot; is a noun phrase meaning &quot;Failure to load translation.&quot; Greek often uses &quot;Αποτυχία φόρτωσης μετάφρασης&quot; or &quot;Αποτυχία φόρτωσης μετάφρασης&quot;. That seems fine. However, &quot;φόρτωσης&quot; is a noun &quot;φόρτωση&quot; (loading). &quot;Μετάφρασης&quot; is genitive &quot;της μετάφρασης&quot;. So &quot;Αποτυχία φόρτωσης μετάφρασης.&quot; is correct.
-
-Alternative: &quot;Η φόρτωση της μετάφρασης απέτυχε.&quot; This translates more literally &quot;The loading of the translation failed.&quot; Which matches the original more closely: &quot;Failed to load translation.&quot; So &quot;Η φόρτωση της μετάφρασης απέτυχε.&quot; That is a direct translation. But &quot;απέτυχε&quot; is a verb. The original is a simple error string. In UI messages, one often uses &quot;Αποτυχία φόρτωσης μετάφρασης.&quot; Or &quot;Η φόρτωση της μετάφρασης απέτυχε.&quot; Which one is more natural? In Greek UI, error messages often use past tense: &quot;Αποτυχία κατά τη φόρτωση της μετάφρασης.&quot; That would be &quot;Failure during loading translation.&quot; But we must choose a translation. The user wants only the translation. Let&apos;s decide on a proper Greek translation.
-
-Given the phrase &quot;Failed to load translation.&quot; The best translation would be &quot;Αποτυχία φόρτωσης μετάφρασης.&quot; That is short and matches &quot;Failed to load translation.&quot; Also &quot;Φόρτωση μετάφρασης απέτυχε.&quot; could also be used, but I&apos;d go with &quot;Αποτυχία φόρτωσης μετάφρασης.&quot;
-
-Thus output:
-
-``` 
-Αποτυχία φόρτωσης μετάφρασης.
-```
-
-Check punctuation: The original string includes a period at the end. Greek uses the same period punctuation: &apos;.&apos; So &quot;Αποτυχία φόρτωσης μετάφρασης.&quot; includes period.
-
-Thus output exactly that wrapped in triple backticks.
-
-Now ensure we do not output any other content. Only the translation within triple backticks. The user instructions: &quot;Please translate only the sentence or word `Failed to load translation.` in the paragraph into the target language el-GR, Ελληνικά (Ελλάδα).&quot; So we output only the translation within triple backticks.
-
-Thus final answer: triple backticks with Greek translation.
-
-Check for any special characters: Greek letters must be correct. Provide as plain text.
-
-Thus final.
-&lt;/think&gt;
-
-``` 
-Αποτυχία φόρτωσης μετάφρασης.</value>
+    <value>Αποτυχία φόρτωσης μετάφρασης.</value>
   </data>
   <data name="Generated" xml:space="preserve">
-    <value>).&quot;
-
-So we output:
-
-```Γεννήθηκε```
-
-But maybe the translation might need to preserve capitalisation? In Greek, the word &quot;Γεννήθηκε&quot; starts with capital Gamma? Usually UI strings start with lowercase: &quot;Γεννήθηκε&quot;. However, the original string &quot;Generated&quot; is capitalized first letter maybe. But Greek UI strings often start with uppercase. Could be &quot;Γεννήθηκε&quot;. That is capital Gamma? Actually Greek capital letter &quot;Γ&quot; is uppercase. &quot;Γεννήθηκε&quot; capital Gamma is not typical for start of word but it&apos;s capital letter &quot;Γ&quot;. In Greek, first letter can be capital. So &quot;Γεννήθηκε&quot;. That seems fine.
-
-Thus output is:
-
-```Γεννήθηκε```
-
-But double-check if any other parts need translation. The instruction says translate only the sentence or word `Generated`. So only that.
-
-Thus final answer is the translation wrapped in triple backticks.
-
-Now we need to output only that content, no extra text. Use three backticks, with translation. Provide exactly:
-
-```Γεννήθηκε```
-
-Let&apos;s double-check: The user says &quot;Please translate only the sentence or word `Generated` in the paragraph into the target language el-GR, Ελληνικά (Ελλάδα).&quot; So &quot;Γεννήθηκε&quot;. Should we also keep the colon? The label is &quot;Generated&quot;: (a colon after). The code shows &quot;Generated&quot;: but the Localizer string is just &quot;Generated&quot;. So translation is just &quot;Γεννήθηκε&quot;. If we wanted to preserve colon, we would not include colon in translation; it would be part of the UI string (maybe appended). So we just output translation.
-
-Thus final answer.
-&lt;/think&gt;
-
-```Γεννήθηκε</value>
+    <value>Γεννήθηκε</value>
   </data>
   <data name="Languages" xml:space="preserve">
-    <value>Γλώσσες
-```
-
-Make sure no extra content. That&apos;s it.
-&lt;/think&gt;
-
-```Γλώσσες</value>
+    <value>Γλώσσες</value>
   </data>
   <data name="Last Modified" xml:space="preserve">
-    <value>Τελευταία τροποποίηση
-```
-
-Make sure it&apos;s just the translation wrapped in three backticks.
-
-Check that they want only the translated conclusion and nothing else. They specifically said: &quot;Do NOT output any other content. Only output the translated content and wrap it in three backticks (```).&quot;
-
-Thus final answer: three backticks containing the Greek translation.
-
-Double-check: Is &quot;Last Modified&quot; a proper noun? It&apos;s a label, not a name. Should be translated.
-
-Thus answer.
-
-Note: They wanted &quot;only the sentence or word `Last Modified` in the paragraph into the target language&quot;. So we output Greek translation.
-
-Thus final answer: ```Τελευταία τροποποίηση```
-&lt;/think&gt;
-
-```Τελευταία τροποποίηση</value>
+    <value>Τελευταία τροποποίηση</value>
   </data>
   <data name="Localization" xml:space="preserve">
-    <value>)&quot;.
-
-We have to output just the translation of the word &quot;Localization&quot;. They say &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Localization` is one of them.&quot; So we need to decide if &quot;Localization&quot; is a proper noun or not. In this context, &quot;Localization&quot; appears to be a term for the page heading: &quot;Localization&quot;: that likely is a proper noun (maybe a UI label). Usually in UI translation, you translate &quot;Localization&quot; into Greek: &quot;Τοπικοποίηση&quot;. In Greek, &quot;Localization&quot; could be &quot;Τοπικοποίηση&quot;. However, there is also &quot;Εντοπισμός&quot; but common translation for UI label &quot;Localization&quot; is &quot;Τοπικοποίηση&quot;.We need to output the translation only. So output:
-
-```Τοπικοποίηση```
-
-Make sure to wrap in three backticks as they requested. Also no other content. So final answer: a code block with Greek translation.
-
-Potential nuance: The user says &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; So they might want &quot;Localization&quot; if ambiguous. But we are confident it&apos;s a UI label for page heading. In Greek, translation is &quot;Τοπικοποίηση&quot;. However, could also be &quot;Τοπικοποίηση&quot; (Greek word &quot;Τοπικοποίηση&quot;). Let&apos;s double-check Greek translation for &quot;Localization&quot;. In software localization context, you might use &quot;Τοπικοποίηση&quot;. Yes. So we output that.
-
-Thus answer:
-
-```Τοπικοποίηση```
-&lt;/think&gt;
-
-```Τοπικοποίηση</value>
+    <value>Τοπικοποίηση</value>
   </data>
   <data name="Localized Content" xml:space="preserve">
-    <value>@if (lang.LastLocalizedAt.HasValue)
-{
-    &lt;small class=&quot;text-muted mt-1&quot;&gt;
-        @Localizer[&quot;Generated&quot;]: &lt;label class=&quot;text-muted mb-0 d-inline&quot; data-utc-time=&quot;@lang.LastLocalizedAt.Value.ToHtmlDateTime()&quot;&gt;&lt;/label&gt;
-    &lt;/small&gt;
-}
-&lt;/button&gt;
-}
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-@* Right: Editor area *@
-&lt;div class=&quot;col-lg-9&quot;&gt;
-    &lt;div class=&quot;card&quot; id=&quot;editor-card&quot;&gt;
-        &lt;div class=&quot;card-header&quot;&gt;
-            &lt;h5 class=&quot;card-title mb-0&quot;&gt;
-                &lt;i class=&quot;align-middle&quot; data-lucide=&quot;languages&quot;&gt;&lt;/i&gt;
-                &lt;span id=&quot;editor-language-label&quot;&gt;@Localizer[&quot;Select a language&quot;]&lt;/span&gt;
-            &lt;/h5&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;card-body&quot;&gt;
-            &lt;div id=&quot;localization-editor-area&quot;&gt;
-                @* Title input *@
-                &lt;div class=&quot;mb-3&quot;&gt;
-                    &lt;label for=&quot;localized-title&quot; class=&quot;form-label&quot;&gt;@Localizer[&quot;Localized Title&quot;]&lt;/label&gt;
-                    &lt;input type=&quot;text&quot; id=&quot;localized-title&quot; class=&quot;form-control form-control-lg&quot;
-                           placeholder=&quot;@Localizer[&quot;Translated title&quot;]&quot; maxlength=&quot;200&quot; /&gt;
-                &lt;/div&gt;
-                @* CodeMirror textarea *@
-                &lt;div class=&quot;mb-3&quot;&gt;
-                    &lt;label for=&quot;localized-content-editor&quot; class=&quot;form-label&quot;&gt;@Localizer[&quot;Localized Content&quot;]&lt;/label&gt;
-                    &lt;textarea id=&quot;localized-content-editor&quot; class=&quot;form-control&quot;
-                                  placeholder=&quot;@Localizer[&quot;Translated markdown content&quot;]&quot;&gt;&lt;/textarea&gt;
-                &lt;/div&gt;
-                @* Save button + status *@
-                &lt;div class=&quot;d-flex align-items-center&quot;&gt;
-                    &lt;button type=&quot;button&quot; id=&quot;save-localization-btn&quot; class=&quot;btn btn-primary btn-lg&quot; disabled&gt;
-                        &lt;i class=&quot;align-middle&quot; data-lucide=&quot;save&quot;&gt;&lt;/i&gt;
-                        @Localizer[&quot;Save Translation&quot;]
-                    &lt;/button&gt;
-                    &lt;span id=&quot;save-status&quot; class=&quot;ms-3&quot;&gt;&lt;/span&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-```
-
-Thus the word we need to translate is `Localized Content` inside `Localizer[&quot;Localized Content&quot;]`. So we need to provide Greek translation. The target language is el-GR, Greek (Ελληνικά). So translation: &quot;Τοπικοποιημένο Περιεχόμενο&quot; perhaps? The Greek term for &quot;Localized Content&quot; could be &quot;Τοπικοποιημένο Περιεχόμενο&quot;. Or &quot;Εντοπισμένο Περιεχόμενο&quot;. But typically &quot;Localized Content&quot; translates to &quot;Τοπικοποιημένο Περιεχόμενο&quot;. Or &quot;Τοπικοποιημένο περιεχόμενο&quot;. Greek language uses &quot;Τοπικοποίηση&quot; is &quot;Localize&quot;. &quot;Τοπικοποιημένο&quot; is the past participle of &quot;τοπικοποιώ&quot;. The noun &quot;Περιεχόμενο&quot; is content. So &quot;Τοπικοποιημένο Περιεχόμενο&quot;. However maybe we can also use &quot;Τοπικευμένο Περιεχόμενο&quot; but less common. Could also be &quot;Εντοπισμένο Περιεχόμενο&quot;. But &quot;Localized Content&quot; as a UI label likely would be &quot;Τοπικοποιημένο Περιεχόμενο&quot;. Let&apos;s check Greek translation resources: Many UI strings in Greek for localization features: &quot;Τοπικοποιημένο περιεχόμενο&quot;. Usually Greek uses &quot;Τοπικοποίηση&quot; for &quot;Localization&quot;. &quot;Τοπικοποιημένο περιεχόμενο&quot; is acceptable.
-
-Thus output should be:
-
-```
-Τοπικοποιημένο Περιεχόμενο
-```
-
-But the user says &quot;translate only the sentence or word `Localized Content`&quot; and output only the translation inside three backticks. So output:
-
-```
-Τοπικοποιημένο Περιεχόμενο
-```
-
-We need to ensure we obey instructions: &quot;Do NOT output any other content. Only output the translated content and wrap it in three backticks, like this: ``` Translated word here...```&quot;. So we output exactly that. Provide Greek translation.
-
-Potential nuance: The phrase &quot;Localized Content&quot; is used as a label, but it&apos;s also a proper noun? Not a trademark. Should be translated. So output accordingly.
-
-Thus final answer: three backticks with translation.
-&lt;/think&gt;
-
-```Τοπικοποιημένο Περιεχόμενο</value>
+    <value>Τοπικοποιημένο Περιεχόμενο</value>
   </data>
   <data name="Localized Title" xml:space="preserve">
-    <value>Τοπικός Τίτλος```
-
-But maybe &quot;Τοπικός Τίτλος&quot; is unnatural. Let&apos;s check typical Greek translation guidelines: The phrase &quot;Localized Title&quot; is used as a label for a translation input for the title. In Greek UI, &quot;Τίτλος (εντοπισμένος)&quot;? Could be &quot;Τίτλος εντοπισμένου&quot;. But typical Greek phrase: &quot;Τίτλος τοπικής έκδοσης&quot;. Actually I&apos;d phrase &quot;Τίτλος τοπικής εντοπισμένης γλώσσας&quot; too long.
-
-The user specifically says: &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; We think we understand, but let&apos;s be safe. But translation likely &quot;Τοπικός Τίτλος&quot; might be accepted. However maybe they&apos;d prefer &quot;Τίτλος τοπικής εντοπισμού&quot;? Hmm.
-
-Let&apos;s think about Greek terminology for &quot;localization&quot;. In Greek UI translation, &quot;localization&quot; is &quot;εντοπισμός&quot;. So &quot;Localized Title&quot; could be &quot;Τίτλος εντοπισμένου&quot;. That might be more accurate: &quot;Εντοπισμένος Τίτλος&quot;. But &quot;Εντοπισμένος&quot; is a past participle of &quot;εντοπίζω&quot; meaning &quot;to localize&quot;. So &quot;Εντοπισμένος Τίτλος&quot;. That seems plausible.
-
-Thus translation: &quot;Εντοπισμένος Τίτλος&quot;. Or &quot;Τίτλος εντοπισμένου&quot;. Which one? The phrase &quot;Localized Title&quot; in UI likely used as a label for input: &quot;Τοπικός Τίτλος&quot;. I&apos;m leaning to &quot;Τοπικός Τίτλος&quot;. However Greek translation of &quot;Localized Title&quot; might be &quot;Τίτλος (Εντοπισμένος)&quot; but the user expects a straightforward translation. Let&apos;s check typical Greek UI translations: For example, &quot;Local Title&quot; is often &quot;Τοπικός Τίτλος&quot;. However &quot;Localized&quot; is not exactly &quot;local&quot;. But &quot;Εντοπισμένος Τίτλος&quot; is the Greek for &quot;Localized Title&quot;. I&apos;d go with &quot;Εντοπισμένος Τίτλος&quot;. The phrase &quot;Εντοπισμένος&quot; is valid Greek as a past participle. So final translation: &quot;Εντοπισμένος Τίτλος&quot;.
-
-Thus output: triple backticks with translation. Also ensure not to output any other content. So output only the translation inside triple backticks.
-
-Thus final answer:
-
-```Εντοπισμένος Τίτλος```
-&lt;/think&gt;
-
-```Εντοπισμένος Τίτλος</value>
+    <value>Εντοπισμένος Τίτλος</value>
   </data>
   <data name="Save failed." xml:space="preserve">
-    <value>Translated word here...
-```
-
-We need to translate &quot;Save failed.&quot; into Greek (el-GR). The user says &quot;Save failed.&quot; which is a error message. Usually in Greek the translation might be &quot;Αποτυχία αποθήκευσης.&quot; or &quot;Η αποθήκευση απέτυχε.&quot; But the original is &quot;Save failed.&quot; (i.e., &apos;failed to save&apos;). This phrase is used in code: `if (!r.ok) throw new Error(&apos;Save failed&apos;);`. The translation in Greek: Could be &quot;Η αποθήκευση απέτυχε.&quot; That is a translation. In Greek, &quot;Save failed.&quot; can be &quot;Η αποθήκευση απέτυχε.&quot; But we need to consider if it&apos;s a direct translation: &quot;Save failed.&quot; = &quot;Αποτυχία αποθήκευσης.&quot; or &quot;Η αποθήκευση απέτυχε.&quot; Which is better?
-
-The phrase &quot;Save failed.&quot; is short, likely used as a message to show to the user. In Greek, commonly you would say &quot;Η αποθήκευση απέτυχε.&quot; That is more natural (fail to save). &quot;Αποτυχία αποθήκευσης&quot; is a noun phrase &quot;failure to save&quot; but less common in UI messages. Usually &quot;Save failed.&quot; would be &quot;Η αποθήκευση απέτυχε.&quot; But maybe we can use &quot;Αποτυχία αποθήκευσης.&quot; However, we need to decide.
-
-Also note the instruction: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them!&quot; The phrase &quot;Save failed.&quot; is not a proper noun or trademark; it&apos;s just a message, so we translate.
-
-Thus output:
-
-```
-Η αποθήκευση απέτυχε.
-```
-
-Alternatively, &quot;Αποτυχία αποθήκευσης.&quot; Let&apos;s see what is typical Greek UI message: For &quot;Save failed.&quot; they often use &quot;Η αποθήκευση απέτυχε.&quot; In many Greek translations of software, &quot;Save failed&quot; is &quot;Αποτυχία αποθήκευσης.&quot; Or &quot;Αποτυχία αποθήκευσης.&quot; Let&apos;s check typical translation patterns. In Greek, &quot;failed to save&quot; is &quot;αποτυχία αποθήκευσης&quot;. In some UI patterns, they use &quot;Αποτυχία αποθήκευσης.&quot; That&apos;s an noun phrase meaning &quot;save failure&quot;. However, &quot;Save failed.&quot; could be &quot;Αποτυχία αποθήκευσης.&quot; is unnatural. More natural is &quot;Η αποθήκευση απέτυχε.&quot; The user didn&apos;t specify they want literal translation or UI message. The phrase &quot;Save failed.&quot; in code is used as an error message; it&apos;s typically &quot;Η αποθήκευση απέτυχε.&quot; So I think that&apos;s good.
-
-Thus output:
-
-```
-Η αποθήκευση απέτυχε.
-```
-
-But we need to wrap in triple backticks, with no other content.
-
-Hence final answer: triple backticks containing &quot;Η αποθήκευση απέτυχε.&quot; Ensure we use Greek characters correctly.
-
-Thus final.
-&lt;/think&gt;
-
-```Η αποθήκευση απέτυχε.</value>
+    <value>Η αποθήκευση απέτυχε.</value>
   </data>
   <data name="Save Translation" xml:space="preserve">
-    <value>Αποθήκευση Μετάφρασης
-```
-
-But maybe &quot;Save Translation&quot; should be &quot;Αποθήκευση Μετάφρασης&quot;. However, there is nuance: &quot;Save Translation&quot; is both words: Save (αποθήκευση) and Translation (μετάφραση). Greek: &quot;Αποθήκευση Μετάφρασης&quot;. However, &quot;Αποθήκευση Μετάφρασης&quot; might be unnatural if used as a button. Usually Greek uses &quot;Αποθήκευση Μετάφρασης&quot; or &quot;Αποθήκευση Μετάφρασης&quot;? Let&apos;s think.
-
-In Greek, &quot;save translation&quot; could be &quot;Αποθήκευση Μετάφρασης&quot;. Usually &quot;Save&quot; is &quot;Αποθήκευση&quot;. &quot;Translation&quot; is &quot;Μετάφραση&quot;. So &quot;Αποθήκευση Μετάφρασης&quot;. However, &quot;Translation&quot; is also &quot;μετάφραση&quot; (singular). &quot;Αποθήκευση Μετάφρασης&quot;. So it&apos;s fine.
-
-But the phrase might be used as a button text. The Greek translation for &quot;Save Translation&quot; could be &quot;Αποθήκευση Μετάφρασης&quot;. That seems fine.
-
-Thus we need to output in a code block with backticks. The user says wrap it in three backticks, like this:
-
-```
-Translated word here...
-```
-
-Thus output:
-
-```el
-Αποθήκευση Μετάφρασης
-```
-
-But we need to wrap in three backticks only, not additional text. Ensure no other content. So just the code block with the translation.
-
-Thus answer: (just the code block)
-&lt;/think&gt;
-
-```el
-Αποθήκευση Μετάφρασης</value>
+    <value>Αποθήκευση Μετάφρασης</value>
   </data>
   <data name="Saved successfully!" xml:space="preserve">
-    <value>Αποθηκεύθηκε επιτυχώς!
-```
-
-Make sure we do not output any other content. Also the phrase &quot;Saved successfully!&quot; is the whole string. So output exactly that translation in Greek inside triple backticks.
-
-Thus final answer: triple backticks with Greek translation.
-&lt;/think&gt;
-
-```Αποθηκεύθηκε επιτυχώς!</value>
+    <value>Αποθηκεύθηκε επιτυχώς!</value>
   </data>
   <data name="Saving..." xml:space="preserve">
-    <value>Αποθήκευση...
-```
-
-But check: Greek translation for &quot;Saving...&quot; is indeed &quot;Αποθήκευση...&quot;. However, we need to be mindful of the Greek proper forms. Greek uses &quot;Αποθήκευση&quot; meaning &quot;Saving&quot;. In Greek, &quot;Αποθήκευση...&quot; is correct (saving). &quot;Αποθήκευση...&quot; is a feminine noun. Usually Greek UI translations: &quot;Saving...&quot; -&gt; &quot;Αποθήκευση...&quot;. So answer with triple backticks: 
-
-``` 
-Αποθήκευση...
-``` but the code fence must be exactly three backticks. The user says &quot;wrap it in three backticks (```), like this:
-
-```
-Translated word here...
-```&quot;
-
-Thus output only the translation within triple backticks, no extra text.
-
-Thus final answer:
-
-``` 
-Αποθήκευση...
-```
-&lt;/think&gt;
-
-``` 
-Αποθήκευση...</value>
+    <value>Αποθήκευση...</value>
   </data>
   <data name="Select a language" xml:space="preserve">
-    <value>Translated word here...
-```
-
-We need to translate &quot;Select a language&quot; into Greek (el-GR). That phrase is common: &quot;Επιλέξτε γλώσσα&quot;. However, the phrase &quot;Select a language&quot; could be &quot;Επιλεκτή γλώσσα&quot;? In Greek &quot;Επιλέξτε γλώσσα&quot; is correct. However, note that Greek uses diacritics? Usually &quot;Επιλέγεξτε&quot; not. There&apos;s &quot;Επιλέγε...&quot;. Actually &quot;Επιλέξτε&quot; is &quot;Select&quot;. So &quot;Επιλέξτε μια γλώσσα&quot; would be &quot;Επιλέξτε μια γλώσσα&quot;. But the phrase is &quot;Select a language&quot;. Usually &quot;Select language&quot; perhaps &quot;Επιλέξτε γλώσσα&quot;. If we want to keep it short: &quot;Επιλέξτε γλώσσα&quot;. However Greek often uses &quot;Επιλέξτε γλώσσα&quot; (Select language). &quot;Select a language&quot; would be &quot;Επιλέξτε μία γλώσσα&quot;. The user request: &quot;Please translate only the sentence or word `Select a language` in the paragraph into the target language el-GR, Ελληνικά (Ελλάδα).&quot; So translation: &quot;Επιλέξτε μια γλώσσα&quot;. Let&apos;s check if there is any nuance. &quot;Select a language&quot; is a phrase used as a label for a dropdown or button. In Greek it&apos;s common translation: &quot;Επιλέγετε γλώσσα&quot;. Wait, &quot;Επιλέγετε&quot; is &quot;you select&quot;. &quot;Επιλέγετε&quot; is a form. But &quot;Επιλέγετε&quot; means &quot;select&quot; as imperative (you select). &quot;Επιλέγετε&quot; would be &quot;you are selecting&quot;? Actually Greek imperative for &quot;to select&quot; (verb &quot;επιλέγω&quot;) in second person plural: &quot;επιλέγετε&quot;. The form &quot;επιλέγετε&quot; is second person plural imperative active, meaning &quot;select!&quot;. However, &quot;Select a language&quot; is imperative (you all must select). So &quot;Επιλέγετε γλώσσα&quot;. But that&apos;s not exactly &quot;Select a language&quot; because &quot;γλώσσα&quot; is singular, but &quot;Select a language&quot; implies any language, so &quot;Επιλέγετε γλώσσα&quot;. However &quot;γλώσσα&quot; means &quot;language&quot;. So &quot;Επιλέγετε γλώσσα&quot; would be &quot;Select language&quot;. But &quot;Επιλέγετε γλώσσα&quot; might be weird without article. Typically Greek translation of &quot;Select a language&quot; would be &quot;Επιλέγετε μια γλώσσα&quot;. But &quot;μια&quot; is &quot;a&quot;. So &quot;Επιλέγετε μια γλώσσα&quot;. But we could also say &quot;Επιλέξτε γλώσσα&quot;. Wait, &quot;επιλέγω&quot; is transitive, &quot;to select&quot;. Imperative second singular: &quot;Επίλεξε&quot; (select). But &quot;Επίλεξε&quot; is informal. The phrase &quot;Επιλέγετε&quot; is indeed second person plural imperative, used when addressing multiple people. Could be &quot;Επιλέγετε&quot;. But we need to decide.
-
-Let&apos;s check typical Greek UI strings: For &quot;Select a language&quot;, common translation: &quot;Επιλέξτε γλώσσα&quot;. That&apos;s often used in Greek UI. Example: &quot;Επιλέξτε μια γλώσσα&quot; (choose a language). Google Translate &quot;Select a language&quot; -&gt; &quot;Επιλέγετε μια γλώσσα&quot;. But typical translation: &quot;Επιλέγετε μια γλώσσα&quot;. But &quot;Επιλέξτε&quot; is better? &quot;Επιλέξτε&quot; is 2nd person singular imperative? Actually &quot;Επιλέγω&quot; -&gt; &quot;Επιλέγετε&quot; is imperative second person plural? Or &quot;Επιλέγετε&quot; is &quot;Select!&quot; (imperative plural). &quot;Επιλέγετε&quot; is correct Greek imperative for &quot;select&quot;. So &quot;Επιλέγετε μια γλώσσα&quot;. But maybe we can use &quot;Επιλέγετε μια γλώσσα&quot;. However, that might be a little unnatural; more natural is &quot;Επιλέγετε γλώσσα&quot;. But the presence of article &quot;a&quot; implies indefinite. &quot;Μια γλώσσα&quot; means &quot;a language&quot;. So &quot;Επιλέγετε μια γλώσσα&quot;.
-
-But also &quot;Επιλέγετε γλώσσα&quot; is a direct translation but missing article &quot;a&quot;. But Greek UI strings often omit indefinite article: &quot;Επιλέγετε γλώσσα&quot;. Usually &quot;γλώσσα&quot; can be indefinite as &quot;γλώσσα&quot;. Eg &quot;Select language&quot; -&gt; &quot;Επιλέγετε γλώσσα&quot;. So it&apos;s okay.
-
-Thus translation: &quot;Επιλέγετε γλώσσα&quot;. But what about &quot;Select a language&quot; may be &quot;Επιλέγετε μια γλώσσα&quot;. Which one is more appropriate? Let&apos;s see typical Greek translation for &quot;Select a language&quot; appears in software UI: often &quot;Επιλέγετε μια γλώσσα&quot;. Let&apos;s search memory: In Greek translations for websites or software, &quot;Select language&quot; is &quot;Επιλέγετε γλώσσα&quot;. For example, WordPress Greek translation for &quot;Select a language&quot; is &quot;Επιλέγετε μια γλώσσα&quot;. I&apos;m not 100% sure, but we can trust that.
-
-But we need to output the translation only, wrapped in three backticks.
-
-So we output:
-
-``` 
-Επιλέγετε μια γλώσσα 
-```
-
-or &quot;Επιλέξτε μια γλώσσα&quot;? The phrase &quot;Επιλέξτε&quot; is not common; it&apos;s second-person singular imperative of &quot;επιλέγω&quot;? Actually &quot;επιλέγω&quot; -&gt; imperative &quot;επίλεγε&quot; maybe. &quot;Επιλέγετε&quot; is plural imperative. &quot;Επιλέγετε&quot; is used for &quot;Select!&quot; addressed to a group. If it&apos;s a UI heading for selecting a language, it&apos;s often singular but addressing the user as &quot;you&quot;. Greek UI often uses &quot;Επιλέγετε&quot; also for singular. Let’s check Greek grammar: The verb &quot;επιλέγω&quot; (select) in Greek imperative 2nd person singular is &quot;επίλεγε&quot;. But the typical Greek UI uses &quot;Επιλέγετε&quot; (imperative singular second person &quot;you&quot;, used as polite). Actually Greek imperative singular second person for &quot;επιλέγω&quot; is &quot;επίλεγε&quot;. But often Greek UI uses &quot;Επιλέγετε&quot; as &quot;Select&quot;. There&apos;s no direct &quot;Select a language&quot;. But typical Greek UI uses &quot;Επιλέγετε&quot; for singular.
-
-Thus translation: &quot;Επιλέγετε μια γλώσσα&quot;. If we consider that &quot;a language&quot; is indefinite, we include &quot;μια&quot;. So final answer: &quot;Επιλέγετε μια γλώσσα&quot;. But we need to ensure we preserve correct Greek diacritics? &quot;Επιλέγετε&quot; is correct with acute accent on ε. &quot;Μια&quot; is indefinite pronoun.
-
-Thus answer: wrap in triple backticks.
-
-Now output only translation inside triple backticks.
-
-Make sure no extra text.
-
-Thus final output:
-
-``` 
-Επιλέγετε μια γλώσσα 
-```
-
-But maybe better to include proper Greek punctuation? It&apos;s fine.
-
-Thus final answer: ```Επιλέγετε μια γλώσσα```.
-
-However, check user instructions: They want &quot;only output the translated content and wrap it in three backticks (```), like this: ``` Translated word here...```.
-
-Thus output:
-
-```
-Επιλέγετε μια γλώσσα
-```
-
-Make sure no extra spaces? Provide exactly that. Good.
-
-Now output.
-
-
-&lt;/think&gt;
-
-```Επιλέγετε μια γλώσσα</value>
+    <value>Επιλέγετε μια γλώσσα</value>
   </data>
   <data name="Source Culture" xml:space="preserve">
-    <value>Πηγή Πολιτισμού
-```
-
-or
-
-```
-Προέλευση Πολιτισμού
-```
-
-or
-
-```
-Αρχική Κουλτούρα
-```
-
-We need to decide which one is best. Let&apos;s see typical Greek UI translation guidelines. I recall Greek translation of &quot;Source Culture&quot; might be &quot;Αρχικός Πολιτισμός&quot;. But that seems odd. Could also be &quot;Αρχική Κουλτούρα&quot;. The phrase &quot;Source Culture&quot; is a label that might be displayed in a badge. The Greek translation might be &quot;Προέλευση Πολιτισμού&quot;. Let&apos;s check Google translation: &quot;Source culture&quot; -&gt; Greek? &quot;Πηγή κουλτούρα&quot; yields unnatural. But &quot;source culture&quot; in Greek likely &quot;πηγαία κουλτούρα&quot;? Not likely. In Greek, &quot;culture&quot; is often &quot;πολιτισμός&quot;. So &quot;source culture&quot; might be &quot;Πηγή Πολιτισμού&quot;. That is a direct translation: &quot;source&quot; -&gt; &quot;πηγή&quot;, &quot;culture&quot; -&gt; &quot;πολιτισμού&quot;. The genitive form for &quot;culture&quot; is &quot;πολιτισμού&quot;. So &quot;Πηγή Πολιτισμού&quot;. This is a plausible translation.
-
-However, there is also &quot;Source Culture&quot; meaning &quot;Source Culture (as a culture reference)&quot;? In UI, &quot;Source Culture&quot; is used in a badge. Greek might prefer &quot;Αρχική Κουλτούρα&quot;. But &quot;Αρχική&quot; means &quot;initial&quot;. But &quot;source&quot; is not &quot;αρχική&quot;. &quot;Αρχική&quot; is used as &quot;initial&quot;. However, &quot;source&quot; might be &quot;αρχική&quot; if &quot;source&quot; is &quot;original&quot;? Not exactly. &quot;Αρχική&quot; means &quot;original&quot; but also &quot;initial&quot;. So &quot;Αρχική Κουλτούρα&quot; would be &quot;Initial Culture&quot;. But &quot;source culture&quot; is not &quot;initial culture&quot;? In this context, it likely indicates the culture of the source code, like &quot;source culture&quot; = &quot;original culture&quot;? The UI includes a badge with the source culture name. For Greek, they might want to translate &quot;Source Culture&quot; as &quot;Καταγωγή Πολιτισμού&quot;? Not.
-
-Let&apos;s search memory: Greek UI translation for &quot;Source Culture&quot; in .NET documentation: I&apos;ve seen Greek translation &quot;Πηγή Πολιτισμού&quot; is not typical. Many Greek UI translations use &quot;Αρχικός&quot; for &quot;source&quot;? Eg &quot;Αρχικός κώδικας&quot;. However, for &quot;source culture&quot; they might use &quot;Αρχική Κουλτούρα&quot;. In many Greek UI translations, &quot;culture&quot; is &quot;κουλτούρα&quot;, not &quot;πολιτισμός&quot;. Let&apos;s check typical Greek translations for &quot;Culture&quot; (in .NET). In .NET there is &quot;CultureInfo&quot;. In Greek documentation, &quot;Culture&quot; is &quot;Κουλτούρα&quot;. So they might use &quot;Κουλτούρα&quot;. Eg &quot;The culture of the thread&quot;. So &quot;source culture&quot; might be &quot;αρχική κουλτούρα&quot;. So &quot;Source Culture&quot; may be translated to &quot;Αρχική Κουλτούρα&quot;. That seems plausible.
-
-Alternatively, &quot;Πηγή Κουλτούρα&quot; is not correct. &quot;Πηγή&quot; is &quot;source&quot;. &quot;Πηγή Κουλτούρα&quot; would be &quot;Source culture&quot;. But Greek would rarely phrase it that way. &quot;Πηγή Κουλτούρα&quot; is unnatural but might be okay.
-
-Given typical UI translation guidelines, &quot;Source Culture&quot; is often translated as &quot;Αρχική Κουλτούρα&quot;. For example, in Microsoft .NET documentation for Greek, &quot;Source Culture&quot; is &quot;Αρχική Κουλτούρα&quot;. I&apos;m not entirely sure but that seems plausible. Let&apos;s search memory: I&apos;ve seen Greek translations of &quot;Source language&quot; = &quot;Γλώσσα προέλευσης&quot;. &quot;Source culture&quot; might be &quot;Γλώσσα προέλευσης&quot;? No. Actually &quot;Source language&quot; is &quot;Γλώσσα προέλευσης&quot; or &quot;Πηγή γλώσσα&quot;. &quot;Source culture&quot; may be &quot;Γλώσσα και πολιτισμός&quot;. Hmm.
-
-Alternatively, &quot;source culture&quot; might be &quot;Προέλευση κουλτούρα&quot;. But Greek rarely uses &quot;Προέλευση&quot; as an adjective.
-
-Let&apos;s consider typical Greek UI translation conventions: For example, &quot;Culture: en-US&quot; Greek translation is &quot;Κουλτούρα: el-GR&quot;. So &quot;Culture&quot; translates to &quot;Κουλτούρα&quot;. So &quot;Source Culture&quot; would be &quot;Πηγή Κουλτούρα&quot; or &quot;Αρχική Κουλτούρα&quot;. I&apos;d lean toward &quot;Αρχική Κουλτούρα&quot;. But does &quot;αρχική&quot; mean &quot;source&quot;? &quot;Αρχική&quot; means &quot;initial&quot;. It can be used for &quot;source&quot; in some contexts. But &quot;source&quot; might be &quot;πηγή&quot;. However &quot;πηγή&quot; might be used for &quot;source of something&quot;. &quot;Source culture&quot; as a concept might be &quot;Πηγή κουλτούρας&quot;? Actually &quot;Πηγή κουλτούρας&quot; would be &quot;Source of culture&quot;. Not exactly.
-
-The translation request is specifically &quot;Source Culture&quot;. They ask to translate only the word or phrase &quot;Source Culture&quot; into el-GR, Ελληνικά (Ελλάδα). They want the translation of the phrase only, not other content. So we must output the Greek translation.
-
-We need to decide the appropriate Greek translation. Let&apos;s think about typical translation for &quot;Source Culture&quot;. If we search mental memory of Greek translations of &quot;Source Culture&quot; used in e.g., Microsoft .NET documentation, perhaps we can recall a translation: I&apos;ve seen &quot;Προέλευση&quot; used for &quot;source&quot;, &quot;πηγή&quot;. The Greek translation for &quot;source&quot; is &quot;πηγή&quot;. So &quot;source culture&quot; could be &quot;πηγή κουλτούρα&quot;. But Greek might prefer &quot;πηγή κουλτούρα&quot;. But if we want to translate &quot;source culture&quot; as a noun phrase, Greek could use &quot;πηγή κουλτούρα&quot;. However, &quot;source culture&quot; is a phrase with a subject and a noun. The translation can be &quot;πηγή κουλτούρα&quot;. But we need to consider correct case: Greek nouns have gender and case. &quot;Πηγή&quot; is a feminine noun meaning &quot;source&quot;. &quot;Κουλτούρα&quot; is a feminine noun meaning &quot;culture&quot;. So &quot;πηγή κουλτούρα&quot; (source culture). But if &quot;πηγή κουλτούρα&quot; is a phrase, the order is &quot;πηγή κουλτούρα&quot;. However, Greek often places the adjective after noun, but &quot;πηγή&quot; is a noun (noun phrase &quot;πηγή κουλτούρα&quot;? Actually &quot;πηγή&quot; is a noun, &quot;κουλτούρα&quot; is a noun, not an adjective. So &quot;πηγή κουλτούρα&quot; could be interpreted as &quot;source of culture&quot;? Not.
-
-Better to use &quot;Πηγή Κουλτούρα&quot; maybe. But &quot;Πηγή&quot; might be capitalized as a proper noun? But it&apos;s okay.
-
-Given typical Greek UI translations for &quot;Source Culture&quot;, I think &quot;Αρχική Κουλτούρα&quot; is plausible. But the phrase &quot;Αρχική&quot; means &quot;initial&quot;. &quot;Source&quot; could be &quot;αρχική&quot;. But &quot;Αρχική Κουλτούρα&quot; might be used for &quot;source culture&quot; like &quot;original culture&quot;. It might be the translation used in Microsoft Greek UI for .NET. Let&apos;s search memory: In .NET there is &quot;culture name&quot;, &quot;source culture&quot;. I recall the Greek translation for &quot;Source culture&quot; was something like &quot;Αρχική κουλτούρα&quot;. I&apos;m not 100% sure.
-
-Alternatively, &quot;Πηγή Κουλτούρα&quot; is unnatural but could be accepted. Usually Greek translation of &quot;source culture&quot; for localization context could be &quot;Προέλευση κουλτούρα&quot;. I&apos;m leaning towards &quot;Αρχική Κουλτούρα&quot;. Let&apos;s see if there&apos;s any standard Greek translation of &quot;source culture&quot; for localization. If we Google &quot;source culture translation Greek&quot;, we might find &quot;πηγή κουλτούρα&quot;. But I&apos;m not Google. But in mental memory, I have seen translations where &quot;Source Culture&quot; is &quot;Πηγή Κουλτούρα&quot;. However, I think &quot;Πηγή Κουλτούρα&quot; is unnatural because &quot;πηγή&quot; is a noun meaning &quot;source&quot;, &quot;κουλτούρα&quot; is a noun meaning &quot;culture&quot;. So &quot;πηγή κουλτούρα&quot; is a phrase meaning &quot;source of culture&quot; but grammar wise you could say &quot;πηγή κουλτούρα&quot; as a noun phrase &quot;source-culture&quot;. Not typical.
-
-Alternatively, &quot;Source culture&quot; could be &quot;Εναλλακτική κουλτούρα&quot;? No.
-
-Given the instruction: &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; So we could output the phrase as is. But we should try to give a translation. The safest might be to output as is: &quot;Source Culture&quot;. But we should try.
-
-The instruction: &quot;Please translate only the sentence or word `Source Culture` in the paragraph into the target language el-GR, Ελληνικά (Ελλάδα). Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Source Culture` is one of them.&quot; They ask if `Source Culture` is a proper noun? It might be considered a UI label, not a human name. It is a phrase. So we need to translate it. It&apos;s not a trademark.
-
-Thus we need to output Greek translation. Let&apos;s decide best translation.
-
-We need to consider Greek morphological cases. The phrase &quot;Source Culture&quot; appears in a label. Likely it&apos;s used in UI as &quot;Source Culture:&quot; label. Greek translation would be &quot;Πηγή Κουλτούρα&quot; maybe with a colon. Or &quot;Αρχική Κουλτούρα&quot;. Let&apos;s examine typical Greek UI translation of &quot;Source Culture&quot; in a .NET web application. In a localization UI, they often show &quot;Source Culture: en-US&quot; with a badge. Greek UI might show &quot;Πηγή Κουλτούρα: el-GR&quot; or &quot;Αρχική Κουλτούρα: el-GR&quot;. Let&apos;s search mental memory: In Greek .NET UI, &quot;source culture&quot; is used in some localization tools. I&apos;m not recall.
-
-Let&apos;s think about Greek translation of &quot;Source&quot;. In Greek, &quot;πηγή&quot; is source. &quot;Για&quot; also used as &quot;source&quot;. But &quot;πηγή&quot; is standard. For &quot;culture&quot;, the Greek term is &quot;κουλτούρα&quot; (culture). In Greek technical writing, &quot;culture&quot; in .NET contexts is &quot;κουλτούρα&quot;. For example, &quot;CurrentCulture&quot;, &quot;CurrentUICulture&quot;. Greek translations for these terms: &quot;Τρέχουσα Κουλτούρα&quot;, &quot;Τρέχουσα UI Κουλτούρα&quot;. So &quot;culture&quot; is &quot;κουλτούρα&quot;. So &quot;source culture&quot; could be &quot;πηγή κουλτούρα&quot;. However, &quot;πηγή&quot; is a noun, &quot;κουλτούρα&quot; is a noun. So phrase &quot;πηγή κουλτούρα&quot; would be like &quot;source culture&quot;. That seems okay. But more natural Greek phrase would be &quot;Πηγή Κουλτούρα&quot;. That&apos;s exactly what &quot;πηγή κουλτούρα&quot; would be if capitalized? Actually &quot;Πηγή&quot; is capitalized as a proper noun if it&apos;s the start of a phrase, but you can have &quot;Πηγή Κουλτούρα&quot;. So translation: &quot;Πηγή Κουλτούρα&quot;. This is a direct translation: &quot;source culture&quot;. This seems plausible.
-
-Alternatively, &quot;Αρχική Κουλτούρα&quot;. This translates &quot;source&quot; as &quot;αρχική&quot; meaning &quot;initial&quot;. But the phrase &quot;αρχική κουλτούρα&quot; is used in Greek UI for &quot;initial culture&quot;. That&apos;s a bit different meaning: &quot;initial&quot; vs &quot;source&quot;. But &quot;initial&quot; is &quot;αρχική&quot;. However, &quot;source&quot; is more like &quot;πηγή&quot;. So &quot;πηγή&quot; is better.
-
-Thus translation: &quot;Πηγή Κουλτούρα&quot;. That seems correct. Let&apos;s double-check Greek morphological features: &quot;Πηγή Κουλτούρα&quot; would be &quot;Πηγή Κουλτούρα&quot; (capitalizing each noun). That&apos;s a phrase &quot;Πηγή Κουλτούρα&quot;. Greek generally doesn&apos;t capitalise nouns in the middle of a sentence unless proper name, but in UI label, could be capital. It&apos;s fine.
-
-Thus output:
-
-```
-Πηγή Κουλτούρα
-```
-
-That is the translation. But we must be careful: The phrase &quot;Source Culture&quot; is two words, maybe we need to output just the translation: &quot;Πηγή Κουλτούρα&quot;. This is a literal translation.
-
-Thus final answer: just the translation wrapped in triple backticks.
-
-Double-check: The phrase &quot;Source Culture&quot; appears inside the paragraph: `@Localizer[&quot;Source Culture&quot;]` but we ignore that. They want translation. So output as above.
-
-Thus answer: &quot;Πηγή Κουλτούρα&quot;. We&apos;ll output exactly that wrapped in three backticks.
-
-Check if any other nuance: The instruction: &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; We think we understand, so we can translate. We&apos;ll output Greek translation.
-
-Thus final output: &quot;Πηγή Κουλτούρα&quot;. Ensure it&apos;s exactly wrapped in triple backticks with no extra content.
-
-We&apos;ll respond with:
-
-``` 
-Πηγή Κουλτούρα
-```
-&lt;/think&gt;
-
-``` 
-Πηγή Κουλτούρα</value>
+    <value>Πηγή Κουλτούρα</value>
   </data>
   <data name="Success!" xml:space="preserve">
-    <value>Επιτυχία!```. No extra content. So we must output only the translation.
-
-Double-check: &quot;Success!&quot; could be also &quot;Επιτυχία!&quot; (success!). Could also be &quot;Επιτυχία!&quot; indeed. In Greek exclamation, the exclamation point is placed after the word. So &quot;Επιτυχία!&quot; is good. Let&apos;s output that.
-
-Check any nuance: The user says &quot;Do NOT output any other content. Only output the translated content and wrap it in three backticks (```), like this: ``` Translated word here...```.&quot; So we output exactly:
-
-```Επιτυχία!```
-
-We should not add any extra text. That matches instructions.
-
-Thus final answer is just the translation.
-&lt;/think&gt;
-
-```Επιτυχία!</value>
+    <value>Επιτυχία!</value>
   </data>
   <data name="Translated markdown content" xml:space="preserve">
-    <value>Translated word here...
-```
-
-So we need to output the translation of &quot;Translated markdown content&quot; into Greek (el-GR). We need to consider that Greek is the target language. The phrase &quot;Translated markdown content&quot; is likely a placeholder for a text field or something. They want translation. We need to output something like &quot;Μεταφρασμένο περιεχόμενο Markdown&quot; maybe. Let&apos;s consider the phrase. In Greek, &quot;Translated&quot; could be &quot;Μεταφράσθηκε&quot; or &quot;Μεταφρασμένο&quot;. &quot;Markdown content&quot; is &quot;περιεχόμενο Markdown&quot;. So &quot;Μεταφρασμένο περιεχόμενο Markdown&quot; or &quot;Μεταφρασμένο περιεχόμενο σε Markdown&quot;. In Greek, proper translation: &quot;Μεταφρασμένο περιεχόμενο Markdown&quot;. Or &quot;Μεταφρασμένο περιεχόμενο Markdown&quot; is correct.
-
-However, we should be careful about context: &quot;Translated markdown content&quot;. The phrase is used as a placeholder for a textarea: placeholder=&quot;@Localizer[&quot;Translated markdown content&quot;]&quot;. So translation needed: placeholder text should be something like &quot;Μεταφρασμένο περιεχόμενο Markdown&quot;. Could also be &quot;Μεταφρασμένο περιεχόμενο Markdown&quot;. Let&apos;s choose &quot;Μεταφρασμένο περιεχόμενο Markdown&quot;.
-
-But we need to output only the translation. Wrap in triple backticks.
-
-Thus final output:
-
-```
-Μεταφρασμένο περιεχόμενο Markdown
-```
-
-Check if any naming issues: &quot;Markdown&quot; might be a trademark but likely can be kept as is. The instruction: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them!&quot; So &quot;Markdown&quot; is a trademark, keep as is. So translation: &quot;Μεταφρασμένο περιεχόμενο Markdown&quot;. Yes.
-
-Thus final answer: triple backticks with Greek translation.
-
-Proceed.
-&lt;/think&gt;
-
-```  
-Μεταφρασμένο περιεχόμενο Markdown</value>
+    <value>Μεταφρασμένο περιεχόμενο Markdown</value>
   </data>
   <data name="Translated title" xml:space="preserve">
-    <value>Μεταφρασμένος τίτλος
-```
-
-But we need to consider that &quot;Translated title&quot; is a placeholder text for input. In Greek, the translation could be &quot;Μεταφρασμένος τίτλος&quot; (if it is a masculine singular adjective? &quot;Μεταφρασμένος&quot; is the past participle of &quot;translate&quot; (μεταφράζω) in masculine nominative singular; &quot;τίτλος&quot; is title (like &quot;τίτλος&quot;). However, &quot;Translated title&quot; is a phrase: &quot;Translated&quot; (adjective) &quot;title&quot; (noun). In Greek, we could translate as &quot;Μεταφρασμένος τίτλος&quot;. But Greek has gender; &quot;τίτλος&quot; is masculine, so &quot;μεταφρασμένος&quot; matches. But the placeholder could be &quot;Μεταφρασμένος τίτλος&quot;. However, the user maybe expects &quot;Μεταφρασμένος τίτλος&quot;. They might want &quot;Μεταφρασμένος τίτλος&quot;. Let&apos;s confirm.
-
-But the phrase &quot;Translated title&quot; could also be used as a label &quot;Localized Title&quot;? Actually in the paragraph there is a label for localized title input: `&lt;label for=&quot;localized-title&quot; class=&quot;form-label&quot;&gt;@Localizer[&quot;Localized Title&quot;]&lt;/label&gt;` and the placeholder placeholder=&quot;@Localizer[&quot;Translated title&quot;]&quot; So the placeholder is &quot;Translated title&quot;. The translation of this placeholder is &quot;Μεταφρασμένος τίτλος&quot;. That&apos;s likely correct.
-
-Alternatively, &quot;Μεταφρασμένος τίτλος&quot; might be a masculine phrase, but Greek might prefer &quot;Μεταφρασμένος τίτλος&quot;. Could also be &quot;Μεταφρασμένος τίτλος&quot;. Another possibility: &quot;Μεταφρασμένος τίτλος&quot; is correct.
-
-But we need to think: the placeholder in the UI might be &quot;Translated title&quot;. In Greek translation, &quot;Μεταφρασμένος τίτλος&quot;. &quot;Μεταφρασμένος&quot; as an adjective &quot;translated&quot;, &quot;τίτλος&quot; as title. But Greek also could use &quot;Μεταφρασμένος τίτλος&quot; (the masculine form). Or &quot;Μεταφρασμένη τίτλος&quot;? No, &quot;τίτλος&quot; is masculine, so it&apos;s &quot;μεταφρασμένος&quot;. But there is nuance: &quot;τίτλος&quot; is masculine, &quot;μεταφρασμένος&quot; modifies &quot;τίτλος&quot;. So &quot;Μεταφρασμένος τίτλος&quot;. Yes.
-
-Thus answer: wrap in triple backticks:
-
-```
-Μεταφρασμένος τίτλος
-```
-
-We must output only that, no extra content. The user wants only the translated word/sentence. So output exactly that.
-
-Check if any other translation required? The instruction says &quot;only the sentence or word `Translated title` in the paragraph into the target language el-GR&quot;. So only that. So output is Greek translation.
-
-Potential nuance: The phrase might be &quot;Translated title&quot; with capital letters: &quot;Translated title&quot;. But placeholder probably uses lower case. They want translation, not transliteration. So &quot;Μεταφρασμένος τίτλος&quot;. That is fine.
-
-But need to check if &quot;Translated title&quot; may be a human name, nickname, proper noun, symbol, trademark. It&apos;s not. So we translate.
-
-Thus output: triple backticks with Greek translation. So:
-
-```
-Μεταφρασμένος τίτλος
-```
-
-That&apos;s it. Ensure no extra content.
-
-Thus final answer.
-&lt;/think&gt;
-
-```Μεταφρασμένος τίτλος</value>
+    <value>Μεταφρασμένος τίτλος</value>
   </data>
 
 </root>

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="root">
+        <xs:element name="root" ns1:IsDataSet="true">
 
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-
-        </xsd:element>
-    </xsd:schema>
+        </xs:element>
+    </xs:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -28,22 +27,7 @@
     <value>Archive</value>
   </data>
   <data name="Blog pagination" xml:space="preserve">
-    <value>Blog pagination
-```
-
-That&apos;s it.
-
-Check: Should we output &quot;Blog pagination&quot;? The source phrase &quot;Blog pagination&quot; might be considered a proper noun? Not sure. The phrase is a heading: aria-label=&quot;@Localizer[&quot;Blog pagination&quot;]&quot;. The translation may be &quot;Blog pagination&quot;. However, maybe they want the translation to British English as &quot;Blog pagination&quot;. It&apos;s fine.
-
-Thus answer with triple backticks: ``` Blog pagination ```. But inside backticks we should have no extra spaces beyond the code block. So final answer:
-
-```
-Blog pagination
-```
-&lt;/think&gt;
-
-``` 
-Blog pagination</value>
+    <value>Blog pagination</value>
   </data>
   <data name="Explore" xml:space="preserve">
     <value>Explore</value>
@@ -58,27 +42,7 @@ Blog pagination</value>
     <value>Keywords</value>
   </data>
   <data name="Modern Markdown blogging with AI-powered localization and search." xml:space="preserve">
-    <value>Modern Markdown blogging with AI-powered localisation and search.
-```
-
-But we must check the instruction: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Modern Markdown blogging with AI-powered localization and search.` is one of them.&quot;
-
-We need to consider if the sentence contains any proper nouns or trademarks. &quot;Markdown&quot; is a trademark? It&apos;s a file format and application (Markdown created by John Gruber and Aaron Swartz). In many contexts, it&apos;s treated as proper noun. &quot;AI-powered&quot; includes &quot;AI&quot;, but that&apos;s an abbreviation, not a trademark. &quot;Modern&quot; is generic. &quot;Search&quot; is generic. &quot;Localization&quot; vs &quot; localisation&quot;. So perhaps we should output as is? The instruction says &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; It is probably safe to just output the British version: &quot;Modern Markdown blogging with AI-powered localisation and search.&quot; Also note the punctuation: the original ends with a period: &quot;Modern Markdown blogging with AI-powered localization and search.&quot; It ends with a period. British English uses period for end of sentence. So we keep period.
-
-Thus final output: three backticks containing translation.
-
-But check if there are any other translations required? The user specifically said &quot;Please translate only the sentence or word `Modern Markdown blogging with AI-powered localization and search.` in the paragraph into the target language en-GB, English (United Kingdom).&quot; So we output that translation.
-
-Potential nuance: Should we keep &quot;AI-powered&quot; or &quot;AI powered&quot;? Probably keep &quot;AI-powered&quot;. British English often uses hyphenated adjectives, so &quot;AI‑powered&quot;. So &quot;Modern Markdown blogging with AI‑powered localisation and search.&quot; Use British spelling for localization: &quot;localisation&quot;. Also &quot;search&quot; is same.
-
-Thus output: ```Modern Markdown blogging with AI-powered localisation and search.```
-
-Check for any hidden characters. No. Output only that.
-
-Thus final answer: wrap in three backticks.
-&lt;/think&gt;
-
-```Modern Markdown blogging with AI-powered localisation and search.</value>
+    <value>Modern Markdown blogging with AI-powered localisation and search.</value>
   </data>
   <data name="Next" xml:space="preserve">
     <value>Next</value>
@@ -105,53 +69,13 @@ Thus final answer: wrap in three backticks.
     <value>AI-powered search (Vector Database)</value>
   </data>
   <data name="Sort posts" xml:space="preserve">
-    <value>Sort posts
-```
-
-Probably that&apos;s it.
-
-But check if any nuance: &quot;Sort posts&quot; is in the aria-label attribute. In British English, the phrase likely remains the same. So output exactly &quot;Sort posts&quot;. That is the answer.
-
-Potential nuance: Are there any trademark names? &quot;Sort posts&quot; is not a trademark. So fine.
-
-Thus output:
-
-```
-Sort posts
-```
-
-But the instructions: &quot;output the translated conclusion and nothing else. Do not output any other content!&quot; So I should output only the translation wrapped in triple backticks, as they instruct. So output:
-
-```
-Sort posts
-```
-
-Hence answer.
-&lt;/think&gt;
-
-``` 
-Sort posts</value>
+    <value>Sort posts</value>
   </data>
   <data name="Tag" xml:space="preserve">
     <value>Tag</value>
   </data>
   <data name="Tags" xml:space="preserve">
-    <value>Tags
-```
-
-But we should be sure that &quot;Tags&quot; is the correct translation. Is there any nuance? &quot;Tags&quot; is a plural noun meaning labels. In British English, &quot;Tags&quot; is fine. So output &quot;Tags&quot;. That satisfies.
-
-Thus answer: &quot;Tags&quot;. Ensure only that.
-
-Thus final: 
-
-```
-Tags
-```
-&lt;/think&gt;
-
-``` 
-Tags</value>
+    <value>Tags</value>
   </data>
   <data name="Too many searches. AI search temporarily limited; showing keyword results." xml:space="preserve">
     <value>Too many searches. AI search temporarily limited; showing keyword results.</value>

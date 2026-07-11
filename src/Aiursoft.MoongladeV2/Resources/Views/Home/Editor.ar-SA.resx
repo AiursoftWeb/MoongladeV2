@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="root">
+        <xs:element name="root" ns1:IsDataSet="true">
 
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-
-        </xsd:element>
-    </xsd:schema>
+        </xs:element>
+    </xs:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -184,66 +183,10 @@
     <value>داخلي - مستخدمين/أدوار محددة</value>
   </data>
   <data name="Localization" xml:space="preserve">
-    <value>التوطين
-```
-
-Yes. Should we include any context? No, just the translation.
-
-Thus final answer is:
-
-```
-التوطين
-```
-
-Make sure it&apos;s not preceded by any other text.
-
-Potential nuance: user says &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; So if we are not sure about translation, we can output original but we think we know. &quot;Localization&quot; = &quot;التوطين&quot;. That&apos;s the Arabic translation. Could also be &quot;التمركز&quot;. But &quot;التوطين&quot; is correct for localization. In Saudi Arabic context, &quot;التوطين&quot; is used.
-
-Thus final answer: ```التوطين```.
-
-Check for any extraneous content: We must output only the translation, no extra commentary. So just three backticks and the translation inside. That is it.
-
-Thus final.
-&lt;/think&gt;
-
-```التوطين</value>
+    <value>التوطين</value>
   </data>
   <data name="Localize" xml:space="preserve">
-    <value>التوطين
-```
-
-But maybe they want &quot;تَوْطِين&quot; which is &quot;tawteen&quot;. Let&apos;s see typical usage: Many translations for &quot;Localize&quot; use &quot;التوطين&quot; in the sense of &quot;localization&quot;. For example, &quot;Localize string resources&quot; could be &quot;تَوْطِين موارد السلسلة&quot;. But in UI, &quot;Localize&quot; as a verb would be &quot;تَوْطِين&quot; maybe.
-
-We need to decide. Let&apos;s search mental memory: In Arabic, &quot;localize&quot; is &quot;تَوْطِين&quot; (tawteen) or &quot;التوطين&quot;. The &quot;localization&quot; is &quot;التوطين&quot;. The difference: &quot;التوطين&quot; (noun) is &quot;the process of adapting something to the locale&quot;. &quot;تَوْطِين&quot; is the verb &quot;to localize&quot;. The imperative &quot;Localize!&quot; = &quot;تَوْطِين&quot; (imperative). Or &quot;وَطِّنْ&quot;. The root &quot;و-ط-ن&quot;. The noun &quot;التوطين&quot;. The verb &quot;وَطَّنَ&quot;. The imperative second person singular: &quot;وَطِّنْ&quot;. Actually the imperative form for the verb &quot;وَطَّنَ&quot; (to nationalize) is &quot;وَطِّنْ&quot;. But that&apos;s &quot;nationalize&quot;. For &quot;localize&quot; we can use &quot;وَطِّنْ&quot; as well? Let&apos;s check standard dictionary: &quot;وَطَّنَ&quot; means &quot;to make (someone) at home, to domesticate, to settle&quot;. &quot;التوطين&quot; is &quot;the act of domesticating&quot;. So &quot;Localize&quot; in a UI might be translated as &quot;وَطِّنْ&quot;. But I&apos;m not 100% sure.
-
-Alternatively, &quot;Localize&quot; could be &quot;اللغة المحلية&quot;. For example, &quot;Localize&quot; might be &quot;Locale&quot;, but that might not be appropriate.
-
-Let&apos;s check typical translation in Arabic for &quot;Localize&quot; as a command: In some Arabic software, &quot;Localize&quot; is &quot;التوطين&quot;. For example, &quot;localization&quot; is &quot;التوطين&quot;. So &quot;Localize&quot; as a noun is &quot;التوطين&quot;. But the user says &quot;sentence or word&quot;. So likely they want &quot;التوطين&quot;. But we must output only the translation. So answer: &quot;التوطين&quot;. However, we need to be careful: they might want &quot;localize&quot; as a verb, not a noun. But &quot;Localize&quot; as a title might be used as &quot;Localize&quot; as a verb imperative. Let&apos;s see typical translations: If you have a button &quot;Localize&quot;, it&apos;s often &quot;تَوْطِين&quot; (imperative). In Arabic UI, &quot;Localize&quot; (for resource strings) is &quot;تَوْطِين&quot; (imperative). The difference: &quot;تَوْطِين&quot; vs &quot;التوطين&quot;. For the command form, it&apos;s &quot;تَوْطِين&quot;. For example, in the &quot;Microsoft .NET Resource Manager&quot;, the string &quot;Localize&quot; may be translated as &quot;تَوْطِين&quot;. Let&apos;s check translation memory: &quot;Localize&quot; is &quot;التوطين&quot;. Example: &quot;Localize the application?&quot; maybe &quot;هل تريد توطين التطبيق؟&quot;. So &quot;توطين&quot; as verb noun, not imperative.
-
-Thus which translation is more likely? Let&apos;s search memory: In Arabic UI translation guidelines, &quot;Localize&quot; is &quot;التوطين&quot;. For example, in the &quot;Localize&quot; menu item in &quot;Visual Studio&quot; (Arabic translation) I think it&apos;s &quot;التوطين&quot;. Let&apos;s confirm: Visual Studio has &quot;Localize&quot; command to generate resource strings for different languages. The Arabic translation might be &quot;التوطين&quot;. Let’s search mental memory: The Arabic translation for &quot;Localize&quot; (the verb) is &quot;التوطين&quot;. The &quot;Localize&quot; button in a UI could be &quot;التوطين&quot;. I recall seeing translations for &quot;Localize&quot; as &quot;التوطين&quot; in software like WordPress or others. I think &quot;التوطين&quot; is correct.
-
-Thus output &quot;التوطين&quot;. So answer: &quot;التوطين&quot;. Put inside triple backticks. That is what they asked: &quot;Only output the translated content and wrap it in three backticks&quot;. So output:
-
-```
-التوطين
-```
-
-But need to check: Should we include any punctuation? The translation is just the Arabic word &quot;التوطين&quot;. The user says: &quot;Please translate only the sentence or word `Localize` in the paragraph into the target language ar-SA&quot;. So just &quot;التوطين&quot;. That is fine.
-
-Check if there is any context for &quot;Localize&quot; in the paragraph: Actually there is no &quot;Localize&quot; string in the snippet; it&apos;s just a Razor view. The only place where &quot;Localize&quot; appears is the user request: &quot;The sentence is `Localize`.&quot; So it&apos;s a separate word that is not in the paragraph. So we translate that.
-
-Thus answer: &quot;التوطين&quot;. Let&apos;s output that.
-
-But note: The instruction &quot;Do not output any other content. Only output the translated content and wrap it in three backticks (```), like this: ```Translated word here...```&quot; So we output:
-
-```
-التوطين
-```
-
-Thus final answer.
-&lt;/think&gt;
-
-```التوطين</value>
+    <value>التوطين</value>
   </data>
   <data name="Make document private" xml:space="preserve">
     <value>جعل المستند خاصًا</value>
@@ -335,7 +278,7 @@ Thus final answer.
   <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
     <value>شارك هذا المستند علنًا برابط فريد يمكن لأي شخص الوصول إليه دون الحاجة لتسجيل الدخول.</value>
   </data>
-  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
+  <data name="Smart dark mode that automatically adapts to the user's system settings." xml:space="preserve">
     <value>وضع الظلام الذكي الذي يتكيف تلقائيًا مع إعدادات نظام المستخدم.</value>
   </data>
   <data name="Split View" xml:space="preserve">

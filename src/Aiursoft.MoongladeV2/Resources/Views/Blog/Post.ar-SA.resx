@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="root">
+        <xs:element name="root" ns1:IsDataSet="true">
 
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-
-        </xsd:element>
-    </xsd:schema>
+        </xs:element>
+    </xs:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -28,43 +27,7 @@
     <value>العودة إلى المقالات</value>
   </data>
   <data name="By" xml:space="preserve">
-    <value>. So output:
-
-```
-بواسطة
-```
-
-But there might be nuance: Should we output &quot;بواسطة&quot; or &quot;بواسطة&quot;? Arabic characters: &quot;بواسطة&quot;. That is correct.
-
-We must be careful: The instruction &quot;only output the translated content and wrap it in three backticks&quot;. So we output:
-
-```
-بواسطة
-```
-
-We should not output any extra content. That&apos;s it.
-
-Double-check: The user wants to translate only the word `By` in the paragraph. So we need to output the translation. The translation for &quot;By&quot; in Arabic is &quot;بواسطة&quot;. Let&apos;s check typical translation: The English preposition &quot;by&quot; meaning &quot;by the author&quot; is usually translated as &quot;بواسطة&quot;. For example in English: &quot;By A. N. Author&quot;. In Arabic: &quot;بواسطة أ. ن. автор&quot;? No. In Arabic, they may keep &quot;By&quot; as &quot;بواسطة&quot; or &quot;عن&quot;. Actually &quot;by&quot; in sense &quot;by the author&quot; is &quot;بواسطة&quot;. In Arabic translation for blogs, they use &quot;بواسطة&quot;. Example: &quot;By John&quot; -&gt; &quot;بواسطة جون&quot;. Indeed &quot;بواسطة&quot; is correct.
-
-Thus output with backticks.
-
-Now, the user says &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; But we understand.
-
-Thus final answer: &quot;بواسطة&quot;. Output in three backticks:
-
-```
-بواسطة
-```
-
-Check: The target language is ar-SA, Arabic (Saudi Arabia). &quot;بواسطة&quot; is correct.
-
-Make sure no extra content.
-
-Thus final answer.
-&lt;/think&gt;
-
-``` 
-بواسطة</value>
+    <value>بواسطة</value>
   </data>
   <data name="Comments" xml:space="preserve">
     <value>التعليقات</value>
@@ -82,15 +45,7 @@ Thus final answer.
     <value>نشر التعليق</value>
   </data>
   <data name="Published" xml:space="preserve">
-    <value>منشور
-```
-
-Make sure not to output anything else.
-
-Thus final answer is just the translation wrapped in triple backticks.
-&lt;/think&gt;
-
-```منشور</value>
+    <value>منشور</value>
   </data>
   <data name="Reply" xml:space="preserve">
     <value>الرد</value>
@@ -99,18 +54,7 @@ Thus final answer is just the translation wrapped in triple backticks.
     <value>إرسال الرد</value>
   </data>
   <data name="Write your comment..." xml:space="preserve">
-    <value>اكتب تعليقك...```.
-
-Check: Should we include ellipsis? yes. So we output:
-
-```
-اكتب تعليقك...
-```
-
-That&apos;s all.
-&lt;/think&gt;
-
-```اكتب تعليقك...</value>
+    <value>اكتب تعليقك...</value>
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>اكتب تعليقك…</value>
