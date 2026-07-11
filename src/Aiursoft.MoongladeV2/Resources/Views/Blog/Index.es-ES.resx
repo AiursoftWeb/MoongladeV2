@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="root">
+        <xs:element name="root" ns1:IsDataSet="true">
 
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-
-        </xsd:element>
-    </xsd:schema>
+        </xs:element>
+    </xs:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -28,32 +27,7 @@
     <value>Archivo</value>
   </data>
   <data name="Blog pagination" xml:space="preserve">
-    <value>Paginación del blog
-```
-
-Thus answer accordingly.
-
-Check user instruction: &quot;Do **NOT** output any other content. Only output the translated content and wrap it in three backticks (```), like this:
-
-```
-Translated word here...
-```&quot;
-
-Thus I need to output exactly:
-
-```
-Paginación del blog
-```
-
-Note: Should we keep &quot;Blog&quot; unchanged? The user said &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them!&quot; &quot;Blog&quot; is a proper noun? Might be considered a trademark or brand? In the context, &quot;Blog&quot; is a generic term for the website&apos;s blog. But &quot;Blog pagination&quot; as a phrase may be treated as a UI label, not a trademark. It&apos;s safe to translate as &quot;Paginación del blog&quot;. Many translation guidelines keep &quot;Blog&quot; as &quot;Blog&quot; (like &quot;Blog&quot; in Spanish). But &quot;pagination&quot; is &quot;paginación&quot;. So &quot;Blog pagination&quot; could be &quot;Paginación del blog&quot; (the &quot;Blog&quot; is removed or &quot;Blog&quot; is not needed). However, they might want to preserve &quot;Blog&quot; to indicate context. But it&apos;s ambiguous. The instruction to not translate proper nouns suggests we keep &quot;Blog&quot;. But &quot;Blog&quot; as a noun in Spanish is also a common noun &quot;blog&quot;. However, proper nouns may be kept as is. So we could output &quot;Blog paginación&quot;? But Spanish uses &quot;paginación&quot;. So we could translate as &quot;Blog paginación&quot;? That would be odd. Spanish translation would more likely be &quot;Paginación del blog&quot;. So maybe keep &quot;Blog&quot; unchanged and translate &quot;pagination&quot;. So the phrase &quot;Blog pagination&quot; would become &quot;Blog paginación&quot;? That is not typical Spanish. Usually &quot;pagination&quot; is &quot;paginación&quot;. So we could write &quot;Blog paginación&quot;. But that mixes English &quot;Blog&quot; with Spanish &quot;paginación&quot;. That might be acceptable. But &quot;Blog pagination&quot; might be a compound term, we could translate as &quot;Paginación del blog&quot;. But then we lose &quot;Blog&quot;. But the phrase &quot;Blog pagination&quot; is originally a UI label for pagination. In Spanish, they might say &quot;Paginación&quot;. But the phrase includes &quot;Blog&quot; to indicate that it&apos;s the pagination for the blog. So the translation could be &quot;Paginación del blog&quot;. That includes &quot;blog&quot; but in Spanish, &quot;blog&quot; is a common noun, not proper. So maybe it&apos;s okay. The user instruction says &quot;Do not translate proper nouns&quot;. &quot;Blog&quot; could be considered a proper noun. But it&apos;s arguable. However, they also say &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; But we understand.
-
-Thus we will output &quot;Paginación del blog&quot;. That&apos;s a direct translation. Let&apos;s consider if there is a risk that &quot;Blog&quot; as a trademark is not to be translated. However, &quot;Blog&quot; is also used in many Spanish contexts as &quot;blog&quot;. It&apos;s not trademark. So we could keep it. But &quot;Blog pagination&quot; is not a trademark. It&apos;s a UI label. So translation &quot;Paginación del blog&quot; seems appropriate. If we want to preserve &quot;Blog&quot;, we could output &quot;Blog paginación&quot;. That is unnatural Spanish but maybe acceptable. I&apos;d go with &quot;Paginación del blog&quot;. Let&apos;s check other typical translations: In Spanish, &quot;Blog&quot; is often used as &quot;blog&quot;. &quot;Pagination&quot; is &quot;paginación&quot;. So &quot;Blog pagination&quot; -&gt; &quot;Paginación del blog&quot;. That&apos;s the best.
-
-Thus answer with three backticks and the translation.
-&lt;/think&gt;
-
-``` 
-Paginación del blog</value>
+    <value>Paginación del blog</value>
   </data>
   <data name="Explore" xml:space="preserve">
     <value>Explorar</value>
@@ -68,16 +42,7 @@ Paginación del blog</value>
     <value>Palabras clave</value>
   </data>
   <data name="Modern Markdown blogging with AI-powered localization and search." xml:space="preserve">
-    <value>Blogging moderno con Markdown e inteligencia artificial para localización y búsqueda.
-```
-
-One caution: The phrase is used in the paragraph as `@Localizer[&quot;Modern Markdown blogging with AI-powered localization and search.&quot;]`. That is a literal string used for localization. So translation should be exactly that Spanish string. The translation should be output only, inside triple backticks. No extra content.
-
-Thus final answer.
-&lt;/think&gt;
-
-``` 
- Blogging moderno con Markdown e inteligencia artificial para localización y búsqueda.</value>
+    <value>Blogging moderno con Markdown e inteligencia artificial para localización y búsqueda.</value>
   </data>
   <data name="Next" xml:space="preserve">
     <value>Siguiente</value>
@@ -104,54 +69,13 @@ Thus final answer.
     <value>Búsqueda basada en IA (Base de datos vectorial)</value>
   </data>
   <data name="Sort posts" xml:space="preserve">
-    <value>Ordenar publicaciones
-```
-
-Make sure no extra content. Just that.
-&lt;/think&gt;
-
-```
-Ordenar publicaciones</value>
+    <value>Ordenar publicaciones</value>
   </data>
   <data name="Tag" xml:space="preserve">
     <value>Etiqueta</value>
   </data>
   <data name="Tags" xml:space="preserve">
-    <value>Translated word here...
-```
-
-Thus we output:
-
-```
-Etiquetas
-```
-
-But we need to ensure we output exactly three backticks and no extra content.
-
-Thus final answer: a code block with &quot;Etiquetas&quot;. Ensure we do not add any other content.
-
-Thus final answer: ```Etiquetas``` with backticks. Should we include the backticks? Yes, three backticks. The instruction: &quot;wrap it in three backticks (```), like this: ``` Translated word here...``` So output:
-
-``` 
-Etiquetas
-```.
-
-Make sure not to add any additional content.
-
-Thus final answer is:
-
-``` 
-Etiquetas
-```.
-
-We must output only the code block.
-
-Thus answer.
-
-
-&lt;/think&gt;
-
-```Etiquetas</value>
+    <value>Etiquetas</value>
   </data>
   <data name="Too many searches. AI search temporarily limited; showing keyword results." xml:space="preserve">
     <value>Demasiadas búsquedas. Búsqueda con IA limitada temporalmente; mostrando resultados por palabras clave.</value>

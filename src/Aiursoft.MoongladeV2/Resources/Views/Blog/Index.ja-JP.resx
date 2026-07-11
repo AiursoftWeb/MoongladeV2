@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="root">
+        <xs:element name="root" ns1:IsDataSet="true">
 
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-
-        </xsd:element>
-    </xsd:schema>
+        </xs:element>
+    </xs:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -28,38 +27,7 @@
     <value>アーカイブ</value>
   </data>
   <data name="Blog pagination" xml:space="preserve">
-    <value>```
-
-But is that correct? Let&apos;s consider if &quot;Blog pagination&quot; is a label for aria-label: &quot;Blog pagination&quot;. In Japanese, &quot;ページネーション&quot; is often used for pagination UI, but &quot;ページ分割&quot; maybe more natural. However, &quot;Pagination&quot; often is &quot;ページネーション&quot;. Combined with blog, &quot;ブログページネーション&quot; is fine. Alternatively &quot;ブログページ分割&quot; is also possible. But &quot;ブログページネーション&quot; is more likely.
-
-Let&apos;s verify typical UI translation: In ASP.NET, when localizing, they&apos;d have a resource for &quot;Blog pagination&quot;. I can search memory: In many blogs they use &quot;Blog pagination&quot;. In Japanese translation, typical translation is &quot;ブログページネーション&quot;. For example, WordPress twenty seventeen theme translation: &quot;Blog pages&quot; maybe &quot;ブログページ&quot;. However, &quot;Blog pagination&quot; is singular, maybe a label for navigation. Japanese translation for &quot;Blog pages&quot; is &quot;ブログページ&quot;. But they ask &quot;Blog pagination&quot;. Let&apos;s think about typical Japanese translation of &quot;pagination&quot; used in UI: &quot;ページネーション&quot;. Example: &quot;Pagination&quot;, &quot;ページネーション&quot;. Combined with &quot;Blog&quot;, &quot;ブログページネーション&quot;. Might be okay.
-
-Alternatively, one might translate &quot;Blog pagination&quot; as &quot;ブログページ&quot;. But that&apos;s ambiguous. The phrase &quot;pagination&quot; is a noun meaning pages, could be &quot;ページ&quot;. But the literal translation of &quot;pagination&quot; is &quot;ページ分割&quot;. In HTML UI, you often have a &quot;pager&quot; element. In ASP.NET Core they may have label &quot;Blog pagination&quot;. In Japanese translation, they might use &quot;ブログページ&quot;. But we need to decide.
-
-The safest translation: &quot;ブログページネーション&quot;. Let&apos;s see if that is proper Japanese: &quot;ブログページネーション&quot; is a katakana hybrid. Japanese often uses katakana for English words. &quot;Page nation&quot; =&gt; &quot;ページネーション&quot;. So &quot;ブログページネーション&quot;. This reads as &quot;borogu page nation&quot;. It&apos;s a bit unnatural but acceptable.
-
-Alternatively, &quot;ブログページ&quot; (blog page). But &quot;pagination&quot; suggests a set of pages. Many Japanese UI labels just say &quot;ページ&quot;. Eg. &quot;Page&quot;. But they ask specifically &quot;Blog pagination&quot;. I&apos;d translate as &quot;ブログページネーション&quot;. Let&apos;s also consider &quot;ブログページ送り&quot;. No. So likely &quot;ブログページネーション&quot;.
-
-Thus output:
-
-```ブログページネーション
-```
-
-Yes. Let&apos;s output that.
-
-Check instruction: &quot;Do not output any other content. Only output the translated content and wrap it in three backticks (```), like this: ```Translated word here...```&quot;. So exactly like that. So we output:
-
-```ブログページネーション
-```
-
-We should not add any extra text. So final answer is just the code block with translation.
-
-Edge cases: The user says &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot;. We do understand, so we provide translation.
-
-Thus final.
-&lt;/think&gt;
-
-```ブログページネーション</value>
+    <value>ブログページネーション</value>
   </data>
   <data name="Explore" xml:space="preserve">
     <value>探索</value>
@@ -74,36 +42,7 @@ Thus final.
     <value>キーワード</value>
   </data>
   <data name="Modern Markdown blogging with AI-powered localization and search." xml:space="preserve">
-    <value>AI-powered のローカライズと検索を備えた最新のMarkdownブログ 
-```
-
-We must wrap in three backticks. Also the instructions: &quot;Only output the translated content and wrap it in three backticks&quot;. So just output the translation inside code fences.
-
-Thus answer: three backticks with Japanese translation.
-
-Check: The translation is accurate: &quot;Modern Markdown blogging with AI-powered localization and search.&quot;
-
-Japanese translation: &quot;AI-powered のローカライズと検索を備えた最新のMarkdownブログ&quot;. Should we add &quot; الحديثة&quot;? &quot;最新&quot; implies modern. Yes.
-
-Thus output:
-
-``` 
-AI-powered のローカライズと検索を備えた最新のMarkdownブログ 
-```
-
-That meets requirement.
-
-Double-check: &quot;Modern Markdown blogging&quot; can be &quot;最新Markdownブログ&quot; or &quot;最新のMarkdownブログ&quot;. &quot;AI-powered localization and search&quot; can be &quot;AI-poweredのローカライズと検索&quot;. Keep &quot;AI-powered&quot; maybe keep English phrase, but we used &quot;AI-powered&quot;. That&apos;s okay.
-
-Thus output only translation.
-
-We should be careful not to include any extra content. So just output the fenced code with translation.
-
-Hence final answer: ...
-&lt;/think&gt;
-
-``` 
-AI-powered のローカライズと検索を備えた最新のMarkdownブログ</value>
+    <value>AI-powered のローカライズと検索を備えた最新のMarkdownブログ</value>
   </data>
   <data name="Next" xml:space="preserve">
     <value>次へ</value>
@@ -130,35 +69,13 @@ AI-powered のローカライズと検索を備えた最新のMarkdownブログ<
     <value>AI（ベクターデータベース）による検索</value>
   </data>
   <data name="Sort posts" xml:space="preserve">
-    <value>投稿を並び替え
-```
-
-We need to output only the translation and wrap it in three backticks as per instruction. So final answer should be:
-
-```
-投稿を並び替え
-```
-
-Yes.
-
-We need to ensure we output nothing else.
-
-Thus answer.
-&lt;/think&gt;
-
-```投稿を並び替え</value>
+    <value>投稿を並び替え</value>
   </data>
   <data name="Tag" xml:space="preserve">
     <value>タグ</value>
   </data>
   <data name="Tags" xml:space="preserve">
-    <value>タグ
-```
-
-We must ensure no extra content. Provide only translation. So final answer: just output code block.
-&lt;/think&gt;
-
-```タグ</value>
+    <value>タグ</value>
   </data>
   <data name="Too many searches. AI search temporarily limited; showing keyword results." xml:space="preserve">
     <value>検索回数が多すぎます。AI検索は一時制限されています。キーワード検索結果を表示しています。</value>

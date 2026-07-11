@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="root">
+        <xs:element name="root" ns1:IsDataSet="true">
 
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-
-        </xsd:element>
-    </xsd:schema>
+        </xs:element>
+    </xs:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -19,440 +18,58 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
       <data name="Back to Editor" xml:space="preserve">
-    <value>Terug naar Editor
-```
-
-or maybe &quot;Terug naar editor&quot;. The phrase &quot;Back to Editor&quot; is typical for a link: &quot;Back to Editor&quot;. In Dutch, that could be &quot;Terug naar Editor&quot; or &quot;Terug naar de editor&quot;. The user wants translation of &quot;Back to Editor&quot; into nl-NL. The typical translation could be &quot;Terug naar editor&quot; or &quot;Terug naar de editor&quot;. The phrase &quot;Back to Editor&quot; could be &quot;Terug naar de editor&quot;. However translation should be accurate. Let&apos;s see context: The code is a button that returns to the editor. In the UI the text likely appears as a button label. In English it&apos;s &quot;Back to Editor&quot;. In Dutch, typical translation: &quot;Terug naar editor&quot;. But the user may want exactly &quot;Terug naar Editor&quot;? Typically proper nouns remain capitalized: &quot;Editor&quot; is a proper noun (though also generic). In Dutch, the generic word for editor is &quot;editor&quot; (or &quot;Editor&quot;?). Usually translation guidelines for UI: &quot;Terug naar editor&quot;. Many translation memory systems for &quot;Back to Editor&quot; in .NET code would translate as &quot;Terug naar editor&quot;. I think it&apos;s safe to output &quot;Terug naar editor&quot;. But we need to be careful: Should we capitalize &quot;Editor&quot;? In English it&apos;s capitalized because it&apos;s part of the product name? The phrase &quot;Back to Editor&quot; appears as a navigation link that returns to the &quot;Editor&quot;. The original code uses &quot;Localizer[&quot;Back to Editor&quot;]&quot;. So the translation is just the phrase. The Dutch translation should be &quot;Terug naar editor&quot;. Usually &quot;Editor&quot; is a UI element: &quot;Editor&quot;. In Dutch, they might still use &quot;Editor&quot; as a proper noun? Actually the context: It is a button linking to a view. In typical UI translation for Dutch, &quot;Back to Editor&quot; =&gt; &quot;Terug naar editor&quot;. Let&apos;s propose &quot;Terug naar editor&quot;. Let&apos;s check typical translation: &quot;Back to Editor&quot; might also be &quot;Terug naar Editor&quot;. In Dutch, &quot;Editor&quot; is sometimes used as is, as a proper noun (like the name of a product). But the phrase &quot;Back to Editor&quot; is generic, the word &quot;Editor&quot; refers to the editor view. So &quot;Terug naar editor&quot;. That should be correct. Should we include capitalisation? Probably &quot;Terug naar editor&quot;. The phrase &quot;Back to Editor&quot; is capitalized &quot;Editor&quot; maybe because it&apos;s a title. In Dutch, titles are capitalized like &quot;Editor&quot;. But &quot;editor&quot; in lowercase would be &quot;editor&quot;. In typical UI translation, we often follow original capitalization: &quot;Back to Editor&quot;. So &quot;Terug naar Editor&quot;. But typical translations preserve the capitalizations? Let&apos;s consider typical translation guidelines: If the source is a UI label, you may preserve the capitalization to match the UI style. In English UI, &quot;Back to Editor&quot; might be &quot;Back to Editor&quot; (capital E). In Dutch, &quot;Editor&quot; might be used as proper noun or capital. Usually translation guidelines say &quot;Use lower case unless it&apos;s a proper noun.&quot; Editor is not proper. So we can translate as &quot;Terug naar editor&quot;. Let&apos;s see if there is any existing translation memory for &quot;Back to Editor&quot;. I&apos;m not aware. Let&apos;s search memory: In many translations for .NET projects, &quot;Back to Editor&quot; -&gt; &quot;Terug naar editor&quot;. So I think that&apos;s fine.
-
-Now we need to output only the translated phrase inside triple backticks. So:
-
-```Terug naar editor```
-
-But the user says &quot;wrap it in three backticks (```), like this: ```Translated word here...```&quot;. So we need to output:
-
-```
-Terug naar editor
-```
-
-Thus the answer: output the phrase inside triple backticks, nothing else.
-
-I must double-check any nuance: The user wants to translate only the sentence or word `Back to Editor`. They ask to output only the translated content and nothing else. So we output the phrase.
-
-Thus final answer:
-
-```Terug naar editor```
-&lt;/think&gt;
-
-```Terug naar editor</value>
+    <value>Terug naar editor</value>
   </data>
   <data name="Error!" xml:space="preserve">
-    <value>Fout!
-```
-
-But we need to output it in three backticks. According to instructions: &quot;wrap it in three backticks (```), like this:
-
-```
-Translated word here...
-```&quot;
-
-Thus output:
-
-```
-Fout!
-```
-
-Make sure no extra content. So answer: three backticks containing &quot;Fout!&quot;.
-
-That&apos;s the final answer.
-&lt;/think&gt;
-
-```Fout!</value>
+    <value>Fout!</value>
   </data>
   <data name="Failed to load translation." xml:space="preserve">
-    <value>Vertaling laden mislukt.``` Or &quot;Kan vertaling niet laden.&quot; Let&apos;s decide.
-
-The phrase is &quot;Failed to load translation.&quot; Not &quot;Failed to load translation data&quot;. So &quot;Kan vertaling niet laden.&quot; That seems natural. &quot;Laden van vertaling mislukt.&quot; is also okay. Which is more idiomatic? I&apos;d go with &quot;Kan vertaling niet laden.&quot; It matches &quot;failed to load translation&quot; as error. However &quot;Kan vertaling niet laden.&quot; uses &quot;laden&quot; which is transitive verb &quot;laden&quot; meaning &quot;load&quot;, but &quot;vertaling&quot; is feminine noun? &quot;Vertaling&quot; is feminine noun &quot;de vertaling&quot;. So &quot;Kan de vertaling niet laden.&quot; Actually &quot;vertaling&quot; is singular &quot;de vertaling&quot;. So &quot;Kan de vertaling niet laden.&quot; That is more grammatical. The phrase &quot;vertaling laden&quot; is a noun phrase &quot;laden&quot; is not a verb? &quot;Laden&quot; as noun? The noun &quot;laden&quot; maybe not. So &quot;Kan de vertaling niet laden.&quot; However &quot;laden&quot; is a verb meaning &quot;to load&quot;. The direct phrase &quot;Failed to load translation.&quot; is &quot;Het laden van de vertaling is mislukt.&quot; but not.
-
-Better to translate as &quot;Kan de vertaling niet laden.&quot; Because &quot;failed to load translation&quot; suggests a failure to load the translation. So &quot;Kan de vertaling niet laden.&quot; This is natural Dutch. Let&apos;s use that.
-
-Thus final output: ```Kan de vertaling niet laden.```
-
-We should output only that with triple backticks.
-&lt;/think&gt;
-
-```Kan de vertaling niet laden.</value>
+    <value>Kan de vertaling niet laden.</value>
   </data>
   <data name="Generated" xml:space="preserve">
-    <value>Gegenereerd
-```
-
-But note: The translation might be &quot; gegenereerd&quot;. However, the user wants output wrapped in three backticks like this:
-
-```
-Translated word here...
-```
-
-Thus we output:
-
-```
-Gegenereerd
-```
-
-Make sure no extra content. Should we include a trailing space? No.
-
-Thus final answer: &quot;Gegenereerd&quot;. Output only that.
-&lt;/think&gt;
-
-```
-Gegenereerd</value>
+    <value>Gegenereerd</value>
   </data>
   <data name="Languages" xml:space="preserve">
-    <value>Talen
-```
-
-But note: The human instruction says &quot;Please translate only the sentence or word `Languages` in the paragraph into the target language nl-NL, Nederlands (Nederland).&quot; So we output just the translation. The rest of paragraph is not to be output. So we output &quot;Talen&quot; in triple backticks. Should we include any other characters? The instruction says wrap it in three backticks, like:
-
-```
-Talen
-```
-
-That&apos;s all. So final answer: triple backticks with Talen.
-
-But ensure no extra content. So output:
-
-``` 
-Talen
-```? Actually they want three backticks, like:
-
-```
-Talen
-```
-
-We must include three backticks only, not fenced with language spec.
-
-Thus output:
-
-```
-Talen
-```
-
-Yes.
-
-Thus final answer.
-&lt;/think&gt;
-
-``` 
-Talen</value>
+    <value>Talen</value>
   </data>
   <data name="Last Modified" xml:space="preserve">
-    <value>Laatst gewijzigd```.
-
-Check that they want only the translated content and wrap it in three backticks.
-
-Thus answer: ```Laatst gewijzigd```.
-
-Make sure no extra content.
-
-Thus final answer.
-&lt;/think&gt;
-
-```Laatst gewijzigd</value>
+    <value>Laatst gewijzigd</value>
   </data>
   <data name="Localization" xml:space="preserve">
-    <value>Localisatie
-```
-&lt;/think&gt;
-
-``` 
-Localisatie</value>
+    <value>Localisatie</value>
   </data>
   <data name="Localized Content" xml:space="preserve">
-    <value>Gelokaliseerde inhoud```? Wait correct spelling: &quot;Gelokaliseerde inhoud&quot;. Let&apos;s check Dutch spelling: &quot;gelokaliseerd&quot; with a &quot;z&quot; in &quot;iseert&quot;? Actually &quot;lokaliseren&quot; is a verb? In Dutch, &quot;lokaliseren&quot; means to localize. Past participle &quot;lokaliserende&quot;? Actually &quot;lokaliseren&quot; is a transitive verb: &quot;lokaliseren&quot; -&gt; &quot;lokaliseert&quot;, &quot;lokaliserend&quot;. The past participle used as adjective: &quot;gelokaliseerd&quot;. So &quot;gelokaliseerde inhoud&quot;. So spelled &quot;gelokaliseerde inhoud&quot;. Yes.
-
-Thus output: ```gelokaliseerde inhoud``` or with capital G for title: &quot;Gelokaliseerde inhoud&quot;. Since original &quot;Localized Content&quot; uses capital L and C. In UI labels they may use capital first letter for each word. So &quot;Gelokaliseerde inhoud&quot;. That is appropriate.
-
-Thus output:
-
-```
-Gelokaliseerde inhoud
-```
-&lt;/think&gt;
-
-```Gelokaliseerde inhoud</value>
+    <value>Gelokaliseerde inhoud</value>
   </data>
   <data name="Localized Title" xml:space="preserve">
-    <value>Gelokaliseerde Titel
-```
-
-Check if any special characters like punctuation? Just the phrase. Should we include quotes? No, just the translation.
-
-Thus answer: &quot;Gelokaliseerde Titel&quot;. Use three backticks.
-
-One potential nuance: &quot;Localized Title&quot; could be a proper noun? It&apos;s a UI string. Not a trademark. So we can translate.
-
-Thus final answer: ```Gelokaliseerde Titel```.
-
-But double-check: The user says &quot;Please translate only the sentence or word `Localized Title` in the paragraph into the target language nl-NL, Nederlands (Nederland).&quot; So we just output that. Should we preserve capitalization? In Dutch, Title is &quot;Titel&quot;. &quot;Gelokaliseerde&quot; is capitalized if it&apos;s the first word in a sentence, but it&apos;s used as an adjective before the noun. Usually adjectives are not capitalized. &quot;gelokaliseerde Titel&quot;? In Dutch, adjectives preceding nouns are not capitalized. But the phrase &quot;Localized Title&quot; is a label, likely capitalized as a heading. In UI translation, often labels are capitalized. For instance, &quot;Localized Title&quot; is a label, maybe they want &quot;Lokale Titel&quot;? Actually, typical UI label for localized title: &quot;Lokale Titel&quot;? In many UI translation examples for ASP.NET Core&apos;s &quot;Localized Content&quot; is &quot;Lokale inhoud&quot;? Let&apos;s check known translation resources: In Orchard Core UI for translations, they have &quot;Localised Title&quot; as a label for &quot;Localized Title&quot;. Searching memory: In &quot;Orchard Core&quot; the UI for localizing content items has a field &quot;Localized Title&quot;. I think the translation for Dutch would be &quot;Lokale Titel&quot;. But I&apos;m not sure.
-
-Let&apos;s search memory: There&apos;s a module &quot;Orchard Core&quot; which has localization UI. For French, &quot;Localized Title&quot; becomes &quot;Titre localisé&quot;. For Dutch, &quot;Lokale Titel&quot;? But I recall that &quot;Localized Title&quot; is often translated to &quot;Lokale Titel&quot;. Actually, I&apos;ve seen translation &quot;Localised Title&quot; -&gt; &quot;Lokális cím&quot;? That is Hungarian. For Dutch, &quot;Lokale Titel&quot;? Let&apos;s think. The phrase &quot;Local&quot; in Dutch is &quot;lokaal&quot;. So &quot;Local title&quot; could be &quot;Lokale Titel&quot;. But &quot;Localized Title&quot; implies that the title has been localized. However, in UI strings, the term &quot;localised&quot; is sometimes used to denote the localized version of a content item&apos;s title. So the UI might have a label for &quot;Localized Title&quot;. In Dutch, they&apos;d likely translate &quot;Localized Title&quot; as &quot;Lokale Titel&quot;. For example, if you have an entity with a title field, and you have a localized version of that title, the UI could show &quot;Localised Title&quot;. In Dutch, &quot;Lokale Titel&quot;. This seems plausible.
-
-Let&apos;s check typical translation patterns: There&apos;s a translation resource for ASP.NET Core&apos;s &quot;Localizer&quot; UI: @Localizer[&quot;Localized Title&quot;] is used in code. When translating to Dutch, typical mapping: &quot;Localized Title&quot; -&gt; &quot;Lokale Titel&quot;. Example: in Orchard Core, they have a translation for &quot;Localized Title&quot; as &quot;Lokale Titel&quot;. Let&apos;s verify by searching memory of known translation files. In many open source translation files for Dutch, I recall seeing &quot;Localized Title: Lokale Titel&quot;. For instance, in a translation template .po file, the translation for &quot;Localized Title&quot; is &quot;Lokale Titel&quot;. However, I&apos;m not entirely certain.
-
-Let&apos;s examine typical UI patterns: &quot;Localized Title&quot; is often used as a heading for a section that contains the localized title for a specific culture. In the UI snippet, you see a left panel showing languages, and the right panel showing editor area with &quot;Localized Title&quot; as a form label. The &quot;Localized Title&quot; field is where you input the translation of the title for a particular language. So the UI has a label &quot;Localized Title&quot;. In Dutch translation, they might use &quot;Lokale Titel&quot;. But also &quot;Localisatie Titel&quot; could be used? Let&apos;s check typical usage: In Dutch, &quot;lokaal&quot; means &quot;local&quot;, not &quot;localised&quot;. But &quot;localised&quot; in the sense &quot;localised for a language&quot; is &quot;lokalisiert&quot;? No, not &quot;lokalisiert&quot;. &quot;Lokal&quot; is similar to &quot;local&quot;. &quot;Local&quot; in UI is &quot;Lokaal&quot;. In UI translation for content management, &quot;Localized Title&quot; -&gt; &quot;Lokale Titel&quot;. For example, in Umbraco CMS translation files, they have &quot;Localized Title&quot; -&gt; &quot;Lokale Titel&quot;. Actually, Umbraco uses &quot;Localized Title&quot;. In the Dutch translation for Umbraco, &quot;Localized Title&quot; is &quot;Lokale Titel&quot;. I&apos;m fairly sure. Let&apos;s search mental memory: Umbraco&apos;s translation template for Dutch (nl) includes &quot;Localized Title: Locale Titel&quot;? Not sure.
-
-Alternatively, &quot;Localized Title&quot; could be translated as &quot;Gelokaliseerde Titel&quot;. Let&apos;s think about the nuance: &quot;Gelokaliseerde&quot; is more like &quot;has been localized&quot;. &quot;Lokale&quot; is &quot;local&quot;. The UI phrase &quot;Localized Title&quot; may be interpreted as &quot;title that is localized (or local) for this language&quot;. So &quot;Lokale Titel&quot; might be more natural.
-
-But the user explicitly says &quot;Please translate only the sentence or word `Localized Title` in the paragraph into the target language nl-NL, Nederlands (Nederland).&quot; They do not want any extra content. So we need to output translation. There&apos;s no mention of placeholder or anything else.
-
-Thus, we need to decide which translation is most appropriate. Let&apos;s consider typical translation guidelines for UI strings. The phrase &quot;Localized Title&quot; is a noun phrase; the translation in Dutch should be a noun phrase. &quot;Lokale Titel&quot; is a noun phrase. &quot;Gelokaliseerde Titel&quot; is also a noun phrase but includes a past participle used adjectially. Both are grammatically correct. Which is more likely used in Dutch UI? Typically, UI translation tends to avoid complex participles and prefer simple nouns. For instance, &quot;Localized content&quot; is often translated as &quot;Lokale inhoud&quot;. Actually, I think &quot;Lokale inhoud&quot; is the translation for &quot;Localized content&quot;? Let&apos;s check typical translations: If you have a property called &quot;Localized Title&quot;, in the Dutch translation file (RESX) you often find entries like:
-
-- &quot;Localized Title&quot;: &quot;Lokale Titel&quot;
-- &quot;Localized Content&quot;: &quot;Lokale inhoud&quot;
-
-Alternatively, &quot;Localized Title&quot;: &quot;Lokaliserad Titel&quot;? That seems Swedish.
-
-In orchard core translation, I&apos;ve seen &quot;Localized Title&quot; as &quot;Lokaal Titel&quot;? Hmm.
-
-Better to search memory: In the Dutch translation for Orchard Core (which uses this UI), the translation for &quot;Localized Title&quot; is &quot;Lokale Titel&quot;. I&apos;m quite sure.
-
-Let&apos;s verify by checking typical translation pattern: The UI for localization of content items often uses &quot;Localized Title&quot; and &quot;Localized Content&quot;. In French translations, &quot;Localized Title&quot; is &quot;Titre localisé&quot;. In German, &quot; Lokalisierter Titel&quot;. In Dutch, &quot;Lokale Titel&quot;? The adjective &quot;local&quot; might be used: &quot;Lokaal&quot; is &quot;local&quot;, but &quot;local&quot; as an adjective can be used before a noun: &quot;Lokaal Titel&quot;? No, it&apos;s &quot;Lokaal&quot; as an adjective modifies the noun &quot;titel&quot;. In Dutch, adjectives that are not past participles can be placed before noun: &quot;Lokaal&quot; is an adjective; &quot;Lokale Titel&quot; would be &quot;Local Title&quot;. That seems plausible. However, &quot;Lokale&quot; is the adjective form for &quot;lokaal&quot; with -e ending because it&apos;s attributive? Wait, in Dutch adjectives: &quot;lokaal&quot; is an adjective, can be used attributively before a noun: &quot;lokaal nieuws&quot; -&gt; &quot;local news&quot;. &quot;Lokaal&quot; is an adjective, not a past participle. The noun is &quot;titel&quot;. So &quot;lokaal titel&quot;? Usually you wouldn&apos;t say &quot;lokaal titel&quot; but &quot;lokaal&quot; used as adverb? Actually, &quot;lokaal&quot; is an adjective meaning &quot;local&quot;. When used attributively before a noun, it does not change (except if the noun is indefinite or definite? In Dutch, adjectives used attributively do not take endings except in some cases. &quot;lokaal&quot; would be &quot;lokaal&quot; before a noun? In Dutch, adjectives before nouns generally don&apos;t change form, except for -e ending when they are used after a verb? Wait, Dutch adjectives: If an adjective is used attributively, it is placed before the noun, and if the adjective ends in -e? Actually, there is no change for adjectives before nouns; e.g., &quot;een mooie dag&quot; (nice day). But some adjectives have no ending. &quot;lokaal&quot; before a noun &quot;titel&quot;? &quot;lokaal&quot; is an adjective; you would use &quot;lokaal&quot; before the noun: &quot;lokaal titel&quot;? No, you would not use -e ending unless the noun is definite and the adjective is used predicatively? Let&apos;s recall: In Dutch, adjectives when used as attributive adjectives (i.e., before a noun) are not declined with a suffix; they appear in the base form. But &quot;lokaal&quot; is an adjective; before &quot;titel&quot; (which is a de-noun), you could say &quot;lokaal titel&quot;? Not proper; you need &quot;lokaal&quot; does not change: &quot;een lokaal nieuws&quot;? &quot;lokaal nieuws&quot;? Actually &quot;lokaal&quot; as an attributive adjective: &quot;een lokale nieuws&quot;? Wait, &quot;lokaal&quot; ends in -e? Actually &quot;lokaal&quot; is an adjective that can be used as an attributive adjective; the -e ending is not added for indefinite nouns? Let&apos;s recall typical examples: &quot;een mooie dag&quot; (nice day) vs &quot;de mooie dag&quot; (the nice day). In indefinite, you add -e? Let&apos;s check: &quot;een mooie dag&quot;: The adjective &quot;mooi&quot; gets -e because the noun is indefinite? Actually, &quot;mooi&quot; is an adjective, and in Dutch you add -e to adjectives that are used attributively and the noun is not preceded by &quot;het&quot;? Let&apos;s recall: In Dutch, adjectives used attributively (before a noun) generally takes -e when the noun is not preceded by &quot;het&quot; (i.e., indefinite?). But there are exceptions. &quot;Moo&quot; becomes &quot;mooie&quot;. &quot;Lokaal&quot; maybe &quot;lokaal&quot;? Not sure.
-
-But &quot;Lokale Titel&quot; is plausible: &quot;Lokale&quot; is an adjective formed by adding -e to &quot;lokaal&quot;. &quot;Lokaal&quot; is an adjective; adding -e yields &quot;Lokale&quot;. Does &quot;Lokale&quot; used as an adjective before a noun? Eg &quot;de lokale bibliotheek&quot; (the local library). Yes, &quot;de lokale bibliotheek&quot;. So &quot;Lokale Titel&quot; could be &quot;de Lokale Titel&quot;. So &quot;Localized Title&quot; -&gt; &quot;Lokale Titel&quot;. That is typical. In this UI context, &quot;Localized Title&quot; is a label, likely capitalized as a heading. In Dutch UI, you could have &quot;Lokale Titel&quot; (capital L). That seems correct.
-
-Now &quot;Localized Title&quot; vs &quot;Localised Title&quot;? The phrase &quot;Localized Title&quot; is ambiguous. In code they may have used &quot;Localized Title&quot;. In Dutch translation, I&apos;d use &quot;Lokale Titel&quot;. However, some translation guidelines may prefer &quot;Localiserings Titel&quot;? Not likely. &quot;Localised Title&quot; is likely a term for a field that contains the title after localization. So &quot;Lokale Titel&quot; is probably correct.
-
-But we must confirm that &quot;Lokale Titel&quot; is not a trademark or proper noun. It&apos;s not. So translation allowed.
-
-Thus we output &quot;Lokale Titel&quot;. Let&apos;s check alternative: &quot;Gelokaliseerde Titel&quot;. Both are possible. Which is more likely in the UI? Let&apos;s think about the phrase &quot;Localized Title&quot;. In many UI translation examples for similar code (like in the snippet we see placeholder &quot;@Localizer[&quot;Translated title&quot;]&quot; and label &quot;@Localizer[&quot;Localized Title&quot;]&quot;. The placeholder &quot;Translated title&quot; is used for the input text field. So the label &quot;Localized Title&quot; is for the field where you input the localized title (i.e., the translation). The placeholder &quot;Translated title&quot; is the English placeholder. So the translation for &quot;Localized Title&quot; likely matches &quot;Translated title&quot; but as a label. The label &quot;Localized Title&quot; likely means &quot;The title that has been localized&quot;. So &quot;Lokale Titel&quot; (local title) may not convey that it is a localized version. &quot;Gelokaliseerde Titel&quot; (localised title) may be more accurate. But &quot;Lokale Titel&quot; could also be considered &quot;local&quot;. However, in UI translation, often they use &quot;Localisé Title&quot; in French, which is &quot;Titre localisé&quot;. In Dutch, they might also translate as &quot;Localisé Titel&quot;? But Dutch does not use &quot;localisé&quot; like French. They would use &quot;gelokaliseerd&quot;. So &quot;Gelokaliseerde Titel&quot; is indeed a direct translation of &quot;Localized Title&quot;. But we need to think about how a Dutch speaker would phrase &quot;Localized Title&quot;. Usually they&apos;d say &quot;gelokaliseerde titel&quot;. Eg &quot;gelokaliseerde inhoud&quot; for &quot;localized content&quot;. Yes, &quot;gelokaliseerde inhoud&quot; is a phrase used often in translation for &quot;localized content&quot;. So &quot;Gelokaliseerde Titel&quot; is plausible.
-
-But we need to consider that the phrase &quot;Localized Title&quot; is used as a label in the UI. In typical UI translation for ASP.NET Core, there is a pattern: The label &quot;Localized Title&quot; is often translated as &quot;Localiserad Titel&quot;? No, that&apos;s Swedish. In Dutch, it&apos;s &quot;Lokaal Titel&quot;? Or &quot;Localizatie Titel&quot;? Many translation files for ASP.NET Core use &quot;Localiseerbare&quot;? Let&apos;s recall typical translation for &quot;Localized Title&quot; in .NET documentation. In .NET there is &quot;Localize&quot; attribute, and UI may have &quot;Localized Title&quot; label. In Spanish translation, it&apos;s &quot;Título localizado&quot;. In Dutch, &quot;Lokaal Titel&quot;? Not sure. But in Dutch you could also say &quot;Getitelde Titel&quot;? No.
-
-Better to check actual translation memory: I recall seeing &quot;Localized Title&quot; in translation files for &quot;Orchard Core&quot; and the Dutch translation is &quot;Lokale Titel&quot;. But I&apos;m not fully certain. Let&apos;s search memory: I recall a translation file for Orchard Core&apos;s &quot;localization&quot; UI: &quot;Localized Title&quot; -&gt; &quot;Lokale Titel&quot;. &quot;Localized Content&quot; -&gt; &quot;Lokale Inhoud&quot;. &quot;Select a language&quot; -&gt; &quot;Selecteer een taal&quot;. &quot;Save Translation&quot; -&gt; &quot;Opslaan&quot;. &quot;Select a language&quot; is &quot;Select a language&quot;. So yes, they used &quot;Lokale Titel&quot;. I&apos;m pretty sure I&apos;ve seen &quot;Localized Title&quot; in .resx files for Dutch translations of Orchard Core: &quot;Localized Title&quot; -&gt; &quot;Lokale Titel&quot;. I&apos;m leaning that it&apos;s the correct translation.
-
-However, the user might have a particular translation style. But we need to output a translation, not a discussion. We need to choose one. Let&apos;s examine the phrase &quot;Localized Title&quot; as a UI string. In UI strings, the translation may not be the literal &quot;localised&quot;, but might be &quot;Lokaal&quot; or &quot;Lokale&quot;. For example, in French &quot;Localized Title&quot; -&gt; &quot;Titre localisé&quot;. In German, &quot;Localized Title&quot; -&gt; &quot;Lokalisierter Titel&quot;. In Dutch, &quot;Localized Title&quot; -&gt; &quot;Lokale Titel&quot;? Actually, &quot;Lokalisierter Titel&quot; in German means &quot;localised title&quot;. In Dutch, &quot;Lokalisiert&quot; is not used. So &quot;Lokale Titel&quot; is analogous to &quot;Local Title&quot;. But &quot;local&quot; vs &quot;localised&quot; difference may be subtle.
-
-Let&apos;s check typical translation of &quot;Localized&quot; in Dutch: &quot;Localised&quot; is translated as &quot;gelokaliseerd&quot;. Eg &quot;Localised content&quot; -&gt; &quot;gelokaliseerde inhoud&quot;. Yes, I recall that in translation of &quot;localisation&quot; for UI, &quot;gelokaliseerd&quot; is used. So &quot;Localized Title&quot; -&gt; &quot;Gelokaliseerde Titel&quot;. That matches pattern: &quot;Localised Content&quot; -&gt; &quot;Gelokaliseerde Inhoud&quot;. So consistent.
-
-Thus we need to decide between &quot;Lokale Titel&quot; and &quot;Gelokaliseerde Titel&quot;. Which is more likely for the given code? Let&apos;s consider the context: The label &quot;Localized Title&quot; is part of a form with a placeholder &quot;Translated title&quot;. The placeholder says &quot;Translated title&quot;. So they have &quot;Localized Title&quot; label and placeholder &quot;Translated title&quot;. So they likely have a form to input the localized version of the title. The label &quot;Localized Title&quot; may be used for the user to edit the localized title. So &quot;Localized Title&quot; is the title that has been localized (i.e., translated). So &quot;Gelokaliseerde Titel&quot; is a direct translation.
-
-If we look at typical UI translations for &quot;Localized Title&quot; in Dutch, we could search online. Let&apos;s imagine we are Google searching &quot;Localized Title&quot; translation Dutch. Many translation memory providers show &quot;Localized Title&quot; -&gt; &quot;Lokale Titel&quot;. But also &quot;Localized Title&quot; -&gt; &quot;Gelokaliseerde Titel&quot;. Which one is more common? Let&apos;s think.
-
-The phrase &quot;Localised Title&quot; in English could be used as a property in a UI: &quot;Localized Title&quot; is often used as a field name in .NET localization resources. In .resx files, they have keys like &quot;LocalizedTitle&quot;. In Dutch, I&apos;d expect translation &quot;Lokale Titel&quot;. Because &quot;Localised Title&quot; maybe synonyms for &quot;Local title&quot;? Wait, &quot;Local Title&quot; would be &quot;Lokaal Titel&quot;? Not exactly, &quot;Lokaal&quot; means local (as in location). &quot;Local Title&quot; could be &quot;Lokale Titel&quot;. But &quot;Localized Title&quot; could be &quot;Lokale Titel&quot;? Hmm.
-
-In typical UI translation for &quot;Localised Title&quot;, they may use &quot;Local title&quot; as translation for &quot;Localized title&quot;. Eg in a translation table: &quot;Localized Title&quot; -&gt; &quot;Lokaal Titel&quot;? Actually, I think &quot;Local&quot; vs &quot;Localized&quot; are not the same. &quot;Local&quot; means something is local, not translated. &quot;Localized&quot; means something has been localized. So translation should reflect that difference.
-
-But maybe the UI uses &quot;Localized Title&quot; as a heading to show the title after localization. So the label &quot;Localized Title&quot; refers to the title field after it&apos;s been localized. So &quot;Gelokaliseerde Titel&quot; is more accurate.
-
-Let&apos;s check typical .NET localization UI strings for &quot;Localized Title&quot;. In the Microsoft.AspNetCore.Mvc.Localization namespace, there are strings for &quot;Localized Title&quot;. I can try to recall from Microsoft documentation: The strings for &quot;Localized Title&quot; in the default UI are likely &quot;Localised Title&quot;. But I&apos;m not sure.
-
-We can try to find actual translation memory: In the Microsoft .NET documentation, there is a &quot;Localized Title&quot; label used in the &quot;Resource Manager&quot; UI. The translation for French is &quot;Titre localisé&quot;. For Dutch, it&apos;s &quot;Lokaal Titel&quot;? Not sure. But perhaps &quot;Localiserings Titel&quot;? No.
-
-Let&apos;s search memory: I recall that the translation for &quot;Localized Title&quot; in Dutch for &quot;Orchard Core&quot; is &quot;Lokale Titel&quot;. I&apos;ve seen it in the translation file &quot;Orchard.Core.po&quot;. Let me try to recall: The .po file might have something like:
-
-msgid &quot;Localized Title&quot;
-msgstr &quot;Lokale Titel&quot;
-
-msgid &quot;Localized Content&quot;
-msgstr &quot;Lokale content&quot;? Actually &quot;Lokale inhoud&quot;. Yes.
-
-Thus &quot;Localized Content&quot; becomes &quot;Lokale inhoud&quot;. So &quot;Localized Title&quot; -&gt; &quot;Lokale Titel&quot;. That pattern seems plausible.
-
-Also, &quot;Select a language&quot; -&gt; &quot;Taal selecteren&quot;? &quot;Select a language&quot; -&gt; &quot;Selecteer een taal&quot;. So they keep &quot;Select a language&quot; unchanged? Eh.
-
-If we assume the translation pattern from Orchard Core&apos;s .po file: &quot;Localized Title&quot; -&gt; &quot;Lokale Titel&quot;. That seems correct. So we can safely output &quot;Lokale Titel&quot;. However, the user wants translation of &quot;Localized Title&quot;. So answer: &quot;Lokale Titel&quot;.
-
-Thus final answer: ```Lokale Titel```.
-
-Let&apos;s confirm no other content. They want only the translation wrapped in triple backticks. So we output:
-
-```
-Lokale Titel
-```
-
-Thus final.
-&lt;/think&gt;
-
-```Lokale Titel</value>
+    <value>Lokale Titel</value>
   </data>
   <data name="Save failed." xml:space="preserve">
-    <value>Opslaan mislukt.
-```
-
-Wrap in triple backticks.
-
-Thus final answer: triple backticks with translation. Ensure no other content.
-&lt;/think&gt;
-
-```Opslaan mislukt.</value>
+    <value>Opslaan mislukt.</value>
   </data>
   <data name="Save Translation" xml:space="preserve">
-    <value>Vertaling opslaan
-```.
-
-Check if any other nuance: They said &quot;Do not output any other content. Only output the translated content and wrap it in three backticks (```)&quot;. So we need to output just that.
-
-Thus final answer: backticks with &quot;Vertaling opslaan&quot;. Provide no additional text.
-
-Let&apos;s output accordingly.
-&lt;/think&gt;
-
-```Vertaling opslaan</value>
+    <value>Vertaling opslaan</value>
   </data>
   <data name="Saved successfully!" xml:space="preserve">
-    <value>Opgeslagen!
-```
-
-But if we think it&apos;s &quot;Succesvol opgeslagen!&quot; maybe better. Let&apos;s decide. The phrase &quot;Saved successfully!&quot; is &quot;Opgeslagen!&quot; is more literal? Actually &quot;saved successfully&quot; = &quot;succesvol opgeslagen&quot;. &quot;Opgeslagen!&quot; is &quot;Saved!&quot; which is less precise. But the phrase &quot;Saved successfully!&quot; has exclamation, indicates success, &quot;succesvol opgeslagen&quot;. In UI, many use &quot;Opgeslagen!&quot; is okay. But translation &quot;Saved successfully!&quot; I&apos;d think &quot;Opgeslagen!&quot; is not exactly &quot;Successfully&quot;. But it&apos;s short, likely accepted. However &quot;Successfully saved!&quot; is &quot;Opgeslagen!&quot; is not perfect, but it&apos;s okay. We can also do &quot;Succesvol opgeslagen!&quot; which is longer.
-
-The user didn&apos;t specify need for punctuation. Let&apos;s think about typical Dutch translation of &quot;Saved successfully!&quot;. Searching typical translation: In Dutch, &quot;Saved successfully!&quot; could be &quot;Succesvol opgeslagen!&quot; But I think &quot;Opgeslagen!&quot; is more common in UI? Let&apos;s check typical UI messages in Dutch. For example, WordPress in Dutch uses &quot;Opgeslagen&quot;. In the admin panel, after saving changes, a message &quot; Wijzigingen opgeslagen.&quot; (Changes saved). That&apos;s &quot;Wijzigingen opgeslagen.&quot; That is &quot;Changes saved.&quot; The exclamation version &quot;Opgeslagen!&quot; is similar. But &quot;Saved successfully!&quot; could be &quot;Wijzigingen opgeslagen!&quot; But they gave &quot;Saved successfully!&quot; which is more like &quot;Opgeslagen!&quot;.
-
-I think &quot;Opgeslagen!&quot; is good. However, let&apos;s check context: The code uses showStatus(&apos;success&apos;, &apos;@Localizer[&quot;Saved successfully!&quot;]&apos;); This is an MVC localizer tag, which will output a localized string based on key &quot;Saved successfully!&quot;. In Dutch, the appropriate translation is likely &quot;Succesvol opgeslagen!&quot;. Many translation memory might have &quot;Saved successfully!&quot; =&gt; &quot;Opgeslagen!&quot;. For example, .NET Resource file &quot;Saved successfully!&quot; localizes to &quot;Opgeslagen!&quot; perhaps.
-
-We can search mental memory: In typical .NET MVC localization for Dutch, I recall &quot;Saved successfully!&quot; translates to &quot;Opgeslagen!&quot; (I think I&apos;ve seen that). For example, &quot;Profile saved successfully!&quot; =&gt; &quot;Profiel opgeslagen!&quot;. Actually &quot;Profiel is opgeslagen.&quot; is &quot;Your profile is saved.&quot; The phrase &quot;Saved successfully!&quot; could be &quot;Succesvol opgeslagen!&quot;. But typical translation of &quot;Success&quot; is &quot;Succes&quot;. But &quot;Successfully!&quot; is &quot;Succesvol opgeslagen!&quot;.
-
-Let&apos;s examine common pattern: &quot;Saved successfully!&quot; In Dutch, a more literal translation: &quot;Succesvol opgeslagen&quot;. However &quot;opgeslagen&quot; is past participle, which is &quot;saved&quot;. &quot;Succesvol opgeslagen&quot; is &quot;successfully saved&quot;. That&apos;s a phrase that might be used. But typical UI messages are more terse: &quot;Opgeslagen!&quot; is okay. The user wants translation of &quot;Saved successfully!&quot; So I&apos;d output &quot;Succesvol opgeslagen!&quot; (with exclamation). Let&apos;s decide between &quot;Opgeslagen!&quot; and &quot;Succesvol opgeslagen!&quot;.
-
-We can try to think about typical translation patterns: When a phrase is &quot;Saved successfully!&quot; (with exclamation), the translation often is &quot;Succesvol opgeslagen!&quot; (common in .NET messages). I recall in many localization frameworks for Dutch, the translation for &quot;Saved successfully!&quot; is &quot;Succesvol opgeslagen&quot;. For example, see .NET source code &quot;Saved successfully!&quot; =&gt; &quot;Opgeslagen!&quot;? Wait, I&apos;m trying to recall. In a typical .NET web app, the message &quot;Saved successfully!&quot; might be displayed as &quot;Saved successfully!&quot; or &quot;Opslaan gelukt!&quot;. Actually &quot;Opslaan gelukt!&quot; is &quot;Save succeeded!&quot; Another phrase is &quot;Opgeslagen&quot;. In Dutch, &quot;opgeslagen&quot; is past participle, &quot;saved&quot;. So &quot;Succesvol opgeslagen!&quot; could be weird because &quot;opgeslagen&quot; is not used with &quot;succesvol&quot;. Usually you would say &quot;Succesvol opgeslagen&quot; meaning &quot;Successfully saved&quot;. That seems okay.
-
-But typical UI translation guidelines: Use short messages, prefer &quot;Opgeslagen!&quot; for &quot;Saved!&quot; maybe. Let&apos;s check typical translation: &quot;Saved successfully!&quot; in English .NET may be &quot;Opgeslagen!&quot; if there is exclamation. I&apos;m not entirely sure. Let&apos;s examine typical translation for &quot;Saved successfully!&quot; in .NET resource files for Dutch:
-
-- For .NET MVC project, a resource file can have keys like &quot;SavedSuccessfully&quot;. I&apos;d like to search memory: In many open source translation files, &quot;Saved successfully!&quot; is translated as &quot;Opgeslagen!&quot; or &quot;Succesvol opgeslagen!&quot;. I think &quot;Opgeslagen!&quot; is more common.
-
-But to be safe, we can output &quot;Succesvol opgeslagen!&quot;. However, that phrase might be too long and unnatural in UI. But the phrase &quot;Saved successfully!&quot; is &quot;Succesvol opgeslagen!&quot; which is literal translation. Actually &quot;Succesvol opgeslagen!&quot; would be &quot;Successfully saved!&quot; which is fine. Let&apos;s examine if &quot;Succesvol opgeslagen!&quot; is natural in Dutch. &quot;Succesvol opgeslagen!&quot; is odd because &quot;Succesvol&quot; is adverb &quot;successfully&quot;, but &quot;opgeslagen&quot; is past participle of &quot;opslaan&quot;. However &quot;Succesvol opgeslagen!&quot; might be used like &quot;Succesvol opgeslagen&quot; as a phrase meaning &quot;Successfully saved&quot;. In typical Dutch, you would say &quot;Opgeslagen!&quot; which is &quot;Saved!&quot;. But sometimes you could say &quot;Succesvol opgeslagen!&quot; but it&apos;s not common.
-
-Consider typical UI messages: &quot;Saved successfully!&quot; =&gt; &quot;Opgeslagen!&quot; The exclamation point is part of the phrase.
-
-Thus the translation should be &quot;Opgeslagen!&quot;.
-
-We need to output only the translated content inside triple backticks. So:
-
-```
-Opgeslagen!
-```
-
-Thus final answer: triple backticks with Opgeslagen!. No extra content.
-&lt;/think&gt;
-
-```Opgeslagen!</value>
+    <value>Opgeslagen!</value>
   </data>
   <data name="Saving..." xml:space="preserve">
-    <value>Opslaan...```
-
-Make sure not to output any other content. Just that. Let&apos;s output.
-&lt;/think&gt;
-
-```Opslaan...</value>
+    <value>Opslaan...</value>
   </data>
   <data name="Select a language" xml:space="preserve">
-    <value>Selecteer een taal
-```
-
-But maybe they want only the translation of the sentence itself, not the code. Indeed they say: &quot;Please translate only the sentence or word `Select a language` in the paragraph into the target language nl-NL, Nederlands (Nederland).&quot; So we output that translation.
-
-Thus answer: &quot;Selecteer een taal&quot;.
-
-We must be sure not to output any other content. Just the translation inside triple backticks.
-
-Thus final answer: ```Selecteer een taal```.
-
-Double-check: They want to output the translated word/sentence, wrapped in three backticks. They also mention &quot;Do not output any other content.&quot; So we output exactly that.
-
-Thus final.
-&lt;/think&gt;
-
-```
-Selecteer een taal</value>
+    <value>Selecteer een taal</value>
   </data>
   <data name="Source Culture" xml:space="preserve">
-    <value>Broncultuur
-```
-
-But format: triple backticks with the translated word, no other content.
-
-Thus final answer: just a code block with &quot;Broncultuur&quot;.
-&lt;/think&gt;
-
-``` 
-Broncultuur</value>
+    <value>Broncultuur</value>
   </data>
   <data name="Success!" xml:space="preserve">
-    <value>Succes!
-```
-
-Make sure no extra content. Provide exactly three backticks and the translation.
-
-Thus final answer: three backticks with Succes! inside.
-&lt;/think&gt;
-
-``` 
-Succes!</value>
+    <value>Succes!</value>
   </data>
   <data name="Translated markdown content" xml:space="preserve">
-    <value>Vertaalde markdown-inhoud
-```
-
-But we need to confirm that no extra content. Only output the translation wrapped in triple backticks. The guidelines: &quot;Only output the translated content and wrap it in three backticks (```), like this: ``` Translated word here...```&quot;. So we must output:
-
-``` 
-Vertaalde markdown-inhoud
-```
-
-But note: The formatting includes triple backticks with newline? The example shows &quot;```\nTranslated word here...\n```&quot;. So we need exactly:
-
-```
-Vertaalde markdown-inhoud
-```
-
-Probably exactly that. Let&apos;s output accordingly.
-
-Double-check: The original phrase includes &quot;Translated markdown content&quot;. The translation should be &quot;Vertaalde markdown-inhoud&quot;. However we need to ensure the translation is correct: &quot;Vertaalde markdown-inhoud&quot; is likely correct. Another option: &quot;Vertaalde markdowninhoud&quot; but hyphen is fine.
-
-Thus answer: triple backticks with translation.
-
-Proceed.
-&lt;/think&gt;
-
-``` 
-Vertaalde markdown‑inhoud</value>
+    <value>Vertaalde markdown‑inhoud</value>
   </data>
   <data name="Translated title" xml:space="preserve">
-    <value>), like this:
-
-```
-Translated word here...
-```&quot;
-
-Thus, they want translation of &quot;Translated title&quot; into Dutch (nl-NL). &quot;Translated title&quot; is likely a placeholder string used in input fields. In Dutch, &quot;Translated title&quot; would be &quot;Vertaalde titel&quot;. Could also be &quot;Titel vertaling&quot;? Let&apos;s consider context: The sentence is used as placeholder for a text input, like placeholder=&quot;@Localizer[&quot;Translated title&quot;]&quot;. So it&apos;s a placeholder that suggests the user should input a translated title. In Dutch, a suitable placeholder might be &quot;Vertaalde titel&quot;. That is the translation.
-
-But we must be careful: The translation request is for the &quot;sentence or word `Translated title`&quot; in the paragraph. So just translation of &quot;Translated title&quot; into Dutch. &quot;Translated title&quot; could be &quot;Vertaalde titel&quot;. Or &quot;Titel vertaling&quot;? &quot;Vertaalde titel&quot; is more literal. Let&apos;s see typical translations: In UI placeholders for translation tools, the placeholder might be &quot;Vertaalde titel&quot;. Another translation could be &quot;Titel vertaling&quot;. Let&apos;s consider typical phrase &quot;Translated title&quot;. In Dutch: &quot;Vertaalde titel&quot;. Yes.
-
-Thus, output should be &quot;Vertaalde titel&quot; wrapped in triple backticks. Ensure no other content. Should be exactly:
-
-```
-Vertaalde titel
-```
-
-Make sure no extra spaces or newline. Provide backticks with language tag? They said &quot;wrap it in three backticks, like this:
-
-```
-Translated word here...
-```&quot;. So just triple backticks with content. Should we include a language identifier like ```nl```? Not needed. They said output only the translated content and wrap it in three backticks, like that. So output:
-
-```nl
-Vertaalde titel
-```
-
-But they didn&apos;t specify language tag inside the triple backticks; they gave example without. So we can use just triple backticks without language. Let&apos;s follow exactly: triple backticks then the content, then triple backticks. Provide no other content. That is:
-
-```
-Vertaalde titel
-```
-
-Thus final answer: triple backticks with content &quot;Vertaalde titel&quot;.
-&lt;/think&gt;
-
-```
-Vertaalde titel</value>
+    <value>Vertaalde titel</value>
   </data>
 
 </root>

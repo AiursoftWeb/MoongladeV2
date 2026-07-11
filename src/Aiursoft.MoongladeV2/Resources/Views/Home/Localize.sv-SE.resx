@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="root">
+        <xs:element name="root" ns1:IsDataSet="true">
 
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-
-        </xsd:element>
-    </xsd:schema>
+        </xs:element>
+    </xs:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -19,548 +18,58 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
       <data name="Back to Editor" xml:space="preserve">
-    <value>Tillbaka till redigeraren```
-
-Make sure to wrap in triple backticks and output nothing else.
-
-Thus answer: 
-
-``` 
-Tillbaka till redigeraren
-``` 
-
-But need to follow instructions: output the translated content and wrap it in three backticks (```), like this:
-
-```
-Translated word here...
-```
-
-So output exactly:
-
-```
-Tillbaka till redigeraren
-```
-
-No extra text. Also note that translation should be consistent with Swedish UI style guidelines. However, we must also consider that translation of &quot;Back to Editor&quot; may be &quot;Tillbaka till redigeraren&quot;. Let&apos;s verify typical translation of &quot;Back to Editor&quot;. Quick mental check: In ASP.NET MVC, the default scaffolding for &quot;Back to list&quot; translates to &quot;Tillbaka till listan&quot;. For &quot;Back to Editor&quot;, I think similar pattern: &quot;Tillbaka till redigeraren&quot;. Indeed, &quot;Back to Editor&quot; could be &quot;Back to editorn&quot;? Swedish language rarely uses &quot;editorn&quot; but &quot;redigeraren&quot;. So I think &quot;Tillbaka till redigeraren&quot; is correct.
-
-Thus final answer is:
-
-```
-Tillbaka till redigeraren
-```
-&lt;/think&gt;
-
-```Tillbaka till redigeraren</value>
+    <value>Tillbaka till redigeraren</value>
   </data>
   <data name="Error!" xml:space="preserve">
-    <value>Fel!
-```
-
-Wrap in triple backticks. Ensure not to include any extra text. Should we include spaces? The user said &quot;wrap it in three backticks, like this:
-
-```
-Translated word here...
-```&quot;
-
-So I output exactly:
-
-```
-Fel!
-```
-
-Thus final answer: triple backticks containing &quot;Fel!&quot;.
-
-I should note that if there&apos;s any nuance about &quot;Error!&quot; being a nickname or trademark. The user says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them!&quot; The word &quot;Error!&quot; is not a proper noun, it&apos;s a generic UI message, so we translate. The user wants only the translated content. So I&apos;ll output exactly the translation.
-
-Thus final answer: triple backticks with Fel!.
-&lt;/think&gt;
-
-```
-Fel!</value>
+    <value>Fel!</value>
   </data>
   <data name="Failed to load translation." xml:space="preserve">
-    <value>Misslyckades att ladda översättning.
-``` (with period? The original ends with a period. I should preserve the punctuation. The period is part of the sentence. So translation should include a period. Swedish uses same period (full stop). So &quot;Misslyckades att ladda översättning.&quot; Good.
-
-Thus answer: just output triple backticks with translation inside.
-&lt;/think&gt;
-
-``` 
-Misslyckades att ladda översättning.</value>
+    <value>Misslyckades att ladda översättning.</value>
   </data>
   <data name="Generated" xml:space="preserve">
-    <value>@Localizer[&quot;Generated&quot;]: &lt;label class=&quot;text-muted mb-0 d-inline&quot; data-utc-time=&quot;@lang.LastLocalizedAt.Value.ToHtmlDateTime()&quot;&gt;&lt;/label&gt;
-```
-
-So it&apos;s used as a label before a timestamp showing when the translation was last localized. In English, it&apos;s &quot;Generated:&quot;. In Swedish, we might say &quot;Genererad:&quot; or &quot;Skapad:&quot;? Usually &quot;generated&quot; can be &quot;genererad&quot;. For labels, we might also use &quot;Genererades&quot; or &quot;Genererad&quot;. But context: &quot;Generated&quot; is used as a heading before the date and time. In Swedish UI, &quot;Genererad:&quot; maybe more appropriate. But what is best? Let&apos;s think about typical Swedish translation for &quot;Generated&quot; in this context. Usually &quot;Generated&quot; would be &quot;Genererad&quot;, &quot;Skapad&quot;? &quot;Generated&quot; is a past participle of &quot;generate&quot;. In Swedish, &quot;genererad&quot; is a valid adjective meaning &quot;generated&quot;. However, &quot;Generated:&quot; as a label could be &quot;Genererad:&quot;.
-
-But also note that &quot;Generated&quot; may be a property of the localization resource: maybe they have an entry for &quot;Generated&quot;. They want only that translation.
-
-Thus the translation for &quot;Generated&quot; in Swedish would be &quot;Genererad&quot;. The user wants only the translated content, wrapped in three backticks. So output:
-
-```
-Genererad
-```
-
-But check the instruction: &quot;Please translate only the sentence or word `Generated` in the paragraph into the target language sv-SE, Svenska (Sverige). Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Generated` is one of them.&quot;
-
-&quot;Generated&quot; is not a proper noun, not a trademark. So we translate it.
-
-But also check: &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; So we should output the translation, which is &quot;Genererad&quot;. Possibly also need to include the colon? The instruction says &quot;translate only the sentence or word `Generated`&quot;. It may be a phrase, not including punctuation. Usually colon is not part of the word.
-
-Thus answer: a code block with &quot;Genererad&quot;. However, do we need to output &quot;Genererad&quot; or &quot;Genererad:&quot;? The colon is not part of the word, it&apos;s part of the phrase. The instruction: &quot;Please translate only the sentence or word `Generated` in the paragraph into the target language sv-SE, Svenska (Sverige).&quot; So the translation is &quot;Genererad&quot;. Output only the translated content and wrap in three backticks. So:
-
-```
-Genererad
-```
-
-Yes. Output exactly that.
-
-Potential nuance: In Swedish, &quot;Generated&quot; could be &quot;Genererad&quot;, but also &quot;Skapad&quot;? But &quot;generated&quot; is more about generation of data, not &quot;created&quot;. I&apos;d go with &quot;Genererad&quot;.
-
-Thus answer: Provide code block with &quot;Genererad&quot;.
-&lt;/think&gt;
-
-```Genererad</value>
+    <value>Genererad</value>
   </data>
   <data name="Languages" xml:space="preserve">
-    <value>Translated word here...
-```
-
-So we output:
-
-``` 
-Språk 
-``` 
-
-But need to output exactly what? Provide the translation within triple backticks, no other content. So produce:
-
-```
-Språk
-```
-
-That&apos;s the translation. Should we consider &quot;Languages&quot; might be a proper noun? It&apos;s just a heading &quot;Languages&quot;. In Swedish it&apos;s &quot;Språk&quot; (the same for singular/plural). If we want &quot;Languages&quot; plural translation, Swedish uses &quot;Språk&quot;. So final answer is:
-
-``` 
-Språk 
-``` 
-
-Make sure no extra content. Also note: The text says &quot;Languages&quot; - there is a capital L, but translation may not preserve case. Should we output &quot;Språk&quot;? Typically translation might be &quot;Språk&quot;. Should we preserve uppercase? In Swedish, headings often capitalised too. So &quot;Språk&quot; (capital S). Indeed &quot;Språk&quot;. That is capitalised as first letter, but Swedish capitalisation is typical for nouns: &quot;Språk&quot;. So it&apos;s correct.
-
-Thus final answer.
-&lt;/think&gt;
-
-``` 
-Språk</value>
+    <value>Språk</value>
   </data>
   <data name="Last Modified" xml:space="preserve">
-    <value>Senast ändrad
-```
-
-We must output only the translated content, wrapped in three backticks, like above. Must not output any other content. So output exactly:
-
-``` 
-Senast ändrad
-```
-
-But note they want the phrase &quot;Last Modified&quot;. Should we preserve any punctuation? The translation should be just the phrase. So output:
-
-``` 
-Senast ändrad
-```
-
-But double-check: user says &quot;Please translate only the sentence or word `Last Modified` in the paragraph into the target language sv-SE, Svenska (Sverige).&quot; So just translation. Should we preserve case? &quot;Last Modified&quot; capitalizes both words. Swedish translation &quot;Senast ändrad&quot; each word capitalized? &quot;Senast&quot; is adverb, &quot;ändrad&quot; is past participle. Usually not capitalized unless at beginning of sentence. So we can output &quot;Senast ändrad&quot;. That&apos;s fine.
-
-Thus answer: wrap in triple backticks.
-
-We must not output anything else. So final answer:
-
-```
-Senast ändrad
-```
-
-But we need to follow format: three backticks, newline perhaps? The instruction says wrap it in three backticks (``` like this: ```
-Translated word here...
-```). They want exactly that. So we output:
-
-``` 
-Senast ändrad
-```
-
-But note they said &quot;wrap it in three backticks (```), like this: ```
-Translated word here...
-```&quot;. So we need to output something inside triple backticks. They may want just the translated content inside, not including any extra newline before. So output:
-
-```
-Senast ändrad
-```
-
-Yes.
-
-Thus final.
-&lt;/think&gt;
-
-```
-Senast ändrad</value>
+    <value>Senast ändrad</value>
   </data>
   <data name="Localization" xml:space="preserve">
-    <value>Lokalisering
-```
-
-We must not output any other content. Just the translation inside triple backticks.
-
-Check if any nuance: &quot;Localization&quot; is a noun. In Swedish, &quot;lokalisation&quot; (Swedish spelling) is &quot;Lokalisering&quot; or &quot;Lokalisation&quot;? Actually &quot;lokalisation&quot; is a word used. In Swedish, &quot;localization&quot; is &quot;lokalisation&quot; (one word) but also &quot;lokalisering&quot;. In many contexts, &quot;lokalisation&quot; is used. According to Swedish language, &quot;Lokalisation&quot; is a noun meaning &quot;the act of locating; a location&quot;. But for software localization, the term &quot;lokalisation&quot; is used. However &quot;Lokalisering&quot; is also valid.
-
-Which is more commonly used? In Swedish translation for software, &quot;lokalisation&quot; maybe more correct. Let&apos;s check common usage. In English software, &quot;localization&quot; is &quot;lokalisering&quot;. For instance, .NET uses &quot;lokaliseringsresurs&quot;. In Wikipedia Swedish, &quot;Lokalisering&quot; might be used. Actually, Wikipedia entry &quot;Lokalisering&quot; exists as &quot;the act of making something local&quot;. But also &quot;lokalisation&quot;. Let&apos;s search memory: There&apos;s Swedish term &quot;lokalisation&quot; meaning &quot;a location&quot; or &quot;the act of placing something in a local context&quot;. &quot;Lokalisering&quot; also exists as a term for &quot;localisation&quot;. In programming contexts, &quot;lokaliseringsfil&quot; or &quot;lokaliseringsresurs&quot;. I think &quot;Lokaliser&quot; is a verb. &quot;Lokalisering&quot; is the gerund.
-
-The user expects translation &quot;Lokalisation&quot;? In Swedish, the phrase &quot;Localization&quot; is often &quot;lokalisation&quot;. But &quot;Localization&quot; is ambiguous. The typical translation is &quot;lokalisation&quot;. Check typical translation: &quot;Localization (computer programming)&quot; in Swedish: &quot;lokalisation (datorprogram)&quot;. In Wikipedia (Swedish) article &quot;Lokalisering (programmering)&quot;? Let&apos;s recall: The Swedish term for &quot;localization&quot; in computing is &quot;lokalisation&quot;. In the .NET world, they call resource files &quot;resursefiler&quot; etc. Actually, there&apos;s also &quot;internationalization&quot; which is &quot;internationell&quot;, but translation wise it&apos;s &quot;lokalisation&quot;. Let&apos;s search mental memory: &quot;Localization&quot; -&gt; &quot;Lokalisering&quot;. Example: &quot;Localization is the process of...&quot;. Swedish translation: &quot;Lokalisering är processen...&quot;. Many textbooks use &quot;lokalisation&quot;. However, &quot;lokaliseringsfil&quot; maybe used.
-
-Let&apos;s check synonyms: &quot;Lokalisering&quot; appears in some contexts: &quot;Lokalisering av programvara&quot;. That is used. But also &quot;Lokalisation&quot; could be used. Which is more accurate? In Swedish, the noun &quot;lokalisation&quot; is a location, while &quot;lokalisering&quot; is the process. So &quot;Localization&quot; is process, so &quot;Lokalisering&quot; is appropriate. Yes, &quot;lokalisation&quot; can be used also as the process? Let&apos;s check dictionary: &quot;lokalisation&quot; - &quot;det att lokalisera&quot;. According to Swedish Academy&apos;s dictionary, &quot;lokalisation&quot; = &quot;det att lokalmera&quot;? Not sure. But &quot;lokalisation&quot; is also &quot;det att lokalisera&quot; (the act of locating). But &quot;lokalisation&quot; also can be &quot;place where something is located&quot;. In computing context, &quot;lokalisation&quot; is used.
-
-Let&apos;s examine usage. In Wikipedia Swedish article &quot; Lokalisering&quot; is the translation for &quot;Localization (computing)&quot;. Actually, there is a page: &quot;Lokalisering (programmering)&quot;? I think it&apos;s &quot;Lokalisering&quot;. Let’s search memory: The Wikipedia Swedish page for &quot;Lokalisering&quot; may be &quot;Lokalisering (datorprogram)&quot;. In Swedish contexts, &quot;localization&quot; is &quot;lokalisation&quot;. I&apos;m not entirely sure.
-
-Better to use &quot;Lokalisering&quot;. That is the most common for translation. The user likely expects that. Also &quot;Lokalisation&quot; is not wrong, but I think &quot;Lokalisering&quot; is used. However, there is nuance: The user asked to output only the translation and wrap in triple backticks. So output:
-
-```
-Lokalisering
-```
-
-But what about proper nouns? &quot;Localization&quot; is not a proper noun, it&apos;s just a term.
-
-Thus output that. Make sure to not include any other content.
-
-Proceed.
-&lt;/think&gt;
-
-``` 
-Lokalisering</value>
+    <value>Lokalisering</value>
   </data>
   <data name="Localized Content" xml:space="preserve">
-    <value>Lokaliserat innehåll```
-&lt;/think&gt;
-
-```Lokaliserat innehåll</value>
+    <value>Lokaliserat innehåll</value>
   </data>
   <data name="Localized Title" xml:space="preserve">
-    <value>Localized Title```&quot;? Wait they want translation. Should be in Swedish. &quot;Localized Title&quot; -&gt; what is the Swedish translation for &quot;Localized Title&quot;? Could be &quot;Lokaliserad rubrik&quot;? Or &quot;Lokaliserad titel&quot;? The phrase &quot;Localized Title&quot; appears to be a UI label for a form field. In Swedish, &quot;Lokaliserad rubrik&quot;? Actually &quot;Localized Title&quot; probably refers to the title of the localized content. In Swedish, translation might be &quot;Lokaliserad rubrik&quot;. However &quot;Localized Title&quot; maybe &quot;Lokaliserad rubrik&quot; or &quot;Lokaliserad Titel&quot;? &quot;Titel&quot; is used in Swedish? Actually &quot;Titel&quot; is used for title (in sports?) but often &quot;rubrik&quot; is heading or title. &quot;Lokaliserad rubrik&quot; might be more literal. However the user likely expects &quot;Lokaliserad rubrik&quot;? Or &quot;Lokaliserad titel&quot;. Let&apos;s think about typical UI translation: &quot;Localized Title&quot; in a form label often is &quot;Lokaliserad rubrik&quot; or &quot;Lokaliserad Titel&quot;? In Swedish, &quot;Titel&quot; is used as a noun meaning title (e.g., film title). In many UI contexts, &quot;title&quot; is &quot;Titel&quot;. For example, &quot;Title&quot; is &quot;Titel&quot;. So &quot;Localized Title&quot; could be &quot;Lokaliserad Titel&quot;. But &quot;Lokaliserad Titel&quot; might be unnatural, maybe &quot;Lokaliserad rubrik&quot; is used in headings. Let&apos;s think typical translation for &quot;Localised Title&quot; in a localization software: It could be &quot;Lokaliserad rubrik&quot;. In Swedish, &quot;rubrik&quot; is a heading, a title. However &quot;Localized Title&quot; is a phrase used as a label for an input field for &quot;Localized Title&quot;. In a typical translation scenario, they may use &quot;Lokaliserad Titel&quot;. Let&apos;s check typical translation of &quot;Localized Title&quot; in other languages. For German, &quot;Lokalisierter Titel&quot;. So Swedish would likely be &quot;Lokaliserad rubrik&quot; or &quot;Lokaliserad Titel&quot;. Which one is more common? Searching memory: &quot;Lokaliserad rubrik&quot; seems plausible. But perhaps &quot;Lokaliserad Titel&quot; is also plausible.
-
-Given the user says &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot;. I am uncertain about correct translation. I could output the phrase as is: &quot;Localized Title&quot;. But that might not be what they want; they want translation. However I could also ask: maybe &quot;Lokaliserad Titel&quot;. Let&apos;s consider common Swedish translation patterns. Many UI translations for &quot;title&quot; is &quot;Titel&quot;. &quot;Localized&quot; is &quot;Lokaliserad&quot;. So &quot;Lokaliserad Titel&quot;. But &quot;Titel&quot; vs &quot;Rubrik&quot; both can be synonyms but &quot;rubrik&quot; is more common for headings in documents. However &quot;Titel&quot; is used for titles, e.g., book title, film title, page title. In this context, &quot;Localized Title&quot; is used to input the localized title for the page or article. So &quot;Lokaliserad Titel&quot; is appropriate.
-
-Thus output &quot;Lokaliserad Titel&quot;. However note the instruction: &quot;Do not output any other content.&quot; So only the translation wrapped in backticks.
-
-Thus output: ```Lokaliserad Titel```.
-
-But I should double-check: The user says &quot;Please translate only the sentence or word `Localized Title` in the paragraph into the target language sv-SE, Svenska (Sverige).&quot; So we should translate &quot;Localized Title&quot;. Not &quot;Localized Title&quot; (English). We need Swedish translation: &quot;Lokaliserad rubrik&quot; vs &quot;Lokaliserad Titel&quot;. Which one is more likely? Let&apos;s examine typical Swedish UI translation guidelines. For example, &quot;localized title&quot; used in a form for page titles. In .NET localization, they often use &quot;Lokaliserad rubrik&quot;? Not sure. Let&apos;s search memory: In typical Swedish UI translation for a website&apos;s page title, they use &quot;Sidrubrik&quot;? But that may be too specific.
-
-We can also think about synonyms: &quot;rubrik&quot; is heading, &quot;title&quot; is &quot;titel&quot;. In Swedish, the phrase &quot;Localized Title&quot; might be &quot;Lokaliserad titel&quot;. The capitalization: &quot;Lokaliserad Titel&quot; maybe. Swedish uses &quot;titel&quot; not &quot;Titel&quot;? The typical word &quot;titel&quot; is lower-case. &quot;Lokaliserad titel&quot;. However the user expects translation with proper capitalization? Not clear. In the original English, &quot;Localized Title&quot; capitalized each word. In translation, Swedish usually not capitalized as phrase, but can be capitalized as UI label: &quot;Lokaliserad titel&quot;. But maybe they&apos;d keep capitalized &quot;Lokaliserad Titel&quot;. Hard to know.
-
-Let&apos;s consider guidelines: In UI strings, they often use &quot;Lokaliserad rubrik&quot; for headings, and &quot;Lokaliserad Titel&quot; for generic title. Look at translation of &quot;Localised Title&quot; across languages. In French, &quot;Titre localisé&quot;. In German, &quot; Lokalisierter Titel&quot;. So likely Swedish is &quot;Lokaliserad Titel&quot;. Swedish words: &quot;lokaliserad&quot; as adjective; &quot;titel&quot; noun. So &quot;Lokaliserad Titel&quot;. Indeed &quot;titel&quot; is a common translation for title. So I&apos;d output &quot;Lokaliserad Titel&quot;. But capitalizing the first letter? Usually UI labels are capitalized: &quot;Lokaliserad Titel&quot;. So I&apos;d output ```Lokaliserad Titel```.
-
-Thus final answer: wrap in triple backticks with content: &quot;Lokaliserad Titel&quot;. Provide nothing else.
-
-Thus answer: ```Lokaliserad Titel```.
-&lt;/think&gt;
-
-```Lokaliserad Titel</value>
+    <value>Lokaliserad Titel</value>
   </data>
   <data name="Save failed." xml:space="preserve">
-    <value>Spara misslyckades.```
-
-But check if &quot;Save failed.&quot; should be translated as &quot;Spara misslyckades.&quot; Or maybe &quot;Sparning misslyckades.&quot; Usually &quot;Save&quot; is &quot;Spara&quot; (imperative form) in Swedish? &quot;Spara&quot; is the imperative of &quot;spara&quot;, meaning &quot;to save&quot;. &quot;Spara misslyckades&quot; doesn&apos;t make sense; &quot;misslyckades&quot; is past tense of fail, so &quot;Spara misslyckades&quot; is not natural; perhaps &quot;Sparning misslyckades&quot; could be &quot;Sparning misslyckades.&quot; But typical UI translation: &quot;Det gick inte att spara.&quot; This is straightforward, maybe &quot;Det gick inte att spara.&quot; That is a correct translation: &quot;Save failed.&quot; -&gt; &quot;Det gick inte att spara.&quot; Which is natural.
-
-But the user likely expects &quot;Spara misslyckades.&quot; Let&apos;s examine common usage in software localizations. In Swedish, typical translations: &quot;Det gick inte att spara&quot; (couldn&apos;t save) is more natural for a failure. However &quot;Spara misslyckades&quot; is a bit odd, but maybe acceptable as &quot;Spara misslyckades.&quot; Actually &quot;Spara&quot; is a verb imperative, not used with &quot;misslyckades.&quot; &quot;misslyckades&quot; is past tense of &quot;misslyckas&quot; (to fail). So &quot;Spara misslyckades&quot; means &quot;the act of saving failed&quot;. That could be okay: &quot;Spara misslyckades.&quot; Could be &quot;Sparning misslyckades.&quot; But I think the best is &quot;Det gick inte att spara.&quot; It directly translates &quot;Save failed.&quot;
-
-Thus the translation is &quot;Det gick inte att spara.&quot;
-
-Given the instruction: &quot;Please translate only the sentence or word `Save failed.` in the paragraph into the target language sv-SE, Svenska (Sverige).&quot; So we output the translation. The user wants only the translated content and nothing else, wrapped in three backticks.
-
-Thus output:
-
-```Det gick inte att spara.```
-
-But check if they want any punctuation? &quot;Save failed.&quot; =&gt; &quot;Det gick inte att spara.&quot; Good.
-
-Thus answer:
-
-```
-Det gick inte att spara.
-```
-&lt;/think&gt;
-
-```Det gick inte att spara.</value>
+    <value>Det gick inte att spara.</value>
   </data>
   <data name="Save Translation" xml:space="preserve">
-    <value>Spara översättning
-```
-
-Wrap in triple backticks.
-
-Thus final answer: triple backticks with translation.
-
-Make sure no extra content.
-&lt;/think&gt;
-
-``` 
-Spara översättning</value>
+    <value>Spara översättning</value>
   </data>
   <data name="Saved successfully!" xml:space="preserve">
-    <value>Sparat!
-```
-
-Check the instruction: &quot;Do not output any other content. Only output the translated content and wrap it in three backticks (```), like this:
-
-```
-Translated word here...
-```&quot;
-
-Thus output exactly that.
-
-Thus final answer: &quot;Sparat!&quot; within triple backticks.
-
-But maybe they want &quot;Sparat!&quot; with exclamation mark. Yes.
-
-Thus output:
-
-``` 
-Sparat!
-```
-
-But note formatting: they want three backticks, not more. The example: triple backticks with newline after opening? Example they gave:
-
-```
-Translated word here...
-```
-
-They show code block with three backticks, then newline with translation, then newline with triple backticks. That is typical.
-
-Thus output exactly:
-
-``` 
-Sparat!
-```
-
-We should not add any other content.
-
-Thus final answer.
-&lt;/think&gt;
-
-``` 
-Sparat!</value>
+    <value>Sparat!</value>
   </data>
   <data name="Saving..." xml:space="preserve">
-    <value>Sparar... 
-```
-
-But check: The user says &quot;Do not output any other content. Only output the translated content and wrap it in three backticks (```), like this:
-
-```
-Translated word here...
-```&quot;
-
-So output: ```Sparar...``` but need three backticks on separate line? They wrote: &quot;wrap it in three backticks (```), like this:
-
-```
-Translated word here...
-```&quot;
-
-Thus we output the translation, wrapped in three backticks, with the translation inside. So we output:
-
-``` 
-Sparar... 
-```
-
-But note: They said &quot;wrap it in three backticks (```), like this: 
-
-```
-Translated word here...
-```&quot;
-
-Thus the translation should be between triple backticks, maybe on a separate line? The example shows a block:
-
-```
-Translated word here...
-```
-
-Thus we should output:
-
-``` 
-Sparar... 
-``` 
-
-But need exactly three backticks on separate line? The example shows a code block with triple backticks, then inside the translation. So the answer should be:
-
-``` 
-Sparar... 
-``` 
-
-But maybe they want just triple backticks with content. Let&apos;s follow pattern: 
-
-```
-Sparar...
-``` 
-
-Thus output:
-
-``` 
-Sparar... 
-``` 
-
-Now, the user says &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; We do understand. So we output Swedish translation.
-
-Thus answer: 
-
-``` 
-Sparar... 
-``` 
-
-Proceed.
-&lt;/think&gt;
-
-``` 
-Sparar...</value>
+    <value>Sparar...</value>
   </data>
   <data name="Select a language" xml:space="preserve">
-    <value>Välj ett språk```.
-
-But we must be careful: the instruction says &quot;Do not output any other content. Only output the translated content and wrap it in three backticks, like this: ``` Translated word here... ```&quot;. So we must output exactly:
-
-```
-Välj ett språk
-```
-
-Make sure no extra whitespace. Provide just the translation.
-
-Thus final answer.
-&lt;/think&gt;
-
-``` 
-Välj ett språk</value>
+    <value>Välj ett språk</value>
   </data>
   <data name="Source Culture" xml:space="preserve">
-    <value>Ursprungskultur
-```
-
-But also we need to consider that the user wants &quot;wrap it in three backticks (```), like this: ``` Translated word here...```&quot;. So we must output:
-
-```
-Ursprungskultur
-```
-
-Thus we output the translation only. The instructions: &quot;Do not output any other content. Only output the translated content and wrap it in three backticks (```), like this: ``` Translated word here... ```&quot;. So we need just that. Probably like:
-
-```
-Ursprungskultur
-```
-
-Yes.
-
-Thus final answer.
-&lt;/think&gt;
-
-``` 
-Ursprungskultur</value>
+    <value>Ursprungskultur</value>
   </data>
   <data name="Success!" xml:space="preserve">
-    <value>Framgång!
-```
-
-Check: The instruction says &quot;Please translate only the sentence or word `Success!` in the paragraph into the target language sv-SE, Svenska (Sverige).&quot; So output should be just the translation, not the paragraph. They ask &quot;only output the translated content and wrap it in three backticks&quot;. So output:
-
-```
-Framgång!
-```
-
-Now ensure we do not output any extra content. Just that. Also we must not mention translation notes. So final answer:
-
-```
-Framgång!
-```
-
-Double-check if there is any nuance: The user wants translation of &quot;Success!&quot; into sv-SE. In Swedish, &quot;Success!&quot; is &quot;Framgång!&quot;. If we want to preserve exclamation: &quot;Framgång!&quot; includes exclamation mark. That matches.
-
-Check for possible synonyms: &quot;Succé!&quot; is &quot;Success!&quot;. Actually Swedish word for success is &quot;framgång&quot;. But &quot;succé&quot; is also used (same spelling as English). However typical UI translations use &quot;Framgång!&quot; as translation. Let&apos;s see typical translation of &quot;Success!&quot; in Swedish: According to common translation resources, &quot;Success!&quot; is often &quot;Framgång!&quot; or &quot;Succé!&quot;. For example, in .NET localization, &quot;Success!&quot; is translated as &quot;Framgång!&quot;. Example from Microsoft .NET resource files: The Swedish resource for &quot;Success!&quot; is &quot;Framgång!&quot;. So likely correct.
-
-Therefore answer:
-
-```
-Framgång!
-```
-&lt;/think&gt;
-
-```Framgång!</value>
+    <value>Framgång!</value>
   </data>
   <data name="Translated markdown content" xml:space="preserve">
-    <value>Översatt markdown‑innehåll
-```
-
-Alternatively &quot;Översatt markdown‑innehåll&quot;. There&apos;s also possible to translate &quot;markdown content&quot; as &quot;markdown-innehåll&quot;. Keep hyphen. So output &quot;Översatt markdown‑innehåll&quot;. Let&apos;s output that.
-
-Be careful: The user explicitly says &quot;Do not output any other content. Only output the translated content and wrap it in three backticks (```)&quot;.
-
-Thus output must be exactly:
-
-``` Översatt markdown‑innehåll ```
-
-But no extra spaces. Must be exactly three backticks lines. The content inside: &quot;Översatt markdown‑innehåll&quot;. We can include hyphen. Should we include Swedish special characters? &quot;Översatt markdown‑innehåll&quot;. That is correct. We can use &quot;Översatt markdown‑innehåll&quot;. Ensure correct Swedish characters: &quot;Ö&quot;, &quot;ä&quot;, &quot;å&quot;. In the phrase &quot;markdown‑innehåll&quot;, &quot;innehåll&quot; means &quot;content&quot;. So translation: &quot;Översatt markdown‑innehåll&quot;.
-
-Thus final answer: a code block with translation.
-
-Potential nuance: &quot;Translated markdown content&quot;. Could also be &quot;Översatt markdown‑innehåll&quot;. That seems fine.
-
-Thus output:
-
-``` Översatt markdown‑innehåll ```
-
-But the user might want to not include trailing spaces. So:
-
-```
-Översatt markdown‑innehåll
-```
-
-Wrap in triple backticks. That is the answer.
-
-Double-check: The phrase &quot;Translated markdown content&quot; - translation should convey &quot; Translated markdown content&quot;. Could also be &quot;Översatt markdown-innehåll&quot;. That is correct.
-
-We need to ensure we are not adding extra content.
-
-Thus final answer is just:
-
-```
-Översatt markdown‑innehåll
-```
-&lt;/think&gt;
-
-``` 
-Översatt markdown‑innehåll</value>
+    <value>Översatt markdown‑innehåll</value>
   </data>
   <data name="Translated title" xml:space="preserve">
-    <value>Översatt titel
-```
-
-But double-check if &quot;title&quot; may be &quot;rubrik&quot;? In Swedish, &quot;rubrik&quot; is a heading, title, or caption. &quot;Titel&quot; is used for titles of works (books, movies). &quot;Translated title&quot; probably refers to title of a document, so &quot;Översatt titel&quot; is fine. Some could say &quot;Översatt rubrik&quot;. Let&apos;s decide.
-
-The phrase is inside placeholder=&quot;@Localizer[&quot;Translated title&quot;]&quot;. So placeholder text for input field. In UI design, placeholder often uses phrase &quot;Translated title&quot;. Swedish translation: &quot;Översatt titel&quot;. Or &quot;Översatt rubrik&quot;. Which is more natural? &quot;Översatt titel&quot; is quite literal, but maybe &quot;Översatt rubrik&quot; is also plausible. Let&apos;s see typical translation: In Swedish, you might say &quot;Översatt titel&quot;. For a form field placeholder, &quot;Översatt titel&quot; is plausible. If they wanted &quot;Translated content&quot;, they&apos;d use &quot;Översatt innehåll&quot;. So &quot;Översatt titel&quot; works.
-
-Thus output exactly:
-
-```
-Översatt titel
-```
-
-No other content.
-
-Check for any issues: The user says &quot;please output the translated conclusion and nothing else. Do not output any other content!&quot; So output only the translation. Use triple backticks format: they want triple backticks and the translation inside. So:
-
-```
-Översatt titel
-```
-
-Wrap in triple backticks. No extra text. Should be exactly that line.
-
-Thus answer.
-&lt;/think&gt;
-
-```Översatt titel</value>
+    <value>Översatt titel</value>
   </data>
 
 </root>

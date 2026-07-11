@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="root">
+        <xs:element name="root" ns1:IsDataSet="true">
 
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-
-        </xsd:element>
-    </xsd:schema>
+        </xs:element>
+    </xs:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -28,56 +27,7 @@
     <value>아카이브</value>
   </data>
   <data name="Blog pagination" xml:space="preserve">
-    <value>블로그 페이징
-```
-
-But must be careful: The user says &quot;output the translated word in triple backticks like this: ``` Translated word here... ```&quot;. So we should output exactly:
-
-```csharp
-블로그 페이징
-```
-
-But they said &quot;wrap it in three backticks (```), like this:
-
-```
-Translated word here...
-```&quot;
-
-Thus we output:
-
-```blog
-블로그 페이징
-```
-
-But the language hint is to wrap in triple backticks with no language spec? They gave example with triple backticks and &quot;Translated word here...&quot; inside. So we should output three backticks, newline, translation, newline, three backticks. Should we include language? The example didn&apos;t specify language. But they gave inside triple backticks, &quot;Translated word here...&quot; but no language. So we output like:
-
-``` 
-블로그 페이징
-```
-
-But we need to include triple backticks. The user said &quot;wrap it in three backticks (```), like this:
-
-```
-Translated word here...
-```&quot;
-
-Thus output:
-
-```
-블로그 페이징
-```
-
-No other content. Should we include a language spec? The example didn&apos;t have any. So we output exactly that. Let&apos;s obey the instruction: only output the translation. So the answer is:
-
-```
-블로그 페이징
-```
-
-We should not output any other content. I&apos;ll output exactly that.
-&lt;/think&gt;
-
-``` 
-블로그 페이징</value>
+    <value>블로그 페이징</value>
   </data>
   <data name="Explore" xml:space="preserve">
     <value>둘러보기</value>
@@ -92,29 +42,7 @@ We should not output any other content. I&apos;ll output exactly that.
     <value>키워드</value>
   </data>
   <data name="Modern Markdown blogging with AI-powered localization and search." xml:space="preserve">
-    <value>AI 기반 지역화 및 검색을 지원하는 Modern Markdown 블로그
-```
-
-But we need to be careful: The translation should be a full sentence, not just phrase. The original ends with a period. So we can output &quot;AI 기반 지역화 및 검색을 지원하는 Modern Markdown 블로그&quot;. The period might be omitted, but we could include a period: &quot;AI 기반 지역화 및 검색을 지원하는 Modern Markdown 블로그&quot;. Usually Korean translation would not include a period at the end because it&apos;s part of a heading maybe. But we can include a period to match original. It&apos;s optional.
-
-Thus output only the translation. Wrap in triple backticks. So output:
-
-```AI 기반 지역화 및 검색을 지원하는 Modern Markdown 블로그.```
-
-If they want trailing period. The original includes a period after the sentence. So we include period.
-
-Thus final answer: triple backticks with translation.
-
-Now, check if any other instruction: They want only the translated content and wrap in triple backticks. Not any other content. So we output exactly:
-
-```AI 기반 지역화 및 검색을 지원하는 Modern Markdown 블로그.```
-
-We need to ensure no extra text.
-
-Thus final answer.
-&lt;/think&gt;
-
-```AI 기반 지역화 및 검색을 지원하는 Modern Markdown 블로그.</value>
+    <value>AI 기반 지역화 및 검색을 지원하는 Modern Markdown 블로그.</value>
   </data>
   <data name="Next" xml:space="preserve">
     <value>다음</value>
@@ -141,44 +69,13 @@ Thus final answer.
     <value>AI 기반 검색 (벡터 데이터베이스)</value>
   </data>
   <data name="Sort posts" xml:space="preserve">
-    <value>게시물 정렬
-```
-
-But we need to wrap in triple backticks and nothing else.
-
-Therefore final answer: triple backticks with &quot;게시물 정렬&quot;. Ensure no extra content.
-&lt;/think&gt;
-
-```게시물 정렬</value>
+    <value>게시물 정렬</value>
   </data>
   <data name="Tag" xml:space="preserve">
     <value>태그</value>
   </data>
   <data name="Tags" xml:space="preserve">
-    <value>태그
-```
-
-Double-check: The instruction says output in three backticks (```). The content is &quot;태그&quot;. They want only the translation, no other content. Ensure no extra spaces.
-
-Thus final answer: ```\n태그\n```.
-
-But check: They might want to include the entire word as a translation of &quot;Tags&quot;. It could be &quot;태그&quot;. That seems correct.
-
-Check if &quot;Tags&quot; is a proper noun? It&apos;s generic. So translation is appropriate.
-
-Thus answer.
-
-But wait: Should we consider that &quot;Tags&quot; is part of a localization string? The sentence is `Tags`. It&apos;s just the word &quot;Tags&quot;. They want only the translation of the sentence. It&apos;s probably &quot;태그&quot;. Korean &quot;태그&quot; means &quot;tag&quot;. Should we translate as &quot;태그&quot; (tag) plural? Usually Korean uses singular for tag but &quot;Tags&quot; could be plural but you can still use &quot;태그&quot;. So answer is &quot;태그&quot;. In case they want &quot;태그들&quot;? Not typical. I&apos;d go with &quot;태그&quot;.
-
-Thus output:
-
-```
-태그
-```
-&lt;/think&gt;
-
-``` 
-태그</value>
+    <value>태그</value>
   </data>
   <data name="Too many searches. AI search temporarily limited; showing keyword results." xml:space="preserve">
     <value>검색이 너무 많습니다. AI 검색이 일시적으로 제한되며 키워드 결과를 표시합니다.</value>

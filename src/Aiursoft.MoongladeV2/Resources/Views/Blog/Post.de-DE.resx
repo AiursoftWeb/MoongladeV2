@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="root">
+        <xs:element name="root" ns1:IsDataSet="true">
 
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-
-        </xsd:element>
-    </xsd:schema>
+        </xs:element>
+    </xs:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -28,41 +27,7 @@
     <value>Zurück zu den Beiträgen</value>
   </data>
   <data name="By" xml:space="preserve">
-    <value>Von
-```
-
-But we need to be careful: The instruction says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `By` is one of them.&quot; &quot;By&quot; is a common English preposition and not a proper noun or trademark. So translate.
-
-Thus answer: &quot;Von&quot;. The output must be wrapped in three backticks like:
-
-```
-Von
-```
-
-Check: Should we output &quot;Von&quot;? The German translation for &quot;By&quot; as a label often is &quot;Von&quot;. Or maybe &quot;Von&quot;. Actually &quot;by&quot; meaning author is &quot;von&quot;. In German, &quot;von&quot; is a preposition meaning &quot;by&quot;. In the phrase &quot;By Author&quot;, it&apos;s &quot;Von&quot;. Usually you&apos;d see &quot;von&quot; lowercase. But output &quot;Von&quot; capitalised? Typically label might be capitalised as a heading &quot;By&quot;. If we translate to &quot;Von&quot;, capitalisation as &quot;Von&quot;. Might be okay.
-
-Thus output: ``` Von ```? Wait they said output the translated content and wrap it in three backticks. Should not include extra spaces? They gave example:
-
-```
-Translated word here...
-```
-
-So output must be exactly three backticks with newline? Example: 
-```
-Translated word here...
-``` 
-i.e., a code block with content. So we need to output a code block containing &quot;Von&quot;. Probably exactly &quot;Von&quot;. But should we include trailing newline? Not needed. Just output code block.
-
-Thus answer: 
-```
-Von
-```
-&lt;/think&gt;
-
-```json
-{
-  &quot;url&quot;: &quot;https://api.example.com/translate&quot;
-}</value>
+    <value>Von</value>
   </data>
   <data name="Comments" xml:space="preserve">
     <value>Kommentare</value>
@@ -80,17 +45,7 @@ Von
     <value>Kommentar posten</value>
   </data>
   <data name="Published" xml:space="preserve">
-    <value>Veröffentlicht
-```
-
-That&apos;s all.
-
-Check: The human names etc must stay unchanged. &quot;Published&quot; is not a proper noun, it&apos;s a term. So translate. The user wants de-DE target language. So &quot;Veröffentlicht&quot;. Also &quot;Published&quot; could be &quot;Veröffentlicht&quot; (past participle of veröffentlichen) used as an adjective. So output exactly that.
-
-Thus final answer: a code block with &quot;Veröffentlicht&quot;.
-&lt;/think&gt;
-
-```Veröffentlicht</value>
+    <value>Veröffentlicht</value>
   </data>
   <data name="Reply" xml:space="preserve">
     <value>Antworten</value>
@@ -99,17 +54,7 @@ Thus final answer: a code block with &quot;Veröffentlicht&quot;.
     <value>Antwort senden</value>
   </data>
   <data name="Write your comment..." xml:space="preserve">
-    <value>Schreiben Sie Ihren Kommentar...
-```
-
-We must wrap in three backticks.
-
-Thus answer: &quot;Schreiben Sie Ihren Kommentar...&quot;.
-
-Make sure to output nothing else. So just the code block with the translation.
-&lt;/think&gt;
-
-```Schreiben Sie Ihren Kommentar...</value>
+    <value>Schreiben Sie Ihren Kommentar...</value>
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>Schreibe deinen Kommentar…</value>

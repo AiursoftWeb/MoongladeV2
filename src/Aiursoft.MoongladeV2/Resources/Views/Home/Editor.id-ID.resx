@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="root">
+        <xs:element name="root" ns1:IsDataSet="true">
 
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-
-        </xsd:element>
-    </xsd:schema>
+        </xs:element>
+    </xs:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -184,94 +183,10 @@
     <value>Internal - Pengguna/peran tertentu</value>
   </data>
   <data name="Localization" xml:space="preserve">
-    <value>Lokalisasi```
-&lt;/think&gt;
-
-```Lokalisasi</value>
+    <value>Lokalisasi</value>
   </data>
   <data name="Localize" xml:space="preserve">
-    <value>Translated word here...
-```. The original word &quot;Localize&quot; is presumably a word used as a verb or maybe a label. We need to translate &quot;Localize&quot; into Bahasa Indonesia. &quot;Localize&quot; could be &quot;Melokalisasi&quot; or &quot;Lokalisasi&quot;? The translation depends on context. The phrase is &quot;Localize&quot;. In Indonesian, &quot;Localize&quot; could be &quot;Lokalisasi&quot; as a noun or &quot;melokalisasi&quot;. But &quot;Localize&quot; as a verb imperative: &quot;Localize&quot;. The user wants to translate only that word. The instructions: human names, nicknames, proper nouns, symbols, trademarks etc must be output as is and not translate them. &quot;Localize&quot; is not a human name nor a trademark, it&apos;s a word. So we should translate it. What would be the correct translation? In Indonesian, &quot;Localize&quot; could be &quot;Lokalisasi&quot; (noun) or &quot;melokalisasi&quot; (verb). The phrase &quot;Localize&quot; might be used as a heading? The user just says &quot;sentence or word `Localize`&quot;. So we need to output the translation, likely &quot;Lokalisasi&quot; (if it&apos;s a noun). However, maybe they want the verb &quot;Localize&quot; =&gt; &quot;melokalisasi&quot;. The instruction says &quot;Only output the translated content and wrap it in three backticks&quot;. So output something like ```Lokalisasi``` or ```Melokalisasi```.
-
-Let&apos;s see context: The paragraph is a Razor view (ASP.NET) with a form and toolbar. The word &quot;Localize&quot; maybe appears as a label? The code shows a view for switching view modes, etc. It might be a button label for &quot;Localize&quot;. In typical localization UI, &quot;Localize&quot; might be a tab or action. In Indonesian, &quot;Localize&quot; could be &quot;Lokalisasi&quot; or &quot;Terjemahkan&quot;. However &quot;Localize&quot; is not a common label. But translation: &quot;Lokalisasi&quot; is indeed the translation for &quot;localize&quot;. Many Indonesian texts use &quot;Lokalisasi&quot; for &quot;Localization&quot;. So &quot;Localize&quot; =&gt; &quot;Lokalisasi&quot;. So output &quot;Lokalisasi&quot;. I think that&apos;s correct.
-
-Thus output:
-
-```
-Lokalisasi
-```
-
-But need to wrap in triple backticks exactly as they said. Let&apos;s do that.
-
-Be careful: The instructions say: &quot;Do not output any other content. Only output the translated content and wrap it in three backticks (```), like this: ``` Translated word here...```&quot; So we must output three backticks, then the translated word, then three backticks. The example shows:
-
-```
-Translated word here...
-```
-
-Thus output:
-
-```
-Lokalisasi
-```
-
-But they said &quot;like this: ``` Translated word here...```&quot;. In the example they put three backticks, then a space? Actually they wrote:
-
-```
-Translated word here...
-```
-
-So three backticks, then newline, then the word, then newline, then three backticks. Or they may want inline? The typical markdown triple backticks block may include line break. They want just that block.
-
-Thus answer:
-
-``` 
-Lokalisasi
-```? Wait no. The block should be three backticks, then newline, then translation, then newline, then three backticks. That is the format.
-
-But the example shows:
-
-```
-Translated word here...
-```
-
-So they used three backticks on a line, then the translation on the same line, then triple backticks? Actually the example is:
-
-```
-Translated word here...
-```
-
-But they say &quot;wrap it in three backticks, like this: ``` Translated word here...```&quot;. That is ambiguous: they likely want three backticks, a space, the translation, three backticks. But they also mention &quot;wrap it in three backticks (```), like this:
-
-```
-Translated word here...
-```&quot;. So that seems to be an example of a markdown fenced code block containing the translation. The correct format: ``` (newline) Translated word here... (newline) ```. That matches typical fenced code block.
-
-Thus output:
-
-``` 
-Lokalisasi
-```? No, they want the block to start with triple backticks line, then translation line, then triple backticks line.
-
-Therefore output:
-
-```
-Lokalisasi
-```
-
-That is three backticks, then newline, then translation, then newline, then three backticks. However they wrote &quot;like this: ``` Translated word here...```&quot;. That looks like three backticks then space then translation then three backticks? No, they used a code block with triple backticks. So we should follow that.
-
-Thus final answer: triple backticks newline Lokalisasi newline triple backticks. Probably they want no extra spaces. So:
-
-```
-Lokalisasi
-```
-
-Thus I&apos;ll output that.
-&lt;/think&gt;
-
-``` 
-Lokalisasi</value>
+    <value>Lokalisasi</value>
   </data>
   <data name="Make document private" xml:space="preserve">
     <value>Jadikan dokumen privat</value>
@@ -363,7 +278,7 @@ Lokalisasi</value>
   <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
     <value>Bagikan dokumen ini secara publik dengan tautan unik yang dapat diakses siapa saja tanpa perlu masuk log.</value>
   </data>
-  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
+  <data name="Smart dark mode that automatically adapts to the user's system settings." xml:space="preserve">
     <value>Mode gelap cerdas yang secara otomatis menyesuaikan dengan pengaturan sistem pengguna.</value>
   </data>
   <data name="Split View" xml:space="preserve">

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="root">
+        <xs:element name="root" ns1:IsDataSet="true">
 
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-
-        </xsd:element>
-    </xsd:schema>
+        </xs:element>
+    </xs:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -184,24 +183,10 @@
     <value>Εσωτερικό - Συγκεκριμένοι χρήστες/ρόλοι</value>
   </data>
   <data name="Localization" xml:space="preserve">
-    <value>Τοπικοποίηση```.
-
-But need to be careful: &quot;Localization&quot; appears as a title attribute `title=&quot;@Localizer[&quot;Localization&quot;]&quot;`. The translation must be the Greek word &quot;Τοπικοποίηση&quot;. So output the translation only. Wrap in triple backticks.
-
-Thus final answer: ```Τοπικοποίηση```.
-
-Make sure no extra content. Provide only the translation.
-&lt;/think&gt;
-
-```Τοπικοποίηση</value>
+    <value>Τοπικοποίηση</value>
   </data>
   <data name="Localize" xml:space="preserve">
-    <value>Τοπικοποίηση
-```
-&lt;/think&gt;
-
-``` 
-Τοπικοποίηση</value>
+    <value>Τοπικοποίηση</value>
   </data>
   <data name="Make document private" xml:space="preserve">
     <value>Κάνε το έγγραφο ιδιωτικό</value>
@@ -293,7 +278,7 @@ Make sure no extra content. Provide only the translation.
   <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
     <value>Μοιραστείτε δημόσια αυτό το έγγραφο με έναν μοναδικό σύνδεσμο που μπορεί να προσεγγίσει οποιοσδήποτε χωρίς να χρειαστεί σύνδεση.</value>
   </data>
-  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
+  <data name="Smart dark mode that automatically adapts to the user's system settings." xml:space="preserve">
     <value>Έξυπνη λειτουργία σκούρου θέματος που προσαρμόζεται αυτόματα στις ρυθμίσεις συστήματος του χρήστη.</value>
   </data>
   <data name="Split View" xml:space="preserve">

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="root">
+        <xs:element name="root" ns1:IsDataSet="true">
 
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-
-        </xsd:element>
-    </xsd:schema>
+        </xs:element>
+    </xs:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -28,16 +27,7 @@
     <value>Arquivo</value>
   </data>
   <data name="Blog pagination" xml:space="preserve">
-    <value>Paginação do Blog```
-
-But check instruction: &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; We think we understand.
-
-Thus answer: triple backticks with Portuguese translation.
-
-Thus final.
-&lt;/think&gt;
-
-```Paginação do Blog</value>
+    <value>Paginação do Blog</value>
   </data>
   <data name="Explore" xml:space="preserve">
     <value>Explorar</value>
@@ -52,80 +42,7 @@ Thus final.
     <value>Palavras-chave</value>
   </data>
   <data name="Modern Markdown blogging with AI-powered localization and search." xml:space="preserve">
-    <value>Publicação em Markdown moderno com localização e pesquisa por IA.```
-
-But is that correct? Let&apos;s check. &quot;Modern Markdown blogging with AI-powered localization and search.&quot; Could be translated as:
-
-&quot;Publicação em Markdown moderno com localização e pesquisa alimentadas por IA.&quot;
-
-Better to use &quot;alimentadas por IA&quot; for AI-powered. So:
-
-&quot;Publicação em Markdown moderno com localização e pesquisa alimentadas por IA.&quot;
-
-Alternatively, &quot;Publicação em Markdown moderno com localização e pesquisa por IA.&quot; That seems okay.
-
-Now, we need to be careful about the nuance: &quot;Modern Markdown blogging&quot; might be &quot;Publicação em Markdown moderno&quot;. &quot;With AI-powered localization and search.&quot; So &quot;com localização e pesquisa alimentadas por IA.&quot; That is a literal translation but might be unnatural. However, translation is about naturalness. In Portuguese, we might phrase &quot;com localização e pesquisa via IA&quot;. That could be &quot;via IA&quot;. But the phrase &quot;AI-powered localization and search&quot; can be &quot;localização e pesquisa com IA&quot;. So &quot;Publicação em Markdown moderno com localização e pesquisa com IA.&quot; That might be best: &quot;Publicação em Markdown moderno com localização e pesquisa com IA.&quot;
-
-Check: &quot;Publicação em Markdown moderno com localização e pesquisa com IA.&quot; is a decent translation.
-
-But maybe they&apos;d prefer &quot;Blogging em Markdown moderno com localização e pesquisa com IA.&quot; The phrase &quot;Blogging&quot; is not typical Portuguese. &quot;Blogging&quot; can be &quot;blogar&quot;? Not sure. The translation should be natural. Let&apos;s consider typical usage in pt-PT: &quot;Publicação em Markdown moderno com localização e pesquisa com IA.&quot; That&apos;s clear.
-
-But we need to be consistent with the original phrase&apos;s ordering: &quot;Modern Markdown blogging with AI-powered localization and search.&quot; This is a heading, likely a tagline for a blog platform. So maybe we can translate as:
-
-&quot;Blogue em Markdown moderno com localização e pesquisa com IA.&quot;
-
-But &quot;Blogue&quot; is imperative of blog? &quot;Blogue&quot; is a noun: &quot;blogue&quot; meaning &quot;blog&quot;. The phrase &quot;Blogue em Markdown moderno com localização e pesquisa com IA.&quot; Not sure. &quot;Blogue&quot; can be a noun but maybe &quot;Blog&quot; is used as &quot;blogue&quot;. Actually, in Portuguese, &quot;blog&quot; is spelled &quot;blogue&quot; in European Portuguese, as &quot;blog&quot; is an English word but used as &quot;blogue&quot;. So &quot;blogue&quot; is a noun meaning &quot;blog&quot;. But &quot;Blogue em Markdown moderno&quot; could be &quot;blogue em Markdown moderno&quot;. However, the phrase &quot;Blogue&quot; as a noun is &quot;blog&quot;, but &quot;blogue em Markdown moderno&quot; could be read as &quot;blogue em Markdown moderno&quot;. This is okay.
-
-Alternatively, &quot;Publicação em Markdown moderno com localização e pesquisa com IA.&quot; is safe. Also, &quot;Markdown&quot; is a proper noun, we keep unchanged. &quot;IA&quot; stands for &quot;Artificial Intelligence&quot;. &quot;Localização&quot; is &quot;localization&quot;. &quot;Pesquisa&quot; is &quot;search&quot;. So &quot;Publicação em Markdown moderno com localização e pesquisa com IA.&quot;
-
-Thus final translation: &quot;Publicação em Markdown moderno com localização e pesquisa com IA.&quot;
-
-We should wrap it in triple backticks.
-
-Thus output:
-
-```Publicação em Markdown moderno com localização e pesquisa com IA.```
-
-Check if any part must be kept unchanged: &quot;Markdown&quot; is a trademark? Not exactly, but it&apos;s a proper noun. It&apos;s okay to keep as &quot;Markdown&quot;. &quot;AI&quot; may be considered abbreviation, not a trademark. It&apos;s okay to translate as &quot;IA&quot;. So we replace &quot;AI-powered&quot; with &quot;com IA&quot;. That is fine. &quot;Localization&quot; we translate as &quot;localização&quot;. &quot;Search&quot; we translate as &quot;pesquisa&quot;. &quot;Modern&quot; becomes &quot;moderno&quot;. &quot;Blogging&quot; we translate as &quot;publicação&quot;. Actually, &quot; blogging&quot; is a gerund, we can translate as &quot;publicação&quot;. That seems okay.
-
-Thus final answer: wrap in triple backticks.
-
-But check: The user explicitly says &quot;Do not output any other content. Only output the translated content and wrap it in three backticks&quot;. So we must not add any other text. We must only output the triple backticks with translation inside. So our answer will be:
-
-```Publicação em Markdown moderno com localização e pesquisa com IA.```
-
-Double-check for any nuance: The phrase &quot;Modern Markdown blogging with AI-powered localization and search.&quot; The translation must be in Portuguese (Portugal). In Portugal, &quot;Markdown&quot; is &quot;Markdown&quot; (same). &quot;Localization&quot; could be &quot;localização&quot;. &quot;Search&quot; is &quot;pesquisa&quot;. &quot;AI-powered&quot; is &quot;alimentado por IA&quot; or &quot;com IA&quot;. We can decide which translation is best.
-
-Now, let&apos;s think about the proper translation in pt-PT for &quot;AI-powered localization&quot;. Usually &quot;localização com IA&quot;. In pt-PT, you might phrase &quot;localização assistida por IA&quot;. But &quot;com IA&quot; is simpler. Also &quot;search&quot; is &quot;pesquisa&quot;. So &quot;localização e pesquisa com IA&quot;. So the phrase could be &quot;Publicação em Markdown moderno com localização e pesquisa com IA.&quot; This is accurate.
-
-Check if &quot;Publicação&quot; is okay or &quot;Publicação&quot; synonyms. &quot;Publicação&quot; means &quot;publication&quot;. It fits &quot;blogging&quot;. The phrase &quot;Publicação em Markdown moderno&quot; could be okay. But maybe &quot;Publicação de blog em Markdown moderno&quot;. Or &quot;Publicação de blog em Markdown moderno&quot;. However, the original phrase is &quot;Modern Markdown blogging with AI-powered localization and search.&quot; &quot;Blogging&quot; could be &quot;blogging&quot; (gerund). In Portuguese, &quot;blogging&quot; is not used; the translation might be &quot;Publicação em Markdown moderno com localização e pesquisa com IA.&quot; That is fine.
-
-But is &quot;Publicação em Markdown moderno&quot; a proper translation? If we think &quot;Publicação&quot; means &quot;the act of publishing&quot;. Could also be &quot;Publicação de blog em Markdown moderno&quot;. But the phrase &quot;Publicação em Markdown moderno&quot; could be ambiguous. However, it&apos;s okay.
-
-Alternatively, we could use &quot;Publicação de blog em Markdown moderno com localização e pesquisa com IA.&quot; This might be more explicit: &quot;Publicação de blog em Markdown moderno com localização e pesquisa com IA.&quot; That is more natural. Actually, &quot;Publicação de blog em Markdown moderno com localização e pesquisa com IA.&quot; The original phrase &quot;Modern Markdown blogging&quot; - &quot;Publicação de blog em Markdown moderno&quot;. That seems correct. So translation: &quot;Publicação de blog em Markdown moderno com localização e pesquisa com IA.&quot; Let&apos;s evaluate: &quot;Publicação de blog em Markdown moderno com localização e pesquisa com IA.&quot; This is longer but accurate. The phrase &quot;Localização&quot; and &quot;Pesquisa&quot; are nouns. The phrase &quot;com IA&quot; indicates AI-powered.
-
-Thus translation: &quot;Publicação de blog em Markdown moderno com localização e pesquisa com IA.&quot;
-
-Now, should we keep &quot;AI&quot; unchanged? &quot;IA&quot; is Portuguese abbreviation for AI, but it&apos;s not a trademark. So it&apos;s fine.
-
-Thus final answer: ```Publicação de blog em Markdown moderno com localização e pesquisa com IA.```
-
-Check for any words that need to be kept unchanged: &quot;Markdown&quot; stays unchanged. &quot;AI&quot; we can translate to &quot;IA&quot;. &quot;Localization&quot; we translate to &quot;localização&quot;. &quot;Search&quot; we translate to &quot;pesquisa&quot;. &quot;Modern&quot; is &quot;moderno&quot; (adjective). &quot;Blogging&quot; is &quot;publicação de blog&quot;. So the translation is &quot;Publicação de blog em Markdown moderno com localização e pesquisa com IA.&quot;
-
-Thus final output will be triple backticks with translation.
-
-Now, check if any part is ambiguous: &quot;Modern Markdown blogging&quot; could be &quot;Publicação em Markdown moderno&quot;. Actually, &quot;Publicação de blog em Markdown moderno&quot;. Both are okay. &quot;Publicação de blog em Markdown moderno&quot; is clearer.
-
-Thus final translation: &quot;Publicação de blog em Markdown moderno com localização e pesquisa com IA.&quot;
-
-Now, we must output only that translation, wrapped in triple backticks, nothing else.
-
-Thus answer:
-
-```Publicação de blog em Markdown moderno com localização e pesquisa com IA.```
-&lt;/think&gt;
-
-```Publicação de blog em Markdown moderno com localização e pesquisa com IA.</value>
+    <value>Publicação de blog em Markdown moderno com localização e pesquisa com IA.</value>
   </data>
   <data name="Next" xml:space="preserve">
     <value>Seguinte</value>
@@ -152,60 +69,13 @@ Thus answer:
     <value>Pesquisa baseada em IA (Base de dados vetorial)</value>
   </data>
   <data name="Sort posts" xml:space="preserve">
-    <value>Ordenar publicações
-```
-
-But let&apos;s double-check the phrasing: In European Portuguese, the infinitive &quot;Ordenar publicações&quot; is correct. Could also be &quot;Ordenar posts&quot;. Which is more natural? &quot;Ordenar publicações&quot; seems more formal, but &quot;publicações&quot; may be &quot;publications&quot;. In blog context, &quot;posts&quot; refer to articles. Some translation could be &quot;Ordenar publicações&quot;. Usually &quot;post&quot; is &quot;publicação&quot;. In PT-PT, &quot;publicação&quot; indeed. So translation is &quot;Ordenar publicações&quot;. That&apos;s likely correct.
-
-Thus output exactly:
-
-```
-Ordenar publicações
-```
-
-We need to ensure we do not output any extra text. Just the translation in three backticks. So we output:
-
-``` 
-Ordenar publicações
-```
-
-Make sure we have three backticks. Ensure no extra content.
-
-Therefore final answer: three backticks with Ordenar publicações.
-&lt;/think&gt;
-
-```Ordenar publicações</value>
+    <value>Ordenar publicações</value>
   </data>
   <data name="Tag" xml:space="preserve">
     <value>Etiqueta</value>
   </data>
   <data name="Tags" xml:space="preserve">
-    <value>Tags
-```
-
-But I need to double-check instructions: &quot;Please output the translated conclusion and nothing else. Do not output any other content!&quot; So we output only the translation. Wrap in triple backticks.
-
-Thus answer:
-
-```
-Tags
-```
-
-But maybe we need to include translation in Portuguese: &quot;Tags&quot;. So that&apos;s correct.
-
-However, if we want to be safe, we could output &quot;Tags&quot;. Let&apos;s do that.
-
-Given the user instruction: &quot;Do not output any other content. Only output the translated content and wrap it in three backticks (```), like this: ``` Translated word here... ```&quot;
-
-Thus answer:
-
-```
-Tags
-```
-&lt;/think&gt;
-
-```
-Tags</value>
+    <value>Tags</value>
   </data>
   <data name="Too many searches. AI search temporarily limited; showing keyword results." xml:space="preserve">
     <value>Demasiadas pesquisas. Pesquisa por IA temporariamente limitada; a mostrar resultados por palavra-chave.</value>

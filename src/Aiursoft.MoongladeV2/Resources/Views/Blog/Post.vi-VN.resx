@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="root">
+        <xs:element name="root" ns1:IsDataSet="true">
 
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-
-        </xsd:element>
-    </xsd:schema>
+        </xs:element>
+    </xs:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -28,70 +27,70 @@
     <value>Quay lại danh sách bài viết</value>
   </data>
   <data name="By" xml:space="preserve">
-    <value>&lt;span class=&quot;post-meta-label&quot;&gt;@Localizer[&quot;By&quot;]&lt;/span&gt;
+    <value>&lt;span class="post-meta-label"&gt;@Localizer["By"]&lt;/span&gt;
 ```
 
-In Vietnamese blog localization, a common translation for &quot;By&quot; (indicating author) is &quot;Bởi&quot; (meaning &quot;by&quot; as in &quot;written by&quot;).
+In Vietnamese blog localization, a common translation for "By" (indicating author) is "Bởi" (meaning "by" as in "written by").
 
-Alternatively, it could be &quot;Tác giả:&quot; but that would be more explicit. The user said &quot;translate only the sentence or word `By` in the paragraph into the target language vi-VN, Tiếng Việt (Việt Nam).&quot;
+Alternatively, it could be "Tác giả:" but that would be more explicit. The user said "translate only the sentence or word `By` in the paragraph into the target language vi-VN, Tiếng Việt (Việt Nam)."
 
-The word &quot;By&quot; in this context means &quot;By [author name]&quot; and in Vietnamese it&apos;s typically translated as &quot;Bởi&quot; or sometimes left as &quot;By&quot; in English-localized blogs, but since the request is to translate into Vietnamese, I should provide the Vietnamese translation.
+The word "By" in this context means "By [author name]" and in Vietnamese it's typically translated as "Bởi" or sometimes left as "By" in English-localized blogs, but since the request is to translate into Vietnamese, I should provide the Vietnamese translation.
 
 Common translations:
-- &quot;By&quot; (authorship) = &quot;Bởi&quot; (Vietnamese)
+- "By" (authorship) = "Bởi" (Vietnamese)
 
-However, looking at the context, in many English blogs that are localized, &quot;By&quot; is kept as &quot;By&quot; or translated to &quot;Bở:&quot;. Let me think about what is more appropriate.
+However, looking at the context, in many English blogs that are localized, "By" is kept as "By" or translated to "Bở:". Let me think about what is more appropriate.
 
-In Vietnamese, &quot;bởi&quot; means &quot;by&quot; (caused by, or agent in passive voice).
-&quot;Bởi&quot; is the short form meaning &quot;by&quot; in the sense of &quot;by [someone]&quot;.
+In Vietnamese, "bởi" means "by" (caused by, or agent in passive voice).
+"Bởi" is the short form meaning "by" in the sense of "by [someone]".
 
-Since the user specifically said &quot;translate only the sentence or word `By` in the paragraph&quot; and &quot;wrap it in three backticks&quot;, I should output only the translation wrapped in backticks.
+Since the user specifically said "translate only the sentence or word `By` in the paragraph" and "wrap it in three backticks", I should output only the translation wrapped in backticks.
 
-The most accurate translation for &quot;By&quot; in the context of blog posts indicating authorship in Vietnamese is &quot;Bởi&quot;.
+The most accurate translation for "By" in the context of blog posts indicating authorship in Vietnamese is "Bởi".
 
 So the output should be:
 ```
 Bở
 ```
-Wait, let me check the spelling. &quot;Bởi&quot; is the correct Vietnamese word.
+Wait, let me check the spelling. "Bởi" is the correct Vietnamese word.
 
-Actually, looking at the Vietnamese word &quot;Bởi&quot; - it is correct.
+Actually, looking at the Vietnamese word "Bởi" - it is correct.
 
-But let me double-check: &quot;Bởi&quot; is pronounced with a falling tone (sắc) on the &quot;o&quot; part? Actually, &quot;bởi&quot; has the hỏi tone (falling tone) on the &quot;o&quot;. Yes, &quot;Bởi&quot; is the correct spelling.
+But let me double-check: "Bởi" is pronounced with a falling tone (sắc) on the "o" part? Actually, "bởi" has the hỏi tone (falling tone) on the "o". Yes, "Bởi" is the correct spelling.
 
-Wait, let me reconsider. In many modern Vietnamese blog localizations, especially for platforms like WordPress translated to Vietnamese, the &quot;By&quot; in posts is often translated as &quot;Bởi&quot; or &quot;Viết bởi&quot; (written by), but simply &quot;Bởi&quot; should suffice.
+Wait, let me reconsider. In many modern Vietnamese blog localizations, especially for platforms like WordPress translated to Vietnamese, the "By" in posts is often translated as "Bởi" or "Viết bởi" (written by), but simply "Bởi" should suffice.
 
 Actually, looking at the code structure:
 ```csharp
-&lt;span class=&quot;post-meta-label&quot;&gt;@Localizer[&quot;By&quot;]&lt;/span&gt;
+&lt;span class="post-meta-label"&gt;@Localizer["By"]&lt;/span&gt;
 @Model.AuthorName
 ```
 
-So it&apos;s &quot;By&quot; + Author Name.
+So it's "By" + Author Name.
 
-In Vietnamese: &quot;Bởi&quot; + Tên Tác Giả.
+In Vietnamese: "Bởi" + Tên Tác Giả.
 
-So &quot;Bở&quot; is not right. It should be &quot;Bởi&quot;.
+So "Bở" is not right. It should be "Bởi".
 
-But wait, let me think about the exact translation. &quot;By&quot; in this context is a preposition indicating authorship. In Vietnamese, this is often translated as:
-1. &quot;Bởi&quot; (by - agent)
-2. &quot;Tác giả:&quot; (Author:)
-3. &quot;Viết bởi&quot; (Written by) - but this is more verbose.
+But wait, let me think about the exact translation. "By" in this context is a preposition indicating authorship. In Vietnamese, this is often translated as:
+1. "Bởi" (by - agent)
+2. "Tác giả:" (Author:)
+3. "Viết bởi" (Written by) - but this is more verbose.
 
-Given the context of a meta label, &quot;Bởi&quot; is the most direct translation.
+Given the context of a meta label, "Bởi" is the most direct translation.
 
-However, I should also consider if &quot;By&quot; could mean something else in this specific codebase. Looking at the code:
+However, I should also consider if "By" could mean something else in this specific codebase. Looking at the code:
 ```csharp
-&lt;a class=&quot;post-back-link&quot; asp-controller=&quot;Blog&quot; asp-action=&quot;Index&quot;&gt;@Localizer[&quot;Back to posts&quot;]&lt;/a&gt;
+&lt;a class="post-back-link" asp-controller="Blog" asp-action="Index"&gt;@Localizer["Back to posts"]&lt;/a&gt;
 ```
 
-So &quot;Back to posts&quot; is another localized string.
+So "Back to posts" is another localized string.
 
-The &quot;By&quot; here is definitely referring to authorship.
+The "By" here is definitely referring to authorship.
 
 So the output should be: `Bởi`
 
-But wait, looking at the user&apos;s request: &quot;Please output the translated conclusion and nothing else&quot; and &quot;Only output the translated content and wrap it in three backticks&quot;.
+But wait, looking at the user's request: "Please output the translated conclusion and nothing else" and "Only output the translated content and wrap it in three backticks".
 
 So I should output:
 ```
@@ -100,15 +99,15 @@ Bởi
 
 Wait, I need to be careful about the character encoding. The user asked for vi-VN, Tiếng Việt (Việt Nam).
 
-&quot;Bởi&quot; uses Vietnamese characters. The character &quot;ở&quot; is the hỏi tone (falling tone) on the vowel &quot;o&quot;. This is standard Vietnamese.
+"Bởi" uses Vietnamese characters. The character "ở" is the hỏi tone (falling tone) on the vowel "o". This is standard Vietnamese.
 
-Let me verify: &quot;Bởi&quot; means &quot;by&quot; (as in &quot;this book is written by...&quot;).
+Let me verify: "Bởi" means "by" (as in "this book is written by...").
 
-Yes, &quot;Bởi&quot; is correct.
+Yes, "Bởi" is correct.
 
-One more check: Is there any chance &quot;By&quot; could mean something else? Like &quot;Byte&quot;? No, that doesn&apos;t make sense in context. It&apos;s clearly about authorship.
+One more check: Is there any chance "By" could mean something else? Like "Byte"? No, that doesn't make sense in context. It's clearly about authorship.
 
-So the translated word is &quot;Bởi&quot;.
+So the translated word is "Bởi".
 
 Output format: 
 ```
@@ -122,15 +121,15 @@ Bởi
 
 Wait, I need to make sure about the tone mark. Let me confirm the spelling one more time.
 
-Vietnamese word &quot;bởi&quot; - tone mark is hỏi (falling tone) on &quot;o&quot;. The letter &quot;ở&quot; is the hỏi tone mark for the vowel &quot;o&quot; (or &quot;ô&quot; sometimes, but here it&apos;s &quot;o&quot;). Actually, looking at standard Vietnamese:
+Vietnamese word "bởi" - tone mark is hỏi (falling tone) on "o". The letter "ở" is the hỏi tone mark for the vowel "o" (or "ô" sometimes, but here it's "o"). Actually, looking at standard Vietnamese:
 
 - bởi: b (consonant) + o (vowel with hỏi tone) + i (vowel) + (no final consonant)
 
-Wait, &quot;bởi&quot; - is the &quot;ở&quot; the hỏi tone mark on &quot;o&quot;? Yes.
+Wait, "bởi" - is the "ở" the hỏi tone mark on "o"? Yes.
 
 Standard spelling: bởi
 
-Yes, &quot;Bởi&quot; is correct.
+Yes, "Bởi" is correct.
 
 So the final answer should be:
 
@@ -153,30 +152,7 @@ Bởi</value>
     <value>Đăng bình luận</value>
   </data>
   <data name="Published" xml:space="preserve">
-    <value>Đã đăng
-```
-
-Alternatively could be &quot;Đăng bài&quot;? But typical label is &quot;Đã xuất bản&quot;? Let&apos;s think: In blog meta info, we often see &quot;By Author&quot; and &quot;Published on date&quot;. In Vietnamese, typical translation would be &quot;Đã đăng&quot; (published). Or &quot;Xuất bản&quot; (published). Actually &quot;Xuất bản&quot; is a verb &quot;to publish&quot; but as a label, &quot;Xuất bản&quot; may be used as &quot;Published&quot;. However &quot;Đã đăng&quot; is common for blog posts: &quot;Đã đăng vào ngày ...&quot; So the translation should be &quot;Đã đăng&quot;. But &quot;Đã đăng&quot; may be considered as translation.
-
-We need to ensure we output only the translation and wrap in backticks.
-
-Thus answer: ```Đã đăng```.
-
-We need to follow instruction: Output only the translated content and wrap it in three backticks, like this:
-
-```
-Translated word here...
-```
-
-So output exactly:
-
-```Đã đăng```
-Note: ensure it&apos;s inside triple backticks.
-
-Thus final answer.
-&lt;/think&gt;
-
-```Đã đăng</value>
+    <value>Đã đăng</value>
   </data>
   <data name="Reply" xml:space="preserve">
     <value>Phản hồi</value>
@@ -185,24 +161,7 @@ Thus final answer.
     <value>Gửi phản hồi</value>
   </data>
   <data name="Write your comment..." xml:space="preserve">
-    <value>Viết bình luận của bạn...
-```
-
-But maybe the phrase includes &quot;...&quot;. Should we preserve the ellipsis after translation? The phrase is &quot;Write your comment...&quot; includes three dots. In translation, we can keep them: &quot;Viết bình luận của bạn...&quot; So we output that. However need to consider if we should preserve the original ellipsis or the Vietnamese ellipsis &quot;...&quot;. The translation may be &quot;Viết bình luận...&quot;. That is likely correct.
-
-But maybe more natural placeholder: &quot;Viết bình luận...&quot; is fine. In Vietnamese, placeholder often includes &quot;...&quot;. So we can output &quot;Viết bình luận...&quot; (including ellipsis). Or &quot;Viết ý kiến của bạn...&quot;. However &quot;Write your comment...&quot; is &quot;Viết bình luận...&quot; maybe more natural. Let&apos;s consider typical usage: In many web forms, placeholder for a comment box: &quot;Viết bình luận...&quot; (common). So translation: &quot;Viết bình luận...&quot;. That seems appropriate. It also matches length and ellipsis.
-
-Thus output:
-
-```
-Viết bình luận...
-```
-
-We must wrap in triple backticks. Output only this. No other content. Let&apos;s do that.
-&lt;/think&gt;
-
-``` 
-Viết bình luận...</value>
+    <value>Viết bình luận...</value>
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>Viết bình luận của bạn…</value>

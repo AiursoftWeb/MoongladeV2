@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="root">
+        <xs:element name="root" ns1:IsDataSet="true">
 
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-
-        </xsd:element>
-    </xsd:schema>
+        </xs:element>
+    </xs:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -28,38 +27,7 @@
     <value>Terug naar artikelen</value>
   </data>
   <data name="By" xml:space="preserve">
-    <value>door
-```
-
-But need to be careful: The instruction says &quot;only output the translated content and wrap it in three backticks (```), like this:
-
-```
-Translated word here...
-```&quot;
-
-So we must output exactly that. So we output:
-
-```
-door
-```
-
-That&apos;s it.
-
-But check if the translation includes any extra spaces? It&apos;s just &quot;door&quot;. Should we include any other things? No. Just the translation.
-
-Double-check: The instructions: &quot;Do NOT output any other content. Only output the translated content and wrap it in three backticks (```), like this:
-
-```
-Translated word here...
-```&quot;
-
-Thus answer must be exactly three backticks with newline and &quot;door&quot; then newline and triple backticks. That matches the example.
-
-Thus final answer.
-&lt;/think&gt;
-
-```
-door</value>
+    <value>door</value>
   </data>
   <data name="Comments" xml:space="preserve">
     <value>Opmerkingen</value>
@@ -77,196 +45,7 @@ door</value>
     <value>Reactie plaatsen</value>
   </data>
   <data name="Published" xml:space="preserve">
-    <value>), like this:
-
-```
-Translated word here...
-```&quot;
-
-So I should output:
-
-```
-Gepubliceerd
-```
-
-Wait, but the user also said: &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot;
-
-Since &quot;Published&quot; is a past participle used as a label or heading, in Dutch it would indeed be &quot;Gepubliceerd&quot;. However, I need to be careful about the context. Looking at the paragraph, it&apos;s used as a label: `&lt;span class=&quot;post-meta-label&quot;&gt;@Localizer[&quot;Published&quot;]&lt;/span&gt;`. In Dutch, this would indeed be &quot;Gepublicerd&quot;? Wait, let me think...
-
-Actually, looking at Dutch translation for &quot;Published&quot; in the context of blog posts, it could be &quot;Gepubliceerd&quot; or &quot;Publicatiedatum&quot;? But the user said &quot;translate only the sentence or word `Published`&quot;, so I think they literally want me to translate just that word.
-
-In Dutch:
-- Published (past participle of publish) = Gepublicerd? No, that&apos;s not right.
-- The verb &quot;publish&quot; in Dutch is &quot;publiceren&quot; (transitive verb). The past participle would be &quot;gepublicerd&quot;? Wait, no, the past participle of &quot;publiceren&quot; would be &quot;gepublicerd&quot;? Let me check...
-
-Actually, in Dutch:
-- Publish = publiceren (verb)
-- Published = Gepublicerd? No, that doesn&apos;t sound right.
-- Let&apos;s think about the grammatical structure. In Dutch, the past participle of a weak verb is formed with ge- + stem + t/d. For &quot;publiceren&quot; (which is a weak verb), it would be &quot;gepublicerd&quot;? But that seems odd.
-
-Wait, I&apos;m confusing myself. Let me reconsider from a translation perspective. The user wants me to translate the English word &quot;Published&quot; into Dutch. In the context of blog posts or articles, &quot;Published&quot; is commonly translated as &quot;Gepublicerd&quot; in Dutch? No, that doesn&apos;t sound right. 
-
-Actually, looking at common usage in Dutch websites, &quot;Published&quot; is often translated as &quot;Gepublicerd&quot; or &quot;Publicatiedatum&quot;? But the word &quot;Published&quot; by itself is usually translated as &quot;Gepublicerd&quot; when used as a past participle, but more commonly in Dutch website localization, it might be &quot;Gepubl.&quot;? No, that&apos;s abbreviation.
-
-Let me think about this carefully. The user said &quot;translate only the sentence or word `Published`&quot;. This suggests they want the translation of just that word. In Dutch, the direct translation of &quot;Published&quot; (meaning &quot;the act of publishing&quot; or &quot;has been published&quot;) would be:
-
-1. &quot;Gepublicerd&quot; - This is the direct translation of &quot;published&quot; as a past participle in English.
-2. However, in Dutch, &quot;Gepublicerd&quot; is not commonly used. Instead, one might say &quot;Publicatie&quot; or &quot;Gepublished&quot;? No, that doesn&apos;t make sense.
-
-Wait, let me reconsider the Dutch grammar. The verb &quot;publiceren&quot; is a weak verb (regular). Its past participle would be &quot;gepublicerd&quot; (with ge- prefix because it&apos;s separable? No, &quot;publiceren&quot; is not a separable verb). Actually, in Dutch, weak verbs form past participles with -t or -d suffix. But &quot;publiceren&quot; might be a foreign word (from English &quot;publish&quot;), so it&apos;s a weak verb with the pattern: publiceren - publicerde - gepublicerd? Or is it &quot;gepublicerd&quot;?
-
-Actually, looking at Dutch dictionaries online (in my internal knowledge), &quot;publiceren&quot; is indeed a Dutch verb meaning &quot;to publish&quot;. The past participle would be &quot;gepublicerd&quot;. Wait, but that seems like English &quot;published&quot; but with Dutch prefix. Actually, let&apos;s check: &quot;gepublicerd&quot; would be the correct form if it&apos;s a regular weak verb with the ge- prefix? No, that&apos;s not right. Let me think again.
-
-In Dutch, past participles of weak verbs: 
-- kopen (to buy) -&gt; gekocht
-- werken (to work) -&gt; gewerkt
-- publiceren -&gt; ?
-
-Actually, &quot;publiceren&quot; is a verb that comes from English/NL. It&apos;s a weak verb. The past participle would be &quot;gepublicerd&quot;? But I&apos;m not entirely sure. Let me reconsider.
-
-Alternatively, maybe the translation is simply &quot;Publicatie&quot;? But no, that&apos;s a noun.
-
-Given the context of the word being used as a meta label like &quot;By&quot; (which would be &quot;Door&quot; or &quot; Bij&quot;) and &quot;Back to posts&quot; (which would be &quot;Terug naar berichten&quot;), the word &quot;Published&quot; is likely used as a label indicating the date it was published.
-
-In Dutch, common translations for &quot;Published&quot; in this context:
-- &quot;Gepublicerd&quot; (if treated as past participle)
-- &quot;Publicatiedatum&quot; (publication date - but that&apos;s longer)
-- &quot;Datum&quot; (date)
-- &quot;Gepublishd&quot;? No.
-
-Wait, I think I&apos;m overcomplicating this. Let me look at what would be the most natural translation. In Dutch websites, when you see &quot;Published on:&quot;, it is often translated as:
-- &quot;Gepublicerd op:&quot;
-- &quot;Publicatiedatum:&quot;
-- Or simply &quot;Datum:&quot;
-
-But the user specifically asked to translate only the word &quot;Published&quot;. So I should provide the direct translation.
-
-Given my uncertainty about the exact past participle form of &quot;publiceren&quot; in Dutch, and since the user said &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot;, I should be careful. However, I do understand that &quot;Published&quot; is English and needs translation to Dutch. The most likely translation is indeed &quot;Gepublicerd&quot; or &quot;Gepublicerd&quot;. 
-
-But wait, I need to check: in Dutch, the verb &quot;publiceren&quot; is indeed used, and its past participle should be &quot;gepublicerd&quot;. However, I&apos;m not 100% certain if it&apos;s &quot;gepublicerd&quot; or &quot;gepublicerd&quot;. Let me think... 
-
-Actually, looking at Dutch grammar rules for weak verbs: 
-- If the verb stem ends in a vowel or certain consonants, you add -t or -d.
-- &quot;Publiceren&quot; -&gt; stem: publicer-
-- Past participle: ge + publicer + d? That would be &quot;gepublicerd&quot;.
-- Or is it &quot;gepublicerd&quot;? 
-
-Given that &quot;publiceren&quot; is a verb borrowed from English, and in Dutch, verbs ending in -eren usually form the past participle with ge- + stem + t? No, that&apos;s for nouns. 
-
-I think I should go with &quot;Gepublicerd&quot; as it seems the most logical translation for &quot;Published&quot; as a past participle in Dutch context. However, I should verify if there&apos;s a more common alternative. 
-
-Actually, in many Dutch websites, you see &quot;Publicatie&quot; or &quot;Publicatiedatum&quot; for the noun, but for the past participle used as an adjective (like &quot;the published post&quot;), it would be &quot;gepublicerd&quot;. But given the context where it&apos;s a meta-label, it might also be &quot;Publicatie&quot; or &quot;Datum&quot;.
-
-But the user said &quot;translate only the sentence or word `Published`&quot;, so I think the simplest answer is to translate &quot;Published&quot; to Dutch. The most straightforward translation of &quot;Published&quot; (the past participle of &quot;publish&quot;) in Dutch would be:
-
-- Gepublicerd (if treated as a verb form)
-- or more commonly in Dutch context &quot;Publicatie&quot; (noun)
-
-But looking at the context: `@Localizer[&quot;Published&quot;]` suggests this is a localization key, and in the English source it&apos;s &quot;Published&quot;. The Dutch translation should be the standard one for this word.
-
-Given that this is for a blog post meta information, and looking at the structure:
-`&lt;span class=&quot;post-meta-label&quot;&gt;@Localizer[&quot;Published&quot;]&lt;/span&gt;`
-
-In Dutch, this would most likely be translated as &quot;Gepublicerd&quot; (Published) or possibly &quot;Publicatiedatum&quot; (Publication date), but since the user asked specifically for &quot;Published&quot;, I&apos;ll go with the direct translation.
-
-Wait, I need to be very careful. The user said: &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; This suggests they want me to be sure. Since I&apos;m not 100% certain about whether it&apos;s &quot;Gepublicerd&quot; or &quot;Gepublicerd&quot; (double p?), let me think...
-
-Actually, English &quot;publish&quot; -&gt; Dutch &quot;publiceren&quot;. The past participle of &quot;publiceren&quot; should indeed be &quot;gepublicerd&quot; (ge- + publiceer + d). But I&apos;m not sure if it&apos;s &quot;gepublicerd&quot; or &quot;gepublicerd&quot; (with one &apos;d&apos; or two?). 
-
-Actually, looking at the pattern: 
-- &quot;controleren&quot; -&gt; gecontrolerd 
-- &quot;corrigeren&quot; -&gt; gecorrigeerd 
-- &quot;publiceren&quot; -&gt; gepublicerd? 
-
-Wait, but &quot;publiceren&quot; ends with &quot;-eren&quot;. The stem is &quot;publiceer&quot;. Adding the past participle suffix would give &quot;gepubliceerd&quot;? No, that doesn&apos;t make sense. 
-
-In Dutch, verbs ending in -eren usually form past participles with -eerd? No. Let me check common examples:
-- &quot;controleren&quot; (to control) -&gt; past participle: gecontroleerd
-- &quot;corrigeren&quot; (to correct) -&gt; past participle: gecorrigeerd
-- &quot;publiceren&quot; (to publish) -&gt; past participle: gepublicerd? Or gepubliceerd?
-
-Given the pattern, it seems like verbs ending in -eren take -eerd in the past participle. So &quot;gepubliceerd&quot;? But that doesn&apos;t look right. Actually, looking at &quot;computeren&quot; (to compute) -&gt; gecomputeerd? No, that&apos;s not standard. 
-
-Actually, I think the verb &quot;publiceren&quot; might be one of those verbs where the past participle is &quot;gepublicerd&quot; or &quot;gepublicerd&quot;. Given the uncertainty, and since the user said &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot;, I should output it as is? But I do understand it, I just don&apos;t know the exact spelling of the past participle in Dutch.
-
-However, looking at the user&apos;s instruction again: &quot;Please translate only the sentence or word `Published` in the paragraph into the target language nl-NL, Nederlands (Nederland).&quot;
-
-This suggests they want the translation. The safest bet in localization is often to use the infinitive form as a noun or the most common equivalent. In this context, &quot;Published&quot; is used as a label, so it might be translated as &quot;Publicatie&quot; (noun) or &quot;Datum&quot; or left as is if uncertain.
-
-But given the strict instructions to only output the translated content wrapped in backticks, and to be accurate, and given my uncertainty about the exact Dutch past participle form, I should either:
-1. Provide the most likely translation which is &quot;Gepublicerd&quot; (with one &apos;d&apos;) or &quot;Gepublicerd&quot; (with two &apos;d&apos;s? no, that would be &quot;gepubliCeerd&quot;).
-2. Or acknowledge that I should output it as is because I don&apos;t understand? But I do understand the word.
-
-Actually, let me reconsider. The word &quot;Published&quot; in English can be:
-1. A verb (past tense) - &quot;He published a book&quot;
-2. A past participle - &quot;The book was published&quot;
-3. An adjective - &quot;The published works&quot;
-
-In the context of the code, it&apos;s used as a label: `&lt;span class=&quot;post-meta-label&quot;&gt;@Localizer[&quot;Published&quot;]&lt;/span&gt;`. This suggests it&apos;s the label for the publication date.
-
-In Dutch, this would typically be:
-- &quot;Publicatiedatum&quot; (Publication date)
-- &quot;Gepublicerd&quot; (if used as a past participle)
-- &quot;Publicatie&quot; (noun)
-- Or simply &quot;Datum&quot; (Date)
-
-But the most direct translation of &quot;Published&quot; as a past participle used as an adjective would be &quot;Gepublicerd&quot; or &quot;Gepublicerd&quot;? 
-
-Given the constraints and the requirement to be accurate, and given that I cannot be 100% certain of the Dutch past participle spelling without checking a dictionary (and I&apos;m not sure if &quot;gepublicerd&quot; or &quot;gepubliceerd&quot; is correct), I think the best approach is to provide the translation that is most commonly used in Dutch web localization for this context.
-
-Given that &quot;Published&quot; is a past participle used as an adjective in English, and Dutch uses past participles similarly, but &quot;publiceren&quot; might be a loan word, the safest translation might actually be the noun &quot;Publicatie&quot; or the phrase &quot;Publicatiedatum&quot;.
-
-However, looking at common localization patterns:
-- English: &quot;Published&quot; -&gt; Dutch: &quot;Gepublicerd&quot; or &quot;Publicatiedatum&quot;
-
-Given the ambiguity and the user&apos;s instruction to &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot;, I think I should provide the translation that is most commonly accepted. 
-
-Actually, upon deeper reflection, I recall that in Dutch, the verb &quot;publiceren&quot; is indeed used, and its past participle is &quot;gepublicerd&quot;. But I also see &quot;publicatie&quot; used as a noun. 
-
-Given the context of a meta label in a blog, and the fact that the user wants just the word &quot;Published&quot; translated, I will go with &quot;Gepublicerd&quot; as it is the direct translation of the past participle. But to be safe, and since I want to be accurate, I should consider if there&apos;s another standard translation.
-
-Actually, looking at common Dutch websites and CMS systems, when they have a &quot;Published&quot; label, they often use:
-- &quot;Publicatiedatum&quot; if it&apos;s the date
-- &quot;Gepublicerd&quot; if they want to say &quot;published [by]&quot;
-- Or simply &quot;Datum&quot;
-
-But since the word is &quot;Published&quot; and not &quot;Date&quot;, I think &quot;Gepublicerd&quot; is the right translation.
-
-However, I&apos;m going to play it safe. Given the user&apos;s strong warning about not outputting other content, and the instruction &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot;, and given my uncertainty about whether it&apos;s &quot;Gepublicerd&quot; or &quot;Gepublicerd&quot; (double check on spelling), I think the most responsible answer is to output the translation that is most likely correct, which is &quot;Gepublicerd&quot; (assuming &quot;publiceren&quot; -&gt; &quot;gepublicerd&quot;).
-
-Wait, I need to check one more time. The verb is &quot;publiceren&quot;. In Dutch, weak verbs (tegelijkertijd) form the past participle with ge- + stem + t/d. &quot;Publiceren&quot; stem: publicer-. Adding the participle suffix: gepublicerd? Or gepublicerd? 
-
-Actually, looking at similar verbs: &quot;creeren&quot; -&gt; gecreerd? No. &quot;Transporteren&quot; -&gt; getransporteerd. So it seems the pattern is ge + stem + eerd? No, &quot;transport&quot; -&gt; &quot;getransporteerd&quot;. So &quot;publiceren&quot; -&gt; &quot;gepublicerd&quot;? 
-
-Actually, I think I have it: &quot;publiceren&quot; -&gt; &quot;gepublicerd&quot; (one &apos;d&apos;) or &quot;gepublicerd&quot; (two &apos;d&apos;s)? Let me think... &quot;publiceren&quot; ends with &quot;-eren&quot;. The past participle of verbs ending in -eren is typically &quot;-eerd&quot; when the stem is used? No.
-
-Let&apos;s look at &quot;produceren&quot; (to produce) -&gt; &quot;geproduceerd&quot; (produced). So &quot;publiceren&quot; -&gt; &quot;gepublicerd&quot;? That would make sense. So &quot;Published&quot; -&gt; &quot;Gepublicerd&quot;.
-
-Yes, I think &quot;Gepublicerd&quot; is the correct translation.
-
-Therefore, my answer will be:
-```
-Gepublicerd
-```
-
-But wait, I need to be absolutely sure. Let me reconsider one more time. Could it be &quot;Publicatie&quot;? In some contexts, &quot;Published&quot; might be translated as &quot;Publicatie&quot; (the noun). But &quot;Publicatie&quot; means &quot;publication&quot;, not &quot;published&quot; as in &quot;has been published&quot;. 
-
-Given the context of a meta label showing when something was published, it might be &quot;Publicatiedatum&quot; (publication date), but the user asked for just the word &quot;Published&quot;, not &quot;Published on&quot; or &quot;Publication date&quot;.
-
-So &quot;Gepublicerd&quot; seems the most direct translation.
-
-However, I want to double-check: in Dutch, is &quot;Published&quot; as a past participle translated as &quot;Gepublicerd&quot;? Or is it &quot;Publicatie&quot;? 
-
-Given that I can think through this step by step:
-1. English &quot;Published&quot; = past participle of &quot;publish&quot;
-2. Dutch &quot;publiceren&quot; = to publish
-3. Past participle of &quot;publiceren&quot; should be &quot;gepublicerd&quot; (following the pattern of weak verbs in Dutch)
-4. Therefore, &quot;Published&quot; -&gt; &quot;Gepublicerd&quot;
-
-This seems correct. I&apos;ll go with that.
-&lt;/think&gt;
-
-```Gepublicerd</value>
+    <value>Gepublicerd</value>
   </data>
   <data name="Reply" xml:space="preserve">
     <value>Antwoorden</value>
@@ -275,26 +54,7 @@ This seems correct. I&apos;ll go with that.
     <value>Reactie verzenden</value>
   </data>
   <data name="Write your comment..." xml:space="preserve">
-    <value>Schrijf je reactie... ```
-
-But check: &quot;Write your comment...&quot; may also be &quot;Schrijf je opmerking...&quot;. Which is better? &quot;Comment&quot; is often &quot;reactie&quot; in blog contexts (like comment). The placeholder for comment textarea often used: &quot;Schrijf een reactie...&quot;, &quot;Typ hier je reactie...&quot;. But &quot;Write your comment...&quot; =&gt; &quot;Schrijf je reactie...&quot;. Or &quot;Schrijf je opmerking...&quot;. Many websites use &quot;Schrijf een reactie...&quot;. The phrase &quot;Write your comment...&quot; is ambiguous; in a blog comment form might be &quot;Schrijf je reactie&quot;. But the instruction says only output translated content. So I will output &quot;Schrijf je reactie...&quot;. Also need to wrap in triple backticks.
-
-Thus final answer: 
-
-``` Schrijf je reactie... ```
-
-Note: user wants &quot;only output the translated content and wrap it in three backticks&quot;. So we should output exactly:
-
-``` Schrijf je reactie... ```
-
-But we need to ensure no extra content. So final answer: 
-
-```
-Schrijf je reactie...
-```
-&lt;/think&gt;
-
-```Schrijf je reactie...</value>
+    <value>Schrijf je reactie...</value>
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>Schrijf je reactie…</value>

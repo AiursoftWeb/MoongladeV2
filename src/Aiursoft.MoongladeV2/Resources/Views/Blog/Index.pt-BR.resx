@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="root">
+        <xs:element name="root" ns1:IsDataSet="true">
 
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-
-        </xsd:element>
-    </xsd:schema>
+        </xs:element>
+    </xs:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -28,27 +27,7 @@
     <value>Arquivo</value>
   </data>
   <data name="Blog pagination" xml:space="preserve">
-    <value>Paginação do blog
-```
-
-But we need to consider if &quot;Blog pagination&quot; is a proper noun? It could be &quot;Blog pagination&quot;. Typically in localization, &quot;Blog pagination&quot; is a label for the aria-label attribute. In Portuguese, &quot;Pagination of blog&quot; or &quot;Paginação do blog&quot;. Standard translation for &quot;Blog pagination&quot; used in ASP.NET Core identity localization strings: In pt-BR, &quot;Paginação do blog&quot;. Let&apos;s think about typical translation for &quot;Blog pagination&quot;. In many projects like Orchard, they have translation files: For example, in OrchardCore, &quot;Blog pagination&quot; translates to &quot;Paginação do blog&quot;. That seems plausible.
-
-Alternatively, &quot;Paginação do blog&quot; is correct. Could also be &quot;Paginação do Blog&quot;. Lowercase vs uppercase? The user didn&apos;t ask to maintain capitalizations, just translation.
-
-Thus output &quot;Paginação do blog&quot;. Wrap in triple backticks.
-
-Check constraints: Must output only the translated content wrapped in triple backticks, nothing else. So output:
-
-```Paginação do blog```
-
-Make sure no extra spaces or line breaks.
-
-Thus final answer is triple backticks with translation.
-
-Let&apos;s produce that.
-&lt;/think&gt;
-
-```Paginação do blog</value>
+    <value>Paginação do blog</value>
   </data>
   <data name="Explore" xml:space="preserve">
     <value>Explorar</value>
@@ -63,34 +42,7 @@ Let&apos;s produce that.
     <value>Palavras-chave</value>
   </data>
   <data name="Modern Markdown blogging with AI-powered localization and search." xml:space="preserve">
-    <value>Blogues Markdown modernos com localização e pesquisa baseadas em IA.```
-
-But need to ensure we keep &quot;Markdown&quot; as a proper noun (not translate). &quot;AI-powered&quot; maybe &quot;powered by AI&quot;. Could be &quot;alimentadas por IA&quot; or &quot;com suporte de IA&quot;. Let&apos;s think about translation choices. The sentence: &quot;Modern Markdown blogging with AI-powered localization and search.&quot; Equivalent in Portuguese: &quot;Blogging moderno em Markdown com localização e pesquisa alimentadas por IA.&quot; Or &quot;Blogging Markdown moderno com localização e pesquisa alimentadas por IA.&quot; Actually &quot;blogging&quot; is a gerund noun, but in Portuguese we can say &quot;blogagem&quot;. &quot;Modern Markdown blogging&quot; maybe &quot;Blogagem moderna em Markdown&quot;. &quot;AI-powered localization&quot; could be &quot;localização assistida por IA&quot;. &quot;Search&quot; could be &quot;pesquisa&quot;. So &quot;Blogagem moderna em Markdown com localização e pesquisa assistidas por IA.&quot; That seems correct.
-
-But need to think: the original sentence includes &quot;AI-powered localization and search&quot;. In Portuguese, &quot;AI-powered&quot; could be &quot;com inteligência artificial&quot;. But we keep &quot;AI-powered&quot; maybe as &quot;AI-powered&quot;? They said not to translate trademarks, proper nouns, etc. But &quot;AI-powered&quot; is not a trademark but a style phrase. It could be left as &quot;AI-powered&quot; or &quot;com IA&quot;. However, &quot;AI-powered&quot; is a specific phrase, maybe a proper noun? Not exactly; it&apos;s a generic term. But the instruction says: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Modern Markdown blogging with AI-powered localization and search.` is one of them.&quot; This is ambiguous. The phrase &quot;Modern Markdown blogging with AI-powered localization and search.&quot; is a phrase not a proper noun, but &quot;Markdown&quot; is a proper noun (software/trademark). &quot;AI-powered&quot; maybe not a trademark. But &quot;AI-powered localization and search&quot; might be considered generic, not a trademark. So we can translate everything except &quot;Markdown&quot;. But also &quot;Modern&quot; maybe not a proper noun, it&apos;s an adjective.
-
-Thus the translation: &quot;Bloguing moderno Markdown com localização e pesquisa com IA.&quot; But we need to keep &quot;Markdown&quot;. However, &quot;Markdown&quot; could be left unchanged: &quot;Markdown&quot;. So &quot;Modern Markdown blogging&quot; -&gt; &quot;Bloguing moderno Markdown&quot;? But better: &quot;Blogging moderno Markdown com localização e pesquisa alimentadas por IA&quot;. But we need to keep &quot;Markdown&quot; as is: &quot;Markdown&quot;. So we could write: &quot;Blogging moderno em Markdown com localização e pesquisa alimentadas por IA.&quot; This keeps Markdown unchanged, uses &quot;alimentadas por IA&quot; (powered by AI). But &quot;Modern&quot; could be &quot;moderno&quot;. In Portuguese, the adjective &quot;moderno&quot; is used for masculine nouns, but &quot;blogging&quot; is masculine? &quot;Blogging&quot; is an English gerund. &quot;Moderno&quot; is masculine singular; &quot; blogging&quot; is masculine? Usually &quot;blogging&quot; is masculine in Portuguese? &quot;O blogging&quot; maybe? But we can treat as &quot;blogging&quot;. So &quot;blogging moderno&quot; but grammar wise we can use &quot;moderno&quot;. &quot;Modern Markdown blogging&quot; could be &quot;blogging moderno em Markdown&quot;. Let&apos;s do &quot;Blogging moderno em Markdown com localização e pesquisa alimentadas por IA.&quot; However, &quot;Blogging moderno&quot; is not super idiomatic; &quot;moderno blogging&quot; is maybe okay. Maybe we can do &quot;Blogging moderno em Markdown&quot;. If we want a natural translation: &quot;Blogues modernos em Markdown com localização e pesquisa alimentadas por IA.&quot; &quot;Blogues&quot; is plural. But the sentence likely singular. So &quot;Bloguing moderno em Markdown&quot; or &quot;Blogging moderno em Markdown&quot;. Could also be &quot;Blogagem moderna em Markdown&quot;. &quot;Blogagem&quot; is Portuguese noun for &quot;blogging&quot;. So &quot;Blogagem moderna em Markdown com localização e pesquisa alimentadas por IA.&quot; That seems good.
-
-Thus final translation: &quot;Blogagem moderna em Markdown com localização e pesquisa alimentadas por IA.&quot;
-
-But we have to output only the translation and wrap in three backticks. So output:
-
-```Blogagem moderna em Markdown com localização e pesquisa alimentadas por IA.```
-
-Check: does &quot;AI-powered&quot; translate to &quot;alimentadas por IA&quot;? It&apos;s okay. We can also say &quot;com IA&quot;. &quot;AI-powered localization and search&quot; -&gt; &quot;localização e pesquisa com IA&quot;. That might be more concise: &quot;Blogagem moderna em Markdown com localização e pesquisa com IA.&quot; That is shorter and retains &quot;Markdown&quot; and &quot;IA&quot;. &quot;IA&quot; is abbreviation for &quot;Inteligência Artificial&quot;. However, &quot;IA&quot; is a proper noun? It&apos;s a standard abbreviation but not trademark. It&apos;s okay.
-
-So final translation: &quot;Blogagem moderna em Markdown com localização e pesquisa com IA.&quot;
-
-But &quot;AI-powered&quot; perhaps should be &quot;com IA&quot;. However, &quot;powered&quot; not needed. The phrase &quot;AI-powered localization and search&quot; can be translated as &quot;localização e pesquisa com IA&quot;. That&apos;s okay.
-
-Thus final answer: 
-
-```Blogagem moderna em Markdown com localização e pesquisa com IA.```
-
-Wrap in triple backticks. Ensure no extra content. That&apos;s it.
-&lt;/think&gt;
-
-```Blogagem moderna em Markdown com localização e pesquisa com IA.</value>
+    <value>Blogagem moderna em Markdown com localização e pesquisa com IA.</value>
   </data>
   <data name="Next" xml:space="preserve">
     <value>Próximo</value>
@@ -117,41 +69,13 @@ Wrap in triple backticks. Ensure no extra content. That&apos;s it.
     <value>Pesquisa baseada em IA (Banco de Dados Vetorial)</value>
   </data>
   <data name="Sort posts" xml:space="preserve">
-    <value>Ordenar postagens```.
-
-Make sure no extra content.
-&lt;/think&gt;
-
-```Ordenar postagens</value>
+    <value>Ordenar postagens</value>
   </data>
   <data name="Tag" xml:space="preserve">
     <value>Etiqueta</value>
   </data>
   <data name="Tags" xml:space="preserve">
-    <value>Tags```.
-
-But maybe they want &quot;Tags&quot;. So output: ```Tags```.
-
-We have to output only the translated content and wrap it in triple backticks. So produce:
-
-```
-Tags
-```
-
-But need to ensure it&apos;s the translation. The translation of &quot;Tags&quot; into Portuguese is &quot;Tags&quot;? That is weird. Let&apos;s consider if &quot;Tags&quot; in English could be translated as &quot;Marcadores&quot;. However, &quot;Marcadores&quot; is a different word. Let&apos;s check Google Translate? Actually, Google Translate gives &quot;Tags&quot; -&gt; &quot;Tags&quot; for Portuguese (the same). If you ask &quot;translate &apos;Tags&apos; to Portuguese&quot;, it says &quot;Tags&quot;. So it&apos;s fine.
-
-Thus answer: ```Tags```.
-
-One more thought: In Brazilian Portuguese, they often use &quot;tags&quot; as a loanword, but it&apos;s often in lower case: &quot;tags&quot;. However, capitalizing &quot;Tags&quot; might be &quot;Tags&quot;. The translation is the same word. So we output &quot;Tags&quot;. That is the translation.
-
-Thus answer: ```Tags```.
-
-We should not output any other content.
-
-Thus final answer: triple backticks with &quot;Tags&quot;.
-&lt;/think&gt;
-
-```Tags</value>
+    <value>Tags</value>
   </data>
   <data name="Too many searches. AI search temporarily limited; showing keyword results." xml:space="preserve">
     <value>Muitas buscas. Busca por IA temporariamente limitada; exibindo resultados por palavras-chave.</value>

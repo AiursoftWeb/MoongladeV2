@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="root">
+        <xs:element name="root" ns1:IsDataSet="true">
 
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-
-        </xsd:element>
-    </xsd:schema>
+        </xs:element>
+    </xs:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -28,15 +27,7 @@
     <value>Archive</value>
   </data>
   <data name="Blog pagination" xml:space="preserve">
-    <value>Pagination du blog```
-
-Make sure to wrap exactly with three backticks. Also note: output only the translation and no other content.
-
-Thus final answer: ```
-Pagination du blog```
-&lt;/think&gt;
-
-```Pagination du blog</value>
+    <value>Pagination du blog</value>
   </data>
   <data name="Explore" xml:space="preserve">
     <value>Explorer</value>
@@ -51,53 +42,7 @@ Pagination du blog```
     <value>Mots-clés</value>
   </data>
   <data name="Modern Markdown blogging with AI-powered localization and search." xml:space="preserve">
-    <value>Blog Markdown moderne avec localisation et recherche assistées par l&apos;IA.
-```
-
-Check: &quot;Modern Markdown blogging with AI-powered localization and search.&quot; It&apos;s a heading maybe. In French blog, they&apos;d say &quot;Blog Markdown moderne avec localisation et recherche assistées par l&apos;IA.&quot; That&apos;s plausible. &quot;AI-powered localization and search&quot; could be &quot;localisation et recherche assistées par l&apos;IA&quot;. &quot;Local&quot; vs &quot;Localization&quot;? &quot; localisation&quot; = action to adapt. &quot;Search&quot; = &quot;recherche&quot;. So &quot;localisation et recherche assistées par l&apos;IA&quot;. That matches.
-
-Check each component:
-
-- Modern: moderne.
-- Markdown: proper noun, keep.
-- blogging: &quot;blog&quot; is a noun. Could be &quot;blog&quot;. Usually French uses &quot;blog&quot;. So &quot;Blog Markdown moderne&quot;. Might be &quot;Blog Markdown moderne avec...&quot; It&apos;s okay.
-
-- with AI-powered localization and search: &quot;avec localisation et recherche assistées par l&apos;IA&quot;. Or &quot;avec localisation et recherche propulsées par l&apos;IA&quot;.
-
-Thus final output: &quot;Blog Markdown moderne avec localisation et recherche assistées par l&apos;IA.&quot; That&apos;s good.
-
-Make sure to include three backticks around it, nothing else.
-
-Thus final answer:
-
-``` 
-Blog Markdown moderne avec localisation et recherche assistées par l&apos;IA.
-``` (with no extra spaces outside backticks?) The user says &quot;wrap it in three backticks (```), like this: 
-```
-Translated word here...
-```&quot;. So we need exactly three backticks opening line, then the translation on a new line, then three backticks closing. They gave example with a blank line after opening triple backticks? Actually they wrote:
-
-```
-Translated word here...
-```
-
-That is a code block with three backticks, then the content, then triple backticks. So we must output:
-
-```
-Blog Markdown moderne avec localisation et recherche assistées par l&apos;IA.
-```
-
-Make sure there&apos;s no extra text. Provide exactly that. We&apos;ll not include any other content.
-
-Thus final answer: triple backticks, content line, triple backticks.
-
-Proceed.
-
-
-&lt;/think&gt;
-
-``` 
-Blog Markdown moderne avec localisation et recherche assistées par l&apos;IA.</value>
+    <value>Blog Markdown moderne avec localisation et recherche assistées par l'IA.</value>
   </data>
   <data name="Next" xml:space="preserve">
     <value>Suivant</value>
@@ -121,88 +66,16 @@ Blog Markdown moderne avec localisation et recherche assistées par l&apos;IA.</
     <value>Rechercher</value>
   </data>
   <data name="Search based on AI (Vector Database)" xml:space="preserve">
-    <value>Recherche basée sur l&apos;IA (Base de données vectorielle)</value>
+    <value>Recherche basée sur l'IA (Base de données vectorielle)</value>
   </data>
   <data name="Sort posts" xml:space="preserve">
-    <value>Trier les publications
-```
-
-But we need to output only the translated content and wrap it in three backticks, like this:
-
-```
-Translated word here...
-```
-
-So we output:
-
-```Trier les publications```
-
-But they want wrap in three backticks as shown in example:
-
-```
-Translated word here...
-```
-
-So we need to output exactly:
-
-```
-Trier les publications
-```
-
-Thus answer: the translation: &quot;Trier les publications&quot;. However, sometimes French UI uses &quot;Trier les posts&quot; but &quot;post&quot; may be &quot;publications&quot;. &quot;Tri des articles&quot; also possible. Let&apos;s think: typical French translation for &quot;Sort posts&quot; could be &quot;Trier les articles&quot;. Let&apos;s check typical wording: In many blog systems, &quot;posts&quot; are &quot;articles&quot;. So &quot;Sort posts&quot; could be &quot;Tri des articles&quot;. But they likely want &quot;Trier les articles&quot;. &quot;Tri des articles&quot; is noun phrase &quot;Sorting of articles&quot;. But the phrase is used as aria-label for sorting controls; often &quot;Sort posts&quot; is a label for a group of buttons &quot;Recent&quot; and &quot;Featured&quot;. So it may be &quot;Trier les messages&quot;? In blog context, &quot;posts&quot; are &quot;articles&quot;. So &quot;Trier les articles&quot; is plausible. But also &quot;Trier les publications&quot;. &quot;Publications&quot; maybe too formal.
-
-Check typical UI translation: In WordPress, &quot;Sort posts&quot; -&gt; &quot;Trier les articles&quot;. In French, &quot;Trier les articles&quot; is common. In a blog environment, &quot;posts&quot; can be &quot;articles&quot;. So &quot;Trier les articles&quot;. That seems fine.
-
-Thus output:
-
-```
-Trier les articles
-```
-
-The user didn&apos;t give any other instructions for proper nouns etc. &quot;Sort posts&quot; is generic. So output translation.
-
-Thus answer: wrap in triple backticks.
-
-Proceed.
-&lt;/think&gt;
-
-```Trier les articles</value>
+    <value>Trier les articles</value>
   </data>
   <data name="Tag" xml:space="preserve">
     <value>Étiquette</value>
   </data>
   <data name="Tags" xml:space="preserve">
-    <value>Tags
-```
-
-or with French? If we output &quot;Étiquettes&quot; it would be translation. Which is correct? The question: &quot;Please translate only the sentence or word `Tags`&quot;. In the paragraph it&apos;s likely a label for a list of tags. The translation for &quot;Tags&quot; into French is &quot;Tags&quot; (if you keep the English term) or &quot;Étiquettes&quot;. Let&apos;s see typical French websites: &quot;Étiquettes&quot; is typical for &quot;Tags&quot;. Many French websites have &quot;Tags&quot; still used, but &quot;Étiquette&quot; is singular. If you have a list of tags, you could have &quot;Tags&quot; as &quot;Tags&quot;. However &quot;Tag&quot; singular is used rarely. But the heading &quot;Tags&quot; can be translated as &quot;Tags&quot;. In ASP.NET, the localized string would be something like `&lt;span&gt;@Localizer[&quot;Tags&quot;]&lt;/span&gt;`. The translation in French could be &quot;Tags&quot;. However typical translation is &quot;Tags&quot; (not translated). But the instruction: &quot;accurately, fluently, and carefully choose words to translate some files I see into the fr-FR, Français (France) language.&quot; So they want translation. So &quot;Tags&quot; likely becomes &quot;Tags&quot; or &quot;Étiquettes&quot;. I&apos;d go with &quot;Étiquettes&quot; because it&apos;s the natural French term.
-
-Thus output:
-
-```Étiquettes```
-
-But must we include triple backticks with the translated word inside? According to instructions: wrap in three backticks like this:
-
-```
-Translated word here...
-```
-
-So output:
-
-```Étiquette? Or Étiquettes```
-
-Let&apos;s see: &quot;Tags&quot; plural, &quot;Étiquette&quot; singular; plural is &quot;Étiquettes&quot;. So output &quot;Étiquettes&quot;. So final answer:
-
-```
-Étiquettes
-```
-
-We must not output any other content. So output code block only. Ensure no extra lines. So produce:
-
-```Étiquettes```.
-&lt;/think&gt;
-
-```Étiquette</value>
+    <value>Étiquette</value>
   </data>
   <data name="Too many searches. AI search temporarily limited; showing keyword results." xml:space="preserve">
     <value>Trop de recherches. Recherche IA temporairement limitée ; affichage des résultats par mots-clés.</value>

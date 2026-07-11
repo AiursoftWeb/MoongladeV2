@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="root">
+        <xs:element name="root" ns1:IsDataSet="true">
 
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-
-        </xsd:element>
-    </xsd:schema>
+        </xs:element>
+    </xs:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -28,42 +27,7 @@
     <value>الأرشيف</value>
   </data>
   <data name="Blog pagination" xml:space="preserve">
-    <value>ترقيم صفحات المدونة
-```
-
-We need to make sure no extra content. Also we should not add explanation. The user explicitly says &quot;Only output the translated content and wrap it in three backticks&quot;. So output exactly:
-
-``` 
-ترقيم صفحات المدونة
-```
-
-But the example says:
-
-```
-Translated word here...
-```
-
-So we output exactly the Arabic translation inside triple backticks. Use triple backticks around the line. Provide no other content.
-
-Thus answer: triple backticks with Arabic translation.
-
-Now check: The translation is &quot;ترقيم صفحات المدونة&quot;. Let&apos;s double-check meaning: &quot;ترقيم صفحات المدونة&quot;. That is &quot;pagination of the blog pages&quot;. That seems correct.
-
-Thus final answer: inside triple backticks: &quot;ترقيم صفحات المدونة&quot;. Ensure no extra spaces, just that.
-
-Potential nuance: Should we consider that &quot;Blog pagination&quot; might be a proper noun? It&apos;s a phrase used in UI for screen reader label. Should we leave it as &quot;Blog pagination&quot;? No, the instruction says we must translate it into Arabic. So we must output Arabic translation.
-
-Thus final answer: triple backticks with Arabic translation. Ensure no extra content.
-
-So final answer is:
-
-```
-ترقيم صفحات المدونة
-```
-&lt;/think&gt;
-
-```
-ترقيم صفحات المدونة</value>
+    <value>ترقيم صفحات المدونة</value>
   </data>
   <data name="Explore" xml:space="preserve">
     <value>استكشف</value>
@@ -78,32 +42,7 @@ So final answer is:
     <value>الكلمات المفتاحية</value>
   </data>
   <data name="Modern Markdown blogging with AI-powered localization and search." xml:space="preserve">
-    <value>التدوين الحديث باستخدام Markdown مع التوطين المحرك بالذكاء الاصطناعي والبحث.
-```
-
-But check that &quot;Markdown&quot; is a proper noun (trademark?), but the instructions say we must not translate proper nouns: human names, nicknames, proper nouns, symbols, trademarks, etc. &quot;Markdown&quot; is a proper noun? It&apos;s a software name/trademark, but it could be considered a trademark. The instructions say to keep as is. So we must keep &quot;Markdown&quot; as is, not translate it. So we keep &quot;Markdown&quot;. So the translation should keep &quot;Markdown&quot;. So the translation is &quot;التدوين الحديث باستخدام Markdown مع التوطين المحرك بالذكاء الاصطناعي والبحث.&quot;
-
-Thus output: 
-
-```
-التدوين الحديث باستخدام Markdown مع التوطين المحرك بالذكاء الاصطناعي والبحث.
-```
-
-However, &quot;التدوين&quot; maybe &quot; blogging&quot;? Actually &quot;blogging&quot; translates to &quot;التدوين&quot; which is &quot;blogging&quot;. So &quot;Modern Markdown blogging with AI-powered localization and search.&quot; could be &quot;التدوين الحديث على Markdown مع التوطين المحرك بالذكاء الاصطناعي والبحث.&quot; We need to preserve &quot;Markdown&quot;. So final translation: &quot;التدوين الحديث باستخدام Markdown مع التوطين المحرك بالذكاء الاصطناعي والبحث.&quot;
-
-One could also say &quot;التدوين الحديث عبر Markdown مع التوطين المُعزَز بالذكاء الاصطناعي والبحث&quot;. But whichever is fine.
-
-We need to ensure we output only the translation and wrap in triple backticks.
-
-Thus final answer:
-
-``` 
-التدوين الحديث باستخدام Markdown مع التوطين المحرك بالذكاء الاصطناعي والبحث.
-```
-&lt;/think&gt;
-
-``` 
-التدوين الحديث باستخدام Markdown مع التوطين المحرك بالذكاء الاصطناعي والبحث.</value>
+    <value>التدوين الحديث باستخدام Markdown مع التوطين المحرك بالذكاء الاصطناعي والبحث.</value>
   </data>
   <data name="Next" xml:space="preserve">
     <value>التالي</value>
@@ -130,40 +69,13 @@ Thus final answer:
     <value>البحث المدعوم بالذكاء الاصطناعي (قاعدة البيانات المتجهية)</value>
   </data>
   <data name="Sort posts" xml:space="preserve">
-    <value>ترتيب المنشورات
-```
-
-But need to double-check if &quot;Sort posts&quot; appears as a localized string, likely used as a label for the group &quot;aria-label&quot;. So translation must be appropriate.
-
-Check if any transliteration needed? The phrase &quot;Sort posts&quot; might be part of the UI strings. The translation should be a phrase in Arabic.
-
-Thus final answer: wrap in triple backticks, Arabic phrase &quot;ترتيب المنشورات&quot;. Could also be &quot;فرز المنشورات&quot;. Which is more appropriate? In UI for sorting blog posts, &quot;ترتيب المنشورات&quot; is typical. So final answer: &quot;ترتيب المنشورات&quot;.
-
-No extra content. Output only the translated content in triple backticks.
-
-Thus final.
-&lt;/think&gt;
-
-```ترتيب المنشورات</value>
+    <value>ترتيب المنشورات</value>
   </data>
   <data name="Tag" xml:space="preserve">
     <value>وسم</value>
   </data>
   <data name="Tags" xml:space="preserve">
-    <value>الوسوم
-```
-
-Wrap in triple backticks. Also ensure no extra content. Should we include quotes? No, just the content. So output:
-
-``` 
-الوسوم
-```
-But must be exactly three backticks, open and close, with content.
-
-Thus final answer: three backticks with Arabic translation.
-&lt;/think&gt;
-
-```الوسوم</value>
+    <value>الوسوم</value>
   </data>
   <data name="Too many searches. AI search temporarily limited; showing keyword results." xml:space="preserve">
     <value>عمليات بحث كثيرة جدًا. البحث بالذكاء الاصطناعي محدود مؤقتًا؛ يتم عرض نتائج الكلمات المفتاحية.</value>

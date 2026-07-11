@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="root">
+        <xs:element name="root" ns1:IsDataSet="true">
 
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-
-        </xsd:element>
-    </xsd:schema>
+        </xs:element>
+    </xs:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -28,14 +27,7 @@
     <value>記事一覧に戻る</value>
   </data>
   <data name="By" xml:space="preserve">
-    <value>作者```. They want wrap in three backticks. Use exactly three backticks and the translation inside. So output:
-
-```作者```
-
-Make sure not to output any other content.
-&lt;/think&gt;
-
-```作者</value>
+    <value>作者</value>
   </data>
   <data name="Comments" xml:space="preserve">
     <value>コメント</value>
@@ -53,41 +45,7 @@ Make sure not to output any other content.
     <value>コメントを投稿</value>
   </data>
   <data name="Published" xml:space="preserve">
-    <value>Translated word here...
-```
-
-Thus we output:
-
-```
-公開
-```
-
-We need to ensure no other content. So final answer:
-
-``` 
-公開 
-```
-
-But we need to follow the format exactly: three backticks with content, no extra lines. So:
-
-```
-公開
-```
-
-That&apos;s it.
-
-Check if there are any nuances: Could it be &quot;published on&quot;? In many Japanese UI, the label &quot;Published&quot; is &quot;公開&quot;. There&apos;s also &quot;公開しました&quot; but that&apos;s verb. However, the context: `&lt;span class=&quot;post-meta-label&quot;&gt;@Localizer[&quot;Published&quot;]&lt;/span&gt;`.
-
-So just &quot;公開&quot;. However, Japanese UI sometimes uses &quot;公開日&quot;. But they only ask to translate &quot;Published&quot;. So &quot;公開&quot;. I think that is correct.
-
-Hence output.
-
-Check if there is any special nuance: The &quot;Published&quot; might be a noun meaning &quot;published&quot;. In Japanese &quot;Published&quot; as label, &quot;Published&quot; can be translated as &quot;Published&quot; with Katakana? But they&apos;d likely want a Japanese translation. So &quot;公開&quot;. The word &quot;Published&quot; in English is often used for &quot;Published on [date]&quot; with the sense &quot;published&quot;. Japanese version: &quot;Published on&quot; is &quot;公開日&quot;. But they didn&apos;t ask for &quot;Published on&quot;. They asked only for &quot;Published&quot;. So I&apos;ll output &quot;公開&quot;. That is a translation.
-
-Thus final.
-&lt;/think&gt;
-
-```公開</value>
+    <value>公開</value>
   </data>
   <data name="Reply" xml:space="preserve">
     <value>返信</value>
@@ -96,41 +54,7 @@ Thus final.
     <value>返信を送信</value>
   </data>
   <data name="Write your comment..." xml:space="preserve">
-    <value>コメントを入力...
-```
-
-But must be inside triple backticks as per instructions. Should we include no extra text, just the translated content inside triple backticks? Yes. The instruction: &quot;Only output the translated content and wrap it in three backticks (```), like this:
-
-```
-Translated word here...
-```&quot;
-
-Thus we output:
-
-```
-コメントを入力...
-```
-
-Make sure we use Japanese characters and ellipsis (…). But placeholder usually uses &quot;...&quot; not &quot;…&quot; (single character). We&apos;ll use three periods &quot;...&quot; which is typical ASCII ellipsis. But placeholder &quot;Write your comment...&quot; includes three periods (or maybe ellipsis). Use three periods in the translation: &quot;コメントを入力...&quot;. That ends with three periods. So output:
-
-```コメントを入力...```
-
-Thus answer.
-
-Check for any pitfalls: The user says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Write your comment...` is one of them.&quot;
-
-We are translating &quot;Write your comment...&quot; which is a placeholder. It&apos;s not a proper noun. It&apos;s a phrase. So we translate.
-
-They ask to output the translated content and wrap it in three backticks. So we output exactly:
-
-```コメントを入力...```
-
-Note: The user says &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; Not needed.
-
-Thus final answer is that.
-&lt;/think&gt;
-
-```コメントを入力...</value>
+    <value>コメントを入力...</value>
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>コメントを入力してください…</value>

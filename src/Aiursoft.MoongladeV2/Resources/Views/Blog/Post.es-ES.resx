@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="root">
+        <xs:element name="root" ns1:IsDataSet="true">
 
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-
-        </xsd:element>
-    </xsd:schema>
+        </xs:element>
+    </xs:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -28,19 +27,7 @@
     <value>Volver a las entradas</value>
   </data>
   <data name="By" xml:space="preserve">
-    <value>Por
-```
-
-Make sure it&apos;s wrapped in three backticks, nothing else. According to instructions, output only the translated word and nothing else. So we output:
-
-```
-Por
-```
-
-Thus final answer.
-&lt;/think&gt;
-
-```Por</value>
+    <value>Por</value>
   </data>
   <data name="Comments" xml:space="preserve">
     <value>Comentarios</value>
@@ -58,10 +45,7 @@ Thus final answer.
     <value>Publicar comentario</value>
   </data>
   <data name="Published" xml:space="preserve">
-    <value>Publicado```
-&lt;/think&gt;
-
-```Publicado</value>
+    <value>Publicado</value>
   </data>
   <data name="Reply" xml:space="preserve">
     <value>Responder</value>
@@ -70,41 +54,7 @@ Thus final answer.
     <value>Enviar respuesta</value>
   </data>
   <data name="Write your comment..." xml:space="preserve">
-    <value>Translated word here...
-```
-
-We need to ensure we output only the translation. The translation of &quot;Write your comment...&quot; into Spanish (Spain) is &quot;Escribe tu comentario...&quot; or &quot;Escribe tu comentario...&quot;. The phrase &quot;Write your comment...&quot; typical Spanish placeholder for textarea could be &quot;Escribe tu comentario...&quot; or &quot;Escribe tu comentario...&quot;. Usually in Spanish you&apos;d say &quot;Escribe tu comentario...&quot;. So the translation: &quot;Escribe tu comentario...&quot;. Should we keep ellipsis? Yes, the original has ellipsis &quot;...&quot;. So &quot;Escribe tu comentario...&quot;.
-
-Thus output:
-
-```
-Escribe tu comentario...
-```
-
-Make sure we wrap in triple backticks and nothing else.
-
-But we need to check if any special rules: The user says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Write your comment...` is one of them. If you don&apos;t understand what you want to translate, please output it as it is!&quot;
-
-So &quot;Write your comment...&quot; is not a proper noun, so we can translate. So we output &quot;Escribe tu comentario...&quot;.
-
-But ensure we output only the translated content in three backticks, like:
-
-```
-Escribe tu comentario...
-```
-
-Make sure no extra text. Also be careful not to include any extra formatting like &quot;Translated word here...&quot; but just the translation. So final answer:
-
-```
-Escribe tu comentario...
-```
-
-We should confirm this is correct translation for Spanish (Spain). Yes.
-
-Thus answer.
-&lt;/think&gt;
-
-```Escribe tu comentario...</value>
+    <value>Escribe tu comentario...</value>
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>Escribe tu comentario…</value>

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="root">
+        <xs:element name="root" ns1:IsDataSet="true">
 
-<root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-
-        </xsd:element>
-    </xsd:schema>
+        </xs:element>
+    </xs:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -28,15 +27,7 @@
     <value>Torna agli articoli</value>
   </data>
   <data name="By" xml:space="preserve">
-    <value>Di
-```
-
-Wrap in three backticks.
-
-Thus final answer: code block with &quot;Di&quot;.
-&lt;/think&gt;
-
-```Di</value>
+    <value>Di</value>
   </data>
   <data name="Comments" xml:space="preserve">
     <value>Commenti</value>
@@ -54,16 +45,7 @@ Thus final answer: code block with &quot;Di&quot;.
     <value>Pubblica commento</value>
   </data>
   <data name="Published" xml:space="preserve">
-    <value>Pubblicato```
-
-Thus we need to output only the translation inside triple backticks: ```Pubblicato```.
-
-We must not output any extra content.
-
-Thus the final answer: inside triple backticks: Pubblicato.
-&lt;/think&gt;
-
-```Pubblicato</value>
+    <value>Pubblicato</value>
   </data>
   <data name="Reply" xml:space="preserve">
     <value>Rispondi</value>
@@ -72,37 +54,7 @@ Thus the final answer: inside triple backticks: Pubblicato.
     <value>Invia risposta</value>
   </data>
   <data name="Write your comment..." xml:space="preserve">
-    <value>Scrivi il tuo commento...
-```
-
-or &quot;Scrivi il tuo commento...&quot;. However, need to check translation: &quot;Write your comment...&quot; is a placeholder for a text area. In Italian, common translation would be &quot;Scrivi il tuo commento...&quot;. Could also be &quot;Scrivi il tuo commento&quot;. But we need to preserve ellipsis? The placeholder includes ellipsis: &quot;Write your comment...&quot;. In Italian, &quot;Scrivi il tuo commento...&quot; seems appropriate. But maybe &quot;Scrivi il tuo commento...&quot; as placeholder with ellipsis.
-
-We need to output exactly the translation, wrapped in triple backticks, no extra content. So:
-
-```
-Scrivi il tuo commento...
-```
-
-We need to consider the instruction: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them!&quot; However, &quot;Write your comment...&quot; is not a name, so it&apos;s fine.
-
-Thus final answer: code block with translation.
-
-But check: The user request says &quot;Translate only the sentence or word `Write your comment...` in the paragraph into the target language it-IT, Italiano (Italia).&quot; So we output the translation. They also say &quot;Do not output any other content. Only output the translated content and wrap it in three backticks (```), like this: ``` Translated word here... ```&quot;. So exactly output:
-
-```
-Scrivi il tuo commento...
-```
-
-Make sure no extra line break? Provide as code block. That is the answer.
-
-Potential nuance: In Italian, it&apos;s common to have placeholder &quot;Scrivi il tuo commento...&quot; or &quot;Scrivi un commento...&quot;. &quot;Scrivi il tuo commento...&quot; is fine. The ellipsis indicates continuation. So translation would be &quot;Scrivi il tuo commento...&quot;. Indeed.
-
-Check for translation details: &quot;Write your comment...&quot; is placeholder for a comment text area, typical translation is &quot;Scrivi il tuo commento...&quot;. So final.
-
-Thus output code block.
-&lt;/think&gt;
-
-```scrivi il tuo commento...</value>
+    <value>scrivi il tuo commento...</value>
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>Scrivi il tuo commento…</value>
