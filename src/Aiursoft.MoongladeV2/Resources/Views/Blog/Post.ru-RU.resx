@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:schema id="root">
-        <xs:element name="root" ns1:IsDataSet="true">
 
-        </xs:element>
-    </xs:schema>
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -31,7 +32,7 @@
 
 Wait, I need to output the translated word only, wrapped in three backticks. Let me correct that.
 
-The user wants me to translate only the word `By` in the context of a blog post meta label showing the author. In Russian, this is commonly translated as "Автор:" (Author:).
+The user wants me to translate only the word `By` in the context of a blog post meta label showing the author. In Russian, this is commonly translated as &quot;Автор:&quot; (Author:).
 
 ```Автор</value>
   </data>

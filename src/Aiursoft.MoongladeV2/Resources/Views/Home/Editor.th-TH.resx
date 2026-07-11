@@ -33,6 +33,12 @@
   <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
     <value>เครื่องมือง่ายๆ สำหรับแปลง Markdown ของคุณให้เป็น HTML ที่สะอาดและปลอดภัย</value>
   </data>
+  <data name="Abstract" xml:space="preserve">
+    <value>บทคัดย่อ</value>
+  </data>
+  <data name="Abstract Localization" xml:space="preserve">
+    <value>การแปลแบบเป็นนามธรรม</value>
+  </data>
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
     <value>หลังจากที่ทำให้เอกสารถูกตั้งค่าเป็นส่วนตัวแล้ว ลิงก์สาธารณะที่มีอยู่จะใช้งานไม่ได้อีกต่อไป คุณแน่ใจหรือไม่ว่าต้องการดำเนินการต่อ?</value>
   </data>

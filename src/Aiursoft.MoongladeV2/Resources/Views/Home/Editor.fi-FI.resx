@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:schema id="root">
-        <xs:element name="root" ns1:IsDataSet="true">
 
-        </xs:element>
-    </xs:schema>
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -31,6 +32,12 @@
   </data>
   <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
     <value>Yksinkertainen työkalu Markdown-kielesi muuntamiseksi puhtaaksi, desinfioiduksi HTML:ksi.</value>
+  </data>
+  <data name="Abstract" xml:space="preserve">
+    <value>Tiivistelmä</value>
+  </data>
+  <data name="Abstract Localization" xml:space="preserve">
+    <value>Abstrakti lokalisaatio</value>
   </data>
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
     <value>Kun teet tästä dokumentista yksityisen, olemassa oleva julkinen linkki lakkaa toimimasta. Oletko varma, että haluat jatkaa?</value>
@@ -278,7 +285,7 @@
   <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
     <value>Jaa tämä dokumentti julkisesti yksilöllisellä linkillä, jota kuka tahansa voi käyttää ilman kirjautumista.</value>
   </data>
-  <data name="Smart dark mode that automatically adapts to the user's system settings." xml:space="preserve">
+  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
     <value>Älykäs tumma tila, joka mukautuu automaattisesti käyttäjän järjestelmäasetuksiin.</value>
   </data>
   <data name="Split View" xml:space="preserve">

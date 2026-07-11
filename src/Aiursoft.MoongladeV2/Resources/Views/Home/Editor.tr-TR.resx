@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:schema id="root">
-        <xs:element name="root" ns1:IsDataSet="true">
 
-        </xs:element>
-    </xs:schema>
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -30,7 +31,13 @@
     <value>Modern, zengin özelliklere sahip ve bir sonraki web uygulamanız için oldukça genişletilebilir bir temel.</value>
   </data>
   <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
-    <value>Markdown'ınızı temiz, güvenli HTML'ye dönüştürmek için basit bir araç.</value>
+    <value>Markdown&apos;ınızı temiz, güvenli HTML&apos;ye dönüştürmek için basit bir araç.</value>
+  </data>
+  <data name="Abstract" xml:space="preserve">
+    <value>Özet</value>
+  </data>
+  <data name="Abstract Localization" xml:space="preserve">
+    <value>Özet Yerelleştirme</value>
   </data>
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
     <value>Bu belgeyi gizli yaptıktan sonra, mevcut herkese açık bağlantı artık çalışmayacaktır. Devam etmek istediğinizden emin misiniz?</value>
@@ -69,7 +76,7 @@
     <value>İptal</value>
   </data>
   <data name="Change to Private?" xml:space="preserve">
-    <value>Gizli'ye değiştirilsin mi?</value>
+    <value>Gizli&apos;ye değiştirilsin mi?</value>
   </data>
   <data name="Code" xml:space="preserve">
     <value>Kod</value>
@@ -90,7 +97,7 @@
     <value>Dönüştür ve kaydet</value>
   </data>
   <data name="Convert to HTML" xml:space="preserve">
-    <value>HTML'ye Dönüştür</value>
+    <value>HTML&apos;ye Dönüştür</value>
   </data>
   <data name="Copied!" xml:space="preserve">
     <value>Kopyalandı!</value>
@@ -99,10 +106,10 @@
     <value>Kopyala</value>
   </data>
   <data name="Copy HTML" xml:space="preserve">
-    <value>HTML'yi Kopyala</value>
+    <value>HTML&apos;yi Kopyala</value>
   </data>
   <data name="Copy HTML to clipboard" xml:space="preserve">
-    <value>HTML'yi panoya kopyala</value>
+    <value>HTML&apos;yi panoya kopyala</value>
   </data>
   <data name="Copy Link" xml:space="preserve">
     <value>Bağlantıyı Kopyala</value>
@@ -114,7 +121,7 @@
     <value>Önizlemeyi Kopyala</value>
   </data>
   <data name="Copy Preview HTML" xml:space="preserve">
-    <value>Önizleme HTML'sini Kopyala</value>
+    <value>Önizleme HTML&apos;sini Kopyala</value>
   </data>
   <data name="Create a new document..." xml:space="preserve">
     <value>Yeni bir belge oluştur...</value>
@@ -201,7 +208,7 @@
     <value>Markdown Girişi</value>
   </data>
   <data name="Markdown to HTML Converter" xml:space="preserve">
-    <value>Markdown'dan HTML'e Dönüştürücü</value>
+    <value>Markdown&apos;dan HTML&apos;e Dönüştürücü</value>
   </data>
   <data name="Multiple Database Support" xml:space="preserve">
     <value>Çoklu Veritabanı Desteği</value>
@@ -278,7 +285,7 @@
   <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
     <value>Bu belgeyi, herkesin giriş yapmadan erişebileceği benzersiz bir bağlantı ile herkese açık olarak paylaşın.</value>
   </data>
-  <data name="Smart dark mode that automatically adapts to the user's system settings." xml:space="preserve">
+  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
     <value>Kullanıcının sistem ayarlarına otomatik olarak uyum sağlayan akıllı karanlık mod.</value>
   </data>
   <data name="Split View" xml:space="preserve">
@@ -300,7 +307,7 @@
     <value>Başlık</value>
   </data>
   <data name="Type your Markdown here..." xml:space="preserve">
-    <value>Markdown'ınızı buraya yazın...</value>
+    <value>Markdown&apos;ınızı buraya yazın...</value>
   </data>
   <data name="Untitled Document" xml:space="preserve">
     <value>Başlıksız Belge</value>

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:schema id="root">
-        <xs:element name="root" ns1:IsDataSet="true">
 
-        </xs:element>
-    </xs:schema>
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -31,6 +32,12 @@
   </data>
   <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
     <value>Ett enkelt verktyg för att konvertera din Markdown till ren, saniterad HTML.</value>
+  </data>
+  <data name="Abstract" xml:space="preserve">
+    <value>Sammanfattning</value>
+  </data>
+  <data name="Abstract Localization" xml:space="preserve">
+    <value>Abstrakt lokalisering</value>
   </data>
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
     <value>Om du gör detta dokument privat kommer den befintliga publika länken inte längre att fungera. Är du säker på att du vill fortsätta?</value>
@@ -278,7 +285,7 @@
   <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
     <value>Dela detta dokument offentligt med en unik länk som vem som helst kan komma åt utan att logga in.</value>
   </data>
-  <data name="Smart dark mode that automatically adapts to the user's system settings." xml:space="preserve">
+  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
     <value>Smart mörkt läge som automatiskt anpassar sig efter användarens systeminställningar.</value>
   </data>
   <data name="Split View" xml:space="preserve">

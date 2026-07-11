@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Abstract" xml:space="preserve">
+    <value>Özet</value>
+  </data>
+  <data name="Abstract Localization" xml:space="preserve">
+    <value>Özet Yerelleştirme</value>
+  </data>
+  <data name="Back to Editor" xml:space="preserve">
+    <value>Düzenleyiciye Dön</value>
+  </data>
+  <data name="Editing the source abstract will trigger re-translation of all other language abstracts. The background job will regenerate all translations from this updated source." xml:space="preserve">
+    <value>Kaynak özetini düzenlemek, diğer tüm dil özetlerinin yeniden çevrilmesini tetikleyecektir. Arka plan işi, bu güncellenmiş kaynaktan tüm çevirileri yeniden oluşturacaktır.</value>
+  </data>
+  <data name="Error!" xml:space="preserve">
+    <value>Hata!</value>
+  </data>
+  <data name="Failed to load abstract." xml:space="preserve">
+    <value>Soyut metin yüklenemedi.</value>
+  </data>
+  <data name="Generated" xml:space="preserve">
+    <value>Oluşturuldu</value>
+  </data>
+  <data name="Languages" xml:space="preserve">
+    <value>Diller</value>
+  </data>
+  <data name="Last Modified" xml:space="preserve">
+    <value>Son Değiştirilme</value>
+  </data>
+  <data name="Save Abstract" xml:space="preserve">
+    <value>Özeti Kaydet</value>
+  </data>
+  <data name="Save failed." xml:space="preserve">
+    <value>Kaydetme başarısız oldu.</value>
+  </data>
+  <data name="Saved successfully!" xml:space="preserve">
+    <value>Başarıyla kaydedildi!</value>
+  </data>
+  <data name="Saved! All translations will be regenerated." xml:space="preserve">
+    <value>Kaydedildi! Tüm çeviriler yeniden oluşturulacak.</value>
+  </data>
+  <data name="Saving..." xml:space="preserve">
+    <value>Kaydediliyor...</value>
+  </data>
+  <data name="Select a language" xml:space="preserve">
+    <value>Bir dil seçin</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Kaynak</value>
+  </data>
+  <data name="Source Culture" xml:space="preserve">
+    <value>Kaynak Kültür</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Başarılı!</value>
+  </data>
+  <data name="Translated abstract" xml:space="preserve">
+    <value>Çevrilmiş özet</value>
+  </data>
+  <data name="Warning!" xml:space="preserve">
+    <value>Uyarı!</value>
+  </data>
+
+</root>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Abstract" xml:space="preserve">
+    <value>概要</value>
+  </data>
+  <data name="Abstract Localization" xml:space="preserve">
+    <value>抽象的なローカライズ</value>
+  </data>
+  <data name="Back to Editor" xml:space="preserve">
+    <value>エディターに戻る</value>
+  </data>
+  <data name="Editing the source abstract will trigger re-translation of all other language abstracts. The background job will regenerate all translations from this updated source." xml:space="preserve">
+    <value>ソースの抄録を編集すると、他の言語の抄録がすべて再翻訳されます。バックグラウンドジョブは、この更新されたソースからすべての翻訳を再生成します。</value>
+  </data>
+  <data name="Error!" xml:space="preserve">
+    <value>エラー！</value>
+  </data>
+  <data name="Failed to load abstract." xml:space="preserve">
+    <value>抽象の読み込みに失敗しました。</value>
+  </data>
+  <data name="Generated" xml:space="preserve">
+    <value>生成済み</value>
+  </data>
+  <data name="Languages" xml:space="preserve">
+    <value>言語</value>
+  </data>
+  <data name="Last Modified" xml:space="preserve">
+    <value>最終更新日</value>
+  </data>
+  <data name="Save Abstract" xml:space="preserve">
+    <value>抽象を保存</value>
+  </data>
+  <data name="Save failed." xml:space="preserve">
+    <value>保存に失敗しました。</value>
+  </data>
+  <data name="Saved successfully!" xml:space="preserve">
+    <value>正常に保存されました！</value>
+  </data>
+  <data name="Saved! All translations will be regenerated." xml:space="preserve">
+    <value>保存完了！すべての翻訳が再生成されます。</value>
+  </data>
+  <data name="Saving..." xml:space="preserve">
+    <value>保存しています...</value>
+  </data>
+  <data name="Select a language" xml:space="preserve">
+    <value>言語を選択</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>ソース</value>
+  </data>
+  <data name="Source Culture" xml:space="preserve">
+    <value>ソース文化</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>成功しました！</value>
+  </data>
+  <data name="Translated abstract" xml:space="preserve">
+    <value>翻訳された抄録</value>
+  </data>
+  <data name="Warning!" xml:space="preserve">
+    <value>警告！</value>
+  </data>
+
+</root>

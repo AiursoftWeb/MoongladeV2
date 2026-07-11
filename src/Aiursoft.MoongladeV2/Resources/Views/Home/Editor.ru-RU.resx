@@ -33,6 +33,12 @@
   <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
     <value>Простой инструмент для преобразования вашего Markdown в чистый, обеззараженный HTML.</value>
   </data>
+  <data name="Abstract" xml:space="preserve">
+    <value>Аннотация</value>
+  </data>
+  <data name="Abstract Localization" xml:space="preserve">
+    <value>Абстрактная локализация</value>
+  </data>
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
     <value>После того как документ станет приватным, существующая публичная ссылка перестанет работать. Вы уверены, что хотите продолжить?</value>
   </data>
