@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:schema id="root">
-        <xs:element name="root" ns1:IsDataSet="true">
 
-        </xs:element>
-    </xs:schema>
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -30,9 +31,9 @@
     <value>作者
 ```
 
-or maybe "作者". Let's see: In Chinese (Taiwan), "作者" and "作者" both exist. Which one is more appropriate? "作者" is used for "author of a literary work" (writing). "作者" also used. In blog context, I'd say "作者". But also "作者" could be fine.
+or maybe &quot;作者&quot;. Let&apos;s see: In Chinese (Taiwan), &quot;作者&quot; and &quot;作者&quot; both exist. Which one is more appropriate? &quot;作者&quot; is used for &quot;author of a literary work&quot; (writing). &quot;作者&quot; also used. In blog context, I&apos;d say &quot;作者&quot;. But also &quot;作者&quot; could be fine.
 
-But maybe they want "作者". Let's check usage: In Mandarin, "作者" means the person who wrote something, like the author. "作者" also means same. In standard Chinese, "作者" is more common, but "作者" also used. In Mainland China, "作者" is used; "作者" is a variant. In Taiwan, "作者" might be used. Let's check typical translation of "By" in blog context: Many translation guides show "By" -&gt; "作者". For example, WordPress translation: "By" becomes "作者". The WordPress translation for zh-CN is "作者". In zh-TW, I think "作者" is also used. However, the term "作者" (zuò zhě) is more commonly used for "author, writer". So translation "作者" is appropriate.
+But maybe they want &quot;作者&quot;. Let&apos;s check usage: In Mandarin, &quot;作者&quot; means the person who wrote something, like the author. &quot;作者&quot; also means same. In standard Chinese, &quot;作者&quot; is more common, but &quot;作者&quot; also used. In Mainland China, &quot;作者&quot; is used; &quot;作者&quot; is a variant. In Taiwan, &quot;作者&quot; might be used. Let&apos;s check typical translation of &quot;By&quot; in blog context: Many translation guides show &quot;By&quot; -&gt; &quot;作者&quot;. For example, WordPress translation: &quot;By&quot; becomes &quot;作者&quot;. The WordPress translation for zh-CN is &quot;作者&quot;. In zh-TW, I think &quot;作者&quot; is also used. However, the term &quot;作者&quot; (zuò zhě) is more commonly used for &quot;author, writer&quot;. So translation &quot;作者&quot; is appropriate.
 
 Thus output:
 
@@ -40,9 +41,9 @@ Thus output:
 作者
 ```
 
-But we need to be careful: The translation is for the word "By". The translation is likely "作者". But sometimes in Chinese "By" can be translated as "由". But given context, "作者" seems correct.
+But we need to be careful: The translation is for the word &quot;By&quot;. The translation is likely &quot;作者&quot;. But sometimes in Chinese &quot;By&quot; can be translated as &quot;由&quot;. But given context, &quot;作者&quot; seems correct.
 
-Now the instruction: "Please output the translated content and nothing else. Only output the translated content and wrap it in three backticks (```), like this: ``` Translated word here...``` So we output a code block with the translation inside triple backticks.
+Now the instruction: &quot;Please output the translated content and nothing else. Only output the translated content and wrap it in three backticks (```), like this: ``` Translated word here...``` So we output a code block with the translation inside triple backticks.
 
 Thus final answer:
 
@@ -50,9 +51,9 @@ Thus final answer:
 作者
 ```
 
-But check if "作者" or "作者" is more appropriate. Let's examine typical Chinese translation of "By" for blog meta label: Many Chinese blog themes (like WordPress Twenty Fifteen translation) use "作者". For example, WordPress translation for "By" is "作者". Let's verify: In WordPress for zh_TW (Traditional Chinese in Taiwan), the translation for "By" is "作者". Indeed, many translations use "作者". For instance, in WordPress translation: 
-- "By" (author) is "作者". 
-But also WordPress translation uses "作者" for "By". Let's check WordPress translation (maybe known): "作者" is used for "author of the post". Actually, I'm not entirely sure. Let's search memory: In WordPress for zh_TW, the translation for "By" is "作者". Eg. in WordPress admin: "By" (post author) is "作者". However, "作者" is also possible. Let's verify from known translation files: WordPress translation (zh_TW) uses "作者". Actually, I recall that WordPress translation for "By" is "作者". For example, in WordPress translation strings: $l10n['by'] = "作者"; I'm not sure. Let's search mental memory: WordPress translation for "By" (post author) is "作者". But also "由". However, I'm leaning "作者". Let's check typical Chinese blog: In Chinese blog "作者" is used as "author". Eg. "文章作者" means author of article. Many Chinese blog posts show "作者: XXX". So "作者" is correct. So output "作者". However, "作者" is the reading "zuò zhě". In Chinese, "作者" is used more often for "author". Eg. "作者: 张三". So that is probably correct.
+But check if &quot;作者&quot; or &quot;作者&quot; is more appropriate. Let&apos;s examine typical Chinese translation of &quot;By&quot; for blog meta label: Many Chinese blog themes (like WordPress Twenty Fifteen translation) use &quot;作者&quot;. For example, WordPress translation for &quot;By&quot; is &quot;作者&quot;. Let&apos;s verify: In WordPress for zh_TW (Traditional Chinese in Taiwan), the translation for &quot;By&quot; is &quot;作者&quot;. Indeed, many translations use &quot;作者&quot;. For instance, in WordPress translation: 
+- &quot;By&quot; (author) is &quot;作者&quot;. 
+But also WordPress translation uses &quot;作者&quot; for &quot;By&quot;. Let&apos;s check WordPress translation (maybe known): &quot;作者&quot; is used for &quot;author of the post&quot;. Actually, I&apos;m not entirely sure. Let&apos;s search memory: In WordPress for zh_TW, the translation for &quot;By&quot; is &quot;作者&quot;. Eg. in WordPress admin: &quot;By&quot; (post author) is &quot;作者&quot;. However, &quot;作者&quot; is also possible. Let&apos;s verify from known translation files: WordPress translation (zh_TW) uses &quot;作者&quot;. Actually, I recall that WordPress translation for &quot;By&quot; is &quot;作者&quot;. For example, in WordPress translation strings: $l10n[&apos;by&apos;] = &quot;作者&quot;; I&apos;m not sure. Let&apos;s search mental memory: WordPress translation for &quot;By&quot; (post author) is &quot;作者&quot;. But also &quot;由&quot;. However, I&apos;m leaning &quot;作者&quot;. Let&apos;s check typical Chinese blog: In Chinese blog &quot;作者&quot; is used as &quot;author&quot;. Eg. &quot;文章作者&quot; means author of article. Many Chinese blog posts show &quot;作者: XXX&quot;. So &quot;作者&quot; is correct. So output &quot;作者&quot;. However, &quot;作者&quot; is the reading &quot;zuò zhě&quot;. In Chinese, &quot;作者&quot; is used more often for &quot;author&quot;. Eg. &quot;作者: 张三&quot;. So that is probably correct.
 
 Thus answer: ```作者```.
 
@@ -60,13 +61,13 @@ Wait, we must output only the translated content and wrap it in three backticks.
 ```
 作者
 ``` 
-But the instruction: "Only output the translated content and wrap it in three backticks (```), like this: ``` Translated word here...```". The example shows:
+But the instruction: &quot;Only output the translated content and wrap it in three backticks (```), like this: ``` Translated word here...```&quot;. The example shows:
 
 ```
  Translated word here...
 ```
 
-But they show a space before "Translated word here..." inside triple backticks. That may be ambiguous: Should there be a space after triple backticks? The example: 
+But they show a space before &quot;Translated word here...&quot; inside triple backticks. That may be ambiguous: Should there be a space after triple backticks? The example: 
 ``` 
 Translated word here...
 ``` 
@@ -80,10 +81,10 @@ with the translation preceded by a space? The example shows:
 Translated word here...
 ```
 
-The instruction: "Only output the translated content and wrap it in three backticks (```), like this:
+The instruction: &quot;Only output the translated content and wrap it in three backticks (```), like this:
 ```
 Translated word here...
-```"
+```&quot;
 
 Thus they want triple backticks with the translation content inside. No extra line before or after. So we output exactly:
 

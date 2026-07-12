@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Abstract" xml:space="preserve">
+    <value>Анотація</value>
+  </data>
+  <data name="Abstract Localization" xml:space="preserve">
+    <value>Анотація локалізації</value>
+  </data>
+  <data name="Back to Editor" xml:space="preserve">
+    <value>Повернутися до редактора</value>
+  </data>
+  <data name="Editing the source abstract will trigger re-translation of all other language abstracts. The background job will regenerate all translations from this updated source." xml:space="preserve">
+    <value>Редагування основного анотації призведе до повторного перекладу всіх інших анотацій іншими мовами. Фонове завдання переgenerуватиме всі переклади на основі оновленого джерела.</value>
+  </data>
+  <data name="Error!" xml:space="preserve">
+    <value>Помилка!</value>
+  </data>
+  <data name="Failed to load abstract." xml:space="preserve">
+    <value>Не вдалося завантажити анотацію.</value>
+  </data>
+  <data name="Generated" xml:space="preserve">
+    <value>Згенеровано</value>
+  </data>
+  <data name="Languages" xml:space="preserve">
+    <value>Мови</value>
+  </data>
+  <data name="Last Modified" xml:space="preserve">
+    <value>Останнє оновлення</value>
+  </data>
+  <data name="Save Abstract" xml:space="preserve">
+    <value>Зберегти анотацію</value>
+  </data>
+  <data name="Save failed." xml:space="preserve">
+    <value>Не вдалося зберегти.</value>
+  </data>
+  <data name="Saved successfully!" xml:space="preserve">
+    <value>Збережено успішно!</value>
+  </data>
+  <data name="Saved! All translations will be regenerated." xml:space="preserve">
+    <value>Збережено! Усі переклади буде відновлено.</value>
+  </data>
+  <data name="Saving..." xml:space="preserve">
+    <value>Зберігається...</value>
+  </data>
+  <data name="Select a language" xml:space="preserve">
+    <value>Оберіть мову</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Джерело</value>
+  </data>
+  <data name="Source Culture" xml:space="preserve">
+    <value>Вихідна культура</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Успіх!</value>
+  </data>
+  <data name="Translated abstract" xml:space="preserve">
+    <value>Переклад анотації</value>
+  </data>
+  <data name="Warning!" xml:space="preserve">
+    <value>Увага!</value>
+  </data>
+
+</root>

@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Denied" xml:space="preserve">
+      <data name="Abstract Localization" xml:space="preserve">
+    <value>Abstrakte Lokalisierung</value>
+  </data>
+  <data name="Access Denied" xml:space="preserve">
     <value>Zugriff verweigert</value>
   </data>
   <data name="Account Settings" xml:space="preserve">

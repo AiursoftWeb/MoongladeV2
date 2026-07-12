@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:schema id="root">
-        <xs:element name="root" ns1:IsDataSet="true">
 
-        </xs:element>
-    </xs:schema>
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -42,7 +43,7 @@
     <value>Mots-clés</value>
   </data>
   <data name="Modern Markdown blogging with AI-powered localization and search." xml:space="preserve">
-    <value>Blog Markdown moderne avec localisation et recherche assistées par l'IA.</value>
+    <value>Blog Markdown moderne avec localisation et recherche assistées par l&apos;IA.</value>
   </data>
   <data name="Next" xml:space="preserve">
     <value>Suivant</value>
@@ -66,7 +67,7 @@
     <value>Rechercher</value>
   </data>
   <data name="Search based on AI (Vector Database)" xml:space="preserve">
-    <value>Recherche basée sur l'IA (Base de données vectorielle)</value>
+    <value>Recherche basée sur l&apos;IA (Base de données vectorielle)</value>
   </data>
   <data name="Sort posts" xml:space="preserve">
     <value>Trier les articles</value>

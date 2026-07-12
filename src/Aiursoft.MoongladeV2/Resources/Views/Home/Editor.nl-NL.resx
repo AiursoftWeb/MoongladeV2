@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:schema id="root">
-        <xs:element name="root" ns1:IsDataSet="true">
 
-        </xs:element>
-    </xs:schema>
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -31,6 +32,12 @@
   </data>
   <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
     <value>Een eenvoudig hulpmiddel om uw Markdown om te zetten in schone, gesanitiseerde HTML.</value>
+  </data>
+  <data name="Abstract" xml:space="preserve">
+    <value>Samenvatting</value>
+  </data>
+  <data name="Abstract Localization" xml:space="preserve">
+    <value>Abstract Lokalisatie</value>
   </data>
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
     <value>Nadat u dit document privé heeft gemaakt, zal de bestaande openbare link niet meer werken. Weet u zeker dat u door wilt gaan?</value>
@@ -278,7 +285,7 @@
   <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
     <value>Deel dit document openbaar met een unieke link die iedereen zonder inloggen kan openen.</value>
   </data>
-  <data name="Smart dark mode that automatically adapts to the user's system settings." xml:space="preserve">
+  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
     <value>Slimme donkere modus die automatisch aanpast aan de systeeminstellingen van de gebruiker.</value>
   </data>
   <data name="Split View" xml:space="preserve">

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Abstract" xml:space="preserve">
+    <value>Аннотация</value>
+  </data>
+  <data name="Abstract Localization" xml:space="preserve">
+    <value>Абстрактная локализация</value>
+  </data>
+  <data name="Back to Editor" xml:space="preserve">
+    <value>Вернуться к редактору</value>
+  </data>
+  <data name="Editing the source abstract will trigger re-translation of all other language abstracts. The background job will regenerate all translations from this updated source." xml:space="preserve">
+    <value>Редактирование исходного аннотирования вызовет повторный перевод всех других языковых вариантов аннотаций. Фоновый процесс создаст заново все переводы на основе этого обновленного источника.</value>
+  </data>
+  <data name="Error!" xml:space="preserve">
+    <value>Ошибка!</value>
+  </data>
+  <data name="Failed to load abstract." xml:space="preserve">
+    <value>Не удалось загрузить аннотацию.</value>
+  </data>
+  <data name="Generated" xml:space="preserve">
+    <value>Сгенерировано</value>
+  </data>
+  <data name="Languages" xml:space="preserve">
+    <value>Языки</value>
+  </data>
+  <data name="Last Modified" xml:space="preserve">
+    <value>Последнее изменение</value>
+  </data>
+  <data name="Save Abstract" xml:space="preserve">
+    <value>Сохранить аннотацию</value>
+  </data>
+  <data name="Save failed." xml:space="preserve">
+    <value>Ошибка сохранения.</value>
+  </data>
+  <data name="Saved successfully!" xml:space="preserve">
+    <value>Сохранено успешно!</value>
+  </data>
+  <data name="Saved! All translations will be regenerated." xml:space="preserve">
+    <value>Сохранено! Все переводы будут регенерированы.</value>
+  </data>
+  <data name="Saving..." xml:space="preserve">
+    <value>Сохранение...</value>
+  </data>
+  <data name="Select a language" xml:space="preserve">
+    <value>Выберите язык</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Источник</value>
+  </data>
+  <data name="Source Culture" xml:space="preserve">
+    <value>Исходная культура</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Успешно!</value>
+  </data>
+  <data name="Translated abstract" xml:space="preserve">
+    <value>Переведенная аннотация</value>
+  </data>
+  <data name="Warning!" xml:space="preserve">
+    <value>Внимание!</value>
+  </data>
+
+</root>

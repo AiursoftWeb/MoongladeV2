@@ -33,6 +33,12 @@
   <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
     <value>一款将 Markdown 转换为洁净、安全的 HTML 的简易工具。</value>
   </data>
+  <data name="Abstract" xml:space="preserve">
+    <value>摘要本地化</value>
+  </data>
+  <data name="Abstract Localization" xml:space="preserve">
+    <value>摘要翻译</value>
+  </data>
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
     <value>将此文档设为私有后，现有的公开链接将失效。确定要继续吗？</value>
   </data>

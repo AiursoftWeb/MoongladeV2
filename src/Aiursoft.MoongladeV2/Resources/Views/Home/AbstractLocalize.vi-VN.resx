@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Abstract" xml:space="preserve">
+    <value>Tóm tắt</value>
+  </data>
+  <data name="Abstract Localization" xml:space="preserve">
+    <value>Tóm tắt vị trí hóa</value>
+  </data>
+  <data name="Back to Editor" xml:space="preserve">
+    <value>Quay lại trình soạn thảo</value>
+  </data>
+  <data name="Editing the source abstract will trigger re-translation of all other language abstracts. The background job will regenerate all translations from this updated source." xml:space="preserve">
+    <value>Chỉnh sửa bản tóm tắt nguồn sẽ kích hoạt dịch lại tất cả các bản tóm tắt bằng ngôn ngữ khác. Quy trình nền sẽ tạo lại tất cả bản dịch từ nguồn đã cập nhật này.</value>
+  </data>
+  <data name="Error!" xml:space="preserve">
+    <value>Lỗi!</value>
+  </data>
+  <data name="Failed to load abstract." xml:space="preserve">
+    <value>Không thể tải được tóm tắt.</value>
+  </data>
+  <data name="Generated" xml:space="preserve">
+    <value>Đã tạo</value>
+  </data>
+  <data name="Languages" xml:space="preserve">
+    <value>Ngôn ngữ</value>
+  </data>
+  <data name="Last Modified" xml:space="preserve">
+    <value>Lần sửa đổi cuối cùng</value>
+  </data>
+  <data name="Save Abstract" xml:space="preserve">
+    <value>Lưu Trích dẫn</value>
+  </data>
+  <data name="Save failed." xml:space="preserve">
+    <value>Lưu thất bại.</value>
+  </data>
+  <data name="Saved successfully!" xml:space="preserve">
+    <value>Đã lưu thành công!</value>
+  </data>
+  <data name="Saved! All translations will be regenerated." xml:space="preserve">
+    <value>Đã lưu! Tất cả các bản dịch sẽ được tạo lại.</value>
+  </data>
+  <data name="Saving..." xml:space="preserve">
+    <value>Đang lưu...</value>
+  </data>
+  <data name="Select a language" xml:space="preserve">
+    <value>Chọn ngôn ngữ</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Nguồn</value>
+  </data>
+  <data name="Source Culture" xml:space="preserve">
+    <value>Nguồn ngôn ngữ</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Thành công!</value>
+  </data>
+  <data name="Translated abstract" xml:space="preserve">
+    <value>Bản dịch tóm tắt</value>
+  </data>
+  <data name="Warning!" xml:space="preserve">
+    <value>Cảnh báo!</value>
+  </data>
+
+</root>

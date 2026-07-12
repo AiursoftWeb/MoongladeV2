@@ -114,6 +114,8 @@ public class ViewModelArgsInjector(
         _ = localizer["Write Post"];
     
         _ = localizer["Localization"];
+    
+        _ = localizer["Abstract Localization"];
     }
 
     public void InjectSimple(
