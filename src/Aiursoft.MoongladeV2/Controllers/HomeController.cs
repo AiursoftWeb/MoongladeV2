@@ -55,75 +55,64 @@ public class HomeController(
         }
 
         var userId = userManager.GetUserId(User);
-        if (User.Identity?.IsAuthenticated == true && !string.IsNullOrWhiteSpace(userId))
+        if (string.IsNullOrWhiteSpace(userId))
         {
-            // If the user is authenticated, this action only saves the document in the database. And it's `edit` action to render it.
-            // And go to the edit page.
-            logger.LogTrace("Authenticated user submitted a document with ID: '{Id}'. Save it to the database.",
-                model.DocumentId);
-            var documentInDb = await context.MarkdownDocuments
-                .FirstOrDefaultAsync(d => d.Id == model.DocumentId);
-            var isExistingDocument = documentInDb != null;
+            return Unauthorized();
+        }
 
-            if (documentInDb != null)
+        var documentInDb = await context.MarkdownDocuments
+            .FirstOrDefaultAsync(d => d.Id == model.DocumentId);
+        var isExistingDocument = documentInDb != null;
+
+        if (documentInDb != null)
+        {
+            // Check permissions for existing document
+            bool isOwner = documentInDb.UserId == userId;
+            bool canEdit = isOwner;
+
+            if (!isOwner)
             {
-                // Check permissions for existing document
-                bool isOwner = documentInDb.UserId == userId;
-                bool canEdit = isOwner;
+                // Check if user has Editable permission
+                var userRoles = await context.UserRoles
+                    .Where(ur => ur.UserId == userId)
+                    .Select(ur => ur.RoleId)
+                    .ToListAsync();
 
-                if (!isOwner)
-                {
-                    // Check if user has Editable permission
-                    var userRoles = await context.UserRoles
-                        .Where(ur => ur.UserId == userId)
-                        .Select(ur => ur.RoleId)
-                        .ToListAsync();
-
-                    canEdit = await context.DocumentShares
-                        .AnyAsync(s => s.DocumentId == model.DocumentId &&
-                                      s.Permission == SharePermission.Editable &&
-                                      (s.SharedWithUserId == userId ||
-                                       (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
-                }
-
-                if (!canEdit)
-                {
-                    return Forbid();
-                }
-
-                logger.LogInformation("Updating the document with ID: '{Id}'.", model.DocumentId);
-                documentInDb.UpdatedAt = DateTime.UtcNow;
-                documentInDb.Content = model.InputMarkdown.SafeSubstring(65535);
-                documentInDb.Title = model.Title;
-            }
-            else
-            {
-                model.DocumentId = Guid.NewGuid();
-                logger.LogInformation("Creating a new document with ID: '{Id}'.", model.DocumentId);
-                var newDocument = new MarkdownDocument
-                {
-                    Id = model.DocumentId,
-                    Content = model.InputMarkdown.SafeSubstring(65535),
-                    Title = string.IsNullOrWhiteSpace(model.Title)
-                        ? model.InputMarkdown.SafeSubstring(40)
-                        : model.Title.Trim(),
-                    UserId = userId
-                };
-                context.MarkdownDocuments.Add(newDocument);
+                canEdit = await context.DocumentShares
+                    .AnyAsync(s => s.DocumentId == model.DocumentId &&
+                                  s.Permission == SharePermission.Editable &&
+                                  (s.SharedWithUserId == userId ||
+                                   (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
             }
 
-            await context.SaveChangesAsync();
-            return RedirectToAction(nameof(Edit), new { id = model.DocumentId, saved = isExistingDocument });
+            if (!canEdit)
+            {
+                return Forbid();
+            }
+
+            logger.LogInformation("Updating the document with ID: '{Id}'.", model.DocumentId);
+            documentInDb.UpdatedAt = DateTime.UtcNow;
+            documentInDb.Content = model.InputMarkdown.SafeSubstring(65535);
+            documentInDb.Title = model.Title;
         }
         else
         {
-            // If the user is not authenticated, just show the result.
-            logger.LogInformation(
-                "An anonymous user submitted a document with ID: '{Id}'. It was not saved to the database.",
-                model.DocumentId);
-            model.OutputHtml = mtohService.ConvertMarkdownToHtml(model.InputMarkdown);
-            return this.StackView(model);
+            model.DocumentId = Guid.NewGuid();
+            logger.LogInformation("Creating a new document with ID: '{Id}'.", model.DocumentId);
+            var newDocument = new MarkdownDocument
+            {
+                Id = model.DocumentId,
+                Content = model.InputMarkdown.SafeSubstring(65535),
+                Title = string.IsNullOrWhiteSpace(model.Title)
+                    ? model.InputMarkdown.SafeSubstring(40)
+                    : model.Title.Trim(),
+                UserId = userId
+            };
+            context.MarkdownDocuments.Add(newDocument);
         }
+
+        await context.SaveChangesAsync();
+        return RedirectToAction(nameof(Edit), new { id = model.DocumentId, saved = isExistingDocument });
     }
 
     [Authorize(Policy = AppPermissionNames.CanWritePost)]
