@@ -201,7 +201,7 @@ public class ManageController(
             ownedDocumentsCount = await context.MarkdownDocuments.CountAsync(d => d.UserId == user.Id);
         }
         ViewData["OwnedDocumentsCount"] = ownedDocumentsCount;
-        return this.StackView(new Aiursoft.UiStack.Layout.UiStackLayoutViewModel());
+        return this.StackView(new Aiursoft.UiStack.Layout.UiStackLayoutViewModel { PageTitle = "Delete Account" });
     }
 
     //
