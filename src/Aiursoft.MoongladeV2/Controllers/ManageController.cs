@@ -8,6 +8,7 @@ using Aiursoft.WebTools.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
 
@@ -186,6 +187,44 @@ public class ManageController(
         }
 
         return this.StackView(model);
+    }
+
+    //
+    // GET: /Manage/DeleteAccount
+    [HttpGet]
+    public async Task<IActionResult> DeleteAccount([FromServices] TemplateDbContext context)
+    {
+        var user = await GetCurrentUserAsync();
+        int ownedDocumentsCount = 0;
+        if (user != null)
+        {
+            ownedDocumentsCount = await context.MarkdownDocuments.CountAsync(d => d.UserId == user.Id);
+        }
+        ViewData["OwnedDocumentsCount"] = ownedDocumentsCount;
+        return this.StackView(new Aiursoft.UiStack.Layout.UiStackLayoutViewModel());
+    }
+
+    //
+    // POST: /Manage/DeleteAccount
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteAccountPost([FromServices] TemplateDbContext context)
+    {
+        var user = await GetCurrentUserAsync();
+        if (user != null)
+        {
+            var hasDocs = await context.MarkdownDocuments.AnyAsync(d => d.UserId == user.Id);
+            if (hasDocs)
+            {
+                // Can't delete if owning documents
+                return RedirectToAction(nameof(DeleteAccount));
+            }
+            await signInManager.SignOutAsync();
+            await userManager.DeleteAsync(user);
+            logger.LogInformation(3, "User deleted their account successfully");
+            return Redirect("/");
+        }
+        return RedirectToAction(nameof(Index), new { Message = ManageMessageId.Error });
     }
 
     #region Helpers

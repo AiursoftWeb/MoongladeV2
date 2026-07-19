@@ -38,6 +38,7 @@ public class HomeController(
     [Route("/Home")]
     [Route("/Home/Editor")]
     [HttpGet]
+    [Authorize(Policy = AppPermissionNames.CanWritePost)]
     public IActionResult Editor()
     {
         return this.StackView(new IndexViewModel("Untitled Post"));
@@ -45,6 +46,7 @@ public class HomeController(
 
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [Authorize(Policy = AppPermissionNames.CanWritePost)]
     public async Task<IActionResult> SaveNew(IndexViewModel model)
     {
         if (!ModelState.IsValid)
@@ -124,7 +126,7 @@ public class HomeController(
         }
     }
 
-    [Authorize]
+    [Authorize(Policy = AppPermissionNames.CanWritePost)]
     public async Task<IActionResult> Edit([Required][FromRoute] Guid id, [FromQuery] bool? saved = false)
     {
         var userId = userManager.GetUserId(User);
@@ -183,7 +185,7 @@ public class HomeController(
     /// AJAX quick save endpoint for Ctrl+S. Saves the document without page refresh.
     /// </summary>
     [HttpPost]
-    [Authorize]
+    [Authorize(Policy = AppPermissionNames.CanWritePost)]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> SaveUpdate(IndexViewModel model)
     {
@@ -354,6 +356,12 @@ public class HomeController(
 
         if (!document.IsPublic)
         {
+            var canPublish = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanPublishPost)).Succeeded;
+            if (!canPublish)
+            {
+                return Forbid();
+            }
+
             document.IsPublic = true;
             await context.SaveChangesAsync();
             logger.LogInformation("Document with ID: '{DocumentId}' was made public by user: '{UserId}'.",
@@ -422,6 +430,15 @@ public class HomeController(
         if (!canManage)
         {
             return NotFound("The document was not found or you do not have permission to modify it.");
+        }
+
+        if (publicAccess && !document.IsPublic)
+        {
+            var canPublish = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanPublishPost)).Succeeded;
+            if (!canPublish)
+            {
+                return Forbid();
+            }
         }
 
         document.IsPublic = publicAccess;
