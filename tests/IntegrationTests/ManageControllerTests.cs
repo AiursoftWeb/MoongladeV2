@@ -4,7 +4,6 @@ using Aiursoft.MoongladeV2.Entities;
 using System.Net;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 namespace Aiursoft.MoongladeV2.Tests.IntegrationTests;
 
 [TestClass]

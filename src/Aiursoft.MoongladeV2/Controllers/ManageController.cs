@@ -4,6 +4,7 @@ using Aiursoft.MoongladeV2.Models.ManageViewModels;
 using Aiursoft.MoongladeV2.Services;
 using Aiursoft.MoongladeV2.Services.FileStorage;
 using Aiursoft.UiStack.Navigation;
+using Aiursoft.UiStack.Layout;
 using Aiursoft.WebTools.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -201,7 +202,7 @@ public class ManageController(
             ownedDocumentsCount = await context.MarkdownDocuments.CountAsync(d => d.UserId == user.Id);
         }
         ViewData["OwnedDocumentsCount"] = ownedDocumentsCount;
-        return this.StackView(new Aiursoft.UiStack.Layout.UiStackLayoutViewModel { PageTitle = "Delete Account" });
+        return this.StackView(new UiStackLayoutViewModel { PageTitle = "Delete Account" });
     }
 
     //
