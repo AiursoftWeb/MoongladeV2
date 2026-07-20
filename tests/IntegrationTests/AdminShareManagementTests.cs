@@ -153,8 +153,9 @@ public class AdminShareManagementTests
         var adminPassword = "Password123!";
         var adminId = await RegisterAndLoginUser(adminEmail, adminPassword);
         
-        // Grant permission
+        // Grant permissions
         await GrantPermissionToUser(adminId, AppPermissionNames.CanManageAnyShare);
+        await GrantPermissionToUser(adminId, AppPermissionNames.CanManagePosts);
         
         // Re-login to refresh claims
         await Logout();

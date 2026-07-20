@@ -2,7 +2,9 @@ using System.Net;
 using System.Text.RegularExpressions;
 using Aiursoft.CSTools.Tools;
 using Aiursoft.DbTools;
+using Aiursoft.MoongladeV2.Authorization;
 using Aiursoft.MoongladeV2.Entities;
+using Microsoft.AspNetCore.Identity;
 using static Aiursoft.WebTools.Extends;
 
 namespace Aiursoft.MoongladeV2.Tests.IntegrationTests;
@@ -126,6 +128,46 @@ public abstract class TestBase
         Assert.AreEqual(HttpStatusCode.Found, registerResponse.StatusCode);
 
         return (email, password);
+    }
+
+    protected async Task GrantPermissionToUser(string email, string permissionName)
+    {
+        using var scope = Server!.Services.CreateScope();
+        var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+        var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+        var user = await userManager.FindByEmailAsync(email);
+
+        var roleName = $"Role-{permissionName}";
+        if (!await roleManager.RoleExistsAsync(roleName))
+        {
+            await roleManager.CreateAsync(new IdentityRole(roleName));
+            await roleManager.AddClaimAsync(await roleManager.FindByNameAsync(roleName) ?? throw new Exception(),
+                new System.Security.Claims.Claim(AppPermissions.Type, permissionName));
+        }
+
+        await userManager.AddToRoleAsync(user!, roleName);
+    }
+
+    protected async Task ReloginAsync(string email, string password)
+    {
+        // Logout first
+        var logOffToken = await GetAntiCsrfToken("/Manage/ChangePassword");
+        var logOffContent = new FormUrlEncodedContent(new Dictionary<string, string>
+        {
+            { "__RequestVerificationToken", logOffToken }
+        });
+        await Http.PostAsync("/Account/LogOff", logOffContent);
+
+        // Login
+        var loginToken = await GetAntiCsrfToken("/Account/Login");
+        var loginContent = new FormUrlEncodedContent(new Dictionary<string, string>
+        {
+            { "EmailOrUserName", email },
+            { "Password", password },
+            { "__RequestVerificationToken", loginToken }
+        });
+        var loginResponse = await Http.PostAsync("/Account/Login", loginContent);
+        Assert.AreEqual(HttpStatusCode.Found, loginResponse.StatusCode);
     }
 
     protected T GetService<T>() where T : notnull

@@ -38,7 +38,7 @@ public class HomeController(
     [Route("/Home")]
     [Route("/Home/Editor")]
     [HttpGet]
-    [Authorize(Policy = AppPermissionNames.CanWritePost)]
+    [Authorize(Policy = AppPermissionNames.CanManagePosts)]
     public IActionResult Editor()
     {
         return this.StackView(new IndexViewModel("Untitled Post"));
@@ -46,7 +46,7 @@ public class HomeController(
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    [Authorize(Policy = AppPermissionNames.CanWritePost)]
+    [Authorize(Policy = AppPermissionNames.CanManagePosts)]
     public async Task<IActionResult> SaveNew(IndexViewModel model)
     {
         if (!ModelState.IsValid)
@@ -115,7 +115,7 @@ public class HomeController(
         return RedirectToAction(nameof(Edit), new { id = model.DocumentId, saved = isExistingDocument });
     }
 
-    [Authorize(Policy = AppPermissionNames.CanWritePost)]
+    [Authorize(Policy = AppPermissionNames.CanManagePosts)]
     public async Task<IActionResult> Edit([Required][FromRoute] Guid id, [FromQuery] bool? saved = false)
     {
         var userId = userManager.GetUserId(User);
@@ -174,7 +174,7 @@ public class HomeController(
     /// AJAX quick save endpoint for Ctrl+S. Saves the document without page refresh.
     /// </summary>
     [HttpPost]
-    [Authorize(Policy = AppPermissionNames.CanWritePost)]
+    [Authorize(Policy = AppPermissionNames.CanManagePosts)]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> SaveUpdate(IndexViewModel model)
     {
@@ -345,7 +345,7 @@ public class HomeController(
 
         if (!document.IsPublic)
         {
-            var canPublish = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanPublishPost)).Succeeded;
+            var canPublish = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
             if (!canPublish)
             {
                 return Forbid();
@@ -423,7 +423,7 @@ public class HomeController(
 
         if (publicAccess && !document.IsPublic)
         {
-            var canPublish = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanPublishPost)).Succeeded;
+            var canPublish = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
             if (!canPublish)
             {
                 return Forbid();

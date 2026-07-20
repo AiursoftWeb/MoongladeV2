@@ -1,4 +1,5 @@
 using System.Net;
+using Aiursoft.MoongladeV2.Authorization;
 
 namespace Aiursoft.MoongladeV2.Tests.IntegrationTests;
 
@@ -22,7 +23,9 @@ public class HomeControllerTests : TestBase
     [TestMethod]
     public async Task SaveUpdate_WithNonExistentDocumentId_ReturnsNotFound()
     {
-        await RegisterAndLoginAsync();
+        var (email, password) = await RegisterAndLoginAsync();
+        await GrantPermissionToUser(email, AppPermissionNames.CanManagePosts);
+        await ReloginAsync(email, password);
         var nonExistentId = Guid.NewGuid();
 
         var response = await PostForm("/Home/SaveUpdate", new Dictionary<string, string>
