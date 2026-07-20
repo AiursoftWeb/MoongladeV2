@@ -27,6 +27,9 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>Permet d&apos;attribuer ou de retirer des rôles à tout utilisateur.</value>
   </data>
+  <data name="Allows creating, editing, and publishing blog posts." xml:space="preserve">
+    <value>Permet de créer, modifier et publier des articles de blog.</value>
+  </data>
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>Permet la suppression de n&apos;importe quel document, indépendamment de son propriétaire.</value>
   </data>
@@ -110,6 +113,9 @@
   </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Gérer les paramètres globaux</value>
+  </data>
+  <data name="Manage Posts" xml:space="preserve">
+    <value>Gérer les articles</value>
   </data>
   <data name="Read All Documents" xml:space="preserve">
     <value>Lire tous les documents</value>

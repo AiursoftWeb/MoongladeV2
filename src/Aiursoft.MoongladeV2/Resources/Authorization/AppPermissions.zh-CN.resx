@@ -27,6 +27,9 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>允许为任何用户分配或移除角色。</value>
   </data>
+  <data name="Allows creating, editing, and publishing blog posts." xml:space="preserve">
+    <value>允许创建、编辑和发布博客文章。</value>
+  </data>
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>允许删除任何文档，无论其所有权归属。</value>
   </data>
@@ -110,6 +113,9 @@
   </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>管理全局设置</value>
+  </data>
+  <data name="Manage Posts" xml:space="preserve">
+    <value>管理文章</value>
   </data>
   <data name="Read All Documents" xml:space="preserve">
     <value>读取所有文档</value>
