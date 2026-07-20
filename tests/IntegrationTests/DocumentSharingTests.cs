@@ -100,7 +100,7 @@ public class DocumentSharingTests
             await roleManager.AddClaimAsync(role!, new System.Security.Claims.Claim("Permission", permissionName));
         }
 
-        await userManager.AddToRoleAsync(user!, roleName);
+        await userManager.AddToRoleAsync(user, roleName);
     }
 
     private async Task<Guid> CreateDocument(string userId, string title, string content)
