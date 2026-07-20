@@ -27,6 +27,9 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>Разрешает назначение или снятие ролей для любого пользователя.</value>
   </data>
+  <data name="Allows creating, editing, and publishing blog posts." xml:space="preserve">
+    <value>Позволяет создавать, редактировать и публиковать сообщения в блоге.</value>
+  </data>
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>Разрешает удаление любого документа независимо от владельца.</value>
   </data>
@@ -110,6 +113,9 @@
   </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Управление глобальными настройками</value>
+  </data>
+  <data name="Manage Posts" xml:space="preserve">
+    <value>Управление публикациями</value>
   </data>
   <data name="Read All Documents" xml:space="preserve">
     <value>Просмотр всех документов</value>

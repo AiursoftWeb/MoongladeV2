@@ -27,6 +27,9 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>모든 사용자에게 역할을 할당하거나 제거할 수 있습니다.</value>
   </data>
+  <data name="Allows creating, editing, and publishing blog posts." xml:space="preserve">
+    <value>블로그 게시글을 작성, 편집 및 게시할 수 있습니다.</value>
+  </data>
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>소유권에 관계없이 모든 문서를 삭제할 수 있습니다.</value>
   </data>
@@ -110,6 +113,9 @@
   </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>전역 설정 관리</value>
+  </data>
+  <data name="Manage Posts" xml:space="preserve">
+    <value>게시글 관리</value>
   </data>
   <data name="Read All Documents" xml:space="preserve">
     <value>모든 문서 읽기</value>

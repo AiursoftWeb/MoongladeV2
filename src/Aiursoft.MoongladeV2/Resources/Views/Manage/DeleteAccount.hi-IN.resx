@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Are you sure you want to delete your account?" xml:space="preserve">
+    <value>क्या आप सच में अपना खाता हटाना चाहते हैं?</value>
+  </data>
+  <data name="article(s)." xml:space="preserve">
+    <value>लेख(वें)।</value>
+  </data>
+  <data name="As these articles are public assets of the blog/news center, you must first manually delete them or transfer their ownership before you can delete your account." xml:space="preserve">
+    <value>चूंकि ये लेख ब्लॉग/न्यूज़ सेंटर की सार्वजनिक संपत्तियां हैं, आपको अपनी खाता हटाने से पहले उन्हें मैन्युअल रूप से हटाना या उनका स्वामित्व स्थानांतरित करना होगा।</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>वापस जाएं</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>रद्द करें</value>
+  </data>
+  <data name="Danger Zone" xml:space="preserve">
+    <value>खतरनाक क्षेत्र</value>
+  </data>
+  <data name="Delete Account" xml:space="preserve">
+    <value>खाता हटाएं</value>
+  </data>
+  <data name="Delete Account Data" xml:space="preserve">
+    <value>खाता डेटा हटाएं</value>
+  </data>
+  <data name="Go to my articles" xml:space="preserve">
+    <value>मेरे लेखों पर जाएं</value>
+  </data>
+  <data name="This action will permanently erase your profile and all your comments. This action cannot be undone." xml:space="preserve">
+    <value>यह क्रिया आपके प्रोफ़ाइल और सभी टिप्पणियों को स्थायी रूप से मिटा देगी। इस क्रिया को पूर्ववत नहीं किया जा सकता है।</value>
+  </data>
+  <data name="Yes, delete my account" xml:space="preserve">
+    <value>हाँ, मेरा खाता हटाएं</value>
+  </data>
+  <data name="You are currently the owner of" xml:space="preserve">
+    <value>आप वर्तमान में के मालिक हैं</value>
+  </data>
+  <data name="You cannot delete your account yet." xml:space="preserve">
+    <value>आप अभी तक अपना खाता नहीं हटा सकते।</value>
+  </data>
+
+</root>

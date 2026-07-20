@@ -27,6 +27,9 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>Mahdollistaa roolien määrittämisen tai poistamisen mille tahansa käyttäjälle.</value>
   </data>
+  <data name="Allows creating, editing, and publishing blog posts." xml:space="preserve">
+    <value>Mahdollistaa blogikirjoitusten luomisen, muokkaamisen ja julkaisemisen.</value>
+  </data>
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>Sallii minkä tahansa asiakirjan poistamisen omistajuudesta riippumatta.</value>
   </data>
@@ -110,6 +113,9 @@
   </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Hallinnoi yleisiä asetuksia</value>
+  </data>
+  <data name="Manage Posts" xml:space="preserve">
+    <value>Hallitse kirjoituksia</value>
   </data>
   <data name="Read All Documents" xml:space="preserve">
     <value>Lue kaikkia asiakirjoja</value>

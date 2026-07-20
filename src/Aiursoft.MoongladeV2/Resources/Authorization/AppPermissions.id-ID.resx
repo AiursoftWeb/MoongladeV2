@@ -27,6 +27,9 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>Memungkinkan menetapkan atau mencabut peran untuk pengguna mana pun.</value>
   </data>
+  <data name="Allows creating, editing, and publishing blog posts." xml:space="preserve">
+    <value>Memungkinkan pembuatan, pengeditan, dan penerbitan postingan blog.</value>
+  </data>
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>Memungkinkan penghapusan dokumen apa pun, terlepas dari kepemilikannya.</value>
   </data>
@@ -110,6 +113,9 @@
   </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Kelola Pengaturan Global</value>
+  </data>
+  <data name="Manage Posts" xml:space="preserve">
+    <value>Kelola Postingan</value>
   </data>
   <data name="Read All Documents" xml:space="preserve">
     <value>Baca Semua Dokumen</value>
