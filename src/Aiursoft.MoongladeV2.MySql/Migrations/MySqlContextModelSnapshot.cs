@@ -228,9 +228,6 @@ namespace Aiursoft.MoongladeV2.MySql.Migrations
                         .HasMaxLength(64)
                         .HasColumnType("varchar(64)");
 
-                    b.Property<string>("UserId1")
-                        .HasColumnType("varchar(255)");
-
                     b.HasKey("Id");
 
                     b.HasIndex("Slug")
@@ -238,8 +235,6 @@ namespace Aiursoft.MoongladeV2.MySql.Migrations
                         .HasFilter("[Slug] IS NOT NULL");
 
                     b.HasIndex("UserId");
-
-                    b.HasIndex("UserId1");
 
                     b.ToTable("MarkdownDocuments");
                 });
@@ -552,14 +547,10 @@ namespace Aiursoft.MoongladeV2.MySql.Migrations
             modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.MarkdownDocument", b =>
                 {
                     b.HasOne("Aiursoft.MoongladeV2.Entities.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Aiursoft.MoongladeV2.Entities.User", null)
                         .WithMany("CreatedDocuments")
-                        .HasForeignKey("UserId1");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
