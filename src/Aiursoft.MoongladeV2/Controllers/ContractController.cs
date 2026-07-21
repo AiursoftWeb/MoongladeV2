@@ -2,16 +2,19 @@ using Aiursoft.MoongladeV2.Configuration;
 using Aiursoft.MoongladeV2.Entities;
 using Aiursoft.MoongladeV2.Models.ContractViewModels;
 using Aiursoft.MoongladeV2.Services;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
 namespace Aiursoft.MoongladeV2.Controllers;
 
+/// <summary>
+/// Contract template filling. Public documents are accessible to everyone;
+/// private documents are treated as drafts and require authentication (any logged-in user
+/// with CanManagePosts can preview).
+/// </summary>
 [Route("contract/{id:guid}")]
 public class ContractController(
-    UserManager<User> userManager,
     TemplateDbContext context,
     MoongladeV2Service mtohService,
     GlobalSettingsService globalSettingsService) : Controller
@@ -27,8 +30,8 @@ public class ContractController(
             return NotFound("The document was not found.");
         }
 
-        var hasAccess = await HasReadAccess(document);
-        if (!hasAccess)
+        // Private documents require authentication
+        if (!document.IsPublic && User.Identity?.IsAuthenticated != true)
         {
             return Challenge();
         }
@@ -55,8 +58,8 @@ public class ContractController(
             return NotFound("The document was not found.");
         }
 
-        var hasAccess = await HasReadAccess(document);
-        if (!hasAccess)
+        // Private documents require authentication
+        if (!document.IsPublic && User.Identity?.IsAuthenticated != true)
         {
             return Challenge();
         }
@@ -84,39 +87,5 @@ public class ContractController(
         model.CompanyPhone = await globalSettingsService.GetSettingValueAsync(SettingsMap.CompanyPhone);
         model.CompanyEmail = await globalSettingsService.GetSettingValueAsync(SettingsMap.CompanyEmail);
         model.CompanyPostcode = await globalSettingsService.GetSettingValueAsync(SettingsMap.CompanyPostcode);
-    }
-
-    private async Task<bool> HasReadAccess(MarkdownDocument document)
-    {
-        if (document.IsPublic)
-        {
-            return true;
-        }
-
-        var userId = userManager.GetUserId(User);
-        if (userId != null && document.UserId == userId)
-        {
-            return true;
-        }
-
-        if (userId != null)
-        {
-            var userRoles = await context.UserRoles
-                .Where(ur => ur.UserId == userId)
-                .Select(ur => ur.RoleId)
-                .ToListAsync();
-
-            var hasSharedAccess = await context.DocumentShares
-                .AnyAsync(s => s.DocumentId == document.Id &&
-                              (s.SharedWithUserId == userId ||
-                               (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
-
-            if (hasSharedAccess)
-            {
-                return true;
-            }
-        }
-
-        return false;
     }
 }

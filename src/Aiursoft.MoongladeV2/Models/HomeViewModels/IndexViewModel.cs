@@ -59,6 +59,4 @@ public class IndexViewModel : UiStackLayoutViewModel
 
 
     public bool SavedSuccessfully { get; set; }
-
-    public bool HasInternalShares { get; set; }
 }

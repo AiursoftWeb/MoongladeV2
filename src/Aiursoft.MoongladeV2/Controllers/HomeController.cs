@@ -22,7 +22,6 @@ public class HomeController(
     UserManager<User> userManager,
     TemplateDbContext context,
     MoongladeV2Service mtohService,
-    IAuthorizationService authorizationService,
     GlobalSettingsService globalSettingsService) : Controller
 {
     [RenderInNavBar(

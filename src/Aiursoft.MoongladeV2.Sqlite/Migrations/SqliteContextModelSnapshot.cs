@@ -56,38 +56,6 @@ namespace Aiursoft.MoongladeV2.Sqlite.Migrations
                     b.ToTable("Comments");
                 });
 
-            modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.DocumentShare", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("CreationTime")
-                        .HasColumnType("TEXT");
-
-                    b.Property<Guid>("DocumentId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("Permission")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("SharedWithRoleId")
-                        .HasMaxLength(450)
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("SharedWithUserId")
-                        .HasMaxLength(64)
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DocumentId");
-
-                    b.HasIndex("SharedWithUserId");
-
-                    b.ToTable("DocumentShares");
-                });
-
             modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.GlobalSetting", b =>
                 {
                     b.Property<string>("Key")
@@ -490,23 +458,6 @@ namespace Aiursoft.MoongladeV2.Sqlite.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.DocumentShare", b =>
-                {
-                    b.HasOne("Aiursoft.MoongladeV2.Entities.MarkdownDocument", "Document")
-                        .WithMany("DocumentShares")
-                        .HasForeignKey("DocumentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Aiursoft.MoongladeV2.Entities.User", "SharedWithUser")
-                        .WithMany("SharedWithMe")
-                        .HasForeignKey("SharedWithUserId");
-
-                    b.Navigation("Document");
-
-                    b.Navigation("SharedWithUser");
-                });
-
             modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.LocalizedAbstract", b =>
                 {
                     b.HasOne("Aiursoft.MoongladeV2.Entities.MarkdownDocument", "Document")
@@ -600,16 +551,12 @@ namespace Aiursoft.MoongladeV2.Sqlite.Migrations
                 {
                     b.Navigation("Comments");
 
-                    b.Navigation("DocumentShares");
-
                     b.Navigation("LocalizedDocuments");
                 });
 
             modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.User", b =>
                 {
                     b.Navigation("CreatedDocuments");
-
-                    b.Navigation("SharedWithMe");
                 });
 #pragma warning restore 612, 618
         }
