@@ -43,12 +43,12 @@
                 @if (Model.IsSignedIn)
                 {
                     <span class="navbar-text text-light me-3">@Model.CurrentUserDisplayName</span>
-                    <a asp-controller="Home" asp-action="History" class="btn btn-sm btn-primary">@Localizer["Dashboard"]</a>
+                    <a asp-controller="Home" asp-action="Posts" class="btn btn-sm btn-primary">@Localizer["Dashboard"]</a>
                 }
                 else
                 {
                     <a asp-controller="Account" asp-action="Login" class="btn btn-sm btn-outline-light me-2">@Localizer["Login"]</a>
-                    <a asp-controller="Home" asp-action="History" class="btn btn-sm btn-primary">@Localizer["Dashboard"]</a>
+                    <a asp-controller="Home" asp-action="Posts" class="btn btn-sm btn-primary">@Localizer["Dashboard"]</a>
                 }
             </div>
         </div>

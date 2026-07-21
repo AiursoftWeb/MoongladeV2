@@ -66,30 +66,6 @@ public class HomeController(
 
         if (documentInDb != null)
         {
-            // Check permissions for existing document
-            bool isOwner = documentInDb.UserId == userId;
-            bool canEdit = isOwner;
-
-            if (!isOwner)
-            {
-                // Check if user has Editable permission
-                var userRoles = await context.UserRoles
-                    .Where(ur => ur.UserId == userId)
-                    .Select(ur => ur.RoleId)
-                    .ToListAsync();
-
-                canEdit = await context.DocumentShares
-                    .AnyAsync(s => s.DocumentId == model.DocumentId &&
-                                  s.Permission == SharePermission.Editable &&
-                                  (s.SharedWithUserId == userId ||
-                                   (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
-            }
-
-            if (!canEdit)
-            {
-                return Forbid();
-            }
-
             logger.LogInformation("Updating the document with ID: '{Id}'.", model.DocumentId);
             documentInDb.UpdatedAt = DateTime.UtcNow;
             documentInDb.Content = model.InputMarkdown.SafeSubstring(65535);
@@ -118,38 +94,13 @@ public class HomeController(
     [Authorize(Policy = AppPermissionNames.CanManagePosts)]
     public async Task<IActionResult> Edit([Required][FromRoute] Guid id, [FromQuery] bool? saved = false)
     {
-        var userId = userManager.GetUserId(User);
         var document = await context.MarkdownDocuments
-            .Include(d => d.DocumentShares)
+            .Include(d => d.User)
             .FirstOrDefaultAsync(d => d.Id == id);
 
         if (document == null)
         {
             return NotFound("The document was not found.");
-        }
-
-        // Check if user is the owner
-        bool isOwner = document.UserId == userId;
-        bool canEdit = isOwner;
-
-        if (!isOwner)
-        {
-            // Check if document is shared with the user with Editable permission
-            var userRoles = await context.UserRoles
-                .Where(ur => ur.UserId == userId)
-                .Select(ur => ur.RoleId)
-                .ToListAsync();
-
-            canEdit = await context.DocumentShares
-                .AnyAsync(s => s.DocumentId == id &&
-                              s.Permission == SharePermission.Editable &&
-                              (s.SharedWithUserId == userId ||
-                               (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
-        }
-
-        if (!canEdit)
-        {
-            return Forbid();
         }
 
         var publicLink = Url.Action(nameof(PublicController.View), "Public", new { id = document.Id }, Request.Scheme);
@@ -163,11 +114,10 @@ public class HomeController(
             IsEditing = true,
             SavedSuccessfully = saved ?? false,
             IsPublic = document.IsPublic,
-            PublicLink = publicLink,
-            HasInternalShares = document.DocumentShares.Any()
+            PublicLink = publicLink
         };
 
-        return this.StackView(model: model, viewName: nameof(Editor)); // Reuse the Index view for editing.
+        return this.StackView(model: model, viewName: nameof(Editor));
     }
 
     /// <summary>
@@ -198,28 +148,6 @@ public class HomeController(
 
         if (documentInDb != null)
         {
-            bool isOwner = documentInDb.UserId == userId;
-            bool canEdit = isOwner;
-
-            if (!isOwner)
-            {
-                var userRoles = await context.UserRoles
-                    .Where(ur => ur.UserId == userId)
-                    .Select(ur => ur.RoleId)
-                    .ToListAsync();
-
-                canEdit = await context.DocumentShares
-                    .AnyAsync(s => s.DocumentId == model.DocumentId &&
-                                  s.Permission == SharePermission.Editable &&
-                                  (s.SharedWithUserId == userId ||
-                                   (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
-            }
-
-            if (!canEdit)
-            {
-                return Forbid();
-            }
-
             documentInDb.UpdatedAt = DateTime.UtcNow;
             documentInDb.Content = model.InputMarkdown.SafeSubstring(65535);
             documentInDb.Title = model.Title;
@@ -248,7 +176,6 @@ public class HomeController(
 
         var documentsQuery = context.MarkdownDocuments
             .Include(d => d.User)
-            .Include(d => d.DocumentShares)
             .AsQueryable();
 
         if (trimmedSearch != null)
@@ -273,7 +200,7 @@ public class HomeController(
     }
 
     // GET: /Home/Delete/{guid}
-    [Authorize]
+    [Authorize(Policy = AppPermissionNames.CanManagePosts)]
     public async Task<IActionResult> Delete(Guid? id)
     {
         if (id == null)
@@ -281,19 +208,11 @@ public class HomeController(
             return NotFound();
         }
 
-        var userId = userManager.GetUserId(User);
         var document = await context.MarkdownDocuments
             .Include(d => d.User)
             .FirstOrDefaultAsync(d => d.Id == id);
 
         if (document == null)
-        {
-            return NotFound();
-        }
-
-        var isOwner = document.UserId == userId;
-        var canDelete = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
-        if (!canDelete)
         {
             return NotFound();
         }
@@ -307,7 +226,7 @@ public class HomeController(
     // POST: /Home/Delete/{guid}
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
-    [Authorize]
+    [Authorize(Policy = AppPermissionNames.CanManagePosts)]
     public async Task<IActionResult> DeleteConfirmed(Guid id)
     {
         var userId = userManager.GetUserId(User);
@@ -315,13 +234,6 @@ public class HomeController(
             .FirstOrDefaultAsync(d => d.Id == id);
 
         if (document == null)
-        {
-            return NotFound();
-        }
-
-        var isOwner = document.UserId == userId;
-        var canDelete = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
-        if (!canDelete)
         {
             return NotFound();
         }
@@ -338,7 +250,7 @@ public class HomeController(
     /// Make a document public.
     /// </summary>
     [HttpPost]
-    [Authorize]
+    [Authorize(Policy = AppPermissionNames.CanManagePosts)]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> MakePublic([Required][FromRoute] Guid id)
     {
@@ -350,25 +262,11 @@ public class HomeController(
             return NotFound("The document was not found.");
         }
 
-        var userId = userManager.GetUserId(User);
-        var isOwner = document.UserId == userId;
-        var canManage = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
-
-        if (!canManage)
-        {
-            return NotFound("The document was not found or you do not have permission to modify it.");
-        }
-
         if (!document.IsPublic)
         {
-            var canPublish = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
-            if (!canPublish)
-            {
-                return Forbid();
-            }
-
             document.IsPublic = true;
             await context.SaveChangesAsync();
+            var userId = userManager.GetUserId(User);
             logger.LogInformation("Document with ID: '{DocumentId}' was made public by user: '{UserId}'.",
                 id, userId);
         }
@@ -380,7 +278,7 @@ public class HomeController(
     /// Make a document private.
     /// </summary>
     [HttpPost]
-    [Authorize]
+    [Authorize(Policy = AppPermissionNames.CanManagePosts)]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> MakePrivate([Required][FromRoute] Guid id)
     {
@@ -392,19 +290,11 @@ public class HomeController(
             return NotFound("The document was not found.");
         }
 
-        var userId = userManager.GetUserId(User);
-        var isOwner = document.UserId == userId;
-        var canManage = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
-
-        if (!canManage)
-        {
-            return NotFound("The document was not found or you do not have permission to modify it.");
-        }
-
         if (document.IsPublic)
         {
             document.IsPublic = false;
             await context.SaveChangesAsync();
+            var userId = userManager.GetUserId(User);
             logger.LogInformation("Document with ID: '{DocumentId}' was made private by user: '{UserId}'.",
                 id, userId);
         }
@@ -413,246 +303,12 @@ public class HomeController(
     }
 
     /// <summary>
-    /// Update document visibility (Public or Private)
-    /// </summary>
-    [HttpPost]
-    [Authorize]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> UpdateVisibility([Required][FromRoute] Guid id, [FromForm] bool publicAccess)
-    {
-        var document = await context.MarkdownDocuments
-            .FirstOrDefaultAsync(d => d.Id == id);
-
-        if (document == null)
-        {
-            return NotFound("The document was not found.");
-        }
-
-        var userId = userManager.GetUserId(User);
-        var isOwner = document.UserId == userId;
-        var canManage = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
-
-        if (!canManage)
-        {
-            return NotFound("The document was not found or you do not have permission to modify it.");
-        }
-
-        if (publicAccess && !document.IsPublic)
-        {
-            var canPublish = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
-            if (!canPublish)
-            {
-                return Forbid();
-            }
-        }
-
-        document.IsPublic = publicAccess;
-        logger.LogInformation("Document with ID: '{DocumentId}' visibility updated to {IsPublic} by user: '{UserId}'.",
-            id, document.IsPublic, userId);
-
-        await context.SaveChangesAsync();
-        return RedirectToAction(nameof(ManageShares), new { id });
-    }
-
-    /// <summary>
-    /// GET: Manage shares for a specific document
-    /// </summary>
-    [HttpGet]
-    [Authorize]
-    public async Task<IActionResult> ManageShares([Required][FromRoute] Guid id)
-    {
-        var document = await context.MarkdownDocuments
-            .Include(d => d.DocumentShares)
-                .ThenInclude(s => s.SharedWithUser)
-            .FirstOrDefaultAsync(d => d.Id == id);
-
-        if (document == null)
-        {
-            return NotFound("The document was not found.");
-        }
-
-        var userId = userManager.GetUserId(User);
-        var isOwner = document.UserId == userId;
-        var canManage = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
-
-        if (!canManage)
-        {
-            return NotFound("The document was not found or you do not have permission to modify it.");
-        }
-
-        var allRoles = await context.Roles.ToListAsync();
-        var model = new ManageSharesViewModel(document.Title ?? "Untitled Document")
-        {
-            DocumentId = document.Id,
-            DocumentTitle = document.Title ?? "Untitled Document",
-            IsPublic = document.IsPublic,
-            PublicLink = Url.Action(nameof(PublicController.View), "Public", new { id = document.Id }, Request.Scheme),
-            ExistingShares = document.DocumentShares.ToList(),
-            AvailableRoles = allRoles
-        };
-
-        return this.StackView(model);
-    }
-
-    /// <summary>
-    /// POST: Add a new share for a document
-    /// </summary>
-    [HttpPost]
-    [Authorize]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> AddShare([Required][FromRoute] Guid id, AddShareViewModel model)
-    {
-        var document = await context.MarkdownDocuments
-            .FirstOrDefaultAsync(d => d.Id == id);
-
-        if (document == null)
-        {
-            return NotFound("The document was not found.");
-        }
-
-        var userId = userManager.GetUserId(User);
-        var isOwner = document.UserId == userId;
-        var canManage = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
-
-        if (!canManage)
-        {
-            return NotFound("The document was not found or you do not have permission to modify it.");
-        }
-
-        if (!ModelState.IsValid)
-        {
-            return BadRequest(ModelState);
-        }
-
-        var targetUserId = string.IsNullOrWhiteSpace(model.TargetUserId) ? null : model.TargetUserId;
-        var targetRoleId = string.IsNullOrWhiteSpace(model.TargetRoleId) ? null : model.TargetRoleId;
-
-        if (targetUserId == null && targetRoleId == null)
-        {
-            return RedirectToAction(nameof(ManageShares), new { id, error = "invalid" });
-        }
-
-        var exists = await context.DocumentShares
-            .AnyAsync(s => s.DocumentId == document.Id &&
-                           ((targetUserId != null && s.SharedWithUserId == targetUserId) ||
-                            (targetRoleId != null && s.SharedWithRoleId == targetRoleId)));
-
-        if (exists)
-        {
-            return RedirectToAction(nameof(ManageShares), new { id, error = "duplicate" });
-        }
-
-        var share = new DocumentShare
-        {
-            DocumentId = document.Id,
-            SharedWithUserId = targetUserId,
-            SharedWithRoleId = targetRoleId,
-            Permission = model.Permission
-        };
-
-        context.DocumentShares.Add(share);
-        await context.SaveChangesAsync();
-
-        logger.LogInformation("Document with ID: '{DocumentId}' was shared by user: '{UserId}'.", id, userId);
-
-        return RedirectToAction(nameof(ManageShares), new { id });
-    }
-
-    /// <summary>
-    /// POST: Remove a share
-    /// </summary>
-    [HttpPost]
-    [Authorize]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> RemoveShare([Required][FromRoute] Guid id)
-    {
-        var share = await context.DocumentShares
-            .Include(s => s.Document)
-            .FirstOrDefaultAsync(s => s.Id == id);
-
-        if (share == null)
-        {
-            return NotFound("Share not found.");
-        }
-
-        var userId = userManager.GetUserId(User);
-        var isOwner = share.Document.UserId == userId;
-        var canManage = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
-
-        if (!canManage)
-        {
-            return Forbid();
-        }
-
-        context.DocumentShares.Remove(share);
-        await context.SaveChangesAsync();
-
-        logger.LogInformation("Share with ID: '{ShareId}' was removed by user: '{UserId}'.", id, userId);
-
-        return RedirectToAction(nameof(ManageShares), new { id = share.DocumentId });
-    }
-
-    /// <summary>
-    /// GET: View documents shared with me
-    /// </summary>
-    [HttpGet]
-    [Authorize]
-    [RenderInNavBar(
-        NavGroupName = "Features",
-        NavGroupOrder = 1,
-        CascadedLinksGroupName = "Home",
-        CascadedLinksIcon = "share-2",
-        CascadedLinksOrder = 3,
-        LinkText = "Shared with me",
-        LinkOrder = 3)]
-    public async Task<IActionResult> SharedWithMe()
-    {
-        var userId = userManager.GetUserId(User);
-        var user = await userManager.FindByIdAsync(userId!);
-
-        if (user == null)
-        {
-            return NotFound("User not found.");
-        }
-
-        // Get user's roles
-        var userRoles = await userManager.GetRolesAsync(user);
-        var userRoleIds = await context.Roles
-            .Where(r => userRoles.Contains(r.Name!))
-            .Select(r => r.Id)
-            .ToListAsync();
-
-        // Get documents shared directly with user or with user's roles
-        var shares = await context.DocumentShares
-            .Include(s => s.Document)
-                .ThenInclude(d => d.User)
-            .Where(s => s.SharedWithUserId == userId || (s.SharedWithRoleId != null && userRoleIds.Contains(s.SharedWithRoleId)))
-            .OrderByDescending(s => s.CreationTime)
-            .ToListAsync();
-
-        // Get role names
-        var roleIds = shares.Where(s => s.SharedWithRoleId != null).Select(s => s.SharedWithRoleId).Distinct().ToList();
-        var roles = await context.Roles
-            .Where(r => roleIds.Contains(r.Id))
-            .ToDictionaryAsync(r => r.Id, r => r.Name!);
-
-        var model = new SharedWithMeViewModel("Shared with Me")
-        {
-            Shares = shares,
-            RoleNames = roles
-        };
-
-        return this.StackView(model);
-    }
-
-    /// <summary>
     /// GET: Localization editor for a document. Shows all configured languages and their translations.
     /// </summary>
-    [Authorize]
+    [Authorize(Policy = AppPermissionNames.CanManagePosts)]
     [HttpGet]
     public async Task<IActionResult> Localize([Required][FromRoute] Guid id)
     {
-        var userId = userManager.GetUserId(User);
         var document = await context.MarkdownDocuments
             .Include(d => d.LocalizedDocuments)
             .FirstOrDefaultAsync(d => d.Id == id);
@@ -662,35 +318,6 @@ public class HomeController(
             return NotFound("The document was not found.");
         }
 
-        // Check edit permissions: owner, shared-with-edit, or admin
-        var isOwner = document.UserId == userId;
-        var canEdit = isOwner;
-
-        if (!isOwner)
-        {
-            var userRoles = await context.UserRoles
-                .Where(ur => ur.UserId == userId)
-                .Select(ur => ur.RoleId)
-                .ToListAsync();
-
-            canEdit = await context.DocumentShares
-                .AnyAsync(s => s.DocumentId == id &&
-                              s.Permission == SharePermission.Editable &&
-                              (s.SharedWithUserId == userId ||
-                               (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
-
-            if (!canEdit)
-            {
-                canEdit = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
-            }
-        }
-
-        if (!canEdit)
-        {
-            return Forbid();
-        }
-
-        // Build the language list
         var languagesRaw = await globalSettingsService.GetSettingValueAsync(SettingsMap.LocalizationLanguages);
         var cultures = languagesRaw.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
         var languageList = new List<LanguageInfo>();
@@ -732,11 +359,10 @@ public class HomeController(
     /// <summary>
     /// GET: Returns JSON with localization data for a specific document and culture.
     /// </summary>
-    [Authorize]
+    [Authorize(Policy = AppPermissionNames.CanManagePosts)]
     [HttpGet]
     public async Task<IActionResult> LocalizeData([Required] Guid id, [Required] string culture)
     {
-        var userId = userManager.GetUserId(User);
         var document = await context.MarkdownDocuments
             .Include(d => d.LocalizedDocuments)
             .FirstOrDefaultAsync(d => d.Id == id);
@@ -744,34 +370,6 @@ public class HomeController(
         if (document == null)
         {
             return NotFound("The document was not found.");
-        }
-
-        // Same permission check as Localize GET
-        var isOwner = document.UserId == userId;
-        var canEdit = isOwner;
-
-        if (!isOwner)
-        {
-            var userRoles = await context.UserRoles
-                .Where(ur => ur.UserId == userId)
-                .Select(ur => ur.RoleId)
-                .ToListAsync();
-
-            canEdit = await context.DocumentShares
-                .AnyAsync(s => s.DocumentId == id &&
-                              s.Permission == SharePermission.Editable &&
-                              (s.SharedWithUserId == userId ||
-                               (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
-
-            if (!canEdit)
-            {
-                canEdit = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
-            }
-        }
-
-        if (!canEdit)
-        {
-            return Forbid();
         }
 
         var localized = document.LocalizedDocuments
@@ -793,13 +391,12 @@ public class HomeController(
     /// <summary>
     /// POST: Saves a manual localization correction via AJAX.
     /// </summary>
-    [Authorize]
+    [Authorize(Policy = AppPermissionNames.CanManagePosts)]
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> SaveLocalization([Required] Guid documentId, [Required] string culture,
         string localizedTitle, string localizedContent)
     {
-        var userId = userManager.GetUserId(User);
         var document = await context.MarkdownDocuments
             .FirstOrDefaultAsync(d => d.Id == documentId);
 
@@ -808,35 +405,6 @@ public class HomeController(
             return NotFound("The document was not found.");
         }
 
-        // Same permission check
-        var isOwner = document.UserId == userId;
-        var canEdit = isOwner;
-
-        if (!isOwner)
-        {
-            var userRoles = await context.UserRoles
-                .Where(ur => ur.UserId == userId)
-                .Select(ur => ur.RoleId)
-                .ToListAsync();
-
-            canEdit = await context.DocumentShares
-                .AnyAsync(s => s.DocumentId == documentId &&
-                              s.Permission == SharePermission.Editable &&
-                              (s.SharedWithUserId == userId ||
-                               (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
-
-            if (!canEdit)
-            {
-                canEdit = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
-            }
-        }
-
-        if (!canEdit)
-        {
-            return Forbid();
-        }
-
-        // Truncate to entity limits
         localizedTitle = localizedTitle.SafeSubstring(200);
         localizedContent = localizedContent.SafeSubstring(65535);
 
@@ -864,6 +432,7 @@ public class HomeController(
 
         await context.SaveChangesAsync();
 
+        var userId = userManager.GetUserId(User);
         logger.LogInformation(
             "User '{UserId}' manually updated localization for document '{DocumentId}' to culture '{Culture}'.",
             userId, documentId, culture);
@@ -874,11 +443,10 @@ public class HomeController(
     /// <summary>
     /// GET: Abstract localization editor for a document. Shows all configured languages and their abstracts.
     /// </summary>
-    [Authorize]
+    [Authorize(Policy = AppPermissionNames.CanManagePosts)]
     [HttpGet]
     public async Task<IActionResult> AbstractLocalize([Required][FromRoute] Guid id)
     {
-        var userId = userManager.GetUserId(User);
         var document = await context.MarkdownDocuments
             .FirstOrDefaultAsync(d => d.Id == id);
 
@@ -887,35 +455,6 @@ public class HomeController(
             return NotFound("The document was not found.");
         }
 
-        // Check edit permissions: owner, shared-with-edit, or admin
-        var isOwner = document.UserId == userId;
-        var canEdit = isOwner;
-
-        if (!isOwner)
-        {
-            var userRoles = await context.UserRoles
-                .Where(ur => ur.UserId == userId)
-                .Select(ur => ur.RoleId)
-                .ToListAsync();
-
-            canEdit = await context.DocumentShares
-                .AnyAsync(s => s.DocumentId == id &&
-                              s.Permission == SharePermission.Editable &&
-                              (s.SharedWithUserId == userId ||
-                               (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
-
-            if (!canEdit)
-            {
-                canEdit = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
-            }
-        }
-
-        if (!canEdit)
-        {
-            return Forbid();
-        }
-
-        // Build the language list from LocalizedAbstracts (single query, then match in memory)
         var languagesRaw = await globalSettingsService.GetSettingValueAsync(SettingsMap.LocalizationLanguages);
         var cultures = languagesRaw.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 
@@ -963,45 +502,16 @@ public class HomeController(
     /// <summary>
     /// GET: Returns JSON with abstract data for a specific document and culture.
     /// </summary>
-    [Authorize]
+    [Authorize(Policy = AppPermissionNames.CanManagePosts)]
     [HttpGet]
     public async Task<IActionResult> AbstractLocalizeData([Required] Guid id, [Required] string culture)
     {
-        var userId = userManager.GetUserId(User);
         var document = await context.MarkdownDocuments
             .FirstOrDefaultAsync(d => d.Id == id);
 
         if (document == null)
         {
             return NotFound("The document was not found.");
-        }
-
-        // Same permission check as AbstractLocalize GET
-        var isOwner = document.UserId == userId;
-        var canEdit = isOwner;
-
-        if (!isOwner)
-        {
-            var userRoles = await context.UserRoles
-                .Where(ur => ur.UserId == userId)
-                .Select(ur => ur.RoleId)
-                .ToListAsync();
-
-            canEdit = await context.DocumentShares
-                .AnyAsync(s => s.DocumentId == id &&
-                              s.Permission == SharePermission.Editable &&
-                              (s.SharedWithUserId == userId ||
-                               (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
-
-            if (!canEdit)
-            {
-                canEdit = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
-            }
-        }
-
-        if (!canEdit)
-        {
-            return Forbid();
         }
 
         var localized = await context.LocalizedAbstracts
@@ -1024,16 +534,13 @@ public class HomeController(
 
     /// <summary>
     /// POST: Saves a manual abstract correction via AJAX.
-    /// If saving the source-culture abstract, all other language abstracts are invalidated
-    /// so the background job will re-translate them.
     /// </summary>
-    [Authorize]
+    [Authorize(Policy = AppPermissionNames.CanManagePosts)]
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> SaveAbstractLocalization([Required] Guid documentId, [Required] string culture,
         string abstractText)
     {
-        var userId = userManager.GetUserId(User);
         var document = await context.MarkdownDocuments
             .FirstOrDefaultAsync(d => d.Id == documentId);
 
@@ -1042,35 +549,6 @@ public class HomeController(
             return NotFound("The document was not found.");
         }
 
-        // Same permission check
-        var isOwner = document.UserId == userId;
-        var canEdit = isOwner;
-
-        if (!isOwner)
-        {
-            var userRoles = await context.UserRoles
-                .Where(ur => ur.UserId == userId)
-                .Select(ur => ur.RoleId)
-                .ToListAsync();
-
-            canEdit = await context.DocumentShares
-                .AnyAsync(s => s.DocumentId == documentId &&
-                              s.Permission == SharePermission.Editable &&
-                              (s.SharedWithUserId == userId ||
-                               (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
-
-            if (!canEdit)
-            {
-                canEdit = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
-            }
-        }
-
-        if (!canEdit)
-        {
-            return Forbid();
-        }
-
-        // Truncate to entity limit
         abstractText = abstractText.SafeSubstring(8192);
 
         var existing = await context.LocalizedAbstracts
@@ -1095,8 +573,6 @@ public class HomeController(
 
         var isSourceCulture = string.Equals(culture, document.SourceCulture, StringComparison.OrdinalIgnoreCase);
 
-        // If saving the source-culture abstract, invalidate all other language abstracts
-        // so the background job re-translates them from the updated source.
         if (isSourceCulture)
         {
             var otherAbstracts = await context.LocalizedAbstracts
@@ -1109,6 +585,7 @@ public class HomeController(
                 other.LastGeneratedAt = DateTime.MinValue;
             }
 
+            var userId = userManager.GetUserId(User);
             logger.LogInformation(
                 "User '{UserId}' updated source abstract for document '{DocumentId}' ({Culture}). " +
                 "{Count} other language abstract(s) invalidated for re-translation.",
@@ -1116,6 +593,7 @@ public class HomeController(
         }
         else
         {
+            var userId = userManager.GetUserId(User);
             logger.LogInformation(
                 "User '{UserId}' manually updated abstract for document '{DocumentId}' to culture '{Culture}'.",
                 userId, documentId, culture);

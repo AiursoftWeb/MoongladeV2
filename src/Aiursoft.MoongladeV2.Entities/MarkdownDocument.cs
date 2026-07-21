@@ -83,9 +83,6 @@ public class MarkdownDocument
 
     // ── Navigation ─────────────────────────────────────────────────────────────
 
-    [InverseProperty(nameof(DocumentShare.Document))]
-    public IEnumerable<DocumentShare> DocumentShares { get; init; } = new List<DocumentShare>();
-
     [InverseProperty(nameof(LocalizedDocument.Document))]
     public ICollection<LocalizedDocument> LocalizedDocuments { get; init; } = new List<LocalizedDocument>();
 

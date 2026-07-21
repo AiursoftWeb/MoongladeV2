@@ -22,8 +22,4 @@ public class User : IdentityUser
     [JsonIgnore]
     [InverseProperty(nameof(MarkdownDocument.User))]
     public IEnumerable<MarkdownDocument> CreatedDocuments { get; set; } = new List<MarkdownDocument>();
-
-    [JsonIgnore]
-    [InverseProperty(nameof(DocumentShare.SharedWithUser))]
-    public IEnumerable<DocumentShare> SharedWithMe { get; init; } = new List<DocumentShare>();
 }

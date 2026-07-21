@@ -16,8 +16,6 @@ public abstract class TemplateDbContext(DbContextOptions options) : IdentityDbCo
 
     public DbSet<MarkdownDocument> MarkdownDocuments => Set<MarkdownDocument>();
 
-    public DbSet<DocumentShare> DocumentShares => Set<DocumentShare>();
-
     public DbSet<LocalizedDocument> LocalizedDocuments => Set<LocalizedDocument>();
 
     public DbSet<SearchEmbedding> SearchEmbeddings => Set<SearchEmbedding>();
