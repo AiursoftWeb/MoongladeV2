@@ -1,6 +1,7 @@
 using System.Net;
 using Aiursoft.CSTools.Tools;
 using Aiursoft.DbTools;
+using Aiursoft.MoongladeV2.Authorization;
 using Aiursoft.MoongladeV2.Configuration;
 using Aiursoft.MoongladeV2.Entities;
 using Aiursoft.MoongladeV2.Services;
@@ -374,7 +375,7 @@ public class ContractTests
     }
 
     private async Task RegisterAndLogin(string email, string password,
-        string? permission = Aiursoft.MoongladeV2.Authorization.AppPermissionNames.CreateEditOrPublishAnyDocument)
+        string? permission = AppPermissionNames.CreateEditOrPublishAnyDocument)
     {
         var regPage = await _http.GetAsync("/Account/Register");
         var regHtml = await regPage.Content.ReadAsStringAsync();
@@ -407,7 +408,7 @@ public class ContractTests
 
         // Log out and log back in to refresh claims
         var logOffPage = await _http.GetAsync("/Manage/ChangePassword");
-        if (logOffPage.StatusCode == System.Net.HttpStatusCode.OK)
+        if (logOffPage.StatusCode == HttpStatusCode.OK)
         {
             var logOffHtml = await logOffPage.Content.ReadAsStringAsync();
             var logOffToken = ExtractToken(logOffHtml);
