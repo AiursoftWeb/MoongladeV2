@@ -53,7 +53,7 @@ public class PostsTests : TestBase
     public async Task DraftOnlyUser_CanEditAnyPost()
     {
         // Create post as user 1
-        var (email1, password1) = await RegisterAndLoginAsync();
+        var (email1, _) = await RegisterAndLoginAsync();
         await GrantPermissionToUser(email1, AppPermissionNames.CreateEditOrPublishAnyDocument);
         var docId = Guid.NewGuid();
         using (var scope = Server!.Services.CreateScope())
