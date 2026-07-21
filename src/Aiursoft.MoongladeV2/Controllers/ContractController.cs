@@ -1,7 +1,9 @@
+using Aiursoft.MoongladeV2.Authorization;
 using Aiursoft.MoongladeV2.Configuration;
 using Aiursoft.MoongladeV2.Entities;
 using Aiursoft.MoongladeV2.Models.ContractViewModels;
 using Aiursoft.MoongladeV2.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
@@ -10,14 +12,15 @@ namespace Aiursoft.MoongladeV2.Controllers;
 
 /// <summary>
 /// Contract template filling. Public documents are accessible to everyone;
-/// private documents are treated as drafts and require authentication (any logged-in user
-/// with CanManagePosts can preview).
+/// private documents require content permission (CreateOrEditDraftDocument
+/// or CreateEditOrPublishAnyDocument).
 /// </summary>
 [Route("contract/{id:guid}")]
 public class ContractController(
     TemplateDbContext context,
     MoongladeV2Service mtohService,
-    GlobalSettingsService globalSettingsService) : Controller
+    GlobalSettingsService globalSettingsService,
+    IAuthorizationService authorizationService) : Controller
 {
     [HttpGet]
     public async Task<IActionResult> Fill([Required][FromRoute] Guid id)
@@ -30,10 +33,9 @@ public class ContractController(
             return NotFound("The document was not found.");
         }
 
-        // Private documents require authentication
-        if (!document.IsPublic && User.Identity?.IsAuthenticated != true)
+        if (!document.IsPublic && !await HasContentPermission())
         {
-            return Challenge();
+            return User.Identity?.IsAuthenticated == true ? Forbid() : Challenge();
         }
 
         var model = new ContractViewModel(document.Title ?? "Untitled Document")
@@ -58,10 +60,9 @@ public class ContractController(
             return NotFound("The document was not found.");
         }
 
-        // Private documents require authentication
-        if (!document.IsPublic && User.Identity?.IsAuthenticated != true)
+        if (!document.IsPublic && !await HasContentPermission())
         {
-            return Challenge();
+            return User.Identity?.IsAuthenticated == true ? Forbid() : Challenge();
         }
 
         model.Title = document.Title ?? "Untitled Document";
@@ -87,5 +88,11 @@ public class ContractController(
         model.CompanyPhone = await globalSettingsService.GetSettingValueAsync(SettingsMap.CompanyPhone);
         model.CompanyEmail = await globalSettingsService.GetSettingValueAsync(SettingsMap.CompanyEmail);
         model.CompanyPostcode = await globalSettingsService.GetSettingValueAsync(SettingsMap.CompanyPostcode);
+    }
+
+    private async Task<bool> HasContentPermission()
+    {
+        return (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CreateEditOrPublishAnyDocument)).Succeeded ||
+               (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CreateOrEditDraftDocument)).Succeeded;
     }
 }

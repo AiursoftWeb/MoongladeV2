@@ -373,7 +373,8 @@ public class ContractTests
         Assert.IsTrue(html.Contains("test-logo.png"));
     }
 
-    private async Task RegisterAndLogin(string email, string password)
+    private async Task RegisterAndLogin(string email, string password,
+        string? permission = Aiursoft.MoongladeV2.Authorization.AppPermissionNames.CreateEditOrPublishAnyDocument)
     {
         var regPage = await _http.GetAsync("/Account/Register");
         var regHtml = await regPage.Content.ReadAsStringAsync();
@@ -386,7 +387,36 @@ public class ContractTests
             { "__RequestVerificationToken", token }
         });
         await _http.PostAsync("/Account/Register", regContent);
-        
+
+        // Grant content permission so user can view private drafts
+        if (permission != null)
+        {
+            using var scope = _server!.Services.CreateScope();
+            var userManager = scope.ServiceProvider.GetRequiredService<Microsoft.AspNetCore.Identity.UserManager<User>>();
+            var roleManager = scope.ServiceProvider.GetRequiredService<Microsoft.AspNetCore.Identity.RoleManager<Microsoft.AspNetCore.Identity.IdentityRole>>();
+            var user = await userManager.FindByEmailAsync(email);
+            var roleName = $"Role-{permission}";
+            if (!await roleManager.RoleExistsAsync(roleName))
+            {
+                await roleManager.CreateAsync(new Microsoft.AspNetCore.Identity.IdentityRole(roleName));
+                await roleManager.AddClaimAsync(await roleManager.FindByNameAsync(roleName) ?? throw new Exception(),
+                    new System.Security.Claims.Claim("Permission", permission));
+            }
+            await userManager.AddToRoleAsync(user!, roleName);
+        }
+
+        // Log out and log back in to refresh claims
+        var logOffPage = await _http.GetAsync("/Manage/ChangePassword");
+        if (logOffPage.StatusCode == System.Net.HttpStatusCode.OK)
+        {
+            var logOffHtml = await logOffPage.Content.ReadAsStringAsync();
+            var logOffToken = ExtractToken(logOffHtml);
+            await _http.PostAsync("/Account/LogOff", new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                { "__RequestVerificationToken", logOffToken }
+            }));
+        }
+
         var loginPage = await _http.GetAsync("/Account/Login");
         var loginHtml = await loginPage.Content.ReadAsStringAsync();
         token = ExtractToken(loginHtml);

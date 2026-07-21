@@ -1,6 +1,8 @@
 using System.ComponentModel.DataAnnotations;
+using Aiursoft.MoongladeV2.Authorization;
 using Aiursoft.MoongladeV2.Models.PublicViewModels;
 using Aiursoft.MoongladeV2.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Aiursoft.MoongladeV2.Entities;
@@ -9,14 +11,16 @@ namespace Aiursoft.MoongladeV2.Controllers;
 
 /// <summary>
 /// Controller for shared and public documents.
-/// Public documents are accessible to everyone. Private documents require authentication
-/// and the viewer must hold the CanManagePosts permission (for draft preview).
+/// Public documents are accessible to everyone.
+/// Private documents (drafts) are only visible to users with content permissions
+/// (CreateOrEditDraftDocument or CreateEditOrPublishAnyDocument).
 /// </summary>
 [Route("share/{id:guid}")]
 public class PublicController(
     ILogger<PublicController> logger,
     TemplateDbContext context,
-    MoongladeV2Service mtohService) : Controller
+    MoongladeV2Service mtohService,
+    IAuthorizationService authorizationService) : Controller
 {
     /// <summary>
     /// View a shared document.
@@ -42,10 +46,10 @@ public class PublicController(
             return await RenderDocumentAsync(document, id);
         }
 
-        // Private documents: any authenticated user can preview (drafts are company-internal)
-        if (User.Identity?.IsAuthenticated != true)
+        // Private documents: only users with content permissions can preview
+        if (!await HasContentPermission())
         {
-            return Challenge();
+            return User.Identity?.IsAuthenticated == true ? Forbid() : Challenge();
         }
 
         return await RenderDocumentAsync(document, id);
@@ -66,9 +70,9 @@ public class PublicController(
             return NotFound("The document was not found.");
         }
 
-        if (!document.IsPublic && User.Identity?.IsAuthenticated != true)
+        if (!document.IsPublic && !await HasContentPermission())
         {
-            return Challenge();
+            return User.Identity?.IsAuthenticated == true ? Forbid() : Challenge();
         }
 
         var outputHtml = mtohService.ConvertMarkdownToHtml(document.Content ?? string.Empty);
@@ -100,12 +104,18 @@ public class PublicController(
             return NotFound("The document was not found.");
         }
 
-        if (!document.IsPublic && User.Identity?.IsAuthenticated != true)
+        if (!document.IsPublic && !await HasContentPermission())
         {
-            return Challenge();
+            return User.Identity?.IsAuthenticated == true ? Forbid() : Challenge();
         }
 
         return Content(document.Content ?? string.Empty, "text/plain; charset=utf-8");
+    }
+
+    private async Task<bool> HasContentPermission()
+    {
+        return (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CreateEditOrPublishAnyDocument)).Succeeded ||
+               (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CreateOrEditDraftDocument)).Succeeded;
     }
 
     private async Task<IActionResult> RenderDocumentAsync(MarkdownDocument document, Guid id)
@@ -116,6 +126,8 @@ public class PublicController(
 
         var outputHtml = mtohService.ConvertMarkdownToHtml(document.Content ?? string.Empty);
 
+        var canEdit = await HasContentPermission();
+
         var model = new PublicDocumentViewModel(document.Title ?? "Untitled Document")
         {
             DocumentTitle = document.Title ?? "Untitled Document",
@@ -123,8 +135,7 @@ public class PublicController(
             MarkdownContent = document.Content ?? string.Empty,
             AuthorName = document.User.UserName ?? "Unknown Author",
             CreationTime = document.CreationTime,
-            CanEdit = User.Identity?.IsAuthenticated == true &&
-                      document.UserId == User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value
+            CanEdit = canEdit
         };
 
         ViewBag.DocumentId = id;

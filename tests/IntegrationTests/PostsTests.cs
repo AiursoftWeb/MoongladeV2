@@ -357,4 +357,94 @@ public class PostsTests : TestBase
         Assert.IsTrue(html.Contains("50% complete"));
         Assert.IsFalse(html.Contains("Regular document"));
     }
+
+    [TestMethod]
+    public async Task Visitor_WithoutPermission_CannotAccessEditor()
+    {
+        await RegisterAndLoginAsync();
+        // No permissions granted
+
+        var response = await Http.GetAsync("/Home/Editor");
+        Assert.AreEqual(HttpStatusCode.Redirect, response.StatusCode,
+            "User without content permission should be redirected (Forbid)");
+    }
+
+    [TestMethod]
+    public async Task Visitor_WithoutPermission_CannotAccessPosts()
+    {
+        await RegisterAndLoginAsync();
+        // No permissions granted
+
+        var response = await Http.GetAsync("/Home/Posts");
+        Assert.AreEqual(HttpStatusCode.Redirect, response.StatusCode,
+            "User without content permission should be redirected (Forbid)");
+    }
+
+    [TestMethod]
+    public async Task Visitor_WithoutPermission_CannotViewPrivateDraft()
+    {
+        var (email, password) = await RegisterAndLoginAsync();
+        await GrantPermissionToUser(email, AppPermissionNames.CreateEditOrPublishAnyDocument);
+        await ReloginAsync(email, password);
+
+        // Create a private draft
+        var docId = Guid.NewGuid();
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+            var user = await db.Users.FirstAsync(u => u.Email == email);
+            db.MarkdownDocuments.Add(new MarkdownDocument
+            {
+                Id = docId,
+                Title = "Secret Draft",
+                Content = "# Top Secret",
+                UserId = user.Id,
+                IsPublic = false,
+                CreationTime = DateTime.UtcNow
+            });
+            await db.SaveChangesAsync();
+        }
+
+        // Now login as a different user with NO permissions
+        var (visitorEmail, visitorPassword) = await RegisterAndLoginAsync();
+        // No permissions granted
+
+        var response = await Http.GetAsync($"/share/{docId}");
+        Assert.AreEqual(HttpStatusCode.Redirect, response.StatusCode,
+            "Visitor without content permission should be forbidden from viewing private drafts");
+    }
+
+    [TestMethod]
+    public async Task Visitor_CanViewPublicPost()
+    {
+        var (email, password) = await RegisterAndLoginAsync();
+        await GrantPermissionToUser(email, AppPermissionNames.CreateEditOrPublishAnyDocument);
+        await ReloginAsync(email, password);
+
+        // Create and publish a post
+        var docId = Guid.NewGuid();
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+            var user = await db.Users.FirstAsync(u => u.Email == email);
+            db.MarkdownDocuments.Add(new MarkdownDocument
+            {
+                Id = docId,
+                Title = "Public News",
+                Content = "# News",
+                UserId = user.Id,
+                IsPublic = true,
+                CreationTime = DateTime.UtcNow
+            });
+            await db.SaveChangesAsync();
+        }
+
+        // Anonymous user can view
+        var handler = new HttpClientHandler { AllowAutoRedirect = false, UseCookies = false };
+        using var anonHttp = new HttpClient(handler) { BaseAddress = Http.BaseAddress };
+
+        var response = await anonHttp.GetAsync($"/share/{docId}");
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode,
+            "Anyone should be able to view a public post, even anonymously");
+    }
 }
