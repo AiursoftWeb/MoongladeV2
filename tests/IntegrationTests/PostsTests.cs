@@ -400,7 +400,7 @@ public class PostsTests : TestBase
         }
 
         // Now login as a different user with NO permissions
-        var (visitorEmail, visitorPassword) = await RegisterAndLoginAsync();
+        _ = await RegisterAndLoginAsync();
         // No permissions granted
 
         var response = await Http.GetAsync($"/share/{docId}");
@@ -434,8 +434,9 @@ public class PostsTests : TestBase
         }
 
         // Anonymous user can view
-        var handler = new HttpClientHandler { AllowAutoRedirect = false, UseCookies = false };
-        using var anonHttp = new HttpClient(handler) { BaseAddress = Http.BaseAddress };
+        // ReSharper disable once ShortLivedHttpClient
+        using var anonHttp = new HttpClient(new HttpClientHandler { AllowAutoRedirect = false, UseCookies = false });
+        anonHttp.BaseAddress = Http.BaseAddress;
 
         var response = await anonHttp.GetAsync($"/share/{docId}");
         Assert.AreEqual(HttpStatusCode.OK, response.StatusCode,
