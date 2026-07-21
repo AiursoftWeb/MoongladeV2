@@ -70,7 +70,6 @@ public class HomeController(
 
         var documentInDb = await context.MarkdownDocuments
             .FirstOrDefaultAsync(d => d.Id == model.DocumentId);
-        var isExistingDocument = documentInDb != null;
 
         if (documentInDb != null)
         {
@@ -96,7 +95,7 @@ public class HomeController(
         }
 
         await context.SaveChangesAsync();
-        return RedirectToAction(nameof(Edit), new { id = model.DocumentId, saved = isExistingDocument });
+        return RedirectToAction(nameof(Edit), new { id = model.DocumentId, saved = true });
     }
 
     [Authorize]

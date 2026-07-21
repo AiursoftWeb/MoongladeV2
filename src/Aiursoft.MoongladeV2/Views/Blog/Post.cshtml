@@ -2,9 +2,11 @@
 @using Aiursoft.MoongladeV2.Controllers
 @using System.Globalization
 @model Aiursoft.MoongladeV2.Models.BlogViewModels.PostViewModel
+@inject Aiursoft.MoongladeV2.Services.FileStorage.StorageService Storage
 
 @{
     var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
+    var showAuthorInfo = ViewBag.ShowAuthorInfo as bool? ?? true;
 }
 
 <vc:marketing-navbar></vc:marketing-navbar>
@@ -16,18 +18,33 @@
                 <a class="post-back-link" asp-controller="Blog" asp-action="Index">@Localizer["Back to posts"]</a>
                 <h1 class="post-title font-sairas">@Model.Title</h1>
 
-                <div class="post-publish-info text-muted mb-2">
-                    <span class="me-2">
-                        <span class="post-meta-label">@Localizer["By"]</span>
-                        @Model.AuthorName
-                    </span>
-                    <span class="me-2">
-                        <span class="post-meta-label">@Localizer["Published"]</span>
-                        <time datetime="@Model.PublishedAt.ToString("O", CultureInfo.InvariantCulture)">
-                            @Model.PublishedAt.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)
-                        </time>
-                    </span>
-                </div>
+                @if (showAuthorInfo)
+                {
+                    <div class="post-author-info d-flex align-items-center justify-content-center gap-3 mb-3">
+                        <img src="@Storage.RelativePathToInternetUrl(Model.AuthorAvatarPath)?w=64&square=true"
+                             alt="@Model.AuthorName" class="rounded-circle" width="48" height="48"
+                             style="object-fit: cover;" />
+                        <div class="text-start">
+                            <div class="fw-bold">@Model.AuthorName</div>
+                            <div class="text-muted small">
+                                <time datetime="@Model.PublishedAt.ToString("O", CultureInfo.InvariantCulture)">
+                                    @Model.PublishedAt.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)
+                                </time>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="post-publish-info text-muted mb-2">
+                        <span class="me-2">
+                            <span class="post-meta-label">@Localizer["Published"]</span>
+                            <time datetime="@Model.PublishedAt.ToString("O", CultureInfo.InvariantCulture)">
+                                @Model.PublishedAt.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)
+                            </time>
+                        </span>
+                    </div>
+                }
 
                 @if (Model.Tags.Any())
                 {

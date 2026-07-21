@@ -1,9 +1,13 @@
 @using Aiursoft.MoongladeV2.Controllers
+@using Aiursoft.MoongladeV2.Authorization
+@using Microsoft.AspNetCore.Authorization
 @model Aiursoft.MoongladeV2.Models.HomeViewModels.IndexViewModel
 @inject Aiursoft.MoongladeV2.Services.FileStorage.StorageService Storage
+@inject IAuthorizationService AuthorizationService
 
 @{
     var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
+    var canPublish = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CreateEditOrPublishAnyDocument)).Succeeded;
 }
 
 @if (Model.SavedSuccessfully)
@@ -87,6 +91,22 @@
 
             @if ((User.Identity?.IsAuthenticated ?? false) && Model.IsEditing)
             {
+                @if (canPublish)
+                {
+                    @if (Model.IsPublic)
+                    {
+                        <button type="button" id="unpublish-button" class="btn btn-sm btn-warning shadow-sm" title="@Localizer["Unpublish"]">
+                            <i class="align-middle" data-lucide="lock"></i> <span class="d-none d-xxl-inline">@Localizer["Unpublish"]</span>
+                        </button>
+                    }
+                    else
+                    {
+                        <button type="button" id="publish-button" class="btn btn-sm btn-success shadow-sm" title="@Localizer["Publish"]">
+                            <i class="align-middle" data-lucide="globe"></i> <span class="d-none d-xxl-inline">@Localizer["Publish"]</span>
+                        </button>
+                    }
+                }
+
                 <a asp-action="Localize" asp-route-id="@Model.DocumentId" class="btn btn-sm btn-white text-dark shadow-sm" title="@Localizer["Localization"]">
                     <i class="align-middle" data-lucide="languages"></i> <span class="d-none d-xxl-inline">@Localizer["Localize"]</span>
                 </a>
@@ -964,6 +984,35 @@
                         renderMath();
                         renderHighlight();
                     }, 200);
+                }
+
+                // --- Publish / Unpublish ---
+                const publishBtn = document.getElementById('publish-button');
+                const unpublishBtn = document.getElementById('unpublish-button');
+                const docId = document.querySelector('input[name="DocumentId"]').value;
+
+                if (publishBtn) {
+                    publishBtn.addEventListener('click', async () => {
+                        const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+                        const resp = await fetch(`/Home/MakePublic/${docId}`, {
+                            method: 'POST',
+                            headers: { 'RequestVerificationToken': token, 'Content-Type': 'application/x-www-form-urlencoded' },
+                            body: `__RequestVerificationToken=${encodeURIComponent(token)}`
+                        });
+                        if (resp.ok) location.reload();
+                    });
+                }
+
+                if (unpublishBtn) {
+                    unpublishBtn.addEventListener('click', async () => {
+                        const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+                        const resp = await fetch(`/Home/MakePrivate/${docId}`, {
+                            method: 'POST',
+                            headers: { 'RequestVerificationToken': token, 'Content-Type': 'application/x-www-form-urlencoded' },
+                            body: `__RequestVerificationToken=${encodeURIComponent(token)}`
+                        });
+                        if (resp.ok) location.reload();
+                    });
                 }
 
                 // --- Public Link Copy ---

@@ -17,6 +17,9 @@ public class SettingsMap
     public const string ContractLogo = "ContractLogo";
     public const string ShowContractHeader = "ShowContractHeader";
 
+    // ── Blog ──────────────────────────────────────────────────────────────────
+    public const string ShowAuthorInfo = "ShowAuthorInfo";
+
     // ── Comments ──────────────────────────────────────────────────────────────
     public const string EnableComments = "EnableComments";
     public const string RequireCommentReview = "RequireCommentReview";
@@ -146,6 +149,16 @@ public class SettingsMap
             Key = ShowContractHeader,
             Name = Localizer["Show Contract Header"],
             Description = Localizer["Whether to show the contract header (Logo, address, etc.) in the contract view."],
+            Type = SettingType.Bool,
+            DefaultValue = "True"
+        },
+
+        // ── Blog ────────────────────────────────────────────────────────────────
+        new GlobalSettingDefinition
+        {
+            Key = ShowAuthorInfo,
+            Name = Localizer["Show Author Info"],
+            Description = Localizer["Show author name and avatar at the top of blog post pages."],
             Type = SettingType.Bool,
             DefaultValue = "True"
         },

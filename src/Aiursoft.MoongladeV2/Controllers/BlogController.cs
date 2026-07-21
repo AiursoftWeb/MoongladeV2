@@ -1,5 +1,7 @@
 using System.Text.RegularExpressions;
+using Aiursoft.MoongladeV2.Configuration;
 using Aiursoft.MoongladeV2.Entities;
+
 using Aiursoft.MoongladeV2.Models.BlogViewModels;
 using Aiursoft.MoongladeV2.Services;
 using Aiursoft.WebTools.Attributes;
@@ -14,7 +16,8 @@ public class BlogController(
     MoongladeV2Service moongladeV2Service,
     DocumentLocalizationService localizationService,
     DocumentVectorSearchService vectorSearch,
-    SearchRateLimiter rateLimiter) : Controller
+    SearchRateLimiter rateLimiter,
+    GlobalSettingsService globalSettingsService) : Controller
 {
     private const int PageSize = 10;
 
@@ -158,6 +161,8 @@ public class BlogController(
             .OrderByDescending(c => c.CreatedAt)
             .ToListAsync();
 
+        var showAuthorInfo = await globalSettingsService.GetBoolSettingAsync(SettingsMap.ShowAuthorInfo);
+
         var model = new PostViewModel
         {
             PageTitle = title,
@@ -166,12 +171,14 @@ public class BlogController(
             AuthorName = !string.IsNullOrWhiteSpace(document.User.DisplayName)
                 ? document.User.DisplayName
                 : document.User.UserName ?? "Unknown Author",
+            AuthorAvatarPath = document.User.AvatarRelativePath,
             PublishedAt = document.CreationTime,
             HeroImageUrl = document.HeroImageUrl,
             ContentHtml = moongladeV2Service.ConvertMarkdownToHtml(markdownContent),
             Tags = BlogTagParser.ParseTags(document.Tags),
             Comments = comments
         };
+        ViewBag.ShowAuthorInfo = showAuthorInfo;
         return this.SimpleView(model, viewName: nameof(Post));
     }
 
