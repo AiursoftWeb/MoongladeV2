@@ -24,7 +24,7 @@ public class HomeControllerTests : TestBase
     public async Task SaveUpdate_WithNonExistentDocumentId_ReturnsNotFound()
     {
         var (email, password) = await RegisterAndLoginAsync();
-        await GrantPermissionToUser(email, AppPermissionNames.CanManagePosts);
+        await GrantPermissionToUser(email, AppPermissionNames.CreateEditOrPublishAnyDocument);
         await ReloginAsync(email, password);
         var nonExistentId = Guid.NewGuid();
 

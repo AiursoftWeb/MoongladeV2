@@ -22,8 +22,15 @@ public class HomeController(
     UserManager<User> userManager,
     TemplateDbContext context,
     MoongladeV2Service mtohService,
+    IAuthorizationService authorizationService,
     GlobalSettingsService globalSettingsService) : Controller
 {
+    private async Task<bool> HasAnyContentPermission()
+    {
+        return (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CreateEditOrPublishAnyDocument)).Succeeded ||
+               (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CreateOrEditDraftDocument)).Succeeded;
+    }
+
     [RenderInNavBar(
         NavGroupName = "Features",
         NavGroupOrder = 1,
@@ -37,17 +44,19 @@ public class HomeController(
     [Route("/Home")]
     [Route("/Home/Editor")]
     [HttpGet]
-    [Authorize(Policy = AppPermissionNames.CanManagePosts)]
-    public IActionResult Editor()
+    [Authorize]
+    public async Task<IActionResult> Editor()
     {
+        if (!await HasAnyContentPermission()) return Forbid();
         return this.StackView(new IndexViewModel("Untitled Post"));
     }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    [Authorize(Policy = AppPermissionNames.CanManagePosts)]
+    [Authorize]
     public async Task<IActionResult> SaveNew(IndexViewModel model)
     {
+        if (!await HasAnyContentPermission()) return Forbid();
         if (!ModelState.IsValid)
         {
             return this.StackView(model);
@@ -90,9 +99,10 @@ public class HomeController(
         return RedirectToAction(nameof(Edit), new { id = model.DocumentId, saved = isExistingDocument });
     }
 
-    [Authorize(Policy = AppPermissionNames.CanManagePosts)]
+    [Authorize]
     public async Task<IActionResult> Edit([Required][FromRoute] Guid id, [FromQuery] bool? saved = false)
     {
+        if (!await HasAnyContentPermission()) return Forbid();
         var document = await context.MarkdownDocuments
             .Include(d => d.User)
             .FirstOrDefaultAsync(d => d.Id == id);
@@ -123,10 +133,11 @@ public class HomeController(
     /// AJAX quick save endpoint for Ctrl+S. Saves the document without page refresh.
     /// </summary>
     [HttpPost]
-    [Authorize(Policy = AppPermissionNames.CanManagePosts)]
+    [Authorize]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> SaveUpdate(IndexViewModel model)
     {
+        if (!await HasAnyContentPermission()) return Forbid();
         if (!ModelState.IsValid)
         {
             var errors = ModelState.Values
@@ -160,7 +171,7 @@ public class HomeController(
         return Ok(new { success = true, documentId = model.DocumentId });
     }
 
-    [Authorize(Policy = AppPermissionNames.CanManagePosts)]
+    [Authorize]
     [RenderInNavBar(
     NavGroupName = "Features",
     NavGroupOrder = 1,
@@ -171,6 +182,7 @@ public class HomeController(
     LinkOrder = 2)]
     public async Task<IActionResult> Posts([FromQuery] string? search)
     {
+        if (!await HasAnyContentPermission()) return Forbid();
         var trimmedSearch = string.IsNullOrWhiteSpace(search) ? null : search.Trim();
 
         var documentsQuery = context.MarkdownDocuments
@@ -199,9 +211,10 @@ public class HomeController(
     }
 
     // GET: /Home/Delete/{guid}
-    [Authorize(Policy = AppPermissionNames.CanManagePosts)]
+    [Authorize]
     public async Task<IActionResult> Delete(Guid? id)
     {
+        if (!await HasAnyContentPermission()) return Forbid();
         if (id == null)
         {
             return NotFound();
@@ -225,9 +238,10 @@ public class HomeController(
     // POST: /Home/Delete/{guid}
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
-    [Authorize(Policy = AppPermissionNames.CanManagePosts)]
+    [Authorize]
     public async Task<IActionResult> DeleteConfirmed(Guid id)
     {
+        if (!await HasAnyContentPermission()) return Forbid();
         var userId = userManager.GetUserId(User);
         var document = await context.MarkdownDocuments
             .FirstOrDefaultAsync(d => d.Id == id);
@@ -249,7 +263,7 @@ public class HomeController(
     /// Make a document public.
     /// </summary>
     [HttpPost]
-    [Authorize(Policy = AppPermissionNames.CanManagePosts)]
+    [Authorize(Policy = AppPermissionNames.CreateEditOrPublishAnyDocument)]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> MakePublic([Required][FromRoute] Guid id)
     {
@@ -277,7 +291,7 @@ public class HomeController(
     /// Make a document private.
     /// </summary>
     [HttpPost]
-    [Authorize(Policy = AppPermissionNames.CanManagePosts)]
+    [Authorize(Policy = AppPermissionNames.CreateEditOrPublishAnyDocument)]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> MakePrivate([Required][FromRoute] Guid id)
     {
@@ -304,7 +318,7 @@ public class HomeController(
     /// <summary>
     /// GET: Localization editor for a document. Shows all configured languages and their translations.
     /// </summary>
-    [Authorize(Policy = AppPermissionNames.CanManagePosts)]
+    [Authorize(Policy = AppPermissionNames.CreateEditOrPublishAnyDocument)]
     [HttpGet]
     public async Task<IActionResult> Localize([Required][FromRoute] Guid id)
     {
@@ -358,7 +372,7 @@ public class HomeController(
     /// <summary>
     /// GET: Returns JSON with localization data for a specific document and culture.
     /// </summary>
-    [Authorize(Policy = AppPermissionNames.CanManagePosts)]
+    [Authorize(Policy = AppPermissionNames.CreateEditOrPublishAnyDocument)]
     [HttpGet]
     public async Task<IActionResult> LocalizeData([Required] Guid id, [Required] string culture)
     {
@@ -390,7 +404,7 @@ public class HomeController(
     /// <summary>
     /// POST: Saves a manual localization correction via AJAX.
     /// </summary>
-    [Authorize(Policy = AppPermissionNames.CanManagePosts)]
+    [Authorize(Policy = AppPermissionNames.CreateEditOrPublishAnyDocument)]
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> SaveLocalization([Required] Guid documentId, [Required] string culture,
@@ -442,7 +456,7 @@ public class HomeController(
     /// <summary>
     /// GET: Abstract localization editor for a document. Shows all configured languages and their abstracts.
     /// </summary>
-    [Authorize(Policy = AppPermissionNames.CanManagePosts)]
+    [Authorize(Policy = AppPermissionNames.CreateEditOrPublishAnyDocument)]
     [HttpGet]
     public async Task<IActionResult> AbstractLocalize([Required][FromRoute] Guid id)
     {
@@ -501,7 +515,7 @@ public class HomeController(
     /// <summary>
     /// GET: Returns JSON with abstract data for a specific document and culture.
     /// </summary>
-    [Authorize(Policy = AppPermissionNames.CanManagePosts)]
+    [Authorize(Policy = AppPermissionNames.CreateEditOrPublishAnyDocument)]
     [HttpGet]
     public async Task<IActionResult> AbstractLocalizeData([Required] Guid id, [Required] string culture)
     {
@@ -534,7 +548,7 @@ public class HomeController(
     /// <summary>
     /// POST: Saves a manual abstract correction via AJAX.
     /// </summary>
-    [Authorize(Policy = AppPermissionNames.CanManagePosts)]
+    [Authorize(Policy = AppPermissionNames.CreateEditOrPublishAnyDocument)]
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> SaveAbstractLocalization([Required] Guid documentId, [Required] string culture,
