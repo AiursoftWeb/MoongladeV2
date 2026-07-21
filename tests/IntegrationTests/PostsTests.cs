@@ -273,51 +273,52 @@ public class PostsTests : TestBase
     [TestMethod]
     public async Task PostsPage_ShowsAllDocuments_ToBothPermissions()
     {
-        // Create two documents from two different users directly in DB
-        string user1Id, user2Id;
+        // Create a document as user 1
+        var (email1, password1) = await RegisterAndLoginAsync();
+        await GrantPermissionToUser(email1, AppPermissionNames.CreateOrEditDraftDocument);
+        await ReloginAsync(email1, password1);
+
         using (var scope = Server!.Services.CreateScope())
         {
             var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
-            var userManager = scope.ServiceProvider.GetRequiredService<Microsoft.AspNetCore.Identity.UserManager<User>>();
-
-            var user1 = new User { UserName = $"junior-{Guid.NewGuid()}", DisplayName = "Junior", Email = $"junior-{Guid.NewGuid()}@test.com" };
-            await userManager.CreateAsync(user1, "Password123!");
-            user1Id = user1.Id;
-
-            var user2 = new User { UserName = $"boss-{Guid.NewGuid()}", DisplayName = "Boss", Email = $"boss-{Guid.NewGuid()}@test.com" };
-            await userManager.CreateAsync(user2, "Password123!");
-            user2Id = user2.Id;
-
+            var user = await db.Users.FirstAsync(u => u.Email == email1);
             db.MarkdownDocuments.Add(new MarkdownDocument
             {
                 Id = Guid.NewGuid(),
-                Title = "Junior's Post",
+                Title = "Junior Draft",
                 Content = "# Junior",
-                UserId = user1Id,
-                CreationTime = DateTime.UtcNow
-            });
-            db.MarkdownDocuments.Add(new MarkdownDocument
-            {
-                Id = Guid.NewGuid(),
-                Title = "Boss Post",
-                Content = "# Boss",
-                UserId = user2Id,
+                UserId = user.Id,
                 CreationTime = DateTime.UtcNow
             });
             await db.SaveChangesAsync();
         }
 
-        // Login as a user with PublishAny
-        var (email, password) = await RegisterAndLoginAsync();
-        await GrantPermissionToUser(email, AppPermissionNames.CreateEditOrPublishAnyDocument);
-        await ReloginAsync(email, password);
+        // Create a document as user 2
+        var (email2, password2) = await RegisterAndLoginAsync();
+        await GrantPermissionToUser(email2, AppPermissionNames.CreateEditOrPublishAnyDocument);
+        await ReloginAsync(email2, password2);
 
-        // Should see all posts (all company property)
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+            var user = await db.Users.FirstAsync(u => u.Email == email2);
+            db.MarkdownDocuments.Add(new MarkdownDocument
+            {
+                Id = Guid.NewGuid(),
+                Title = "Boss Draft",
+                Content = "# Boss",
+                UserId = user.Id,
+                CreationTime = DateTime.UtcNow
+            });
+            await db.SaveChangesAsync();
+        }
+
+        // User 2 (publish-any) sees all posts
         var response = await Http.GetAsync("/Home/Posts");
         Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
         var html = await response.Content.ReadAsStringAsync();
-        Assert.IsTrue(html.Contains("Junior's Post"), "Posts page should show junior's post");
-        Assert.IsTrue(html.Contains("Boss Post"), "Posts page should show boss's post");
+        Assert.IsTrue(html.Contains("Junior Draft"), "Posts page should show junior's draft");
+        Assert.IsTrue(html.Contains("Boss Draft"), "Posts page should show boss's draft");
     }
 
     [TestMethod]
