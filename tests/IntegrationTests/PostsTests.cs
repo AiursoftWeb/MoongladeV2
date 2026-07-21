@@ -44,7 +44,6 @@ public class PostsTests : TestBase
         }
 
         // Try to make public — should redirect to access denied (Forbid triggers redirect)
-        var token = await GetAntiCsrfToken($"/Home/Edit/{docId}");
         var response = await PostForm($"/Home/MakePublic/{docId}", new(), tokenUrl: $"/Home/Edit/{docId}");
         Assert.AreEqual(HttpStatusCode.Redirect, response.StatusCode);
     }
@@ -53,7 +52,7 @@ public class PostsTests : TestBase
     public async Task DraftOnlyUser_CanEditAnyPost()
     {
         // Create post as user 1
-        var (email1, password1) = await RegisterAndLoginAsync();
+        var (email1, _) = await RegisterAndLoginAsync();
         await GrantPermissionToUser(email1, AppPermissionNames.CreateEditOrPublishAnyDocument);
         var docId = Guid.NewGuid();
         using (var scope = Server!.Services.CreateScope())
@@ -112,7 +111,6 @@ public class PostsTests : TestBase
         Assert.AreEqual(HttpStatusCode.OK, deletePage.StatusCode,
             "Draft-only user should see delete confirmation page");
 
-        var token = await GetAntiCsrfToken($"/Home/Delete/{docId}");
         var deleteResponse = await PostForm($"/Home/Delete/{docId}", new(), tokenUrl: $"/Home/Delete/{docId}");
         Assert.AreEqual(HttpStatusCode.Found, deleteResponse.StatusCode,
             "Draft-only user should be able to delete any post");
@@ -141,7 +139,6 @@ public class PostsTests : TestBase
             await db.SaveChangesAsync();
         }
 
-        var token = await GetAntiCsrfToken($"/Home/Edit/{docId}");
         var response = await PostForm($"/Home/MakePublic/{docId}", new(), tokenUrl: $"/Home/Edit/{docId}");
         Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
 
@@ -180,7 +177,6 @@ public class PostsTests : TestBase
         await GrantPermissionToUser(email2, AppPermissionNames.CreateEditOrPublishAnyDocument);
         await ReloginAsync(email2, password2);
 
-        var token = await GetAntiCsrfToken($"/Home/Edit/{docId}");
         var response = await PostForm($"/Home/MakePublic/{docId}", new(), tokenUrl: $"/Home/Edit/{docId}");
         Assert.AreEqual(HttpStatusCode.OK, response.StatusCode,
             "Publish-any user should be able to publish another user's draft");
@@ -217,7 +213,6 @@ public class PostsTests : TestBase
             await db.SaveChangesAsync();
         }
 
-        var token = await GetAntiCsrfToken($"/Home/Edit/{docId}");
         var response = await PostForm($"/Home/MakePrivate/{docId}", new(), tokenUrl: $"/Home/Edit/{docId}");
         Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
 
@@ -260,7 +255,6 @@ public class PostsTests : TestBase
         Assert.AreEqual(HttpStatusCode.OK, editPage.StatusCode);
 
         // Save update
-        var token = await GetAntiCsrfToken($"/Home/Edit/{docId}");
         var saveResponse = await PostForm("/Home/SaveUpdate", new Dictionary<string, string>
         {
             { "DocumentId", docId.ToString() },
