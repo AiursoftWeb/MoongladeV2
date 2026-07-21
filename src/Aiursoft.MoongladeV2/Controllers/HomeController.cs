@@ -233,38 +233,40 @@ public class HomeController(
         return Ok(new { success = true, documentId = model.DocumentId });
     }
 
-    [Authorize]
+    [Authorize(Policy = AppPermissionNames.CanManagePosts)]
     [RenderInNavBar(
     NavGroupName = "Features",
     NavGroupOrder = 1,
     CascadedLinksGroupName = "Home",
-    CascadedLinksIcon = "history",
+    CascadedLinksIcon = "file-text",
     CascadedLinksOrder = 2,
-    LinkText = "My posts",
+    LinkText = "Posts",
     LinkOrder = 2)]
-    public async Task<IActionResult> History([FromQuery] string? search)
+    public async Task<IActionResult> Posts([FromQuery] string? search)
     {
-        var userId = userManager.GetUserId(User);
         var trimmedSearch = string.IsNullOrWhiteSpace(search) ? null : search.Trim();
 
         var documentsQuery = context.MarkdownDocuments
-            .Where(d => d.UserId == userId);
+            .Include(d => d.User)
+            .Include(d => d.DocumentShares)
+            .AsQueryable();
 
         if (trimmedSearch != null)
         {
             documentsQuery = documentsQuery.Where(d =>
                 (d.Title != null && d.Title.Contains(trimmedSearch)) ||
-                (d.Content != null && d.Content.Contains(trimmedSearch)));
+                (d.Content != null && d.Content.Contains(trimmedSearch)) ||
+                d.User.DisplayName.Contains(trimmedSearch) ||
+                (d.User.UserName != null && d.User.UserName.Contains(trimmedSearch)));
         }
 
         var documents = await documentsQuery
-            .Include(d => d.DocumentShares)
             .OrderByDescending(d => d.CreationTime)
             .ToListAsync();
 
-        var model = new HistoryViewModel
+        var model = new PostsViewModel
         {
-            MyDocuments = documents,
+            Posts = documents,
             SearchQuery = trimmedSearch
         };
         return this.StackView(model);
@@ -281,11 +283,18 @@ public class HomeController(
 
         var userId = userManager.GetUserId(User);
         var document = await context.MarkdownDocuments
-            .FirstOrDefaultAsync(d => d.Id == id && d.UserId == userId);
+            .Include(d => d.User)
+            .FirstOrDefaultAsync(d => d.Id == id);
 
         if (document == null)
         {
-            // Document not found or user does not have permission.
+            return NotFound();
+        }
+
+        var isOwner = document.UserId == userId;
+        var canDelete = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
+        if (!canDelete)
+        {
             return NotFound();
         }
 
@@ -303,9 +312,16 @@ public class HomeController(
     {
         var userId = userManager.GetUserId(User);
         var document = await context.MarkdownDocuments
-            .FirstOrDefaultAsync(d => d.Id == id && d.UserId == userId);
+            .FirstOrDefaultAsync(d => d.Id == id);
 
         if (document == null)
+        {
+            return NotFound();
+        }
+
+        var isOwner = document.UserId == userId;
+        var canDelete = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
+        if (!canDelete)
         {
             return NotFound();
         }
@@ -315,7 +331,7 @@ public class HomeController(
 
         logger.LogInformation("Document with ID: '{Id}' was deleted by user: '{UserId}'.", id, userId);
 
-        return RedirectToAction(nameof(History));
+        return RedirectToAction(nameof(Posts));
     }
 
     /// <summary>
@@ -336,7 +352,7 @@ public class HomeController(
 
         var userId = userManager.GetUserId(User);
         var isOwner = document.UserId == userId;
-        var canManage = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAnyShare)).Succeeded;
+        var canManage = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
 
         if (!canManage)
         {
@@ -378,7 +394,7 @@ public class HomeController(
 
         var userId = userManager.GetUserId(User);
         var isOwner = document.UserId == userId;
-        var canManage = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAnyShare)).Succeeded;
+        var canManage = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
 
         if (!canManage)
         {
@@ -414,7 +430,7 @@ public class HomeController(
 
         var userId = userManager.GetUserId(User);
         var isOwner = document.UserId == userId;
-        var canManage = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAnyShare)).Succeeded;
+        var canManage = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
 
         if (!canManage)
         {
@@ -457,7 +473,7 @@ public class HomeController(
 
         var userId = userManager.GetUserId(User);
         var isOwner = document.UserId == userId;
-        var canManage = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAnyShare)).Succeeded;
+        var canManage = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
 
         if (!canManage)
         {
@@ -496,7 +512,7 @@ public class HomeController(
 
         var userId = userManager.GetUserId(User);
         var isOwner = document.UserId == userId;
-        var canManage = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAnyShare)).Succeeded;
+        var canManage = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
 
         if (!canManage)
         {
@@ -561,7 +577,7 @@ public class HomeController(
 
         var userId = userManager.GetUserId(User);
         var isOwner = share.Document.UserId == userId;
-        var canManage = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAnyShare)).Succeeded;
+        var canManage = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
 
         if (!canManage)
         {
@@ -629,20 +645,6 @@ public class HomeController(
         return this.StackView(model);
     }
 
-    [RenderInNavBar(
-        NavGroupName = "Self Host",
-        NavGroupOrder = 10,
-        CascadedLinksGroupName = "Deployment",
-        CascadedLinksIcon = "server",
-        CascadedLinksOrder = 1,
-        LinkText = "Self host a new server",
-        LinkOrder = 1
-    )]
-    public IActionResult SelfHost()
-    {
-        return this.StackView(new SelfHostViewModel("Self host a new server"));
-    }
-
     /// <summary>
     /// GET: Localization editor for a document. Shows all configured languages and their translations.
     /// </summary>
@@ -679,7 +681,7 @@ public class HomeController(
 
             if (!canEdit)
             {
-                canEdit = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanEditAnyDocument)).Succeeded;
+                canEdit = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
             }
         }
 
@@ -763,7 +765,7 @@ public class HomeController(
 
             if (!canEdit)
             {
-                canEdit = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanEditAnyDocument)).Succeeded;
+                canEdit = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
             }
         }
 
@@ -825,7 +827,7 @@ public class HomeController(
 
             if (!canEdit)
             {
-                canEdit = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanEditAnyDocument)).Succeeded;
+                canEdit = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
             }
         }
 
@@ -904,7 +906,7 @@ public class HomeController(
 
             if (!canEdit)
             {
-                canEdit = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanEditAnyDocument)).Succeeded;
+                canEdit = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
             }
         }
 
@@ -993,7 +995,7 @@ public class HomeController(
 
             if (!canEdit)
             {
-                canEdit = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanEditAnyDocument)).Succeeded;
+                canEdit = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
             }
         }
 
@@ -1059,7 +1061,7 @@ public class HomeController(
 
             if (!canEdit)
             {
-                canEdit = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanEditAnyDocument)).Succeeded;
+                canEdit = (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManagePosts)).Succeeded;
             }
         }
 

@@ -379,7 +379,7 @@ public class DocumentSharingTests
     }
 
     [TestMethod]
-    public async Task SharedUser_CannotMakeDocumentPublic_EvenWithEditablePermission()
+    public async Task SharedUser_WithCanManagePosts_CanMakeDocumentPublic()
     {
         // Arrange
         var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", "Password123!");
@@ -393,7 +393,7 @@ public class DocumentSharingTests
         await ReloginAsync(editorEmail, editorPassword);
         await CreateShare(documentId, editorId, null, SharePermission.Editable);
 
-        // Act - Try to make document public
+        // Act - CanMakeDocumentPublic since CanManagePosts covers all content operations
         var token = await GetAntiCsrfToken($"/Home/Edit/{documentId}");
         var makePublicResponse = await _http.PostAsync($"/Home/MakePublic/{documentId}",
             new FormUrlEncodedContent(new Dictionary<string, string>
@@ -401,14 +401,12 @@ public class DocumentSharingTests
                 { "__RequestVerificationToken", token }
             }));
 
-        // Assert - Should be forbidden or not found
-        Assert.IsTrue(
-            makePublicResponse.StatusCode == HttpStatusCode.NotFound ||
-            makePublicResponse.StatusCode == HttpStatusCode.Forbidden);
+        // Assert - CanManagePosts holders can make any document public
+        Assert.AreEqual(HttpStatusCode.OK, makePublicResponse.StatusCode);
     }
 
     [TestMethod]
-    public async Task SharedUser_CannotMakeDocumentPrivate_EvenWithEditablePermission()
+    public async Task SharedUser_WithCanManagePosts_CanMakeDocumentPrivate()
     {
         // Arrange
         var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", "Password123!");
@@ -423,7 +421,7 @@ public class DocumentSharingTests
         await ReloginAsync(editorEmail, editorPassword);
         await CreateShare(documentId, editorId, null, SharePermission.Editable);
 
-        // Act - Try to make document private
+        // Act - Can MakePrivate since CanManagePosts covers all content operations
         var token = await GetAntiCsrfToken($"/Home/Edit/{documentId}");
         var makePrivateResponse = await _http.PostAsync($"/Home/MakePrivate/{documentId}",
             new FormUrlEncodedContent(new Dictionary<string, string>
@@ -431,14 +429,12 @@ public class DocumentSharingTests
                 { "__RequestVerificationToken", token }
             }));
 
-        // Assert - Should be forbidden or not found
-        Assert.IsTrue(
-            makePrivateResponse.StatusCode == HttpStatusCode.NotFound ||
-            makePrivateResponse.StatusCode == HttpStatusCode.Forbidden);
+        // Assert - CanManagePosts holders can make any document private
+        Assert.AreEqual(HttpStatusCode.OK, makePrivateResponse.StatusCode);
     }
 
     [TestMethod]
-    public async Task SharedUser_CannotDeleteDocument_EvenWithEditablePermission()
+    public async Task SharedUser_WithCanManagePosts_CanDeleteDocument()
     {
         // Arrange
         var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", "Password123!");
@@ -452,11 +448,11 @@ public class DocumentSharingTests
         await ReloginAsync(editorEmail, editorPassword);
         await CreateShare(documentId, editorId, null, SharePermission.Editable);
 
-        // Act - Try to access delete page
+        // Act - Access delete page (now allowed since CanManagePosts covers everything)
         var deletePageResponse = await _http.GetAsync($"/Home/Delete/{documentId}");
-        Assert.AreEqual(HttpStatusCode.NotFound, deletePageResponse.StatusCode);
+        Assert.AreEqual(HttpStatusCode.OK, deletePageResponse.StatusCode);
 
-        // Act - Try to delete document directly
+        // Act - Delete document
         var token = await GetAntiCsrfToken($"/Home/Edit/{documentId}");
         var deleteResponse = await _http.PostAsync($"/Home/Delete/{documentId}",
             new FormUrlEncodedContent(new Dictionary<string, string>
@@ -464,37 +460,34 @@ public class DocumentSharingTests
                 { "__RequestVerificationToken", token }
             }));
 
-        // Assert - Should be forbidden or not found
-        Assert.IsTrue(
-            deleteResponse.StatusCode == HttpStatusCode.NotFound ||
-            deleteResponse.StatusCode == HttpStatusCode.Forbidden);
+        // Assert - CanManagePosts holders can delete any document; redirects to Posts
+        Assert.AreEqual(HttpStatusCode.Found, deleteResponse.StatusCode);
     }
 
     [TestMethod]
-    public async Task SharedUser_CannotAddMoreShares_ToDocument()
+    public async Task SharedUser_WithCanManagePosts_CanAddMoreShares_ToDocument()
     {
         // Arrange
         var email1 = $"editor1-{Guid.NewGuid()}@test.com";
         var email2 = $"editor2-{Guid.NewGuid()}@test.com";
         var password = "Password123!";
-        
+
         var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", password);
         var documentId = await CreateDocument(ownerId, "Shared Document", "# Content");
         await Logout();
-        
+
         var editor1Id = await RegisterAndLoginUser(email1, password);
         await CreateShare(documentId, editor1Id, null, SharePermission.Editable);
-        
+
         // Create another user to share with
         await Logout();
         var editor2Id = await RegisterAndLoginUser(email2, password);
         await Logout();
-        
-        // Grant CanManagePosts before relogin (user was already registered and logged out)
+
+        // Grant CanManagePosts before relogin
         await GrantPermissionAsync(email1, AppPermissionNames.CanManagePosts);
 
-        // Login as editor1 (who has Editable permission but is not the owner)
-        // We need to actually login, not register a new user!
+        // Login as editor1 (who has CanManagePosts + Editable permission)
         var loginToken = await GetAntiCsrfToken("/Account/Login");
         var loginContent = new FormUrlEncodedContent(new Dictionary<string, string>
         {
@@ -505,9 +498,9 @@ public class DocumentSharingTests
         var loginResponse = await _http.PostAsync("/Account/Login", loginContent);
         Assert.AreEqual(HttpStatusCode.Found, loginResponse.StatusCode);
 
-        // Act - Try to add a new share
+        // Act - Add a new share (now allowed since CanManagePosts covers all content ops)
         var token = await GetAntiCsrfToken($"/Home/Edit/{documentId}");
-        var addShareResponse = await _http.PostAsync($"/Home/AddShare/{documentId}", 
+        var addShareResponse = await _http.PostAsync($"/Home/AddShare/{documentId}",
             new FormUrlEncodedContent(new Dictionary<string, string>
             {
                 { "TargetUserId", editor2Id },
@@ -515,10 +508,8 @@ public class DocumentSharingTests
                 { "__RequestVerificationToken", token }
             }));
 
-        // Assert - Should be forbidden or not found (can't access ManageShares)
-        Assert.IsTrue(
-            addShareResponse.StatusCode == HttpStatusCode.NotFound || 
-            addShareResponse.StatusCode == HttpStatusCode.Forbidden);
+        // Assert - CanManagePosts holders can add shares; redirects to ManageShares
+        Assert.AreEqual(HttpStatusCode.Found, addShareResponse.StatusCode);
     }
 
     [TestMethod]

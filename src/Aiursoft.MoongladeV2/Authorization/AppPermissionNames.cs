@@ -19,10 +19,6 @@ public static class AppPermissionNames
     public const string CanEditRoles = nameof(CanEditRoles);
 
     // Document Management
-    public const string CanReadAllDocuments = nameof(CanReadAllDocuments);
-    public const string CanDeleteAnyDocument = nameof(CanDeleteAnyDocument);
-    public const string CanEditAnyDocument = nameof(CanEditAnyDocument);
-    public const string CanManageAnyShare = nameof(CanManageAnyShare);
     public const string CanManageComments = nameof(CanManageComments);
     public const string CanManagePosts = nameof(CanManagePosts);
     // Permission Management
