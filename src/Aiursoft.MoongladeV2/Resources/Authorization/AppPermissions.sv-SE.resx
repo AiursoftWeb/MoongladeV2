@@ -27,8 +27,14 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>Tillåter att tilldela eller ta bort roller för alla användare.</value>
   </data>
+  <data name="Allows creating and editing draft posts. Cannot publish." xml:space="preserve">
+    <value>Tillåter skapande och redigering av utkast till inlägg. Kan inte publicera.</value>
+  </data>
   <data name="Allows creating, editing, and publishing blog posts." xml:space="preserve">
     <value>Tillåter skapande, redigering och publicering av blogginlägg.</value>
+  </data>
+  <data name="Allows creating, editing, publishing, and deleting any post. Full content management." xml:space="preserve">
+    <value>Tillåter skapande, redigering, publicering och radering av alla inlägg. Fullständig innehållshantering.</value>
   </data>
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>Tillåter radering av alla dokument, oavsett ägarskap.</value>
@@ -77,6 +83,12 @@
   </data>
   <data name="Assign Roles to Users" xml:space="preserve">
     <value>Tilldela roller till användare</value>
+  </data>
+  <data name="Create or Edit Drafts" xml:space="preserve">
+    <value>Skapa eller redigera utkast</value>
+  </data>
+  <data name="Create, Edit, and Publish Any Post" xml:space="preserve">
+    <value>Skapa, redigera och publicera vilket inlägg som helst</value>
   </data>
   <data name="Delete Any Document" xml:space="preserve">
     <value>Radera valfritt dokument</value>

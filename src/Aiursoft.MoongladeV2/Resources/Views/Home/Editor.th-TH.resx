@@ -249,6 +249,9 @@
   <data name="Public - Anyone with link" xml:space="preserve">
     <value>สาธารณะ - ทุกคนที่มีลิงก์</value>
   </data>
+  <data name="Publish" xml:space="preserve">
+    <value>เผยแพร่</value>
+  </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>การอนุญาตตามบทบาท RBAC</value>
   </data>
@@ -308,6 +311,9 @@
   </data>
   <data name="Type your Markdown here..." xml:space="preserve">
     <value>พิมพ์ Markdown ของคุณที่นี่...</value>
+  </data>
+  <data name="Unpublish" xml:space="preserve">
+    <value>ยกเลิกการเผยแพร่</value>
   </data>
   <data name="Untitled Document" xml:space="preserve">
     <value>เอกสารที่ยังไม่ได้ตั้งชื่อ</value>

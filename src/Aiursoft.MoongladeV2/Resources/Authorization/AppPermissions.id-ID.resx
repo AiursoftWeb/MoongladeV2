@@ -27,8 +27,14 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>Memungkinkan menetapkan atau mencabut peran untuk pengguna mana pun.</value>
   </data>
+  <data name="Allows creating and editing draft posts. Cannot publish." xml:space="preserve">
+    <value>Memungkinkan pembuatan dan pengeditan postingan draf. Tidak dapat menerbitkan.</value>
+  </data>
   <data name="Allows creating, editing, and publishing blog posts." xml:space="preserve">
     <value>Memungkinkan pembuatan, pengeditan, dan penerbitan postingan blog.</value>
+  </data>
+  <data name="Allows creating, editing, publishing, and deleting any post. Full content management." xml:space="preserve">
+    <value>Memungkinkan pembuatan, pengeditan, penerbitan, dan penghapusan postingan apa pun. Manajemen konten lengkap.</value>
   </data>
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>Memungkinkan penghapusan dokumen apa pun, terlepas dari kepemilikannya.</value>
@@ -77,6 +83,12 @@
   </data>
   <data name="Assign Roles to Users" xml:space="preserve">
     <value>Tetapkan Peran ke Pengguna</value>
+  </data>
+  <data name="Create or Edit Drafts" xml:space="preserve">
+    <value>Buat atau Edit Draf</value>
+  </data>
+  <data name="Create, Edit, and Publish Any Post" xml:space="preserve">
+    <value>Buat, Edit, dan Publikasikan Postingan Apa Saja</value>
   </data>
   <data name="Delete Any Document" xml:space="preserve">
     <value>Hapus Dokumen Apa Saja</value>

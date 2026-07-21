@@ -27,8 +27,14 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>Permite atribuirea sau eliminarea rolurilor pentru orice utilizator.</value>
   </data>
+  <data name="Allows creating and editing draft posts. Cannot publish." xml:space="preserve">
+    <value>Permite crearea și editarea articolelor în stadiu de proiect. Nu poate publica.</value>
+  </data>
   <data name="Allows creating, editing, and publishing blog posts." xml:space="preserve">
     <value>Permite crearea, editarea și publicarea articolelor de blog.</value>
+  </data>
+  <data name="Allows creating, editing, publishing, and deleting any post. Full content management." xml:space="preserve">
+    <value>Permite crearea, editarea, publicarea și ștergerea oricărui articol. Gestionare completă a conținutului.</value>
   </data>
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>Permite ștergerea oricărui document, indiferent de proprietar.</value>
@@ -77,6 +83,12 @@
   </data>
   <data name="Assign Roles to Users" xml:space="preserve">
     <value>Atribuie Roluri Utilizatorilor</value>
+  </data>
+  <data name="Create or Edit Drafts" xml:space="preserve">
+    <value>Creați sau editați schițe</value>
+  </data>
+  <data name="Create, Edit, and Publish Any Post" xml:space="preserve">
+    <value>Creați, editați și publicați orice articol</value>
   </data>
   <data name="Delete Any Document" xml:space="preserve">
     <value>Ștergeți Orice Document</value>

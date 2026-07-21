@@ -249,6 +249,9 @@
   <data name="Public - Anyone with link" xml:space="preserve">
     <value>عام - أي شخص لديه الرابط</value>
   </data>
+  <data name="Publish" xml:space="preserve">
+    <value>نشر</value>
+  </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>التحكم في الوصول القائم على الأدوار (RBAC)</value>
   </data>
@@ -308,6 +311,9 @@
   </data>
   <data name="Type your Markdown here..." xml:space="preserve">
     <value>اكتب Markdown هنا...</value>
+  </data>
+  <data name="Unpublish" xml:space="preserve">
+    <value>إلغاء النشر</value>
   </data>
   <data name="Untitled Document" xml:space="preserve">
     <value>وثيقة غير معنونة</value>

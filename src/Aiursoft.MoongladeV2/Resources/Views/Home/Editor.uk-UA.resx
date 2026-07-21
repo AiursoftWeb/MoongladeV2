@@ -249,6 +249,9 @@
   <data name="Public - Anyone with link" xml:space="preserve">
     <value>Публічний - доступний за посиланням</value>
   </data>
+  <data name="Publish" xml:space="preserve">
+    <value>Опублікувати</value>
+  </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>Авторизація RBAC</value>
   </data>
@@ -308,6 +311,9 @@
   </data>
   <data name="Type your Markdown here..." xml:space="preserve">
     <value>Введіть ваш Markdown тут...</value>
+  </data>
+  <data name="Unpublish" xml:space="preserve">
+    <value>Зняти з публікації</value>
   </data>
   <data name="Untitled Document" xml:space="preserve">
     <value>Документ без назви</value>

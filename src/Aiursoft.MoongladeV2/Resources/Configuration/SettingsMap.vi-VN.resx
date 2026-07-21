@@ -120,6 +120,12 @@
   <data name="Require Comment Review" xml:space="preserve">
     <value>Yêu cầu duyệt bình luận</value>
   </data>
+  <data name="Show Author Info" xml:space="preserve">
+    <value>Hiển thị thông tin tác giả</value>
+  </data>
+  <data name="Show author name and avatar at the top of blog post pages." xml:space="preserve">
+    <value>Hiển thị tên tác giả và ảnh đại diện ở đầu trang bài viết blog.</value>
+  </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>Hiển thị tiêu đề hợp đồng</value>
   </data>

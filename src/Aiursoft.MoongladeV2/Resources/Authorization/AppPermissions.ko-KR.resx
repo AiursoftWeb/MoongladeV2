@@ -27,8 +27,14 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>모든 사용자에게 역할을 할당하거나 제거할 수 있습니다.</value>
   </data>
+  <data name="Allows creating and editing draft posts. Cannot publish." xml:space="preserve">
+    <value>초안 게시물의 생성 및 수정을 허용합니다. 게시는 할 수 없습니다.</value>
+  </data>
   <data name="Allows creating, editing, and publishing blog posts." xml:space="preserve">
     <value>블로그 게시글을 작성, 편집 및 게시할 수 있습니다.</value>
+  </data>
+  <data name="Allows creating, editing, publishing, and deleting any post. Full content management." xml:space="preserve">
+    <value>모든 게시물의 생성, 수정, 게시 및 삭제를 허용합니다. 전체 콘텐츠 관리 기능 제공.</value>
   </data>
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>소유권에 관계없이 모든 문서를 삭제할 수 있습니다.</value>
@@ -77,6 +83,12 @@
   </data>
   <data name="Assign Roles to Users" xml:space="preserve">
     <value>사용자에게 역할 할당</value>
+  </data>
+  <data name="Create or Edit Drafts" xml:space="preserve">
+    <value>임시 문서 작성 또는 수정</value>
+  </data>
+  <data name="Create, Edit, and Publish Any Post" xml:space="preserve">
+    <value>모든 게시물을 작성, 편집 및 게시</value>
   </data>
   <data name="Delete Any Document" xml:space="preserve">
     <value>모든 문서 삭제</value>

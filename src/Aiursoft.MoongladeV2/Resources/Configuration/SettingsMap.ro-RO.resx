@@ -120,6 +120,12 @@
   <data name="Require Comment Review" xml:space="preserve">
     <value>Necesită aprobarea comentariilor</value>
   </data>
+  <data name="Show Author Info" xml:space="preserve">
+    <value>Afișează informațiile autorului</value>
+  </data>
+  <data name="Show author name and avatar at the top of blog post pages." xml:space="preserve">
+    <value>Afișează numele și avatarul autorului în partea de sus a paginilor de articole de blog.</value>
+  </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>Afișează antetul contractului</value>
   </data>

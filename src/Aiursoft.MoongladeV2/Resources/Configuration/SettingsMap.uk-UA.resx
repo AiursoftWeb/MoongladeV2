@@ -120,6 +120,12 @@
   <data name="Require Comment Review" xml:space="preserve">
     <value>Обов&apos;язковий перегляд коментарів</value>
   </data>
+  <data name="Show Author Info" xml:space="preserve">
+    <value>Показувати інформацію про автора</value>
+  </data>
+  <data name="Show author name and avatar at the top of blog post pages." xml:space="preserve">
+    <value>Показувати ім’я автора та аватар у верхній частині сторінок дописів блогу.</value>
+  </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>Показати заголовок договору</value>
   </data>

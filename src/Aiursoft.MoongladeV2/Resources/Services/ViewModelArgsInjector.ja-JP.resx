@@ -183,6 +183,9 @@
   <data name="Post Editor" xml:space="preserve">
     <value>投稿エディタ</value>
   </data>
+  <data name="Posts" xml:space="preserve">
+    <value>投稿</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>プロフィール</value>
   </data>

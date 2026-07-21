@@ -120,6 +120,12 @@
   <data name="Require Comment Review" xml:space="preserve">
     <value>Απαιτείται έλεγχος σχολίων</value>
   </data>
+  <data name="Show Author Info" xml:space="preserve">
+    <value>Εμφάνιση Πληροφοριών Συγγραφέα</value>
+  </data>
+  <data name="Show author name and avatar at the top of blog post pages." xml:space="preserve">
+    <value>Εμφάνιση ονόματος και αβταρ συγγραφέα στην κορυφή των σελίδων αναρτήσεων ιστολογίου.</value>
+  </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>Εμφάνιση Κεφαλίδας Συμβολαίου</value>
   </data>

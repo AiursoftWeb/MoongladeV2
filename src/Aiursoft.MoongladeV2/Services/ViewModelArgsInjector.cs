@@ -118,6 +118,8 @@ public class ViewModelArgsInjector(
         _ = localizer["Abstract Localization"];
     
         _ = localizer["Delete Account"];
+    
+        _ = localizer["Posts"];
     }
 
     public void InjectSimple(

@@ -120,6 +120,12 @@
   <data name="Require Comment Review" xml:space="preserve">
     <value>Kräv granskning av kommentarer</value>
   </data>
+  <data name="Show Author Info" xml:space="preserve">
+    <value>Visa författarinfo</value>
+  </data>
+  <data name="Show author name and avatar at the top of blog post pages." xml:space="preserve">
+    <value>Visa författarens namn och avatar överst på blogginläggsidor.</value>
+  </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>Visa avtalsrubrik</value>
   </data>

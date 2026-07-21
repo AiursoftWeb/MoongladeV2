@@ -180,6 +180,9 @@
   <data name="Post Editor" xml:space="preserve">
     <value>Julkaisun muokkaa</value>
   </data>
+  <data name="Posts" xml:space="preserve">
+    <value>Julkaisut</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>Profiili</value>
   </data>

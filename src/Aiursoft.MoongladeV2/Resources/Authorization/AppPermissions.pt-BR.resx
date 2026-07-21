@@ -27,8 +27,14 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>Permite atribuir ou remover funções para qualquer usuário.</value>
   </data>
+  <data name="Allows creating and editing draft posts. Cannot publish." xml:space="preserve">
+    <value>Permite criar e editar rascunhos de posts. Não é possível publicar.</value>
+  </data>
   <data name="Allows creating, editing, and publishing blog posts." xml:space="preserve">
     <value>Permite criar, editar e publicar posts do blog.</value>
+  </data>
+  <data name="Allows creating, editing, publishing, and deleting any post. Full content management." xml:space="preserve">
+    <value>Permite criar, editar, publicar e excluir qualquer postagem. Gerenciamento completo de conteúdo.</value>
   </data>
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>Permite a exclusão de qualquer documento, independentemente da propriedade.</value>
@@ -77,6 +83,12 @@
   </data>
   <data name="Assign Roles to Users" xml:space="preserve">
     <value>Atribuir Funções a Usuários</value>
+  </data>
+  <data name="Create or Edit Drafts" xml:space="preserve">
+    <value>Criar ou Editar Rascunhos</value>
+  </data>
+  <data name="Create, Edit, and Publish Any Post" xml:space="preserve">
+    <value>Criar, Editar e Publicar Qualquer Postagem</value>
   </data>
   <data name="Delete Any Document" xml:space="preserve">
     <value>Excluir Qualquer Documento</value>

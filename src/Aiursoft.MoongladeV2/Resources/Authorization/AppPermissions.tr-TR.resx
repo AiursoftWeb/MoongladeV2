@@ -27,8 +27,14 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>Herhangi bir kullanıcıya rol atanmasına veya kaldırılmasına izin verir.</value>
   </data>
+  <data name="Allows creating and editing draft posts. Cannot publish." xml:space="preserve">
+    <value>Taslak gönderilerin oluşturulmasına ve düzenlenmesine olanak tanır. Yayınlayamaz.</value>
+  </data>
   <data name="Allows creating, editing, and publishing blog posts." xml:space="preserve">
     <value>Blog gönderilerini oluşturma, düzenleme ve yayınlamaya izin verir.</value>
+  </data>
+  <data name="Allows creating, editing, publishing, and deleting any post. Full content management." xml:space="preserve">
+    <value>Herhangi bir gönderiyi oluşturma, düzenleme, yayımlama ve silme imkanı tanır. Tam içerik yönetimi.</value>
   </data>
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>Herhangi bir belgenin, sahipliğine bakılmaksızın silinmesine izin verir.</value>
@@ -77,6 +83,12 @@
   </data>
   <data name="Assign Roles to Users" xml:space="preserve">
     <value>Kullanıcılara Rol Atama</value>
+  </data>
+  <data name="Create or Edit Drafts" xml:space="preserve">
+    <value>Taslakları Oluştur veya Düzenle</value>
+  </data>
+  <data name="Create, Edit, and Publish Any Post" xml:space="preserve">
+    <value>Herhangi Bir Yazıyı Oluştur, Düzenle ve Yayımla</value>
   </data>
   <data name="Delete Any Document" xml:space="preserve">
     <value>Herhangi Bir Belgeyi Sil</value>

@@ -183,6 +183,9 @@
   <data name="Post Editor" xml:space="preserve">
     <value>文章編輯器</value>
   </data>
+  <data name="Posts" xml:space="preserve">
+    <value>文章</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>個人檔案</value>
   </data>

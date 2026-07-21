@@ -27,8 +27,14 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>Cho phép gán hoặc gỡ bỏ vai trò cho bất kỳ người dùng nào.</value>
   </data>
+  <data name="Allows creating and editing draft posts. Cannot publish." xml:space="preserve">
+    <value>Cho phép tạo và chỉnh sửa bài viết nháp. Không thể xuất bản.</value>
+  </data>
   <data name="Allows creating, editing, and publishing blog posts." xml:space="preserve">
     <value>Cho phép tạo, chỉnh sửa và xuất bản bài viết trên blog.</value>
+  </data>
+  <data name="Allows creating, editing, publishing, and deleting any post. Full content management." xml:space="preserve">
+    <value>Cho phép tạo, chỉnh sửa, xuất bản và xóa bất kỳ bài viết nào. Quản lý nội dung đầy đủ.</value>
   </data>
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>Cho phép xóa bất kỳ tài liệu nào, bất kể quyền sở hữu.</value>
@@ -77,6 +83,12 @@
   </data>
   <data name="Assign Roles to Users" xml:space="preserve">
     <value>Gán Vai trò cho Người dùng</value>
+  </data>
+  <data name="Create or Edit Drafts" xml:space="preserve">
+    <value>Tạo hoặc chỉnh sửa bản nháp</value>
+  </data>
+  <data name="Create, Edit, and Publish Any Post" xml:space="preserve">
+    <value>Tạo, Chỉnh sửa và Xuất bản bất kỳ bài viết nào</value>
   </data>
   <data name="Delete Any Document" xml:space="preserve">
     <value>Xóa Mọi Tài Liệu</value>

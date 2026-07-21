@@ -180,6 +180,9 @@
   <data name="Post Editor" xml:space="preserve">
     <value>محرر المنشورات</value>
   </data>
+  <data name="Posts" xml:space="preserve">
+    <value>المنشورات</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>الملف الشخصي</value>
   </data>

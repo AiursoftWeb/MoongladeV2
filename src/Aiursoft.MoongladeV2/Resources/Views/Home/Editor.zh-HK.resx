@@ -249,6 +249,9 @@
   <data name="Public - Anyone with link" xml:space="preserve">
     <value>公開 - 任何有連結嘅人都可以存取</value>
   </data>
+  <data name="Publish" xml:space="preserve">
+    <value>發佈</value>
+  </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>基於角色的存取控制授權</value>
   </data>
@@ -308,6 +311,9 @@
   </data>
   <data name="Type your Markdown here..." xml:space="preserve">
     <value>在此輸入你的 Markdown…</value>
+  </data>
+  <data name="Unpublish" xml:space="preserve">
+    <value>取消發佈</value>
   </data>
   <data name="Untitled Document" xml:space="preserve">
     <value>未命名文件</value>
