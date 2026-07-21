@@ -120,6 +120,12 @@
   <data name="Require Comment Review" xml:space="preserve">
     <value>ต้องตรวจสอบความคิดเห็นก่อนเผยแพร่</value>
   </data>
+  <data name="Show Author Info" xml:space="preserve">
+    <value>แสดงข้อมูลผู้เขียน</value>
+  </data>
+  <data name="Show author name and avatar at the top of blog post pages." xml:space="preserve">
+    <value>แสดงชื่อผู้เขียนและรูปโปรไฟล์ที่ส่วนบนของหน้าบทความบล็อก</value>
+  </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>แสดงส่วนหัวของสัญญา</value>
   </data>

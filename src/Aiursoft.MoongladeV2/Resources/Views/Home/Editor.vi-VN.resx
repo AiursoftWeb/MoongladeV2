@@ -249,6 +249,9 @@
   <data name="Public - Anyone with link" xml:space="preserve">
     <value>Công khai - Bất kỳ ai có liên kết</value>
   </data>
+  <data name="Publish" xml:space="preserve">
+    <value>Xuất bản</value>
+  </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>Ủy quyền RBAC</value>
   </data>
@@ -308,6 +311,9 @@
   </data>
   <data name="Type your Markdown here..." xml:space="preserve">
     <value>Nhập Markdown của bạn tại đây...</value>
+  </data>
+  <data name="Unpublish" xml:space="preserve">
+    <value>Bỏ công bố</value>
   </data>
   <data name="Untitled Document" xml:space="preserve">
     <value>Tài liệu chưa đặt tên</value>

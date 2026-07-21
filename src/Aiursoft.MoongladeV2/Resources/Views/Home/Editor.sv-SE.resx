@@ -249,6 +249,9 @@
   <data name="Public - Anyone with link" xml:space="preserve">
     <value>Offentlig - Alla med länk</value>
   </data>
+  <data name="Publish" xml:space="preserve">
+    <value>Publicera</value>
+  </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>RBAC-auktorisering</value>
   </data>
@@ -308,6 +311,9 @@
   </data>
   <data name="Type your Markdown here..." xml:space="preserve">
     <value>Skriv din Markdown här...</value>
+  </data>
+  <data name="Unpublish" xml:space="preserve">
+    <value>Avpublicera</value>
   </data>
   <data name="Untitled Document" xml:space="preserve">
     <value>Namnlöst dokument</value>

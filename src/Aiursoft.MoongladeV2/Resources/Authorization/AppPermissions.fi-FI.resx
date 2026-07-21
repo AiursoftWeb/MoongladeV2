@@ -27,8 +27,14 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>Mahdollistaa roolien määrittämisen tai poistamisen mille tahansa käyttäjälle.</value>
   </data>
+  <data name="Allows creating and editing draft posts. Cannot publish." xml:space="preserve">
+    <value>Mahdollistaa luonnosten luomisen ja muokkaamisen. Ei voi julkaista.</value>
+  </data>
   <data name="Allows creating, editing, and publishing blog posts." xml:space="preserve">
     <value>Mahdollistaa blogikirjoitusten luomisen, muokkaamisen ja julkaisemisen.</value>
+  </data>
+  <data name="Allows creating, editing, publishing, and deleting any post. Full content management." xml:space="preserve">
+    <value>Mahdollistaa minkä tahansa julkaisun luomisen, muokkaamisen, julkaisemisen ja poistamisen. Täysi sisällönhallinta.</value>
   </data>
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>Sallii minkä tahansa asiakirjan poistamisen omistajuudesta riippumatta.</value>
@@ -77,6 +83,12 @@
   </data>
   <data name="Assign Roles to Users" xml:space="preserve">
     <value>Anna roolit käyttäjille</value>
+  </data>
+  <data name="Create or Edit Drafts" xml:space="preserve">
+    <value>Luo tai muokkaa luonnoksia</value>
+  </data>
+  <data name="Create, Edit, and Publish Any Post" xml:space="preserve">
+    <value>Luo, muokkaa ja julkaise mikä tahansa viesti</value>
   </data>
   <data name="Delete Any Document" xml:space="preserve">
     <value>Poista mikä tahansa asiakirja</value>

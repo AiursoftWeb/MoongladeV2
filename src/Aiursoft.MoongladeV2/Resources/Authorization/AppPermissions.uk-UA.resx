@@ -27,8 +27,14 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>Дозволяє призначати або знімати ролі для будь-кого користувача.</value>
   </data>
+  <data name="Allows creating and editing draft posts. Cannot publish." xml:space="preserve">
+    <value>Дозволяє створювати та редагувати чернетки статей. Не дозволяє публікувати.</value>
+  </data>
   <data name="Allows creating, editing, and publishing blog posts." xml:space="preserve">
     <value>Дозволяє створювати, редагувати та публікувати записи в блозі.</value>
+  </data>
+  <data name="Allows creating, editing, publishing, and deleting any post. Full content management." xml:space="preserve">
+    <value>Дозволяє створювати, редагувати, публікувати та видаляти будь-які записи. Повне управління контентом.</value>
   </data>
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>Дозволяє видалення будь-якого документа незалежно від прав власності.</value>
@@ -77,6 +83,12 @@
   </data>
   <data name="Assign Roles to Users" xml:space="preserve">
     <value>Призначити ролі користувачам</value>
+  </data>
+  <data name="Create or Edit Drafts" xml:space="preserve">
+    <value>Створити або редагувати чернетки</value>
+  </data>
+  <data name="Create, Edit, and Publish Any Post" xml:space="preserve">
+    <value>Створювати, редагувати та публікувати будь-який допис</value>
   </data>
   <data name="Delete Any Document" xml:space="preserve">
     <value>Видалити будь-який документ</value>

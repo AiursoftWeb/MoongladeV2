@@ -180,6 +180,9 @@
   <data name="Post Editor" xml:space="preserve">
     <value>पोस्ट संपादक</value>
   </data>
+  <data name="Posts" xml:space="preserve">
+    <value>पोस्ट्स</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>प्रोफ़ाइल</value>
   </data>

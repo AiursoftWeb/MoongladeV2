@@ -183,6 +183,9 @@
   <data name="Post Editor" xml:space="preserve">
     <value>โปรแกรมแก้ไขบทความ</value>
   </data>
+  <data name="Posts" xml:space="preserve">
+    <value>โพสต์</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>โปรไฟล์</value>
   </data>

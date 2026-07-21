@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="(no title)" xml:space="preserve">
+    <value>(ไม่มีชื่อเรื่อง)</value>
+  </data>
+  <data name="A list of all posts in the system." xml:space="preserve">
+    <value>รายการโพสต์ทั้งหมดในระบบ</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>การดำเนินการ</value>
+  </data>
+  <data name="All Posts" xml:space="preserve">
+    <value>ทั้งหมดโพสต์</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>ล้างค่า</value>
+  </data>
+  <data name="Creation Time" xml:space="preserve">
+    <value>เวลาสร้าง</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>ลบ</value>
+  </data>
+  <data name="Draft" xml:space="preserve">
+    <value>ฉบับร่าง</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>แก้ไข</value>
+  </data>
+  <data name="Length" xml:space="preserve">
+    <value>ความยาว</value>
+  </data>
+  <data name="No posts found for your search query." xml:space="preserve">
+    <value>ไม่พบโพสต์ที่ตรงกับคำค้นหาของคุณ</value>
+  </data>
+  <data name="No posts found. Write your first post!" xml:space="preserve">
+    <value>ไม่พบโพสต์ เริ่มเขียนโพสต์แรกของคุณเลย!</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>เจ้าของ</value>
+  </data>
+  <data name="Posts" xml:space="preserve">
+    <value>บทความ</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>สาธารณะ</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>ค้นหา</value>
+  </data>
+  <data name="Search posts" xml:space="preserve">
+    <value>ค้นหาโพสต์</value>
+  </data>
+  <data name="Search posts..." xml:space="preserve">
+    <value>ค้นหาโพสต์...</value>
+  </data>
+  <data name="Source Language" xml:space="preserve">
+    <value>ภาษาต้นทาง</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>ชื่อเรื่อง</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>การแสดงผล</value>
+  </data>
+  <data name="Write a new post" xml:space="preserve">
+    <value>เขียนโพสต์ใหม่</value>
+  </data>
+
+</root>

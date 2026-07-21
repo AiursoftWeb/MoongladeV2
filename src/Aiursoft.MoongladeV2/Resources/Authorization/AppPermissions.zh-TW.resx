@@ -27,8 +27,14 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>允許對任何使用者指派或移除角色。</value>
   </data>
+  <data name="Allows creating and editing draft posts. Cannot publish." xml:space="preserve">
+    <value>允許建立與編輯草稿文章。無法發布。</value>
+  </data>
   <data name="Allows creating, editing, and publishing blog posts." xml:space="preserve">
     <value>允許建立、編輯和發布部落格文章。</value>
+  </data>
+  <data name="Allows creating, editing, publishing, and deleting any post. Full content management." xml:space="preserve">
+    <value>允許建立、編輯、發布及刪除任何文章。完整的內容管理功能。</value>
   </data>
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>允許刪除任何文件，無論所有權歸屬。</value>
@@ -77,6 +83,12 @@
   </data>
   <data name="Assign Roles to Users" xml:space="preserve">
     <value>指派角色給使用者</value>
+  </data>
+  <data name="Create or Edit Drafts" xml:space="preserve">
+    <value>建立或編輯草稿</value>
+  </data>
+  <data name="Create, Edit, and Publish Any Post" xml:space="preserve">
+    <value>建立、編輯及發布任何文章</value>
   </data>
   <data name="Delete Any Document" xml:space="preserve">
     <value>刪除任何文件</value>

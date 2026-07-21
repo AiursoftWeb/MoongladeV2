@@ -249,6 +249,9 @@
   <data name="Public - Anyone with link" xml:space="preserve">
     <value>공개 - 링크가 있는 모든 사용자</value>
   </data>
+  <data name="Publish" xml:space="preserve">
+    <value>게시</value>
+  </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>RBAC 인증</value>
   </data>
@@ -308,6 +311,9 @@
   </data>
   <data name="Type your Markdown here..." xml:space="preserve">
     <value>여기에 Markdown을 입력하세요...</value>
+  </data>
+  <data name="Unpublish" xml:space="preserve">
+    <value>게시 취소</value>
   </data>
   <data name="Untitled Document" xml:space="preserve">
     <value>제목 없음 문서</value>

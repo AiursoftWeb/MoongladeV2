@@ -120,6 +120,12 @@
   <data name="Require Comment Review" xml:space="preserve">
     <value>コメントの審査を必須にする</value>
   </data>
+  <data name="Show Author Info" xml:space="preserve">
+    <value>著者情報を表示</value>
+  </data>
+  <data name="Show author name and avatar at the top of blog post pages." xml:space="preserve">
+    <value>ブログ投稿ページの上部に著者名とアバターを表示します。</value>
+  </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>契約ヘッダーを表示</value>
   </data>

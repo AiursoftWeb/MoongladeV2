@@ -249,6 +249,9 @@
   <data name="Public - Anyone with link" xml:space="preserve">
     <value>सार्वजनिक - लिंक वाला कोई भी व्यक्ति</value>
   </data>
+  <data name="Publish" xml:space="preserve">
+    <value>प्रकाशित करें</value>
+  </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>RBAC प्राधिकरण</value>
   </data>
@@ -308,6 +311,9 @@
   </data>
   <data name="Type your Markdown here..." xml:space="preserve">
     <value>अपना मार्कडाउन यहाँ टाइप करें...</value>
+  </data>
+  <data name="Unpublish" xml:space="preserve">
+    <value>अप्रकाशित करें</value>
   </data>
   <data name="Untitled Document" xml:space="preserve">
     <value>अनामांकित दस्तावेज़</value>

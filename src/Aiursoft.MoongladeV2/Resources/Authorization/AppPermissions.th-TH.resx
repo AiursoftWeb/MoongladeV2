@@ -27,8 +27,14 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>อนุญาตให้กำหนดหรือลบบทบาทสำหรับผู้ใช้ใดๆ</value>
   </data>
+  <data name="Allows creating and editing draft posts. Cannot publish." xml:space="preserve">
+    <value>อนุญาตให้สร้างและแก้ไขโพสต์แบบร่าง ไม่สามารถเผยแพร่ได้</value>
+  </data>
   <data name="Allows creating, editing, and publishing blog posts." xml:space="preserve">
     <value>อนุญาตให้สร้าง แก้ไข และเผยแพร่โพสต์บล็อก</value>
+  </data>
+  <data name="Allows creating, editing, publishing, and deleting any post. Full content management." xml:space="preserve">
+    <value>อนุญาตให้สร้าง แก้ไข เผยแพร่ และลบโพสต์ใดๆ ได้ จัดการเนื้อหาอย่างครบถ้วน</value>
   </data>
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>อนุญาตให้ลบเอกสารใด ๆ ได้ โดยไม่คำนึงถึงการเป็นเจ้าของ</value>
@@ -77,6 +83,12 @@
   </data>
   <data name="Assign Roles to Users" xml:space="preserve">
     <value>กำหนดบทบาทให้ผู้ใช้</value>
+  </data>
+  <data name="Create or Edit Drafts" xml:space="preserve">
+    <value>สร้างหรือแก้ไขฉบับร่าง</value>
+  </data>
+  <data name="Create, Edit, and Publish Any Post" xml:space="preserve">
+    <value>สร้าง แก้ไข และเผยแพร่บทความใดๆ</value>
   </data>
   <data name="Delete Any Document" xml:space="preserve">
     <value>ลบเอกสารใดๆ</value>

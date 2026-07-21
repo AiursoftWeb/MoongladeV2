@@ -183,6 +183,9 @@
   <data name="Post Editor" xml:space="preserve">
     <value>Trình soạn thảo bài viết</value>
   </data>
+  <data name="Posts" xml:space="preserve">
+    <value>Bài viết</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>Hồ sơ</value>
   </data>

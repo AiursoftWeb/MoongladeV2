@@ -249,6 +249,9 @@
   <data name="Public - Anyone with link" xml:space="preserve">
     <value>Julkinen - Ken tahansa, jolla on linkki</value>
   </data>
+  <data name="Publish" xml:space="preserve">
+    <value>Julkaise</value>
+  </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>RBAC-valtuutus</value>
   </data>
@@ -308,6 +311,9 @@
   </data>
   <data name="Type your Markdown here..." xml:space="preserve">
     <value>Kirjoita Markdown-täällä...</value>
+  </data>
+  <data name="Unpublish" xml:space="preserve">
+    <value>Poista julkaisusta</value>
   </data>
   <data name="Untitled Document" xml:space="preserve">
     <value>Nimetön asiakirja</value>

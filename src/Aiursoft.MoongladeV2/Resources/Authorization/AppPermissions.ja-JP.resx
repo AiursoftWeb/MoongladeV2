@@ -27,8 +27,14 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>任意のユーザーに対してロールの割り当てまたは削除を許可します。</value>
   </data>
+  <data name="Allows creating and editing draft posts. Cannot publish." xml:space="preserve">
+    <value>下書き投稿の作成と編集を許可します。公開はできません。</value>
+  </data>
   <data name="Allows creating, editing, and publishing blog posts." xml:space="preserve">
     <value>ブログ投稿の作成、編集、公開を許可します。</value>
+  </data>
+  <data name="Allows creating, editing, publishing, and deleting any post. Full content management." xml:space="preserve">
+    <value>すべての投稿の作成、編集、公開、削除を許可します。完全なコンテンツ管理機能を提供します。</value>
   </data>
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>所有権に関係なく、任意のドキュメントを削除できます。</value>
@@ -77,6 +83,12 @@
   </data>
   <data name="Assign Roles to Users" xml:space="preserve">
     <value>ユーザーへのロール割り当て</value>
+  </data>
+  <data name="Create or Edit Drafts" xml:space="preserve">
+    <value>下書きの作成または編集</value>
+  </data>
+  <data name="Create, Edit, and Publish Any Post" xml:space="preserve">
+    <value>すべての投稿の作成、編集、公開</value>
   </data>
   <data name="Delete Any Document" xml:space="preserve">
     <value>任意のドキュメントを削除</value>

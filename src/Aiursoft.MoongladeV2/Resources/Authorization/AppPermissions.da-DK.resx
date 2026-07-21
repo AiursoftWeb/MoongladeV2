@@ -27,8 +27,14 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>Giver mulighed for at tildele eller fjerne roller for enhver bruger.</value>
   </data>
+  <data name="Allows creating and editing draft posts. Cannot publish." xml:space="preserve">
+    <value>Gør det muligt at oprette og redigere udkast til indlæg. Kan ikke publicere.</value>
+  </data>
   <data name="Allows creating, editing, and publishing blog posts." xml:space="preserve">
     <value>Giver mulighed for at oprette, redigere og publicere blogindlæg.</value>
+  </data>
+  <data name="Allows creating, editing, publishing, and deleting any post. Full content management." xml:space="preserve">
+    <value>Tillader oprettelse, redigering, publicering og sletning af ethvert indlæg. Fuldstændig indholdshåndtering.</value>
   </data>
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>Tillader sletning af ethvert dokument, uanset ejerskab.</value>
@@ -77,6 +83,12 @@
   </data>
   <data name="Assign Roles to Users" xml:space="preserve">
     <value>Tildel roller til brugere</value>
+  </data>
+  <data name="Create or Edit Drafts" xml:space="preserve">
+    <value>Opret eller redigér udkast</value>
+  </data>
+  <data name="Create, Edit, and Publish Any Post" xml:space="preserve">
+    <value>Opret, rediger og offentliggør ethvert indlæg</value>
   </data>
   <data name="Delete Any Document" xml:space="preserve">
     <value>Slet ethvert dokument</value>
