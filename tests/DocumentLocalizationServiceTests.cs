@@ -1,11 +1,9 @@
 using System.Globalization;
 using Aiursoft.MoongladeV2.Entities;
 using Aiursoft.MoongladeV2.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Caching.Memory;
 
 namespace Aiursoft.MoongladeV2.Tests;
 
@@ -22,7 +20,6 @@ public class DocumentLocalizationServiceTests
 
     private SqliteConnection _connection = null!;
     private DbContextOptions<SqliteTestContext> _dbOptions = null!;
-    private IMemoryCache _cache = null!;
 
     [TestInitialize]
     public void Initialize()
@@ -37,8 +34,6 @@ public class DocumentLocalizationServiceTests
         _dbOptions = new DbContextOptionsBuilder<SqliteTestContext>()
             .UseSqlite(_connection)
             .Options;
-
-        _cache = new MemoryCache(new MemoryCacheOptions());
 
         using var db = new SqliteTestContext(_dbOptions);
         db.Database.EnsureCreated();
@@ -248,7 +243,7 @@ public class DocumentLocalizationServiceTests
         var docInMemory = await db.MarkdownDocuments.FirstAsync(d => d.Id == docId);
 
         // Act
-        var (titles, contents) = await service.LoadLocalizedStringsAsync([docInMemory]);
+        var (titles, _) = await service.LoadLocalizedStringsAsync([docInMemory]);
 
         // Assert: even with null SourceCulture, the translation should be returned
         Assert.AreEqual(1, titles.Count,
