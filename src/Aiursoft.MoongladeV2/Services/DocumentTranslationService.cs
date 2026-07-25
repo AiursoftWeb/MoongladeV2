@@ -7,7 +7,7 @@ using Microsoft.Extensions.Options;
 
 namespace Aiursoft.MoongladeV2.Services;
 
-public partial class DocumentTranslationService(
+public class DocumentTranslationService(
     GlobalSettingsService settingsService,
     MarkdownShredder shredder,
     RetryEngine retryEngine,
