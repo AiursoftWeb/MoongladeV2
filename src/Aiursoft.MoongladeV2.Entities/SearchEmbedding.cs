@@ -26,10 +26,10 @@ public class SearchEmbedding
     /// </summary>
     public byte[] Embedding { get; set; } = [];
 
-    public DateTime CreatedAt { get; set; }
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
     /// <summary>
     /// Updated on cache-hit (throttled to once per hour) for LRU eviction.
     /// </summary>
-    public DateTime LastAccessedAt { get; set; }
+    public DateTime LastAccessedAt { get; set; } = DateTime.UtcNow;
 }
