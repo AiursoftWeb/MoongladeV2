@@ -54,8 +54,8 @@ public class DocumentEmbeddingCache(ILogger<DocumentEmbeddingCache> logger)
         if (newCache.Count > MaxEntries)
         {
             logger.LogWarning(
-                "DocumentEmbeddingCache: loaded {Count} embeddings, which exceeds the maximum of {MaxEntries}. Capping to {MaxEntries}.",
-                newCache.Count, MaxEntries, MaxEntries);
+                "DocumentEmbeddingCache: loaded {Count} embeddings exceeds limit of {Limit}. Capping.",
+                newCache.Count, MaxEntries);
             newCache = newCache.Take(MaxEntries).ToDictionary(kv => kv.Key, kv => kv.Value);
         }
 
