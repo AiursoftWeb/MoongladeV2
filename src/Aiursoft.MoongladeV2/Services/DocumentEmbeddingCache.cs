@@ -13,6 +13,7 @@ namespace Aiursoft.MoongladeV2.Services;
 [ExcludeFromCodeCoverage]
 public class DocumentEmbeddingCache(ILogger<DocumentEmbeddingCache> logger)
 {
+    private const int MaxEntries = 10_000;
     private Dictionary<Guid, float[]> _cache = [];
     private readonly Lock _lock = new();
 
@@ -48,6 +49,14 @@ public class DocumentEmbeddingCache(ILogger<DocumentEmbeddingCache> logger)
                 logger.LogWarning("Failed to deserialize embedding for document {DocumentId}: byte length {Length} is not a multiple of 4.",
                     item.Id, item.Embedding!.Length);
             }
+        }
+
+        if (newCache.Count > MaxEntries)
+        {
+            logger.LogWarning(
+                "DocumentEmbeddingCache: loaded {Count} embeddings, which exceeds the maximum of {MaxEntries}. Capping to {MaxEntries}.",
+                newCache.Count, MaxEntries, MaxEntries);
+            newCache = newCache.Take(MaxEntries).ToDictionary(kv => kv.Key, kv => kv.Value);
         }
 
         lock (_lock)
