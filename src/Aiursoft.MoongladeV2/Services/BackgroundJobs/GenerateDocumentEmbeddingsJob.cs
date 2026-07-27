@@ -3,6 +3,7 @@ using Aiursoft.Canon;
 using Aiursoft.Canon.BackgroundJobs;
 using Aiursoft.MoongladeV2.Configuration;
 using Aiursoft.MoongladeV2.Entities;
+using Aiursoft.MoongladeV2.Util;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
@@ -31,7 +32,28 @@ public class GenerateDocumentEmbeddingsJob(
         "(content changed since last embedding). " +
         "Embedding vectors are stored as serialized float[] in MarkdownDocument.Embedding.";
 
+    internal const int MaxDocumentsPerRun = 50;
+    private static readonly SemaphoreSlim RunLock = new(1, 1);
+
     public async Task ExecuteAsync()
+    {
+        if (!await RunLock.WaitAsync(0))
+        {
+            logger.LogInformation("GenerateDocumentEmbeddingsJob: previous run is still active. Skipping.");
+            return;
+        }
+
+        try
+        {
+            await ExecuteCoreAsync();
+        }
+        finally
+        {
+            RunLock.Release();
+        }
+    }
+
+    private async Task ExecuteCoreAsync()
     {
         if (!await settingsService.IsAiSearchEnabledAsync())
         {
@@ -57,31 +79,52 @@ public class GenerateDocumentEmbeddingsJob(
         var token    = await settingsService.GetEmbeddingTokenAsync();
 
         var lastId = Guid.Empty;
+        var attempted = 0;
+        var succeeded = 0;
         while (true)
         {
+            if (attempted >= MaxDocumentsPerRun)
+            {
+                logger.LogInformation(
+                    "GenerateDocumentEmbeddingsJob: attempted {Count} documents, stopping until next run.",
+                    attempted);
+                break;
+            }
+
             var currentLastId = lastId;
+            var take = Math.Min(10, MaxDocumentsPerRun - attempted);
             var pending = await db.MarkdownDocuments
                 .Where(d => d.IsPublic &&
                             d.SourceCulture != null &&
                             d.Id.CompareTo(currentLastId) > 0 &&
                             d.LastEmbeddedAt < d.UpdatedAt)
                 .OrderBy(d => d.Id)
-                .Take(10)
+                .Take(take)
                 .ToListAsync();
 
             if (pending.Count == 0) break;
 
             foreach (var doc in pending)
             {
+                attempted++;
                 try
                 {
+                    var sourceUpdatedAt = doc.UpdatedAt;
+                    float[] embedding = null!;
                     await retryEngine.RunWithRetry(async _ =>
                     {
-                        var embedding = await CallEmbedApiAsync(endpoint, model, token, doc);
-                        doc.Embedding      = Serialize(embedding);
-                        doc.LastEmbeddedAt = DateTime.UtcNow;
-                        await db.SaveChangesAsync();
+                        embedding = await CallEmbedApiAsync(endpoint, model, token, doc);
                     });
+                    if (await TrySaveEmbeddingIfDocumentUnchangedAsync(db, doc, sourceUpdatedAt, embedding))
+                    {
+                        succeeded++;
+                    }
+                    else
+                    {
+                        logger.LogInformation(
+                            "GenerateDocumentEmbeddingsJob: document '{Title}' (id={Id}) changed while embedding was running. Skipping stale result.",
+                            doc.Title, doc.Id);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -94,7 +137,9 @@ public class GenerateDocumentEmbeddingsJob(
             lastId = pending.Max(d => d.Id);
         }
 
-        logger.LogInformation("GenerateDocumentEmbeddingsJob: done.");
+        logger.LogInformation(
+            "GenerateDocumentEmbeddingsJob: done. {Succeeded}/{Attempted} documents processed.",
+            succeeded, attempted);
     }
 
     private async Task<float[]> CallEmbedApiAsync(string endpoint, string model, string token, MarkdownDocument doc)
@@ -131,7 +176,7 @@ public class GenerateDocumentEmbeddingsJob(
                     throw new InvalidOperationException($"Ollama returned no embeddings for document '{doc.Title}'.");
 
                 var vector = result.Embeddings[0];
-                Normalize(vector);
+                EmbeddingHelper.Normalize(vector);
                 return vector;
             }
 
@@ -179,21 +224,33 @@ public class GenerateDocumentEmbeddingsJob(
         return sb.ToString();
     }
 
-    private static void Normalize(float[] v)
+    internal static async Task<bool> TrySaveEmbeddingIfDocumentUnchangedAsync(
+        TemplateDbContext db,
+        MarkdownDocument doc,
+        DateTime sourceUpdatedAt,
+        float[] embedding)
     {
-        var sumSq = 0f;
-        foreach (var x in v) sumSq += x * x;
-        var norm = MathF.Sqrt(sumSq);
-        if (norm > 0)
-            for (var i = 0; i < v.Length; i++)
-                v[i] /= norm;
-    }
+        var serialized = EmbeddingHelper.Serialize(embedding);
+        if (db.Database.IsRelational())
+        {
+            var updated = await db.MarkdownDocuments
+                .Where(d => d.Id == doc.Id && d.UpdatedAt == sourceUpdatedAt)
+                .ExecuteUpdateAsync(setters => setters
+                    .SetProperty(d => d.Embedding, serialized)
+                    .SetProperty(d => d.LastEmbeddedAt, sourceUpdatedAt));
+            return updated == 1;
+        }
 
-    private static byte[] Serialize(float[] v)
-    {
-        var bytes = new byte[v.Length * 4];
-        Buffer.BlockCopy(v, 0, bytes, 0, bytes.Length);
-        return bytes;
+        await db.Entry(doc).ReloadAsync();
+        if (db.Entry(doc).State == EntityState.Detached || doc.UpdatedAt != sourceUpdatedAt)
+        {
+            return false;
+        }
+
+        doc.Embedding      = serialized;
+        doc.LastEmbeddedAt = sourceUpdatedAt;
+        await db.SaveChangesAsync();
+        return true;
     }
 
     private class OllamaEmbedResponse

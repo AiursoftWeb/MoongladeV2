@@ -1,6 +1,7 @@
 using System.Text;
 using Aiursoft.MoongladeV2.Configuration;
 using Aiursoft.MoongladeV2.Entities;
+using Aiursoft.MoongladeV2.Util;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
@@ -53,7 +54,7 @@ public class DocumentVectorSearchService(
             return (false, [], 0);
 
         var scored = snapshot
-            .Select(kv => (DocumentId: kv.Key, Score: CosineSimilarity(queryVector, kv.Value)))
+            .Select(kv => (DocumentId: kv.Key, Score: EmbeddingHelper.CosineSimilarity(queryVector, kv.Value)))
             .Where(x => x.Score > 0)
             .OrderByDescending(x => x.Score)
             .ToList();
@@ -95,7 +96,7 @@ public class DocumentVectorSearchService(
 
         var topIds = snapshot
             .Where(kv => kv.Key != documentId)
-            .Select(kv => (DocumentId: kv.Key, Score: CosineSimilarity(targetVector, kv.Value)))
+            .Select(kv => (DocumentId: kv.Key, Score: EmbeddingHelper.CosineSimilarity(targetVector, kv.Value)))
             .OrderByDescending(x => x.Score)
             .Take(take)
             .Select(x => x.DocumentId)
@@ -141,7 +142,7 @@ public class DocumentVectorSearchService(
 
         if (cached != null)
         {
-            var vector = Deserialize(cached.Embedding);
+            var vector = EmbeddingHelper.Deserialize(cached.Embedding);
             if (vector != null)
             {
                 var now = DateTime.UtcNow;
@@ -187,7 +188,7 @@ public class DocumentVectorSearchService(
             return null;
 
         var embedding = result.Embeddings[0];
-        Normalize(embedding);
+        EmbeddingHelper.Normalize(embedding);
 
         try
         {
@@ -195,7 +196,7 @@ public class DocumentVectorSearchService(
             db.SearchEmbeddings.Add(new SearchEmbedding
             {
                 QueryText      = cacheKey,
-                Embedding      = Serialize(embedding),
+                Embedding      = EmbeddingHelper.Serialize(embedding),
                 CreatedAt      = now,
                 LastAccessedAt = now
             });
@@ -229,39 +230,6 @@ public class DocumentVectorSearchService(
             db.SearchEmbeddings.RemoveRange(toDelete);
             await db.SaveChangesAsync(ct);
         }
-    }
-
-    private static float CosineSimilarity(float[] a, float[] b)
-    {
-        var dot = 0f;
-        for (var i = 0; i < a.Length; i++)
-            dot += a[i] * b[i];
-        return dot;
-    }
-
-    private static void Normalize(float[] v)
-    {
-        var sumSq = 0f;
-        foreach (var x in v) sumSq += x * x;
-        var norm = MathF.Sqrt(sumSq);
-        if (norm > 0)
-            for (var i = 0; i < v.Length; i++)
-                v[i] /= norm;
-    }
-
-    private static byte[] Serialize(float[] v)
-    {
-        var bytes = new byte[v.Length * 4];
-        Buffer.BlockCopy(v, 0, bytes, 0, bytes.Length);
-        return bytes;
-    }
-
-    private static float[]? Deserialize(byte[] bytes)
-    {
-        if (bytes.Length % 4 != 0) return null;
-        var floats = new float[bytes.Length / 4];
-        Buffer.BlockCopy(bytes, 0, floats, 0, bytes.Length);
-        return floats;
     }
 
     private class OllamaEmbedResponse
