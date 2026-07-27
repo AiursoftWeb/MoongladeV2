@@ -30,7 +30,7 @@ public class SettingsMap
     public const string OpenAiApiToken = "OpenAiApiToken";
 
     // ── AI: Embedding / Vector Search (3 settings) ─────────────────────────────
-    public const string EmbeddingEndpoint = "EmbeddingEndpoint";
+    public const string EmbeddingOllamaInstance = "EmbeddingOllamaInstance";
     public const string EmbeddingModel = "EmbeddingModel";
     public const string EmbeddingApiToken = "EmbeddingApiToken";
 
@@ -210,7 +210,7 @@ public class SettingsMap
         // ── AI: Embedding / Vector Search ───────────────────────────────────────
         new GlobalSettingDefinition
         {
-            Key = EmbeddingEndpoint,
+            Key = EmbeddingOllamaInstance,
             Name = Localizer["Embedding Endpoint"],
             Description = Localizer["Ollama API base URL for generating document and query embeddings (vector search). Only the host is used — /api/embed is appended automatically. Falls back to OpenAI Chat Endpoint when empty. E.g. https://ollama.example.com"],
             Type = SettingType.Text,

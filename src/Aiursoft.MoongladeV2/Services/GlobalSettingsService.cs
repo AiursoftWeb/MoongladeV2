@@ -96,7 +96,7 @@ public class GlobalSettingsService(
 
     public async Task<bool> IsAiSearchEnabledAsync()
     {
-        var dedicated = await GetSettingValueAsync(SettingsMap.EmbeddingEndpoint);
+        var dedicated = await GetSettingValueAsync(SettingsMap.EmbeddingOllamaInstance);
         if (!string.IsNullOrWhiteSpace(dedicated)) return true;
 
         var fallback = await GetSettingValueAsync(SettingsMap.OpenAiChatEndpoint);
@@ -105,7 +105,7 @@ public class GlobalSettingsService(
 
     public async Task<string> GetEmbeddingEndpointAsync()
     {
-        var dedicated = await GetSettingValueAsync(SettingsMap.EmbeddingEndpoint);
+        var dedicated = await GetSettingValueAsync(SettingsMap.EmbeddingOllamaInstance);
         if (!string.IsNullOrWhiteSpace(dedicated)) return dedicated.TrimEnd('/');
 
         return (await GetSettingValueAsync(SettingsMap.OpenAiChatEndpoint)).TrimEnd('/');
