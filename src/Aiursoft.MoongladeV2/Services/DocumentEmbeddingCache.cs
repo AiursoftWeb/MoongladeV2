@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using Aiursoft.MoongladeV2.Entities;
+using Aiursoft.MoongladeV2.Util;
 using Microsoft.EntityFrameworkCore;
 
 namespace Aiursoft.MoongladeV2.Services;
@@ -13,7 +14,7 @@ namespace Aiursoft.MoongladeV2.Services;
 public class DocumentEmbeddingCache(ILogger<DocumentEmbeddingCache> logger)
 {
     private Dictionary<Guid, float[]> _cache = [];
-    private readonly object _lock = new();
+    private readonly Lock _lock = new();
 
     public int Count
     {
@@ -37,7 +38,7 @@ public class DocumentEmbeddingCache(ILogger<DocumentEmbeddingCache> logger)
         var newCache = new Dictionary<Guid, float[]>();
         foreach (var item in embeddings)
         {
-            var vector = Deserialize(item.Embedding!);
+            var vector = EmbeddingHelper.Deserialize(item.Embedding!);
             if (vector != null)
             {
                 newCache[item.Id] = vector;
@@ -53,13 +54,5 @@ public class DocumentEmbeddingCache(ILogger<DocumentEmbeddingCache> logger)
         {
             _cache = newCache;
         }
-    }
-
-    private static float[]? Deserialize(byte[] bytes)
-    {
-        if (bytes.Length % 4 != 0) return null;
-        var floats = new float[bytes.Length / 4];
-        Buffer.BlockCopy(bytes, 0, floats, 0, bytes.Length);
-        return floats;
     }
 }

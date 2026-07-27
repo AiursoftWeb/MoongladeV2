@@ -106,9 +106,9 @@ public class GlobalSettingsService(
     public async Task<string> GetEmbeddingEndpointAsync()
     {
         var dedicated = await GetSettingValueAsync(SettingsMap.EmbeddingEndpoint);
-        if (!string.IsNullOrWhiteSpace(dedicated)) return dedicated;
+        if (!string.IsNullOrWhiteSpace(dedicated)) return dedicated.TrimEnd('/');
 
-        return await GetSettingValueAsync(SettingsMap.OpenAiChatEndpoint);
+        return (await GetSettingValueAsync(SettingsMap.OpenAiChatEndpoint)).TrimEnd('/');
     }
 
     public async Task<string> GetEmbeddingTokenAsync()
