@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using System.Text;
 using Aiursoft.MoongladeV2.Configuration;
 using Aiursoft.MoongladeV2.Entities;
@@ -43,7 +44,8 @@ public class DocumentVectorSearchService(
         float[]? queryVector;
         try
         {
-            queryVector = await EmbedQueryAsync(query, ct);
+            var expectedDimension = snapshot.Values.First().Length;
+            queryVector = await EmbedQueryAsync(query, expectedDimension, ct);
         }
         catch
         {
@@ -53,9 +55,32 @@ public class DocumentVectorSearchService(
         if (queryVector == null)
             return (false, [], 0);
 
-        var scored = snapshot
-            .Select(kv => (DocumentId: kv.Key, Score: EmbeddingHelper.CosineSimilarity(queryVector, kv.Value)))
-            .Where(x => x.Score > 0)
+        var scored = new List<(Guid DocumentId, float Score)>();
+        var skippedDimensionMismatch = 0;
+        foreach (var kv in snapshot)
+        {
+            if (kv.Value.Length != queryVector.Length)
+            {
+                skippedDimensionMismatch++;
+                continue;
+            }
+
+            var score = EmbeddingHelper.CosineSimilarity(queryVector, kv.Value);
+            if (score > 0)
+            {
+                scored.Add((kv.Key, score));
+            }
+        }
+
+        if (scored.Count == 0 && skippedDimensionMismatch > 0)
+        {
+            logger.LogWarning(
+                "Vector search skipped {Count} document embeddings because their dimensions did not match the query vector.",
+                skippedDimensionMismatch);
+            return (false, [], 0);
+        }
+
+        scored = scored
             .OrderByDescending(x => x.Score)
             .ToList();
 
@@ -119,6 +144,19 @@ public class DocumentVectorSearchService(
 
     // ── Private helpers ────────────────────────────────────────────────────────
 
+    private static string ComputeQueryCacheKey(string text)
+    {
+        var hash = SHA256.HashData(Encoding.UTF8.GetBytes(text));
+        var sb = new StringBuilder(40);
+        foreach (var b in hash)
+        {
+            sb.Append(b.ToString("x2"));
+            if (sb.Length >= 40) break;
+        }
+
+        return sb.ToString();
+    }
+
     private async Task<bool> ShouldAttemptVectorSearch()
     {
         var enabled = await settingsService.GetBoolSettingAsync(SettingsMap.EnableEmbeddingBasedSearch);
@@ -131,10 +169,13 @@ public class DocumentVectorSearchService(
         return !string.IsNullOrWhiteSpace(model);
     }
 
-    private async Task<float[]?> EmbedQueryAsync(string text, CancellationToken ct)
+    private async Task<float[]?> EmbedQueryAsync(string text, int expectedDimension, CancellationToken ct)
     {
-        // Truncate to column max length for the cache key (the full text is still sent to Ollama).
-        var cacheKey = text.Length > 40 ? text[..40] : text;
+        // Hash the full query text for the cache key. The QueryText column is capped at 40 chars with a
+        // unique index, so we keep the first 40 hex chars of the SHA-256 digest. Hashing the full text
+        // (instead of truncating the raw text) avoids collisions between queries that share a long common
+        // prefix but differ later — those used to return each other's cached embedding.
+        var cacheKey = ComputeQueryCacheKey(text);
 
         // Check DB cache first.
         var cached = await db.SearchEmbeddings
@@ -143,7 +184,7 @@ public class DocumentVectorSearchService(
         if (cached != null)
         {
             var vector = EmbeddingHelper.Deserialize(cached.Embedding);
-            if (vector != null)
+            if (vector != null && vector.Length == expectedDimension)
             {
                 var now = DateTime.UtcNow;
                 if (now - cached.LastAccessedAt >= AccessThrottle)
@@ -154,6 +195,9 @@ public class DocumentVectorSearchService(
 
                 return vector;
             }
+
+            db.SearchEmbeddings.Remove(cached);
+            await db.SaveChangesAsync(ct);
         }
 
         // Compute via Ollama embedding endpoint.
