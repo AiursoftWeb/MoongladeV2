@@ -5,21 +5,21 @@
   "author": "Anduin Xue",
   "license": "MIT",
   "dependencies": {
-    "dropify": "^0.2.2",
+    "@aiursoft/uistack-markdown-ui": "1.0.1",
     "@fontsource/cascadia-code": "^5.2.3",
     "@highlightjs/cdn-assets": "^11.11.1",
     "codemirror": "^5.65.20",
-    "markdown-it": "^14.1.0",
+    "dropify": "^0.2.2",
     "mathjax": "^3.2.2",
     "mermaid": "^11.16.0",
     "monaco-editor": "^0.55.1"
   },
   "keep": {
+    "@aiursoft/uistack-markdown-ui": "dist",
     "dropify": "dist",
     "@fontsource/cascadia-code": ".",
     "@highlightjs/cdn-assets": ".",
     "codemirror": ".",
-    "markdown-it": "dist",
     "mathjax": "es5",
     "mermaid": "dist",
     "monaco-editor": "min"
