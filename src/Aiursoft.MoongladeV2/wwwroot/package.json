@@ -11,7 +11,7 @@
     "codemirror": "^5.65.20",
     "markdown-it": "^14.1.0",
     "mathjax": "^3.2.2",
-    "mermaid": "^11.12.1",
+    "mermaid": "^11.16.0",
     "monaco-editor": "^0.55.1"
   },
   "keep": {
