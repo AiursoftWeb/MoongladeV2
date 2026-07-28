@@ -194,10 +194,46 @@
 
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
+    <script src="~/node_modules/mermaid/dist/mermaid.min.js" asp-append-version="true"></script>
     <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js" asp-append-version="true"></script>
+    <script>
+        var isDarkMode = @(isDarkMode.ToString().ToLower());
+        if (typeof mermaid !== 'undefined') mermaid.initialize({ startOnLoad: false, theme: isDarkMode ? "dark" : "default" });
+    </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             hljs.highlightAll();
+
+            // Mermaid rendering
+            if (typeof mermaid !== 'undefined') {
+                document.querySelectorAll('.post-content pre.mermaid, .post-content .mermaid').forEach(function (b, i) {
+                    var code = b.textContent || '';
+                    var id = 'm-' + (i + 1) + '-' + Math.random().toString(36).slice(2);
+                    try {
+                        mermaid.parse(code);
+                        mermaid.render(id, code).then(function (result) {
+                            var w = document.createElement('div'); w.innerHTML = result.svg; b.replaceWith(w);
+                        }).catch(function () {});
+                    } catch (_) {}
+                });
+            }
+
+            // MathJax rendering
+            if (window.MathJax && window.MathJax.typesetPromise) {
+                window.MathJax.typesetPromise([document.querySelector('.post-content')]).catch(function () {});
+            }
         });
     </script>
     <script>
