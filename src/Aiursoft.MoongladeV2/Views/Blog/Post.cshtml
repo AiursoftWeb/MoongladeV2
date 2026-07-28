@@ -197,8 +197,8 @@
     <script>
         window.MathJax = {
             tex: {
-                inlineMath: [['\\(', '\\)']],
-                displayMath: [['\\[', '\\]']],
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
             },
             svg: {
                 fontCache: 'global'
@@ -210,11 +210,11 @@
     <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js" asp-append-version="true"></script>
     <script>
         var isDarkMode = @(isDarkMode.ToString().ToLower());
-        if (typeof mermaid !== 'undefined') mermaid.initialize({ startOnLoad: false, theme: isDarkMode ? "dark" : "default" });
+        if (typeof mermaid !== 'undefined') mermaid.initialize({ startOnLoad: false, securityLevel: 'strict', theme: isDarkMode ? "dark" : "default" });
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            hljs.highlightAll();
+            document.querySelectorAll('.post-content pre code:not(.language-mermaid)').forEach(block => hljs.highlightElement(block));
 
             // Mermaid rendering
             if (typeof mermaid !== 'undefined') {

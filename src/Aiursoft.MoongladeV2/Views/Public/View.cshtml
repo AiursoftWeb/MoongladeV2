@@ -181,7 +181,8 @@
     <script>
         window.MathJax = {
             tex: {
-                inlineMath: [['\\(', '\\)']],
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
             },
             svg: {
                 fontCache: 'global'
@@ -196,6 +197,7 @@
             if (window.mermaid) {
                 mermaid.initialize({
                     startOnLoad: false,
+                    securityLevel: 'strict',
                     theme: '@(isDarkMode ? "dark" : "default")'
                 });
 
@@ -240,7 +242,7 @@
             // --- Highlight.js Rendering ---
             function renderHighlight() {
                 if (window.hljs) {
-                    hljs.highlightAll();
+                    document.querySelectorAll('#printable-area pre code:not(.language-mermaid)').forEach(block => hljs.highlightElement(block));
                 }
             }
             renderHighlight();
