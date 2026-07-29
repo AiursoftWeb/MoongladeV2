@@ -132,4 +132,30 @@ public class OrphanMarkdownImageCleanupJobTests : TestBase
         await RunJob();
         // Reaching here without exception is the pass condition.
     }
+
+    // -----------------------------------------------------------------------
+    // Test 6: referenced image with absolute URL → kept (fix for #502)
+    // -----------------------------------------------------------------------
+    [TestMethod]
+    public async Task ReferencedImageWithAbsoluteUrlIsKept()
+    {
+        var filename = "absolute-url-ref.png";
+        var referencedPath = CreateImageFile(filename, isOld: true);
+
+        var db = Server!.Services.GetRequiredService<TemplateDbContext>();
+        var admin = await db.Users.FirstAsync();
+        db.MarkdownDocuments.Add(new MarkdownDocument
+        {
+            Id = Guid.NewGuid(),
+            Title = "Absolute URL test",
+            Content = $"![screenshot](https://news.aiursoft.com/download/markdown-images/{filename})",
+            UserId = admin.Id
+        });
+        await db.SaveChangesAsync();
+
+        await RunJob();
+
+        Assert.IsTrue(File.Exists(referencedPath),
+            "An image referenced via absolute URL must never be deleted.");
+    }
 }

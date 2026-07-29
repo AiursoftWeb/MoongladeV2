@@ -115,10 +115,12 @@ public partial class OrphanMarkdownImageCleanupJob(
             deletedCount, allImageFiles.Count);
     }
 
-    // Matches: ![anything](/download/markdown-images/some/path.png)
+    // Matches both relative and absolute URLs:
+    //   Relative: ![alt](/download/markdown-images/some/path.png)
+    //   Absolute: ![alt](https://example.com/download/markdown-images/some/path.png)
     // Captures group 1: "markdown-images/some/path.png"
     // Singleline: allows alt text to span newlines.
     // Stops at ) ? # to avoid capturing query strings or anchors as part of the path.
-    [GeneratedRegex(@"!\[.*?\]\(/download/(markdown-images/[^)?#]+)", RegexOptions.IgnoreCase | RegexOptions.Singleline)]
+    [GeneratedRegex(@"!\[.*?\]\((?:https?://[^/]+)?/download/(markdown-images/[^)?#]+)", RegexOptions.IgnoreCase | RegexOptions.Singleline)]
     private static partial Regex MarkdownImageUrlRegex();
 }
