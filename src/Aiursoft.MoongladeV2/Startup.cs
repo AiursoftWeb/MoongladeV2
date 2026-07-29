@@ -125,6 +125,7 @@ public class Startup : IWebStartup
         services.AddSingleton(_ =>
         {
             var sanitizer = new HtmlSanitizer();
+            sanitizer.AllowedTags.Add("br");
             sanitizer.AllowedAttributes.Add("class");
             return sanitizer;
         });
