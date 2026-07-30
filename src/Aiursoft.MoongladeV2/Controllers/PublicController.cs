@@ -56,40 +56,6 @@ public class PublicController(
     }
 
     /// <summary>
-    /// Print a shared document.
-    /// </summary>
-    [HttpGet("print")]
-    public async Task<IActionResult> Print([Required][FromRoute] Guid id)
-    {
-        var document = await context.MarkdownDocuments
-            .Include(d => d.User)
-            .FirstOrDefaultAsync(d => d.Id == id);
-
-        if (document == null)
-        {
-            return NotFound("The document was not found.");
-        }
-
-        if (!document.IsPublic && !await HasContentPermission())
-        {
-            return User.Identity?.IsAuthenticated == true ? Forbid() : Challenge();
-        }
-
-        var outputHtml = mtohService.ConvertMarkdownToHtml(document.Content ?? string.Empty);
-        var model = new PublicDocumentViewModel(document.Title ?? "Untitled Document")
-        {
-            DocumentTitle = document.Title ?? "Untitled Document",
-            Content = outputHtml,
-            MarkdownContent = document.Content ?? string.Empty,
-            AuthorName = document.User.UserName ?? "Unknown Author",
-            CreationTime = document.CreationTime,
-            CanEdit = false
-        };
-
-        return View(model);
-    }
-
-    /// <summary>
     /// View the raw Markdown content of a shared document.
     /// </summary>
     [HttpGet("raw")]

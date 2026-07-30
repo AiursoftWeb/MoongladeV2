@@ -49,11 +49,6 @@
                                 <i class="align-middle" data-lucide="edit"></i> <span class="d-none d-sm-inline">@Localizer["Edit"]</span>
                             </a>
                         }
-                        <button type="button" id="print-button" class="btn btn-sm btn-outline-secondary"
-                            title="@Localizer["Print"]">
-                            <i class="align-middle" data-lucide="printer"></i> <span
-                                class="d-none d-sm-inline">@Localizer["Print"]</span>
-                        </button>
                         <a asp-controller="Contract" asp-action="Fill" asp-route-id="@ViewBag.DocumentId" class="btn btn-sm btn-outline-info"
                            target="_blank" title="@Localizer["Contract Layout"]">
                             <i class="align-middle" data-lucide="file-signature"></i> <span
@@ -84,7 +79,7 @@
                 <div class="tab-content">
                     @* Pane 1: Preview *@
                     <div class="tab-pane active show px-4 py-2" id="preview" role="tabpanel">
-                        <div id="printable-area" class="markdown-content">
+                        <div id="markdown-preview" class="markdown-content">
                             @Html.Raw(Model.Content)
                         </div>
                     </div>
@@ -120,16 +115,7 @@
             });
         });
 
-        // 2. Print Button
-        const printBtn = document.getElementById('print-button');
-        if (printBtn) {
-            printBtn.addEventListener('click', () => {
-                const printUrl = '@Url.Action("Print", "Public", new { id = ViewBag.DocumentId })';
-                window.open(printUrl, '_blank');
-            });
-        }
-
-        // 3. Copy Markdown Button
+        // 2. Copy Markdown Button
         const copyBtn = document.getElementById('copy-markdown-button');
         if (copyBtn) {
             copyBtn.addEventListener('click', function () {
@@ -159,7 +145,6 @@
     <link rel="stylesheet" href="~/node_modules/@@fontsource/cascadia-code/index.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-editor.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/styles/markdown-print.css"  asp-append-version="true" />
     @if (isDarkMode)
     {
         <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github-dark.min.css" asp-append-version="true" />
@@ -196,7 +181,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const render = () => window.AiursoftMarkdownUi.initializeMarkdownReader({
-                container: '#printable-area',
+                container: '#markdown-preview',
                 mermaidTheme: '@(isDarkMode ? "dark" : "default")'
             }).catch(console.error);
             render();
