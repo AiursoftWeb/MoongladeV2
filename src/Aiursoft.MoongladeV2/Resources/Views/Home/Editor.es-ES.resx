@@ -189,11 +189,17 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>Interno - Usuarios/roles específicos</value>
   </data>
+  <data name="Leave empty for automatic generation" xml:space="preserve">
+    <value>Déjelo vacío para generar automáticamente</value>
+  </data>
   <data name="Localization" xml:space="preserve">
     <value>Localización</value>
   </data>
   <data name="Localize" xml:space="preserve">
     <value>Localizar</value>
+  </data>
+  <data name="Lowercase English letters, numbers, and single hyphens only. Empty slugs are generated automatically for public posts." xml:space="preserve">
+    <value>Solo letras minúsculas en inglés, números y guiones simples. Los slugs vacíos se generan automáticamente para las publicaciones públicas.</value>
   </data>
   <data name="Make document private" xml:space="preserve">
     <value>Hacer documento privado</value>
@@ -224,6 +230,9 @@
   </data>
   <data name="Post updated successfully." xml:space="preserve">
     <value>Entrada actualizada correctamente.</value>
+  </data>
+  <data name="Post URL" xml:space="preserve">
+    <value>URL de la entrada</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>Vista previa</value>

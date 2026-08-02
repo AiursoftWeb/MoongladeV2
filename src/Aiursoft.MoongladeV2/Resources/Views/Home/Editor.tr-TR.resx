@@ -189,11 +189,17 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>İç - Belirli kullanıcılar/roller</value>
   </data>
+  <data name="Leave empty for automatic generation" xml:space="preserve">
+    <value>Otomatik oluşturmak için boş bırakın</value>
+  </data>
   <data name="Localization" xml:space="preserve">
     <value>Yerelleştirme</value>
   </data>
   <data name="Localize" xml:space="preserve">
     <value>Yerelleştir</value>
+  </data>
+  <data name="Lowercase English letters, numbers, and single hyphens only. Empty slugs are generated automatically for public posts." xml:space="preserve">
+    <value>Sadece küçük harfli İngilizce harfler, rakamlar ve tek tireler kullanılabilir. Boğazlar boş bırakıldığında halka açık gönderiler için otomatik olarak oluşturulur.</value>
   </data>
   <data name="Make document private" xml:space="preserve">
     <value>Belgeyi Gizli Yap</value>
@@ -224,6 +230,9 @@
   </data>
   <data name="Post updated successfully." xml:space="preserve">
     <value>Gönderi başarıyla güncellendi.</value>
+  </data>
+  <data name="Post URL" xml:space="preserve">
+    <value>Gönderi URL&apos;si</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>Önizleme</value>

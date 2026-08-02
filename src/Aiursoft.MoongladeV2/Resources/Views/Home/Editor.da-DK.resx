@@ -189,11 +189,17 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>Internt - Specifikke brugere/roller</value>
   </data>
+  <data name="Leave empty for automatic generation" xml:space="preserve">
+    <value>Udelad for automatisk generering</value>
+  </data>
   <data name="Localization" xml:space="preserve">
     <value>Lokalisering</value>
   </data>
   <data name="Localize" xml:space="preserve">
     <value>Lokaliser</value>
+  </data>
+  <data name="Lowercase English letters, numbers, and single hyphens only. Empty slugs are generated automatically for public posts." xml:space="preserve">
+    <value>Kun små engelske bogstaver, tal og enkelte bindestreger. Tomme slugs genereres automatisk for offentlige indlæg.</value>
   </data>
   <data name="Make document private" xml:space="preserve">
     <value>Gør dokument privat</value>
@@ -224,6 +230,9 @@
   </data>
   <data name="Post updated successfully." xml:space="preserve">
     <value>Indlæg opdateret med succes.</value>
+  </data>
+  <data name="Post URL" xml:space="preserve">
+    <value>Indlæg-URL</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>Forhåndsvisning</value>

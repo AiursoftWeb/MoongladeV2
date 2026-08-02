@@ -189,11 +189,17 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>داخلي - مستخدمين/أدوار محددة</value>
   </data>
+  <data name="Leave empty for automatic generation" xml:space="preserve">
+    <value>اتركه فارغاً للتوليد التلقائي</value>
+  </data>
   <data name="Localization" xml:space="preserve">
     <value>التوطين</value>
   </data>
   <data name="Localize" xml:space="preserve">
     <value>التوطين</value>
+  </data>
+  <data name="Lowercase English letters, numbers, and single hyphens only. Empty slugs are generated automatically for public posts." xml:space="preserve">
+    <value>حروف إنجليزية صغيرة وأرقام وشرطات مفردة فقط. يتم إنشاء المسارات الفارغة تلقائياً للمشاركات العامة.</value>
   </data>
   <data name="Make document private" xml:space="preserve">
     <value>جعل المستند خاصًا</value>
@@ -224,6 +230,9 @@
   </data>
   <data name="Post updated successfully." xml:space="preserve">
     <value>تم تحديث المقال بنجاح.</value>
+  </data>
+  <data name="Post URL" xml:space="preserve">
+    <value>رابط المنشور</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>معاينة</value>
