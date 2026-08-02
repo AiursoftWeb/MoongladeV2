@@ -23,7 +23,8 @@ public class HomeController(
     TemplateDbContext context,
     MoongladeV2Service mtohService,
     IAuthorizationService authorizationService,
-    GlobalSettingsService globalSettingsService) : Controller
+    GlobalSettingsService globalSettingsService,
+    PostUrlService postUrlService) : Controller
 {
     private async Task<bool> HasAnyContentPermission()
     {
@@ -48,7 +49,7 @@ public class HomeController(
     public async Task<IActionResult> Editor()
     {
         if (!await HasAnyContentPermission()) return Forbid();
-        return this.StackView(new IndexViewModel("Untitled Post"));
+        return this.StackView(new IndexViewModel("Untitled Post") { PublishedAt = DateTime.UtcNow });
     }
 
     [HttpPost]
@@ -77,6 +78,8 @@ public class HomeController(
             documentInDb.UpdatedAt = DateTime.UtcNow;
             documentInDb.Content = model.InputMarkdown.SafeSubstring(65535);
             documentInDb.Title = model.Title;
+            var slugResult = await postUrlService.ChangeAsync(documentInDb, model.Slug, model.ConfirmHistoricalSlugReuse);
+            if (slugResult != SlugChangeResult.Success) return SlugErrorResult(model, slugResult, ajax: false);
         }
         else
         {
@@ -92,6 +95,8 @@ public class HomeController(
                 UserId = userId
             };
             context.MarkdownDocuments.Add(newDocument);
+            var slugResult = await postUrlService.ChangeAsync(newDocument, model.Slug, model.ConfirmHistoricalSlugReuse);
+            if (slugResult != SlugChangeResult.Success) return SlugErrorResult(model, slugResult, ajax: false);
         }
 
         await context.SaveChangesAsync();
@@ -111,7 +116,7 @@ public class HomeController(
             return NotFound("The document was not found.");
         }
 
-        var publicLink = Url.Action(nameof(PublicController.View), "Public", new { id = document.Id }, Request.Scheme);
+        var publicLink = $"{Request.Scheme}://{Request.Host}{PostUrlService.BuildUrl(document)}";
 
         var model = new IndexViewModel(document.Title ?? "Untitled Post")
         {
@@ -123,6 +128,8 @@ public class HomeController(
             SavedSuccessfully = saved ?? false,
             IsPublic = document.IsPublic,
             PublicLink = publicLink
+            ,Slug = document.Slug
+            ,PublishedAt = document.CreationTime
         };
 
         return this.StackView(model: model, viewName: nameof(Editor));
@@ -160,6 +167,8 @@ public class HomeController(
             documentInDb.UpdatedAt = DateTime.UtcNow;
             documentInDb.Content = model.InputMarkdown.SafeSubstring(65535);
             documentInDb.Title = model.Title;
+            var slugResult = await postUrlService.ChangeAsync(documentInDb, model.Slug, model.ConfirmHistoricalSlugReuse);
+            if (slugResult != SlugChangeResult.Success) return SlugErrorResult(model, slugResult, ajax: true);
         }
         else
         {
@@ -168,6 +177,20 @@ public class HomeController(
 
         await context.SaveChangesAsync();
         return Ok(new { success = true, documentId = model.DocumentId });
+    }
+
+    private IActionResult SlugErrorResult(IndexViewModel model, SlugChangeResult result, bool ajax)
+    {
+        var message = result switch
+        {
+            SlugChangeResult.Invalid => "Use only lowercase English letters, numbers, and single hyphens.",
+            SlugChangeResult.Occupied => "That URL is already used by this date's current or historical post.",
+            SlugChangeResult.ConfirmationRequired => "This slug was previously used by this post. Reusing it may cause cached 301 redirects or a redirect loop.",
+            _ => "The slug could not be saved."
+        };
+        if (ajax) return Conflict(new { success = false, code = result.ToString(), error = message });
+        ModelState.AddModelError(nameof(model.Slug), message);
+        return this.StackView(model, viewName: nameof(Editor));
     }
 
     [Authorize]

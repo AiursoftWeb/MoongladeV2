@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using Aiursoft.UiStack.Layout;
 using Aiursoft.MoongladeV2.Attributes;
+using Aiursoft.MoongladeV2.Services;
 
 namespace Aiursoft.MoongladeV2.Models.HomeViewModels;
 
@@ -56,6 +57,13 @@ public class IndexViewModel : UiStackLayoutViewModel
     /// The public link to view this document.
     /// </summary>
     public string? PublicLink { get; set; }
+
+    [MaxLength(PostUrlService.MaxSlugLength)]
+    public string? Slug { get; set; }
+
+    public bool ConfirmHistoricalSlugReuse { get; set; }
+
+    public DateTime PublishedAt { get; set; }
 
 
     public bool SavedSuccessfully { get; set; }

@@ -37,10 +37,13 @@ public class MarkdownDocument
     // ── Blog metadata ──────────────────────────────────────────────────────────
 
     /// <summary>
-    /// URL-friendly slug, e.g. "my-first-post". Must be unique when set.
+    /// URL-friendly slug, e.g. "my-first-post". Unique within its publication date.
     /// </summary>
     [MaxLength(200)]
     public string? Slug { get; set; }
+
+    /// <summary>The UTC publication date used by the composite slug uniqueness constraint.</summary>
+    public DateTime? SlugDate { get; set; }
 
     /// <summary>
     /// Comma-separated tags, e.g. "dotnet,azure,ai".
@@ -88,4 +91,7 @@ public class MarkdownDocument
 
     [InverseProperty(nameof(Comment.Document))]
     public ICollection<Comment> Comments { get; init; } = new List<Comment>();
+
+    [InverseProperty(nameof(PostSlugAlias.Document))]
+    public ICollection<PostSlugAlias> SlugAliases { get; init; } = new List<PostSlugAlias>();
 }

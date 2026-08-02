@@ -39,6 +39,19 @@
 
 <form asp-action="SaveNew" method="post" id="markdown-form" class="d-flex flex-column h-100 pb-0">
     @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="ConfirmHistoricalSlugReuse" />
+    <div class="bg-white border-bottom px-3 py-2">
+        <div class="input-group input-group-sm mx-auto" style="max-width: 900px;">
+            <span class="input-group-text">@Localizer["Post URL"]</span>
+            <span class="input-group-text text-muted">/post/@Model.PublishedAt.ToString("yyyy/MM/dd")/</span>
+            <input asp-for="Slug" class="form-control" maxlength="200" pattern="[a-z0-9]+(?:-[a-z0-9]+)*"
+                   placeholder="@Localizer["Leave empty for automatic generation"]" aria-describedby="slug-help" />
+        </div>
+        <div id="slug-help" class="form-text text-center">
+            @Localizer["Lowercase English letters, numbers, and single hyphens only. Empty slugs are generated automatically for public posts."]
+        </div>
+        <span asp-validation-for="Slug" class="text-danger d-block text-center"></span>
+    </div>
     <!-- Unified Sticky Toolbar -->
     <div class="sticky-top bg-white border-bottom py-2 px-3 mb-0 d-flex align-items-center justify-content-between z-3" style="box-shadow: 0 2px 4px rgba(0,0,0,.04);">
         <!-- Left: View Switcher -->
@@ -342,6 +355,15 @@
                 const saveButton = document.getElementById('save-button');
                 const markdownForm = document.getElementById('markdown-form');
 
+                ['Title', 'Slug'].forEach(function (id) {
+                    document.getElementById(id)?.addEventListener('input', function () {
+                        if (!isAuthenticated) return;
+                        document.getElementById('ConfirmHistoricalSlugReuse').value = 'false';
+                        isDirty = true;
+                        updateSaveButtonState();
+                    });
+                });
+
                 function updateSaveButtonState() {
                     if (!saveButton || !isAuthenticated) return;
                     if (!isEditing || isDirty) {
@@ -369,9 +391,21 @@
                     formData.append('InputMarkdown', markdownEditorController.getValue());
                     formData.append('Title', document.getElementById('Title')?.value || '');
                     formData.append('DocumentId', document.getElementById('DocumentId')?.value || '');
+                    formData.append('Slug', document.getElementById('Slug')?.value || '');
+                    formData.append('ConfirmHistoricalSlugReuse', document.getElementById('ConfirmHistoricalSlugReuse')?.value || 'false');
                     formData.append('__RequestVerificationToken', tokenInput ? tokenInput.value : '');
                     try {
                         const response = await fetch('/Home/SaveUpdate', { method: 'POST', body: formData });
+                        if (response.status === 409) {
+                            const failure = await response.json();
+                            if (failure.code === 'ConfirmationRequired' && confirm(failure.error + '\n\nSave anyway?')) {
+                                document.getElementById('ConfirmHistoricalSlugReuse').value = 'true';
+                                isDirty = true;
+                                return doSave();
+                            }
+                            alert(failure.error);
+                            return;
+                        }
                         if (!response.ok) throw new Error('Save failed');
                         const data = await response.json();
                         if (data.success) {

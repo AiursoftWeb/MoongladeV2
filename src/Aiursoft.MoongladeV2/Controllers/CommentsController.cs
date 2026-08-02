@@ -61,13 +61,10 @@ public class CommentsController(
         db.Comments.Add(comment);
         await db.SaveChangesAsync();
 
-        var slug = await db.MarkdownDocuments
+        var document = await db.MarkdownDocuments
             .Where(d => d.Id == documentId)
-            .Select(d => d.Slug)
             .FirstOrDefaultAsync();
-
-        var postUrlSegment = !string.IsNullOrWhiteSpace(slug) ? slug : documentId.ToString();
-        return RedirectToAction("Post", "Blog", new { slug = postUrlSegment }, "comments");
+        return LocalRedirect($"{PostUrlService.BuildUrl(document!)}#comments");
     }
 
     [HttpPost]
@@ -94,13 +91,10 @@ public class CommentsController(
         db.Comments.Remove(comment);
         await db.SaveChangesAsync();
 
-        var slug = await db.MarkdownDocuments
+        var document = await db.MarkdownDocuments
             .Where(d => d.Id == comment.DocumentId)
-            .Select(d => d.Slug)
             .FirstOrDefaultAsync();
-
-        var postUrlSegment = !string.IsNullOrWhiteSpace(slug) ? slug : comment.DocumentId.ToString();
-        return RedirectToAction("Post", "Blog", new { slug = postUrlSegment }, "comments");
+        return LocalRedirect($"{PostUrlService.BuildUrl(document!)}#comments");
     }
 
     [HttpPost]

@@ -9,6 +9,11 @@
     var showAuthorInfo = ViewBag.ShowAuthorInfo as bool? ?? true;
 }
 
+@section styles {
+    <link rel="canonical" href="@ViewBag.CanonicalUrl" />
+    <meta property="og:url" content="@ViewBag.CanonicalUrl" />
+}
+
 <vc:marketing-navbar></vc:marketing-navbar>
 
 <main class="moonglade-blog-shell body-post-slug @(isDarkMode ? "darkmode" : null)">

@@ -70,7 +70,7 @@
                                     <input type="checkbox" class="comment-checkbox" name="commentIds" value="@comment.Id" />
                                 </td>
                                 <td>
-                                    <a asp-controller="Blog" asp-action="Post" asp-route-slug="@(comment.Document.Slug ?? comment.DocumentId.ToString())"
+                                    <a href="@Aiursoft.MoongladeV2.Services.PostUrlService.BuildUrl(comment.Document)"
                                        target="_blank" class="text-decoration-none">
                                         @(string.IsNullOrWhiteSpace(comment.Document.Title) ? Localizer["(no title)"].Value : comment.Document.Title)
                                     </a>
