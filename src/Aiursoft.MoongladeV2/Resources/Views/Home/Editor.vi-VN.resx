@@ -189,11 +189,17 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>Nội bộ - Người dùng/Vai trò cụ thể</value>
   </data>
+  <data name="Leave empty for automatic generation" xml:space="preserve">
+    <value>Để trống để tự động tạo</value>
+  </data>
   <data name="Localization" xml:space="preserve">
     <value>Địa phương hóa</value>
   </data>
   <data name="Localize" xml:space="preserve">
     <value>Địa phương hóa</value>
+  </data>
+  <data name="Lowercase English letters, numbers, and single hyphens only. Empty slugs are generated automatically for public posts." xml:space="preserve">
+    <value>Chỉ dùng chữ thường tiếng Anh, số và dấu gạch ngang đơn. Slug trống sẽ được tạo tự động cho bài đăng công khai.</value>
   </data>
   <data name="Make document private" xml:space="preserve">
     <value>Chuyển tài liệu thành riêng tư</value>
@@ -224,6 +230,9 @@
   </data>
   <data name="Post updated successfully." xml:space="preserve">
     <value>Đã cập nhật bài viết thành công.</value>
+  </data>
+  <data name="Post URL" xml:space="preserve">
+    <value>URL bài viết</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>Xem trước</value>

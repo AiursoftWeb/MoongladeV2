@@ -189,11 +189,17 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>Εσωτερικό - Συγκεκριμένοι χρήστες/ρόλοι</value>
   </data>
+  <data name="Leave empty for automatic generation" xml:space="preserve">
+    <value>Αφήστε κενό για αυτόματη δημιουργία</value>
+  </data>
   <data name="Localization" xml:space="preserve">
     <value>Τοπικοποίηση</value>
   </data>
   <data name="Localize" xml:space="preserve">
     <value>Τοπικοποίηση</value>
+  </data>
+  <data name="Lowercase English letters, numbers, and single hyphens only. Empty slugs are generated automatically for public posts." xml:space="preserve">
+    <value>Μόνο πεζά αγγλικά γράμματα, αριθμοί και ενιαίοι παύλες. Οι κενές τιμές slug δημιουργούνται αυτόματα για δημόσιες αναρτήσεις.</value>
   </data>
   <data name="Make document private" xml:space="preserve">
     <value>Κάνε το έγγραφο ιδιωτικό</value>
@@ -224,6 +230,9 @@
   </data>
   <data name="Post updated successfully." xml:space="preserve">
     <value>Η ανάρτηση ενημερώθηκε με επιτυχία.</value>
+  </data>
+  <data name="Post URL" xml:space="preserve">
+    <value>Διεύθυνση αναρτησης</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>Προεπισκόπηση</value>

@@ -189,11 +189,17 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>Sisäinen - Tietyt käyttäjät/roolit</value>
   </data>
+  <data name="Leave empty for automatic generation" xml:space="preserve">
+    <value>Jätä tyhjäksi automaattista luontia varten</value>
+  </data>
   <data name="Localization" xml:space="preserve">
     <value>Lokalisointi</value>
   </data>
   <data name="Localize" xml:space="preserve">
     <value>Lokalisoi</value>
+  </data>
+  <data name="Lowercase English letters, numbers, and single hyphens only. Empty slugs are generated automatically for public posts." xml:space="preserve">
+    <value>Vain pieniä englantilaisia kirjaimia, numeroita ja yksittäisiä väliviivoja. Tyhjät slugit luodaan automaattisesti julkisille viesteille.</value>
   </data>
   <data name="Make document private" xml:space="preserve">
     <value>Tee dokumentista yksityinen</value>
@@ -224,6 +230,9 @@
   </data>
   <data name="Post updated successfully." xml:space="preserve">
     <value>Julkaisu päivitetty onnistuneesti.</value>
+  </data>
+  <data name="Post URL" xml:space="preserve">
+    <value>Julkaisun URL-osoite</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>Esikatselu</value>

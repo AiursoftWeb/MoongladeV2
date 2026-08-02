@@ -189,11 +189,17 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>आंतरिक - विशिष्ट उपयोगकर्ता/भूमिकाएँ</value>
   </data>
+  <data name="Leave empty for automatic generation" xml:space="preserve">
+    <value>स्वचालित जनरेशन के लिए खाली छोड़ें</value>
+  </data>
   <data name="Localization" xml:space="preserve">
     <value>स्थानीयकरण</value>
   </data>
   <data name="Localize" xml:space="preserve">
     <value>स्थानीय बनाएं</value>
+  </data>
+  <data name="Lowercase English letters, numbers, and single hyphens only. Empty slugs are generated automatically for public posts." xml:space="preserve">
+    <value>केवल छोटे अंग्रेजी अक्षर, संख्याएँ और एकल हाइफ़न। सार्वजनिक पोस्ट्स के लिए खाली स्लग स्वचालित रूप से उत्पन्न होते हैं।</value>
   </data>
   <data name="Make document private" xml:space="preserve">
     <value>दस्तावेज़ निजी बनाएं</value>
@@ -224,6 +230,9 @@
   </data>
   <data name="Post updated successfully." xml:space="preserve">
     <value>पोस्ट सफलतापूर्वक अपडेट हो गई।</value>
+  </data>
+  <data name="Post URL" xml:space="preserve">
+    <value>पोस्ट URL</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>पूर्वावलोकन</value>

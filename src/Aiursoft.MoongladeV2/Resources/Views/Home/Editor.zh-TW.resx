@@ -189,11 +189,17 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>內部 - 特定使用者/角色</value>
   </data>
+  <data name="Leave empty for automatic generation" xml:space="preserve">
+    <value>留空以自動生成</value>
+  </data>
   <data name="Localization" xml:space="preserve">
     <value>本地化</value>
   </data>
   <data name="Localize" xml:space="preserve">
     <value>本地化</value>
+  </data>
+  <data name="Lowercase English letters, numbers, and single hyphens only. Empty slugs are generated automatically for public posts." xml:space="preserve">
+    <value>僅限小寫英文字母、數字和單一字元連字號。公開文章的空白永久連結將自動產生。</value>
   </data>
   <data name="Make document private" xml:space="preserve">
     <value>設為私人文件</value>
@@ -224,6 +230,9 @@
   </data>
   <data name="Post updated successfully." xml:space="preserve">
     <value>文章更新成功。</value>
+  </data>
+  <data name="Post URL" xml:space="preserve">
+    <value>文章網址</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>預覽</value>
