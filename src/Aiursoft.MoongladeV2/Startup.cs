@@ -103,6 +103,11 @@ public class Startup : IWebStartup
         var cleanupAbstractsJob = services.RegisterBackgroundJob<Services.BackgroundJobs.CleanupAbstractDocumentsJob>();
         services.RegisterScheduledTask(registration: cleanupAbstractsJob, period: TimeSpan.FromHours(6), startDelay: TimeSpan.FromMinutes(20));
 
+        var generatePostSlugsJob = services.RegisterBackgroundJob<Services.BackgroundJobs.GeneratePostSlugsJob>();
+        services.RegisterScheduledTask(registration: generatePostSlugsJob, period: TimeSpan.FromMinutes(10), startDelay: TimeSpan.FromMinutes(1));
+        var cleanupPostSlugAliasesJob = services.RegisterBackgroundJob<Services.BackgroundJobs.CleanupPostSlugAliasesJob>();
+        services.RegisterScheduledTask(registration: cleanupPostSlugAliasesJob, period: TimeSpan.FromDays(1), startDelay: TimeSpan.FromMinutes(25));
+
         // Manual-only purge jobs (no schedule — trigger manually from admin UI)
         services.RegisterBackgroundJob<Services.BackgroundJobs.PurgeLocalizedDocumentsJob>();
         services.RegisterBackgroundJob<Services.BackgroundJobs.PurgeLocalizedAbstractsJob>();

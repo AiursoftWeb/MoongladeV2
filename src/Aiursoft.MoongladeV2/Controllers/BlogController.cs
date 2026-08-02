@@ -110,20 +110,32 @@ public class BlogController(
         return this.SimpleView(model);
     }
 
-    [HttpGet("/post/{slug}")]
-    public async Task<IActionResult> Post([FromRoute] string slug)
+    [HttpGet("/post/{year:int}/{month:int}/{day:int}/{slug}")]
+    public async Task<IActionResult> Post([FromRoute] int year, [FromRoute] int month, [FromRoute] int day, [FromRoute] string slug)
     {
-        if (string.IsNullOrWhiteSpace(slug))
-        {
-            return NotFound();
-        }
+        if (!PostUrlService.IsValid(slug) || !DateTime.TryParseExact($"{year:D4}-{month:D2}-{day:D2}", "yyyy-MM-dd",
+                System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out var date)) return NotFound();
 
         var document = await dbContext.MarkdownDocuments
             .AsNoTracking()
             .Include(d => d.User)
-            .FirstOrDefaultAsync(d => d.IsPublic && d.Slug == slug);
+            .FirstOrDefaultAsync(d => d.IsPublic && d.CreationTime.Date == date.Date && d.Slug == slug);
 
-        return await BuildPostResultAsync(document);
+        if (document != null) return await BuildPostResultAsync(document);
+
+        var alias = await dbContext.PostSlugAliases.AsNoTracking().Include(a => a.Document)
+            .FirstOrDefaultAsync(a => a.PublishedDate == date.Date && a.Slug == slug && a.ExpiresAt > DateTime.UtcNow && a.Document.IsPublic);
+        if (alias == null) return NotFound("The post was not found.");
+        return RedirectPermanent(PostUrlService.BuildUrl(alias.Document));
+    }
+
+    // Compatibility for slug links emitted by earlier MoongladeV2 releases.
+    [HttpGet("/post/{slug}")]
+    public async Task<IActionResult> LegacyPost([FromRoute] string slug)
+    {
+        var document = await dbContext.MarkdownDocuments.AsNoTracking()
+            .FirstOrDefaultAsync(d => d.IsPublic && d.Slug == slug);
+        return document == null ? NotFound() : RedirectPermanent(PostUrlService.BuildUrl(document));
     }
 
     [HttpGet("/post/{id:guid}")]
@@ -134,6 +146,8 @@ public class BlogController(
             .Include(d => d.User)
             .FirstOrDefaultAsync(d => d.IsPublic && d.Id == id);
 
+        if (document == null) return NotFound("The post was not found.");
+        if (!string.IsNullOrWhiteSpace(document.Slug)) return RedirectPermanent(PostUrlService.BuildUrl(document));
         return await BuildPostResultAsync(document);
     }
 
@@ -179,6 +193,7 @@ public class BlogController(
             Comments = comments
         };
         ViewBag.ShowAuthorInfo = showAuthorInfo;
+        ViewBag.CanonicalUrl = $"{Request.Scheme}://{Request.Host}{PostUrlService.BuildUrl(document)}";
         return this.SimpleView(model, viewName: nameof(Post));
     }
 
@@ -338,9 +353,7 @@ public class BlogController(
 
     private static string BuildPostUrl(MarkdownDocument document)
     {
-        return !string.IsNullOrWhiteSpace(document.Slug)
-            ? $"/post/{document.Slug}"
-            : $"/post/{document.Id}";
+        return PostUrlService.BuildUrl(document);
     }
 
     private static string BuildIndexPageTitle(string? tag, string? query)

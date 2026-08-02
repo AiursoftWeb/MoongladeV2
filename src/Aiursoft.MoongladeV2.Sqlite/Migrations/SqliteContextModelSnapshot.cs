@@ -167,6 +167,9 @@ namespace Aiursoft.MoongladeV2.Sqlite.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("TEXT");
 
+                    b.Property<DateTime?>("SlugDate")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("SourceCulture")
                         .HasMaxLength(10)
                         .HasColumnType("TEXT");
@@ -189,13 +192,45 @@ namespace Aiursoft.MoongladeV2.Sqlite.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Slug")
-                        .IsUnique()
-                        .HasFilter("[Slug] IS NOT NULL");
-
                     b.HasIndex("UserId");
 
+                    b.HasIndex("SlugDate", "Slug")
+                        .IsUnique();
+
                     b.ToTable("MarkdownDocuments");
+                });
+
+            modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.PostSlugAlias", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("DocumentId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("ExpiresAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("PublishedDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("RetiredAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DocumentId");
+
+                    b.HasIndex("PublishedDate", "Slug")
+                        .IsUnique();
+
+                    b.ToTable("PostSlugAliases");
                 });
 
             modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.SearchEmbedding", b =>
@@ -491,6 +526,17 @@ namespace Aiursoft.MoongladeV2.Sqlite.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.PostSlugAlias", b =>
+                {
+                    b.HasOne("Aiursoft.MoongladeV2.Entities.MarkdownDocument", "Document")
+                        .WithMany("SlugAliases")
+                        .HasForeignKey("DocumentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Document");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -552,6 +598,8 @@ namespace Aiursoft.MoongladeV2.Sqlite.Migrations
                     b.Navigation("Comments");
 
                     b.Navigation("LocalizedDocuments");
+
+                    b.Navigation("SlugAliases");
                 });
 
             modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.User", b =>

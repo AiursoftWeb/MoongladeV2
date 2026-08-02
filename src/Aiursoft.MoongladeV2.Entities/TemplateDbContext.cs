@@ -24,14 +24,25 @@ public abstract class TemplateDbContext(DbContextOptions options) : IdentityDbCo
 
     public DbSet<Comment> Comments => Set<Comment>();
 
+    public DbSet<PostSlugAlias> PostSlugAliases => Set<PostSlugAlias>();
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
 
         builder.Entity<MarkdownDocument>()
-            .HasIndex(d => d.Slug)
-            .IsUnique()
-            .HasFilter("[Slug] IS NOT NULL");
+            .HasIndex(d => new { d.SlugDate, d.Slug })
+            .IsUnique();
+
+        builder.Entity<PostSlugAlias>()
+            .HasIndex(a => new { a.PublishedDate, a.Slug })
+            .IsUnique();
+
+        builder.Entity<PostSlugAlias>()
+            .HasOne(a => a.Document)
+            .WithMany(d => d.SlugAliases)
+            .HasForeignKey(a => a.DocumentId)
+            .OnDelete(DeleteBehavior.Cascade);
 
         builder.Entity<Comment>()
             .HasOne(c => c.Document)
