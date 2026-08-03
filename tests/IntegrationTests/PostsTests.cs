@@ -441,5 +441,12 @@ public class PostsTests : TestBase
         var response = await anonHttp.GetAsync($"/share/{docId}");
         Assert.AreEqual(HttpStatusCode.OK, response.StatusCode,
             "Anyone should be able to view a public post, even anonymously");
+
+        var blogResponse = await anonHttp.GetAsync($"/post/{docId}");
+        Assert.AreEqual(HttpStatusCode.OK, blogResponse.StatusCode,
+            "Anyone should be able to view a public post through its blog URL");
+        var blogHtml = await blogResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(blogHtml, "Public News");
+        StringAssert.Contains(blogHtml, $"rel=\"canonical\" href=\"{new Uri(anonHttp.BaseAddress!, $"post/{docId}")}\"");
     }
 }

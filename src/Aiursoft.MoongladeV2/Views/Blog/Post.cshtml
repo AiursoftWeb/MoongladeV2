@@ -9,11 +9,6 @@
     var showAuthorInfo = ViewBag.ShowAuthorInfo as bool? ?? true;
 }
 
-@section styles {
-    <link rel="canonical" href="@ViewBag.CanonicalUrl" />
-    <meta property="og:url" content="@ViewBag.CanonicalUrl" />
-}
-
 <vc:marketing-navbar></vc:marketing-navbar>
 
 <main class="moonglade-blog-shell body-post-slug @(isDarkMode ? "darkmode" : null)">
@@ -237,6 +232,8 @@
 
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section styles {
+    <link rel="canonical" href="@ViewBag.CanonicalUrl" />
+    <meta property="og:url" content="@ViewBag.CanonicalUrl" />
     <link rel="stylesheet" href="~/node_modules/@@fontsource/cascadia-code/index.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/blog.css" asp-append-version="true" />
