@@ -15,7 +15,9 @@
                 {
                     <li class="py-2 d-flex justify-content-between border-bottom">
                         <a class="text-decoration-none" href="@post.Url">@post.Title</a>
-                        <span class="text-muted small">@post.PublishedAt.ToString("MM-dd")</span>
+                        <span class="text-muted small">
+                            @post.PublishedAt.ToString("MM-dd") · @Localizer["Views"] @post.ViewCount.ToString("N0")
+                        </span>
                     </li>
                 }
             </ul>

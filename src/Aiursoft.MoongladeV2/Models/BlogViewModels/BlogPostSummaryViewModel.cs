@@ -9,6 +9,7 @@ public class BlogPostSummaryViewModel
     public string Excerpt { get; init; } = string.Empty;
     public DateTime PublishedAt { get; init; }
     public bool IsFeatured { get; init; }
+    public long ViewCount { get; init; }
     public string? HeroImageUrl { get; init; }
     public IReadOnlyList<string> Tags { get; init; } = [];
 }

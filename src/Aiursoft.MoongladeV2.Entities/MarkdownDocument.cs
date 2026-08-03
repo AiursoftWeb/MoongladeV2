@@ -57,6 +57,12 @@ public class MarkdownDocument
     public bool IsFeatured { get; set; }
 
     /// <summary>
+    /// Number of views that have been archived to durable storage.
+    /// Unarchived views are held by the application's double buffer.
+    /// </summary>
+    public long ViewCount { get; set; }
+
+    /// <summary>
     /// Optional cover image URL shown in post cards and the post header.
     /// </summary>
     [MaxLength(500)]

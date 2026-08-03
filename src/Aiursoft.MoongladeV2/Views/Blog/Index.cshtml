@@ -129,6 +129,10 @@
 
                                 <p class="post-summary-text">@post.Excerpt</p>
 
+                                <div class="text-muted small mb-2">
+                                    @Localizer["Views"] @post.ViewCount.ToString("N0", CultureInfo.CurrentCulture)
+                                </div>
+
                                 @if (post.Tags.Any())
                                 {
                                     <div class="post-summary-tags pt-2">

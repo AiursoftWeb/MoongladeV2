@@ -17,7 +17,8 @@ public class BlogController(
     DocumentLocalizationService localizationService,
     DocumentVectorSearchService vectorSearch,
     SearchRateLimiter rateLimiter,
-    GlobalSettingsService globalSettingsService) : Controller
+    GlobalSettingsService globalSettingsService,
+    ViewCountService viewCountService) : Controller
 {
     private const int PageSize = 10;
 
@@ -95,6 +96,7 @@ public class BlogController(
                         ? abstractStr
                         : BuildExcerpt(d.Content ?? string.Empty),
                     PublishedAt = d.CreationTime,
+                    ViewCount = viewCountService.GetCount(d.Id),
                     IsFeatured = d.IsFeatured,
                     HeroImageUrl = d.HeroImageUrl,
                     Tags = BlogTagParser.ParseTags(d.Tags)
@@ -176,6 +178,7 @@ public class BlogController(
             .ToListAsync();
 
         var showAuthorInfo = await globalSettingsService.GetBoolSettingAsync(SettingsMap.ShowAuthorInfo);
+        var viewCount = viewCountService.Increment(document.Id);
 
         var model = new PostViewModel
         {
@@ -187,6 +190,7 @@ public class BlogController(
                 : document.User.UserName ?? "Unknown Author",
             AuthorAvatarPath = document.User.AvatarRelativePath,
             PublishedAt = document.CreationTime,
+            ViewCount = viewCount,
             HeroImageUrl = document.HeroImageUrl,
             ContentHtml = moongladeV2Service.ConvertMarkdownToHtml(markdownContent),
             Tags = BlogTagParser.ParseTags(document.Tags),
@@ -314,6 +318,7 @@ public class BlogController(
                     Title = title,
                     Excerpt = excerpt,
                     PublishedAt = d.CreationTime,
+                    ViewCount = viewCountService.GetCount(d.Id),
                     IsFeatured = d.IsFeatured,
                     HeroImageUrl = d.HeroImageUrl,
                     Tags = BlogTagParser.ParseTags(d.Tags)

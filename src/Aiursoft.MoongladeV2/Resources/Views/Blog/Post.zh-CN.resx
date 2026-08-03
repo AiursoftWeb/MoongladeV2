@@ -60,5 +60,8 @@
   <data name="Write your comment…" xml:space="preserve">
     <value>写下您的评论…</value>
   </data>
+  <data name="Views" xml:space="preserve">
+    <value>阅读量</value>
+  </data>
 
 </root>

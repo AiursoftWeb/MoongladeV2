@@ -30,6 +30,7 @@ public class Startup : IWebStartup
     {
         // AppSettings.
         services.Configure<AppSettings>(configuration.GetSection("AppSettings"));
+        services.Configure<ViewCountOptions>(configuration.GetSection("ViewCount"));
 
         // Relational database
         var (connectionString, dbType, allowCache) = configuration.GetDbSettings();
@@ -56,6 +57,8 @@ public class Startup : IWebStartup
         services.AddHttpClient();
         services.AddAssemblyDependencies(typeof(Startup).Assembly);
         services.AddSingleton<NavigationState<Startup>>();
+        services.AddSingleton<Services.ViewCountService>();
+        services.AddHostedService<Services.ViewCountArchiveService>();
 
         // AI translation infrastructure (Dotlang)
         services.AddScoped<ChatClient>();
