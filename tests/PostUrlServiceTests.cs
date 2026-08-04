@@ -42,6 +42,22 @@ public class PostUrlServiceTests
         Assert.AreEqual(expected, PostUrlService.IsValid(slug));
 
     [TestMethod]
+    public void BuildUrl_UsesDatedSlug_WhenSlugExists()
+    {
+        var document = Document("something-cool", new DateTime(2026, 6, 28));
+
+        Assert.AreEqual("/post/2026/06/28/something-cool", PostUrlService.BuildUrl(document));
+    }
+
+    [TestMethod]
+    public void BuildUrl_UsesDocumentId_WhenSlugIsMissing()
+    {
+        var document = Document(null, new DateTime(2026, 6, 28));
+
+        Assert.AreEqual($"/post/{document.Id}", PostUrlService.BuildUrl(document));
+    }
+
+    [TestMethod]
     public async Task ChangeAsync_CreatesAlias_AndRequiresConfirmationToRestoreIt()
     {
         await using var db = new TestContext(_options);
