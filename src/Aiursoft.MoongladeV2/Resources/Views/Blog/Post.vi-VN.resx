@@ -161,6 +161,9 @@ Bởi</value>
   <data name="Send Reply" xml:space="preserve">
     <value>Gửi phản hồi</value>
   </data>
+  <data name="Views" xml:space="preserve">
+    <value>Lượt xem</value>
+  </data>
   <data name="Write your comment..." xml:space="preserve">
     <value>Viết bình luận...</value>
   </data>

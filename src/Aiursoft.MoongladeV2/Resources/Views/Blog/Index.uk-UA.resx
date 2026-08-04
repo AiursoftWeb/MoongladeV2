@@ -81,5 +81,8 @@
   <data name="Too many searches. AI search temporarily limited; showing keyword results." xml:space="preserve">
     <value>Забагато пошукових запитів. Пошук ШІ тимчасово обмежений; відображаються результати за ключовими словами.</value>
   </data>
+  <data name="Views" xml:space="preserve">
+    <value>Переглядів</value>
+  </data>
 
 </root>

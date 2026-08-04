@@ -54,6 +54,9 @@
   <data name="Send Reply" xml:space="preserve">
     <value>Yanıtı Gönder</value>
   </data>
+  <data name="Views" xml:space="preserve">
+    <value>Görüntüleme</value>
+  </data>
   <data name="Write your comment..." xml:space="preserve">
     <value>Yorumunuzu yazın...</value>
   </data>

@@ -24,5 +24,8 @@
   <data name="posts in total" xml:space="preserve">
     <value>投稿合計</value>
   </data>
+  <data name="Views" xml:space="preserve">
+    <value>閲覧数</value>
+  </data>
 
 </root>

@@ -54,6 +54,9 @@
   <data name="Send Reply" xml:space="preserve">
     <value>Wyślij odpowiedź</value>
   </data>
+  <data name="Views" xml:space="preserve">
+    <value>Wyświetlenia</value>
+  </data>
   <data name="Write your comment..." xml:space="preserve">
     <value>Napisz swój komentarz...</value>
   </data>
