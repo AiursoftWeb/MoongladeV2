@@ -449,4 +449,73 @@ public class PostsTests : TestBase
         StringAssert.Contains(blogHtml, "Public News");
         StringAssert.Contains(blogHtml, $"rel=\"canonical\" href=\"{new Uri(anonHttp.BaseAddress!, $"post/{docId}")}\"");
     }
+
+    [TestMethod]
+    public async Task PublicPostLinks_PreferDatedSlug_AndKeepGuidFallback()
+    {
+        var sluggedId = Guid.NewGuid();
+        var fallbackId = Guid.NewGuid();
+        var creationTime = new DateTime(2026, 6, 28, 12, 34, 56, DateTimeKind.Utc);
+        const string slug = "something-cool";
+        const string title = "SEO Link Integration Post";
+        const string tag = "seo-link-test";
+        var seoUrl = $"/post/2026/06/28/{slug}";
+
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+            var user = await db.Users.FirstAsync();
+            db.MarkdownDocuments.AddRange(
+                new MarkdownDocument
+                {
+                    Id = sluggedId,
+                    Title = title,
+                    Content = "Searchable SEO content",
+                    Tags = tag,
+                    UserId = user.Id,
+                    IsPublic = true,
+                    Slug = slug,
+                    SlugDate = creationTime.Date,
+                    CreationTime = creationTime
+                },
+                new MarkdownDocument
+                {
+                    Id = fallbackId,
+                    Title = "Post Awaiting Slug",
+                    Content = "Fallback content",
+                    UserId = user.Id,
+                    IsPublic = true,
+                    CreationTime = creationTime.AddMinutes(-1)
+                });
+            await db.SaveChangesAsync();
+        }
+
+        foreach (var entryPoint in new[] { "/", $"/search?q={Uri.EscapeDataString(title)}", $"/tags/{tag}", "/archive" })
+        {
+            var html = await Http.GetStringAsync(entryPoint);
+            StringAssert.Contains(html, $"href=\"{seoUrl}\"", $"Expected SEO URL on {entryPoint}");
+            Assert.IsFalse(html.Contains($"href=\"/post/{sluggedId}\"", StringComparison.Ordinal),
+                $"GUID URL must not be emitted for a slugged post on {entryPoint}");
+        }
+
+        var homeHtml = await Http.GetStringAsync("/");
+        StringAssert.Contains(homeHtml, $"href=\"/post/{fallbackId}\"");
+
+        var redirect = await Http.GetAsync($"/post/{sluggedId}");
+        Assert.AreEqual(HttpStatusCode.MovedPermanently, redirect.StatusCode);
+        Assert.AreEqual(seoUrl, redirect.Headers.Location?.OriginalString);
+
+        var seoResponse = await Http.GetAsync(seoUrl);
+        Assert.AreEqual(HttpStatusCode.OK, seoResponse.StatusCode);
+        var seoHtml = await seoResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(seoHtml, title);
+        StringAssert.Contains(seoHtml,
+            $"rel=\"canonical\" href=\"{new Uri(Http.BaseAddress!, seoUrl.TrimStart('/'))}\"");
+
+        var fallbackResponse = await Http.GetAsync($"/post/{fallbackId}");
+        Assert.AreEqual(HttpStatusCode.OK, fallbackResponse.StatusCode);
+        var fallbackHtml = await fallbackResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(fallbackHtml,
+            $"rel=\"canonical\" href=\"{new Uri(Http.BaseAddress!, $"post/{fallbackId}")}\"");
+    }
 }

@@ -88,7 +88,7 @@ public class BlogController(
                 {
                     Id = d.Id,
                     Slug = d.Slug,
-                    Url = BuildPostUrl(d),
+                    Url = PostUrlService.BuildUrl(d),
                     Title = localizedTitles.TryGetValue(d.Id, out var localizedTitle)
                         ? localizedTitle
                         : d.Title ?? "Untitled",
@@ -314,7 +314,7 @@ public class BlogController(
                 {
                     Id = d.Id,
                     Slug = d.Slug,
-                    Url = BuildPostUrl(d),
+                    Url = PostUrlService.BuildUrl(d),
                     Title = title,
                     Excerpt = excerpt,
                     PublishedAt = d.CreationTime,
@@ -354,11 +354,6 @@ public class BlogController(
             RateLimited = rateLimited
         };
         return this.SimpleView(model, viewName: nameof(Index));
-    }
-
-    private static string BuildPostUrl(MarkdownDocument document)
-    {
-        return PostUrlService.BuildUrl(document);
     }
 
     private static string BuildIndexPageTitle(string? tag, string? query)
