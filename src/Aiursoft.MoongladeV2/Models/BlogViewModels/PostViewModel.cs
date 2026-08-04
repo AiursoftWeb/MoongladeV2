@@ -14,6 +14,7 @@ public class PostViewModel : UiStackLayoutViewModel
     public string Title { get; set; } = "Untitled";
     public string ContentHtml { get; set; } = string.Empty;
     public DateTime PublishedAt { get; set; }
+    public long ViewCount { get; set; }
     public string AuthorName { get; set; } = "Unknown Author";
     public string AuthorAvatarPath { get; set; } = string.Empty;
     public string? HeroImageUrl { get; set; }

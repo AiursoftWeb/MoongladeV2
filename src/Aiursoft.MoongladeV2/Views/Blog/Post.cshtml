@@ -30,6 +30,7 @@
                                 <time datetime="@Model.PublishedAt.ToString("O", CultureInfo.InvariantCulture)">
                                     @Model.PublishedAt.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)
                                 </time>
+                                <span class="ms-2">· @Localizer["Views"] @Model.ViewCount.ToString("N0", CultureInfo.CurrentCulture)</span>
                             </div>
                         </div>
                     </div>
@@ -42,6 +43,7 @@
                             <time datetime="@Model.PublishedAt.ToString("O", CultureInfo.InvariantCulture)">
                                 @Model.PublishedAt.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)
                             </time>
+                            <span class="ms-2">· @Localizer["Views"] @Model.ViewCount.ToString("N0", CultureInfo.CurrentCulture)</span>
                         </span>
                     </div>
                 }

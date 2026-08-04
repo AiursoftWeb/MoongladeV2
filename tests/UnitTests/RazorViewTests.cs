@@ -27,6 +27,18 @@ public class RazorViewTests
             $"Razor views must define each section at most once.{Environment.NewLine}{string.Join(Environment.NewLine, duplicateSections)}");
     }
 
+    [TestMethod]
+    public void BlogViews_RenderViewCounts()
+    {
+        var repositoryRoot = FindRepositoryRoot();
+        foreach (var view in new[] { "Index.cshtml", "Archive.cshtml", "Post.cshtml" })
+        {
+            var contents = File.ReadAllText(Path.Combine(repositoryRoot, "src", "Aiursoft.MoongladeV2", "Views", "Blog", view));
+            StringAssert.Contains(contents, "ViewCount", $"{view} should render the view count.");
+            StringAssert.Contains(contents, "Localizer[\"Views\"]", $"{view} should localize the view-count label.");
+        }
+    }
+
     private static string FindRepositoryRoot()
     {
         for (var directory = new DirectoryInfo(AppContext.BaseDirectory); directory != null; directory = directory.Parent)
