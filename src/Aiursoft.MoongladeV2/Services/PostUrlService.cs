@@ -3,7 +3,6 @@ using System.Text.RegularExpressions;
 using Aiursoft.MoongladeV2.Entities;
 using Aiursoft.Scanner.Abstractions;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Aiursoft.MoongladeV2.Services;
 

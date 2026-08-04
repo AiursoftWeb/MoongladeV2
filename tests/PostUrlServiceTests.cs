@@ -2,7 +2,6 @@ using Aiursoft.MoongladeV2.Entities;
 using Aiursoft.MoongladeV2.Services;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Aiursoft.MoongladeV2.Tests;
