@@ -2,6 +2,8 @@ using Aiursoft.MoongladeV2.Entities;
 using Aiursoft.MoongladeV2.Services;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Aiursoft.MoongladeV2.Tests;
 
@@ -76,6 +78,39 @@ public class PostUrlServiceTests
         Assert.AreEqual(SlugChangeResult.Success, await service.ChangeAsync(nextDay, "shared", false));
         Assert.AreEqual(SlugChangeResult.Success, await service.ChangeAsync(first, "new", false));
         Assert.AreEqual(SlugChangeResult.Occupied, await service.ChangeAsync(sameDay, "shared", false));
+    }
+
+    [TestMethod]
+    public async Task ChangeAsync_WorksWithRetryingExecutionStrategy()
+    {
+        var options = new DbContextOptionsBuilder<TestContext>()
+            .UseSqlite(_connection)
+            .ReplaceService<IExecutionStrategyFactory, TestRetryingExecutionStrategyFactory>()
+            .Options;
+        await using var db = new TestContext(options);
+        var document = Document(null);
+        db.MarkdownDocuments.Add(document);
+        await db.SaveChangesAsync();
+
+        var result = await new PostUrlService(db).ChangeAsync(document, "generated-slug", false);
+
+        Assert.AreEqual(SlugChangeResult.Success, result);
+        Assert.AreEqual("generated-slug", await db.MarkdownDocuments
+            .Where(d => d.Id == document.Id)
+            .Select(d => d.Slug)
+            .SingleAsync());
+    }
+
+    private sealed class TestRetryingExecutionStrategyFactory(ExecutionStrategyDependencies dependencies)
+        : IExecutionStrategyFactory
+    {
+        public IExecutionStrategy Create() => new TestRetryingExecutionStrategy(dependencies);
+    }
+
+    private sealed class TestRetryingExecutionStrategy(ExecutionStrategyDependencies dependencies)
+        : ExecutionStrategy(dependencies, maxRetryCount: 1, maxRetryDelay: TimeSpan.Zero)
+    {
+        protected override bool ShouldRetryOn(Exception exception) => false;
     }
 
     private static MarkdownDocument Document(string? slug, DateTime? created = null) => new()

@@ -3,6 +3,7 @@ using System.Text.RegularExpressions;
 using Aiursoft.MoongladeV2.Entities;
 using Aiursoft.Scanner.Abstractions;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Aiursoft.MoongladeV2.Services;
 
@@ -37,58 +38,62 @@ public partial class PostUrlService(TemplateDbContext db) : IScopedDependency
         if (normalized == document.Slug)
             return SlugChangeResult.Success;
 
-        await using var transaction = db.Database.IsRelational()
-            ? await db.Database.BeginTransactionAsync(IsolationLevel.Serializable, cancellationToken)
-            : null;
-
-        var date = document.CreationTime.Date;
-        if (normalized != null)
+        var executionStrategy = db.Database.CreateExecutionStrategy();
+        return await executionStrategy.ExecuteAsync(async () =>
         {
-            var occupiedByCurrent = await db.MarkdownDocuments.AnyAsync(
-                d => d.Id != document.Id && d.CreationTime.Date == date && d.Slug == normalized,
-                cancellationToken);
-            var occupiedByAlias = await db.PostSlugAliases.AnyAsync(
-                a => a.DocumentId != document.Id && a.PublishedDate == date && a.Slug == normalized && a.ExpiresAt > DateTime.UtcNow,
-                cancellationToken);
-            if (occupiedByCurrent || occupiedByAlias)
-                return SlugChangeResult.Occupied;
+            await using var transaction = db.Database.IsRelational()
+                ? await db.Database.BeginTransactionAsync(IsolationLevel.Serializable, cancellationToken)
+                : null;
 
-            var ownAlias = await db.PostSlugAliases.FirstOrDefaultAsync(
-                a => a.DocumentId == document.Id && a.PublishedDate == date && a.Slug == normalized && a.ExpiresAt > DateTime.UtcNow,
-                cancellationToken);
-            if (ownAlias != null && !confirmHistoricalReuse)
-                return SlugChangeResult.ConfirmationRequired;
-            if (ownAlias != null)
-                db.PostSlugAliases.Remove(ownAlias);
-        }
-
-        if (!string.IsNullOrWhiteSpace(document.Slug))
-        {
-            var retiredAt = DateTime.UtcNow;
-            var oldAlias = await db.PostSlugAliases.FirstOrDefaultAsync(
-                a => a.DocumentId == document.Id && a.PublishedDate == date && a.Slug == document.Slug,
-                cancellationToken);
-            if (oldAlias == null)
+            var date = document.CreationTime.Date;
+            if (normalized != null)
             {
-                db.PostSlugAliases.Add(new PostSlugAlias
+                var occupiedByCurrent = await db.MarkdownDocuments.AnyAsync(
+                    d => d.Id != document.Id && d.CreationTime.Date == date && d.Slug == normalized,
+                    cancellationToken);
+                var occupiedByAlias = await db.PostSlugAliases.AnyAsync(
+                    a => a.DocumentId != document.Id && a.PublishedDate == date && a.Slug == normalized && a.ExpiresAt > DateTime.UtcNow,
+                    cancellationToken);
+                if (occupiedByCurrent || occupiedByAlias)
+                    return SlugChangeResult.Occupied;
+
+                var ownAlias = await db.PostSlugAliases.FirstOrDefaultAsync(
+                    a => a.DocumentId == document.Id && a.PublishedDate == date && a.Slug == normalized && a.ExpiresAt > DateTime.UtcNow,
+                    cancellationToken);
+                if (ownAlias != null && !confirmHistoricalReuse)
+                    return SlugChangeResult.ConfirmationRequired;
+                if (ownAlias != null)
+                    db.PostSlugAliases.Remove(ownAlias);
+            }
+
+            if (!string.IsNullOrWhiteSpace(document.Slug))
+            {
+                var retiredAt = DateTime.UtcNow;
+                var oldAlias = await db.PostSlugAliases.FirstOrDefaultAsync(
+                    a => a.DocumentId == document.Id && a.PublishedDate == date && a.Slug == document.Slug,
+                    cancellationToken);
+                if (oldAlias == null)
                 {
-                    Id = Guid.NewGuid(), DocumentId = document.Id, PublishedDate = date,
-                    Slug = document.Slug, RetiredAt = retiredAt,
-                    ExpiresAt = retiredAt.AddDays(AliasLifetimeDays)
-                });
+                    db.PostSlugAliases.Add(new PostSlugAlias
+                    {
+                        Id = Guid.NewGuid(), DocumentId = document.Id, PublishedDate = date,
+                        Slug = document.Slug, RetiredAt = retiredAt,
+                        ExpiresAt = retiredAt.AddDays(AliasLifetimeDays)
+                    });
+                }
+                else
+                {
+                    oldAlias.RetiredAt = retiredAt;
+                    oldAlias.ExpiresAt = retiredAt.AddDays(AliasLifetimeDays);
+                }
             }
-            else
-            {
-                oldAlias.RetiredAt = retiredAt;
-                oldAlias.ExpiresAt = retiredAt.AddDays(AliasLifetimeDays);
-            }
-        }
 
-        document.Slug = normalized;
-        document.SlugDate = normalized == null ? null : date;
-        await db.SaveChangesAsync(cancellationToken);
-        if (transaction != null) await transaction.CommitAsync(cancellationToken);
-        return SlugChangeResult.Success;
+            document.Slug = normalized;
+            document.SlugDate = normalized == null ? null : date;
+            await db.SaveChangesAsync(cancellationToken);
+            if (transaction != null) await transaction.CommitAsync(cancellationToken);
+            return SlugChangeResult.Success;
+        });
     }
 }
 
