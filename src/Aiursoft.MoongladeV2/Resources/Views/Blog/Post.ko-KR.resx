@@ -54,6 +54,9 @@
   <data name="Send Reply" xml:space="preserve">
     <value>답변 보내기</value>
   </data>
+  <data name="Views" xml:space="preserve">
+    <value>조회수</value>
+  </data>
   <data name="Write your comment..." xml:space="preserve">
     <value>댓글을 입력하세요...</value>
   </data>

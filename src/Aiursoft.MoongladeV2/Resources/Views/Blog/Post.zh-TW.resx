@@ -129,6 +129,9 @@ Thus final answer: ```作者``` but inside triple backticks:
   <data name="Send Reply" xml:space="preserve">
     <value>發送回覆</value>
   </data>
+  <data name="Views" xml:space="preserve">
+    <value>瀏覽次數</value>
+  </data>
   <data name="Write your comment..." xml:space="preserve">
     <value>寫下你的留言...</value>
   </data>

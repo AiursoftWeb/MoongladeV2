@@ -24,5 +24,8 @@
   <data name="posts in total" xml:space="preserve">
     <value>منشورًا في المجموع</value>
   </data>
+  <data name="Views" xml:space="preserve">
+    <value>مشاهدات</value>
+  </data>
 
 </root>

@@ -81,5 +81,8 @@
   <data name="Too many searches. AI search temporarily limited; showing keyword results." xml:space="preserve">
     <value>Liian monta hakua. Tehokehakua on tilapäisesti rajoitettu; näytetään avainsanahakutulokset.</value>
   </data>
+  <data name="Views" xml:space="preserve">
+    <value>Näytöt</value>
+  </data>
 
 </root>

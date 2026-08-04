@@ -81,5 +81,8 @@
   <data name="Too many searches. AI search temporarily limited; showing keyword results." xml:space="preserve">
     <value>Troppe ricerche. Ricerca IA temporaneamente limitata; vengono visualizzati i risultati per parole chiave.</value>
   </data>
+  <data name="Views" xml:space="preserve">
+    <value>Visualizzazioni</value>
+  </data>
 
 </root>

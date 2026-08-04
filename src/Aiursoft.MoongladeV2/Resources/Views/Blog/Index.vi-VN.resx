@@ -81,5 +81,8 @@
   <data name="Too many searches. AI search temporarily limited; showing keyword results." xml:space="preserve">
     <value>Quá nhiều tìm kiếm. Tìm kiếm AI tạm thời bị giới hạn; đang hiển thị kết quả theo từ khóa.</value>
   </data>
+  <data name="Views" xml:space="preserve">
+    <value>Lượt xem</value>
+  </data>
 
 </root>
