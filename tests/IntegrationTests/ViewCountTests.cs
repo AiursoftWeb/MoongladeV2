@@ -55,6 +55,30 @@ public class ViewCountTests : TestBase
     }
 
     [TestMethod]
+    public async Task Archive_PersistsAllDocumentsInOneRelationalTransaction()
+    {
+        var firstDocumentId = await CreateDocumentAsync(isPublic: true);
+        var secondDocumentId = await CreateDocumentAsync(isPublic: true);
+        var viewCounts = GetService<ViewCountService>();
+
+        Parallel.For(0, 100, _ =>
+        {
+            viewCounts.Increment(firstDocumentId);
+            viewCounts.Increment(secondDocumentId);
+        });
+
+        await viewCounts.ArchiveAsync();
+
+        using var scope = Server!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+        var persistedCounts = await db.MarkdownDocuments
+            .Where(document => document.Id == firstDocumentId || document.Id == secondDocumentId)
+            .Select(document => document.ViewCount)
+            .ToArrayAsync();
+        CollectionAssert.AreEquivalent(new long[] { 100, 100 }, persistedCounts);
+    }
+
+    [TestMethod]
     public async Task DraftMissingAndRedirectRequests_AreNotCounted()
     {
         var draftId = await CreateDocumentAsync(isPublic: false);

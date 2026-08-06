@@ -138,10 +138,9 @@ public sealed class ViewCountService(
     {
         await using var scope = scopeFactory.CreateAsyncScope();
         var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
-        var missingIds = new HashSet<Guid>();
-
         if (!db.Database.IsRelational())
         {
+            var missingIds = new HashSet<Guid>();
             foreach (var increment in increments)
             {
                 var document = await db.MarkdownDocuments.FindAsync([increment.Key], cancellationToken);
@@ -152,22 +151,27 @@ public sealed class ViewCountService(
             return missingIds;
         }
 
-        await using var transaction = await db.Database.BeginTransactionAsync(cancellationToken);
-        foreach (var increment in increments)
+        var executionStrategy = db.Database.CreateExecutionStrategy();
+        return await executionStrategy.ExecuteAsync(async () =>
         {
-            var id = increment.Key;
-            var delta = increment.Value;
-            var updated = await db.MarkdownDocuments
-                .Where(document => document.Id == id)
-                .ExecuteUpdateAsync(setters => setters.SetProperty(
-                    document => document.ViewCount,
-                    document => document.ViewCount > long.MaxValue - delta
-                        ? long.MaxValue
-                        : document.ViewCount + delta), cancellationToken);
-            if (updated == 0) missingIds.Add(id);
-        }
-        await transaction.CommitAsync(cancellationToken);
-        return missingIds;
+            var missingIds = new HashSet<Guid>();
+            await using var transaction = await db.Database.BeginTransactionAsync(cancellationToken);
+            foreach (var increment in increments)
+            {
+                var id = increment.Key;
+                var delta = increment.Value;
+                var updated = await db.MarkdownDocuments
+                    .Where(document => document.Id == id)
+                    .ExecuteUpdateAsync(setters => setters.SetProperty(
+                        document => document.ViewCount,
+                        document => document.ViewCount > long.MaxValue - delta
+                            ? long.MaxValue
+                            : document.ViewCount + delta), cancellationToken);
+                if (updated == 0) missingIds.Add(id);
+            }
+            await transaction.CommitAsync(cancellationToken);
+            return missingIds;
+        });
     }
 
     private static long SaturatingAdd(long value, long increment) =>
