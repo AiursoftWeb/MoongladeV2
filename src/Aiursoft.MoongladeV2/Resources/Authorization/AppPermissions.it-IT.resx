@@ -27,7 +27,7 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>Consente di assegnare o rimuovere ruoli per qualsiasi utente.</value>
   </data>
-  <data name="Allows creating and editing draft posts. Cannot publish." xml:space="preserve">
+  <data name="Allows creating, editing, and deleting any draft post. Cannot publish, unpublish, edit, or delete published posts." xml:space="preserve">
     <value>Consente di creare e modificare i post bozza. Non è possibile pubblicare.</value>
   </data>
   <data name="Allows creating, editing, and publishing blog posts." xml:space="preserve">
@@ -84,7 +84,7 @@
   <data name="Assign Roles to Users" xml:space="preserve">
     <value>Assegna Ruoli agli Utenti</value>
   </data>
-  <data name="Create or Edit Drafts" xml:space="preserve">
+  <data name="Create, Edit, and Delete Any Draft" xml:space="preserve">
     <value>Crea o modifica bozze</value>
   </data>
   <data name="Create, Edit, and Publish Any Post" xml:space="preserve">

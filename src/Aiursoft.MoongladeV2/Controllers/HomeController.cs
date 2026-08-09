@@ -22,16 +22,10 @@ public class HomeController(
     UserManager<User> userManager,
     TemplateDbContext context,
     MoongladeV2Service mtohService,
-    IAuthorizationService authorizationService,
+    DocumentAuthorizationService documentAuthorizationService,
     GlobalSettingsService globalSettingsService,
     PostUrlService postUrlService) : Controller
 {
-    private async Task<bool> HasAnyContentPermission()
-    {
-        return (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CreateEditOrPublishAnyDocument)).Succeeded ||
-               (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CreateOrEditDraftDocument)).Succeeded;
-    }
-
     [RenderInNavBar(
         NavGroupName = "Features",
         NavGroupOrder = 1,
@@ -48,7 +42,8 @@ public class HomeController(
     [Authorize]
     public async Task<IActionResult> Editor()
     {
-        if (!await HasAnyContentPermission()) return Forbid();
+        var accessLevel = await documentAuthorizationService.GetAccessLevelAsync(User);
+        if (accessLevel == DocumentAccessLevel.None) return Forbid();
         return this.StackView(new IndexViewModel("Untitled Post") { PublishedAt = DateTime.UtcNow });
     }
 
@@ -57,7 +52,8 @@ public class HomeController(
     [Authorize]
     public async Task<IActionResult> SaveNew(IndexViewModel model)
     {
-        if (!await HasAnyContentPermission()) return Forbid();
+        var accessLevel = await documentAuthorizationService.GetAccessLevelAsync(User);
+        if (accessLevel == DocumentAccessLevel.None) return Forbid();
         if (!ModelState.IsValid)
         {
             return this.StackView(model);
@@ -69,35 +65,25 @@ public class HomeController(
             return Unauthorized();
         }
 
-        var documentInDb = await context.MarkdownDocuments
-            .FirstOrDefaultAsync(d => d.Id == model.DocumentId);
+        if (await context.MarkdownDocuments.AnyAsync(d => d.Id == model.DocumentId))
+        {
+            return Conflict("A document with this ID already exists. Use SaveUpdate to modify an existing draft.");
+        }
 
-        if (documentInDb != null)
+        model.DocumentId = Guid.NewGuid();
+        logger.LogInformation("Creating a new document with ID: '{Id}'.", model.DocumentId);
+        var newDocument = new MarkdownDocument
         {
-            logger.LogInformation("Updating the document with ID: '{Id}'.", model.DocumentId);
-            documentInDb.UpdatedAt = DateTime.UtcNow;
-            documentInDb.Content = model.InputMarkdown.SafeSubstring(65535);
-            documentInDb.Title = model.Title;
-            var slugResult = await postUrlService.ChangeAsync(documentInDb, model.Slug, model.ConfirmHistoricalSlugReuse);
-            if (slugResult != SlugChangeResult.Success) return SlugErrorResult(model, slugResult, ajax: false);
-        }
-        else
-        {
-            model.DocumentId = Guid.NewGuid();
-            logger.LogInformation("Creating a new document with ID: '{Id}'.", model.DocumentId);
-            var newDocument = new MarkdownDocument
-            {
-                Id = model.DocumentId,
-                Content = model.InputMarkdown.SafeSubstring(65535),
-                Title = string.IsNullOrWhiteSpace(model.Title)
-                    ? model.InputMarkdown.SafeSubstring(40)
-                    : model.Title.Trim(),
-                UserId = userId
-            };
-            context.MarkdownDocuments.Add(newDocument);
-            var slugResult = await postUrlService.ChangeAsync(newDocument, model.Slug, model.ConfirmHistoricalSlugReuse);
-            if (slugResult != SlugChangeResult.Success) return SlugErrorResult(model, slugResult, ajax: false);
-        }
+            Id = model.DocumentId,
+            Content = model.InputMarkdown.SafeSubstring(65535),
+            Title = string.IsNullOrWhiteSpace(model.Title)
+                ? model.InputMarkdown.SafeSubstring(40)
+                : model.Title.Trim(),
+            UserId = userId
+        };
+        context.MarkdownDocuments.Add(newDocument);
+        var slugResult = await postUrlService.ChangeAsync(newDocument, model.Slug, model.ConfirmHistoricalSlugReuse);
+        if (slugResult != SlugChangeResult.Success) return SlugErrorResult(model, slugResult, ajax: false);
 
         await context.SaveChangesAsync();
         return RedirectToAction(nameof(Edit), new { id = model.DocumentId, saved = true });
@@ -106,7 +92,8 @@ public class HomeController(
     [Authorize]
     public async Task<IActionResult> Edit([Required][FromRoute] Guid id, [FromQuery] bool? saved = false)
     {
-        if (!await HasAnyContentPermission()) return Forbid();
+        var accessLevel = await documentAuthorizationService.GetAccessLevelAsync(User);
+        if (accessLevel == DocumentAccessLevel.None) return Forbid();
         var document = await context.MarkdownDocuments
             .Include(d => d.User)
             .FirstOrDefaultAsync(d => d.Id == id);
@@ -115,6 +102,8 @@ public class HomeController(
         {
             return NotFound("The document was not found.");
         }
+
+        if (!DocumentAuthorizationService.CanModify(accessLevel, document)) return Forbid();
 
         var publicLink = $"{Request.Scheme}://{Request.Host}{PostUrlService.BuildUrl(document)}";
 
@@ -143,7 +132,8 @@ public class HomeController(
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> SaveUpdate(IndexViewModel model)
     {
-        if (!await HasAnyContentPermission()) return Forbid();
+        var accessLevel = await documentAuthorizationService.GetAccessLevelAsync(User);
+        if (accessLevel == DocumentAccessLevel.None) return Forbid();
         if (!ModelState.IsValid)
         {
             var errors = ModelState.Values
@@ -162,20 +152,32 @@ public class HomeController(
         var documentInDb = await context.MarkdownDocuments
             .FirstOrDefaultAsync(d => d.Id == model.DocumentId);
 
-        if (documentInDb != null)
-        {
-            documentInDb.UpdatedAt = DateTime.UtcNow;
-            documentInDb.Content = model.InputMarkdown.SafeSubstring(65535);
-            documentInDb.Title = model.Title;
-            var slugResult = await postUrlService.ChangeAsync(documentInDb, model.Slug, model.ConfirmHistoricalSlugReuse);
-            if (slugResult != SlugChangeResult.Success) return SlugErrorResult(model, slugResult, ajax: true);
-        }
-        else
+        if (documentInDb == null)
         {
             return NotFound("Document not found. Use SaveNew to create a new document.");
         }
 
-        await context.SaveChangesAsync();
+        if (!DocumentAuthorizationService.CanModify(accessLevel, documentInDb)) return Forbid();
+
+        documentInDb.UpdatedAt = DateTime.UtcNow;
+        documentInDb.Content = model.InputMarkdown.SafeSubstring(65535);
+        documentInDb.Title = model.Title;
+
+        try
+        {
+            var slugResult = await postUrlService.ChangeAsync(documentInDb, model.Slug, model.ConfirmHistoricalSlugReuse);
+            if (slugResult != SlugChangeResult.Success) return SlugErrorResult(model, slugResult, ajax: true);
+            await context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            return Conflict(new
+            {
+                success = false,
+                error = "The document's publication state changed while it was being edited. Reload before trying again."
+            });
+        }
+
         return Ok(new { success = true, documentId = model.DocumentId });
     }
 
@@ -204,7 +206,8 @@ public class HomeController(
     LinkOrder = 2)]
     public async Task<IActionResult> Posts([FromQuery] string? search)
     {
-        if (!await HasAnyContentPermission()) return Forbid();
+        var accessLevel = await documentAuthorizationService.GetAccessLevelAsync(User);
+        if (accessLevel == DocumentAccessLevel.None) return Forbid();
         var trimmedSearch = string.IsNullOrWhiteSpace(search) ? null : search.Trim();
 
         var documentsQuery = context.MarkdownDocuments
@@ -236,7 +239,8 @@ public class HomeController(
     [Authorize]
     public async Task<IActionResult> Delete(Guid? id)
     {
-        if (!await HasAnyContentPermission()) return Forbid();
+        var accessLevel = await documentAuthorizationService.GetAccessLevelAsync(User);
+        if (accessLevel == DocumentAccessLevel.None) return Forbid();
         if (id == null)
         {
             return NotFound();
@@ -251,6 +255,8 @@ public class HomeController(
             return NotFound();
         }
 
+        if (!DocumentAuthorizationService.CanModify(accessLevel, document)) return Forbid();
+
         return this.StackView(new DeleteViewModel
         {
             Document = document
@@ -263,7 +269,8 @@ public class HomeController(
     [Authorize]
     public async Task<IActionResult> DeleteConfirmed(Guid id)
     {
-        if (!await HasAnyContentPermission()) return Forbid();
+        var accessLevel = await documentAuthorizationService.GetAccessLevelAsync(User);
+        if (accessLevel == DocumentAccessLevel.None) return Forbid();
         var userId = userManager.GetUserId(User);
         var document = await context.MarkdownDocuments
             .FirstOrDefaultAsync(d => d.Id == id);
@@ -273,8 +280,17 @@ public class HomeController(
             return NotFound();
         }
 
+        if (!DocumentAuthorizationService.CanModify(accessLevel, document)) return Forbid();
+
         context.MarkdownDocuments.Remove(document);
-        await context.SaveChangesAsync();
+        try
+        {
+            await context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            return Conflict("The document's publication state changed before deletion. Reload before trying again.");
+        }
 
         logger.LogInformation("Document with ID: '{Id}' was deleted by user: '{UserId}'.", id, userId);
 

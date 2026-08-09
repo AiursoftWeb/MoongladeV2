@@ -1,13 +1,12 @@
 @using Aiursoft.MoongladeV2.Controllers
 @using Aiursoft.MoongladeV2.Authorization
-@using Microsoft.AspNetCore.Authorization
 @model Aiursoft.MoongladeV2.Models.HomeViewModels.IndexViewModel
 @inject Aiursoft.MoongladeV2.Services.FileStorage.StorageService Storage
-@inject IAuthorizationService AuthorizationService
+@inject DocumentAuthorizationService DocumentAuthorization
 
 @{
     var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
-    var canPublish = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CreateEditOrPublishAnyDocument)).Succeeded;
+    var canPublish = await DocumentAuthorization.GetAccessLevelAsync(User) == DocumentAccessLevel.Full;
 }
 
 @if (Model.SavedSuccessfully)
@@ -140,7 +139,7 @@
 
             @if (User.Identity?.IsAuthenticated ?? false)
             {
-                <button type="submit" id="save-button" class="btn btn-sm btn-secondary shadow-sm px-3" disabled="@(Model.IsEditing ? "disabled" : null)">
+                <button type="@(Model.IsEditing ? "button" : "submit")" id="save-button" class="btn btn-sm btn-secondary shadow-sm px-3" disabled="@(Model.IsEditing ? "disabled" : null)">
                     <i class="align-middle" data-lucide="save"></i>
                     <span class="d-none d-md-inline ms-1 fw-bold">@Localizer["Save"]</span>
                 </button>
@@ -340,6 +339,7 @@
             if (fallbackEditorElement && fallbackSaveButton) {
                 fallbackEditorElement.addEventListener('input', function () {
                     if (!isEditingPage) return;
+                    isDirty = true;
                     fallbackSaveButton.disabled = false;
                     fallbackSaveButton.classList.replace('btn-secondary', 'btn-primary');
                 });
@@ -376,10 +376,12 @@
                 }
 
                 async function doSave() {
-                    if (!isAuthenticated || !markdownEditorController) return;
+                    if (!isAuthenticated) return;
                     if (isEditing && !isDirty) return;
 
-                    markdownEditorController.syncTextarea();
+                    if (markdownEditorController) {
+                        markdownEditorController.syncTextarea();
+                    }
                     if (!isEditing) {
                         isDirty = false;
                         markdownForm.submit();
@@ -388,7 +390,9 @@
 
                     const tokenInput = document.querySelector('input[name="__RequestVerificationToken"]');
                     const formData = new FormData();
-                    formData.append('InputMarkdown', markdownEditorController.getValue());
+                    formData.append('InputMarkdown', markdownEditorController
+                        ? markdownEditorController.getValue()
+                        : markdownEditorElement?.value || '');
                     formData.append('Title', document.getElementById('Title')?.value || '');
                     formData.append('DocumentId', document.getElementById('DocumentId')?.value || '');
                     formData.append('Slug', document.getElementById('Slug')?.value || '');
@@ -418,6 +422,12 @@
                     } catch (error) {
                         console.error('Quick save failed:', error);
                     }
+                }
+
+                if (saveButton && isEditing) {
+                    saveButton.addEventListener('click', function () {
+                        void doSave();
+                    });
                 }
 
                 if (markdownEditorElement) {
@@ -470,7 +480,12 @@
                     updateSaveButtonState();
 
                     if (markdownForm) {
-                        markdownForm.addEventListener('submit', function () {
+                        markdownForm.addEventListener('submit', function (event) {
+                            if (isEditing) {
+                                event.preventDefault();
+                                void doSave();
+                                return;
+                            }
                             isDirty = false;
                         });
                     }
@@ -564,7 +579,15 @@
                     });
                 }
                 const themeBtn = document.querySelector('.js-theme-toggle');
-                if (themeBtn) themeBtn.addEventListener('click', () => setTimeout(() => document.getElementById('markdown-form').submit(), 1000));
+                if (themeBtn) {
+                    themeBtn.addEventListener('click', () => setTimeout(() => {
+                        if (isEditing) {
+                            void doSave();
+                        } else {
+                            document.getElementById('markdown-form').submit();
+                        }
+                    }, 1000));
+                }
                 // --- Publish / Unpublish ---
                 const publishBtn = document.getElementById('publish-button');
                 const unpublishBtn = document.getElementById('unpublish-button');

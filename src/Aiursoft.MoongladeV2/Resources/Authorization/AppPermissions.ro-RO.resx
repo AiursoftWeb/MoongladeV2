@@ -27,7 +27,7 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>Permite atribuirea sau eliminarea rolurilor pentru orice utilizator.</value>
   </data>
-  <data name="Allows creating and editing draft posts. Cannot publish." xml:space="preserve">
+  <data name="Allows creating, editing, and deleting any draft post. Cannot publish, unpublish, edit, or delete published posts." xml:space="preserve">
     <value>Permite crearea și editarea articolelor în stadiu de proiect. Nu poate publica.</value>
   </data>
   <data name="Allows creating, editing, and publishing blog posts." xml:space="preserve">
@@ -84,7 +84,7 @@
   <data name="Assign Roles to Users" xml:space="preserve">
     <value>Atribuie Roluri Utilizatorilor</value>
   </data>
-  <data name="Create or Edit Drafts" xml:space="preserve">
+  <data name="Create, Edit, and Delete Any Draft" xml:space="preserve">
     <value>Creați sau editați schițe</value>
   </data>
   <data name="Create, Edit, and Publish Any Post" xml:space="preserve">

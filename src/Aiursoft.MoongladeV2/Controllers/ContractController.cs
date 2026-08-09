@@ -12,7 +12,7 @@ namespace Aiursoft.MoongladeV2.Controllers;
 
 /// <summary>
 /// Contract template filling. Public documents are accessible to everyone;
-/// private documents require content permission (CreateOrEditDraftDocument
+/// private documents require content permission (CreateEditOrDeleteDraftDocument
 /// or CreateEditOrPublishAnyDocument).
 /// </summary>
 [Route("contract/{id:guid}")]
@@ -20,7 +20,7 @@ public class ContractController(
     TemplateDbContext context,
     MoongladeV2Service mtohService,
     GlobalSettingsService globalSettingsService,
-    IAuthorizationService authorizationService) : Controller
+    DocumentAuthorizationService documentAuthorizationService) : Controller
 {
     [HttpGet]
     public async Task<IActionResult> Fill([Required][FromRoute] Guid id)
@@ -92,7 +92,6 @@ public class ContractController(
 
     private async Task<bool> HasContentPermission()
     {
-        return (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CreateEditOrPublishAnyDocument)).Succeeded ||
-               (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CreateOrEditDraftDocument)).Succeeded;
+        return await documentAuthorizationService.GetAccessLevelAsync(User) != DocumentAccessLevel.None;
     }
 }

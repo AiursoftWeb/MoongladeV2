@@ -27,8 +27,8 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>Allows assigning or removing roles for any user.</value>
   </data>
-  <data name="Allows creating and editing draft posts. Cannot publish." xml:space="preserve">
-    <value>Allows creating and editing draft posts. Cannot publish.</value>
+  <data name="Allows creating, editing, and deleting any draft post. Cannot publish, unpublish, edit, or delete published posts." xml:space="preserve">
+    <value>Allows creating, editing, and deleting any draft post. Cannot publish, unpublish, edit, or delete published posts.</value>
   </data>
   <data name="Allows creating, editing, and publishing blog posts." xml:space="preserve">
     <value>Allows creating, editing, and publishing blog posts.</value>
@@ -84,8 +84,8 @@
   <data name="Assign Roles to Users" xml:space="preserve">
     <value>Assign Roles to Users</value>
   </data>
-  <data name="Create or Edit Drafts" xml:space="preserve">
-    <value>Create or Edit Drafts</value>
+  <data name="Create, Edit, and Delete Any Draft" xml:space="preserve">
+    <value>Create, Edit, and Delete Any Draft</value>
   </data>
   <data name="Create, Edit, and Publish Any Post" xml:space="preserve">
     <value>Create, Edit, and Publish Any Post</value>

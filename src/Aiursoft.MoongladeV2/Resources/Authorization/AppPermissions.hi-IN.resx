@@ -27,7 +27,7 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>किसी भी उपयोगकर्ता को भूमिकाएँ सौंपने या हटाने की अनुमति देता है।</value>
   </data>
-  <data name="Allows creating and editing draft posts. Cannot publish." xml:space="preserve">
+  <data name="Allows creating, editing, and deleting any draft post. Cannot publish, unpublish, edit, or delete published posts." xml:space="preserve">
     <value>ड्राफ्ट पोस्ट बनाने और संपादित करने की अनुमति देता है। प्रकाशित नहीं कर सकता।</value>
   </data>
   <data name="Allows creating, editing, and publishing blog posts." xml:space="preserve">
@@ -84,7 +84,7 @@
   <data name="Assign Roles to Users" xml:space="preserve">
     <value>उपयोगकर्ताओं को भूमिकाएँ नियत करें</value>
   </data>
-  <data name="Create or Edit Drafts" xml:space="preserve">
+  <data name="Create, Edit, and Delete Any Draft" xml:space="preserve">
     <value>मसौदे बनाएं या संपादित करें</value>
   </data>
   <data name="Create, Edit, and Publish Any Post" xml:space="preserve">

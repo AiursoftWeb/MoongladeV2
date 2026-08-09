@@ -34,6 +34,10 @@ public abstract class TemplateDbContext(DbContextOptions options) : IdentityDbCo
             .HasIndex(d => new { d.SlugDate, d.Slug })
             .IsUnique();
 
+        builder.Entity<MarkdownDocument>()
+            .Property(d => d.IsPublic)
+            .IsConcurrencyToken();
+
         builder.Entity<PostSlugAlias>()
             .HasIndex(a => new { a.PublishedDate, a.Slug })
             .IsUnique();

@@ -9,21 +9,32 @@ namespace Aiursoft.MoongladeV2.Tests.IntegrationTests;
 public class PostsTests : TestBase
 {
     [TestMethod]
-    public async Task DraftOnlyUser_CanCreatePost()
+    public async Task DraftOnlyUser_CanCreateDraft()
     {
         var (email, password) = await RegisterAndLoginAsync();
-        await GrantPermissionToUser(email, AppPermissionNames.CreateOrEditDraftDocument);
+        await GrantPermissionToUser(email, AppPermissionNames.CreateEditOrDeleteDraftDocument);
         await ReloginAsync(email, password);
 
-        var response = await Http.GetAsync("/Home/Editor");
-        response.EnsureSuccessStatusCode();
+        var response = await PostForm("/Home/SaveNew", new Dictionary<string, string>
+        {
+            { "DocumentId", Guid.NewGuid().ToString() },
+            { "Title", "Employee Draft" },
+            { "InputMarkdown", "# Draft content" }
+        }, tokenUrl: "/Home/Editor");
+
+        Assert.AreEqual(HttpStatusCode.Found, response.StatusCode);
+
+        using var scope = Server!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+        var document = await db.MarkdownDocuments.SingleAsync(d => d.Title == "Employee Draft");
+        Assert.IsFalse(document.IsPublic);
     }
 
     [TestMethod]
     public async Task DraftOnlyUser_CannotPublish()
     {
         var (email, password) = await RegisterAndLoginAsync();
-        await GrantPermissionToUser(email, AppPermissionNames.CreateOrEditDraftDocument);
+        await GrantPermissionToUser(email, AppPermissionNames.CreateEditOrDeleteDraftDocument);
         await ReloginAsync(email, password);
 
         // Create a document
@@ -49,7 +60,7 @@ public class PostsTests : TestBase
     }
 
     [TestMethod]
-    public async Task DraftOnlyUser_CanEditAnyPost()
+    public async Task DraftOnlyUser_CanEditAnyDraft()
     {
         // Create post as user 1
         var (email1, _) = await RegisterAndLoginAsync();
@@ -62,7 +73,7 @@ public class PostsTests : TestBase
             db.MarkdownDocuments.Add(new MarkdownDocument
             {
                 Id = docId,
-                Title = "Boss Post",
+                Title = "Boss Draft",
                 Content = "# Boss content",
                 UserId = user.Id,
                 CreationTime = DateTime.UtcNow
@@ -72,16 +83,29 @@ public class PostsTests : TestBase
 
         // Login as draft-only user 2, try to edit user 1's post
         var (email2, password2) = await RegisterAndLoginAsync();
-        await GrantPermissionToUser(email2, AppPermissionNames.CreateOrEditDraftDocument);
+        await GrantPermissionToUser(email2, AppPermissionNames.CreateEditOrDeleteDraftDocument);
         await ReloginAsync(email2, password2);
 
         var response = await Http.GetAsync($"/Home/Edit/{docId}");
         Assert.AreEqual(HttpStatusCode.OK, response.StatusCode,
-            "Draft-only user should be able to edit any post (all posts are company property)");
+            "Draft-only user should be able to edit any company draft, regardless of author.");
+
+        var saveResponse = await PostForm("/Home/SaveUpdate", new Dictionary<string, string>
+        {
+            { "DocumentId", docId.ToString() },
+            { "Title", "Edited Company Draft" },
+            { "InputMarkdown", "# Edited by another employee" }
+        }, tokenUrl: $"/Home/Edit/{docId}");
+        Assert.AreEqual(HttpStatusCode.OK, saveResponse.StatusCode);
+
+        using var verifyScope = Server!.Services.CreateScope();
+        var verifyDb = verifyScope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+        var updated = await verifyDb.MarkdownDocuments.FindAsync(docId);
+        Assert.AreEqual("Edited Company Draft", updated!.Title);
     }
 
     [TestMethod]
-    public async Task DraftOnlyUser_CanDeleteAnyPost()
+    public async Task DraftOnlyUser_CanDeleteAnyDraft()
     {
         // Create post as user 1 (publish-any user)
         var (email1, _) = await RegisterAndLoginAsync();
@@ -94,7 +118,7 @@ public class PostsTests : TestBase
             db.MarkdownDocuments.Add(new MarkdownDocument
             {
                 Id = docId,
-                Title = "Boss Post to Delete",
+                Title = "Boss Draft to Delete",
                 Content = "# Content",
                 UserId = user.Id,
                 CreationTime = DateTime.UtcNow
@@ -104,7 +128,7 @@ public class PostsTests : TestBase
 
         // Login as draft-only user 2, try to delete user 1's post
         var (email2, password2) = await RegisterAndLoginAsync();
-        await GrantPermissionToUser(email2, AppPermissionNames.CreateOrEditDraftDocument);
+        await GrantPermissionToUser(email2, AppPermissionNames.CreateEditOrDeleteDraftDocument);
         await ReloginAsync(email2, password2);
 
         var deletePage = await Http.GetAsync($"/Home/Delete/{docId}");
@@ -113,7 +137,124 @@ public class PostsTests : TestBase
 
         var deleteResponse = await PostForm($"/Home/Delete/{docId}", new(), tokenUrl: $"/Home/Delete/{docId}");
         Assert.AreEqual(HttpStatusCode.Found, deleteResponse.StatusCode,
-            "Draft-only user should be able to delete any post");
+            "Draft-only user should be able to delete any company draft");
+    }
+
+    [TestMethod]
+    public async Task DraftOnlyUser_CannotEditPublishedPost()
+    {
+        var (ownerEmail, _) = await RegisterAndLoginAsync();
+        var docId = await CreateDocumentAsync(ownerEmail, isPublic: true, "Protected Published Post");
+
+        var (employeeEmail, employeePassword) = await RegisterAndLoginAsync();
+        await GrantPermissionToUser(employeeEmail, AppPermissionNames.CreateEditOrDeleteDraftDocument);
+        await ReloginAsync(employeeEmail, employeePassword);
+
+        var editResponse = await Http.GetAsync($"/Home/Edit/{docId}");
+        Assert.AreEqual(HttpStatusCode.Found, editResponse.StatusCode);
+
+        var saveResponse = await PostForm("/Home/SaveUpdate", new Dictionary<string, string>
+        {
+            { "DocumentId", docId.ToString() },
+            { "Title", "Unauthorized Published Edit" },
+            { "InputMarkdown", "# This must not become public" }
+        }, tokenUrl: "/Home/Editor");
+        Assert.AreEqual(HttpStatusCode.Found, saveResponse.StatusCode);
+
+        using var scope = Server!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+        var document = await db.MarkdownDocuments.AsNoTracking().SingleAsync(d => d.Id == docId);
+        Assert.AreEqual("Protected Published Post", document.Title);
+        Assert.AreEqual("# Original content", document.Content);
+        Assert.IsTrue(document.IsPublic);
+    }
+
+    [TestMethod]
+    public async Task DraftOnlyUser_CannotDeletePublishedPost()
+    {
+        var (ownerEmail, _) = await RegisterAndLoginAsync();
+        var docId = await CreateDocumentAsync(ownerEmail, isPublic: true, "Published Post to Keep");
+
+        var (employeeEmail, employeePassword) = await RegisterAndLoginAsync();
+        await GrantPermissionToUser(employeeEmail, AppPermissionNames.CreateEditOrDeleteDraftDocument);
+        await ReloginAsync(employeeEmail, employeePassword);
+
+        var deletePage = await Http.GetAsync($"/Home/Delete/{docId}");
+        Assert.AreEqual(HttpStatusCode.Found, deletePage.StatusCode);
+
+        var deleteResponse = await PostForm(
+            $"/Home/Delete/{docId}",
+            new(),
+            tokenUrl: "/Home/Editor");
+        Assert.AreEqual(HttpStatusCode.Found, deleteResponse.StatusCode);
+
+        using var scope = Server!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+        Assert.IsTrue(await db.MarkdownDocuments.AnyAsync(d => d.Id == docId));
+    }
+
+    [TestMethod]
+    public async Task DraftOnlyUser_CannotUnpublishPublishedPost()
+    {
+        var (ownerEmail, _) = await RegisterAndLoginAsync();
+        var docId = await CreateDocumentAsync(ownerEmail, isPublic: true, "Published Post to Keep Public");
+
+        var (employeeEmail, employeePassword) = await RegisterAndLoginAsync();
+        await GrantPermissionToUser(employeeEmail, AppPermissionNames.CreateEditOrDeleteDraftDocument);
+        await ReloginAsync(employeeEmail, employeePassword);
+
+        var response = await PostForm(
+            $"/Home/MakePrivate/{docId}",
+            new(),
+            tokenUrl: "/Home/Editor");
+        Assert.AreEqual(HttpStatusCode.Found, response.StatusCode);
+
+        using var scope = Server!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+        var document = await db.MarkdownDocuments.AsNoTracking().SingleAsync(d => d.Id == docId);
+        Assert.IsTrue(document.IsPublic);
+    }
+
+    [TestMethod]
+    public async Task SaveNew_WithExistingDocumentId_ReturnsConflictWithoutUpdating()
+    {
+        var (email, password) = await RegisterAndLoginAsync();
+        await GrantPermissionToUser(email, AppPermissionNames.CreateEditOrPublishAnyDocument);
+        await ReloginAsync(email, password);
+        var docId = await CreateDocumentAsync(email, isPublic: false, "Existing Draft");
+
+        var response = await PostForm("/Home/SaveNew", new Dictionary<string, string>
+        {
+            { "DocumentId", docId.ToString() },
+            { "Title", "Overwrite Attempt" },
+            { "InputMarkdown", "# Overwrite attempt" }
+        }, tokenUrl: "/Home/Editor");
+        Assert.AreEqual(HttpStatusCode.Conflict, response.StatusCode);
+
+        using var scope = Server!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+        var document = await db.MarkdownDocuments.AsNoTracking().SingleAsync(d => d.Id == docId);
+        Assert.AreEqual("Existing Draft", document.Title);
+        Assert.AreEqual("# Original content", document.Content);
+    }
+
+    [TestMethod]
+    public async Task DraftOnlyUser_SeesPublishedPostsWithoutEditOrDeleteActions()
+    {
+        var (email, password) = await RegisterAndLoginAsync();
+        await GrantPermissionToUser(email, AppPermissionNames.CreateEditOrDeleteDraftDocument);
+        await ReloginAsync(email, password);
+        var publishedId = await CreateDocumentAsync(email, isPublic: true, "Read-only Published Post");
+        var draftId = await CreateDocumentAsync(email, isPublic: false, "Editable Company Draft");
+
+        var postsHtml = await Http.GetStringAsync("/Home/Posts");
+        StringAssert.Contains(postsHtml, "Read-only Published Post");
+        StringAssert.Contains(postsHtml, $"/Home/Edit/{draftId}");
+        Assert.IsFalse(postsHtml.Contains($"/Home/Edit/{publishedId}", StringComparison.Ordinal));
+        Assert.IsFalse(postsHtml.Contains($"/Home/Delete/{publishedId}", StringComparison.Ordinal));
+
+        var publicViewHtml = await Http.GetStringAsync($"/share/{publishedId}");
+        Assert.IsFalse(publicViewHtml.Contains($"/Home/Edit/{publishedId}", StringComparison.Ordinal));
     }
 
     [TestMethod]
@@ -155,7 +296,7 @@ public class PostsTests : TestBase
     {
         // User 1 (draft-only) creates a draft
         var (email1, _) = await RegisterAndLoginAsync();
-        await GrantPermissionToUser(email1, AppPermissionNames.CreateOrEditDraftDocument);
+        await GrantPermissionToUser(email1, AppPermissionNames.CreateEditOrDeleteDraftDocument);
         var docId = Guid.NewGuid();
         using (var scope = Server!.Services.CreateScope())
         {
@@ -225,11 +366,11 @@ public class PostsTests : TestBase
     }
 
     [TestMethod]
-    public async Task PublishAnyUser_CanEditAnyPost()
+    public async Task PublishAnyUser_CanEditPublishedPost()
     {
-        // User 1 (draft-only) creates a draft
+        // User 1 creates a company post that is already published.
         var (email1, _) = await RegisterAndLoginAsync();
-        await GrantPermissionToUser(email1, AppPermissionNames.CreateOrEditDraftDocument);
+        await GrantPermissionToUser(email1, AppPermissionNames.CreateEditOrDeleteDraftDocument);
         var docId = Guid.NewGuid();
         using (var scope = Server!.Services.CreateScope())
         {
@@ -238,15 +379,16 @@ public class PostsTests : TestBase
             db.MarkdownDocuments.Add(new MarkdownDocument
             {
                 Id = docId,
-                Title = "Draft for Boss",
+                Title = "Published Post for Boss",
                 Content = "# Edit me",
                 UserId = user.Id,
+                IsPublic = true,
                 CreationTime = DateTime.UtcNow
             });
             await db.SaveChangesAsync();
         }
 
-        // User 2 (publish-any) edits user 1's draft
+        // User 2 (publish-any) edits user 1's published post.
         var (email2, password2) = await RegisterAndLoginAsync();
         await GrantPermissionToUser(email2, AppPermissionNames.CreateEditOrPublishAnyDocument);
         await ReloginAsync(email2, password2);
@@ -265,11 +407,30 @@ public class PostsTests : TestBase
     }
 
     [TestMethod]
+    public async Task PublishAnyUser_CanDeletePublishedPost()
+    {
+        var (email, password) = await RegisterAndLoginAsync();
+        await GrantPermissionToUser(email, AppPermissionNames.CreateEditOrPublishAnyDocument);
+        await ReloginAsync(email, password);
+        var docId = await CreateDocumentAsync(email, isPublic: true, "Published Post to Delete");
+
+        var response = await PostForm(
+            $"/Home/Delete/{docId}",
+            new(),
+            tokenUrl: $"/Home/Delete/{docId}");
+        Assert.AreEqual(HttpStatusCode.Found, response.StatusCode);
+
+        using var scope = Server!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+        Assert.IsFalse(await db.MarkdownDocuments.AnyAsync(d => d.Id == docId));
+    }
+
+    [TestMethod]
     public async Task PostsPage_ShowsAllDocuments_ToBothPermissions()
     {
         // Create a document as user 1
         var (email1, password1) = await RegisterAndLoginAsync();
-        await GrantPermissionToUser(email1, AppPermissionNames.CreateOrEditDraftDocument);
+        await GrantPermissionToUser(email1, AppPermissionNames.CreateEditOrDeleteDraftDocument);
         await ReloginAsync(email1, password1);
 
         using (var scope = Server!.Services.CreateScope())
@@ -517,5 +678,24 @@ public class PostsTests : TestBase
         var fallbackHtml = await fallbackResponse.Content.ReadAsStringAsync();
         StringAssert.Contains(fallbackHtml,
             $"rel=\"canonical\" href=\"{new Uri(Http.BaseAddress!, $"post/{fallbackId}")}\"");
+    }
+
+    private async Task<Guid> CreateDocumentAsync(string ownerEmail, bool isPublic, string title)
+    {
+        var docId = Guid.NewGuid();
+        using var scope = Server!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+        var owner = await db.Users.FirstAsync(u => u.Email == ownerEmail);
+        db.MarkdownDocuments.Add(new MarkdownDocument
+        {
+            Id = docId,
+            Title = title,
+            Content = "# Original content",
+            UserId = owner.Id,
+            IsPublic = isPublic,
+            CreationTime = DateTime.UtcNow
+        });
+        await db.SaveChangesAsync();
+        return docId;
     }
 }

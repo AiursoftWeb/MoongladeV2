@@ -19,7 +19,8 @@ public static class AppPermissionNames
     public const string CanEditRoles = nameof(CanEditRoles);
 
     // Document Management
-    public const string CreateOrEditDraftDocument = nameof(CreateOrEditDraftDocument);
+    public const string CreateEditOrDeleteDraftDocument = nameof(CreateEditOrDeleteDraftDocument);
+    internal const string LegacyCreateOrEditDraftDocument = "CreateOrEditDraftDocument";
     public const string CreateEditOrPublishAnyDocument = nameof(CreateEditOrPublishAnyDocument);
     public const string CanManageComments = nameof(CanManageComments);
     // Permission Management

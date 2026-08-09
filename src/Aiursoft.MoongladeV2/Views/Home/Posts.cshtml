@@ -1,12 +1,10 @@
 @using Aiursoft.WebTools
 @using Aiursoft.MoongladeV2.Authorization
-@using Microsoft.AspNetCore.Authorization
 @model Aiursoft.MoongladeV2.Models.HomeViewModels.PostsViewModel
-@inject IAuthorizationService AuthorizationService
+@inject DocumentAuthorizationService DocumentAuthorization
 
 @{
-    var canEditAnyPost = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CreateEditOrPublishAnyDocument)).Succeeded ||
-                         (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CreateOrEditDraftDocument)).Succeeded;
+    var accessLevel = await DocumentAuthorization.GetAccessLevelAsync(User);
 }
 
 <style>
@@ -98,7 +96,8 @@
                 <tbody>
                 @foreach (var doc in Model.Posts)
                 {
-                    var rowUrl = canEditAnyPost ? Url.Action("Edit", "Home", new { id = doc.Id }) : null;
+                    var canModify = DocumentAuthorizationService.CanModify(accessLevel, doc);
+                    var rowUrl = canModify ? Url.Action("Edit", "Home", new { id = doc.Id }) : null;
                     <tr class="@(rowUrl != null ? "clickable-row" : "")" data-href="@rowUrl">
                         <td>
                             @if (string.IsNullOrWhiteSpace(doc.Title))
@@ -142,7 +141,7 @@
                         </td>
                         <td>@(doc.Content?.Length ?? 0)</td>
                         <td class="text-end">
-                            @if (canEditAnyPost)
+                            @if (canModify)
                             {
                                 <a asp-action="Edit" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-primary">
                                     <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]

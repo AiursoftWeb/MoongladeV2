@@ -58,6 +58,8 @@ public static class ProgramExtends
         var settingsService = services.GetRequiredService<GlobalSettingsService>();
         await settingsService.SeedSettingsAsync();
 
+        await MigrateLegacyPermissionClaimsAsync(db, logger);
+
         var shouldSeed = await ShouldSeedAsync(db);
         if (!shouldSeed)
         {
@@ -104,5 +106,45 @@ public static class ProgramExtends
         }
 
         return host;
+    }
+
+    private static async Task MigrateLegacyPermissionClaimsAsync(
+        TemplateDbContext db,
+        ILogger logger)
+    {
+        var legacyClaims = await db.RoleClaims
+            .Where(c => c.ClaimType == AppPermissions.Type &&
+                        c.ClaimValue == AppPermissionNames.LegacyCreateOrEditDraftDocument)
+            .ToListAsync();
+
+        if (legacyClaims.Count == 0)
+        {
+            return;
+        }
+
+        var rolesAlreadyUsingNewClaim = (await db.RoleClaims
+                .Where(c => c.ClaimType == AppPermissions.Type &&
+                            c.ClaimValue == AppPermissionNames.CreateEditOrDeleteDraftDocument)
+                .Select(c => c.RoleId)
+                .ToListAsync())
+            .ToHashSet();
+
+        foreach (var legacyClaim in legacyClaims)
+        {
+            if (rolesAlreadyUsingNewClaim.Add(legacyClaim.RoleId))
+            {
+                legacyClaim.ClaimValue = AppPermissionNames.CreateEditOrDeleteDraftDocument;
+            }
+            else
+            {
+                db.RoleClaims.Remove(legacyClaim);
+            }
+        }
+
+        await db.SaveChangesAsync();
+        logger.LogInformation(
+            "Migrated {Count} legacy draft-document permission claim(s) to '{Permission}'.",
+            legacyClaims.Count,
+            AppPermissionNames.CreateEditOrDeleteDraftDocument);
     }
 }

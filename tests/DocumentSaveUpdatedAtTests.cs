@@ -46,15 +46,12 @@ public class DocumentSaveUpdatedAtTests
         _connection.Dispose();
     }
 
-    // ── 1. Simulates HomeController.SaveNew (existing document) ──────────────────
+    // ── 1. Publication state protects a stale draft edit ─────────────────────────
 
     [TestMethod]
-    public async Task SaveNew_BumpsUpdatedAt()
+    public async Task PublishingDocument_BlocksConcurrentDraftUpdate()
     {
-        // Arrange — seed a document with an old UpdatedAt.
         var docId = Guid.NewGuid();
-        var oldUpdatedAt = new DateTime(2020, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-
         await using (var seedDb = new SqliteTestContext(_dbOptions))
         {
             seedDb.MarkdownDocuments.Add(new MarkdownDocument
@@ -63,39 +60,31 @@ public class DocumentSaveUpdatedAtTests
                 Title = "Old Title",
                 Content = "Old Content",
                 UserId = "test-user",
-                IsPublic = true,
-                UpdatedAt = oldUpdatedAt
+                IsPublic = false
             });
             await seedDb.SaveChangesAsync();
         }
 
-        // Act — simulate HomeController.SaveNew existing-doc path:
-        //   documentInDb.UpdatedAt = DateTime.UtcNow;
-        //   documentInDb.Content = ...;
-        //   documentInDb.Title = ...;
-        //   await context.SaveChangesAsync();
-        DateTime beforeSave;
-        await using (var db = new SqliteTestContext(_dbOptions))
+        await using var employeeDb = new SqliteTestContext(_dbOptions);
+        var staleDraft = await employeeDb.MarkdownDocuments.SingleAsync(d => d.Id == docId);
+
+        await using (var publisherDb = new SqliteTestContext(_dbOptions))
         {
-            var doc = await db.MarkdownDocuments.FirstAsync(d => d.Id == docId);
-            beforeSave = DateTime.UtcNow;
-
-            doc.UpdatedAt = DateTime.UtcNow;
-            doc.Content = "Updated Content";
-            doc.Title = "Updated Title";
-
-            await db.SaveChangesAsync();
+            var document = await publisherDb.MarkdownDocuments.SingleAsync(d => d.Id == docId);
+            document.IsPublic = true;
+            await publisherDb.SaveChangesAsync();
         }
 
-        // Assert
-        await using (var db = new SqliteTestContext(_dbOptions))
-        {
-            var doc = await db.MarkdownDocuments.AsNoTracking().FirstAsync(d => d.Id == docId);
-            Assert.IsTrue(doc.UpdatedAt > oldUpdatedAt,
-                "SaveNew: UpdatedAt must be bumped so translation/embedding/abstract jobs re-run.");
-            Assert.IsTrue(doc.UpdatedAt >= beforeSave,
-                "SaveNew: UpdatedAt should be set to a recent timestamp.");
-        }
+        staleDraft.Title = "Stale Draft Edit";
+        staleDraft.Content = "This edit must not land after publication.";
+
+        await Assert.ThrowsAsync<DbUpdateConcurrencyException>(() => employeeDb.SaveChangesAsync());
+
+        await using var verifyDb = new SqliteTestContext(_dbOptions);
+        var published = await verifyDb.MarkdownDocuments.AsNoTracking().SingleAsync(d => d.Id == docId);
+        Assert.IsTrue(published.IsPublic);
+        Assert.AreEqual("Old Title", published.Title);
+        Assert.AreEqual("Old Content", published.Content);
     }
 
     // ── 2. Negative test — skip UpdatedAt, verify it STAYS stale ─────────────────
