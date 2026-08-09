@@ -3,7 +3,6 @@ using Aiursoft.MoongladeV2.Configuration;
 using Aiursoft.MoongladeV2.Entities;
 using Aiursoft.MoongladeV2.Models.ContractViewModels;
 using Aiursoft.MoongladeV2.Services;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;

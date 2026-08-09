@@ -2,7 +2,6 @@ using System.ComponentModel.DataAnnotations;
 using Aiursoft.MoongladeV2.Authorization;
 using Aiursoft.MoongladeV2.Models.PublicViewModels;
 using Aiursoft.MoongladeV2.Services;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Aiursoft.MoongladeV2.Entities;
