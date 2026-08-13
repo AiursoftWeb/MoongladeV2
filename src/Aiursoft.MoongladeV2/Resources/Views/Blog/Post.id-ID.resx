@@ -36,11 +36,17 @@
   <data name="Delete" xml:space="preserve">
     <value>Hapus</value>
   </data>
+  <data name="Document outline" xml:space="preserve">
+    <value>Kerangka dokumen</value>
+  </data>
   <data name="Login to comment" xml:space="preserve">
     <value>Masuk untuk berkomentar</value>
   </data>
   <data name="No comments yet. Be the first to leave one!" xml:space="preserve">
     <value>Belum ada komentar. Jadilah yang pertama berkomentar!</value>
+  </data>
+  <data name="On this page" xml:space="preserve">
+    <value>Di halaman ini</value>
   </data>
   <data name="Post Comment" xml:space="preserve">
     <value>Kirim Komentar</value>

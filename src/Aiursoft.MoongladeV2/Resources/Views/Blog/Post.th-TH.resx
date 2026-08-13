@@ -36,11 +36,17 @@
   <data name="Delete" xml:space="preserve">
     <value>ลบ</value>
   </data>
+  <data name="Document outline" xml:space="preserve">
+    <value>โครงสร้างเอกสาร</value>
+  </data>
   <data name="Login to comment" xml:space="preserve">
     <value>เข้าสู่ระบบเพื่อแสดงความคิดเห็น</value>
   </data>
   <data name="No comments yet. Be the first to leave one!" xml:space="preserve">
     <value>ยังไม่มีความคิดเห็น มาเป็น نفرแรกกัน!</value>
+  </data>
+  <data name="On this page" xml:space="preserve">
+    <value>ในหน้านี้</value>
   </data>
   <data name="Post Comment" xml:space="preserve">
     <value>แสดงความคิดเห็น</value>

@@ -36,11 +36,17 @@
   <data name="Delete" xml:space="preserve">
     <value>Slet</value>
   </data>
+  <data name="Document outline" xml:space="preserve">
+    <value>Dokumentstruktur</value>
+  </data>
   <data name="Login to comment" xml:space="preserve">
     <value>Log ind for at kommentere</value>
   </data>
   <data name="No comments yet. Be the first to leave one!" xml:space="preserve">
     <value>Der er ingen kommentarer endnu. Vær den første til at give én!</value>
+  </data>
+  <data name="On this page" xml:space="preserve">
+    <value>På denne side</value>
   </data>
   <data name="Post Comment" xml:space="preserve">
     <value>Indsend kommentar</value>

@@ -36,11 +36,17 @@
   <data name="Delete" xml:space="preserve">
     <value>حذف</value>
   </data>
+  <data name="Document outline" xml:space="preserve">
+    <value>مخطط المستند</value>
+  </data>
   <data name="Login to comment" xml:space="preserve">
     <value>تسجيل الدخول للتعليق</value>
   </data>
   <data name="No comments yet. Be the first to leave one!" xml:space="preserve">
     <value>لا توجد تعليقات بعد. كن الأول في ترك تعليق!</value>
+  </data>
+  <data name="On this page" xml:space="preserve">
+    <value>في هذه الصفحة</value>
   </data>
   <data name="Post Comment" xml:space="preserve">
     <value>نشر التعليق</value>
