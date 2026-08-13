@@ -12,8 +12,10 @@
 <vc:marketing-navbar></vc:marketing-navbar>
 
 <main class="moonglade-blog-shell body-post-slug @(isDarkMode ? "darkmode" : null)">
-    <div class="container py-4 py-lg-5">
-        <article class="article-post-slug box border position-relative mb-4" data-postid="@Model.DocumentId" lang="@CultureInfo.CurrentCulture.TwoLetterISOLanguageName">
+    <div class="container post-page-container py-4 py-lg-5">
+        <div class="post-layout">
+            <div class="post-main-column">
+                <article class="article-post-slug box border position-relative mb-4" data-postid="@Model.DocumentId" lang="@CultureInfo.CurrentCulture.TwoLetterISOLanguageName">
             <header class="post-header text-center">
                 <a class="post-back-link" asp-controller="Blog" asp-action="Index">@Localizer["Back to posts"]</a>
                 <h1 class="post-title font-sairas">@Model.Title</h1>
@@ -71,9 +73,9 @@
             <section class="post-content markdown-content clearfix">
                 @Html.Raw(Model.ContentHtml)
             </section>
-        </article>
+                </article>
 
-        <section id="comments" class="box comment-form-containter mb-4">
+                <section id="comments" class="box comment-form-containter mb-4">
             <h5 class="mb-3">@Localizer["Comments"] (@Model.CommentCount)</h5>
 
             @if (User.Identity?.IsAuthenticated == true)
@@ -188,7 +190,16 @@
                     </a>
                 </div>
             }
-        </section>
+                </section>
+            </div>
+
+            <aside class="post-outline" data-document-outline aria-label="@Localizer["On this page"]" hidden>
+                <div class="post-outline-title">@Localizer["On this page"]</div>
+                <nav aria-label="@Localizer["Document outline"]">
+                    <ol class="post-outline-list"></ol>
+                </nav>
+            </aside>
+        </div>
     </div>
 </main>
 
@@ -211,6 +222,7 @@
     <script src="~/node_modules/mermaid/dist/mermaid.min.js" asp-append-version="true"></script>
     <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js" asp-append-version="true"></script>
     <script src="~/node_modules/@@aiursoft/uistack-markdown-ui/dist/index.global.js" asp-append-version="true"></script>
+    <script src="~/scripts/document-outline.js" asp-append-version="true"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             window.AiursoftMarkdownUi.initializeMarkdownReader({

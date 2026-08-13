@@ -39,6 +39,23 @@ public class RazorViewTests
         }
     }
 
+    [TestMethod]
+    public void PostView_ProvidesResponsiveDocumentOutline()
+    {
+        var repositoryRoot = FindRepositoryRoot();
+        var postView = File.ReadAllText(Path.Combine(repositoryRoot, "src", "Aiursoft.MoongladeV2", "Views", "Blog", "Post.cshtml"));
+        var outlineScript = File.ReadAllText(Path.Combine(repositoryRoot, "src", "Aiursoft.MoongladeV2", "wwwroot", "scripts", "document-outline.js"));
+        var blogStyles = File.ReadAllText(Path.Combine(repositoryRoot, "src", "Aiursoft.MoongladeV2", "wwwroot", "styles", "blog.css"));
+
+        StringAssert.Contains(postView, "data-document-outline");
+        StringAssert.Contains(postView, "~/scripts/document-outline.js");
+        StringAssert.Contains(outlineScript, "h1, h2, h3");
+        StringAssert.Contains(outlineScript, "aria-current");
+        StringAssert.Contains(blogStyles, "@media (min-width: 1280px)");
+        StringAssert.Contains(blogStyles, ".post-outline");
+        StringAssert.Contains(blogStyles, "grid-template-columns: minmax(0, 1fr) minmax(0, 820px) minmax(0, 1fr)");
+    }
+
     private static string FindRepositoryRoot()
     {
         for (var directory = new DirectoryInfo(AppContext.BaseDirectory); directory != null; directory = directory.Parent)
