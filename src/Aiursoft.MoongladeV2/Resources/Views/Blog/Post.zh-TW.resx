@@ -111,11 +111,17 @@ Thus final answer: ```作者``` but inside triple backticks:
   <data name="Delete" xml:space="preserve">
     <value>刪除</value>
   </data>
+  <data name="Document outline" xml:space="preserve">
+    <value>文件大綱</value>
+  </data>
   <data name="Login to comment" xml:space="preserve">
     <value>登入以留言</value>
   </data>
   <data name="No comments yet. Be the first to leave one!" xml:space="preserve">
     <value>目前尚無評論。搶先發表第一則評論！</value>
+  </data>
+  <data name="On this page" xml:space="preserve">
+    <value>本文大綱</value>
   </data>
   <data name="Post Comment" xml:space="preserve">
     <value>發布留言</value>

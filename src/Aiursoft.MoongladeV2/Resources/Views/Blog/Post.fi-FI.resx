@@ -36,11 +36,17 @@
   <data name="Delete" xml:space="preserve">
     <value>Poista</value>
   </data>
+  <data name="Document outline" xml:space="preserve">
+    <value>Dokumentin sisältöluettelo</value>
+  </data>
   <data name="Login to comment" xml:space="preserve">
     <value>Kirjaudu sisään kommentoidaksesi</value>
   </data>
   <data name="No comments yet. Be the first to leave one!" xml:space="preserve">
     <value>Ei vielä kommentteja. Jätä ensimmäinen!</value>
+  </data>
+  <data name="On this page" xml:space="preserve">
+    <value>Tällä sivulla</value>
   </data>
   <data name="Post Comment" xml:space="preserve">
     <value>Julkaise kommentti</value>

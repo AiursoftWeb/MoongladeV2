@@ -42,11 +42,17 @@ The user wants me to translate only the word `By` in the context of a blog post 
   <data name="Delete" xml:space="preserve">
     <value>Удалить</value>
   </data>
+  <data name="Document outline" xml:space="preserve">
+    <value>Структура документа</value>
+  </data>
   <data name="Login to comment" xml:space="preserve">
     <value>Войдите, чтобы оставить комментарий</value>
   </data>
   <data name="No comments yet. Be the first to leave one!" xml:space="preserve">
     <value>Комментариев пока нет. Будьте первым!</value>
+  </data>
+  <data name="On this page" xml:space="preserve">
+    <value>На этой странице</value>
   </data>
   <data name="Post Comment" xml:space="preserve">
     <value>Опубликовать комментарий</value>

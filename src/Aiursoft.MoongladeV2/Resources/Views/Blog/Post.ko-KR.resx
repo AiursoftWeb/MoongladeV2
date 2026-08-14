@@ -36,11 +36,17 @@
   <data name="Delete" xml:space="preserve">
     <value>삭제</value>
   </data>
+  <data name="Document outline" xml:space="preserve">
+    <value>문서 개요</value>
+  </data>
   <data name="Login to comment" xml:space="preserve">
     <value>댓글을 남기려면 로그인하세요</value>
   </data>
   <data name="No comments yet. Be the first to leave one!" xml:space="preserve">
     <value>아직 댓글이 없습니다. 먼저 댓글을 남겨보세요!</value>
+  </data>
+  <data name="On this page" xml:space="preserve">
+    <value>이 페이지에서</value>
   </data>
   <data name="Post Comment" xml:space="preserve">
     <value>댓글 작성</value>

@@ -36,11 +36,17 @@
   <data name="Delete" xml:space="preserve">
     <value>删除</value>
   </data>
+  <data name="Document outline" xml:space="preserve">
+    <value>文档大纲</value>
+  </data>
   <data name="Login to comment" xml:space="preserve">
     <value>登录后评论</value>
   </data>
   <data name="No comments yet. Be the first to leave one!" xml:space="preserve">
     <value>暂无评论。快来抢沙发！</value>
+  </data>
+  <data name="On this page" xml:space="preserve">
+    <value>本页内容</value>
   </data>
   <data name="Post Comment" xml:space="preserve">
     <value>发布评论</value>

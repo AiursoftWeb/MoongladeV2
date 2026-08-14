@@ -143,11 +143,17 @@ Bởi</value>
   <data name="Delete" xml:space="preserve">
     <value>Xóa</value>
   </data>
+  <data name="Document outline" xml:space="preserve">
+    <value>Mục lục tài liệu</value>
+  </data>
   <data name="Login to comment" xml:space="preserve">
     <value>Đăng nhập để bình luận</value>
   </data>
   <data name="No comments yet. Be the first to leave one!" xml:space="preserve">
     <value>Chưa có bình luận. Hãy là người đầu tiên để lại bình luận!</value>
+  </data>
+  <data name="On this page" xml:space="preserve">
+    <value>Trên trang này</value>
   </data>
   <data name="Post Comment" xml:space="preserve">
     <value>Đăng bình luận</value>

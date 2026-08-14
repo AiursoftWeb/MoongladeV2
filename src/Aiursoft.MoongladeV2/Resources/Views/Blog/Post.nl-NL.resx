@@ -36,11 +36,17 @@
   <data name="Delete" xml:space="preserve">
     <value>Verwijder</value>
   </data>
+  <data name="Document outline" xml:space="preserve">
+    <value>Documentstructuur</value>
+  </data>
   <data name="Login to comment" xml:space="preserve">
     <value>Inloggen om te reageren</value>
   </data>
   <data name="No comments yet. Be the first to leave one!" xml:space="preserve">
     <value>Nog geen opmerkingen. Wees de eerste om er een achter te laten!</value>
+  </data>
+  <data name="On this page" xml:space="preserve">
+    <value>Op deze pagina</value>
   </data>
   <data name="Post Comment" xml:space="preserve">
     <value>Reactie plaatsen</value>

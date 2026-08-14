@@ -36,11 +36,17 @@
   <data name="Delete" xml:space="preserve">
     <value>刪除</value>
   </data>
+  <data name="Document outline" xml:space="preserve">
+    <value>文件大綱</value>
+  </data>
   <data name="Login to comment" xml:space="preserve">
     <value>登入以留言</value>
   </data>
   <data name="No comments yet. Be the first to leave one!" xml:space="preserve">
     <value>暫無留言。搶先留言！</value>
+  </data>
+  <data name="On this page" xml:space="preserve">
+    <value>本頁內容</value>
   </data>
   <data name="Post Comment" xml:space="preserve">
     <value>發佈留言</value>
