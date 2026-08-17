@@ -1,4 +1,3 @@
-using System.Text.RegularExpressions;
 using Aiursoft.Canon.BackgroundJobs;
 using Aiursoft.MoongladeV2.Entities;
 using Aiursoft.MoongladeV2.Services.FileStorage;
@@ -9,9 +8,9 @@ namespace Aiursoft.MoongladeV2.Services.BackgroundJobs;
 /// <summary>
 /// Scans the markdown-images storage directory and deletes any image file that is no longer
 /// referenced by any document's markdown content in the database. Also skips files newer than
-/// 24 hours to avoid deleting images that were just uploaded but not yet saved.
+/// seven hours to avoid deleting images that were just uploaded but not yet saved.
 /// </summary>
-public partial class OrphanMarkdownImageCleanupJob(
+public class OrphanMarkdownImageCleanupJob(
     TemplateDbContext db,
     FeatureFoldersProvider folders,
     ILogger<OrphanMarkdownImageCleanupJob> logger) : IBackgroundJob
@@ -25,33 +24,23 @@ public partial class OrphanMarkdownImageCleanupJob(
     public string Description =>
         "Scans the markdown-images storage directory and deletes image files " +
         "that are no longer referenced by any document, freeing disk space. " +
-        "Files newer than 24 hours are always kept.";
+        "Files newer than seven hours are always kept.";
 
     public async Task ExecuteAsync()
     {
         logger.LogInformation("OrphanMarkdownImageCleanupJob started.");
 
-        // 1. Collect all image logical paths referenced in any document's markdown content.
-        //    Image links in markdown look like: ![alt](/download/markdown-images/paste-xxx.png)
-        //    We extract the path segment after "/download/" to get the logical path.
+        // Load both source and localized documents. Do not parse Markdown here: an image can be
+        // referenced by an absolute URL, HTML, reference-style Markdown, or another valid syntax.
+        // A conservative path search is safer for a destructive cleanup job.
         var allContent = await db.MarkdownDocuments
+            .AsNoTracking()
             .Select(d => d.Content)
             .ToListAsync();
-
-        var referencedPaths = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-        foreach (var content in allContent)
-        {
-            if (string.IsNullOrEmpty(content)) continue;
-            foreach (Match match in MarkdownImageUrlRegex().Matches(content))
-            {
-                // match.Groups[1].Value = "markdown-images/paste-xxx.png"
-                referencedPaths.Add(match.Groups[1].Value);
-            }
-        }
-
-        logger.LogInformation(
-            "OrphanMarkdownImageCleanupJob: {Count} markdown-images path(s) are referenced in the database.",
-            referencedPaths.Count);
+        allContent.AddRange(await db.LocalizedDocuments
+            .AsNoTracking()
+            .Select(d => d.LocalizedContent)
+            .ToListAsync());
 
         // 2. Scan the workspace for files inside the 'markdown-images/' subdirectory.
         var workspace = folders.GetWorkspaceFolder();
@@ -71,6 +60,17 @@ public partial class OrphanMarkdownImageCleanupJob(
         logger.LogInformation(
             "OrphanMarkdownImageCleanupJob: {Count} file(s) found in markdown-images directory.",
             allImageFiles.Count);
+
+        var referencedPaths = allImageFiles
+            .Select(physicalPath => Path
+                .GetRelativePath(workspace, physicalPath)
+                .Replace('\\', '/'))
+            .Where(relativePath => IsReferenced(relativePath, allContent))
+            .ToHashSet(StringComparer.OrdinalIgnoreCase);
+
+        logger.LogInformation(
+            "OrphanMarkdownImageCleanupJob: {Count} markdown-images path(s) are referenced in the database.",
+            referencedPaths.Count);
 
         // 3. Delete files that are not referenced AND older than the grace period.
         var cutoff = DateTime.UtcNow - GracePeriod;
@@ -115,12 +115,49 @@ public partial class OrphanMarkdownImageCleanupJob(
             deletedCount, allImageFiles.Count);
     }
 
-    // Matches both relative and absolute URLs:
-    //   Relative: ![alt](/download/markdown-images/some/path.png)
-    //   Absolute: ![alt](https://example.com/download/markdown-images/some/path.png)
-    // Captures group 1: "markdown-images/some/path.png"
-    // Singleline: allows alt text to span newlines.
-    // Stops at ) ? # to avoid capturing query strings or anchors as part of the path.
-    [GeneratedRegex(@"!\[.*?\]\((?:https?://[^/]+)?/download/(markdown-images/[^)?#]+)", RegexOptions.IgnoreCase | RegexOptions.Singleline)]
-    private static partial Regex MarkdownImageUrlRegex();
+    private static bool IsReferenced(string relativePath, IEnumerable<string?> allContent)
+    {
+        var fullyEscapedPath = Uri.EscapeDataString(relativePath);
+        var escapedPath = fullyEscapedPath
+            .Replace("%2F", "/", StringComparison.OrdinalIgnoreCase);
+        var windowsPath = relativePath.Replace('/', '\\');
+
+        foreach (var content in allContent)
+        {
+            if (string.IsNullOrEmpty(content)) continue;
+            if (ContainsCompletePath(content, relativePath) ||
+                ContainsCompletePath(content, escapedPath) ||
+                ContainsCompletePath(content, fullyEscapedPath) ||
+                ContainsCompletePath(content, windowsPath))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private static bool ContainsCompletePath(string content, string path)
+    {
+        var searchFrom = 0;
+        while (searchFrom < content.Length)
+        {
+            var index = content.IndexOf(path, searchFrom, StringComparison.OrdinalIgnoreCase);
+            if (index < 0) return false;
+
+            var characterAfterPath = index + path.Length;
+            if (characterAfterPath == content.Length ||
+                !IsPathContinuationCharacter(content[characterAfterPath]))
+            {
+                return true;
+            }
+
+            searchFrom = index + 1;
+        }
+
+        return false;
+    }
+
+    private static bool IsPathContinuationCharacter(char character) =>
+        char.IsLetterOrDigit(character) || character is '-' or '_' or '.' or '~' or '%' or '/' or '\\';
 }
