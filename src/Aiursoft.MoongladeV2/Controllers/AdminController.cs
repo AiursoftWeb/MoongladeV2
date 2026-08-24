@@ -39,6 +39,7 @@ public class AdminController(
             .Include(c => c.Document)
             .Include(c => c.User)
             .Include(c => c.Replies)
+                .ThenInclude(r => r.User)
             .OrderByDescending(c => c.CreatedAt)
             .ToListAsync();
 
