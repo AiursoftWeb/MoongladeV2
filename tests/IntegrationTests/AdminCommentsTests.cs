@@ -139,7 +139,7 @@ public class AdminCommentsTests : TestBase
     }
 
     private static int CountOccurrences(string source, string value) =>
-        source.Split(value, StringSplitOptions.None).Length - 1;
+        source.Split(value).Length - 1;
 
     private static string EncodeHtmlAttribute(string value) =>
         WebUtility.HtmlEncode(value).Replace("\n", "&#xA;", StringComparison.Ordinal);
