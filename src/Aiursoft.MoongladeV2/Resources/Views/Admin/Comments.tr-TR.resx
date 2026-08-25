@@ -36,6 +36,9 @@
   <data name="Author" xml:space="preserve">
     <value>Yazar</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>Kapat</value>
+  </data>
   <data name="Comment" xml:space="preserve">
     <value>Yorum</value>
   </data>
@@ -47,6 +50,9 @@
   </data>
   <data name="Delete Selected" xml:space="preserve">
     <value>Seçilenleri Sil</value>
+  </data>
+  <data name="Full comment" xml:space="preserve">
+    <value>Yorumun tamamı</value>
   </data>
   <data name="Manage Comments" xml:space="preserve">
     <value>Yorumları Yönet</value>
@@ -66,8 +72,8 @@
   <data name="total comments" xml:space="preserve">
     <value>toplam yorum</value>
   </data>
+  <data name="View and delete comments on blog posts." xml:space="preserve">
+    <value>Blog gönderilerindeki yorumları görüntüleyin ve silin.</value>
+  </data>
 
-  <data name="Close" xml:space="preserve"><value>Kapat</value></data>
-  <data name="Full comment" xml:space="preserve"><value>Yorumun tamamı</value></data>
-  <data name="View and delete comments on blog posts." xml:space="preserve"><value>Blog gönderilerindeki yorumları görüntüleyin ve silin.</value></data>
 </root>

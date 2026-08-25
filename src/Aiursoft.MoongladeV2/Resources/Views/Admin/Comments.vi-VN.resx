@@ -36,6 +36,9 @@
   <data name="Author" xml:space="preserve">
     <value>Tác giả</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>Đóng</value>
+  </data>
   <data name="Comment" xml:space="preserve">
     <value>Bình luận</value>
   </data>
@@ -47,6 +50,9 @@
   </data>
   <data name="Delete Selected" xml:space="preserve">
     <value>Xóa đã chọn</value>
+  </data>
+  <data name="Full comment" xml:space="preserve">
+    <value>Nội dung đầy đủ của bình luận</value>
   </data>
   <data name="Manage Comments" xml:space="preserve">
     <value>Quản lý bình luận</value>
@@ -66,8 +72,8 @@
   <data name="total comments" xml:space="preserve">
     <value>tổng số bình luận</value>
   </data>
+  <data name="View and delete comments on blog posts." xml:space="preserve">
+    <value>Xem và xóa bình luận trên các bài viết blog.</value>
+  </data>
 
-  <data name="Close" xml:space="preserve"><value>Đóng</value></data>
-  <data name="Full comment" xml:space="preserve"><value>Nội dung đầy đủ của bình luận</value></data>
-  <data name="View and delete comments on blog posts." xml:space="preserve"><value>Xem và xóa bình luận trên các bài viết blog.</value></data>
 </root>

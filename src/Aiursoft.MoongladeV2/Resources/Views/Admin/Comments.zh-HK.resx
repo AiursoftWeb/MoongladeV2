@@ -36,6 +36,9 @@
   <data name="Author" xml:space="preserve">
     <value>作者</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>關閉</value>
+  </data>
   <data name="Comment" xml:space="preserve">
     <value>評論</value>
   </data>
@@ -47,6 +50,9 @@
   </data>
   <data name="Delete Selected" xml:space="preserve">
     <value>刪除已選</value>
+  </data>
+  <data name="Full comment" xml:space="preserve">
+    <value>評論全文</value>
   </data>
   <data name="Manage Comments" xml:space="preserve">
     <value>管理留言</value>
@@ -66,8 +72,8 @@
   <data name="total comments" xml:space="preserve">
     <value>筆留言</value>
   </data>
+  <data name="View and delete comments on blog posts." xml:space="preserve">
+    <value>檢視及刪除網誌文章的評論。</value>
+  </data>
 
-  <data name="Close" xml:space="preserve"><value>關閉</value></data>
-  <data name="Full comment" xml:space="preserve"><value>評論全文</value></data>
-  <data name="View and delete comments on blog posts." xml:space="preserve"><value>檢視及刪除網誌文章的評論。</value></data>
 </root>

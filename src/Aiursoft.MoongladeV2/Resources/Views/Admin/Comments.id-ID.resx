@@ -36,6 +36,9 @@
   <data name="Author" xml:space="preserve">
     <value>Penulis</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>Tutup</value>
+  </data>
   <data name="Comment" xml:space="preserve">
     <value>Komentar</value>
   </data>
@@ -47,6 +50,9 @@
   </data>
   <data name="Delete Selected" xml:space="preserve">
     <value>Hapus yang Dipilih</value>
+  </data>
+  <data name="Full comment" xml:space="preserve">
+    <value>Komentar lengkap</value>
   </data>
   <data name="Manage Comments" xml:space="preserve">
     <value>Kelola Komentar</value>
@@ -66,8 +72,8 @@
   <data name="total comments" xml:space="preserve">
     <value>komentar total</value>
   </data>
+  <data name="View and delete comments on blog posts." xml:space="preserve">
+    <value>Lihat dan hapus komentar pada postingan blog.</value>
+  </data>
 
-  <data name="Close" xml:space="preserve"><value>Tutup</value></data>
-  <data name="Full comment" xml:space="preserve"><value>Komentar lengkap</value></data>
-  <data name="View and delete comments on blog posts." xml:space="preserve"><value>Lihat dan hapus komentar pada postingan blog.</value></data>
 </root>

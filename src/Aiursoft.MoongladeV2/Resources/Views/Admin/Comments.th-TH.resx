@@ -36,6 +36,9 @@
   <data name="Author" xml:space="preserve">
     <value>ผู้เขียน</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>ปิด</value>
+  </data>
   <data name="Comment" xml:space="preserve">
     <value>แสดงความคิดเห็น</value>
   </data>
@@ -47,6 +50,9 @@
   </data>
   <data name="Delete Selected" xml:space="preserve">
     <value>ลบที่เลือก</value>
+  </data>
+  <data name="Full comment" xml:space="preserve">
+    <value>ความคิดเห็นฉบับเต็ม</value>
   </data>
   <data name="Manage Comments" xml:space="preserve">
     <value>จัดการความคิดเห็น</value>
@@ -66,8 +72,8 @@
   <data name="total comments" xml:space="preserve">
     <value>ความคิดเห็นทั้งหมด</value>
   </data>
+  <data name="View and delete comments on blog posts." xml:space="preserve">
+    <value>ดูและลบความคิดเห็นในโพสต์บล็อก</value>
+  </data>
 
-  <data name="Close" xml:space="preserve"><value>ปิด</value></data>
-  <data name="Full comment" xml:space="preserve"><value>ความคิดเห็นฉบับเต็ม</value></data>
-  <data name="View and delete comments on blog posts." xml:space="preserve"><value>ดูและลบความคิดเห็นในโพสต์บล็อก</value></data>
 </root>
