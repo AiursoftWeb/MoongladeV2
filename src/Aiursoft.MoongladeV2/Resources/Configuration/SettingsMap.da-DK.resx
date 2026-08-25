@@ -114,12 +114,6 @@
   <data name="Project Name" xml:space="preserve">
     <value>Projektnavn</value>
   </data>
-  <data name="Require admin approval before comments are publicly visible." xml:space="preserve">
-    <value>Kræv administratorgodkendelse, før kommentarerne er offentligt synlige.</value>
-  </data>
-  <data name="Require Comment Review" xml:space="preserve">
-    <value>Kræv godkendelse af kommentarer</value>
-  </data>
   <data name="Show Author Info" xml:space="preserve">
     <value>Vis forfatterinfo</value>
   </data>

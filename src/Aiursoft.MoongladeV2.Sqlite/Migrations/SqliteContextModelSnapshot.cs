@@ -15,7 +15,7 @@ namespace Aiursoft.MoongladeV2.Sqlite.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "10.0.10");
+            modelBuilder.HasAnnotation("ProductVersion", "10.0.11");
 
             modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.Comment", b =>
                 {
@@ -33,9 +33,6 @@ namespace Aiursoft.MoongladeV2.Sqlite.Migrations
 
                     b.Property<Guid>("DocumentId")
                         .HasColumnType("TEXT");
-
-                    b.Property<bool>("IsApproved")
-                        .HasColumnType("INTEGER");
 
                     b.Property<Guid?>("ParentCommentId")
                         .HasColumnType("TEXT");
@@ -158,6 +155,7 @@ namespace Aiursoft.MoongladeV2.Sqlite.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<bool>("IsPublic")
+                        .IsConcurrencyToken()
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("LastEmbeddedAt")

@@ -24,9 +24,6 @@
   <data name="All Comments" xml:space="preserve">
     <value>所有留言</value>
   </data>
-  <data name="Approved" xml:space="preserve">
-    <value>已批准</value>
-  </data>
   <data name="Are you sure you want to delete the selected comments?" xml:space="preserve">
     <value>你確定要刪除所選的評論嗎？</value>
   </data>
@@ -57,9 +54,6 @@
   <data name="No comments found." xml:space="preserve">
     <value>未找到評論。</value>
   </data>
-  <data name="Pending" xml:space="preserve">
-    <value>審批中</value>
-  </data>
   <data name="Post" xml:space="preserve">
     <value>貼文</value>
   </data>
@@ -69,14 +63,11 @@
   <data name="Reply:" xml:space="preserve">
     <value>回覆：</value>
   </data>
-  <data name="Status" xml:space="preserve">
-    <value>狀態</value>
-  </data>
   <data name="total comments" xml:space="preserve">
     <value>筆留言</value>
   </data>
-  <data name="View, approve, and delete comments on blog posts." xml:space="preserve">
-    <value>查看、批准及刪除網誌文章的留言。</value>
-  </data>
 
+  <data name="Close" xml:space="preserve"><value>關閉</value></data>
+  <data name="Full comment" xml:space="preserve"><value>評論全文</value></data>
+  <data name="View and delete comments on blog posts." xml:space="preserve"><value>檢視及刪除網誌文章的評論。</value></data>
 </root>

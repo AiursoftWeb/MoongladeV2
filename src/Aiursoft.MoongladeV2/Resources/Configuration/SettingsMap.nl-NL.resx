@@ -114,12 +114,6 @@
   <data name="Project Name" xml:space="preserve">
     <value>Projectnaam</value>
   </data>
-  <data name="Require admin approval before comments are publicly visible." xml:space="preserve">
-    <value>Verplichte goedkeuring door beheerder voordat reacties publiek zichtbaar zijn.</value>
-  </data>
-  <data name="Require Comment Review" xml:space="preserve">
-    <value>Controle op reacties verplicht</value>
-  </data>
   <data name="Show Author Info" xml:space="preserve">
     <value>Auteurinformatie weergeven</value>
   </data>

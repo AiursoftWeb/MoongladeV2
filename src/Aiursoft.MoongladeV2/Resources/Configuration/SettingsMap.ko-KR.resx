@@ -114,12 +114,6 @@
   <data name="Project Name" xml:space="preserve">
     <value>프로젝트 이름</value>
   </data>
-  <data name="Require admin approval before comments are publicly visible." xml:space="preserve">
-    <value>댓글이 공개되기 전에 관리자 승인을 요구합니다.</value>
-  </data>
-  <data name="Require Comment Review" xml:space="preserve">
-    <value>댓글 검토 필요</value>
-  </data>
   <data name="Show Author Info" xml:space="preserve">
     <value>작성자 정보 표시</value>
   </data>

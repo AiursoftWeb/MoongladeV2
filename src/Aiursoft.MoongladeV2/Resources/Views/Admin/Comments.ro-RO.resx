@@ -24,9 +24,6 @@
   <data name="All Comments" xml:space="preserve">
     <value>Toate comentariile</value>
   </data>
-  <data name="Approved" xml:space="preserve">
-    <value>Aprobat</value>
-  </data>
   <data name="Are you sure you want to delete the selected comments?" xml:space="preserve">
     <value>Sunteți sigur că doriți să ștergeți comentariile selectate?</value>
   </data>
@@ -57,9 +54,6 @@
   <data name="No comments found." xml:space="preserve">
     <value>Nu s-au găsit comentarii.</value>
   </data>
-  <data name="Pending" xml:space="preserve">
-    <value>În așteptare</value>
-  </data>
   <data name="Post" xml:space="preserve">
     <value>Articol</value>
   </data>
@@ -69,14 +63,11 @@
   <data name="Reply:" xml:space="preserve">
     <value>Răspuns:</value>
   </data>
-  <data name="Status" xml:space="preserve">
-    <value>Stare</value>
-  </data>
   <data name="total comments" xml:space="preserve">
     <value>comentarii totale</value>
   </data>
-  <data name="View, approve, and delete comments on blog posts." xml:space="preserve">
-    <value>Vizualizați, aprobați și ștergeți comentariile de pe articolele de blog.</value>
-  </data>
 
+  <data name="Close" xml:space="preserve"><value>Închide</value></data>
+  <data name="Full comment" xml:space="preserve"><value>Comentariul complet</value></data>
+  <data name="View and delete comments on blog posts." xml:space="preserve"><value>Vizualizați și ștergeți comentariile la articolele de blog.</value></data>
 </root>

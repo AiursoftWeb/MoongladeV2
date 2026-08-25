@@ -114,12 +114,6 @@
   <data name="Project Name" xml:space="preserve">
     <value>Proje Adı</value>
   </data>
-  <data name="Require admin approval before comments are publicly visible." xml:space="preserve">
-    <value>Yorumlar herkese açık hale gelmeden önce yönetici onayı gerektirin.</value>
-  </data>
-  <data name="Require Comment Review" xml:space="preserve">
-    <value>Yorum İncelemesini Gerektir</value>
-  </data>
   <data name="Show Author Info" xml:space="preserve">
     <value>Yazar Bilgilerini Göster</value>
   </data>

@@ -173,7 +173,7 @@ public class BlogController(
             .Include(c => c.User)
             .Include(c => c.Replies)
                 .ThenInclude(r => r.User)
-            .Where(c => c.DocumentId == document.Id && c.ParentCommentId == null && c.IsApproved)
+            .Where(c => c.DocumentId == document.Id && c.ParentCommentId == null)
             .OrderByDescending(c => c.CreatedAt)
             .ToListAsync();
 

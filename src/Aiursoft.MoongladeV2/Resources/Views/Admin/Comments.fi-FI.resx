@@ -24,9 +24,6 @@
   <data name="All Comments" xml:space="preserve">
     <value>Kaikki kommentit</value>
   </data>
-  <data name="Approved" xml:space="preserve">
-    <value>Hyväksytty</value>
-  </data>
   <data name="Are you sure you want to delete the selected comments?" xml:space="preserve">
     <value>Haluatko varmasti poistaa valitut kommentit?</value>
   </data>
@@ -57,9 +54,6 @@
   <data name="No comments found." xml:space="preserve">
     <value>Kommentteja ei löytynyt.</value>
   </data>
-  <data name="Pending" xml:space="preserve">
-    <value>Odottaa hyväksyntää</value>
-  </data>
   <data name="Post" xml:space="preserve">
     <value>Julkaisu</value>
   </data>
@@ -69,14 +63,11 @@
   <data name="Reply:" xml:space="preserve">
     <value>Vastaus:</value>
   </data>
-  <data name="Status" xml:space="preserve">
-    <value>Tila</value>
-  </data>
   <data name="total comments" xml:space="preserve">
     <value>kaikkia kommentteja</value>
   </data>
-  <data name="View, approve, and delete comments on blog posts." xml:space="preserve">
-    <value>Näytä, hyväksy ja poista blogikirjoituksien kommentit.</value>
-  </data>
 
+  <data name="Close" xml:space="preserve"><value>Sulje</value></data>
+  <data name="Full comment" xml:space="preserve"><value>Koko kommentti</value></data>
+  <data name="View and delete comments on blog posts." xml:space="preserve"><value>Tarkastele ja poista blogikirjoitusten kommentteja.</value></data>
 </root>

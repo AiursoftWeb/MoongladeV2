@@ -24,9 +24,6 @@
   <data name="All Comments" xml:space="preserve">
     <value>Все комментарии</value>
   </data>
-  <data name="Approved" xml:space="preserve">
-    <value>Утверждено</value>
-  </data>
   <data name="Are you sure you want to delete the selected comments?" xml:space="preserve">
     <value>Вы уверены, что хотите удалить выбранные комментарии?</value>
   </data>
@@ -57,9 +54,6 @@
   <data name="No comments found." xml:space="preserve">
     <value>Комментариев не найдено.</value>
   </data>
-  <data name="Pending" xml:space="preserve">
-    <value>Ожидает</value>
-  </data>
   <data name="Post" xml:space="preserve">
     <value>Запись</value>
   </data>
@@ -69,14 +63,11 @@
   <data name="Reply:" xml:space="preserve">
     <value>Ответ:</value>
   </data>
-  <data name="Status" xml:space="preserve">
-    <value>Статус</value>
-  </data>
   <data name="total comments" xml:space="preserve">
     <value>всего комментариев</value>
   </data>
-  <data name="View, approve, and delete comments on blog posts." xml:space="preserve">
-    <value>Просматривайте, одобряйте и удаляйте комментарии к статьям блога.</value>
-  </data>
 
+  <data name="Close" xml:space="preserve"><value>Закрыть</value></data>
+  <data name="Full comment" xml:space="preserve"><value>Полный текст комментария</value></data>
+  <data name="View and delete comments on blog posts." xml:space="preserve"><value>Просматривайте и удаляйте комментарии к публикациям блога.</value></data>
 </root>

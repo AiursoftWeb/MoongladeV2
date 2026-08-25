@@ -114,12 +114,6 @@
   <data name="Project Name" xml:space="preserve">
     <value>Numele proiectului</value>
   </data>
-  <data name="Require admin approval before comments are publicly visible." xml:space="preserve">
-    <value>Necesită aprobarea administratorului înainte ca comentariile să fie vizibile public.</value>
-  </data>
-  <data name="Require Comment Review" xml:space="preserve">
-    <value>Necesită aprobarea comentariilor</value>
-  </data>
   <data name="Show Author Info" xml:space="preserve">
     <value>Afișează informațiile autorului</value>
   </data>

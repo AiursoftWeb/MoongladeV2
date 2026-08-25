@@ -24,9 +24,6 @@
   <data name="All Comments" xml:space="preserve">
     <value>Tất cả bình luận</value>
   </data>
-  <data name="Approved" xml:space="preserve">
-    <value>Đã phê duyệt</value>
-  </data>
   <data name="Are you sure you want to delete the selected comments?" xml:space="preserve">
     <value>Bạn có chắc chắn muốn xóa các bình luận đã chọn không?</value>
   </data>
@@ -57,9 +54,6 @@
   <data name="No comments found." xml:space="preserve">
     <value>Không tìm thấy bình luận nào.</value>
   </data>
-  <data name="Pending" xml:space="preserve">
-    <value>Chờ duyệt</value>
-  </data>
   <data name="Post" xml:space="preserve">
     <value>Bài viết</value>
   </data>
@@ -69,14 +63,11 @@
   <data name="Reply:" xml:space="preserve">
     <value>Phản hồi:</value>
   </data>
-  <data name="Status" xml:space="preserve">
-    <value>Trạng thái</value>
-  </data>
   <data name="total comments" xml:space="preserve">
     <value>tổng số bình luận</value>
   </data>
-  <data name="View, approve, and delete comments on blog posts." xml:space="preserve">
-    <value>Xem, phê duyệt và xóa nhận xét trên các bài đăng trong blog.</value>
-  </data>
 
+  <data name="Close" xml:space="preserve"><value>Đóng</value></data>
+  <data name="Full comment" xml:space="preserve"><value>Nội dung đầy đủ của bình luận</value></data>
+  <data name="View and delete comments on blog posts." xml:space="preserve"><value>Xem và xóa bình luận trên các bài viết blog.</value></data>
 </root>

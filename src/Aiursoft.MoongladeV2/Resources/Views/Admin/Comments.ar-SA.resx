@@ -24,9 +24,6 @@
   <data name="All Comments" xml:space="preserve">
     <value>جميع التعليقات</value>
   </data>
-  <data name="Approved" xml:space="preserve">
-    <value>معتمد</value>
-  </data>
   <data name="Are you sure you want to delete the selected comments?" xml:space="preserve">
     <value>هل أنت متأكد أنك تريد حذف التعليقات المحددة؟</value>
   </data>
@@ -57,9 +54,6 @@
   <data name="No comments found." xml:space="preserve">
     <value>لم يتم العثور على تعليقات.</value>
   </data>
-  <data name="Pending" xml:space="preserve">
-    <value>قيد الانتظار</value>
-  </data>
   <data name="Post" xml:space="preserve">
     <value>المشاركة</value>
   </data>
@@ -69,14 +63,11 @@
   <data name="Reply:" xml:space="preserve">
     <value>رد:</value>
   </data>
-  <data name="Status" xml:space="preserve">
-    <value>الحالة</value>
-  </data>
   <data name="total comments" xml:space="preserve">
     <value>إجمالي التعليقات</value>
   </data>
-  <data name="View, approve, and delete comments on blog posts." xml:space="preserve">
-    <value>عرض التعليقات على منشورات المدونة والموافقة عليها وحذفها.</value>
-  </data>
 
+  <data name="Close" xml:space="preserve"><value>إغلاق</value></data>
+  <data name="Full comment" xml:space="preserve"><value>التعليق الكامل</value></data>
+  <data name="View and delete comments on blog posts." xml:space="preserve"><value>عرض تعليقات منشورات المدونة وحذفها.</value></data>
 </root>

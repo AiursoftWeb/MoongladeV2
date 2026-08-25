@@ -14,6 +14,8 @@ public class GlobalSettingsService(
     StorageService storageService,
     IMemoryCache cache) : IScopedDependency
 {
+    private const string ObsoleteCommentReviewSetting = "RequireCommentReview";
+
     private string GetCacheKey(string key) => $"global-setting-{key}";
 
     public async Task<string> GetSettingValueAsync(string key)
@@ -191,6 +193,14 @@ public class GlobalSettingsService(
 
     public async Task SeedSettingsAsync()
     {
+        var obsoleteCommentReviewSetting = await dbContext.GlobalSettings
+            .FirstOrDefaultAsync(s => s.Key == ObsoleteCommentReviewSetting);
+        if (obsoleteCommentReviewSetting != null)
+        {
+            dbContext.GlobalSettings.Remove(obsoleteCommentReviewSetting);
+            cache.Remove(GetCacheKey(ObsoleteCommentReviewSetting));
+        }
+
         foreach (var definition in SettingsMap.Definitions)
         {
             var exists = await dbContext.GlobalSettings.AnyAsync(s => s.Key == definition.Key);

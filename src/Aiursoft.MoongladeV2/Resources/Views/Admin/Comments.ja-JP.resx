@@ -24,9 +24,6 @@
   <data name="All Comments" xml:space="preserve">
     <value>すべてのコメント</value>
   </data>
-  <data name="Approved" xml:space="preserve">
-    <value>承認済み</value>
-  </data>
   <data name="Are you sure you want to delete the selected comments?" xml:space="preserve">
     <value>選択したコメントを削除してもよろしいですか？</value>
   </data>
@@ -57,9 +54,6 @@
   <data name="No comments found." xml:space="preserve">
     <value>コメントが見つかりませんでした。</value>
   </data>
-  <data name="Pending" xml:space="preserve">
-    <value>承認保留</value>
-  </data>
   <data name="Post" xml:space="preserve">
     <value>投稿</value>
   </data>
@@ -69,14 +63,11 @@
   <data name="Reply:" xml:space="preserve">
     <value>返信：</value>
   </data>
-  <data name="Status" xml:space="preserve">
-    <value>ステータス</value>
-  </data>
   <data name="total comments" xml:space="preserve">
     <value>総コメント数</value>
   </data>
-  <data name="View, approve, and delete comments on blog posts." xml:space="preserve">
-    <value>ブログ投稿のコメントを確認、承認、削除します。</value>
-  </data>
 
+  <data name="Close" xml:space="preserve"><value>閉じる</value></data>
+  <data name="Full comment" xml:space="preserve"><value>コメント全文</value></data>
+  <data name="View and delete comments on blog posts." xml:space="preserve"><value>ブログ記事のコメントを表示、削除します。</value></data>
 </root>
