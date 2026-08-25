@@ -96,16 +96,9 @@ public static class AuthenticationExtensions
         {
             foreach (var permission in AppPermissions.GetAllPermissions())
             {
-                var acceptedClaimValues = permission.Key == AppPermissionNames.CreateEditOrDeleteDraftDocument
-                    ? new[]
-                    {
-                        AppPermissionNames.CreateEditOrDeleteDraftDocument,
-                        AppPermissionNames.LegacyCreateOrEditDraftDocument
-                    }
-                    : [permission.Key];
                 options.AddPolicy(
                     name: permission.Key,
-                    policy => policy.RequireClaim(AppPermissions.Type, acceptedClaimValues));
+                    policy => policy.RequireClaim(AppPermissions.Type, permission.Key));
             }
         });
         return services;
