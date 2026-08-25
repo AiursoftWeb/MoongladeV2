@@ -35,11 +35,6 @@ public class Comment
     /// </summary>
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-    /// <summary>
-    /// Whether the comment has been approved by an admin.
-    /// </summary>
-    public bool IsApproved { get; set; }
-
     // ── Navigation ─────────────────────────────────────────────────────────────
 
     [ForeignKey(nameof(DocumentId))]

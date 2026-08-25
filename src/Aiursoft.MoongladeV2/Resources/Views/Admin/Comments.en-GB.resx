@@ -24,9 +24,6 @@
   <data name="All Comments" xml:space="preserve">
     <value>All Comments</value>
   </data>
-  <data name="Approved" xml:space="preserve">
-    <value>Approved</value>
-  </data>
   <data name="Are you sure you want to delete the selected comments?" xml:space="preserve">
     <value>Are you sure you want to delete the selected comments?</value>
   </data>
@@ -57,9 +54,6 @@
   <data name="No comments found." xml:space="preserve">
     <value>No comments found.</value>
   </data>
-  <data name="Pending" xml:space="preserve">
-    <value>Pending</value>
-  </data>
   <data name="Post" xml:space="preserve">
     <value>Post</value>
   </data>
@@ -69,14 +63,11 @@
   <data name="Reply:" xml:space="preserve">
     <value>Reply:</value>
   </data>
-  <data name="Status" xml:space="preserve">
-    <value>Status</value>
-  </data>
   <data name="total comments" xml:space="preserve">
     <value>total comments</value>
   </data>
-  <data name="View, approve, and delete comments on blog posts." xml:space="preserve">
-    <value>View, approve, and delete comments on blog posts.</value>
-  </data>
 
+  <data name="Close" xml:space="preserve"><value>Close</value></data>
+  <data name="Full comment" xml:space="preserve"><value>Full comment</value></data>
+  <data name="View and delete comments on blog posts." xml:space="preserve"><value>View and delete comments on blog posts.</value></data>
 </root>

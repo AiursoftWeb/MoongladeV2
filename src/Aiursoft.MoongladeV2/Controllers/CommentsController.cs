@@ -45,8 +45,6 @@ public class CommentsController(
         }
 
         var userId = userManager.GetUserId(User)!;
-        var requireReview = await globalSettingsService.GetBoolSettingAsync(SettingsMap.RequireCommentReview);
-
         var comment = new Comment
         {
             Id = Guid.NewGuid(),
@@ -54,8 +52,7 @@ public class CommentsController(
             UserId = userId,
             ParentCommentId = parentCommentId,
             Content = content.Trim(),
-            CreatedAt = DateTime.UtcNow,
-            IsApproved = !requireReview
+            CreatedAt = DateTime.UtcNow
         };
 
         db.Comments.Add(comment);
@@ -95,21 +92,6 @@ public class CommentsController(
             .Where(d => d.Id == comment.DocumentId)
             .FirstOrDefaultAsync();
         return LocalRedirect($"{PostUrlService.BuildUrl(document!)}#comments");
-    }
-
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    [Authorize(Policy = AppPermissionNames.CanManageComments)]
-    public async Task<IActionResult> ToggleApproval([Required][FromForm] Guid commentId)
-    {
-        var comment = await db.Comments.FirstOrDefaultAsync(c => c.Id == commentId);
-        if (comment == null)
-            return NotFound();
-
-        comment.IsApproved = !comment.IsApproved;
-        await db.SaveChangesAsync();
-
-        return RedirectToAction("Comments", "Admin");
     }
 
     [HttpPost]

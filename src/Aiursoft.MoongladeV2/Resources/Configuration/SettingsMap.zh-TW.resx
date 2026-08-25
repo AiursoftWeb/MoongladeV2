@@ -114,12 +114,6 @@
   <data name="Project Name" xml:space="preserve">
     <value>專案名稱</value>
   </data>
-  <data name="Require admin approval before comments are publicly visible." xml:space="preserve">
-    <value>公開顯示留言前需經管理員審核。</value>
-  </data>
-  <data name="Require Comment Review" xml:space="preserve">
-    <value>需要留言審核</value>
-  </data>
   <data name="Show Author Info" xml:space="preserve">
     <value>顯示作者資訊</value>
   </data>

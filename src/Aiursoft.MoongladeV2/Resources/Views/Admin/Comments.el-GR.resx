@@ -24,9 +24,6 @@
   <data name="All Comments" xml:space="preserve">
     <value>Όλες οι Σχολιασμοί</value>
   </data>
-  <data name="Approved" xml:space="preserve">
-    <value>Εγκεκριμένο</value>
-  </data>
   <data name="Are you sure you want to delete the selected comments?" xml:space="preserve">
     <value>Είστε σίγουροι ότι θέλετε να διαγράψετε τα επιλεγμένα σχόλια;</value>
   </data>
@@ -57,9 +54,6 @@
   <data name="No comments found." xml:space="preserve">
     <value>Δεν βρέθηκαν σχόλια.</value>
   </data>
-  <data name="Pending" xml:space="preserve">
-    <value>Υπό Αναμονή</value>
-  </data>
   <data name="Post" xml:space="preserve">
     <value>Ανάρτηση</value>
   </data>
@@ -69,14 +63,11 @@
   <data name="Reply:" xml:space="preserve">
     <value>Απάντηση:</value>
   </data>
-  <data name="Status" xml:space="preserve">
-    <value>Κατάσταση</value>
-  </data>
   <data name="total comments" xml:space="preserve">
     <value>Σύνολο σχολίων</value>
   </data>
-  <data name="View, approve, and delete comments on blog posts." xml:space="preserve">
-    <value>Προβολή, έγκριση και διαγραφή σχολίων σε αναρτήσεις blog.</value>
-  </data>
 
+  <data name="Close" xml:space="preserve"><value>Κλείσιμο</value></data>
+  <data name="Full comment" xml:space="preserve"><value>Πλήρες σχόλιο</value></data>
+  <data name="View and delete comments on blog posts." xml:space="preserve"><value>Προβολή και διαγραφή σχολίων σε αναρτήσεις ιστολογίου.</value></data>
 </root>

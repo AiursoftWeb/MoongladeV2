@@ -114,12 +114,6 @@
   <data name="Project Name" xml:space="preserve">
     <value>Nom du projet</value>
   </data>
-  <data name="Require admin approval before comments are publicly visible." xml:space="preserve">
-    <value>Exiger l&apos;approbation de l&apos;administrateur avant que les commentaires ne soient visibles publiquement.</value>
-  </data>
-  <data name="Require Comment Review" xml:space="preserve">
-    <value>Exiger l&apos;examen des commentaires</value>
-  </data>
   <data name="Show Author Info" xml:space="preserve">
     <value>Afficher les informations de l&apos;auteur</value>
   </data>

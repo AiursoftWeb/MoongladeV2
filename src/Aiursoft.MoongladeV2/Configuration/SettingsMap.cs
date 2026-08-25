@@ -22,7 +22,6 @@ public class SettingsMap
 
     // ── Comments ──────────────────────────────────────────────────────────────
     public const string EnableComments = "EnableComments";
-    public const string RequireCommentReview = "RequireCommentReview";
 
     // ── AI: Chat / Translation (3 settings) ────────────────────────────────────
     public const string OpenAiChatEndpoint = "OpenAiChatEndpoint";
@@ -172,15 +171,6 @@ public class SettingsMap
             Type = SettingType.Bool,
             DefaultValue = "True"
         },
-        new GlobalSettingDefinition
-        {
-            Key = RequireCommentReview,
-            Name = Localizer["Require Comment Review"],
-            Description = Localizer["Require admin approval before comments are publicly visible."],
-            Type = SettingType.Bool,
-            DefaultValue = "False"
-        },
-
         // ── AI: Chat / Translation ──────────────────────────────────────────────
         new GlobalSettingDefinition
         {

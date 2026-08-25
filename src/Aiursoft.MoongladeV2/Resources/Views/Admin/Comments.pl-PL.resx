@@ -24,9 +24,6 @@
   <data name="All Comments" xml:space="preserve">
     <value>Wszystkie komentarze</value>
   </data>
-  <data name="Approved" xml:space="preserve">
-    <value>Zatwierdzone</value>
-  </data>
   <data name="Are you sure you want to delete the selected comments?" xml:space="preserve">
     <value>Czy na pewno chcesz usunąć wybrane komentarze?</value>
   </data>
@@ -57,9 +54,6 @@
   <data name="No comments found." xml:space="preserve">
     <value>Nie znaleziono komentarzy.</value>
   </data>
-  <data name="Pending" xml:space="preserve">
-    <value>Oczekuje</value>
-  </data>
   <data name="Post" xml:space="preserve">
     <value>Wpis</value>
   </data>
@@ -69,14 +63,11 @@
   <data name="Reply:" xml:space="preserve">
     <value>Odpowiedź:</value>
   </data>
-  <data name="Status" xml:space="preserve">
-    <value>Status</value>
-  </data>
   <data name="total comments" xml:space="preserve">
     <value>komentarzy łącznie</value>
   </data>
-  <data name="View, approve, and delete comments on blog posts." xml:space="preserve">
-    <value>Przeglądaj, zatwierdzaj i usuwaj komentarze do wpisów na blogu.</value>
-  </data>
 
+  <data name="Close" xml:space="preserve"><value>Zamknij</value></data>
+  <data name="Full comment" xml:space="preserve"><value>Pełny komentarz</value></data>
+  <data name="View and delete comments on blog posts." xml:space="preserve"><value>Wyświetlaj i usuwaj komentarze do wpisów na blogu.</value></data>
 </root>

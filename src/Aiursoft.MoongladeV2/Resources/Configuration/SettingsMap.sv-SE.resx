@@ -114,12 +114,6 @@
   <data name="Project Name" xml:space="preserve">
     <value>Projektnamn</value>
   </data>
-  <data name="Require admin approval before comments are publicly visible." xml:space="preserve">
-    <value>Kräv administratörs godkännande innan kommentarer är offentligt synliga.</value>
-  </data>
-  <data name="Require Comment Review" xml:space="preserve">
-    <value>Kräv granskning av kommentarer</value>
-  </data>
   <data name="Show Author Info" xml:space="preserve">
     <value>Visa författarinfo</value>
   </data>

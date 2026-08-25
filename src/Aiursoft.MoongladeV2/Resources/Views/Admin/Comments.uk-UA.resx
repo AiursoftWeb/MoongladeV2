@@ -24,9 +24,6 @@
   <data name="All Comments" xml:space="preserve">
     <value>Усі коментарі</value>
   </data>
-  <data name="Approved" xml:space="preserve">
-    <value>Затверджено</value>
-  </data>
   <data name="Are you sure you want to delete the selected comments?" xml:space="preserve">
     <value>Ви впевнені, що хочете видалити обрані коментарі?</value>
   </data>
@@ -57,9 +54,6 @@
   <data name="No comments found." xml:space="preserve">
     <value>Коментарів не знайдено.</value>
   </data>
-  <data name="Pending" xml:space="preserve">
-    <value>На розгляді</value>
-  </data>
   <data name="Post" xml:space="preserve">
     <value>Публікація</value>
   </data>
@@ -69,14 +63,11 @@
   <data name="Reply:" xml:space="preserve">
     <value>Відповідь:</value>
   </data>
-  <data name="Status" xml:space="preserve">
-    <value>Статус</value>
-  </data>
   <data name="total comments" xml:space="preserve">
     <value>загалом коментарів</value>
   </data>
-  <data name="View, approve, and delete comments on blog posts." xml:space="preserve">
-    <value>Переглядати, затверджувати та видаляти коментарі до записів у блозі.</value>
-  </data>
 
+  <data name="Close" xml:space="preserve"><value>Закрити</value></data>
+  <data name="Full comment" xml:space="preserve"><value>Повний текст коментаря</value></data>
+  <data name="View and delete comments on blog posts." xml:space="preserve"><value>Переглядайте та видаляйте коментарі до дописів блогу.</value></data>
 </root>
