@@ -39,20 +39,8 @@
 <form asp-action="SaveNew" method="post" id="markdown-form" class="d-flex flex-column h-100 pb-0">
     @Html.AntiForgeryToken()
     <input type="hidden" asp-for="ConfirmHistoricalSlugReuse" />
-    <div class="bg-white border-bottom px-3 py-2">
-        <div class="input-group input-group-sm mx-auto" style="max-width: 900px;">
-            <span class="input-group-text">@Localizer["Post URL"]</span>
-            <span class="input-group-text text-muted">/post/@Model.PublishedAt.ToString("yyyy/MM/dd")/</span>
-            <input asp-for="Slug" class="form-control" maxlength="200" pattern="[a-z0-9]+(?:-[a-z0-9]+)*"
-                   placeholder="@Localizer["Leave empty for automatic generation"]" aria-describedby="slug-help" />
-        </div>
-        <div id="slug-help" class="form-text text-center">
-            @Localizer["Lowercase English letters, numbers, and single hyphens only. Empty slugs are generated automatically for public posts."]
-        </div>
-        <span asp-validation-for="Slug" class="text-danger d-block text-center"></span>
-    </div>
     <!-- Unified Sticky Toolbar -->
-    <div class="sticky-top bg-white border-bottom py-2 px-3 mb-0 d-flex align-items-center justify-content-between z-3" style="box-shadow: 0 2px 4px rgba(0,0,0,.04);">
+    <div class="editor-toolbar sticky-top bg-white border-bottom py-2 px-3 mb-0 d-flex align-items-center justify-content-between z-3">
         <!-- Left: View Switcher -->
         <div class="d-flex align-items-center gap-3">
             @* Desktop View Switcher *@
@@ -78,12 +66,28 @@
         </div>
 
         <!-- Middle: Title -->
-        <div class="flex-grow-1 px-4 text-center d-flex align-items-center justify-content-center">
+        <div class="editor-heading flex-grow-1 px-4 d-flex align-items-center justify-content-center">
             <input type="hidden" asp-for="DocumentId" />
             <a asp-action="Posts" class="btn btn-sm btn-link text-muted text-decoration-none me-2 p-0" title="@Localizer["My Posts"]">
                 <i class="align-middle" data-lucide="arrow-left" style="width: 20px; height: 20px;"></i>
             </a>
-            <input asp-for="Title" class="form-control form-control-sm border-0 bg-transparent text-center fw-bold px-0 text-dark" style="max-width: 400px; box-shadow: none; font-size: 1.1rem;" placeholder="@Localizer["Untitled Post"]" />
+            <div class="editor-heading-fields">
+                <input asp-for="Title" class="form-control form-control-sm border-0 bg-transparent text-center fw-bold px-0 text-dark editor-title"
+                       placeholder="@Localizer["Untitled Post"]" />
+                <div class="editor-slug-control">
+                    <div class="editor-slug-row" title="@Localizer["Post URL"]">
+                        <i data-lucide="link-2" aria-hidden="true"></i>
+                        <span class="editor-slug-prefix">/post/@Model.PublishedAt.ToString("yyyy/MM/dd")/</span>
+                        <input asp-for="Slug" class="editor-slug-input" maxlength="200" pattern="[a-z0-9]+(?:-[a-z0-9]+)*"
+                               placeholder="@Localizer["Leave empty for automatic generation"]"
+                               aria-label="@Localizer["Post URL"]" aria-describedby="slug-help" />
+                    </div>
+                    <div class="editor-slug-feedback">
+                        <span asp-validation-for="Slug" class="editor-slug-error"></span>
+                        <span id="slug-help">@Localizer["Lowercase English letters, numbers, and single hyphens only. Empty slugs are generated automatically for public posts."]</span>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Right: Actions -->
@@ -190,6 +194,106 @@
         main.content {
             padding: 0 !important;
         }
+        .editor-toolbar {
+            min-height: 68px;
+            box-shadow: 0 2px 4px rgba(0,0,0,.04);
+        }
+        .editor-heading {
+            min-width: 0;
+        }
+        .editor-heading-fields {
+            width: min(100%, 520px);
+            min-width: 0;
+        }
+        .editor-title {
+            max-width: 440px;
+            margin: 0 auto;
+            box-shadow: none !important;
+            font-size: 1.1rem;
+            line-height: 1.25;
+        }
+        .editor-slug-control {
+            position: relative;
+            width: min(100%, 500px);
+            margin: 1px auto 0;
+        }
+        .editor-slug-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 0;
+            width: 100%;
+            min-height: 24px;
+            padding: 1px 7px;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            color: #8a94a1;
+            font-size: .75rem;
+            line-height: 1.25;
+            transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+        }
+        .editor-slug-row > svg {
+            width: 13px;
+            height: 13px;
+            margin-right: 5px;
+            flex: 0 0 auto;
+        }
+        .editor-slug-prefix {
+            flex: 0 0 auto;
+            white-space: nowrap;
+        }
+        .editor-slug-input {
+            min-width: 5rem;
+            max-width: 240px;
+            flex: 1 1 14rem;
+            padding: 1px 3px;
+            border: 0;
+            outline: 0;
+            background: transparent;
+            color: #6c757d;
+            font: inherit;
+        }
+        .editor-slug-input::placeholder {
+            color: #adb5bd;
+        }
+        .editor-slug-control:focus-within .editor-slug-row {
+            border-color: #b9c7f5;
+            background-color: #f6f8ff;
+            color: #5f6b7a;
+        }
+        .editor-slug-control:focus-within .editor-slug-input {
+            color: #343a40;
+        }
+        .editor-slug-feedback {
+            position: absolute;
+            top: calc(100% + 5px);
+            left: 50%;
+            display: none;
+            width: max-content;
+            max-width: min(460px, calc(100vw - 32px));
+            padding: 6px 9px;
+            transform: translateX(-50%);
+            border: 1px solid #e3e7ed;
+            border-radius: 5px;
+            background: #fff;
+            color: #6c757d;
+            box-shadow: 0 4px 14px rgba(0,0,0,.1);
+            font-size: .72rem;
+            line-height: 1.35;
+            text-align: left;
+            z-index: 1050;
+        }
+        .editor-slug-control:focus-within .editor-slug-feedback,
+        .editor-slug-control:has(.field-validation-error) .editor-slug-feedback {
+            display: block;
+        }
+        .editor-slug-error.field-validation-error {
+            display: block;
+            color: #dc3545;
+        }
+        .editor-slug-error.field-validation-error:not(:empty) + #slug-help {
+            display: none;
+        }
         /* Toolbar adjustments for dark mode */
         body[data-theme="dark"] .sticky-top {
             background-color: #222e3c !important; /* AdminKit dark background */
@@ -204,6 +308,26 @@
         }
         body[data-theme="dark"] .form-control.bg-transparent {
             color: #e9ecef !important;
+        }
+        body[data-theme="dark"] .editor-slug-row {
+            color: #8995a5;
+        }
+        body[data-theme="dark"] .editor-slug-input {
+            color: #aeb8c4;
+        }
+        body[data-theme="dark"] .editor-slug-control:focus-within .editor-slug-row {
+            border-color: #52657d;
+            background-color: rgba(255,255,255,.05);
+            color: #c3ccd6;
+        }
+        body[data-theme="dark"] .editor-slug-control:focus-within .editor-slug-input {
+            color: #e9ecef;
+        }
+        body[data-theme="dark"] .editor-slug-feedback {
+            border-color: #465466;
+            background: #2f3e50;
+            color: #c7ced6;
+            box-shadow: 0 4px 14px rgba(0,0,0,.3);
         }
         body[data-theme="dark"] .bg-white {
             background-color: #222e3c !important;
@@ -222,6 +346,15 @@
         }
         
         @@media (max-width: 991.98px) {
+            .editor-heading {
+                padding-right: .5rem !important;
+                padding-left: .5rem !important;
+            }
+            .editor-slug-prefix {
+                max-width: 9rem;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
             #editor-column,
             #preview-column {
                 width: 100%;
