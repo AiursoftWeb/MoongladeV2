@@ -36,6 +36,9 @@
   <data name="Author" xml:space="preserve">
     <value>Autore</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>Chiudi</value>
+  </data>
   <data name="Comment" xml:space="preserve">
     <value>Commento</value>
   </data>
@@ -47,6 +50,9 @@
   </data>
   <data name="Delete Selected" xml:space="preserve">
     <value>Elimina selezionati</value>
+  </data>
+  <data name="Full comment" xml:space="preserve">
+    <value>Commento completo</value>
   </data>
   <data name="Manage Comments" xml:space="preserve">
     <value>Gestisci commenti</value>
@@ -66,8 +72,8 @@
   <data name="total comments" xml:space="preserve">
     <value>commenti totali</value>
   </data>
+  <data name="View and delete comments on blog posts." xml:space="preserve">
+    <value>Visualizza ed elimina i commenti ai post del blog.</value>
+  </data>
 
-  <data name="Close" xml:space="preserve"><value>Chiudi</value></data>
-  <data name="Full comment" xml:space="preserve"><value>Commento completo</value></data>
-  <data name="View and delete comments on blog posts." xml:space="preserve"><value>Visualizza ed elimina i commenti ai post del blog.</value></data>
 </root>

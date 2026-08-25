@@ -36,6 +36,9 @@
   <data name="Author" xml:space="preserve">
     <value>著者</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>閉じる</value>
+  </data>
   <data name="Comment" xml:space="preserve">
     <value>コメント</value>
   </data>
@@ -47,6 +50,9 @@
   </data>
   <data name="Delete Selected" xml:space="preserve">
     <value>選択したアイテムを削除</value>
+  </data>
+  <data name="Full comment" xml:space="preserve">
+    <value>コメント全文</value>
   </data>
   <data name="Manage Comments" xml:space="preserve">
     <value>コメントの管理</value>
@@ -66,8 +72,8 @@
   <data name="total comments" xml:space="preserve">
     <value>総コメント数</value>
   </data>
+  <data name="View and delete comments on blog posts." xml:space="preserve">
+    <value>ブログ記事のコメントを表示、削除します。</value>
+  </data>
 
-  <data name="Close" xml:space="preserve"><value>閉じる</value></data>
-  <data name="Full comment" xml:space="preserve"><value>コメント全文</value></data>
-  <data name="View and delete comments on blog posts." xml:space="preserve"><value>ブログ記事のコメントを表示、削除します。</value></data>
 </root>

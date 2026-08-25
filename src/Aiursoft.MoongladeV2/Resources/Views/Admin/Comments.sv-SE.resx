@@ -36,6 +36,9 @@
   <data name="Author" xml:space="preserve">
     <value>Författare</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>Stäng</value>
+  </data>
   <data name="Comment" xml:space="preserve">
     <value>Kommentar</value>
   </data>
@@ -47,6 +50,9 @@
   </data>
   <data name="Delete Selected" xml:space="preserve">
     <value>Radera valda</value>
+  </data>
+  <data name="Full comment" xml:space="preserve">
+    <value>Hela kommentaren</value>
   </data>
   <data name="Manage Comments" xml:space="preserve">
     <value>Hantera kommentarer</value>
@@ -66,8 +72,8 @@
   <data name="total comments" xml:space="preserve">
     <value>totala kommentarer</value>
   </data>
+  <data name="View and delete comments on blog posts." xml:space="preserve">
+    <value>Visa och ta bort kommentarer till blogginlägg.</value>
+  </data>
 
-  <data name="Close" xml:space="preserve"><value>Stäng</value></data>
-  <data name="Full comment" xml:space="preserve"><value>Hela kommentaren</value></data>
-  <data name="View and delete comments on blog posts." xml:space="preserve"><value>Visa och ta bort kommentarer till blogginlägg.</value></data>
 </root>
