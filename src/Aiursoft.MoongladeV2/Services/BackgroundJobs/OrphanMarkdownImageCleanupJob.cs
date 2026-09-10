@@ -41,6 +41,18 @@ public class OrphanMarkdownImageCleanupJob(
             .AsNoTracking()
             .Select(d => d.LocalizedContent)
             .ToListAsync());
+        allContent.AddRange(await db.MarkdownDocuments
+            .AsNoTracking()
+            .Select(d => d.HeroImageUrl)
+            .ToListAsync());
+        allContent.AddRange(await db.CustomPages
+            .AsNoTracking()
+            .Select(p => p.HtmlContent)
+            .ToListAsync());
+        allContent.AddRange(await db.CustomPages
+            .AsNoTracking()
+            .Select(p => p.CssContent)
+            .ToListAsync());
 
         // 2. Scan the workspace for files inside the 'markdown-images/' subdirectory.
         var workspace = folders.GetWorkspaceFolder();

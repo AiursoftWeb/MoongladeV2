@@ -39,6 +39,51 @@ public class OrphanMarkdownImageCleanupJobTests : TestBase
         await job.ExecuteAsync();
     }
 
+    [TestMethod]
+    public async Task ImageReferencedOnlyByHeroIsKept()
+    {
+        var image = CreateImageFile("hero-only.png", isOld: true);
+        var db = Server!.Services.GetRequiredService<TemplateDbContext>();
+        var admin = await db.Users.FirstAsync();
+        db.MarkdownDocuments.Add(new MarkdownDocument
+        {
+            Title = "Cover image",
+            Content = "No inline images",
+            HeroImageUrl = "/download/markdown-images/hero-only.png",
+            UserId = admin.Id
+        });
+        await db.SaveChangesAsync();
+
+        await RunJob();
+
+        Assert.IsTrue(File.Exists(image));
+    }
+
+    [TestMethod]
+    public async Task DraftCustomPageHtmlAndCssImagesAreKept()
+    {
+        var htmlImage = CreateImageFile("page-html.png", isOld: true);
+        var cssImage = CreateImageFile("page-css.png", isOld: true);
+        var orphan = CreateImageFile("actual-orphan.png", isOld: true);
+        var db = Server!.Services.GetRequiredService<TemplateDbContext>();
+        db.CustomPages.Add(new CustomPage
+        {
+            Title = "Draft page",
+            Slug = "draft-page",
+            MetaDescription = "",
+            HtmlContent = "<img src='/download/markdown-images/page-html.png'>",
+            CssContent = "body { background: url('/download/markdown-images/page-css.png'); }",
+            IsPublished = false
+        });
+        await db.SaveChangesAsync();
+
+        await RunJob();
+
+        Assert.IsTrue(File.Exists(htmlImage));
+        Assert.IsTrue(File.Exists(cssImage));
+        Assert.IsFalse(File.Exists(orphan));
+    }
+
     // -----------------------------------------------------------------------
     // Test 1: orphan file older than grace period → deleted
     // -----------------------------------------------------------------------
