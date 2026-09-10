@@ -120,7 +120,7 @@ public class ViewModelArgsInjector(
         _ = localizer["Delete Account"];
     
         _ = localizer["Posts"];
-    
+
         _ = localizer["Custom Page Editor"];
         _ = localizer["Custom Pages"];
     }

@@ -17,6 +17,13 @@ public class MarketingNavbar(
         model.ProjectName = await globalSettingsService.GetSettingValueAsync(SettingsMap.ProjectName);
         model.LogoUrl = await globalSettingsService.GetLogoUrlAsync();
         model.SearchQuery = HttpContext.Request.Query["q"].ToString();
+        model.CustomPages = await dbContext.CustomPages
+            .AsNoTracking()
+            .Where(page => page.IsPublished)
+            .OrderBy(page => page.Title)
+            .ThenBy(page => page.Slug)
+            .Select(page => new CustomPageNavigationItem(page.Title, page.Slug))
+            .ToArrayAsync();
 
         var allRawTags = await dbContext.MarkdownDocuments
             .AsNoTracking()

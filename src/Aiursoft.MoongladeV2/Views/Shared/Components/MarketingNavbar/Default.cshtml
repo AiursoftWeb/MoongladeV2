@@ -33,6 +33,12 @@
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="Blog" asp-action="Archive">@Localizer["Archive"]</a>
                     </li>
+                    @foreach (var customPage in Model.CustomPages)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Pages" asp-action="ViewPage" asp-route-slug="@customPage.Slug">@customPage.Title</a>
+                        </li>
+                    }
                 </ul>
 
                 <form class="d-flex me-lg-3 mb-2 mb-lg-0" asp-controller="Blog" asp-action="Search" method="get">
