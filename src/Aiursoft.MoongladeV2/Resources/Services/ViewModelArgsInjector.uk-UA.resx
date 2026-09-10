@@ -75,6 +75,12 @@
   <data name="Create User" xml:space="preserve">
     <value>Створити користувача</value>
   </data>
+  <data name="Custom Page Editor" xml:space="preserve">
+    <value>Редактор сторінок</value>
+  </data>
+  <data name="Custom Pages" xml:space="preserve">
+    <value>Користувацькі сторінки</value>
+  </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Панель керування</value>
   </data>

@@ -36,6 +36,9 @@
   <data name="Allows creating, editing, publishing, and deleting any post. Full content management." xml:space="preserve">
     <value>Tillader oprettelse, redigering, publicering og sletning af ethvert indlæg. Fuldstændig indholdshåndtering.</value>
   </data>
+  <data name="Allows creating, editing, publishing, and deleting custom pages." xml:space="preserve">
+    <value>Tillader oprettelse, redigering, publicering og sletning af tilpassede sider.</value>
+  </data>
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>Tillader sletning af ethvert dokument, uanset ejerskab.</value>
   </data>
@@ -122,6 +125,9 @@
   </data>
   <data name="Manage Comments" xml:space="preserve">
     <value>Administrer kommentarer</value>
+  </data>
+  <data name="Manage Custom Pages" xml:space="preserve">
+    <value>Administrer tilpassede sider</value>
   </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Administrer globale indstillinger</value>

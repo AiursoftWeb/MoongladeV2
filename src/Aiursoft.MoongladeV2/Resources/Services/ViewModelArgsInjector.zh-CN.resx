@@ -78,6 +78,12 @@
   <data name="Create User" xml:space="preserve">
     <value>创建用户</value>
   </data>
+  <data name="Custom Page Editor" xml:space="preserve">
+    <value>自定义页面编辑器</value>
+  </data>
+  <data name="Custom Pages" xml:space="preserve">
+    <value>自定义页面</value>
+  </data>
   <data name="Dashboard" xml:space="preserve">
     <value>仪表盘</value>
   </data>

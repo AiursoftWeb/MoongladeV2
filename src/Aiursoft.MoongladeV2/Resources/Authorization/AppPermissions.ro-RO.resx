@@ -36,6 +36,9 @@
   <data name="Allows creating, editing, publishing, and deleting any post. Full content management." xml:space="preserve">
     <value>Permite crearea, editarea, publicarea și ștergerea oricărui articol. Gestionare completă a conținutului.</value>
   </data>
+  <data name="Allows creating, editing, publishing, and deleting custom pages." xml:space="preserve">
+    <value>Permite crearea, editarea, publicarea și ștergerea paginilor personalizate.</value>
+  </data>
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>Permite ștergerea oricărui document, indiferent de proprietar.</value>
   </data>
@@ -122,6 +125,9 @@
   </data>
   <data name="Manage Comments" xml:space="preserve">
     <value>Gestionează comentariile</value>
+  </data>
+  <data name="Manage Custom Pages" xml:space="preserve">
+    <value>Gestionează paginile personalizate</value>
   </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Gestionează setările globale</value>

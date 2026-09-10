@@ -36,6 +36,9 @@
   <data name="Allows creating, editing, publishing, and deleting any post. Full content management." xml:space="preserve">
     <value>Cho phép tạo, chỉnh sửa, xuất bản và xóa bất kỳ bài viết nào. Quản lý nội dung đầy đủ.</value>
   </data>
+  <data name="Allows creating, editing, publishing, and deleting custom pages." xml:space="preserve">
+    <value>Cho phép tạo, chỉnh sửa, xuất bản và xóa các trang tùy chỉnh.</value>
+  </data>
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>Cho phép xóa bất kỳ tài liệu nào, bất kể quyền sở hữu.</value>
   </data>
@@ -122,6 +125,9 @@
   </data>
   <data name="Manage Comments" xml:space="preserve">
     <value>Quản lý Bình luận</value>
+  </data>
+  <data name="Manage Custom Pages" xml:space="preserve">
+    <value>Quản lý trang tùy chỉnh</value>
   </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Quản lý cài đặt toàn cục</value>

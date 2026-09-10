@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Ações</value>
+  </data>
+  <data name="All Custom Pages" xml:space="preserve">
+    <value>Todas as Páginas Personalizadas</value>
+  </data>
+  <data name="Create custom page" xml:space="preserve">
+    <value>Criar página personalizada</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>Criado</value>
+  </data>
+  <data name="Custom Pages" xml:space="preserve">
+    <value>Páginas Personalizadas</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="Delete this custom page?" xml:space="preserve">
+    <value>Eliminar esta página personalizada?</value>
+  </data>
+  <data name="Draft" xml:space="preserve">
+    <value>Rascunho</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="No custom pages found." xml:space="preserve">
+    <value>Não foram encontradas páginas personalizadas.</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Pré-visualização</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Público</value>
+  </data>
+  <data name="Standalone HTML pages with a stable page URL." xml:space="preserve">
+    <value>Páginas HTML independentes com uma URL de página estável.</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Título</value>
+  </data>
+  <data name="URL" xml:space="preserve">
+    <value>URL</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Visibilidade</value>
+  </data>
+
+</root>

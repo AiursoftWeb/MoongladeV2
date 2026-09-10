@@ -78,6 +78,12 @@
   <data name="Create User" xml:space="preserve">
     <value>建立使用者</value>
   </data>
+  <data name="Custom Page Editor" xml:space="preserve">
+    <value>自訂頁面編輯器</value>
+  </data>
+  <data name="Custom Pages" xml:space="preserve">
+    <value>自訂頁面</value>
+  </data>
   <data name="Dashboard" xml:space="preserve">
     <value>儀表板</value>
   </data>
