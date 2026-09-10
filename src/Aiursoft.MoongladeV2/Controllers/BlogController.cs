@@ -115,7 +115,10 @@ public class BlogController(
     [HttpGet("/post/{year:int}/{month:int}/{day:int}/{slug}")]
     public async Task<IActionResult> Post([FromRoute] int year, [FromRoute] int month, [FromRoute] int day, [FromRoute] string slug)
     {
-        if (!PostUrlService.IsValid(slug) || !DateTime.TryParseExact($"{year:D4}-{month:D2}-{day:D2}", "yyyy-MM-dd",
+        // Stored historical slugs can predate today's creation rules. Read them
+        // as persisted; new and edited slugs still go through PostUrlService.
+        if (string.IsNullOrWhiteSpace(slug) || slug.Length > PostUrlService.MaxSlugLength ||
+            !DateTime.TryParseExact($"{year:D4}-{month:D2}-{day:D2}", "yyyy-MM-dd",
                 System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out var date)) return NotFound();
 
         var document = await dbContext.MarkdownDocuments

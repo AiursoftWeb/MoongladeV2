@@ -612,6 +612,30 @@ public class PostsTests : TestBase
     }
 
     [TestMethod]
+    public async Task PublicPost_PreservesStoredHistoricalSlug()
+    {
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+            var user = await db.Users.FirstAsync();
+            db.MarkdownDocuments.Add(new MarkdownDocument
+            {
+                Title = "Historical slug",
+                Content = "Historical article remains readable",
+                UserId = user.Id,
+                IsPublic = true,
+                Slug = "nfs-filesystem-mount-",
+                CreationTime = new DateTime(2022, 11, 14, 0, 0, 0, DateTimeKind.Utc)
+            });
+            await db.SaveChangesAsync();
+        }
+
+        var response = await Http.GetAsync("/post/2022/11/14/nfs-filesystem-mount-");
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        StringAssert.Contains(await response.Content.ReadAsStringAsync(), "Historical article remains readable");
+    }
+
+    [TestMethod]
     public async Task PublicPostLinks_PreferDatedSlug_AndKeepGuidFallback()
     {
         var sluggedId = Guid.NewGuid();

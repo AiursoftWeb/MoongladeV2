@@ -37,6 +37,7 @@ public class PostUrlServiceTests
     [DataRow("Hello", false)]
     [DataRow("two--hyphens", false)]
     [DataRow("-leading", false)]
+    [DataRow("trailing-", false)]
     [DataRow("中文", false)]
     public void IsValid_EnforcesAsciiSlugRules(string slug, bool expected) =>
         Assert.AreEqual(expected, PostUrlService.IsValid(slug));
