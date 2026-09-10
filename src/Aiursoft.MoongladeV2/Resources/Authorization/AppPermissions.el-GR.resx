@@ -36,6 +36,9 @@
   <data name="Allows creating, editing, publishing, and deleting any post. Full content management." xml:space="preserve">
     <value>Επιτρέπει τη δημιουργία, επεξεργασία, δημοσίευση και διαγραφή οποιασδήποτε αναρτήσης. Πλήρης διαχείριση περιεχομένου.</value>
   </data>
+  <data name="Allows creating, editing, publishing, and deleting custom pages." xml:space="preserve">
+    <value>Επιτρέπει τη δημιουργία, επεξεργασία, δημοσίευση και διαγραφή προσαρμοσμένων σελίδων.</value>
+  </data>
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>Επιτρέπει τη διαγραφή οποιουδήποτε εγγράφου, ανεξάρτητα από την ιδιοκτησία.</value>
   </data>
@@ -122,6 +125,9 @@
   </data>
   <data name="Manage Comments" xml:space="preserve">
     <value>Διαχείριση Σχολίων</value>
+  </data>
+  <data name="Manage Custom Pages" xml:space="preserve">
+    <value>Διαχείριση Προσαρμοσμένων Σελίδων</value>
   </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Διαχείριση Γενικών Ρυθμίσεων</value>

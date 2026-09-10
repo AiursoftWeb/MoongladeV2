@@ -75,6 +75,12 @@
   <data name="Create User" xml:space="preserve">
     <value>Δημιουργία Χρήστη</value>
   </data>
+  <data name="Custom Page Editor" xml:space="preserve">
+    <value>Συγκρότημα Σελίδων</value>
+  </data>
+  <data name="Custom Pages" xml:space="preserve">
+    <value>Προσαρμοσμένες Σελίδες</value>
+  </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Πίνακας ελέγχου</value>
   </data>

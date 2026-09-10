@@ -78,6 +78,12 @@
   <data name="Create User" xml:space="preserve">
     <value>Crear Usuario</value>
   </data>
+  <data name="Custom Page Editor" xml:space="preserve">
+    <value>Editor de páginas personalizadas</value>
+  </data>
+  <data name="Custom Pages" xml:space="preserve">
+    <value>Páginas personalizadas</value>
+  </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Panel de control</value>
   </data>

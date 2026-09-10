@@ -36,6 +36,9 @@
   <data name="Allows creating, editing, publishing, and deleting any post. Full content management." xml:space="preserve">
     <value>모든 게시물의 생성, 수정, 게시 및 삭제를 허용합니다. 전체 콘텐츠 관리 기능 제공.</value>
   </data>
+  <data name="Allows creating, editing, publishing, and deleting custom pages." xml:space="preserve">
+    <value>사용자 정의 페이지의 생성, 편집, 게시 및 삭제를 허용합니다.</value>
+  </data>
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>소유권에 관계없이 모든 문서를 삭제할 수 있습니다.</value>
   </data>
@@ -122,6 +125,9 @@
   </data>
   <data name="Manage Comments" xml:space="preserve">
     <value>댓글 관리</value>
+  </data>
+  <data name="Manage Custom Pages" xml:space="preserve">
+    <value>커스텀 페이지 관리</value>
   </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>전역 설정 관리</value>

@@ -36,6 +36,9 @@
   <data name="Allows creating, editing, publishing, and deleting any post. Full content management." xml:space="preserve">
     <value>Ermöglicht das Erstellen, Bearbeiten, Veröffentlichen und Löschen beliebiger Beiträge. Vollständige Inhaltsverwaltung.</value>
   </data>
+  <data name="Allows creating, editing, publishing, and deleting custom pages." xml:space="preserve">
+    <value>Ermöglicht das Erstellen, Bearbeiten, Veröffentlichen und Löschen benutzerdefinierter Seiten.</value>
+  </data>
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>Ermöglicht das Löschen beliebiger Dokumente, unabhängig vom Besitzer.</value>
   </data>
@@ -122,6 +125,9 @@
   </data>
   <data name="Manage Comments" xml:space="preserve">
     <value>Kommentare verwalten</value>
+  </data>
+  <data name="Manage Custom Pages" xml:space="preserve">
+    <value>Eigene Seiten verwalten</value>
   </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Globale Einstellungen verwalten</value>
