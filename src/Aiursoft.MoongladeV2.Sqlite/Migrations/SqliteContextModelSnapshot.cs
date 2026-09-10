@@ -25,7 +25,7 @@ namespace Aiursoft.MoongladeV2.Sqlite.Migrations
 
                     b.Property<string>("Content")
                         .IsRequired()
-                        .HasMaxLength(1000)
+                        .HasMaxLength(65535)
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -34,11 +34,14 @@ namespace Aiursoft.MoongladeV2.Sqlite.Migrations
                     b.Property<Guid>("DocumentId")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("GuestName")
+                        .HasMaxLength(64)
+                        .HasColumnType("TEXT");
+
                     b.Property<Guid?>("ParentCommentId")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("UserId")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("TEXT");
 
@@ -50,7 +53,61 @@ namespace Aiursoft.MoongladeV2.Sqlite.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Comments");
+                    b.ToTable("Comments", t =>
+                        {
+                            t.HasCheckConstraint("CK_Comments_Author", "(`UserId` IS NOT NULL AND `GuestName` IS NULL) OR (`UserId` IS NULL AND `GuestName` IS NOT NULL AND `GuestName` <> '')");
+                        });
+                });
+
+            modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.CustomPage", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CssContent")
+                        .IsRequired()
+                        .HasMaxLength(65535)
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("HideSidebar")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("HtmlContent")
+                        .IsRequired()
+                        .HasMaxLength(65535)
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsPublished")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("MetaDescription")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Slug")
+                        .IsUnique();
+
+                    b.ToTable("CustomPages");
                 });
 
             modelBuilder.Entity("Aiursoft.MoongladeV2.Entities.GlobalSetting", b =>
@@ -484,8 +541,7 @@ namespace Aiursoft.MoongladeV2.Sqlite.Migrations
                     b.HasOne("Aiursoft.MoongladeV2.Entities.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Document");
 

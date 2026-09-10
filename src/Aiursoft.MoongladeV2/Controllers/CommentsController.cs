@@ -11,7 +11,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Aiursoft.MoongladeV2.Controllers;
 
-[Authorize]
 [LimitPerMin]
 public class CommentsController(
     TemplateDbContext db,
@@ -19,16 +18,23 @@ public class CommentsController(
     GlobalSettingsService globalSettingsService) : Controller
 {
     [HttpPost]
+    [AllowAnonymous]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Post(
         [Required][FromForm] Guid documentId,
         [FromForm] Guid? parentCommentId,
-        [Required][FromForm][MaxLength(1000)] string content)
+        [Required][FromForm][MaxLength(65535)] string content,
+        [FromForm][MaxLength(64)] string? guestName)
     {
         var enableComments = await globalSettingsService.GetBoolSettingAsync(SettingsMap.EnableComments);
         if (!enableComments) return Forbid();
 
-        if (string.IsNullOrWhiteSpace(content) || content.Length > 1000)
+        if (string.IsNullOrWhiteSpace(content) || content.Length > 65535)
+            return BadRequest();
+
+        var userId = userManager.GetUserId(User);
+        var normalizedGuestName = string.IsNullOrWhiteSpace(guestName) ? null : guestName.Trim();
+        if (userId == null && (normalizedGuestName == null || normalizedGuestName.Length > 64))
             return BadRequest();
 
         var documentExists = await db.MarkdownDocuments
@@ -44,12 +50,12 @@ public class CommentsController(
                 return BadRequest();
         }
 
-        var userId = userManager.GetUserId(User)!;
         var comment = new Comment
         {
             Id = Guid.NewGuid(),
             DocumentId = documentId,
             UserId = userId,
+            GuestName = userId == null ? normalizedGuestName : null,
             ParentCommentId = parentCommentId,
             Content = content.Trim(),
             CreatedAt = DateTime.UtcNow
@@ -65,6 +71,7 @@ public class CommentsController(
     }
 
     [HttpPost]
+    [Authorize]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Delete([Required][FromForm] Guid commentId)
     {

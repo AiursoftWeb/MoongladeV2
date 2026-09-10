@@ -1,0 +1,24 @@
+@model Aiursoft.MoongladeV2.Models.CustomPageViewModels.PageViewModel
+
+<vc:marketing-navbar></vc:marketing-navbar>
+
+<main class="container py-4 py-lg-5">
+    @if (Model.IsPreview)
+    {
+        <div class="alert alert-info">@Localizer["This is a preview. The page may not be published."]</div>
+    }
+    <article class="custom-page">
+        @Html.Raw(Model.SanitizedHtmlContent)
+    </article>
+</main>
+
+<vc:marketing-footer></vc:marketing-footer>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <meta name="description" content="@Model.MetaDescription" />
+    @if (!string.IsNullOrWhiteSpace(Model.CssContent))
+    {
+        <style>@Html.Raw(Model.CssContent)</style>
+    }
+}

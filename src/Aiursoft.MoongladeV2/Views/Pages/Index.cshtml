@@ -1,0 +1,77 @@
+@using Aiursoft.WebTools
+@model Aiursoft.MoongladeV2.Models.CustomPageViewModels.IndexViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Custom Pages"]</h3>
+    </div>
+    <div class="col-auto ms-auto mt-n1">
+        <a asp-action="Create" class="btn btn-primary">
+            <i class="align-middle" data-lucide="file-plus"></i> @Localizer["Create custom page"]
+        </a>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title mb-1">@Localizer["All Custom Pages"]</h5>
+        <h6 class="card-subtitle text-muted mb-0">@Localizer["Standalone HTML pages with a stable page URL."]</h6>
+    </div>
+    @if (Model.Pages.Count == 0)
+    {
+        <div class="card-body">
+            <div class="alert alert-info mb-0">@Localizer["No custom pages found."]</div>
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead>
+                <tr>
+                    <th>@Localizer["Title"]</th>
+                    <th>@Localizer["URL"]</th>
+                    <th>@Localizer["Visibility"]</th>
+                    <th>@Localizer["Created"]</th>
+                    <th class="text-end">@Localizer["Actions"]</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var customPage in Model.Pages)
+                {
+                    <tr>
+                        <td>@customPage.Title</td>
+                        <td><code>/page/@customPage.Slug</code></td>
+                        <td>
+                            @if (customPage.IsPublished)
+                            {
+                                <span class="badge bg-success-subtle text-success border border-success">@Localizer["Public"]</span>
+                            }
+                            else
+                            {
+                                <span class="text-muted">@Localizer["Draft"]</span>
+                            }
+                        </td>
+                        <td><label class="text-muted" data-utc-time="@customPage.CreatedAt.ToHtmlDateTime()"></label></td>
+                        <td class="text-end">
+                            <a asp-action="Preview" asp-route-id="@customPage.Id" target="_blank" class="btn btn-sm btn-outline-secondary">
+                                <i class="align-middle" data-lucide="eye"></i> @Localizer["Preview"]
+                            </a>
+                            <a asp-action="Edit" asp-route-id="@customPage.Id" class="btn btn-sm btn-outline-primary">
+                                <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]
+                            </a>
+                            <form asp-action="Delete" method="post" class="d-inline" onsubmit="return confirm('@Localizer["Delete this custom page?"]')">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="id" value="@customPage.Id" />
+                                <button type="submit" class="btn btn-sm btn-outline-danger">
+                                    <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

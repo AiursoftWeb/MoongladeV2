@@ -26,6 +26,8 @@ public abstract class TemplateDbContext(DbContextOptions options) : IdentityDbCo
 
     public DbSet<PostSlugAlias> PostSlugAliases => Set<PostSlugAlias>();
 
+    public DbSet<CustomPage> CustomPages => Set<CustomPage>();
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
@@ -37,6 +39,10 @@ public abstract class TemplateDbContext(DbContextOptions options) : IdentityDbCo
         builder.Entity<MarkdownDocument>()
             .Property(d => d.IsPublic)
             .IsConcurrencyToken();
+
+        builder.Entity<CustomPage>()
+            .HasIndex(p => p.Slug)
+            .IsUnique();
 
         builder.Entity<PostSlugAlias>()
             .HasIndex(a => new { a.PublishedDate, a.Slug })
@@ -53,6 +59,11 @@ public abstract class TemplateDbContext(DbContextOptions options) : IdentityDbCo
             .WithMany(d => d.Comments)
             .HasForeignKey(c => c.DocumentId)
             .OnDelete(DeleteBehavior.Cascade);
+
+        builder.Entity<Comment>()
+            .ToTable(table => table.HasCheckConstraint(
+                "CK_Comments_Author",
+                "(`UserId` IS NOT NULL AND `GuestName` IS NULL) OR (`UserId` IS NULL AND `GuestName` IS NOT NULL AND `GuestName` <> '')"));
 
         builder.Entity<Comment>()
             .HasOne(c => c.User)

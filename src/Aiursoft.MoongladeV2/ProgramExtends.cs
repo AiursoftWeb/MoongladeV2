@@ -59,13 +59,6 @@ public static class ProgramExtends
         await settingsService.SeedSettingsAsync();
 
         var shouldSeed = await ShouldSeedAsync(db);
-        if (!shouldSeed)
-        {
-            logger.LogInformation("Do not need to seed the database. There are already users or roles present.");
-            return host;
-        }
-
-        logger.LogInformation("Seeding the database with initial data...");
         var userManager = services.GetRequiredService<UserManager<User>>();
         var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
 
@@ -90,6 +83,14 @@ public static class ProgramExtends
                 await roleManager.AddClaimAsync(role, claim);
             }
         }
+
+        if (!shouldSeed)
+        {
+            logger.LogInformation("Updated administrator permissions. Initial user seed is not required.");
+            return host;
+        }
+
+        logger.LogInformation("Seeding the database with initial data...");
 
         if (!await db.Users.AnyAsync(u => u.UserName == "admin"))
         {

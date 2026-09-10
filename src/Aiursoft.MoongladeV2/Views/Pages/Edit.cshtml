@@ -1,0 +1,71 @@
+@model Aiursoft.MoongladeV2.Models.CustomPageViewModels.EditViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer[Model.Id.HasValue ? "Edit Custom Page" : "Create Custom Page"]</h3>
+    </div>
+</div>
+
+<form asp-action="Save" method="post">
+    @Html.AntiForgeryToken()
+    <input asp-for="Id" type="hidden" />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label asp-for="Title" class="form-label"></label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Slug" class="form-label"></label>
+                        <div class="input-group">
+                            <span class="input-group-text">/page/</span>
+                            <input asp-for="Slug" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Slug" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="HtmlContent" class="form-label">@Localizer["HTML content"]</label>
+                        <textarea asp-for="HtmlContent" class="form-control font-monospace" rows="18" spellcheck="false"></textarea>
+                        <span asp-validation-for="HtmlContent" class="text-danger"></span>
+                        <div class="form-text">@Localizer["Unsafe HTML, including scripts and event handlers, is removed when the page is rendered."]</div>
+                    </div>
+                    <div class="mb-0">
+                        <label asp-for="CssContent" class="form-label">@Localizer["CSS content"]</label>
+                        <textarea asp-for="CssContent" class="form-control font-monospace" rows="10" spellcheck="false"></textarea>
+                        <span asp-validation-for="CssContent" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card mb-3">
+                <div class="card-header">@Localizer["Publishing"]</div>
+                <div class="card-body">
+                    <div class="form-check form-switch mb-3">
+                        <input asp-for="IsPublished" class="form-check-input" />
+                        <label asp-for="IsPublished" class="form-check-label">@Localizer["Published"]</label>
+                    </div>
+                    <div class="form-check form-switch mb-3">
+                        <input asp-for="HideSidebar" class="form-check-input" />
+                        <label asp-for="HideSidebar" class="form-check-label">@Localizer["Hide sidebar"]</label>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="MetaDescription" class="form-label">@Localizer["Meta description"]</label>
+                        <textarea asp-for="MetaDescription" class="form-control" rows="6"></textarea>
+                        <span asp-validation-for="MetaDescription" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">@Localizer["Save"]</button>
+    @if (Model.Id.HasValue)
+    {
+        <a asp-action="Preview" asp-route-id="@Model.Id" target="_blank" class="btn btn-outline-success">@Localizer["Preview"]</a>
+    }
+    <a asp-action="Index" class="btn btn-outline-secondary">@Localizer["Cancel"]</a>
+</form>
