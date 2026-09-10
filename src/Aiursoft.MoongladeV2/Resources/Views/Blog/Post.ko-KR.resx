@@ -69,5 +69,8 @@
   <data name="Write your comment…" xml:space="preserve">
     <value>댓글을 작성하세요…</value>
   </data>
+  <data name="Your name" xml:space="preserve">
+    <value>이름</value>
+  </data>
 
 </root>

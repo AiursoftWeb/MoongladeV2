@@ -75,6 +75,12 @@
   <data name="Create User" xml:space="preserve">
     <value>उपयोगकर्ता बनाएं</value>
   </data>
+  <data name="Custom Page Editor" xml:space="preserve">
+    <value>कस्टम पेज संपादक</value>
+  </data>
+  <data name="Custom Pages" xml:space="preserve">
+    <value>कस्टम पेज</value>
+  </data>
   <data name="Dashboard" xml:space="preserve">
     <value>डैशबोर्ड</value>
   </data>

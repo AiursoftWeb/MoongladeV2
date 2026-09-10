@@ -75,6 +75,12 @@
   <data name="Create User" xml:space="preserve">
     <value>Buat Pengguna</value>
   </data>
+  <data name="Custom Page Editor" xml:space="preserve">
+    <value>Editor Halaman Kustom</value>
+  </data>
+  <data name="Custom Pages" xml:space="preserve">
+    <value>Halaman Kustom</value>
+  </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Dasbor</value>
   </data>

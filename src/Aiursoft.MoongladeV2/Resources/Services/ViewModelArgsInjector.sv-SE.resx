@@ -75,6 +75,12 @@
   <data name="Create User" xml:space="preserve">
     <value>Skapa användare</value>
   </data>
+  <data name="Custom Page Editor" xml:space="preserve">
+    <value>Anpassad sidredigerare</value>
+  </data>
+  <data name="Custom Pages" xml:space="preserve">
+    <value>Anpassade sidor</value>
+  </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Instrumentbräda</value>
   </data>

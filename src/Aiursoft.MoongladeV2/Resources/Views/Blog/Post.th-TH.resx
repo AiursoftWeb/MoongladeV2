@@ -69,5 +69,8 @@
   <data name="Write your comment…" xml:space="preserve">
     <value>เขียนความคิดเห็นของคุณ…</value>
   </data>
+  <data name="Your name" xml:space="preserve">
+    <value>ชื่อของคุณ</value>
+  </data>
 
 </root>

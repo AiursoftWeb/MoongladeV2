@@ -75,6 +75,12 @@
   <data name="Create User" xml:space="preserve">
     <value>Kullanıcı Oluştur</value>
   </data>
+  <data name="Custom Page Editor" xml:space="preserve">
+    <value>Özel Sayfa Düzenleyici</value>
+  </data>
+  <data name="Custom Pages" xml:space="preserve">
+    <value>Özel Sayfalar</value>
+  </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Kontrol Paneli</value>
   </data>

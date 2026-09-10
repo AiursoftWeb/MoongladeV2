@@ -78,6 +78,12 @@
   <data name="Create User" xml:space="preserve">
     <value>Tạo Người Dùng</value>
   </data>
+  <data name="Custom Page Editor" xml:space="preserve">
+    <value>Trình chỉnh sửa trang tùy chỉnh</value>
+  </data>
+  <data name="Custom Pages" xml:space="preserve">
+    <value>Trang tùy chỉnh</value>
+  </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Bảng điều khiển</value>
   </data>

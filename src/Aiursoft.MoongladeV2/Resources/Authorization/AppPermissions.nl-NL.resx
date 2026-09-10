@@ -36,6 +36,9 @@
   <data name="Allows creating, editing, publishing, and deleting any post. Full content management." xml:space="preserve">
     <value>Staat het maken, bewerken, publiceren en verwijderen van elke post toe. Volledig contentbeheer.</value>
   </data>
+  <data name="Allows creating, editing, publishing, and deleting custom pages." xml:space="preserve">
+    <value>Sta het maken, bewerken, publiceren en verwijderen van aangepaste pagina&apos;s toe.</value>
+  </data>
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>Staat verwijdering van elk document toe, ongeacht het eigendom.</value>
   </data>
@@ -122,6 +125,9 @@
   </data>
   <data name="Manage Comments" xml:space="preserve">
     <value>Opmerkingen beheren</value>
+  </data>
+  <data name="Manage Custom Pages" xml:space="preserve">
+    <value>Beheer aangepaste pagina&apos;s</value>
   </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Algemene instellingen beheren</value>

@@ -176,5 +176,8 @@ Bởi</value>
   <data name="Write your comment…" xml:space="preserve">
     <value>Viết bình luận của bạn…</value>
   </data>
+  <data name="Your name" xml:space="preserve">
+    <value>Tên của bạn</value>
+  </data>
 
 </root>

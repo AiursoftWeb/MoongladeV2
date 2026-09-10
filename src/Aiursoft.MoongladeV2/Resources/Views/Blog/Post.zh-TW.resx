@@ -144,5 +144,8 @@ Thus final answer: ```作者``` but inside triple backticks:
   <data name="Write your comment…" xml:space="preserve">
     <value>輸入您的留言…</value>
   </data>
+  <data name="Your name" xml:space="preserve">
+    <value>您的姓名</value>
+  </data>
 
 </root>

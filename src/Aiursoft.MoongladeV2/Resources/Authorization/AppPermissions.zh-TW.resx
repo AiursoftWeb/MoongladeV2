@@ -36,6 +36,9 @@
   <data name="Allows creating, editing, publishing, and deleting any post. Full content management." xml:space="preserve">
     <value>允許建立、編輯、發布及刪除任何文章。完整的內容管理功能。</value>
   </data>
+  <data name="Allows creating, editing, publishing, and deleting custom pages." xml:space="preserve">
+    <value>允許建立、編輯、發佈和刪除自訂頁面。</value>
+  </data>
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>允許刪除任何文件，無論所有權歸屬。</value>
   </data>
@@ -122,6 +125,9 @@
   </data>
   <data name="Manage Comments" xml:space="preserve">
     <value>管理評論</value>
+  </data>
+  <data name="Manage Custom Pages" xml:space="preserve">
+    <value>管理自訂頁面</value>
   </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>管理全域設定</value>
