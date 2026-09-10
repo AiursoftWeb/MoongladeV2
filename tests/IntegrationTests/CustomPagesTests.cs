@@ -7,6 +7,77 @@ namespace Aiursoft.MoongladeV2.Tests.IntegrationTests;
 [TestClass]
 public class CustomPagesTests : TestBase
 {
+    private readonly List<Guid> _createdPageIds = [];
+
+    [TestCleanup]
+    public override async Task CleanServer()
+    {
+        if (Server != null)
+        {
+            using var scope = Server.Services.CreateScope();
+            var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+            db.CustomPages.RemoveRange(await db.CustomPages.Where(p => _createdPageIds.Contains(p.Id)).ToListAsync());
+            await db.SaveChangesAsync();
+        }
+        await base.CleanServer();
+    }
+
+    [TestMethod]
+    [DataRow("/")]
+    [DataRow("/tags")]
+    [DataRow("/archive")]
+    [DataRow("/page/about")]
+    public async Task PublicNavbar_ShowsPublishedPagesOnly_InTitleOrder(string path)
+    {
+        foreach (var (title, slug, published) in new[]
+                 {
+                     ("Z Contacts", "contacts", true),
+                     ("About", "about", true),
+                     ("Secret draft", "secret-draft", false),
+                     ("Safe <b>title</b>", "safe-title", true)
+                 })
+        {
+            await AddPageAsync(new CustomPage
+            {
+                Title = title, Slug = slug, IsPublished = published,
+                HtmlContent = "<p>Page body</p>", CssContent = string.Empty, MetaDescription = string.Empty
+            });
+        }
+
+        var response = await Http.GetAsync(path);
+        response.EnsureSuccessStatusCode();
+        var html = await response.Content.ReadAsStringAsync();
+        var navStart = html.IndexOf("<nav ", StringComparison.Ordinal);
+        Assert.IsTrue(navStart >= 0);
+        var nav = html[navStart..html.IndexOf("</nav>", navStart, StringComparison.Ordinal)];
+        StringAssert.Contains(nav, "href=\"/page/about\">About</a>");
+        StringAssert.Contains(nav, "href=\"/page/contacts\">Z Contacts</a>");
+        StringAssert.Contains(nav, "Safe &lt;b&gt;title&lt;/b&gt;");
+        Assert.IsFalse(nav.Contains("secret-draft", StringComparison.Ordinal));
+        Assert.IsFalse(nav.Contains("Secret draft", StringComparison.Ordinal));
+        Assert.IsTrue(nav.IndexOf("/page/about", StringComparison.Ordinal) < nav.IndexOf("/page/contacts", StringComparison.Ordinal));
+    }
+
+    [TestMethod]
+    public async Task Navbar_RemovesUnpublishedPageImmediately()
+    {
+        var page = new CustomPage
+        {
+            Title = "About", Slug = "about", IsPublished = true,
+            HtmlContent = string.Empty, CssContent = string.Empty, MetaDescription = string.Empty
+        };
+        await AddPageAsync(page);
+        StringAssert.Contains(await Http.GetStringAsync("/"), "href=\"/page/about\"");
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+            var stored = await db.CustomPages.SingleAsync(p => p.Id == page.Id);
+            stored.IsPublished = false;
+            await db.SaveChangesAsync();
+        }
+        Assert.IsFalse((await Http.GetStringAsync("/")).Contains("href=\"/page/about\"", StringComparison.Ordinal));
+    }
+
     [TestMethod]
     public async Task PublishedPage_IsPublic_AndSanitizesExecutableHtml()
     {
@@ -112,5 +183,6 @@ public class CustomPagesTests : TestBase
         var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
         db.CustomPages.Add(page);
         await db.SaveChangesAsync();
+        _createdPageIds.Add(page.Id);
     }
 }
