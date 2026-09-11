@@ -193,6 +193,14 @@ public class GlobalSettingsService(
 
     public async Task SeedSettingsAsync()
     {
+        var localizationLanguages = await dbContext.GlobalSettings
+            .FirstOrDefaultAsync(s => s.Key == SettingsMap.LocalizationLanguages);
+        if (localizationLanguages?.Value == SettingsMap.LegacyDefaultLocalizationLanguages)
+        {
+            localizationLanguages.Value = SettingsMap.DefaultLocalizationLanguages;
+            cache.Remove(GetCacheKey(SettingsMap.LocalizationLanguages));
+        }
+
         var obsoleteCommentReviewSetting = await dbContext.GlobalSettings
             .FirstOrDefaultAsync(s => s.Key == ObsoleteCommentReviewSetting);
         if (obsoleteCommentReviewSetting != null)

@@ -38,6 +38,8 @@ public class SettingsMap
 
     // ── Localization ────────────────────────────────────────────────────────────
     public const string LocalizationLanguages = "LocalizationLanguages";
+    public const string LegacyDefaultLocalizationLanguages = "en-US,en-GB,zh-TW,zh-HK,ja-JP,ko-KR,vi-VN,th-TH,de-DE,fr-FR,es-ES,ru-RU,it-IT,pt-PT,pt-BR,ar-SA,nl-NL,sv-SE,pl-PL,tr-TR,ro-RO,da-DK,uk-UA,id-ID,fi-FI,hi-IN,el-GR";
+    public const string DefaultLocalizationLanguages = "en-US,en-GB,zh-CN,zh-TW,zh-HK,ja-JP,ko-KR,vi-VN,th-TH,de-DE,fr-FR,es-ES,ru-RU,it-IT,pt-PT,pt-BR,ar-SA,nl-NL,sv-SE,pl-PL,tr-TR,ro-RO,da-DK,uk-UA,id-ID,fi-FI,hi-IN,el-GR";
     public const string EmbeddingQueryCacheLimit = "EmbeddingQueryCacheLimit";
 
     public class FakeLocalizer
@@ -240,7 +242,7 @@ public class SettingsMap
             Name = Localizer["Localization Languages"],
             Description = Localizer["Comma-separated BCP-47 language codes to translate blog posts into, e.g. en-US,ja-JP,ko-KR,fr-FR. Leave empty to disable AI translation."],
             Type = SettingType.Text,
-            DefaultValue = "en-US,en-GB,zh-TW,zh-HK,ja-JP,ko-KR,vi-VN,th-TH,de-DE,fr-FR,es-ES,ru-RU,it-IT,pt-PT,pt-BR,ar-SA,nl-NL,sv-SE,pl-PL,tr-TR,ro-RO,da-DK,uk-UA,id-ID,fi-FI,hi-IN,el-GR"
+            DefaultValue = DefaultLocalizationLanguages
         },
         new GlobalSettingDefinition
         {
