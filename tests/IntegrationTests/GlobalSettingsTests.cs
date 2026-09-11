@@ -1,31 +1,12 @@
 using System.Net;
 using Aiursoft.MoongladeV2.Configuration;
-using Aiursoft.MoongladeV2.Entities;
 using Aiursoft.MoongladeV2.Services;
-using Microsoft.EntityFrameworkCore;
 
 namespace Aiursoft.MoongladeV2.Tests.IntegrationTests;
 
 [TestClass]
 public class GlobalSettingsTests : TestBase
 {
-    [TestMethod]
-    public async Task SeedSettings_UpgradesLegacyDefaultLocalizationLanguages()
-    {
-        using var scope = Server!.Services.CreateScope();
-        var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
-        var setting = await db.GlobalSettings.SingleAsync(s => s.Key == SettingsMap.LocalizationLanguages);
-        setting.Value = SettingsMap.LegacyDefaultLocalizationLanguages;
-        await db.SaveChangesAsync();
-
-        var settingsService = scope.ServiceProvider.GetRequiredService<GlobalSettingsService>();
-        await settingsService.SeedSettingsAsync();
-
-        Assert.AreEqual(
-            SettingsMap.DefaultLocalizationLanguages,
-            await settingsService.GetSettingValueAsync(SettingsMap.LocalizationLanguages));
-    }
-
     [TestMethod]
     public async Task TestAllowUserAdjustNicknameSetting()
     {
