@@ -18,11 +18,17 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Allow User Adjust Nickname" xml:space="preserve">
+      <data name="Allow Anonymous Comments" xml:space="preserve">
+    <value>익명 댓글 허용</value>
+  </data>
+  <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>사용자 닉네임 조정 허용</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>프로필 관리 페이지에서 사용자가 닉네임을 수정할 수 있도록 허용합니다.</value>
+  </data>
+  <data name="Allow visitors to comment without signing in. Visitors must provide a name and pass the verification challenge." xml:space="preserve">
+    <value>방문자가 로그인하지 않고도 댓글을 달 수 있도록 허용합니다. 방문자는 이름을 제공해야 하며 인증 도전을 통과해야 합니다.</value>
   </data>
   <data name="Bearer token for the Embedding Endpoint. Falls back to OpenAI API Token when empty." xml:space="preserve">
     <value>Embedding Endpoint용 Bearer 토큰입니다. 비워두면 OpenAI API 토큰으로 대체됩니다.</value>

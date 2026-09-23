@@ -30,6 +30,9 @@
   <data name="By" xml:space="preserve">
     <value>Автор</value>
   </data>
+  <data name="Cancel reply" xml:space="preserve">
+    <value>Скасувати відповідь</value>
+  </data>
   <data name="Comments" xml:space="preserve">
     <value>Коментарі</value>
   </data>
@@ -38,6 +41,15 @@
   </data>
   <data name="Document outline" xml:space="preserve">
     <value>Структура документа</value>
+  </data>
+  <data name="Email (optional)" xml:space="preserve">
+    <value>Ел. пошта (необов&apos;язково)</value>
+  </data>
+  <data name="Guest" xml:space="preserve">
+    <value>Гість</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Увійти</value>
   </data>
   <data name="Login to comment" xml:space="preserve">
     <value>Увійдіть, щоб коментувати</value>
@@ -60,6 +72,12 @@
   <data name="Send Reply" xml:space="preserve">
     <value>Надіслати відповідь</value>
   </data>
+  <data name="Sign in to comment." xml:space="preserve">
+    <value>Увійдіть, щоб коментувати.</value>
+  </data>
+  <data name="Verification" xml:space="preserve">
+    <value>Перевірка</value>
+  </data>
   <data name="Views" xml:space="preserve">
     <value>Перегляди</value>
   </data>
@@ -68,6 +86,12 @@
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>Напишіть свій коментар…</value>
+  </data>
+  <data name="Write your comment... (Markdown supported)" xml:space="preserve">
+    <value>Напишіть коментар... (підтримується Markdown)</value>
+  </data>
+  <data name="Your email will not be displayed publicly." xml:space="preserve">
+    <value>Ваш електронний лист не буде відображатися публічно.</value>
   </data>
   <data name="Your name" xml:space="preserve">
     <value>Ваше ім&apos;я</value>

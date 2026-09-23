@@ -30,6 +30,9 @@
   <data name="By" xml:space="preserve">
     <value>작성자</value>
   </data>
+  <data name="Cancel reply" xml:space="preserve">
+    <value>답변 취소</value>
+  </data>
   <data name="Comments" xml:space="preserve">
     <value>댓글</value>
   </data>
@@ -38,6 +41,15 @@
   </data>
   <data name="Document outline" xml:space="preserve">
     <value>문서 개요</value>
+  </data>
+  <data name="Email (optional)" xml:space="preserve">
+    <value>이메일 (선택)</value>
+  </data>
+  <data name="Guest" xml:space="preserve">
+    <value>게스트</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>로그인</value>
   </data>
   <data name="Login to comment" xml:space="preserve">
     <value>댓글을 남기려면 로그인하세요</value>
@@ -60,6 +72,12 @@
   <data name="Send Reply" xml:space="preserve">
     <value>답변 보내기</value>
   </data>
+  <data name="Sign in to comment." xml:space="preserve">
+    <value>댓글을 작성하려면 로그인하세요.</value>
+  </data>
+  <data name="Verification" xml:space="preserve">
+    <value>인증</value>
+  </data>
   <data name="Views" xml:space="preserve">
     <value>조회수</value>
   </data>
@@ -68,6 +86,12 @@
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>댓글을 작성하세요…</value>
+  </data>
+  <data name="Write your comment... (Markdown supported)" xml:space="preserve">
+    <value>댓글을 작성하세요... (마크다운 지원)</value>
+  </data>
+  <data name="Your email will not be displayed publicly." xml:space="preserve">
+    <value>이메일은 공개적으로 표시되지 않습니다.</value>
   </data>
   <data name="Your name" xml:space="preserve">
     <value>이름</value>

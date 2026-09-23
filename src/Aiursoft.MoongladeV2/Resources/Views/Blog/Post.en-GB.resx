@@ -30,6 +30,9 @@
   <data name="By" xml:space="preserve">
     <value>By</value>
   </data>
+  <data name="Cancel reply" xml:space="preserve">
+    <value>Cancel reply</value>
+  </data>
   <data name="Comments" xml:space="preserve">
     <value>Comments</value>
   </data>
@@ -38,6 +41,15 @@
   </data>
   <data name="Document outline" xml:space="preserve">
     <value>Document outline</value>
+  </data>
+  <data name="Email (optional)" xml:space="preserve">
+    <value>Email (optional)</value>
+  </data>
+  <data name="Guest" xml:space="preserve">
+    <value>Guest</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Log in</value>
   </data>
   <data name="Login to comment" xml:space="preserve">
     <value>Log in to comment</value>
@@ -60,6 +72,12 @@
   <data name="Send Reply" xml:space="preserve">
     <value>Send Reply</value>
   </data>
+  <data name="Sign in to comment." xml:space="preserve">
+    <value>Sign in to comment.</value>
+  </data>
+  <data name="Verification" xml:space="preserve">
+    <value>Verification</value>
+  </data>
   <data name="Views" xml:space="preserve">
     <value>Views</value>
   </data>
@@ -68,6 +86,12 @@
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>Write your comment…</value>
+  </data>
+  <data name="Write your comment... (Markdown supported)" xml:space="preserve">
+    <value>Write your comment... (Markdown supported)</value>
+  </data>
+  <data name="Your email will not be displayed publicly." xml:space="preserve">
+    <value>Your email address will not be displayed publicly.</value>
   </data>
   <data name="Your name" xml:space="preserve">
     <value>Your name</value>

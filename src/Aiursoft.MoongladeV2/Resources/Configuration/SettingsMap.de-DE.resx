@@ -18,11 +18,17 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Allow User Adjust Nickname" xml:space="preserve">
+      <data name="Allow Anonymous Comments" xml:space="preserve">
+    <value>Anonyme Kommentare erlauben</value>
+  </data>
+  <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>Benutzer können Nickname anpassen erlauben</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Benutzern erlauben, ihren Spitznamen auf der Seite zur Profilverwaltung anzupassen.</value>
+  </data>
+  <data name="Allow visitors to comment without signing in. Visitors must provide a name and pass the verification challenge." xml:space="preserve">
+    <value>Besucher können ohne Anmeldung kommentieren. Besucher müssen einen Namen angeben und die Verifizierungsherausforderung bestehen.</value>
   </data>
   <data name="Bearer token for the Embedding Endpoint. Falls back to OpenAI API Token when empty." xml:space="preserve">
     <value>Bearer-Token für den Embedding-Endpunkt. Bei leerem Wert wird der OpenAI-API-Token verwendet.</value>

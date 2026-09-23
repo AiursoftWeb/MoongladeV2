@@ -30,6 +30,9 @@
   <data name="By" xml:space="preserve">
     <value>โดย</value>
   </data>
+  <data name="Cancel reply" xml:space="preserve">
+    <value>ยกเลิกการตอบกลับ</value>
+  </data>
   <data name="Comments" xml:space="preserve">
     <value>ความคิดเห็น</value>
   </data>
@@ -38,6 +41,15 @@
   </data>
   <data name="Document outline" xml:space="preserve">
     <value>โครงสร้างเอกสาร</value>
+  </data>
+  <data name="Email (optional)" xml:space="preserve">
+    <value>อีเมล (ไม่บังคับ)</value>
+  </data>
+  <data name="Guest" xml:space="preserve">
+    <value>แขกรับเชิญ</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>เข้าสู่ระบบ</value>
   </data>
   <data name="Login to comment" xml:space="preserve">
     <value>เข้าสู่ระบบเพื่อแสดงความคิดเห็น</value>
@@ -60,6 +72,12 @@
   <data name="Send Reply" xml:space="preserve">
     <value>ส่งคำตอบกลับ</value>
   </data>
+  <data name="Sign in to comment." xml:space="preserve">
+    <value>เข้าสู่ระบบเพื่อแสดงความคิดเห็น</value>
+  </data>
+  <data name="Verification" xml:space="preserve">
+    <value>การยืนยัน</value>
+  </data>
   <data name="Views" xml:space="preserve">
     <value>การเข้าชม</value>
   </data>
@@ -68,6 +86,12 @@
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>เขียนความคิดเห็นของคุณ…</value>
+  </data>
+  <data name="Write your comment... (Markdown supported)" xml:space="preserve">
+    <value>เขียนความคิดเห็นของคุณ... (รองรับ Markdown)</value>
+  </data>
+  <data name="Your email will not be displayed publicly." xml:space="preserve">
+    <value>อีเมลของคุณจะไม่แสดงต่อสาธารณะ</value>
   </data>
   <data name="Your name" xml:space="preserve">
     <value>ชื่อของคุณ</value>

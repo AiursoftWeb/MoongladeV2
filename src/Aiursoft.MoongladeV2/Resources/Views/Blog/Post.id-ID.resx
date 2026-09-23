@@ -30,6 +30,9 @@
   <data name="By" xml:space="preserve">
     <value>Oleh</value>
   </data>
+  <data name="Cancel reply" xml:space="preserve">
+    <value>Batalkan balasan</value>
+  </data>
   <data name="Comments" xml:space="preserve">
     <value>Komentar</value>
   </data>
@@ -38,6 +41,15 @@
   </data>
   <data name="Document outline" xml:space="preserve">
     <value>Kerangka dokumen</value>
+  </data>
+  <data name="Email (optional)" xml:space="preserve">
+    <value>Email (opsional)</value>
+  </data>
+  <data name="Guest" xml:space="preserve">
+    <value>Tamu</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Masuk</value>
   </data>
   <data name="Login to comment" xml:space="preserve">
     <value>Masuk untuk berkomentar</value>
@@ -60,6 +72,12 @@
   <data name="Send Reply" xml:space="preserve">
     <value>Kirim Balasan</value>
   </data>
+  <data name="Sign in to comment." xml:space="preserve">
+    <value>Masuk untuk berkomentar.</value>
+  </data>
+  <data name="Verification" xml:space="preserve">
+    <value>Verifikasi</value>
+  </data>
   <data name="Views" xml:space="preserve">
     <value>Tampilan</value>
   </data>
@@ -68,6 +86,12 @@
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>Tulis komentar Anda…</value>
+  </data>
+  <data name="Write your comment... (Markdown supported)" xml:space="preserve">
+    <value>Tulis komentar Anda... (Mendukung Markdown)</value>
+  </data>
+  <data name="Your email will not be displayed publicly." xml:space="preserve">
+    <value>Email Anda tidak akan ditampilkan secara publik.</value>
   </data>
   <data name="Your name" xml:space="preserve">
     <value>Nama Anda</value>
