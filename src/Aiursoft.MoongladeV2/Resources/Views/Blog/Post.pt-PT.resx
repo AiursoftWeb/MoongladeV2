@@ -30,6 +30,9 @@
   <data name="By" xml:space="preserve">
     <value>Por</value>
   </data>
+  <data name="Cancel reply" xml:space="preserve">
+    <value>Cancelar resposta</value>
+  </data>
   <data name="Comments" xml:space="preserve">
     <value>Comentários</value>
   </data>
@@ -38,6 +41,15 @@
   </data>
   <data name="Document outline" xml:space="preserve">
     <value>Índice do documento</value>
+  </data>
+  <data name="Email (optional)" xml:space="preserve">
+    <value>Email (opcional)</value>
+  </data>
+  <data name="Guest" xml:space="preserve">
+    <value>Convidado</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Iniciar sessão</value>
   </data>
   <data name="Login to comment" xml:space="preserve">
     <value>Inicie sessão para comentar</value>
@@ -60,6 +72,12 @@
   <data name="Send Reply" xml:space="preserve">
     <value>Enviar resposta</value>
   </data>
+  <data name="Sign in to comment." xml:space="preserve">
+    <value>Inicie sessão para comentar.</value>
+  </data>
+  <data name="Verification" xml:space="preserve">
+    <value>Verificação</value>
+  </data>
   <data name="Views" xml:space="preserve">
     <value>Visualizações</value>
   </data>
@@ -68,6 +86,12 @@
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>Escreva o seu comentário…</value>
+  </data>
+  <data name="Write your comment... (Markdown supported)" xml:space="preserve">
+    <value>Escreva o seu comentário... (Markdown suportado)</value>
+  </data>
+  <data name="Your email will not be displayed publicly." xml:space="preserve">
+    <value>O seu e-mail não será apresentado publicamente.</value>
   </data>
   <data name="Your name" xml:space="preserve">
     <value>O seu nome</value>

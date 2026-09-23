@@ -30,6 +30,9 @@
   <data name="By" xml:space="preserve">
     <value>作者</value>
   </data>
+  <data name="Cancel reply" xml:space="preserve">
+    <value>返信をキャンセル</value>
+  </data>
   <data name="Comments" xml:space="preserve">
     <value>コメント</value>
   </data>
@@ -38,6 +41,15 @@
   </data>
   <data name="Document outline" xml:space="preserve">
     <value>文書のアウトライン</value>
+  </data>
+  <data name="Email (optional)" xml:space="preserve">
+    <value>メールアドレス（任意）</value>
+  </data>
+  <data name="Guest" xml:space="preserve">
+    <value>ゲスト</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>ログイン</value>
   </data>
   <data name="Login to comment" xml:space="preserve">
     <value>コメントするにはログインしてください</value>
@@ -60,6 +72,12 @@
   <data name="Send Reply" xml:space="preserve">
     <value>返信を送信</value>
   </data>
+  <data name="Sign in to comment." xml:space="preserve">
+    <value>コメントするにはログインしてください。</value>
+  </data>
+  <data name="Verification" xml:space="preserve">
+    <value>認証</value>
+  </data>
   <data name="Views" xml:space="preserve">
     <value>閲覧数</value>
   </data>
@@ -68,6 +86,12 @@
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>コメントを入力してください…</value>
+  </data>
+  <data name="Write your comment... (Markdown supported)" xml:space="preserve">
+    <value>コメントを書く...（Markdown対応）</value>
+  </data>
+  <data name="Your email will not be displayed publicly." xml:space="preserve">
+    <value>メールアドレスは公開されません。</value>
   </data>
   <data name="Your name" xml:space="preserve">
     <value>お名前</value>

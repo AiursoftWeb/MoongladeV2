@@ -30,6 +30,9 @@
   <data name="By" xml:space="preserve">
     <value>Tekijä</value>
   </data>
+  <data name="Cancel reply" xml:space="preserve">
+    <value>Peruuta vastaus</value>
+  </data>
   <data name="Comments" xml:space="preserve">
     <value>Kommentit</value>
   </data>
@@ -38,6 +41,15 @@
   </data>
   <data name="Document outline" xml:space="preserve">
     <value>Dokumentin sisältöluettelo</value>
+  </data>
+  <data name="Email (optional)" xml:space="preserve">
+    <value>Sähköposti (valinnainen)</value>
+  </data>
+  <data name="Guest" xml:space="preserve">
+    <value>Vieras</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Kirjaudu</value>
   </data>
   <data name="Login to comment" xml:space="preserve">
     <value>Kirjaudu sisään kommentoidaksesi</value>
@@ -60,6 +72,12 @@
   <data name="Send Reply" xml:space="preserve">
     <value>Lähetä vastaus</value>
   </data>
+  <data name="Sign in to comment." xml:space="preserve">
+    <value>Kirjaudu sisään kommentoidaksesi.</value>
+  </data>
+  <data name="Verification" xml:space="preserve">
+    <value>Vahvistus</value>
+  </data>
   <data name="Views" xml:space="preserve">
     <value>Näkymät</value>
   </data>
@@ -68,6 +86,12 @@
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>Kirjoita kommenttisi…</value>
+  </data>
+  <data name="Write your comment... (Markdown supported)" xml:space="preserve">
+    <value>Kirjoita kommenttisi... (Markdown tuettu)</value>
+  </data>
+  <data name="Your email will not be displayed publicly." xml:space="preserve">
+    <value>Sähköpostiosoitettasi ei näytetä julkisesti.</value>
   </data>
   <data name="Your name" xml:space="preserve">
     <value>Nimesi</value>

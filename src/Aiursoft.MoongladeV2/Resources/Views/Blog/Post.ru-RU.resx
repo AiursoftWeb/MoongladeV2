@@ -36,6 +36,9 @@ The user wants me to translate only the word `By` in the context of a blog post 
 
 ```Автор</value>
   </data>
+  <data name="Cancel reply" xml:space="preserve">
+    <value>Отменить ответ</value>
+  </data>
   <data name="Comments" xml:space="preserve">
     <value>Комментарии</value>
   </data>
@@ -44,6 +47,15 @@ The user wants me to translate only the word `By` in the context of a blog post 
   </data>
   <data name="Document outline" xml:space="preserve">
     <value>Структура документа</value>
+  </data>
+  <data name="Email (optional)" xml:space="preserve">
+    <value>Электронная почта (необязательно)</value>
+  </data>
+  <data name="Guest" xml:space="preserve">
+    <value>Гость</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Вход</value>
   </data>
   <data name="Login to comment" xml:space="preserve">
     <value>Войдите, чтобы оставить комментарий</value>
@@ -66,6 +78,12 @@ The user wants me to translate only the word `By` in the context of a blog post 
   <data name="Send Reply" xml:space="preserve">
     <value>Отправить ответ</value>
   </data>
+  <data name="Sign in to comment." xml:space="preserve">
+    <value>Войдите, чтобы оставить комментарий.</value>
+  </data>
+  <data name="Verification" xml:space="preserve">
+    <value>Проверка</value>
+  </data>
   <data name="Views" xml:space="preserve">
     <value>Просмотры</value>
   </data>
@@ -74,6 +92,12 @@ The user wants me to translate only the word `By` in the context of a blog post 
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>Напишите комментарий…</value>
+  </data>
+  <data name="Write your comment... (Markdown supported)" xml:space="preserve">
+    <value>Напишите комментарий... (поддерживается Markdown)</value>
+  </data>
+  <data name="Your email will not be displayed publicly." xml:space="preserve">
+    <value>Ваш адрес электронной почты не будет отображаться публично.</value>
   </data>
   <data name="Your name" xml:space="preserve">
     <value>Ваше имя</value>

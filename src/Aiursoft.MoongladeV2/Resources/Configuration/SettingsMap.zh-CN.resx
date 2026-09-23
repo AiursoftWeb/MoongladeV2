@@ -18,11 +18,17 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Allow User Adjust Nickname" xml:space="preserve">
+      <data name="Allow Anonymous Comments" xml:space="preserve">
+    <value>允许匿名评论</value>
+  </data>
+  <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>允许用户修改昵称</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>允许用户在个人资料管理页面调整其昵称。</value>
+  </data>
+  <data name="Allow visitors to comment without signing in. Visitors must provide a name and pass the verification challenge." xml:space="preserve">
+    <value>允许访客无需登录即可评论。访客需要填写姓名并通过验证码。</value>
   </data>
   <data name="Bearer token for the Embedding Endpoint. Falls back to OpenAI API Token when empty." xml:space="preserve">
     <value>Embedding Endpoint 的 Bearer Token。为空时回退到 OpenAI API Token。</value>
@@ -71,12 +77,6 @@
   </data>
   <data name="Enable Comments" xml:space="preserve">
     <value>启用评论</value>
-  </data>
-  <data name="Allow Anonymous Comments" xml:space="preserve">
-    <value>允许匿名评论</value>
-  </data>
-  <data name="Allow visitors to comment without signing in. Visitors must provide a name and pass the verification challenge." xml:space="preserve">
-    <value>允许访客无需登录即可评论。访客需要填写姓名并通过验证码。</value>
   </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>启用基于嵌入的搜索</value>

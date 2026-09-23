@@ -30,6 +30,9 @@
   <data name="By" xml:space="preserve">
     <value>Tarafından</value>
   </data>
+  <data name="Cancel reply" xml:space="preserve">
+    <value>Yanıtı İptal Et</value>
+  </data>
   <data name="Comments" xml:space="preserve">
     <value>Yorumlar</value>
   </data>
@@ -38,6 +41,15 @@
   </data>
   <data name="Document outline" xml:space="preserve">
     <value>Belge ana hatları</value>
+  </data>
+  <data name="Email (optional)" xml:space="preserve">
+    <value>E-posta (isteğe bağlı)</value>
+  </data>
+  <data name="Guest" xml:space="preserve">
+    <value>Misafir</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Giriş Yap</value>
   </data>
   <data name="Login to comment" xml:space="preserve">
     <value>Yorum yapmak için giriş yapın</value>
@@ -60,6 +72,12 @@
   <data name="Send Reply" xml:space="preserve">
     <value>Yanıtı Gönder</value>
   </data>
+  <data name="Sign in to comment." xml:space="preserve">
+    <value>Yorum yapmak için oturum açın.</value>
+  </data>
+  <data name="Verification" xml:space="preserve">
+    <value>Doğrulama</value>
+  </data>
   <data name="Views" xml:space="preserve">
     <value>Görüntüleme</value>
   </data>
@@ -68,6 +86,12 @@
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>Yorumunuzu yazın…</value>
+  </data>
+  <data name="Write your comment... (Markdown supported)" xml:space="preserve">
+    <value>Yorumunuzu yazın... (Markdown destekleniyor)</value>
+  </data>
+  <data name="Your email will not be displayed publicly." xml:space="preserve">
+    <value>E-posta adresiniz herkese açık olarak görüntülenmeyecektir.</value>
   </data>
   <data name="Your name" xml:space="preserve">
     <value>Adınız</value>

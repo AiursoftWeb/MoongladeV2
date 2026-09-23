@@ -30,6 +30,9 @@
   <data name="By" xml:space="preserve">
     <value>द्वारा</value>
   </data>
+  <data name="Cancel reply" xml:space="preserve">
+    <value>जवाब रद्द करें</value>
+  </data>
   <data name="Comments" xml:space="preserve">
     <value>टिप्पणियाँ</value>
   </data>
@@ -38,6 +41,15 @@
   </data>
   <data name="Document outline" xml:space="preserve">
     <value>दस्तावेज़ रूपरेखा</value>
+  </data>
+  <data name="Email (optional)" xml:space="preserve">
+    <value>ईमेल (वैकल्पिक)</value>
+  </data>
+  <data name="Guest" xml:space="preserve">
+    <value>अतिथि</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>लॉगिन</value>
   </data>
   <data name="Login to comment" xml:space="preserve">
     <value>टिप्पणी लिखने के लिए लॉगिन करें</value>
@@ -60,6 +72,12 @@
   <data name="Send Reply" xml:space="preserve">
     <value>प्रतिक्रिया भेजें</value>
   </data>
+  <data name="Sign in to comment." xml:space="preserve">
+    <value>टिप्पणी करने के लिए साइन इन करें।</value>
+  </data>
+  <data name="Verification" xml:space="preserve">
+    <value>सत्यापन</value>
+  </data>
   <data name="Views" xml:space="preserve">
     <value>दृश्य</value>
   </data>
@@ -68,6 +86,12 @@
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>अपना टिप्पणी लिखें…</value>
+  </data>
+  <data name="Write your comment... (Markdown supported)" xml:space="preserve">
+    <value>अपनी टिप्पणी लिखें... (Markdown समर्थित)</value>
+  </data>
+  <data name="Your email will not be displayed publicly." xml:space="preserve">
+    <value>आपकी ईमेल सार्वजनिक रूप से प्रदर्शित नहीं की जाएगी।</value>
   </data>
   <data name="Your name" xml:space="preserve">
     <value>आपका नाम</value>

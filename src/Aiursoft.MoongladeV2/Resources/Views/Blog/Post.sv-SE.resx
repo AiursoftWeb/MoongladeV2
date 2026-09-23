@@ -30,6 +30,9 @@
   <data name="By" xml:space="preserve">
     <value>Av</value>
   </data>
+  <data name="Cancel reply" xml:space="preserve">
+    <value>Avbryt svar</value>
+  </data>
   <data name="Comments" xml:space="preserve">
     <value>Kommentarer</value>
   </data>
@@ -38,6 +41,15 @@
   </data>
   <data name="Document outline" xml:space="preserve">
     <value>Dokumentstruktur</value>
+  </data>
+  <data name="Email (optional)" xml:space="preserve">
+    <value>E-post (valfritt)</value>
+  </data>
+  <data name="Guest" xml:space="preserve">
+    <value>Gäst</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Logga in</value>
   </data>
   <data name="Login to comment" xml:space="preserve">
     <value>Logga in för att kommentera</value>
@@ -60,6 +72,12 @@
   <data name="Send Reply" xml:space="preserve">
     <value>Skicka svar</value>
   </data>
+  <data name="Sign in to comment." xml:space="preserve">
+    <value>Logga in för att kommentera.</value>
+  </data>
+  <data name="Verification" xml:space="preserve">
+    <value>Verifiering</value>
+  </data>
   <data name="Views" xml:space="preserve">
     <value>Visningar</value>
   </data>
@@ -68,6 +86,12 @@
   </data>
   <data name="Write your comment…" xml:space="preserve">
     <value>Skriv din kommentar…</value>
+  </data>
+  <data name="Write your comment... (Markdown supported)" xml:space="preserve">
+    <value>Skriv din kommentar... (Markdown stöds)</value>
+  </data>
+  <data name="Your email will not be displayed publicly." xml:space="preserve">
+    <value>Din e-postadress visas inte offentligt.</value>
   </data>
   <data name="Your name" xml:space="preserve">
     <value>Ditt namn</value>
