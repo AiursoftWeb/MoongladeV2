@@ -72,6 +72,12 @@
   <data name="Enable Comments" xml:space="preserve">
     <value>启用评论</value>
   </data>
+  <data name="Allow Anonymous Comments" xml:space="preserve">
+    <value>允许匿名评论</value>
+  </data>
+  <data name="Allow visitors to comment without signing in. Visitors must provide a name and pass the verification challenge." xml:space="preserve">
+    <value>允许访客无需登录即可评论。访客需要填写姓名并通过验证码。</value>
+  </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>启用基于嵌入的搜索</value>
   </data>

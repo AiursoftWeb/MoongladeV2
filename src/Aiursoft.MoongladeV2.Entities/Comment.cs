@@ -26,6 +26,12 @@ public class Comment
     public string? GuestName { get; set; }
 
     /// <summary>
+    /// Optional contact email supplied by a guest. Never shown publicly.
+    /// </summary>
+    [MaxLength(254)]
+    public string? GuestEmail { get; set; }
+
+    /// <summary>
     /// Null = root comment on a post. Non-null = reply to a parent comment.
     /// </summary>
     public Guid? ParentCommentId { get; set; }

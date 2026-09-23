@@ -21,4 +21,8 @@ public class PostViewModel : UiStackLayoutViewModel
     public IReadOnlyList<string> Tags { get; set; } = [];
     public List<Comment> Comments { get; set; } = [];
     public int CommentCount => Comments.Count;
+    public bool EnableComments { get; set; }
+    public bool AllowAnonymousComments { get; set; }
+    public string CaptchaQuestion { get; set; } = string.Empty;
+    public string CaptchaToken { get; set; } = string.Empty;
 }

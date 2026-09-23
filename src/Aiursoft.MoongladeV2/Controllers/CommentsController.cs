@@ -15,7 +15,8 @@ namespace Aiursoft.MoongladeV2.Controllers;
 public class CommentsController(
     TemplateDbContext db,
     UserManager<User> userManager,
-    GlobalSettingsService globalSettingsService) : Controller
+    GlobalSettingsService globalSettingsService,
+    CommentCaptchaService commentCaptchaService) : Controller
 {
     [HttpPost]
     [AllowAnonymous]
@@ -24,7 +25,10 @@ public class CommentsController(
         [Required][FromForm] Guid documentId,
         [FromForm] Guid? parentCommentId,
         [Required][FromForm][MaxLength(65535)] string content,
-        [FromForm][MaxLength(64)] string? guestName)
+        [FromForm][MaxLength(64)] string? guestName,
+        [FromForm][EmailAddress][MaxLength(254)] string? guestEmail,
+        [FromForm] string? captchaToken,
+        [FromForm] string? captchaAnswer)
     {
         var enableComments = await globalSettingsService.GetBoolSettingAsync(SettingsMap.EnableComments);
         if (!enableComments) return Forbid();
@@ -32,10 +36,21 @@ public class CommentsController(
         if (string.IsNullOrWhiteSpace(content) || content.Length > 65535)
             return BadRequest();
 
+        if (!commentCaptchaService.Verify(documentId, captchaToken, captchaAnswer))
+            return BadRequest("Verification failed or expired. Refresh the page and try again.");
+
         var userId = userManager.GetUserId(User);
         var normalizedGuestName = string.IsNullOrWhiteSpace(guestName) ? null : guestName.Trim();
-        if (userId == null && (normalizedGuestName == null || normalizedGuestName.Length > 64))
-            return BadRequest();
+        var normalizedGuestEmail = string.IsNullOrWhiteSpace(guestEmail) ? null : guestEmail.Trim();
+        if (userId == null)
+        {
+            if (!await globalSettingsService.GetBoolSettingAsync(SettingsMap.AllowAnonymousComments))
+                return Forbid();
+            if (normalizedGuestName == null || normalizedGuestName.Length > 64 ||
+                normalizedGuestEmail?.Length > 254 ||
+                (normalizedGuestEmail != null && !new EmailAddressAttribute().IsValid(normalizedGuestEmail)))
+                return BadRequest();
+        }
 
         var documentExists = await db.MarkdownDocuments
             .AnyAsync(d => d.Id == documentId && d.IsPublic);
@@ -56,6 +71,7 @@ public class CommentsController(
             DocumentId = documentId,
             UserId = userId,
             GuestName = userId == null ? normalizedGuestName : null,
+            GuestEmail = userId == null ? normalizedGuestEmail : null,
             ParentCommentId = parentCommentId,
             Content = content.Trim(),
             CreatedAt = DateTime.UtcNow

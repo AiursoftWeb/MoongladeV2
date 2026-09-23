@@ -18,6 +18,7 @@ public class BlogController(
     DocumentVectorSearchService vectorSearch,
     SearchRateLimiter rateLimiter,
     GlobalSettingsService globalSettingsService,
+    CommentCaptchaService commentCaptchaService,
     ViewCountService viewCountService) : Controller
 {
     private const int PageSize = 10;
@@ -181,6 +182,9 @@ public class BlogController(
             .ToListAsync();
 
         var showAuthorInfo = await globalSettingsService.GetBoolSettingAsync(SettingsMap.ShowAuthorInfo);
+        var enableComments = await globalSettingsService.GetBoolSettingAsync(SettingsMap.EnableComments);
+        var allowAnonymousComments = await globalSettingsService.GetBoolSettingAsync(SettingsMap.AllowAnonymousComments);
+        var (captchaQuestion, captchaToken) = commentCaptchaService.Create(document.Id);
         var viewCount = viewCountService.Increment(document.Id);
 
         var model = new PostViewModel
@@ -197,7 +201,11 @@ public class BlogController(
             HeroImageUrl = document.HeroImageUrl,
             ContentHtml = moongladeV2Service.ConvertMarkdownToHtml(markdownContent),
             Tags = BlogTagParser.ParseTags(document.Tags),
-            Comments = comments
+            Comments = comments,
+            EnableComments = enableComments,
+            AllowAnonymousComments = allowAnonymousComments,
+            CaptchaQuestion = captchaQuestion,
+            CaptchaToken = captchaToken
         };
         ViewBag.ShowAuthorInfo = showAuthorInfo;
         ViewBag.CanonicalUrl = $"{Request.Scheme}://{Request.Host}{PostUrlService.BuildUrl(document)}";

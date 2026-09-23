@@ -22,6 +22,7 @@ public class SettingsMap
 
     // ── Comments ──────────────────────────────────────────────────────────────
     public const string EnableComments = "EnableComments";
+    public const string AllowAnonymousComments = "AllowAnonymousComments";
 
     // ── AI: Chat / Translation (3 settings) ────────────────────────────────────
     public const string OpenAiChatEndpoint = "OpenAiChatEndpoint";
@@ -169,6 +170,14 @@ public class SettingsMap
             Key = EnableComments,
             Name = Localizer["Enable Comments"],
             Description = Localizer["Enable the comment system on all blog posts."],
+            Type = SettingType.Bool,
+            DefaultValue = "True"
+        },
+        new GlobalSettingDefinition
+        {
+            Key = AllowAnonymousComments,
+            Name = Localizer["Allow Anonymous Comments"],
+            Description = Localizer["Allow visitors to comment without signing in. Visitors must provide a name and pass the verification challenge."],
             Type = SettingType.Bool,
             DefaultValue = "True"
         },

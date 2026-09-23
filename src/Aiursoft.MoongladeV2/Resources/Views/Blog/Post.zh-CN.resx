@@ -72,5 +72,29 @@
   <data name="Your name" xml:space="preserve">
     <value>您的姓名</value>
   </data>
+  <data name="Email (optional)" xml:space="preserve">
+    <value>邮箱（选填）</value>
+  </data>
+  <data name="Your email will not be displayed publicly." xml:space="preserve">
+    <value>您的邮箱不会公开显示。</value>
+  </data>
+  <data name="Write your comment... (Markdown supported)" xml:space="preserve">
+    <value>写下您的评论……支持 Markdown</value>
+  </data>
+  <data name="Verification" xml:space="preserve">
+    <value>验证码</value>
+  </data>
+  <data name="Cancel reply" xml:space="preserve">
+    <value>取消回复</value>
+  </data>
+  <data name="Sign in to comment." xml:space="preserve">
+    <value>登录后即可评论。</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>登录</value>
+  </data>
+  <data name="Guest" xml:space="preserve">
+    <value>访客</value>
+  </data>
 
 </root>

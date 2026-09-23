@@ -3,6 +3,7 @@
 @using System.Globalization
 @model Aiursoft.MoongladeV2.Models.BlogViewModels.PostViewModel
 @inject Aiursoft.MoongladeV2.Services.FileStorage.StorageService Storage
+@inject Aiursoft.MoongladeV2.Services.MoongladeV2Service CommentMarkdown
 
 @{
     var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
@@ -78,20 +79,49 @@
                 <section id="comments" class="box comment-form-containter mb-4">
             <h5 class="mb-3">@Localizer["Comments"] (@Model.CommentCount)</h5>
 
-            <form asp-controller="Comments" asp-action="Post" method="post" class="mb-4">
+            @if (Model.EnableComments && (User.Identity?.IsAuthenticated == true || Model.AllowAnonymousComments))
+            {
+            <form asp-controller="Comments" asp-action="Post" method="post" class="mb-4" id="comment-form">
                     <input type="hidden" name="documentId" value="@Model.DocumentId" />
+                    <input type="hidden" name="parentCommentId" id="parent-comment-id" />
+                    <input type="hidden" name="captchaToken" value="@Model.CaptchaToken" />
                     @Html.AntiForgeryToken()
                     @if (User.Identity?.IsAuthenticated != true)
                     {
-                        <div class="mb-2">
-                            <input name="guestName" class="form-control" maxlength="64" placeholder="@Localizer["Your name"]" required />
+                        <div class="row g-2 mb-2">
+                            <div class="col-sm-6">
+                                <input name="guestName" class="form-control" maxlength="64" placeholder="@Localizer["Your name"]" aria-label="@Localizer["Your name"]" required />
+                            </div>
+                            <div class="col-sm-6">
+                                <input name="guestEmail" type="email" class="form-control" maxlength="254" placeholder="@Localizer["Email (optional)"]" aria-label="@Localizer["Email (optional)"]" />
+                            </div>
                         </div>
+                        <p class="small text-muted mb-2">@Localizer["Your email will not be displayed publicly."]</p>
                     }
                     <div class="mb-2">
-                        <textarea name="content" class="form-control" rows="3" placeholder="@Localizer["Write your comment..."]" maxlength="65535" required></textarea>
+                        <textarea name="content" class="form-control" rows="4" placeholder="@Localizer["Write your comment... (Markdown supported)"]" aria-label="@Localizer["Write your comment... (Markdown supported)"]" maxlength="65535" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-accent btn-sm">@Localizer["Post Comment"]</button>
+                    <div class="d-flex flex-wrap align-items-end justify-content-between gap-2">
+                        <label class="small mb-0">@Localizer["Verification"]: @Model.CaptchaQuestion
+                            <input name="captchaAnswer" type="number" class="form-control form-control-sm mt-1" style="max-width: 9rem" required autocomplete="off" />
+                        </label>
+                        <div class="d-flex align-items-center gap-2">
+                            <button type="button" id="cancel-comment-reply" class="btn btn-outline-secondary btn-sm d-none">@Localizer["Cancel reply"]</button>
+                            <button type="submit" class="btn btn-accent btn-sm">@Localizer["Post Comment"]</button>
+                            @if (User.Identity?.IsAuthenticated != true)
+                            {
+                                <a asp-controller="Account" asp-action="Login" asp-route-returnUrl="@(Context.Request.Path + Context.Request.QueryString + "#comments")" class="btn btn-outline-secondary btn-sm">@Localizer["Login"]</a>
+                            }
+                        </div>
+                    </div>
             </form>
+            }
+            else if (Model.EnableComments)
+            {
+                <p class="text-muted mb-4">@Localizer["Sign in to comment."]
+                    <a asp-controller="Account" asp-action="Login" asp-route-returnUrl="@(Context.Request.Path + Context.Request.QueryString + "#comments")" class="btn btn-accent btn-sm ms-2">@Localizer["Login"]</a>
+                </p>
+            }
 
             @if (Model.CommentCount == 0)
             {
@@ -113,6 +143,10 @@
                                     <div class="d-flex justify-content-between align-items-center mb-1">
                                         <div>
                                             <strong class="me-2">@comment.AuthorDisplayName</strong>
+                                            @if (comment.UserId == null)
+                                            {
+                                                <span class="badge bg-secondary me-2">@Localizer["Guest"]</span>
+                                            }
                                             <small class="text-muted"><label data-utc-time="@comment.CreatedAt.ToHtmlDateTime()"></label></small>
                                         </div>
                                         @if (User.Identity?.IsAuthenticated == true &&
@@ -125,7 +159,7 @@
                                             </form>
                                         }
                                     </div>
-                                    <p class="mb-2">@comment.Content</p>
+                                    <div class="markdown-content mb-2">@Html.Raw(CommentMarkdown.ConvertMarkdownToHtml(comment.Content))</div>
 
                                     @if (comment.Replies.Any())
                                     {
@@ -142,6 +176,10 @@
                                                         <div class="d-flex justify-content-between align-items-center mb-1">
                                                             <div>
                                                                 <strong class="me-2">@reply.AuthorDisplayName</strong>
+                                                                @if (reply.UserId == null)
+                                                                {
+                                                                    <span class="badge bg-secondary me-2">@Localizer["Guest"]</span>
+                                                                }
                                                                 <small class="text-muted"><label data-utc-time="@reply.CreatedAt.ToHtmlDateTime()"></label></small>
                                                             </div>
                                                             @if (User.Identity?.IsAuthenticated == true &&
@@ -154,28 +192,17 @@
                                                                 </form>
                                                             }
                                                         </div>
-                                                        <p class="mb-0">@reply.Content</p>
+                                                        <div class="markdown-content mb-0">@Html.Raw(CommentMarkdown.ConvertMarkdownToHtml(reply.Content))</div>
                                                     </div>
                                                 </div>
                                             }
                                         </div>
                                     }
 
-                                    @if (User.Identity?.IsAuthenticated == true)
+                                    @if (Model.EnableComments && (User.Identity?.IsAuthenticated == true || Model.AllowAnonymousComments))
                                     {
                                         <div class="mt-2">
-                                            <a class="btn btn-link btn-sm p-0 text-secondary toggle-reply" data-target="reply-form-@comment.Id">@Localizer["Reply"]</a>
-                                            <div id="reply-form-@comment.Id" class="d-none mt-2">
-                                                <form asp-controller="Comments" asp-action="Post" method="post">
-                                                    <input type="hidden" name="documentId" value="@Model.DocumentId" />
-                                                    <input type="hidden" name="parentCommentId" value="@comment.Id" />
-                                                    @Html.AntiForgeryToken()
-                                                    <div class="mb-1">
-                                                        <textarea name="content" class="form-control form-control-sm" rows="2" placeholder="@string.Format(Localizer["Reply to {0}..."].Value, comment.AuthorDisplayName)" maxlength="65535" required></textarea>
-                                                    </div>
-                                                    <button type="submit" class="btn btn-outline-accent btn-sm">@Localizer["Send Reply"]</button>
-                                                </form>
-                                            </div>
+                                            <button type="button" class="btn btn-link btn-sm p-0 text-secondary toggle-reply" data-comment-id="@comment.Id">@Localizer["Reply"]</button>
                                         </div>
                                     }
                                 </div>
@@ -227,14 +254,17 @@
         });
     </script>
     <script>
-        document.querySelectorAll(".toggle-reply").forEach(function (el) {
-            el.addEventListener("click", function (e) {
-                e.preventDefault();
-                var target = document.getElementById(this.dataset.target);
-                if (target) {
-                    target.classList.toggle("d-none");
-                }
+        document.querySelectorAll(".toggle-reply").forEach(function (button) {
+            button.addEventListener("click", function () {
+                document.getElementById("parent-comment-id").value = this.dataset.commentId;
+                document.getElementById("cancel-comment-reply").classList.remove("d-none");
+                document.getElementById("comment-form").scrollIntoView({ behavior: "smooth", block: "center" });
+                document.querySelector("#comment-form textarea[name='content']").focus({ preventScroll: true });
             });
+        });
+        document.getElementById("cancel-comment-reply")?.addEventListener("click", function () {
+            document.getElementById("parent-comment-id").value = "";
+            this.classList.add("d-none");
         });
     </script>
 }
