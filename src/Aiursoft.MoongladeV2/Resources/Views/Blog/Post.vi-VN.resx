@@ -173,6 +173,9 @@ Bởi</value>
   <data name="Published" xml:space="preserve">
     <value>Đã đăng</value>
   </data>
+  <data name="Refresh verification code" xml:space="preserve">
+    <value>Làm mới mã xác minh</value>
+  </data>
   <data name="Reply" xml:space="preserve">
     <value>Phản hồi</value>
   </data>

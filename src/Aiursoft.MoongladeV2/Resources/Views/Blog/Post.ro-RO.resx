@@ -66,6 +66,9 @@
   <data name="Published" xml:space="preserve">
     <value>Publicat</value>
   </data>
+  <data name="Refresh verification code" xml:space="preserve">
+    <value>Reîmprospătează codul de verificare</value>
+  </data>
   <data name="Reply" xml:space="preserve">
     <value>Răspunde</value>
   </data>

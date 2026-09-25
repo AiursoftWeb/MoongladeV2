@@ -66,6 +66,9 @@
   <data name="Published" xml:space="preserve">
     <value>Δημοσιεύτηκε</value>
   </data>
+  <data name="Refresh verification code" xml:space="preserve">
+    <value>Ανανέωση κωδικού επαλήθευσης</value>
+  </data>
   <data name="Reply" xml:space="preserve">
     <value>Απάντηση</value>
   </data>

@@ -66,6 +66,9 @@
   <data name="Published" xml:space="preserve">
     <value>Publicado</value>
   </data>
+  <data name="Refresh verification code" xml:space="preserve">
+    <value>Atualizar código de verificação</value>
+  </data>
   <data name="Reply" xml:space="preserve">
     <value>Responder</value>
   </data>
