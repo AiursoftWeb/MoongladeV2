@@ -72,6 +72,9 @@ The user wants me to translate only the word `By` in the context of a blog post 
   <data name="Published" xml:space="preserve">
     <value>Опубликовано</value>
   </data>
+  <data name="Refresh verification code" xml:space="preserve">
+    <value>Обновить проверочный код</value>
+  </data>
   <data name="Reply" xml:space="preserve">
     <value>Ответить</value>
   </data>

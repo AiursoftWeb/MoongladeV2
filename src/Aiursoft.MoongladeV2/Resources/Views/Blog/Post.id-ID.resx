@@ -66,6 +66,9 @@
   <data name="Published" xml:space="preserve">
     <value>Diterbitkan</value>
   </data>
+  <data name="Refresh verification code" xml:space="preserve">
+    <value>Muat ulang kode verifikasi</value>
+  </data>
   <data name="Reply" xml:space="preserve">
     <value>Balas</value>
   </data>

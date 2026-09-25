@@ -66,6 +66,9 @@
   <data name="Published" xml:space="preserve">
     <value>Опубліковано</value>
   </data>
+  <data name="Refresh verification code" xml:space="preserve">
+    <value>Оновити код підтвердження</value>
+  </data>
   <data name="Reply" xml:space="preserve">
     <value>Відповісти</value>
   </data>

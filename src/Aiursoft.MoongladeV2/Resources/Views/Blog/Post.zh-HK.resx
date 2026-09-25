@@ -66,6 +66,9 @@
   <data name="Published" xml:space="preserve">
     <value>已發佈</value>
   </data>
+  <data name="Refresh verification code" xml:space="preserve">
+    <value>重新整理驗證碼</value>
+  </data>
   <data name="Reply" xml:space="preserve">
     <value>回覆</value>
   </data>

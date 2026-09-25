@@ -66,6 +66,9 @@
   <data name="Published" xml:space="preserve">
     <value>게시일</value>
   </data>
+  <data name="Refresh verification code" xml:space="preserve">
+    <value>인증 코드 새로고침</value>
+  </data>
   <data name="Reply" xml:space="preserve">
     <value>답글</value>
   </data>

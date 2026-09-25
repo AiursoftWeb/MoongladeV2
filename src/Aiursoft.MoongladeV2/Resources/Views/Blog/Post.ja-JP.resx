@@ -66,6 +66,9 @@
   <data name="Published" xml:space="preserve">
     <value>公開</value>
   </data>
+  <data name="Refresh verification code" xml:space="preserve">
+    <value>認証コードを更新</value>
+  </data>
   <data name="Reply" xml:space="preserve">
     <value>返信</value>
   </data>
