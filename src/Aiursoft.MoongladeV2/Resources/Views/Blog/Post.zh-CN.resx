@@ -78,6 +78,9 @@
   <data name="Verification" xml:space="preserve">
     <value>验证码</value>
   </data>
+  <data name="Refresh verification code" xml:space="preserve">
+    <value>刷新验证码</value>
+  </data>
   <data name="Views" xml:space="preserve">
     <value>阅读量</value>
   </data>

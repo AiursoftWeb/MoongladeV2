@@ -1,9 +1,12 @@
 using System.Net;
+using System.Text.RegularExpressions;
 using Aiursoft.MoongladeV2.Entities;
 using Aiursoft.MoongladeV2.Configuration;
 using Aiursoft.MoongladeV2.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.DataProtection;
+using System.Text.Json;
 
 namespace Aiursoft.MoongladeV2.Tests.IntegrationTests;
 
@@ -34,12 +37,21 @@ public class GuestCommentTests : TestBase
     {
         var documentId = await CreatePublicDocumentAsync();
         var content = new string('x', 1500);
-        var (captchaToken, captchaAnswer) = CreateCaptcha(documentId);
         var guestPage = await Http.GetStringAsync($"/post/{documentId}");
         StringAssert.Contains(guestPage, "name=\"guestName\"");
         StringAssert.Contains(guestPage, "name=\"guestEmail\"");
         StringAssert.Contains(guestPage, "name=\"captchaAnswer\"");
+        StringAssert.Contains(guestPage, "id=\"comment-captcha-image\"");
+        Assert.IsFalse(guestPage.Contains(" = ?"));
         StringAssert.Contains(guestPage, "/Account/Login");
+        var imageMatch = Regex.Match(guestPage, "data:image/png;base64,([^\"]+)");
+        Assert.IsTrue(imageMatch.Success, "The comment form should render a PNG captcha image.");
+        var image = Convert.FromBase64String(WebUtility.HtmlDecode(imageMatch.Groups[1].Value));
+        CollectionAssert.AreEqual(new byte[] { 137, 80, 78, 71 }, image[..4]);
+        var tokenMatch = Regex.Match(guestPage, "id=\"comment-captcha-token\" value=\"([^\"]+)\"");
+        Assert.IsTrue(tokenMatch.Success, "The comment form should include the captcha token.");
+        var captchaToken = WebUtility.HtmlDecode(tokenMatch.Groups[1].Value);
+        var captchaAnswer = DecodeCaptchaAnswer(captchaToken);
 
         var response = await PostForm("/Comments/Post", new Dictionary<string, string>
         {
@@ -129,6 +141,27 @@ public class GuestCommentTests : TestBase
     }
 
     [TestMethod]
+    public async Task AnonymousVisitor_CanRefreshCaptcha_AndCannotUseItForAnotherPost()
+    {
+        var documentId = await CreatePublicDocumentAsync();
+        var otherDocumentId = await CreatePublicDocumentAsync();
+        var response = await Http.GetAsync($"/Comments/Captcha?documentId={documentId}");
+        response.EnsureSuccessStatusCode();
+        Assert.AreEqual("no-store", response.Headers.CacheControl?.ToString());
+
+        using var json = JsonDocument.Parse(await response.Content.ReadAsStringAsync());
+        var image = Convert.FromBase64String(json.RootElement.GetProperty("imageBase64").GetString()!);
+        CollectionAssert.AreEqual(new byte[] { 137, 80, 78, 71 }, image[..4]);
+        var token = json.RootElement.GetProperty("token").GetString()!;
+        var answer = DecodeCaptchaAnswer(token);
+        using var scope = Server!.Services.CreateScope();
+        var captcha = scope.ServiceProvider.GetRequiredService<CommentCaptchaService>();
+        Assert.IsTrue(captcha.Verify(documentId, token, answer));
+        Assert.IsFalse(captcha.Verify(otherDocumentId, token, answer));
+        Assert.IsFalse(captcha.Verify(documentId, token, "wrong"));
+    }
+
+    [TestMethod]
     public async Task SignedInUser_SeesCompactFormAndCanComment()
     {
         var documentId = await CreatePublicDocumentAsync();
@@ -163,11 +196,20 @@ public class GuestCommentTests : TestBase
     private (string Token, string Answer) CreateCaptcha(Guid documentId)
     {
         using var scope = Server!.Services.CreateScope();
-        var (question, token) = scope.ServiceProvider.GetRequiredService<CommentCaptchaService>().Create(documentId);
-        var numbers = System.Text.RegularExpressions.Regex.Matches(question, @"\d+")
-            .Select(m => int.Parse(m.Value))
-            .ToArray();
-        return (token, (numbers[0] + numbers[1]).ToString());
+        var (_, token) = scope.ServiceProvider.GetRequiredService<CommentCaptchaService>().Create(documentId);
+        return (token, DecodeCaptchaAnswer(token));
+    }
+
+    private string DecodeCaptchaAnswer(string token)
+    {
+        using var scope = Server!.Services.CreateScope();
+        var provider = scope.ServiceProvider.GetRequiredService<IDataProtectionProvider>();
+        var payload = provider.CreateProtector("Moonglade.CommentCaptcha.v1")
+            .ToTimeLimitedDataProtector().Unprotect(token);
+        var ediToken = payload.Split(':', 2)[1];
+        var ediPayload = provider.CreateProtector("Edi.Captcha.Stateless").Unprotect(ediToken);
+        using var json = JsonDocument.Parse(ediPayload);
+        return json.RootElement.GetProperty("Code").GetString()!;
     }
 
     private async Task<Guid> CreatePublicDocumentAsync()

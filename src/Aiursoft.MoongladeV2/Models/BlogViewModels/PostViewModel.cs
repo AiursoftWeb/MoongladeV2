@@ -23,6 +23,6 @@ public class PostViewModel : UiStackLayoutViewModel
     public int CommentCount => Comments.Count;
     public bool EnableComments { get; set; }
     public bool AllowAnonymousComments { get; set; }
-    public string CaptchaQuestion { get; set; } = string.Empty;
+    public string CaptchaImageBase64 { get; set; } = string.Empty;
     public string CaptchaToken { get; set; } = string.Empty;
 }

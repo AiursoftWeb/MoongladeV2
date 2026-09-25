@@ -184,7 +184,7 @@ public class BlogController(
         var showAuthorInfo = await globalSettingsService.GetBoolSettingAsync(SettingsMap.ShowAuthorInfo);
         var enableComments = await globalSettingsService.GetBoolSettingAsync(SettingsMap.EnableComments);
         var allowAnonymousComments = await globalSettingsService.GetBoolSettingAsync(SettingsMap.AllowAnonymousComments);
-        var (captchaQuestion, captchaToken) = commentCaptchaService.Create(document.Id);
+        var (captchaImageBase64, captchaToken) = commentCaptchaService.Create(document.Id);
         var viewCount = viewCountService.Increment(document.Id);
 
         var model = new PostViewModel
@@ -204,7 +204,7 @@ public class BlogController(
             Comments = comments,
             EnableComments = enableComments,
             AllowAnonymousComments = allowAnonymousComments,
-            CaptchaQuestion = captchaQuestion,
+            CaptchaImageBase64 = captchaImageBase64,
             CaptchaToken = captchaToken
         };
         ViewBag.ShowAuthorInfo = showAuthorInfo;

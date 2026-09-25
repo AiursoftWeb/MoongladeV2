@@ -18,6 +18,18 @@ public class CommentsController(
     GlobalSettingsService globalSettingsService,
     CommentCaptchaService commentCaptchaService) : Controller
 {
+    [HttpGet]
+    [AllowAnonymous]
+    public async Task<IActionResult> Captcha([FromQuery] Guid documentId)
+    {
+        if (!await db.MarkdownDocuments.AnyAsync(d => d.Id == documentId && d.IsPublic))
+            return NotFound();
+
+        Response.Headers.CacheControl = "no-store";
+        var (imageBase64, token) = commentCaptchaService.Create(documentId);
+        return Json(new { imageBase64, token });
+    }
+
     [HttpPost]
     [AllowAnonymous]
     [ValidateAntiForgeryToken]

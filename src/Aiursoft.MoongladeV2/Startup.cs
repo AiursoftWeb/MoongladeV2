@@ -21,6 +21,7 @@ using Aiursoft.Canon.BackgroundJobs;
 using Aiursoft.Canon.ScheduledTasks;
 using Aiursoft.Dotlang.Shared;
 using Aiursoft.GptClient.Services;
+using Edi.Captcha;
 
 namespace Aiursoft.MoongladeV2;
 
@@ -56,6 +57,7 @@ public class Startup : IWebStartup
         services.AddMemoryCache();
         services.AddHttpClient();
         services.AddAssemblyDependencies(typeof(Startup).Assembly);
+        services.AddStatelessCaptcha();
         services.AddSingleton<NavigationState<Startup>>();
         services.AddSingleton<Services.ViewCountService>();
         services.AddHostedService<Services.ViewCountArchiveService>();
