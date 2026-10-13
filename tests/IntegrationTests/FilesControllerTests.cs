@@ -182,10 +182,9 @@ public class FilesControllerTests : TestBase
 
         for (var i = 0; i < 2; i++)
         {
-            using var content = new MultipartFormDataContent
-            {
-                { new ByteArrayContent(image), "file", "image.png" }
-            };
+            using var content = new MultipartFormDataContent();
+            using var fileContent = new ByteArrayContent(image);
+            content.Add(fileContent, "file", "image.png");
             var response = await Http.PostAsync(uploadUrl, content);
             response.EnsureSuccessStatusCode();
             var uploaded = await response.Content.ReadFromJsonAsync<UploadResult>();
