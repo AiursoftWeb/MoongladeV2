@@ -111,11 +111,9 @@ public class CommentsController(
             return NotFound();
 
         var userId = userManager.GetUserId(User);
-        var user = await userManager.FindByIdAsync(userId!);
-        var isAdmin = (user != null && await userManager.IsInRoleAsync(user, "Administrators")) ||
-                       User.IsInRole("Administrators");
+        var canManageComments = User.HasClaim(AppPermissions.Type, AppPermissionNames.CanManageComments);
 
-        if (comment.UserId != userId && !isAdmin)
+        if (comment.UserId != userId && !canManageComments)
             return Forbid();
 
         // Delete replies first, then the comment itself

@@ -1,3 +1,5 @@
+using Aiursoft.MoongladeV2.Authorization;
+using System.Security.Claims;
 using System.Net;
 using System.Text.RegularExpressions;
 using Aiursoft.MoongladeV2.Entities;
@@ -30,6 +32,84 @@ public class GuestCommentTests : TestBase
         }
 
         await base.CleanServer();
+    }
+
+    [TestMethod]
+    [DataRow(false, false, false)]
+    [DataRow(true, false, false)]
+    [DataRow(false, true, false)]
+    [DataRow(false, false, true)]
+    public async Task DeleteCommentUsesPermissionOrOwnershipRatherThanAdministratorRole(
+        bool administratorRole, bool permission, bool owner)
+    {
+        var documentId = await CreatePublicDocumentAsync();
+        var (email, password) = await RegisterAndLoginAsync();
+        Guid commentId;
+        string actorId;
+        IdentityRole? administratorRoleRecord = null;
+        Claim? revokedClaim = null;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var users = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+            var roles = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            var user = (await users.FindByEmailAsync(email))!;
+            actorId = user.Id;
+            if (administratorRole)
+            {
+                administratorRoleRecord = (await roles.FindByNameAsync("Administrators"))!;
+                revokedClaim = (await roles.GetClaimsAsync(administratorRoleRecord))
+                    .Single(claim => claim.Type == AppPermissions.Type && claim.Value == AppPermissionNames.CanManageComments);
+                Assert.IsTrue((await roles.RemoveClaimAsync(administratorRoleRecord, revokedClaim)).Succeeded);
+                Assert.IsTrue((await users.AddToRoleAsync(user, "Administrators")).Succeeded);
+            }
+            if (permission)
+                Assert.IsTrue((await users.AddClaimAsync(user,
+                    new Claim(AppPermissions.Type, AppPermissionNames.CanManageComments))).Succeeded);
+            var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+            var comment = new Comment { DocumentId = documentId, UserId = owner ? user.Id : null,
+                GuestName = owner ? null : "Guest", Content = "Permission boundary" };
+            db.Comments.Add(comment);
+            await db.SaveChangesAsync();
+            commentId = comment.Id;
+        }
+        try
+        {
+            using var signOut = await Http.GetAsync("/Account/LogOff");
+            using var login = await PostForm("/Account/Login", new()
+                { ["EmailOrUserName"] = email, ["Password"] = password });
+            Assert.AreEqual(HttpStatusCode.Found, login.StatusCode);
+            using var response = await PostForm("/Comments/Delete", new()
+                { ["commentId"] = commentId.ToString() }, tokenUrl: $"/post/{documentId}");
+            if (permission || owner)
+            {
+                Assert.AreEqual(HttpStatusCode.Found, response.StatusCode);
+                Assert.IsFalse(response.Headers.Location!.OriginalString.Contains("Code403"));
+            }
+            else
+            {
+                Assert.AreEqual(HttpStatusCode.Found, response.StatusCode);
+                StringAssert.Contains(response.Headers.Location!.OriginalString, "Code403");
+            }
+            using var verification = Server.Services.CreateScope();
+            var db = verification.ServiceProvider.GetRequiredService<TemplateDbContext>();
+            Assert.AreEqual(!(permission || owner), await db.Comments.AnyAsync(comment => comment.Id == commentId));
+        }
+        finally
+        {
+            using var cleanup = Server!.Services.CreateScope();
+            var users = cleanup.ServiceProvider.GetRequiredService<UserManager<User>>();
+            var roles = cleanup.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            if (revokedClaim != null)
+                Assert.IsTrue((await roles.AddClaimAsync((await roles.FindByIdAsync(administratorRoleRecord!.Id))!, revokedClaim)).Succeeded);
+            var actor = await users.FindByIdAsync(actorId);
+            if (actor != null)
+            {
+                var db = cleanup.ServiceProvider.GetRequiredService<TemplateDbContext>();
+                db.Comments.RemoveRange(await db.Comments.Where(comment => comment.DocumentId == documentId).ToListAsync());
+                await db.SaveChangesAsync();
+                Assert.IsTrue((await users.DeleteAsync(actor)).Succeeded);
+            }
+        }
     }
 
     [TestMethod]
