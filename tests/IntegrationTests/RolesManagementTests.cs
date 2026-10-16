@@ -14,7 +14,7 @@ public class RolesManagementTests
 {
     private int _port;
     private HttpClient _http = null!;
-    private IHost? _server;
+    private IHost _server = null!;
 
     [TestInitialize]
     public async Task CreateServer()
@@ -45,7 +45,6 @@ public class RolesManagementTests
     [TestCleanup]
     public async Task CleanServer()
     {
-        if (_server == null) return;
         await _server.StopAsync();
         using (var scope = _server.Services.CreateScope())
         {
@@ -125,7 +124,7 @@ public class RolesManagementTests
     [TestMethod]
     public async Task TestSeedCreatesInitialAdminWithAllPermissions()
     {
-        using var scope = _server!.Services.CreateScope();
+        using var scope = _server.Services.CreateScope();
         var users = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
         var roles = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
         var admin = await users.FindByNameAsync("admin");
@@ -169,7 +168,7 @@ public class RolesManagementTests
         var registerResponse = await _http.PostAsync("/Account/Register", registerContent);
         Assert.AreEqual(HttpStatusCode.Found, registerResponse.StatusCode);
 
-        using var scope = _server!.Services.CreateScope();
+        using var scope = _server.Services.CreateScope();
         var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
         var user = db.Users.First(u => u.Email == email);
 
@@ -178,7 +177,7 @@ public class RolesManagementTests
 
     private async Task GrantPermissionAsync(User user, string permissionName)
     {
-        using var scope = _server!.Services.CreateScope();
+        using var scope = _server.Services.CreateScope();
         var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
         var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
         
@@ -241,7 +240,7 @@ public class RolesManagementTests
         StringAssert.Contains(indexHtml, newRoleName);
 
         // Get the new role ID
-        using (var scope = _server!.Services.CreateScope())
+        using (var scope = _server.Services.CreateScope())
         {
             var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
             var role = roleManager.Roles.First(r => r.Name == newRoleName);
