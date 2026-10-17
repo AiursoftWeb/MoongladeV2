@@ -95,7 +95,7 @@
 
                 @if (!Model.Posts.Any())
                 {
-                    <div class="alert alert-info">@Localizer["No posts found."]</div>
+                    <div class="alert alert-info" role="alert"><div class="alert-message">@Localizer["No posts found."]</div></div>
                 }
                 else
                 {

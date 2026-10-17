@@ -20,7 +20,7 @@
     @if (Model.Pages.Count == 0)
     {
         <div class="card-body">
-            <div class="alert alert-info mb-0">@Localizer["No custom pages found."]</div>
+            <div class="alert alert-info mb-0" role="alert"><div class="alert-message">@Localizer["No custom pages found."]</div></div>
         </div>
     }
     else
