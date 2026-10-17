@@ -1,6 +1,5 @@
 using System.Net;
 using System.Text.RegularExpressions;
-using Aiursoft.CSTools.Tools;
 using Aiursoft.DbTools;
 using Aiursoft.MoongladeV2.Authorization;
 using Aiursoft.MoongladeV2.Entities;
@@ -25,21 +24,31 @@ public class RolesManagementTests
             CookieContainer = cookieContainer,
             AllowAutoRedirect = false
         };
-        _port = Network.GetAvailablePort();
+        using var reservation = new TestPortReservation();
+        _port = reservation.Port;
         _http = new HttpClient(handler)
         {
             BaseAddress = new Uri($"http://localhost:{_port}")
         };
 
         _server = await AppAsync<Startup>([], port: _port);
-        using (var scope = _server.Services.CreateScope())
+        try
         {
-            var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
-            await db.Database.EnsureDeletedAsync();
+            reservation.ConfigureServer(_server);
+            using (var scope = _server.Services.CreateScope())
+            {
+                var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+                await db.Database.EnsureDeletedAsync();
+            }
+            await _server.UpdateDbAsync<TemplateDbContext>();
+            await _server.SeedAsync();
+            await _server.StartAsync();
         }
-        await _server.UpdateDbAsync<TemplateDbContext>();
-        await _server.SeedAsync();
-        await _server.StartAsync();
+        catch
+        {
+            _server.Dispose();
+            throw;
+        }
     }
 
     [TestCleanup]
