@@ -108,7 +108,7 @@ public class LocalizeDocumentsJobTests
             .Build();
 
         var db = new SqliteTestContext(_dbOptions);
-        var settings = new GlobalSettingsService(db, config, null!, _cache);
+        var settings = new GlobalSettingsService(db, config, null!, _cache, new Microsoft.AspNetCore.DataProtection.EphemeralDataProtectionProvider(), Microsoft.Extensions.Logging.Abstractions.NullLogger<GlobalSettingsService>.Instance);
         var translator = new FakeTranslationService(settings);
 
         return new LocalizeDocumentsJob(
