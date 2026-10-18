@@ -3,7 +3,7 @@
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://gitlab.aiursoft.com/aiursoft/moongladeV2/-/blob/master/LICENSE)
 [![Pipeline stat](https://gitlab.aiursoft.com/aiursoft/moongladeV2/badges/master/pipeline.svg)](https://gitlab.aiursoft.com/aiursoft/moongladeV2/-/pipelines)
 [![Test Coverage](https://gitlab.aiursoft.com/aiursoft/moongladeV2/badges/master/coverage.svg)](https://gitlab.aiursoft.com/aiursoft/moongladeV2/-/pipelines)
-[![Man hours](https://manhours.aiursoft.com/r/gitlab.aiursoft.com/aiursoft/moongladeV2.svg)](https://manhours.aiursoft.com/r/gitlab.aiursoft.com/aiursoft/moongladeV2.html)
+[![Man hours](https://manhours.aiursoft.com/r/github.com/aiursoftweb/moongladeV2.svg)](https://manhours.aiursoft.com/r/github.com/aiursoftweb/moongladeV2.html)
 [![Website](https://img.shields.io/website?url=https%3A%2F%2FmoongladeV2.aiursoft.com)](https://moongladeV2.aiursoft.com)
 [![Docker](https://img.shields.io/docker/pulls/aiursoft/moongladeV2.svg)](https://hub.docker.com/r/aiursoft/moongladeV2)
 
