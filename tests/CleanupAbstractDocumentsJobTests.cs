@@ -65,7 +65,7 @@ public class CleanupAbstractDocumentsJobTests
             .Build();
 
         var db = new SqliteTestContext(_dbOptions);
-        var settings = new GlobalSettingsService(db, config, null!, _cache, new Microsoft.AspNetCore.DataProtection.EphemeralDataProtectionProvider(), Microsoft.Extensions.Logging.Abstractions.NullLogger<GlobalSettingsService>.Instance);
+        var settings = new GlobalSettingsService(db, config, null!, _cache, new Microsoft.AspNetCore.DataProtection.EphemeralDataProtectionProvider(), NullLogger<GlobalSettingsService>.Instance);
 
         return new CleanupAbstractDocumentsJob(
             db,
