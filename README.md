@@ -1,6 +1,6 @@
 # MoongladeV2
 
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://gitlab.aiursoft.com/aiursoft/moongladeV2/-/blob/master/LICENSE)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/AiursoftWeb/moongladev2/blob/master/LICENSE)
 [![Pipeline stat](https://gitlab.aiursoft.com/aiursoft/moongladeV2/badges/master/pipeline.svg)](https://gitlab.aiursoft.com/aiursoft/moongladeV2/-/pipelines)
 [![Test Coverage](https://gitlab.aiursoft.com/aiursoft/moongladeV2/badges/master/coverage.svg)](https://gitlab.aiursoft.com/aiursoft/moongladeV2/-/pipelines)
 [![Man hours](https://manhours.aiursoft.com/r/github.com/aiursoftweb/moongladeV2.svg)](https://manhours.aiursoft.com/r/github.com/aiursoftweb/moongladeV2.html)

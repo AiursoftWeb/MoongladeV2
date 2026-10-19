@@ -94,7 +94,7 @@ public class DetectSourceCultureJobTests
             .Build();
 
         var db = new SqliteTestContext(_dbOptions);
-        var settings = new GlobalSettingsService(db, config, null!, _cache);
+        var settings = new GlobalSettingsService(db, config, null!, _cache, new Microsoft.AspNetCore.DataProtection.EphemeralDataProtectionProvider(), NullLogger<GlobalSettingsService>.Instance);
 
         return new FakeDetectSourceCultureJob(
             db, settings, NullLogger<DetectSourceCultureJob>.Instance, fakeCulture);
