@@ -116,7 +116,7 @@ public class GenerateAbstractDocumentsJobTests
             .Build();
 
         var db = new SqliteTestContext(_dbOptions);
-        var settings = new GlobalSettingsService(db, config, null!, _cache);
+        var settings = new GlobalSettingsService(db, config, null!, _cache, new Microsoft.AspNetCore.DataProtection.EphemeralDataProtectionProvider(), NullLogger<GlobalSettingsService>.Instance);
         var generator = new FakeAbstractGenerationService(settings, NullLogger<AbstractGenerationService>.Instance);
         var translator = new FakeDocumentTranslationService(settings, NullLogger<DocumentTranslationService>.Instance);
 
