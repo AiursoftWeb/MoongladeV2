@@ -3,6 +3,7 @@ using Aiursoft.DbTools.Switchable;
 using Aiursoft.Scanner;
 using Aiursoft.MoongladeV2.Configuration;
 using Aiursoft.WebTools.Abstractions.Models;
+using Aiursoft.WebTools;
 using Aiursoft.MoongladeV2.InMemory;
 using Aiursoft.MoongladeV2.MySql;
 using Aiursoft.MoongladeV2.Services.Authentication;
@@ -54,6 +55,7 @@ public class Startup : IWebStartup
         services.AddTemplateAuth(configuration);
 
         // Services
+        services.AddMacroRateLimiting(options => configuration.GetSection("MacroRateLimit").Bind(options));
         services.AddMemoryCache();
         services.AddHttpClient();
         services.AddAssemblyDependencies(typeof(Startup).Assembly);
@@ -147,6 +149,7 @@ public class Startup : IWebStartup
         app.UseStatusCodePagesWithReExecute("/Error/Code{0}");
         app.UseUIStack();
         app.UseStaticFiles();
+        app.UseMacroRateLimiting();
         app.UseRouting();
         app.UseAuthentication();
         app.UseAuthorization();
