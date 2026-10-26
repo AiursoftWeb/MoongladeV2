@@ -6,7 +6,7 @@ using Aiursoft.MoongladeV2.Entities;
 using Aiursoft.MoongladeV2.InMemory;
 using Aiursoft.MoongladeV2.Services;
 using Aiursoft.MoongladeV2.Services.BackgroundJobs;
-using Aiursoft.MoongladeV2.Util;
+using Aiursoft.WebTools;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
