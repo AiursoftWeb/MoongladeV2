@@ -42,7 +42,7 @@
     <!-- Unified Sticky Toolbar -->
     <div class="editor-toolbar sticky-top bg-white border-bottom py-2 px-3 mb-0 d-flex align-items-center justify-content-between z-3">
         <!-- Left: View Switcher -->
-        <div class="d-flex align-items-center gap-3">
+        <div class="editor-view-controls d-flex align-items-center gap-3">
             @* Desktop View Switcher *@
             <div class="btn-group btn-group-sm d-none d-lg-inline-flex shadow-sm" role="group" aria-label="View mode" id="view-mode-switcher-desktop">
                 <input type="radio" class="btn-check" name="view-mode-desktop" id="view-split-desktop" value="split" autocomplete="off" checked>
@@ -73,7 +73,7 @@
             </a>
             <div class="editor-heading-fields">
                 <input asp-for="Title" class="form-control form-control-sm border-0 bg-transparent text-center fw-bold px-0 text-dark editor-title"
-                       placeholder="@Localizer["Untitled Post"]" />
+                       placeholder="@Localizer["Untitled Post"]" aria-label="@Localizer["Post title"]" />
                 <div class="editor-slug-control">
                     <div class="editor-slug-row" title="@Localizer["Post URL"]">
                         <i data-lucide="link-2" aria-hidden="true"></i>
@@ -91,9 +91,9 @@
         </div>
 
         <!-- Right: Actions -->
-        <div class="d-flex align-items-center gap-2">
+        <div class="editor-actions d-flex align-items-center gap-2">
             <!-- Optional divider before actions -->
-            <div class="vr mx-2 text-muted d-none d-md-block"></div>
+            <div class="vr mx-2 text-muted d-none d-lg-block"></div>
 
             @if (!string.IsNullOrEmpty(Model.PublicLink))
             {
@@ -105,47 +105,57 @@
                 </div>
             }
 
-            @if ((User.Identity?.IsAuthenticated ?? false) && Model.IsEditing)
-            {
-                @if (canPublish)
-                {
-                    @if (Model.IsPublic)
+            <div class="dropdown">
+                <button type="button" id="editor-more-button" class="btn btn-sm btn-white text-dark d-lg-none"
+                        data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" aria-controls="editor-more-menu">
+                    <i class="align-middle" data-lucide="ellipsis" aria-hidden="true"></i>
+                    @Localizer["More"]
+                </button>
+                <div class="dropdown-menu dropdown-menu-end editor-secondary-actions" id="editor-more-menu" aria-labelledby="editor-more-button">
+                    @if ((User.Identity?.IsAuthenticated ?? false) && Model.IsEditing)
                     {
-                        <button type="button" id="unpublish-button" class="btn btn-sm btn-warning shadow-sm" title="@Localizer["Unpublish"]">
-                            <i class="align-middle" data-lucide="lock"></i> <span class="d-none d-xxl-inline">@Localizer["Unpublish"]</span>
-                        </button>
+                        @if (canPublish)
+                        {
+                            @if (Model.IsPublic)
+                            {
+                                <button type="button" id="unpublish-button" class="dropdown-item btn btn-sm btn-warning shadow-sm" title="@Localizer["Unpublish"]">
+                                    <i class="align-middle" data-lucide="lock"></i> <span class="editor-action-label">@Localizer["Unpublish"]</span>
+                                </button>
+                            }
+                            else
+                            {
+                                <button type="button" id="publish-button" class="dropdown-item btn btn-sm btn-success shadow-sm" title="@Localizer["Publish"]">
+                                    <i class="align-middle" data-lucide="globe"></i> <span class="editor-action-label">@Localizer["Publish"]</span>
+                                </button>
+                            }
+                        }
+
+                        <a asp-action="Localize" asp-route-id="@Model.DocumentId" class="dropdown-item btn btn-sm btn-white text-dark shadow-sm" title="@Localizer["Localization"]">
+                            <i class="align-middle" data-lucide="languages"></i> <span class="editor-action-label">@Localizer["Localize"]</span>
+                        </a>
+
+                        <a asp-action="AbstractLocalize" asp-route-id="@Model.DocumentId" class="dropdown-item btn btn-sm btn-white text-dark shadow-sm" title="@Localizer["Abstract Localization"]">
+                            <i class="align-middle" data-lucide="book-open"></i> <span class="editor-action-label">@Localizer["Abstract"]</span>
+                        </a>
+
+                        <a asp-controller="Contract" asp-action="Fill" asp-route-id="@Model.DocumentId" class="dropdown-item btn btn-sm btn-white text-dark shadow-sm"
+                           target="_blank" title="@Localizer["Reader Layout"]">
+                            <i class="align-middle" data-lucide="file-text"></i> <span class="editor-action-label">@Localizer["Reader Layout"]</span>
+                        </a>
                     }
-                    else
-                    {
-                        <button type="button" id="publish-button" class="btn btn-sm btn-success shadow-sm" title="@Localizer["Publish"]">
-                            <i class="align-middle" data-lucide="globe"></i> <span class="d-none d-xxl-inline">@Localizer["Publish"]</span>
-                        </button>
-                    }
-                }
 
-                <a asp-action="Localize" asp-route-id="@Model.DocumentId" class="btn btn-sm btn-white text-dark shadow-sm" title="@Localizer["Localization"]">
-                    <i class="align-middle" data-lucide="languages"></i> <span class="d-none d-xxl-inline">@Localizer["Localize"]</span>
-                </a>
+                    <button type="button" id="copy-button" class="dropdown-item btn btn-sm btn-white text-dark shadow-sm" title="@Localizer["Copy Preview HTML"]">
+                        <i class="align-middle" data-lucide="copy"></i> <span class="editor-action-label">@Localizer["Copy Preview"]</span>
+                    </button>
 
-                <a asp-action="AbstractLocalize" asp-route-id="@Model.DocumentId" class="btn btn-sm btn-white text-dark shadow-sm" title="@Localizer["Abstract Localization"]">
-                    <i class="align-middle" data-lucide="book-open"></i> <span class="d-none d-xxl-inline">@Localizer["Abstract"]</span>
-                </a>
-
-                <a asp-controller="Contract" asp-action="Fill" asp-route-id="@Model.DocumentId" class="btn btn-sm btn-white text-dark shadow-sm"
-                   target="_blank" title="@Localizer["Reader Layout"]">
-                    <i class="align-middle" data-lucide="file-text"></i> <span class="d-none d-xxl-inline">@Localizer["Reader Layout"]</span>
-                </a>
-            }
-            
-            <button type="button" id="copy-button" class="btn btn-sm btn-white text-dark shadow-sm" title="@Localizer["Copy Preview HTML"]">
-                <i class="align-middle" data-lucide="copy"></i> <span class="d-none d-xxl-inline">@Localizer["Copy Preview"]</span>
-            </button>
+                </div>
+            </div>
 
             @if (User.Identity?.IsAuthenticated ?? false)
             {
                 <button type="@(Model.IsEditing ? "button" : "submit")" id="save-button" class="btn btn-sm btn-secondary shadow-sm px-3" disabled="@(Model.IsEditing ? "disabled" : null)">
                     <i class="align-middle" data-lucide="save"></i>
-                    <span class="d-none d-md-inline ms-1 fw-bold">@Localizer["Save"]</span>
+                    <span class="ms-1 fw-bold">@Localizer["Save"]</span>
                 </button>
             }
         </div>
@@ -353,7 +363,107 @@
             border-color: #323d4b !important;
         }
         
+        @@media (min-width: 992px) {
+            .editor-secondary-actions {
+                display: flex;
+                align-items: center;
+                gap: .5rem;
+                position: static !important;
+                transform: none !important;
+                min-width: 0;
+                padding: 0;
+                margin: 0;
+                border: 0;
+                background: transparent;
+                box-shadow: none;
+            }
+            .editor-secondary-actions .dropdown-item {
+                width: auto;
+                padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
+                color: var(--bs-btn-color);
+                background-color: var(--bs-btn-bg);
+                border-radius: var(--bs-btn-border-radius);
+            }
+            .editor-secondary-actions .dropdown-item:hover {
+                color: var(--bs-btn-hover-color);
+                background-color: var(--bs-btn-hover-bg);
+            }
+        }
+        @@media (min-width: 992px) and (max-width: 1399.98px) {
+            .editor-action-label {
+                display: none;
+            }
+        }
         @@media (max-width: 991.98px) {
+            .editor-toolbar {
+                display: grid !important;
+                grid-template-columns: minmax(0, 1fr) auto;
+                grid-template-areas: "heading heading" "views actions";
+                gap: .65rem .75rem;
+            }
+            .editor-view-controls {
+                grid-area: views;
+            }
+            .editor-actions {
+                grid-area: actions;
+            }
+            .editor-heading {
+                grid-area: heading;
+            }
+            .editor-heading-fields {
+                width: 100%;
+            }
+            .editor-title {
+                max-width: none;
+                min-height: 40px;
+                text-align: left !important;
+            }
+            .editor-heading > a {
+                flex-shrink: 0;
+            }
+            .editor-slug-row {
+                justify-content: flex-start;
+            }
+            .editor-slug-input {
+                min-width: 0;
+            }
+            .editor-view-controls label,
+            #save-button,
+            #editor-more-button {
+                min-height: 40px;
+            }
+            .editor-view-controls label {
+                min-width: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .editor-actions > .dropdown {
+                position: relative;
+            }
+            .editor-secondary-actions {
+                top: calc(100% + .35rem) !important;
+                right: 0 !important;
+                left: auto !important;
+                transform: none !important;
+                min-width: 13rem;
+                padding: .35rem;
+            }
+            .editor-slug-feedback {
+                top: calc(100% + 4rem);
+            }
+            .editor-secondary-actions .dropdown-item {
+                display: flex;
+                align-items: center;
+                gap: .65rem;
+                min-height: 44px;
+                margin: 0;
+                border: 0;
+                box-shadow: none !important;
+                text-align: left;
+                border-radius: .25rem;
+            }
+
             .editor-heading {
                 padding-right: .5rem !important;
                 padding-left: .5rem !important;
@@ -646,11 +756,11 @@
 
                 function setViewMode(mode, fromMobile) {
                     if (!editorCol || !previewCol || !formRoot) return;
-                    
+
                     if (isMobile() && mode === 'split') {
                         mode = 'editor';
                     }
-                    
+
                     localStorage.setItem('markdown-view-mode', mode);
                     if (markdownEditorController) {
                         void markdownEditorController.setViewMode(mode);
@@ -688,7 +798,7 @@
                          formRoot.classList.remove('view-mode-editor', 'view-mode-preview');
                          formRoot.classList.add(`view-mode-${mode}`);
                     }
-                    
+
                     if (markdownEditorInstance && (mode === 'split' || mode === 'editor')) {
                         setTimeout(() => markdownEditorInstance.layout(), 0);
                     }
@@ -714,7 +824,7 @@
                         const val = htmlOutputElementForCopy.value;
                         if (!val) return;
                         navigator.clipboard.writeText(val).then(
-                            () => { let h = copyButton.innerHTML; copyButton.innerHTML = `<i class="align-middle" data-lucide="check"></i> <span class="d-none d-xxl-inline">Copied!</span>`; setTimeout(() => copyButton.innerHTML = h, 2000); },
+                            () => { let h = copyButton.innerHTML; copyButton.innerHTML = `<i class="align-middle" data-lucide="check"></i> <span class="editor-action-label">Copied!</span>`; setTimeout(() => copyButton.innerHTML = h, 2000); },
                             (err) => console.error(err)
                         );
                     });
