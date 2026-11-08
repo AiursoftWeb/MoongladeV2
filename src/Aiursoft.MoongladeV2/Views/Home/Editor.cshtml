@@ -295,53 +295,61 @@
             display: none;
         }
         /* Toolbar adjustments for dark mode */
-        body[data-theme="dark"] .sticky-top {
+        html[data-bs-theme="dark"] .sticky-top {
             background-color: #222e3c !important; /* AdminKit dark background */
             border-bottom: 1px solid #323d4b !important;
         }
-        body[data-theme="dark"] #preview-column {
+        html[data-bs-theme="dark"] #preview-column {
             background-color: #1e2530 !important;
         }
-        body[data-theme="dark"] #markdown-preview {
+        html[data-bs-theme="dark"] #markdown-preview {
             background-color: #222e3c !important;
             box-shadow: 0 4px 6px rgba(0,0,0,0.3) !important;
         }
-        body[data-theme="dark"] .form-control.bg-transparent {
+        html[data-bs-theme="dark"] #markdown-preview pre {
+            background-color: #0d1117;
+        }
+        html[data-bs-theme="dark"] #markdown-preview :not(pre) > code,
+        html[data-bs-theme="dark"] #markdown-preview table th,
+        html[data-bs-theme="dark"] #markdown-preview table tr:nth-child(2n) {
+            background-color: #2a3544;
+        }
+        html[data-bs-theme="dark"] .form-control.bg-transparent {
             color: #e9ecef !important;
         }
-        body[data-theme="dark"] .editor-slug-row {
+        html[data-bs-theme="dark"] .editor-slug-row {
             color: #8995a5;
         }
-        body[data-theme="dark"] .editor-slug-input {
+        html[data-bs-theme="dark"] .editor-slug-input {
             color: #aeb8c4;
         }
-        body[data-theme="dark"] .editor-slug-control:focus-within .editor-slug-row {
+        html[data-bs-theme="dark"] .editor-slug-control:focus-within .editor-slug-row {
             border-color: #52657d;
             background-color: rgba(255,255,255,.05);
             color: #c3ccd6;
         }
-        body[data-theme="dark"] .editor-slug-control:focus-within .editor-slug-input {
+        html[data-bs-theme="dark"] .editor-slug-control:focus-within .editor-slug-input {
             color: #e9ecef;
         }
-        body[data-theme="dark"] .editor-slug-feedback {
+        html[data-bs-theme="dark"] .editor-slug-feedback {
             border-color: #465466;
             background: #2f3e50;
             color: #c7ced6;
             box-shadow: 0 4px 14px rgba(0,0,0,.3);
         }
-        body[data-theme="dark"] .bg-white {
+        html[data-bs-theme="dark"] .bg-white {
             background-color: #222e3c !important;
         }
-        body[data-theme="dark"] .btn-white {
+        html[data-bs-theme="dark"] .btn-white {
             background-color: #2f3e50 !important;
             border-color: #3f5268 !important;
             color: #d1d8e0 !important;
         }
-        body[data-theme="dark"] .btn-white:hover {
+        html[data-bs-theme="dark"] .btn-white:hover {
             background-color: #3f5268 !important;
             color: #fff !important;
         }
-        body[data-theme="dark"] .border-end {
+        html[data-bs-theme="dark"] .border-end {
             border-color: #323d4b !important;
         }
         
@@ -400,10 +408,10 @@
         .markdown-source-fallback:focus {
             box-shadow: none;
         }
-        body[data-theme="dark"] #Title:focus {
+        html[data-bs-theme="dark"] #Title:focus {
             background-color: rgba(255,255,255,0.05) !important;
         }
-        body[data-theme="dark"] .markdown-source-fallback {
+        html[data-bs-theme="dark"] .markdown-source-fallback {
             background-color: #1e2530 !important;
             color: #e9ecef !important;
         }
