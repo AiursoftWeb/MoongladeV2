@@ -216,6 +216,9 @@
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>Markdown 轉 HTML 轉換器</value>
   </data>
+  <data name="More" xml:space="preserve">
+    <value>更多</value>
+  </data>
   <data name="Multiple Database Support" xml:space="preserve">
     <value>多種資料庫支援</value>
   </data>
@@ -227,6 +230,9 @@
   </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>OpenID Connect 整合</value>
+  </data>
+  <data name="Post title" xml:space="preserve">
+    <value>文章標題</value>
   </data>
   <data name="Post updated successfully." xml:space="preserve">
     <value>文章更新成功。</value>

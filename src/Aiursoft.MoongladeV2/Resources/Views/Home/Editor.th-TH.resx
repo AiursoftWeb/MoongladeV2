@@ -216,6 +216,9 @@
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>ตัวแปลงมาร์กดาวน์เป็น HTML</value>
   </data>
+  <data name="More" xml:space="preserve">
+    <value>เพิ่มเติม</value>
+  </data>
   <data name="Multiple Database Support" xml:space="preserve">
     <value>รองรับหลายฐานข้อมูล</value>
   </data>
@@ -227,6 +230,9 @@
   </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>การผสานรวม OpenID Connect</value>
+  </data>
+  <data name="Post title" xml:space="preserve">
+    <value>ชื่อโพสต์</value>
   </data>
   <data name="Post updated successfully." xml:space="preserve">
     <value>อัปเดตโพสต์สำเร็จแล้ว</value>

@@ -216,6 +216,9 @@
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>Markdownista HTML-muuntimeen</value>
   </data>
+  <data name="More" xml:space="preserve">
+    <value>Lisää</value>
+  </data>
   <data name="Multiple Database Support" xml:space="preserve">
     <value>Usean tietokannan tuki</value>
   </data>
@@ -227,6 +230,9 @@
   </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>OpenID Connect -integraatio</value>
+  </data>
+  <data name="Post title" xml:space="preserve">
+    <value>Kirjoituksen otsikko</value>
   </data>
   <data name="Post updated successfully." xml:space="preserve">
     <value>Julkaisu päivitetty onnistuneesti.</value>

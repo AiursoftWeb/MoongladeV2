@@ -216,6 +216,9 @@
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>मार्कडाउन से HTML कन्वर्टर</value>
   </data>
+  <data name="More" xml:space="preserve">
+    <value>और</value>
+  </data>
   <data name="Multiple Database Support" xml:space="preserve">
     <value>एकाधिक डेटाबेस समर्थन</value>
   </data>
@@ -227,6 +230,9 @@
   </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>ओपनआईडी कनेक्ट एकीकरण</value>
+  </data>
+  <data name="Post title" xml:space="preserve">
+    <value>पोस्ट शीर्षक</value>
   </data>
   <data name="Post updated successfully." xml:space="preserve">
     <value>पोस्ट सफलतापूर्वक अपडेट हो गई।</value>
