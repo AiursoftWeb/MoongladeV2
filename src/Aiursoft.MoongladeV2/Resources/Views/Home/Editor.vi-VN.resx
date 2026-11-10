@@ -216,6 +216,9 @@
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>Công cụ Chuyển đổi Markdown sang HTML</value>
   </data>
+  <data name="More" xml:space="preserve">
+    <value>Thêm</value>
+  </data>
   <data name="Multiple Database Support" xml:space="preserve">
     <value>Hỗ trợ Đa Cơ sở Dữ liệu</value>
   </data>
@@ -227,6 +230,9 @@
   </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>Tích hợp OpenID Connect</value>
+  </data>
+  <data name="Post title" xml:space="preserve">
+    <value>Tiêu đề bài viết</value>
   </data>
   <data name="Post updated successfully." xml:space="preserve">
     <value>Đã cập nhật bài viết thành công.</value>

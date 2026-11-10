@@ -216,6 +216,9 @@
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>마크다운에서 HTML로 변환기</value>
   </data>
+  <data name="More" xml:space="preserve">
+    <value>더 보기</value>
+  </data>
   <data name="Multiple Database Support" xml:space="preserve">
     <value>다중 데이터베이스 지원</value>
   </data>
@@ -227,6 +230,9 @@
   </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>OpenID Connect 연동</value>
+  </data>
+  <data name="Post title" xml:space="preserve">
+    <value>게시물 제목</value>
   </data>
   <data name="Post updated successfully." xml:space="preserve">
     <value>게시물이 성공적으로 업데이트되었습니다.</value>

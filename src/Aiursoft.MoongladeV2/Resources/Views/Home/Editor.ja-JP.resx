@@ -216,6 +216,9 @@
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>MarkdownからHTMLへの変換ツール</value>
   </data>
+  <data name="More" xml:space="preserve">
+    <value>もっと見る</value>
+  </data>
   <data name="Multiple Database Support" xml:space="preserve">
     <value>複数データベースサポート</value>
   </data>
@@ -227,6 +230,9 @@
   </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>OpenID Connect 連携</value>
+  </data>
+  <data name="Post title" xml:space="preserve">
+    <value>記事タイトル</value>
   </data>
   <data name="Post updated successfully." xml:space="preserve">
     <value>投稿が正常に更新されました。</value>

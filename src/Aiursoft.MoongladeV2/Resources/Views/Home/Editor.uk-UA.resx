@@ -216,6 +216,9 @@
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>Конвертер Markdown у HTML</value>
   </data>
+  <data name="More" xml:space="preserve">
+    <value>Більше</value>
+  </data>
   <data name="Multiple Database Support" xml:space="preserve">
     <value>Підтримка кількох баз даних</value>
   </data>
@@ -227,6 +230,9 @@
   </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>Інтеграція OpenID Connect</value>
+  </data>
+  <data name="Post title" xml:space="preserve">
+    <value>Назва публікації</value>
   </data>
   <data name="Post updated successfully." xml:space="preserve">
     <value>Запис успішно оновлено.</value>

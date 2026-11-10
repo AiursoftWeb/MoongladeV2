@@ -216,6 +216,9 @@
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>Convertor Markdown în HTML</value>
   </data>
+  <data name="More" xml:space="preserve">
+    <value>Mai mult</value>
+  </data>
   <data name="Multiple Database Support" xml:space="preserve">
     <value>Suport pentru Multiple Baze de Date</value>
   </data>
@@ -227,6 +230,9 @@
   </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>Integrare OpenID Connect</value>
+  </data>
+  <data name="Post title" xml:space="preserve">
+    <value>Titlul postării</value>
   </data>
   <data name="Post updated successfully." xml:space="preserve">
     <value>Articolul a fost actualizat cu succes.</value>

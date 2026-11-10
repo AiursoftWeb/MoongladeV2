@@ -216,6 +216,9 @@
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>Μετατροπέας Markdown σε HTML</value>
   </data>
+  <data name="More" xml:space="preserve">
+    <value>Περισσότερα</value>
+  </data>
   <data name="Multiple Database Support" xml:space="preserve">
     <value>Υποστήριξη Πολλαπλών Βάσεων Δεδομένων</value>
   </data>
@@ -227,6 +230,9 @@
   </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>Ενσωμάτωση OpenID Connect</value>
+  </data>
+  <data name="Post title" xml:space="preserve">
+    <value>Τίτλος δημοσίευσης</value>
   </data>
   <data name="Post updated successfully." xml:space="preserve">
     <value>Η ανάρτηση ενημερώθηκε με επιτυχία.</value>
