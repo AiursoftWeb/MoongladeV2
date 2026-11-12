@@ -35,7 +35,7 @@ public class MarketingNavbar(
             .SelectMany(BlogTagParser.ParseTags)
             .GroupBy(tag => tag, StringComparer.OrdinalIgnoreCase)
             .OrderByDescending(g => g.Count())
-            .ThenBy(g => g.Key)
+            .ThenBy(g => g.Key, StringComparer.CurrentCulture)
             .Take(12)
             .Select(g => g.Key)
             .ToArray();

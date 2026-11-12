@@ -1,3 +1,4 @@
+@using System.Globalization
 @model Aiursoft.MoongladeV2.Models.BlogViewModels.ArchiveViewModel
 
 <vc:marketing-navbar></vc:marketing-navbar>
@@ -16,7 +17,7 @@
                     <li class="py-2 d-flex justify-content-between border-bottom">
                         <a class="text-decoration-none" href="@post.Url">@post.Title</a>
                         <span class="text-muted small">
-                            @post.PublishedAt.ToString("MM-dd") · @Localizer["Views"] @post.ViewCount.ToString("N0")
+                            @post.PublishedAt.ToString("MM-dd", CultureInfo.CurrentCulture) · @Localizer["Views"] @post.ViewCount.ToString("N0")
                         </span>
                     </li>
                 }
