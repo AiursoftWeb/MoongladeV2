@@ -121,7 +121,7 @@ public class BlogController(
         // as persisted; new and edited slugs still go through PostUrlService.
         if (string.IsNullOrWhiteSpace(slug) || slug.Length > PostUrlService.MaxSlugLength ||
             !DateTime.TryParseExact($"{year:D4}-{month:D2}-{day:D2}", "yyyy-MM-dd",
-                CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out var date)) return NotFound();
+                CultureInfo.InvariantCulture, DateTimeStyles.None, out var date)) return NotFound();
 
         var document = await dbContext.MarkdownDocuments
             .AsNoTracking()
