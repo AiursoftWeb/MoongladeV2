@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Text.RegularExpressions;
 using Aiursoft.MoongladeV2.Configuration;
 using Aiursoft.MoongladeV2.Entities;
@@ -50,7 +51,7 @@ public class BlogController(
                 .SelectMany(BlogTagParser.ParseTags)
                 .GroupBy(tag => tag, StringComparer.OrdinalIgnoreCase)
                 .OrderByDescending(g => g.Count())
-                .ThenBy(g => g.Key)
+                .ThenBy(g => g.Key, StringComparer.CurrentCulture)
                 .Select(g => new TagCountViewModel
                 {
                     Tag = g.Key,
@@ -84,7 +85,7 @@ public class BlogController(
             .OrderByDescending(g => g.Key)
             .Select(group => new ArchiveMonthViewModel
             {
-                Label = group.Key.ToString("yyyy MMM"),
+                Label = group.Key.ToString("yyyy MMM", CultureInfo.CurrentCulture),
                 Posts = group.Select(d => new BlogPostSummaryViewModel
                 {
                     Id = d.Id,
@@ -120,7 +121,7 @@ public class BlogController(
         // as persisted; new and edited slugs still go through PostUrlService.
         if (string.IsNullOrWhiteSpace(slug) || slug.Length > PostUrlService.MaxSlugLength ||
             !DateTime.TryParseExact($"{year:D4}-{month:D2}-{day:D2}", "yyyy-MM-dd",
-                System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out var date)) return NotFound();
+                CultureInfo.InvariantCulture, DateTimeStyles.None, out var date)) return NotFound();
 
         var document = await dbContext.MarkdownDocuments
             .AsNoTracking()
@@ -341,7 +342,7 @@ public class BlogController(
             .SelectMany(d => BlogTagParser.ParseTags(d.Tags))
             .GroupBy(tagName => tagName, StringComparer.OrdinalIgnoreCase)
             .OrderByDescending(g => g.Count())
-            .ThenBy(g => g.Key)
+            .ThenBy(g => g.Key, StringComparer.CurrentCulture)
             .Take(30)
             .Select(g => new TagCountViewModel
             {

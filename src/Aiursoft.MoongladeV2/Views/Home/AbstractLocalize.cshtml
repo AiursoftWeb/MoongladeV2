@@ -60,7 +60,7 @@
                 {
                     <button type="button" class="list-group-item list-group-item-action language-item d-flex flex-column align-items-start"
                             data-culture="@lang.Culture"
-                            data-is-source="@lang.IsSourceCulture.ToString().ToLower()">
+                            data-is-source="@lang.IsSourceCulture.ToString().ToLowerInvariant()">
                         <div class="d-flex w-100 justify-content-between align-items-center">
                             <span class="fw-semibold">
                                 @if (lang.IsSourceCulture)
@@ -292,7 +292,7 @@
             {
                 var firstName = System.Globalization.CultureInfo.GetCultureInfo(sourceLang.Culture).NativeName;
                 <text>
-                loadAbstract('@sourceLang.Culture', '@Html.Raw(firstName)', @(sourceLang.IsSourceCulture.ToString().ToLower()));
+                loadAbstract('@sourceLang.Culture', '@Html.Raw(firstName)', @(sourceLang.IsSourceCulture.ToString().ToLowerInvariant()));
                 </text>
             }
         });
