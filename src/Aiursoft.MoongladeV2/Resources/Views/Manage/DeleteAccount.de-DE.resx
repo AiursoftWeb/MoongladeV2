@@ -21,9 +21,6 @@
       <data name="Are you sure you want to delete your account?" xml:space="preserve">
     <value>Sind Sie sicher, dass Sie Ihr Konto löschen möchten?</value>
   </data>
-  <data name="article(s)." xml:space="preserve">
-    <value>Artikel(n).</value>
-  </data>
   <data name="As these articles are public assets of the blog/news center, you must first manually delete them or transfer their ownership before you can delete your account." xml:space="preserve">
     <value>Da diese Artikel öffentliche Inhalte des Blogs/News-Centers sind, müssen Sie sie zunächst manuell löschen oder die Eigentümerschaft übertragen, bevor Sie Ihr Konto löschen können.</value>
   </data>
@@ -56,6 +53,9 @@
   </data>
   <data name="You cannot delete your account yet." xml:space="preserve">
     <value>Sie können Ihr Konto noch nicht löschen.</value>
+  </data>
+  <data name="article(s)." xml:space="preserve">
+    <value>Artikel(n).</value>
   </data>
 
 </root>

@@ -63,17 +63,17 @@
   <data name="Post" xml:space="preserve">
     <value>게시물</value>
   </data>
-  <data name="replies" xml:space="preserve">
-    <value>댓글</value>
-  </data>
   <data name="Reply:" xml:space="preserve">
     <value>답변:</value>
   </data>
-  <data name="total comments" xml:space="preserve">
-    <value>총 댓글 수</value>
-  </data>
   <data name="View and delete comments on blog posts." xml:space="preserve">
     <value>블로그 게시물의 댓글을 보고 삭제합니다.</value>
+  </data>
+  <data name="replies" xml:space="preserve">
+    <value>댓글</value>
+  </data>
+  <data name="total comments" xml:space="preserve">
+    <value>총 댓글 수</value>
   </data>
 
 </root>

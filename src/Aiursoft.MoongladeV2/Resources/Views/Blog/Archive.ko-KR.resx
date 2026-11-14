@@ -21,11 +21,11 @@
       <data name="Archive" xml:space="preserve">
     <value>아카이브</value>
   </data>
-  <data name="posts in total" xml:space="preserve">
-    <value>총 게시물</value>
-  </data>
   <data name="Views" xml:space="preserve">
     <value>조회 수</value>
+  </data>
+  <data name="posts in total" xml:space="preserve">
+    <value>총 게시물</value>
   </data>
 
 </root>

@@ -21,9 +21,6 @@
       <data name="Are you sure you want to delete your account?" xml:space="preserve">
     <value>Bạn có chắc chắn muốn xóa tài khoản của mình không?</value>
   </data>
-  <data name="article(s)." xml:space="preserve">
-    <value>bài viết.</value>
-  </data>
   <data name="As these articles are public assets of the blog/news center, you must first manually delete them or transfer their ownership before you can delete your account." xml:space="preserve">
     <value>Vì những bài viết này là tài sản công cộng của blog/trung tâm tin tức, bạn phải xóa thủ công hoặc chuyển quyền sở hữu của chúng trước khi có thể xóa tài khoản của mình.</value>
   </data>
@@ -56,6 +53,9 @@
   </data>
   <data name="You cannot delete your account yet." xml:space="preserve">
     <value>Bạn hiện chưa thể xóa tài khoản của mình.</value>
+  </data>
+  <data name="article(s)." xml:space="preserve">
+    <value>bài viết.</value>
   </data>
 
 </root>

@@ -63,17 +63,17 @@
   <data name="Post" xml:space="preserve">
     <value>Публікація</value>
   </data>
-  <data name="replies" xml:space="preserve">
-    <value>відповіді</value>
-  </data>
   <data name="Reply:" xml:space="preserve">
     <value>Відповідь:</value>
   </data>
-  <data name="total comments" xml:space="preserve">
-    <value>загалом коментарів</value>
-  </data>
   <data name="View and delete comments on blog posts." xml:space="preserve">
     <value>Переглядайте та видаляйте коментарі до дописів блогу.</value>
+  </data>
+  <data name="replies" xml:space="preserve">
+    <value>відповіді</value>
+  </data>
+  <data name="total comments" xml:space="preserve">
+    <value>загалом коментарів</value>
   </data>
 
 </root>

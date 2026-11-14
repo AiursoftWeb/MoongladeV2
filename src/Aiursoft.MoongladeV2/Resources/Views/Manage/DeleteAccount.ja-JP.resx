@@ -21,9 +21,6 @@
       <data name="Are you sure you want to delete your account?" xml:space="preserve">
     <value>本当にアカウントを削除しますか？</value>
   </data>
-  <data name="article(s)." xml:space="preserve">
-    <value>記事。</value>
-  </data>
   <data name="As these articles are public assets of the blog/news center, you must first manually delete them or transfer their ownership before you can delete your account." xml:space="preserve">
     <value>これらの記事はブログ/ニュースセンターの公開資産であるため、アカウントを削除する前に、手動でそれらを削除するか所有権を譲渡する必要があります。</value>
   </data>
@@ -56,6 +53,9 @@
   </data>
   <data name="You cannot delete your account yet." xml:space="preserve">
     <value>まだアカウントを削除できません。</value>
+  </data>
+  <data name="article(s)." xml:space="preserve">
+    <value>記事。</value>
   </data>
 
 </root>

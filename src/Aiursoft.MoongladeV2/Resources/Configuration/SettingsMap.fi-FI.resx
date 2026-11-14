@@ -69,11 +69,11 @@
   <data name="Embedding Model" xml:space="preserve">
     <value>Upotusmalli</value>
   </data>
-  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
-    <value>Upotusmallin nimi vektorihakuun, esim. bge-m3:latest. Mallin on oltava saatavilla upotuspäätepisteessä.</value>
-  </data>
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>Kyselyupotusvälimuistin raja</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
+    <value>Upotusmallin nimi vektorihakuun, esim. bge-m3:latest. Mallin on oltava saatavilla upotuspäätepisteessä.</value>
   </data>
   <data name="Enable Comments" xml:space="preserve">
     <value>Ota kommentointi käyttöön</value>
@@ -123,11 +123,17 @@
   <data name="Show Author Info" xml:space="preserve">
     <value>Näytä tekijän tiedot</value>
   </data>
+  <data name="Show Contract Header" xml:space="preserve">
+    <value>Näytä sopimuksen otsikko</value>
+  </data>
   <data name="Show author name and avatar at the top of blog post pages." xml:space="preserve">
     <value>Näytä kirjoittajan nimi ja kuva blogikirjoitussivujen yläosassa.</value>
   </data>
-  <data name="Show Contract Header" xml:space="preserve">
-    <value>Näytä sopimuksen otsikko</value>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>ICP-luvanumero Kiinan mantereen käyttäjille. Jätä tyhjäksi piilottaaksesi.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>Yrityksen tai projektin URL-osoite. Esim. https://www.aiursoft.com</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>Yrityksen tai projektin osoite.</value>
@@ -137,9 +143,6 @@
   </data>
   <data name="The email address of the company or project." xml:space="preserve">
     <value>Yrityksen tai projektin sähköpostiosoite.</value>
-  </data>
-  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
-    <value>ICP-luvanumero Kiinan mantereen käyttäjille. Jätä tyhjäksi piilottaaksesi.</value>
   </data>
   <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
     <value>Sopimuksen logo, joka näytetään otsakkeessa. Tuetut muodot: jpg, png, svg. Eri kuin järjestelmän logo.</value>
@@ -155,9 +158,6 @@
   </data>
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>Yrityksen tai projektin postinumero.</value>
-  </data>
-  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
-    <value>Yrityksen tai projektin URL-osoite. Esim. https://www.aiursoft.com</value>
   </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>Näytetäänkö sopimuksen otsikko (logo, osoite jne.) sopimusnäkymässä.</value>

@@ -63,17 +63,17 @@
   <data name="Post" xml:space="preserve">
     <value>पोस्ट</value>
   </data>
-  <data name="replies" xml:space="preserve">
-    <value>जवाब</value>
-  </data>
   <data name="Reply:" xml:space="preserve">
     <value>जवाब:</value>
   </data>
-  <data name="total comments" xml:space="preserve">
-    <value>कुल टिप्पणियाँ</value>
-  </data>
   <data name="View and delete comments on blog posts." xml:space="preserve">
     <value>ब्लॉग पोस्ट पर टिप्पणियाँ देखें और हटाएँ।</value>
+  </data>
+  <data name="replies" xml:space="preserve">
+    <value>जवाब</value>
+  </data>
+  <data name="total comments" xml:space="preserve">
+    <value>कुल टिप्पणियाँ</value>
   </data>
 
 </root>

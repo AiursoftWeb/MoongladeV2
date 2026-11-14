@@ -63,17 +63,17 @@
   <data name="Post" xml:space="preserve">
     <value>Publicação</value>
   </data>
-  <data name="replies" xml:space="preserve">
-    <value>respostas</value>
-  </data>
   <data name="Reply:" xml:space="preserve">
     <value>Resposta:</value>
   </data>
-  <data name="total comments" xml:space="preserve">
-    <value>comentários no total</value>
-  </data>
   <data name="View and delete comments on blog posts." xml:space="preserve">
     <value>Veja e exclua comentários em postagens do blog.</value>
+  </data>
+  <data name="replies" xml:space="preserve">
+    <value>respostas</value>
+  </data>
+  <data name="total comments" xml:space="preserve">
+    <value>comentários no total</value>
   </data>
 
 </root>

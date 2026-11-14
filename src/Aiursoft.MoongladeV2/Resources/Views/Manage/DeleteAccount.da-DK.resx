@@ -21,9 +21,6 @@
       <data name="Are you sure you want to delete your account?" xml:space="preserve">
     <value>Er du sikker på, at du vil slette din konto?</value>
   </data>
-  <data name="article(s)." xml:space="preserve">
-    <value>artikel(n).</value>
-  </data>
   <data name="As these articles are public assets of the blog/news center, you must first manually delete them or transfer their ownership before you can delete your account." xml:space="preserve">
     <value>Da disse artikler er offentlige aktiver på bloggen/nyhedscentret, skal du først slette dem manuelt eller overdrage ejerskabet af dem, før du kan slette din konto.</value>
   </data>
@@ -56,6 +53,9 @@
   </data>
   <data name="You cannot delete your account yet." xml:space="preserve">
     <value>Du kan ikke slette din konto endnu.</value>
+  </data>
+  <data name="article(s)." xml:space="preserve">
+    <value>artikel(n).</value>
   </data>
 
 </root>

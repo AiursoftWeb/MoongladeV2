@@ -21,11 +21,11 @@
       <data name="Archive" xml:space="preserve">
     <value>Arhivă</value>
   </data>
-  <data name="posts in total" xml:space="preserve">
-    <value>articole în total</value>
-  </data>
   <data name="Views" xml:space="preserve">
     <value>Vizualizări</value>
+  </data>
+  <data name="posts in total" xml:space="preserve">
+    <value>articole în total</value>
   </data>
 
 </root>

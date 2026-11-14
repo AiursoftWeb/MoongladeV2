@@ -45,11 +45,11 @@
   <data name="Localized Title" xml:space="preserve">
     <value>ชื่อเรื่องที่แปล</value>
   </data>
-  <data name="Save failed." xml:space="preserve">
-    <value>บันทึกไม่สำเร็จ</value>
-  </data>
   <data name="Save Translation" xml:space="preserve">
     <value>บันทึกการแปล</value>
+  </data>
+  <data name="Save failed." xml:space="preserve">
+    <value>บันทึกไม่สำเร็จ</value>
   </data>
   <data name="Saved successfully!" xml:space="preserve">
     <value>บันทึกสำเร็จแล้ว!</value>

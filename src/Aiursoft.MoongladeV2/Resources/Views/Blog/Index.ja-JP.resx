@@ -54,9 +54,6 @@
   <data name="Popular Tags" xml:space="preserve">
     <value>人気のタグ</value>
   </data>
-  <data name="posts" xml:space="preserve">
-    <value>投稿</value>
-  </data>
   <data name="Previous" xml:space="preserve">
     <value>前へ</value>
   </data>
@@ -83,6 +80,9 @@
   </data>
   <data name="Views" xml:space="preserve">
     <value>閲覧数</value>
+  </data>
+  <data name="posts" xml:space="preserve">
+    <value>投稿</value>
   </data>
 
 </root>

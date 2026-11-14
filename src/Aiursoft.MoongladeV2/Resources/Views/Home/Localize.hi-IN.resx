@@ -45,11 +45,11 @@
   <data name="Localized Title" xml:space="preserve">
     <value>स्थानीय शीर्षक</value>
   </data>
-  <data name="Save failed." xml:space="preserve">
-    <value>सहेजना विफल रहा।</value>
-  </data>
   <data name="Save Translation" xml:space="preserve">
     <value>अनुवाद सहेजें</value>
+  </data>
+  <data name="Save failed." xml:space="preserve">
+    <value>सहेजना विफल रहा।</value>
   </data>
   <data name="Saved successfully!" xml:space="preserve">
     <value>सफलतापूर्वक सहेजा गया!</value>

@@ -69,11 +69,11 @@
   <data name="Embedding Model" xml:space="preserve">
     <value>Μοντέλο Ενσωμάτωσης</value>
   </data>
-  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
-    <value>Όνομα μοντέλου ενσωμάτωσης για αναζήτηση διανυσμάτων, π.χ. bge-m3:latest. Πρέπει να είναι διαθέσιμο στο Τέρμα Ενσωμάτωσης.</value>
-  </data>
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>Όριο Κρυφής Μνήμης Διανυσματικών Ερωτήσεων</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
+    <value>Όνομα μοντέλου ενσωμάτωσης για αναζήτηση διανυσμάτων, π.χ. bge-m3:latest. Πρέπει να είναι διαθέσιμο στο Τέρμα Ενσωμάτωσης.</value>
   </data>
   <data name="Enable Comments" xml:space="preserve">
     <value>Ενεργοποίηση Σχολίων</value>
@@ -123,11 +123,17 @@
   <data name="Show Author Info" xml:space="preserve">
     <value>Εμφάνιση Πληροφοριών Συγγραφέα</value>
   </data>
+  <data name="Show Contract Header" xml:space="preserve">
+    <value>Εμφάνιση Κεφαλίδας Συμβολαίου</value>
+  </data>
   <data name="Show author name and avatar at the top of blog post pages." xml:space="preserve">
     <value>Εμφάνιση ονόματος και αβταρ συγγραφέα στην κορυφή των σελίδων αναρτήσεων ιστολογίου.</value>
   </data>
-  <data name="Show Contract Header" xml:space="preserve">
-    <value>Εμφάνιση Κεφαλίδας Συμβολαίου</value>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>Ο αριθμός άδειας ICP για χρήστες της Κίνας. Αφήστε κενό για να κρυφτεί.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>Η διεύθυνση URL της εταιρείας ή του έργου. Π.χ. https://www.aiursoft.com</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>Η διεύθυνση της εταιρείας ή του έργου.</value>
@@ -137,9 +143,6 @@
   </data>
   <data name="The email address of the company or project." xml:space="preserve">
     <value>Το διεύθυνση ηλεκτρονικού ταχυδρομείου της εταιρείας ή του έργου.</value>
-  </data>
-  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
-    <value>Ο αριθμός άδειας ICP για χρήστες της Κίνας. Αφήστε κενό για να κρυφτεί.</value>
   </data>
   <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
     <value>Το λογότυπο του συμβολαίου που εμφανίζεται στην κεφαλίδα. Υποστηρίζει jpg, png, svg. Διαφορετικό από το λογότυπο του συστήματος.</value>
@@ -155,9 +158,6 @@
   </data>
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>Το ταχυδρομικό κώδικας της εταιρείας ή του έργου.</value>
-  </data>
-  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
-    <value>Η διεύθυνση URL της εταιρείας ή του έργου. Π.χ. https://www.aiursoft.com</value>
   </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>Αν θα εμφανίζεται η κεφαλίδα της σύμβασης (Λογότυπο, διεύθυνση κ.λπ.) στην προβολή της σύμβασης.</value>

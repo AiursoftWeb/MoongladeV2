@@ -159,11 +159,11 @@
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>Markdown to HTML Muunnin</value>
   </data>
-  <data name="My documents" xml:space="preserve">
-    <value>Omat dokumentit</value>
-  </data>
   <data name="My Documents History" xml:space="preserve">
     <value>Minun asiakirjojen historia</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>Omat dokumentit</value>
   </data>
   <data name="My posts" xml:space="preserve">
     <value>Omat viestini</value>

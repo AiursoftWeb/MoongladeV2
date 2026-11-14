@@ -162,11 +162,11 @@
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>Markdown to HTML 转换器</value>
   </data>
-  <data name="My documents" xml:space="preserve">
-    <value>我的文档</value>
-  </data>
   <data name="My Documents History" xml:space="preserve">
     <value>我的文档历史</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>我的文档</value>
   </data>
   <data name="My posts" xml:space="preserve">
     <value>我的帖子</value>

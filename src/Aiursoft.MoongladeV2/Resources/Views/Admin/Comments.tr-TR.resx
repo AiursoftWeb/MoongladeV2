@@ -63,17 +63,17 @@
   <data name="Post" xml:space="preserve">
     <value>Yazı</value>
   </data>
-  <data name="replies" xml:space="preserve">
-    <value>cevaplar</value>
-  </data>
   <data name="Reply:" xml:space="preserve">
     <value>Yanıt:</value>
   </data>
-  <data name="total comments" xml:space="preserve">
-    <value>toplam yorum</value>
-  </data>
   <data name="View and delete comments on blog posts." xml:space="preserve">
     <value>Blog gönderilerindeki yorumları görüntüleyin ve silin.</value>
+  </data>
+  <data name="replies" xml:space="preserve">
+    <value>cevaplar</value>
+  </data>
+  <data name="total comments" xml:space="preserve">
+    <value>toplam yorum</value>
   </data>
 
 </root>

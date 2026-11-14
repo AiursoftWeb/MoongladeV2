@@ -159,11 +159,11 @@
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>Conversor de Markdown para HTML</value>
   </data>
-  <data name="My documents" xml:space="preserve">
-    <value>Meus documentos</value>
-  </data>
   <data name="My Documents History" xml:space="preserve">
     <value>Histórico de Meus Documentos</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>Meus documentos</value>
   </data>
   <data name="My posts" xml:space="preserve">
     <value>Meus posts</value>

@@ -69,11 +69,11 @@
   <data name="Embedding Model" xml:space="preserve">
     <value>임베딩 모델</value>
   </data>
-  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
-    <value>벡터 검색용 임베딩 모델 이름, 예: bge-m3:latest. 임베딩 엔드포인트에서 사용 가능해야 합니다.</value>
-  </data>
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>임베딩 쿼리 캐시 제한</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
+    <value>벡터 검색용 임베딩 모델 이름, 예: bge-m3:latest. 임베딩 엔드포인트에서 사용 가능해야 합니다.</value>
   </data>
   <data name="Enable Comments" xml:space="preserve">
     <value>댓글 활성화</value>
@@ -123,11 +123,17 @@
   <data name="Show Author Info" xml:space="preserve">
     <value>작성자 정보 표시</value>
   </data>
+  <data name="Show Contract Header" xml:space="preserve">
+    <value>계약 헤더 표시</value>
+  </data>
   <data name="Show author name and avatar at the top of blog post pages." xml:space="preserve">
     <value>블로그 게시글 페이지 상단에 저자 이름과 아바타 표시</value>
   </data>
-  <data name="Show Contract Header" xml:space="preserve">
-    <value>계약 헤더 표시</value>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>중국 본토 사용자를 위한 ICP 라이선스 번호입니다. 숨기려면 비워 두세요.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>회사 또는 프로젝트의 URL입니다. 예: https://www.aiursoft.com</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>회사 또는 프로젝트의 주소</value>
@@ -137,9 +143,6 @@
   </data>
   <data name="The email address of the company or project." xml:space="preserve">
     <value>회사 또는 프로젝트의 이메일 주소입니다.</value>
-  </data>
-  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
-    <value>중국 본토 사용자를 위한 ICP 라이선스 번호입니다. 숨기려면 비워 두세요.</value>
   </data>
   <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
     <value>헤더에 표시되는 계약 로고입니다. jpg, png, svg 형식을 지원합니다. 시스템 로고와 별개입니다.</value>
@@ -155,9 +158,6 @@
   </data>
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>회사 또는 프로젝트의 우편번호입니다.</value>
-  </data>
-  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
-    <value>회사 또는 프로젝트의 URL입니다. 예: https://www.aiursoft.com</value>
   </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>계약 뷰에 계약 헤더 (로고, 주소 등) 를 표시할지 여부입니다.</value>

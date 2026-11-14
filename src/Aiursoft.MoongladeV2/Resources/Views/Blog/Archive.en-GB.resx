@@ -21,11 +21,11 @@
       <data name="Archive" xml:space="preserve">
     <value>Archive</value>
   </data>
-  <data name="posts in total" xml:space="preserve">
-    <value>posts in total</value>
-  </data>
   <data name="Views" xml:space="preserve">
     <value>Views</value>
+  </data>
+  <data name="posts in total" xml:space="preserve">
+    <value>posts in total</value>
   </data>
 
 </root>

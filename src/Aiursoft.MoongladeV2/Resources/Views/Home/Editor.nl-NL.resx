@@ -33,6 +33,9 @@
   <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
     <value>Een eenvoudig hulpmiddel om uw Markdown om te zetten in schone, gesanitiseerde HTML.</value>
   </data>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>AI-aangedreven vertalingen</value>
+  </data>
   <data name="Abstract" xml:space="preserve">
     <value>Samenvatting</value>
   </data>
@@ -41,9 +44,6 @@
   </data>
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
     <value>Nadat u dit document privé heeft gemaakt, zal de bestaande openbare link niet meer werken. Weet u zeker dat u door wilt gaan?</value>
-  </data>
-  <data name="AI-Powered Translations" xml:space="preserve">
-    <value>AI-aangedreven vertalingen</value>
   </data>
   <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
     <value>Alle afhankelijkheden worden automatisch geregistreerd en zijn altijd beschikbaar via constructorinjectie.</value>
@@ -114,14 +114,14 @@
   <data name="Copy Link" xml:space="preserve">
     <value>Link kopiëren</value>
   </data>
-  <data name="Copy link to clipboard" xml:space="preserve">
-    <value>Link naar klembord kopiëren</value>
-  </data>
   <data name="Copy Preview" xml:space="preserve">
     <value>Voorbeeld kopiëren</value>
   </data>
   <data name="Copy Preview HTML" xml:space="preserve">
     <value>Voorbeeld-HTML kopiëren</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>Link naar klembord kopiëren</value>
   </data>
   <data name="Create a new document..." xml:space="preserve">
     <value>Maak een nieuw document aan...</value>
@@ -165,11 +165,11 @@
   <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
     <value>Beschikt over een ingebouwd bestandsbeheersysteem met automatische avatarcompressie.</value>
   </data>
-  <data name="Hello World!" xml:space="preserve">
-    <value>Hallo Wereld!</value>
-  </data>
   <data name="HTML preview will appear here after conversion." xml:space="preserve">
     <value>De HTML-voorvertoning verschijnt hier na conversie.</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>Hallo Wereld!</value>
   </data>
   <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
     <value>Als je dit document privé maakt, zal de bestaande openbare link onmiddellijk voor iedereen stoppen met werken.</value>
@@ -201,14 +201,14 @@
   <data name="Lowercase English letters, numbers, and single hyphens only. Empty slugs are generated automatically for public posts." xml:space="preserve">
     <value>Alleen kleine Engelse letters, cijfers en enkele koppeltekens. Lege slugs worden automatisch gegenereerd voor openbare berichten.</value>
   </data>
-  <data name="Make document private" xml:space="preserve">
-    <value>Document privé maken</value>
-  </data>
   <data name="Make Private" xml:space="preserve">
     <value>Privé maken</value>
   </data>
   <data name="Make Public" xml:space="preserve">
     <value>Openbaar maken</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>Document privé maken</value>
   </data>
   <data name="Markdown Input" xml:space="preserve">
     <value>Markdown-invoer</value>
@@ -231,14 +231,14 @@
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>OpenID Connect-integratie</value>
   </data>
+  <data name="Post URL" xml:space="preserve">
+    <value>Artikel-URL</value>
+  </data>
   <data name="Post title" xml:space="preserve">
     <value>Titel van de post</value>
   </data>
   <data name="Post updated successfully." xml:space="preserve">
     <value>Post succesvol bijgewerkt.</value>
-  </data>
-  <data name="Post URL" xml:space="preserve">
-    <value>Artikel-URL</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>Voorbeeld</value>

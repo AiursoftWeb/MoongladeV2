@@ -63,17 +63,17 @@
   <data name="Post" xml:space="preserve">
     <value>Pos</value>
   </data>
-  <data name="replies" xml:space="preserve">
-    <value>balasan</value>
-  </data>
   <data name="Reply:" xml:space="preserve">
     <value>Balasan:</value>
   </data>
-  <data name="total comments" xml:space="preserve">
-    <value>komentar total</value>
-  </data>
   <data name="View and delete comments on blog posts." xml:space="preserve">
     <value>Lihat dan hapus komentar pada postingan blog.</value>
+  </data>
+  <data name="replies" xml:space="preserve">
+    <value>balasan</value>
+  </data>
+  <data name="total comments" xml:space="preserve">
+    <value>komentar total</value>
   </data>
 
 </root>

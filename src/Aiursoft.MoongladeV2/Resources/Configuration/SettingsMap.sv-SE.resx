@@ -69,11 +69,11 @@
   <data name="Embedding Model" xml:space="preserve">
     <value>Inbäddningsmodell</value>
   </data>
-  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
-    <value>Namn på inbäddningsmodell för vektorsökning, t.ex. bge-m3:latest. Måste vara tillgänglig på inbäddningsändpunkten.</value>
-  </data>
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>Gräns för cache av inbäddningsförfrågningar</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
+    <value>Namn på inbäddningsmodell för vektorsökning, t.ex. bge-m3:latest. Måste vara tillgänglig på inbäddningsändpunkten.</value>
   </data>
   <data name="Enable Comments" xml:space="preserve">
     <value>Aktivera kommentarer</value>
@@ -123,11 +123,17 @@
   <data name="Show Author Info" xml:space="preserve">
     <value>Visa författarinfo</value>
   </data>
+  <data name="Show Contract Header" xml:space="preserve">
+    <value>Visa avtalsrubrik</value>
+  </data>
   <data name="Show author name and avatar at the top of blog post pages." xml:space="preserve">
     <value>Visa författarens namn och avatar överst på blogginläggsidor.</value>
   </data>
-  <data name="Show Contract Header" xml:space="preserve">
-    <value>Visa avtalsrubrik</value>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>ICP-licensnummer för användare i Kina. Lämna tomt för att dölja.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>URL:en för företaget eller projektet. Till exempel https://www.aiursoft.com</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>Adressen för företaget eller projektet.</value>
@@ -137,9 +143,6 @@
   </data>
   <data name="The email address of the company or project." xml:space="preserve">
     <value>E-postadressen för företaget eller projektet.</value>
-  </data>
-  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
-    <value>ICP-licensnummer för användare i Kina. Lämna tomt för att dölja.</value>
   </data>
   <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
     <value>Logotypen för avtalet visas i rubriken. Stödjer jpg, png, svg. Skild från systemlogotypen.</value>
@@ -155,9 +158,6 @@
   </data>
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>Postkod för företaget eller projektet.</value>
-  </data>
-  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
-    <value>URL:en för företaget eller projektet. Till exempel https://www.aiursoft.com</value>
   </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>Om avtalets huvud (logotyp, adress etc.) ska visas i avtalsvyn.</value>

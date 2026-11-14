@@ -21,9 +21,6 @@
       <data name="Are you sure you want to delete your account?" xml:space="preserve">
     <value>Haluatko varmasti poistaa tilisi?</value>
   </data>
-  <data name="article(s)." xml:space="preserve">
-    <value>artikkelia.</value>
-  </data>
   <data name="As these articles are public assets of the blog/news center, you must first manually delete them or transfer their ownership before you can delete your account." xml:space="preserve">
     <value>Koska nämä artikkelit ovat blogi-/uutiskeskuksen julkisia sisältöjä, sinun on ensin poistettava ne manuaalisesti tai siirrettävä niiden omistajuus, ennen kuin voit poistaa tilisi.</value>
   </data>
@@ -56,6 +53,9 @@
   </data>
   <data name="You cannot delete your account yet." xml:space="preserve">
     <value>Et voi vielä poistaa tiliäsi.</value>
+  </data>
+  <data name="article(s)." xml:space="preserve">
+    <value>artikkelia.</value>
   </data>
 
 </root>

@@ -87,11 +87,11 @@
   <data name="Write your comment..." xml:space="preserve">
     <value>寫下你的留言...</value>
   </data>
-  <data name="Write your comment…" xml:space="preserve">
-    <value>撰寫你的留言…</value>
-  </data>
   <data name="Write your comment... (Markdown supported)" xml:space="preserve">
     <value>寫下你的留言...（支援 Markdown）</value>
+  </data>
+  <data name="Write your comment…" xml:space="preserve">
+    <value>撰寫你的留言…</value>
   </data>
   <data name="Your email will not be displayed publicly." xml:space="preserve">
     <value>您的電郵地址不會公開顯示。</value>

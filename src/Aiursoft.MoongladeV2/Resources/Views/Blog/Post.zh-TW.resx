@@ -162,11 +162,11 @@ Thus final answer: ```作者``` but inside triple backticks:
   <data name="Write your comment..." xml:space="preserve">
     <value>寫下你的留言...</value>
   </data>
-  <data name="Write your comment…" xml:space="preserve">
-    <value>輸入您的留言…</value>
-  </data>
   <data name="Write your comment... (Markdown supported)" xml:space="preserve">
     <value>請輸入您的留言... (支援 Markdown)</value>
+  </data>
+  <data name="Write your comment…" xml:space="preserve">
+    <value>輸入您的留言…</value>
   </data>
   <data name="Your email will not be displayed publicly." xml:space="preserve">
     <value>您的電子郵件地址將不會公開顯示。</value>

@@ -69,11 +69,11 @@
   <data name="Embedding Model" xml:space="preserve">
     <value>Model de încorporare</value>
   </data>
-  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
-    <value>Numele modelului de embedding pentru căutarea vectorială, ex. bge-m3:latest. Trebuie să fie disponibil la endpoint-ul de embedding.</value>
-  </data>
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>Limitul Caching-ului pentru Interogări de Încorporare</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
+    <value>Numele modelului de embedding pentru căutarea vectorială, ex. bge-m3:latest. Trebuie să fie disponibil la endpoint-ul de embedding.</value>
   </data>
   <data name="Enable Comments" xml:space="preserve">
     <value>Activare comentarii</value>
@@ -123,11 +123,17 @@
   <data name="Show Author Info" xml:space="preserve">
     <value>Afișează informațiile autorului</value>
   </data>
+  <data name="Show Contract Header" xml:space="preserve">
+    <value>Afișează antetul contractului</value>
+  </data>
   <data name="Show author name and avatar at the top of blog post pages." xml:space="preserve">
     <value>Afișează numele și avatarul autorului în partea de sus a paginilor de articole de blog.</value>
   </data>
-  <data name="Show Contract Header" xml:space="preserve">
-    <value>Afișează antetul contractului</value>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>Numărul de înregistrare ICP pentru utilizatorii din China continentală. Lăsați gol pentru a ascunde.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>Adresa URL a companiei sau a proiectului. De exemplu: https://www.aiursoft.com</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>Adresa companiei sau a proiectului.</value>
@@ -137,9 +143,6 @@
   </data>
   <data name="The email address of the company or project." xml:space="preserve">
     <value>Adresa de email a companiei sau a proiectului.</value>
-  </data>
-  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
-    <value>Numărul de înregistrare ICP pentru utilizatorii din China continentală. Lăsați gol pentru a ascunde.</value>
   </data>
   <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
     <value>Logo-ul contractului afișat în antet. Suportă jpg, png, svg. Separat de logo-ul sistemului.</value>
@@ -155,9 +158,6 @@
   </data>
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>Codul poștal al companiei sau proiectului.</value>
-  </data>
-  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
-    <value>Adresa URL a companiei sau a proiectului. De exemplu: https://www.aiursoft.com</value>
   </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>Dacă să afișeze antetul contractului (Logo, adresă etc.) în vizualizarea contractului.</value>

@@ -21,9 +21,6 @@
       <data name="Are you sure you want to delete your account?" xml:space="preserve">
     <value>Είστε σίγουρος ότι θέλετε να διαγράψετε τον λογαριασμό σας;</value>
   </data>
-  <data name="article(s)." xml:space="preserve">
-    <value>άρθρο(α).</value>
-  </data>
   <data name="As these articles are public assets of the blog/news center, you must first manually delete them or transfer their ownership before you can delete your account." xml:space="preserve">
     <value>Επειδή αυτά τα άρθρα είναι δημόσια περιουσιακά στοιχεία του blog/news center, πρέπει πρώτα να τα διαγράψετε χειροκίνητα ή να μεταφέρετε την ιδιοκτησία τους πριν μπορέσετε να διαγράψετε τον λογαριασμό σας.</value>
   </data>
@@ -56,6 +53,9 @@
   </data>
   <data name="You cannot delete your account yet." xml:space="preserve">
     <value>Δεν μπορείτε να διαγράψετε τον λογαριασμό σας ακόμα.</value>
+  </data>
+  <data name="article(s)." xml:space="preserve">
+    <value>άρθρο(α).</value>
   </data>
 
 </root>

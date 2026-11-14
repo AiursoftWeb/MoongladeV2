@@ -69,11 +69,11 @@
   <data name="Embedding Model" xml:space="preserve">
     <value>نموذج التضمين</value>
   </data>
-  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
-    <value>اسم نموذج التضمين للبحث المتجهي، على سبيل المثال bge-m3:latest. يجب أن يكون متاحًا في نقطة نهاية التضمين.</value>
-  </data>
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>حد ذاكرة التخزين المؤقت لاستعلام التضمين</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
+    <value>اسم نموذج التضمين للبحث المتجهي، على سبيل المثال bge-m3:latest. يجب أن يكون متاحًا في نقطة نهاية التضمين.</value>
   </data>
   <data name="Enable Comments" xml:space="preserve">
     <value>تفعيل التعليقات</value>
@@ -123,11 +123,17 @@
   <data name="Show Author Info" xml:space="preserve">
     <value>إظهار معلومات الكاتب</value>
   </data>
+  <data name="Show Contract Header" xml:space="preserve">
+    <value>إظهار رأس العقد</value>
+  </data>
   <data name="Show author name and avatar at the top of blog post pages." xml:space="preserve">
     <value>إظهار اسم الكاتب والصورة الرمزية في أعلى صفحات منشورات المدونة.</value>
   </data>
-  <data name="Show Contract Header" xml:space="preserve">
-    <value>إظهار رأس العقد</value>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>رقم ترخيص ICP للمستخدمين في الصين القارية. اتركه فارغًا لإخفائه.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>عنوان URL للشركة أو المشروع. مثال: https://www.aiursoft.com</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>عنوان الشركة أو المشروع.</value>
@@ -137,9 +143,6 @@
   </data>
   <data name="The email address of the company or project." xml:space="preserve">
     <value>عنوان البريد الإلكتروني للشركة أو المشروع.</value>
-  </data>
-  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
-    <value>رقم ترخيص ICP للمستخدمين في الصين القارية. اتركه فارغًا لإخفائه.</value>
   </data>
   <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
     <value>شعار العقد المعروض في الرأس. يدعم صيغ jpg وpng وsvg. منفصل عن شعار النظام.</value>
@@ -155,9 +158,6 @@
   </data>
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>الرمز البريدي للشركة أو المشروع.</value>
-  </data>
-  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
-    <value>عنوان URL للشركة أو المشروع. مثال: https://www.aiursoft.com</value>
   </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>ما إذا كان سيتم عرض رأس العقد (الشعار، العنوان، إلخ) في عرض العقد.</value>

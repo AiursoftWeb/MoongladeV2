@@ -45,11 +45,11 @@
   <data name="Localized Title" xml:space="preserve">
     <value>タイトル</value>
   </data>
-  <data name="Save failed." xml:space="preserve">
-    <value>保存に失敗しました。</value>
-  </data>
   <data name="Save Translation" xml:space="preserve">
     <value>翻訳を保存</value>
+  </data>
+  <data name="Save failed." xml:space="preserve">
+    <value>保存に失敗しました。</value>
   </data>
   <data name="Saved successfully!" xml:space="preserve">
     <value>保存しました！</value>

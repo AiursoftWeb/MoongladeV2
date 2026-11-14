@@ -63,17 +63,17 @@
   <data name="Post" xml:space="preserve">
     <value>Post</value>
   </data>
-  <data name="replies" xml:space="preserve">
-    <value>replies</value>
-  </data>
   <data name="Reply:" xml:space="preserve">
     <value>Reply:</value>
   </data>
-  <data name="total comments" xml:space="preserve">
-    <value>total comments</value>
-  </data>
   <data name="View and delete comments on blog posts." xml:space="preserve">
     <value>View and delete comments on blog posts.</value>
+  </data>
+  <data name="replies" xml:space="preserve">
+    <value>replies</value>
+  </data>
+  <data name="total comments" xml:space="preserve">
+    <value>total comments</value>
   </data>
 
 </root>

@@ -63,17 +63,17 @@
   <data name="Post" xml:space="preserve">
     <value>文章</value>
   </data>
-  <data name="replies" xml:space="preserve">
-    <value>則回覆</value>
-  </data>
   <data name="Reply:" xml:space="preserve">
     <value>回覆：</value>
   </data>
-  <data name="total comments" xml:space="preserve">
-    <value>則留言</value>
-  </data>
   <data name="View and delete comments on blog posts." xml:space="preserve">
     <value>檢視及刪除網誌文章的留言。</value>
+  </data>
+  <data name="replies" xml:space="preserve">
+    <value>則回覆</value>
+  </data>
+  <data name="total comments" xml:space="preserve">
+    <value>則留言</value>
   </data>
 
 </root>

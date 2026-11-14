@@ -69,11 +69,11 @@
   <data name="Embedding Model" xml:space="preserve">
     <value>Indlejringmodel</value>
   </data>
-  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
-    <value>Navn på indlejring-model til vektorsøgning, f.eks. bge-m3:latest. Skal være tilgængelig på indlejring-endepunktet.</value>
-  </data>
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>Embedding-forespørgselscachegrænse</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
+    <value>Navn på indlejring-model til vektorsøgning, f.eks. bge-m3:latest. Skal være tilgængelig på indlejring-endepunktet.</value>
   </data>
   <data name="Enable Comments" xml:space="preserve">
     <value>Aktivér kommentarer</value>
@@ -123,11 +123,17 @@
   <data name="Show Author Info" xml:space="preserve">
     <value>Vis forfatterinfo</value>
   </data>
+  <data name="Show Contract Header" xml:space="preserve">
+    <value>Vis kontraktoverskrift</value>
+  </data>
   <data name="Show author name and avatar at the top of blog post pages." xml:space="preserve">
     <value>Vis forfatternavn og avatar øverst på blogindlægssiderne.</value>
   </data>
-  <data name="Show Contract Header" xml:space="preserve">
-    <value>Vis kontraktoverskrift</value>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>ICP-licensenr. for brugere i Kina&apos;s hovedland. Lad stå tomt for at skjule.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>URL&apos;en for virksomheden eller projektet. F.eks. https://www.aiursoft.com</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>Adressen for virksomheden eller projektet.</value>
@@ -137,9 +143,6 @@
   </data>
   <data name="The email address of the company or project." xml:space="preserve">
     <value>E-mailadressen for virksomheden eller projektet.</value>
-  </data>
-  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
-    <value>ICP-licensenr. for brugere i Kina&apos;s hovedland. Lad stå tomt for at skjule.</value>
   </data>
   <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
     <value>Logoet for kontrakten, der vises i headeren. Understøtter jpg, png, svg. Adskilt fra systemlogoet.</value>
@@ -155,9 +158,6 @@
   </data>
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>Postnummeret for virksomheden eller projektet.</value>
-  </data>
-  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
-    <value>URL&apos;en for virksomheden eller projektet. F.eks. https://www.aiursoft.com</value>
   </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>Om kontraktens overskrift (logo, adresse osv.) skal vises i kontraktvisningen.</value>

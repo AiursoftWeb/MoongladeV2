@@ -33,6 +33,9 @@
   <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
     <value>Простой инструмент для преобразования вашего Markdown в чистый, обеззараженный HTML.</value>
   </data>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>Переводы на основе ИИ</value>
+  </data>
   <data name="Abstract" xml:space="preserve">
     <value>Аннотация</value>
   </data>
@@ -41,9 +44,6 @@
   </data>
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
     <value>После того как документ станет приватным, существующая публичная ссылка перестанет работать. Вы уверены, что хотите продолжить?</value>
-  </data>
-  <data name="AI-Powered Translations" xml:space="preserve">
-    <value>Переводы на основе ИИ</value>
   </data>
   <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
     <value>Все зависимости автоматически регистрируются и всегда доступны через внедрение в конструктор.</value>
@@ -114,14 +114,14 @@
   <data name="Copy Link" xml:space="preserve">
     <value>Скопировать ссылку</value>
   </data>
-  <data name="Copy link to clipboard" xml:space="preserve">
-    <value>Скопировать ссылку в буфер обмена</value>
-  </data>
   <data name="Copy Preview" xml:space="preserve">
     <value>Копировать предпросмотр</value>
   </data>
   <data name="Copy Preview HTML" xml:space="preserve">
     <value>Скопировать HTML-код</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>Скопировать ссылку в буфер обмена</value>
   </data>
   <data name="Create a new document..." xml:space="preserve">
     <value>Создать новый документ...</value>
@@ -165,11 +165,11 @@
   <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
     <value>Оснащена встроенной системой управления файлами с автоматическим сжатием аватаров.</value>
   </data>
-  <data name="Hello World!" xml:space="preserve">
-    <value>Здравствуй, мир!</value>
-  </data>
   <data name="HTML preview will appear here after conversion." xml:space="preserve">
     <value>Здесь появится HTML-превью после преобразования.</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>Здравствуй, мир!</value>
   </data>
   <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
     <value>Если вы сделаете этот документ приватным, существующая публичная ссылка немедленно перестанет работать для всех.</value>
@@ -201,14 +201,14 @@
   <data name="Lowercase English letters, numbers, and single hyphens only. Empty slugs are generated automatically for public posts." xml:space="preserve">
     <value>Только строчные буквы латинского алфавита, цифры и одиночные дефисы. Для публичных постов пустые слаг-адреса генерируются автоматически.</value>
   </data>
-  <data name="Make document private" xml:space="preserve">
-    <value>Сделать документ приватным</value>
-  </data>
   <data name="Make Private" xml:space="preserve">
     <value>Сделать приватным</value>
   </data>
   <data name="Make Public" xml:space="preserve">
     <value>Опубликовать</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>Сделать документ приватным</value>
   </data>
   <data name="Markdown Input" xml:space="preserve">
     <value>Ввод Markdown</value>
@@ -231,14 +231,14 @@
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>Интеграция OpenID Connect</value>
   </data>
+  <data name="Post URL" xml:space="preserve">
+    <value>URL записи</value>
+  </data>
   <data name="Post title" xml:space="preserve">
     <value>Название поста</value>
   </data>
   <data name="Post updated successfully." xml:space="preserve">
     <value>Запись успешно обновлена.</value>
-  </data>
-  <data name="Post URL" xml:space="preserve">
-    <value>URL записи</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>Просмотр</value>

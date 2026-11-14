@@ -21,9 +21,6 @@
       <data name="Are you sure you want to delete your account?" xml:space="preserve">
     <value>คุณแน่ใจหรือไม่ว่าต้องการลบบัญชีของคุณ?</value>
   </data>
-  <data name="article(s)." xml:space="preserve">
-    <value>บทความ(บทความ)</value>
-  </data>
   <data name="As these articles are public assets of the blog/news center, you must first manually delete them or transfer their ownership before you can delete your account." xml:space="preserve">
     <value>เนื่องจากบทความเหล่านี้เป็นทรัพย์สินสาธารณะของบล็อก/ศูนย์ข่าว คุณจำเป็นต้องลบหรือโอนความเป็นเจ้าของด้วยตนเองก่อนจึงจะสามารถลบบัญชีของคุณได้</value>
   </data>
@@ -56,6 +53,9 @@
   </data>
   <data name="You cannot delete your account yet." xml:space="preserve">
     <value>คุณไม่สามารถลบบัญชีของคุณได้ในขณะนี้</value>
+  </data>
+  <data name="article(s)." xml:space="preserve">
+    <value>บทความ(บทความ)</value>
   </data>
 
 </root>

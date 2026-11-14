@@ -162,11 +162,11 @@
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>Convertisseur Markdown vers HTML</value>
   </data>
-  <data name="My documents" xml:space="preserve">
-    <value>Mes documents</value>
-  </data>
   <data name="My Documents History" xml:space="preserve">
     <value>Historique des documents</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>Mes documents</value>
   </data>
   <data name="My posts" xml:space="preserve">
     <value>Mes publications</value>

@@ -93,11 +93,11 @@ The user wants me to translate only the word `By` in the context of a blog post 
   <data name="Write your comment..." xml:space="preserve">
     <value>Напишите ваш комментарий...</value>
   </data>
-  <data name="Write your comment…" xml:space="preserve">
-    <value>Напишите комментарий…</value>
-  </data>
   <data name="Write your comment... (Markdown supported)" xml:space="preserve">
     <value>Напишите комментарий... (поддерживается Markdown)</value>
+  </data>
+  <data name="Write your comment…" xml:space="preserve">
+    <value>Напишите комментарий…</value>
   </data>
   <data name="Your email will not be displayed publicly." xml:space="preserve">
     <value>Ваш адрес электронной почты не будет отображаться публично.</value>

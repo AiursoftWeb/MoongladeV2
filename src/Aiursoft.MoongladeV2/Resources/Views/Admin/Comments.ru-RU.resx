@@ -63,17 +63,17 @@
   <data name="Post" xml:space="preserve">
     <value>Запись</value>
   </data>
-  <data name="replies" xml:space="preserve">
-    <value>ответов</value>
-  </data>
   <data name="Reply:" xml:space="preserve">
     <value>Ответ:</value>
   </data>
-  <data name="total comments" xml:space="preserve">
-    <value>всего комментариев</value>
-  </data>
   <data name="View and delete comments on blog posts." xml:space="preserve">
     <value>Просматривайте и удаляйте комментарии к публикациям блога.</value>
+  </data>
+  <data name="replies" xml:space="preserve">
+    <value>ответов</value>
+  </data>
+  <data name="total comments" xml:space="preserve">
+    <value>всего комментариев</value>
   </data>
 
 </root>

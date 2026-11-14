@@ -69,11 +69,11 @@
   <data name="Embedding Model" xml:space="preserve">
     <value>Gömme Modeli</value>
   </data>
-  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
-    <value>Vektör araması için gömme modeli adı, örn. bge-m3:latest. Gömme Uç Noktasında mevcut olmalıdır.</value>
-  </data>
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>Gömme Sorgu Önbellek Sınırı</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
+    <value>Vektör araması için gömme modeli adı, örn. bge-m3:latest. Gömme Uç Noktasında mevcut olmalıdır.</value>
   </data>
   <data name="Enable Comments" xml:space="preserve">
     <value>Yorumları Etkinleştir</value>
@@ -123,11 +123,17 @@
   <data name="Show Author Info" xml:space="preserve">
     <value>Yazar Bilgilerini Göster</value>
   </data>
+  <data name="Show Contract Header" xml:space="preserve">
+    <value>Sözleşme Başlığını Göster</value>
+  </data>
   <data name="Show author name and avatar at the top of blog post pages." xml:space="preserve">
     <value>Yazar adını ve avatarını blog yazı sayfalarının üst kısmında göster.</value>
   </data>
-  <data name="Show Contract Header" xml:space="preserve">
-    <value>Sözleşme Başlığını Göster</value>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>Çin ana karasında kullanıcılar için ICP lisans numarası. Gizlemek için boş bırakın.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>Şirketin veya projenin URL&apos;si. Örnek: https://www.aiursoft.com</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>Şirketin veya projenin adresi.</value>
@@ -137,9 +143,6 @@
   </data>
   <data name="The email address of the company or project." xml:space="preserve">
     <value>Şirketin veya projenin e-posta adresi.</value>
-  </data>
-  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
-    <value>Çin ana karasında kullanıcılar için ICP lisans numarası. Gizlemek için boş bırakın.</value>
   </data>
   <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
     <value>Başlıkta görüntülenen sözleşme logosu. jpg, png, svg formatlarını destekler. Sistem logosundan ayrıdır.</value>
@@ -155,9 +158,6 @@
   </data>
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>Şirketin veya projenin posta kodu.</value>
-  </data>
-  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
-    <value>Şirketin veya projenin URL&apos;si. Örnek: https://www.aiursoft.com</value>
   </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>Sözleşme görünümünde sözleşme başlığının (Logo, adres vb.) gösterilip gösterilmeyeceği.</value>

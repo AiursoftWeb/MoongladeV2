@@ -45,11 +45,11 @@
   <data name="Localized Title" xml:space="preserve">
     <value>العنوان المُعرَّب</value>
   </data>
-  <data name="Save failed." xml:space="preserve">
-    <value>فشل الحفظ.</value>
-  </data>
   <data name="Save Translation" xml:space="preserve">
     <value>حفظ الترجمة</value>
+  </data>
+  <data name="Save failed." xml:space="preserve">
+    <value>فشل الحفظ.</value>
   </data>
   <data name="Saved successfully!" xml:space="preserve">
     <value>تم الحفظ بنجاح!</value>

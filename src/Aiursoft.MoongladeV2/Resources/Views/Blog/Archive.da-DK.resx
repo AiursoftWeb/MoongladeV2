@@ -21,11 +21,11 @@
       <data name="Archive" xml:space="preserve">
     <value>Arkiv</value>
   </data>
-  <data name="posts in total" xml:space="preserve">
-    <value>indlæg i alt</value>
-  </data>
   <data name="Views" xml:space="preserve">
     <value>Visninger</value>
+  </data>
+  <data name="posts in total" xml:space="preserve">
+    <value>indlæg i alt</value>
   </data>
 
 </root>

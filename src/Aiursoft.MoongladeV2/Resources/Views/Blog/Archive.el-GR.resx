@@ -21,11 +21,11 @@
       <data name="Archive" xml:space="preserve">
     <value>Αρχειοθέτηση</value>
   </data>
-  <data name="posts in total" xml:space="preserve">
-    <value>αναρτήσεις συνολικά</value>
-  </data>
   <data name="Views" xml:space="preserve">
     <value>Προβολές</value>
+  </data>
+  <data name="posts in total" xml:space="preserve">
+    <value>αναρτήσεις συνολικά</value>
   </data>
 
 </root>

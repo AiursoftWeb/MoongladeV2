@@ -45,11 +45,11 @@
   <data name="Localized Title" xml:space="preserve">
     <value>Lokaliserad Titel</value>
   </data>
-  <data name="Save failed." xml:space="preserve">
-    <value>Det gick inte att spara.</value>
-  </data>
   <data name="Save Translation" xml:space="preserve">
     <value>Spara översättning</value>
+  </data>
+  <data name="Save failed." xml:space="preserve">
+    <value>Det gick inte att spara.</value>
   </data>
   <data name="Saved successfully!" xml:space="preserve">
     <value>Sparat!</value>

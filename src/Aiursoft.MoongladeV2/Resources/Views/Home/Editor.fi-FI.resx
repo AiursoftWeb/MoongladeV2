@@ -33,6 +33,9 @@
   <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
     <value>Yksinkertainen työkalu Markdown-kielesi muuntamiseksi puhtaaksi, desinfioiduksi HTML:ksi.</value>
   </data>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>Tehokäännökset tekoälyllä</value>
+  </data>
   <data name="Abstract" xml:space="preserve">
     <value>Tiivistelmä</value>
   </data>
@@ -41,9 +44,6 @@
   </data>
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
     <value>Kun teet tästä dokumentista yksityisen, olemassa oleva julkinen linkki lakkaa toimimasta. Oletko varma, että haluat jatkaa?</value>
-  </data>
-  <data name="AI-Powered Translations" xml:space="preserve">
-    <value>Tehokäännökset tekoälyllä</value>
   </data>
   <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
     <value>Kaikki riippuvuudet rekisteröidään automaattisesti ja ne ovat aina saatavilla konstruktorin kautta tapahtuvan injektoinnin välityksellä.</value>
@@ -114,14 +114,14 @@
   <data name="Copy Link" xml:space="preserve">
     <value>Kopioi linkki</value>
   </data>
-  <data name="Copy link to clipboard" xml:space="preserve">
-    <value>Kopioi linkki leikepöydälle</value>
-  </data>
   <data name="Copy Preview" xml:space="preserve">
     <value>Kopioi esikatselu</value>
   </data>
   <data name="Copy Preview HTML" xml:space="preserve">
     <value>Kopioi esikatselun HTML</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>Kopioi linkki leikepöydälle</value>
   </data>
   <data name="Create a new document..." xml:space="preserve">
     <value>Luo uusi asiakirja...</value>
@@ -165,11 +165,11 @@
   <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
     <value>Sisältää sisäänrakennetun tiedostonhallintajärjestelmän automaattisella avatar-pakkauksella.</value>
   </data>
-  <data name="Hello World!" xml:space="preserve">
-    <value>Hei maailma!</value>
-  </data>
   <data name="HTML preview will appear here after conversion." xml:space="preserve">
     <value>HTML-esikatselu tulee näkyviin tässä konvertoinnin jälkeen.</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>Hei maailma!</value>
   </data>
   <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
     <value>Jos teet tästä dokumentista yksityisen, olemassa oleva julkinen linkki lakkaa toimimasta välittömästi kaikille.</value>
@@ -201,14 +201,14 @@
   <data name="Lowercase English letters, numbers, and single hyphens only. Empty slugs are generated automatically for public posts." xml:space="preserve">
     <value>Vain pieniä englantilaisia kirjaimia, numeroita ja yksittäisiä väliviivoja. Tyhjät slugit luodaan automaattisesti julkisille viesteille.</value>
   </data>
-  <data name="Make document private" xml:space="preserve">
-    <value>Tee dokumentista yksityinen</value>
-  </data>
   <data name="Make Private" xml:space="preserve">
     <value>Tee yksityiseksi</value>
   </data>
   <data name="Make Public" xml:space="preserve">
     <value>Tee julkiseksi</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>Tee dokumentista yksityinen</value>
   </data>
   <data name="Markdown Input" xml:space="preserve">
     <value>Markdown-syöte</value>
@@ -231,14 +231,14 @@
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>OpenID Connect -integraatio</value>
   </data>
+  <data name="Post URL" xml:space="preserve">
+    <value>Julkaisun URL-osoite</value>
+  </data>
   <data name="Post title" xml:space="preserve">
     <value>Kirjoituksen otsikko</value>
   </data>
   <data name="Post updated successfully." xml:space="preserve">
     <value>Julkaisu päivitetty onnistuneesti.</value>
-  </data>
-  <data name="Post URL" xml:space="preserve">
-    <value>Julkaisun URL-osoite</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>Esikatselu</value>
