@@ -21,11 +21,11 @@
       <data name="Archive" xml:space="preserve">
     <value>Архів</value>
   </data>
-  <data name="posts in total" xml:space="preserve">
-    <value>загалом дописів</value>
-  </data>
   <data name="Views" xml:space="preserve">
     <value>Перегляди</value>
+  </data>
+  <data name="posts in total" xml:space="preserve">
+    <value>загалом дописів</value>
   </data>
 
 </root>

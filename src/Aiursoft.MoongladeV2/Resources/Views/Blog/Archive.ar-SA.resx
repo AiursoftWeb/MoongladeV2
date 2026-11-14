@@ -21,11 +21,11 @@
       <data name="Archive" xml:space="preserve">
     <value>الأرشيف</value>
   </data>
-  <data name="posts in total" xml:space="preserve">
-    <value>منشورًا في المجموع</value>
-  </data>
   <data name="Views" xml:space="preserve">
     <value>مشاهدات</value>
+  </data>
+  <data name="posts in total" xml:space="preserve">
+    <value>منشورًا في المجموع</value>
   </data>
 
 </root>

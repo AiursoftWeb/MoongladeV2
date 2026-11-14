@@ -63,17 +63,17 @@
   <data name="Post" xml:space="preserve">
     <value>Indlæg</value>
   </data>
-  <data name="replies" xml:space="preserve">
-    <value>svar</value>
-  </data>
   <data name="Reply:" xml:space="preserve">
     <value>Svar:</value>
   </data>
-  <data name="total comments" xml:space="preserve">
-    <value>i alt kommentarer</value>
-  </data>
   <data name="View and delete comments on blog posts." xml:space="preserve">
     <value>Se og slet kommentarer til blogindlæg.</value>
+  </data>
+  <data name="replies" xml:space="preserve">
+    <value>svar</value>
+  </data>
+  <data name="total comments" xml:space="preserve">
+    <value>i alt kommentarer</value>
   </data>
 
 </root>

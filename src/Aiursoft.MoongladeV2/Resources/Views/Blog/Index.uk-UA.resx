@@ -54,9 +54,6 @@
   <data name="Popular Tags" xml:space="preserve">
     <value>Популярні теги</value>
   </data>
-  <data name="posts" xml:space="preserve">
-    <value>дописів</value>
-  </data>
   <data name="Previous" xml:space="preserve">
     <value>Назад</value>
   </data>
@@ -83,6 +80,9 @@
   </data>
   <data name="Views" xml:space="preserve">
     <value>Переглядів</value>
+  </data>
+  <data name="posts" xml:space="preserve">
+    <value>дописів</value>
   </data>
 
 </root>

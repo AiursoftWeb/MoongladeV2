@@ -18,17 +18,17 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Cancel" xml:space="preserve">
-    <value>取消</value>
-  </data>
-  <data name="CSS content" xml:space="preserve">
+      <data name="CSS content" xml:space="preserve">
     <value>CSS 内容</value>
   </data>
-  <data name="Hide sidebar" xml:space="preserve">
-    <value>隐藏侧边栏</value>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
   </data>
   <data name="HTML content" xml:space="preserve">
     <value>HTML 内容</value>
+  </data>
+  <data name="Hide sidebar" xml:space="preserve">
+    <value>隐藏侧边栏</value>
   </data>
   <data name="Meta description" xml:space="preserve">
     <value>元描述</value>

@@ -162,11 +162,11 @@
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>Trình chuyển đổi Markdown sang HTML</value>
   </data>
-  <data name="My documents" xml:space="preserve">
-    <value>Tài liệu của tôi</value>
-  </data>
   <data name="My Documents History" xml:space="preserve">
     <value>Lịch sử tài liệu của tôi</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>Tài liệu của tôi</value>
   </data>
   <data name="My posts" xml:space="preserve">
     <value>Bài viết của tôi</value>

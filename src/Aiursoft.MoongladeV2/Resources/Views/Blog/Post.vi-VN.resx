@@ -194,11 +194,11 @@ Bởi</value>
   <data name="Write your comment..." xml:space="preserve">
     <value>Viết bình luận...</value>
   </data>
-  <data name="Write your comment…" xml:space="preserve">
-    <value>Viết bình luận của bạn…</value>
-  </data>
   <data name="Write your comment... (Markdown supported)" xml:space="preserve">
     <value>Viết bình luận của bạn... (Hỗ trợ Markdown)</value>
+  </data>
+  <data name="Write your comment…" xml:space="preserve">
+    <value>Viết bình luận của bạn…</value>
   </data>
   <data name="Your email will not be displayed publicly." xml:space="preserve">
     <value>Email của bạn sẽ không được hiển thị công khai.</value>

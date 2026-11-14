@@ -69,11 +69,11 @@
   <data name="Embedding Model" xml:space="preserve">
     <value>Model Penyematan</value>
   </data>
-  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
-    <value>Nama model embedding untuk pencarian vektor, misalnya bge-m3:latest. Harus tersedia di Endpoint Embedding.</value>
-  </data>
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>Batas Cache Kueri Embedding</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
+    <value>Nama model embedding untuk pencarian vektor, misalnya bge-m3:latest. Harus tersedia di Endpoint Embedding.</value>
   </data>
   <data name="Enable Comments" xml:space="preserve">
     <value>Aktifkan Komentar</value>
@@ -123,11 +123,17 @@
   <data name="Show Author Info" xml:space="preserve">
     <value>Tampilkan Info Penulis</value>
   </data>
+  <data name="Show Contract Header" xml:space="preserve">
+    <value>Tampilkan Header Kontrak</value>
+  </data>
   <data name="Show author name and avatar at the top of blog post pages." xml:space="preserve">
     <value>Tampilkan nama penulis dan avatar di bagian atas halaman posting blog.</value>
   </data>
-  <data name="Show Contract Header" xml:space="preserve">
-    <value>Tampilkan Header Kontrak</value>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>Nomor lisensi ICP untuk pengguna daratan Tiongkok. Biarkan kosong untuk menyembunyikan.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>URL perusahaan atau proyek. Contoh: https://www.aiursoft.com</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>Alamat perusahaan atau proyek.</value>
@@ -137,9 +143,6 @@
   </data>
   <data name="The email address of the company or project." xml:space="preserve">
     <value>Alamat email perusahaan atau proyek</value>
-  </data>
-  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
-    <value>Nomor lisensi ICP untuk pengguna daratan Tiongkok. Biarkan kosong untuk menyembunyikan.</value>
   </data>
   <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
     <value>Logo kontrak yang ditampilkan di header. Mendukung jpg, png, svg. Terpisah dari logo sistem.</value>
@@ -155,9 +158,6 @@
   </data>
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>Kode pos perusahaan atau proyek</value>
-  </data>
-  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
-    <value>URL perusahaan atau proyek. Contoh: https://www.aiursoft.com</value>
   </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>Apakah menampilkan header kontrak (Logo, alamat, dll.) dalam tampilan kontrak.</value>

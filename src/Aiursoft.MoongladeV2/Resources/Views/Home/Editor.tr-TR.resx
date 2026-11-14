@@ -33,6 +33,9 @@
   <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
     <value>Markdown&apos;ınızı temiz, güvenli HTML&apos;ye dönüştürmek için basit bir araç.</value>
   </data>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>Yapay Zeka Destekli Çeviriler</value>
+  </data>
   <data name="Abstract" xml:space="preserve">
     <value>Özet</value>
   </data>
@@ -41,9 +44,6 @@
   </data>
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
     <value>Bu belgeyi gizli yaptıktan sonra, mevcut herkese açık bağlantı artık çalışmayacaktır. Devam etmek istediğinizden emin misiniz?</value>
-  </data>
-  <data name="AI-Powered Translations" xml:space="preserve">
-    <value>Yapay Zeka Destekli Çeviriler</value>
   </data>
   <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
     <value>Tüm bağımlılıklar otomatik olere kaydedilir ve constructor injection yoluyla her zaman kullanılabilir.</value>
@@ -114,14 +114,14 @@
   <data name="Copy Link" xml:space="preserve">
     <value>Bağlantıyı Kopyala</value>
   </data>
-  <data name="Copy link to clipboard" xml:space="preserve">
-    <value>Bağlantıyı panoya kopyala</value>
-  </data>
   <data name="Copy Preview" xml:space="preserve">
     <value>Önizlemeyi Kopyala</value>
   </data>
   <data name="Copy Preview HTML" xml:space="preserve">
     <value>Önizleme HTML&apos;sini Kopyala</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>Bağlantıyı panoya kopyala</value>
   </data>
   <data name="Create a new document..." xml:space="preserve">
     <value>Yeni bir belge oluştur...</value>
@@ -165,11 +165,11 @@
   <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
     <value>Otomatik avatar sıkıştırmalı, dahili bir dosya yönetim sistemi özelliği sunar.</value>
   </data>
-  <data name="Hello World!" xml:space="preserve">
-    <value>Merhaba Dünya!</value>
-  </data>
   <data name="HTML preview will appear here after conversion." xml:space="preserve">
     <value>HTML önizlemesi dönüşümden sonra burada görünecektir.</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>Merhaba Dünya!</value>
   </data>
   <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
     <value>Bu belgeyi özel yaparsanız, mevcut herkese açık bağlantı hemen herkes için çalışmayı durduracaktır.</value>
@@ -201,14 +201,14 @@
   <data name="Lowercase English letters, numbers, and single hyphens only. Empty slugs are generated automatically for public posts." xml:space="preserve">
     <value>Sadece küçük harfli İngilizce harfler, rakamlar ve tek tireler kullanılabilir. Boğazlar boş bırakıldığında halka açık gönderiler için otomatik olarak oluşturulur.</value>
   </data>
-  <data name="Make document private" xml:space="preserve">
-    <value>Belgeyi Gizli Yap</value>
-  </data>
   <data name="Make Private" xml:space="preserve">
     <value>Gizle</value>
   </data>
   <data name="Make Public" xml:space="preserve">
     <value>Herkese Açık Yap</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>Belgeyi Gizli Yap</value>
   </data>
   <data name="Markdown Input" xml:space="preserve">
     <value>Markdown Girişi</value>
@@ -231,14 +231,14 @@
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>OpenID Connect Entegrasyonu</value>
   </data>
+  <data name="Post URL" xml:space="preserve">
+    <value>Gönderi URL&apos;si</value>
+  </data>
   <data name="Post title" xml:space="preserve">
     <value>Gönderi başlığı</value>
   </data>
   <data name="Post updated successfully." xml:space="preserve">
     <value>Gönderi başarıyla güncellendi.</value>
-  </data>
-  <data name="Post URL" xml:space="preserve">
-    <value>Gönderi URL&apos;si</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>Önizleme</value>

@@ -87,11 +87,11 @@
   <data name="Write your comment..." xml:space="preserve">
     <value>Γράψτε το σχόλιό σας...</value>
   </data>
-  <data name="Write your comment…" xml:space="preserve">
-    <value>Γράψτε το σχόλιό σας…</value>
-  </data>
   <data name="Write your comment... (Markdown supported)" xml:space="preserve">
     <value>Γράψτε τον σχολιασμό σας... (Υποστηρίζεται Markdown)</value>
+  </data>
+  <data name="Write your comment…" xml:space="preserve">
+    <value>Γράψτε το σχόλιό σας…</value>
   </data>
   <data name="Your email will not be displayed publicly." xml:space="preserve">
     <value>Το email σας δεν θα εμφανιστεί δημόσια.</value>

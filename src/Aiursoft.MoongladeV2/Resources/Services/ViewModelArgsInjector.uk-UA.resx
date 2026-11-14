@@ -159,11 +159,11 @@
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>Конвертер Markdown у HTML</value>
   </data>
-  <data name="My documents" xml:space="preserve">
-    <value>Мої документи</value>
-  </data>
   <data name="My Documents History" xml:space="preserve">
     <value>Історія моїх документів</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>Мої документи</value>
   </data>
   <data name="My posts" xml:space="preserve">
     <value>Мої пости</value>

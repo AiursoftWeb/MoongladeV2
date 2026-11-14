@@ -45,11 +45,11 @@
   <data name="Localized Title" xml:space="preserve">
     <value>Titlu localizat</value>
   </data>
-  <data name="Save failed." xml:space="preserve">
-    <value>Salvarea nu a reușit.</value>
-  </data>
   <data name="Save Translation" xml:space="preserve">
     <value>Salvează traducerea</value>
+  </data>
+  <data name="Save failed." xml:space="preserve">
+    <value>Salvarea nu a reușit.</value>
   </data>
   <data name="Saved successfully!" xml:space="preserve">
     <value>Salvat cu succes!</value>

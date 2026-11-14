@@ -63,17 +63,17 @@
   <data name="Post" xml:space="preserve">
     <value>المشاركة</value>
   </data>
-  <data name="replies" xml:space="preserve">
-    <value>ردود</value>
-  </data>
   <data name="Reply:" xml:space="preserve">
     <value>رد:</value>
   </data>
-  <data name="total comments" xml:space="preserve">
-    <value>إجمالي التعليقات</value>
-  </data>
   <data name="View and delete comments on blog posts." xml:space="preserve">
     <value>عرض تعليقات منشورات المدونة وحذفها.</value>
+  </data>
+  <data name="replies" xml:space="preserve">
+    <value>ردود</value>
+  </data>
+  <data name="total comments" xml:space="preserve">
+    <value>إجمالي التعليقات</value>
   </data>
 
 </root>

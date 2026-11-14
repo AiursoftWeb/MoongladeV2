@@ -162,11 +162,11 @@
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>Markdown to HTML コンバーター</value>
   </data>
-  <data name="My documents" xml:space="preserve">
-    <value>マイドキュメント</value>
-  </data>
   <data name="My Documents History" xml:space="preserve">
     <value>マイドキュメントの履歴</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>マイドキュメント</value>
   </data>
   <data name="My posts" xml:space="preserve">
     <value>私の投稿</value>

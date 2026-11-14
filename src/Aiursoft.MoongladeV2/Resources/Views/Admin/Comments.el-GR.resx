@@ -63,17 +63,17 @@
   <data name="Post" xml:space="preserve">
     <value>Ανάρτηση</value>
   </data>
-  <data name="replies" xml:space="preserve">
-    <value>απαντήσεις</value>
-  </data>
   <data name="Reply:" xml:space="preserve">
     <value>Απάντηση:</value>
   </data>
-  <data name="total comments" xml:space="preserve">
-    <value>Σύνολο σχολίων</value>
-  </data>
   <data name="View and delete comments on blog posts." xml:space="preserve">
     <value>Προβολή και διαγραφή σχολίων σε αναρτήσεις ιστολογίου.</value>
+  </data>
+  <data name="replies" xml:space="preserve">
+    <value>απαντήσεις</value>
+  </data>
+  <data name="total comments" xml:space="preserve">
+    <value>Σύνολο σχολίων</value>
   </data>
 
 </root>

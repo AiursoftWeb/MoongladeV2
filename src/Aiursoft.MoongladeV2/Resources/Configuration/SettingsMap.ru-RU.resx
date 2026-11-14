@@ -69,11 +69,11 @@
   <data name="Embedding Model" xml:space="preserve">
     <value>Модель встраивания</value>
   </data>
-  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
-    <value>Название модели встраивания для векторного поиска, например bge-m3:latest. Должно быть доступно на эндпоинте встраивания.</value>
-  </data>
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>Лимит кэширования запросов встраивания</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
+    <value>Название модели встраивания для векторного поиска, например bge-m3:latest. Должно быть доступно на эндпоинте встраивания.</value>
   </data>
   <data name="Enable Comments" xml:space="preserve">
     <value>Включить комментарии</value>
@@ -123,11 +123,17 @@
   <data name="Show Author Info" xml:space="preserve">
     <value>Показывать информацию об авторе</value>
   </data>
+  <data name="Show Contract Header" xml:space="preserve">
+    <value>Показать заголовок договора</value>
+  </data>
   <data name="Show author name and avatar at the top of blog post pages." xml:space="preserve">
     <value>Показывать имя автора и аватар в верхней части страниц записей блога.</value>
   </data>
-  <data name="Show Contract Header" xml:space="preserve">
-    <value>Показать заголовок договора</value>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>Номер лицензии ICP для пользователей из материкового Китая. Оставьте пустым, чтобы скрыть.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>URL компании или проекта. Например: https://www.aiursoft.com</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>Адрес компании или проекта.</value>
@@ -137,9 +143,6 @@
   </data>
   <data name="The email address of the company or project." xml:space="preserve">
     <value>Адрес электронной почты компании или проекта</value>
-  </data>
-  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
-    <value>Номер лицензии ICP для пользователей из материкового Китая. Оставьте пустым, чтобы скрыть.</value>
   </data>
   <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
     <value>Логотип контракта, отображаемый в заголовке. Поддерживаются форматы jpg, png, svg. Отдельно от системного логотипа.</value>
@@ -155,9 +158,6 @@
   </data>
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>Индекс компании или проекта.</value>
-  </data>
-  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
-    <value>URL компании или проекта. Например: https://www.aiursoft.com</value>
   </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>Отображать ли заголовок договора (логотип, адрес и т. д.) в просмотре договора.</value>

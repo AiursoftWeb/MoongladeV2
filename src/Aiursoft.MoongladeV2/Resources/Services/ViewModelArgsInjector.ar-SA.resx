@@ -159,11 +159,11 @@
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>محول Markdown إلى HTML</value>
   </data>
-  <data name="My documents" xml:space="preserve">
-    <value>مستنداتي</value>
-  </data>
   <data name="My Documents History" xml:space="preserve">
     <value>سجل وثائقي</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>مستنداتي</value>
   </data>
   <data name="My posts" xml:space="preserve">
     <value>منشوراتي</value>

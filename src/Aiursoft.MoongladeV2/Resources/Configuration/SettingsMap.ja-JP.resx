@@ -69,11 +69,11 @@
   <data name="Embedding Model" xml:space="preserve">
     <value>埋め込みモデル</value>
   </data>
-  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
-    <value>ベクター検索用の埋め込みモデル名（例: bge-m3:latest）。埋め込みエンドポイントで利用可能である必要があります。</value>
-  </data>
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>埋め込みクエリキャッシュの制限</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
+    <value>ベクター検索用の埋め込みモデル名（例: bge-m3:latest）。埋め込みエンドポイントで利用可能である必要があります。</value>
   </data>
   <data name="Enable Comments" xml:space="preserve">
     <value>コメントを有効にする</value>
@@ -123,11 +123,17 @@
   <data name="Show Author Info" xml:space="preserve">
     <value>著者情報を表示</value>
   </data>
+  <data name="Show Contract Header" xml:space="preserve">
+    <value>契約ヘッダーを表示</value>
+  </data>
   <data name="Show author name and avatar at the top of blog post pages." xml:space="preserve">
     <value>ブログ投稿ページの上部に著者名とアバターを表示します。</value>
   </data>
-  <data name="Show Contract Header" xml:space="preserve">
-    <value>契約ヘッダーを表示</value>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>中国本土ユーザー向けのICPライセンス番号。空欄のままにすると非表示になります。</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>会社またはプロジェクトのURL。例: https://www.aiursoft.com</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>会社またはプロジェクトの住所</value>
@@ -137,9 +143,6 @@
   </data>
   <data name="The email address of the company or project." xml:space="preserve">
     <value>会社またはプロジェクトのメールアドレス</value>
-  </data>
-  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
-    <value>中国本土ユーザー向けのICPライセンス番号。空欄のままにすると非表示になります。</value>
   </data>
   <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
     <value>ヘッダーに表示される契約のロゴ。jpg、png、svgに対応。システムロゴとは別です。</value>
@@ -155,9 +158,6 @@
   </data>
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>会社またはプロジェクトの郵便番号</value>
-  </data>
-  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
-    <value>会社またはプロジェクトのURL。例: https://www.aiursoft.com</value>
   </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>契約ビューに契約ヘッダー（ロゴ、住所など）を表示するかどうか。</value>

@@ -63,17 +63,17 @@
   <data name="Post" xml:space="preserve">
     <value>โพสต์</value>
   </data>
-  <data name="replies" xml:space="preserve">
-    <value>การตอบกลับ</value>
-  </data>
   <data name="Reply:" xml:space="preserve">
     <value>ตอบกลับ:</value>
   </data>
-  <data name="total comments" xml:space="preserve">
-    <value>ความคิดเห็นทั้งหมด</value>
-  </data>
   <data name="View and delete comments on blog posts." xml:space="preserve">
     <value>ดูและลบความคิดเห็นในโพสต์บล็อก</value>
+  </data>
+  <data name="replies" xml:space="preserve">
+    <value>การตอบกลับ</value>
+  </data>
+  <data name="total comments" xml:space="preserve">
+    <value>ความคิดเห็นทั้งหมด</value>
   </data>
 
 </root>

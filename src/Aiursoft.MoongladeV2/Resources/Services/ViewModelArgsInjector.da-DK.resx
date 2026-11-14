@@ -159,11 +159,11 @@
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>Markdown til HTML-omformer</value>
   </data>
-  <data name="My documents" xml:space="preserve">
-    <value>Mine dokumenter</value>
-  </data>
   <data name="My Documents History" xml:space="preserve">
     <value>Mine dokumenters historik</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>Mine dokumenter</value>
   </data>
   <data name="My posts" xml:space="preserve">
     <value>Mine indlæg</value>

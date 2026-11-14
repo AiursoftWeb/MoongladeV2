@@ -54,9 +54,6 @@
   <data name="Popular Tags" xml:space="preserve">
     <value>แท็กยอดนิยม</value>
   </data>
-  <data name="posts" xml:space="preserve">
-    <value>โพสต์</value>
-  </data>
   <data name="Previous" xml:space="preserve">
     <value>ก่อนหน้า</value>
   </data>
@@ -83,6 +80,9 @@
   </data>
   <data name="Views" xml:space="preserve">
     <value>การดูทั้งหมด</value>
+  </data>
+  <data name="posts" xml:space="preserve">
+    <value>โพสต์</value>
   </data>
 
 </root>

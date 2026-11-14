@@ -21,11 +21,11 @@
       <data name="Archive" xml:space="preserve">
     <value>归档</value>
   </data>
-  <data name="posts in total" xml:space="preserve">
-    <value>篇博文</value>
-  </data>
   <data name="Views" xml:space="preserve">
     <value>阅读量</value>
+  </data>
+  <data name="posts in total" xml:space="preserve">
+    <value>篇博文</value>
   </data>
 
 </root>

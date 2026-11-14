@@ -69,11 +69,11 @@
   <data name="Embedding Model" xml:space="preserve">
     <value>एम्बेडिंग मॉडल</value>
   </data>
-  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
-    <value>वेक्टर खोज के लिए एम्बेडिंग मॉडल का नाम, उदाहरण के लिए bge-m3:latest। यह एम्बेडिंग एंडपॉइंट पर उपलब्ध होना चाहिए।</value>
-  </data>
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>एम्बेडिंग क्वेरी कैश सीमा</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
+    <value>वेक्टर खोज के लिए एम्बेडिंग मॉडल का नाम, उदाहरण के लिए bge-m3:latest। यह एम्बेडिंग एंडपॉइंट पर उपलब्ध होना चाहिए।</value>
   </data>
   <data name="Enable Comments" xml:space="preserve">
     <value>टिप्पणियां सक्षम करें</value>
@@ -123,11 +123,17 @@
   <data name="Show Author Info" xml:space="preserve">
     <value>लेखक की जानकारी दिखाएं</value>
   </data>
+  <data name="Show Contract Header" xml:space="preserve">
+    <value>समझौता शीर्षक दिखाएं</value>
+  </data>
   <data name="Show author name and avatar at the top of blog post pages." xml:space="preserve">
     <value>ब्लॉग पोस्ट पृष्ठों के शीर्ष पर लेखक का नाम और अवतार दिखाएं।</value>
   </data>
-  <data name="Show Contract Header" xml:space="preserve">
-    <value>समझौता शीर्षक दिखाएं</value>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>चीन मुख्यभूमि के उपयोगकर्ताओं के लिए ICP लाइसेंस संख्या। छिपाने के लिए खाली छोड़ दें।</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>कंपनी या प्रोजेक्ट का URL। उदाहरण के लिए https://www.aiursoft.com</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>कंपनी या प्रोजेक्ट का पता</value>
@@ -137,9 +143,6 @@
   </data>
   <data name="The email address of the company or project." xml:space="preserve">
     <value>कंपनी या प्रोजेक्ट का ईमेल पता।</value>
-  </data>
-  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
-    <value>चीन मुख्यभूमि के उपयोगकर्ताओं के लिए ICP लाइसेंस संख्या। छिपाने के लिए खाली छोड़ दें।</value>
   </data>
   <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
     <value>हेडर में प्रदर्शित अनुबंध का लोगो। jpg, png, svg का समर्थन। सिस्टम लोगो से अलग।</value>
@@ -155,9 +158,6 @@
   </data>
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>कंपनी या प्रोजेक्ट का पोस्टकोड</value>
-  </data>
-  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
-    <value>कंपनी या प्रोजेक्ट का URL। उदाहरण के लिए https://www.aiursoft.com</value>
   </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>क्या अनुबंध दृश्य में अनुबंध शीर्षक (लोगो, पता, आदि) प्रदर्शित किया जाना चाहिए।</value>

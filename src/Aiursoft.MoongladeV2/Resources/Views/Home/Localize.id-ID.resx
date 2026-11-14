@@ -45,11 +45,11 @@
   <data name="Localized Title" xml:space="preserve">
     <value>Judul Dilokalisasi</value>
   </data>
-  <data name="Save failed." xml:space="preserve">
-    <value>Gagal menyimpan.</value>
-  </data>
   <data name="Save Translation" xml:space="preserve">
     <value>Simpan Terjemahan</value>
+  </data>
+  <data name="Save failed." xml:space="preserve">
+    <value>Gagal menyimpan.</value>
   </data>
   <data name="Saved successfully!" xml:space="preserve">
     <value>Berhasil disimpan!</value>

@@ -45,11 +45,11 @@
   <data name="Localized Title" xml:space="preserve">
     <value>本地化標題</value>
   </data>
-  <data name="Save failed." xml:space="preserve">
-    <value>儲存失敗。</value>
-  </data>
   <data name="Save Translation" xml:space="preserve">
     <value>儲存翻譯</value>
+  </data>
+  <data name="Save failed." xml:space="preserve">
+    <value>儲存失敗。</value>
   </data>
   <data name="Saved successfully!" xml:space="preserve">
     <value>儲存成功！</value>

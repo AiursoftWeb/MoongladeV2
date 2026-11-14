@@ -33,6 +33,9 @@
   <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
     <value>Uma ferramenta simples para converter o seu Markdown em HTML limpo e sanitizado.</value>
   </data>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>Traduções com Inteligência Artificial</value>
+  </data>
   <data name="Abstract" xml:space="preserve">
     <value>Abstracto</value>
   </data>
@@ -41,9 +44,6 @@
   </data>
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
     <value>Depois de tornar este documento privado, a ligação pública existente deixará de funcionar. Tem a certeza de que pretende prosseguir?</value>
-  </data>
-  <data name="AI-Powered Translations" xml:space="preserve">
-    <value>Traduções com Inteligência Artificial</value>
   </data>
   <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
     <value>Todas as dependências são registadas automaticamente e estão sempre disponíveis através de injeção por construtor.</value>
@@ -114,14 +114,14 @@
   <data name="Copy Link" xml:space="preserve">
     <value>Copiar Ligação</value>
   </data>
-  <data name="Copy link to clipboard" xml:space="preserve">
-    <value>Copiar ligação para a área de transferência</value>
-  </data>
   <data name="Copy Preview" xml:space="preserve">
     <value>Copiar Pré-visualização</value>
   </data>
   <data name="Copy Preview HTML" xml:space="preserve">
     <value>Copiar HTML da pré-visualização</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>Copiar ligação para a área de transferência</value>
   </data>
   <data name="Create a new document..." xml:space="preserve">
     <value>Criar um novo documento...</value>
@@ -165,11 +165,11 @@
   <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
     <value>Inclui um sistema de gestão de ficheiros integrado com compressão automática de avatares.</value>
   </data>
-  <data name="Hello World!" xml:space="preserve">
-    <value>Olá Mundo!</value>
-  </data>
   <data name="HTML preview will appear here after conversion." xml:space="preserve">
     <value>A pré-visualização do HTML aparecerá aqui após a conversão.</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>Olá Mundo!</value>
   </data>
   <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
     <value>Se tornar este documento privado, a ligação pública existente deixará de funcionar imediatamente para todos.</value>
@@ -201,14 +201,14 @@
   <data name="Lowercase English letters, numbers, and single hyphens only. Empty slugs are generated automatically for public posts." xml:space="preserve">
     <value>Apenas letras minúsculas em inglês, números e hífens simples. Os slugs vazios são gerados automaticamente para publicações públicas.</value>
   </data>
-  <data name="Make document private" xml:space="preserve">
-    <value>Tornar documento privado</value>
-  </data>
   <data name="Make Private" xml:space="preserve">
     <value>Tornar Privado</value>
   </data>
   <data name="Make Public" xml:space="preserve">
     <value>Tornar Público</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>Tornar documento privado</value>
   </data>
   <data name="Markdown Input" xml:space="preserve">
     <value>Entrada Markdown</value>
@@ -231,14 +231,14 @@
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>Integração OpenID Connect</value>
   </data>
+  <data name="Post URL" xml:space="preserve">
+    <value>URL do Post</value>
+  </data>
   <data name="Post title" xml:space="preserve">
     <value>Título do artigo</value>
   </data>
   <data name="Post updated successfully." xml:space="preserve">
     <value>Artigo atualizado com sucesso.</value>
-  </data>
-  <data name="Post URL" xml:space="preserve">
-    <value>URL do Post</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>Pré-visualização</value>

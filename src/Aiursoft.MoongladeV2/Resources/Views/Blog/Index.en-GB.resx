@@ -54,9 +54,6 @@
   <data name="Popular Tags" xml:space="preserve">
     <value>Popular Tags</value>
   </data>
-  <data name="posts" xml:space="preserve">
-    <value>posts</value>
-  </data>
   <data name="Previous" xml:space="preserve">
     <value>Previous</value>
   </data>
@@ -83,6 +80,9 @@
   </data>
   <data name="Views" xml:space="preserve">
     <value>Views</value>
+  </data>
+  <data name="posts" xml:space="preserve">
+    <value>posts</value>
   </data>
 
 </root>

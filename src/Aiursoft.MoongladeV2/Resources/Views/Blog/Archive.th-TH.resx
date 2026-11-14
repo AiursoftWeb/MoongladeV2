@@ -21,11 +21,11 @@
       <data name="Archive" xml:space="preserve">
     <value>คลังบทความ</value>
   </data>
-  <data name="posts in total" xml:space="preserve">
-    <value>โพสต์ทั้งหมด</value>
-  </data>
   <data name="Views" xml:space="preserve">
     <value>ครั้งเข้าชม</value>
+  </data>
+  <data name="posts in total" xml:space="preserve">
+    <value>โพสต์ทั้งหมด</value>
   </data>
 
 </root>

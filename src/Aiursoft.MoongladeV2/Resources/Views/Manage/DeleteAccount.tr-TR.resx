@@ -21,9 +21,6 @@
       <data name="Are you sure you want to delete your account?" xml:space="preserve">
     <value>Hesabınızı silmek istediğinizden emin misiniz?</value>
   </data>
-  <data name="article(s)." xml:space="preserve">
-    <value>makale(ler).</value>
-  </data>
   <data name="As these articles are public assets of the blog/news center, you must first manually delete them or transfer their ownership before you can delete your account." xml:space="preserve">
     <value>Bu makaleler blog/haber merkezinin kamuya açık varlıkları olduğundan, hesabınızı silmeden önce bunları manuel olarak silmeniz veya mülkiyetini devretmeniz gerekir.</value>
   </data>
@@ -56,6 +53,9 @@
   </data>
   <data name="You cannot delete your account yet." xml:space="preserve">
     <value>Henüz hesabınızı silemezsiniz.</value>
+  </data>
+  <data name="article(s)." xml:space="preserve">
+    <value>makale(ler).</value>
   </data>
 
 </root>

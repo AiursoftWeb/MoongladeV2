@@ -69,11 +69,11 @@
   <data name="Embedding Model" xml:space="preserve">
     <value>嵌入模型</value>
   </data>
-  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
-    <value>向量搜尋的嵌入模型名稱，例如 bge-m3:latest。必須在嵌入端點中可用。</value>
-  </data>
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>嵌入查詢快取上限</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest. Must be available at the Embedding Endpoint." xml:space="preserve">
+    <value>向量搜尋的嵌入模型名稱，例如 bge-m3:latest。必須在嵌入端點中可用。</value>
   </data>
   <data name="Enable Comments" xml:space="preserve">
     <value>啟用留言</value>
@@ -123,11 +123,17 @@
   <data name="Show Author Info" xml:space="preserve">
     <value>顯示作者資訊</value>
   </data>
+  <data name="Show Contract Header" xml:space="preserve">
+    <value>顯示合約標頭</value>
+  </data>
   <data name="Show author name and avatar at the top of blog post pages." xml:space="preserve">
     <value>在部落格文章頁面頂端顯示作者名稱與頭像。</value>
   </data>
-  <data name="Show Contract Header" xml:space="preserve">
-    <value>顯示合約標頭</value>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>適用於中國大陸使用者的 ICP 許可證編號。留空以隱藏。</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>公司或專案的網址。例如：https://www.aiursoft.com</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>公司或專案的地址</value>
@@ -137,9 +143,6 @@
   </data>
   <data name="The email address of the company or project." xml:space="preserve">
     <value>公司或專案的電子郵件位址。</value>
-  </data>
-  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
-    <value>適用於中國大陸使用者的 ICP 許可證編號。留空以隱藏。</value>
   </data>
   <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
     <value>顯示在頁首的合約標誌。支援 jpg、png、svg 格式。與系統標誌分開。</value>
@@ -155,9 +158,6 @@
   </data>
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>公司或專案的郵遞區號</value>
-  </data>
-  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
-    <value>公司或專案的網址。例如：https://www.aiursoft.com</value>
   </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>是否在合約視圖中顯示合約標頭（標誌、地址等）。</value>

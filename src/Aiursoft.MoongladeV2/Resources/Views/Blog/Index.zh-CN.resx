@@ -54,9 +54,6 @@
   <data name="Popular Tags" xml:space="preserve">
     <value>热门标签</value>
   </data>
-  <data name="posts" xml:space="preserve">
-    <value>文章</value>
-  </data>
   <data name="Previous" xml:space="preserve">
     <value>上一页</value>
   </data>
@@ -83,6 +80,9 @@
   </data>
   <data name="Views" xml:space="preserve">
     <value>阅读量</value>
+  </data>
+  <data name="posts" xml:space="preserve">
+    <value>文章</value>
   </data>
 
 </root>

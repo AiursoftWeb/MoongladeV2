@@ -33,6 +33,9 @@
   <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
     <value>เครื่องมือง่ายๆ สำหรับแปลง Markdown ของคุณให้เป็น HTML ที่สะอาดและปลอดภัย</value>
   </data>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>การแปลด้วยพลัง AI</value>
+  </data>
   <data name="Abstract" xml:space="preserve">
     <value>บทคัดย่อ</value>
   </data>
@@ -41,9 +44,6 @@
   </data>
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
     <value>หลังจากที่ทำให้เอกสารถูกตั้งค่าเป็นส่วนตัวแล้ว ลิงก์สาธารณะที่มีอยู่จะใช้งานไม่ได้อีกต่อไป คุณแน่ใจหรือไม่ว่าต้องการดำเนินการต่อ?</value>
-  </data>
-  <data name="AI-Powered Translations" xml:space="preserve">
-    <value>การแปลด้วยพลัง AI</value>
   </data>
   <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
     <value>การอ้างอิงทั้งหมดจะถูกลงทะเบียนโดยอัตโนมัติและพร้อมใช้งานเสมอผ่าน Constructor Injection</value>
@@ -114,14 +114,14 @@
   <data name="Copy Link" xml:space="preserve">
     <value>คัดลอกลิงก์</value>
   </data>
-  <data name="Copy link to clipboard" xml:space="preserve">
-    <value>คัดลอกลิงก์ไปยังคลิปบอร์ด</value>
-  </data>
   <data name="Copy Preview" xml:space="preserve">
     <value>คัดลอกหน้าแสดงตัวอย่าง</value>
   </data>
   <data name="Copy Preview HTML" xml:space="preserve">
     <value>คัดลอก HTML ของการดูตัวอย่าง</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>คัดลอกลิงก์ไปยังคลิปบอร์ด</value>
   </data>
   <data name="Create a new document..." xml:space="preserve">
     <value>สร้างเอกสารใหม่...</value>
@@ -165,11 +165,11 @@
   <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
     <value>มีระบบจัดการไฟล์ในตัวพร้อมการบีบอัดอวาตาร์อัตโนมัติ</value>
   </data>
-  <data name="Hello World!" xml:space="preserve">
-    <value>สวัสดีชาวโลก!</value>
-  </data>
   <data name="HTML preview will appear here after conversion." xml:space="preserve">
     <value>ตัวอย่าง HTML จะปรากฏที่นี่หลังการแปลง</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>สวัสดีชาวโลก!</value>
   </data>
   <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
     <value>หากคุณเปลี่ยนเอกสารนี้เป็นแบบส่วนตัว ลิงก์สาธารณะที่มีอยู่จะหยุดทำงานสำหรับทุกคนในทันที</value>
@@ -201,14 +201,14 @@
   <data name="Lowercase English letters, numbers, and single hyphens only. Empty slugs are generated automatically for public posts." xml:space="preserve">
     <value>ใช้เฉพาะตัวอักษรภาษาอังกฤษพิมพ์เล็ก ตัวเลข และเครื่องหมายไฮเฟนเดี่ยวเท่านั้น สแลงที่ว่างเปล่าจะถูกสร้างอัตโนมัติสำหรับโพสต์สาธารณะ</value>
   </data>
-  <data name="Make document private" xml:space="preserve">
-    <value>ทำให้เอกสารเป็นส่วนตัว</value>
-  </data>
   <data name="Make Private" xml:space="preserve">
     <value>ตั้งค่าเป็นส่วนตัว</value>
   </data>
   <data name="Make Public" xml:space="preserve">
     <value>เปิดให้สาธารณะ</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>ทำให้เอกสารเป็นส่วนตัว</value>
   </data>
   <data name="Markdown Input" xml:space="preserve">
     <value>ป้อนข้อมูล Markdown</value>
@@ -231,14 +231,14 @@
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>การผสานรวม OpenID Connect</value>
   </data>
+  <data name="Post URL" xml:space="preserve">
+    <value>URL ของโพสต์</value>
+  </data>
   <data name="Post title" xml:space="preserve">
     <value>ชื่อโพสต์</value>
   </data>
   <data name="Post updated successfully." xml:space="preserve">
     <value>อัปเดตโพสต์สำเร็จแล้ว</value>
-  </data>
-  <data name="Post URL" xml:space="preserve">
-    <value>URL ของโพสต์</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>แสดงตัวอย่าง</value>

@@ -162,11 +162,11 @@
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>Markdown to HTML Converter</value>
   </data>
-  <data name="My documents" xml:space="preserve">
-    <value>내 문서</value>
-  </data>
   <data name="My Documents History" xml:space="preserve">
     <value>내 문서 기록</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>내 문서</value>
   </data>
   <data name="My posts" xml:space="preserve">
     <value>내 글</value>

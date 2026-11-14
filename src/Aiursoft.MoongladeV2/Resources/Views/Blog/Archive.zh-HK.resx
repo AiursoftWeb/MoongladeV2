@@ -21,11 +21,11 @@
       <data name="Archive" xml:space="preserve">
     <value>歸檔</value>
   </data>
-  <data name="posts in total" xml:space="preserve">
-    <value>帖子总数</value>
-  </data>
   <data name="Views" xml:space="preserve">
     <value>瀏覽次數</value>
+  </data>
+  <data name="posts in total" xml:space="preserve">
+    <value>帖子总数</value>
   </data>
 
 </root>

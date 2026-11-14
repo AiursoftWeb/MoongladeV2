@@ -63,17 +63,17 @@
   <data name="Post" xml:space="preserve">
     <value>投稿</value>
   </data>
-  <data name="replies" xml:space="preserve">
-    <value>返信</value>
-  </data>
   <data name="Reply:" xml:space="preserve">
     <value>返信：</value>
   </data>
-  <data name="total comments" xml:space="preserve">
-    <value>総コメント数</value>
-  </data>
   <data name="View and delete comments on blog posts." xml:space="preserve">
     <value>ブログ記事のコメントを表示、削除します。</value>
+  </data>
+  <data name="replies" xml:space="preserve">
+    <value>返信</value>
+  </data>
+  <data name="total comments" xml:space="preserve">
+    <value>総コメント数</value>
   </data>
 
 </root>

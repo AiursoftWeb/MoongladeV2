@@ -33,6 +33,9 @@
   <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
     <value>Простий інструмент для перетворення вашого Markdown у чистий, безпечний HTML.</value>
   </data>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>Переклади на основі ШІ</value>
+  </data>
   <data name="Abstract" xml:space="preserve">
     <value>Анотація</value>
   </data>
@@ -41,9 +44,6 @@
   </data>
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
     <value>Після того, як цей документ стане приватним, наявне публічне посилання припинить роботу. Ви впевнені, що бажаєте продовжити?</value>
-  </data>
-  <data name="AI-Powered Translations" xml:space="preserve">
-    <value>Переклади на основі ШІ</value>
   </data>
   <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
     <value>Усі залежності автоматично реєструються та завжди доступні через ін&apos;єкцію конструктора.</value>
@@ -114,14 +114,14 @@
   <data name="Copy Link" xml:space="preserve">
     <value>Копіювати посилання</value>
   </data>
-  <data name="Copy link to clipboard" xml:space="preserve">
-    <value>Скопіювати посилання в буфер обміну</value>
-  </data>
   <data name="Copy Preview" xml:space="preserve">
     <value>Копіювати попередній перегляд</value>
   </data>
   <data name="Copy Preview HTML" xml:space="preserve">
     <value>Копіювати HTML-код попереднього перегляду</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>Скопіювати посилання в буфер обміну</value>
   </data>
   <data name="Create a new document..." xml:space="preserve">
     <value>Створити новий документ...</value>
@@ -165,11 +165,11 @@
   <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
     <value>Містить вбудовану систему керування файлами з автоматичним стисненням аватарів.</value>
   </data>
-  <data name="Hello World!" xml:space="preserve">
-    <value>Привіт, Світе!</value>
-  </data>
   <data name="HTML preview will appear here after conversion." xml:space="preserve">
     <value>Попередній перегляд HTML з’явиться тут після конвертації.</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>Привіт, Світе!</value>
   </data>
   <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
     <value>Якщо ви зробите цей документ приватним, наявне публічне посилання негайно припинить працювати для всіх.</value>
@@ -201,14 +201,14 @@
   <data name="Lowercase English letters, numbers, and single hyphens only. Empty slugs are generated automatically for public posts." xml:space="preserve">
     <value>Тільки маленькі латинські літери, цифри та одинарні дефіси. Порожні slug-адреси генеруються автоматично для публічних записів.</value>
   </data>
-  <data name="Make document private" xml:space="preserve">
-    <value>Зробити документ приватним</value>
-  </data>
   <data name="Make Private" xml:space="preserve">
     <value>Зробити приватним</value>
   </data>
   <data name="Make Public" xml:space="preserve">
     <value>Зробити публічним</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>Зробити документ приватним</value>
   </data>
   <data name="Markdown Input" xml:space="preserve">
     <value>Вхідні дані Markdown</value>
@@ -231,14 +231,14 @@
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>Інтеграція OpenID Connect</value>
   </data>
+  <data name="Post URL" xml:space="preserve">
+    <value>URL публікації</value>
+  </data>
   <data name="Post title" xml:space="preserve">
     <value>Назва публікації</value>
   </data>
   <data name="Post updated successfully." xml:space="preserve">
     <value>Запис успішно оновлено.</value>
-  </data>
-  <data name="Post URL" xml:space="preserve">
-    <value>URL публікації</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>Попередній перегляд</value>

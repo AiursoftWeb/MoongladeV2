@@ -45,11 +45,11 @@
   <data name="Localized Title" xml:space="preserve">
     <value>Εντοπισμένος Τίτλος</value>
   </data>
-  <data name="Save failed." xml:space="preserve">
-    <value>Η αποθήκευση απέτυχε.</value>
-  </data>
   <data name="Save Translation" xml:space="preserve">
     <value>Αποθήκευση Μετάφρασης</value>
+  </data>
+  <data name="Save failed." xml:space="preserve">
+    <value>Η αποθήκευση απέτυχε.</value>
   </data>
   <data name="Saved successfully!" xml:space="preserve">
     <value>Αποθηκεύθηκε επιτυχώς!</value>

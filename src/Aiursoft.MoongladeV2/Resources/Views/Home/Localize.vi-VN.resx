@@ -45,11 +45,11 @@
   <data name="Localized Title" xml:space="preserve">
     <value>Tiêu đề đã bản địa hóa</value>
   </data>
-  <data name="Save failed." xml:space="preserve">
-    <value>Lưu không thành công.</value>
-  </data>
   <data name="Save Translation" xml:space="preserve">
     <value>Lưu Bản Dịch</value>
+  </data>
+  <data name="Save failed." xml:space="preserve">
+    <value>Lưu không thành công.</value>
   </data>
   <data name="Saved successfully!" xml:space="preserve">
     <value>Lưu thành công!</value>

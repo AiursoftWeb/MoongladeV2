@@ -21,11 +21,11 @@
       <data name="Archive" xml:space="preserve">
     <value>Arkisto</value>
   </data>
-  <data name="posts in total" xml:space="preserve">
-    <value>viestiä yhteensä</value>
-  </data>
   <data name="Views" xml:space="preserve">
     <value>Näytökset</value>
+  </data>
+  <data name="posts in total" xml:space="preserve">
+    <value>viestiä yhteensä</value>
   </data>
 
 </root>

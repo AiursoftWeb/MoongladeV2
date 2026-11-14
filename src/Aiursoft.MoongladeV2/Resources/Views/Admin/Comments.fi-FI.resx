@@ -63,17 +63,17 @@
   <data name="Post" xml:space="preserve">
     <value>Julkaisu</value>
   </data>
-  <data name="replies" xml:space="preserve">
-    <value>vastausta</value>
-  </data>
   <data name="Reply:" xml:space="preserve">
     <value>Vastaus:</value>
   </data>
-  <data name="total comments" xml:space="preserve">
-    <value>kaikkia kommentteja</value>
-  </data>
   <data name="View and delete comments on blog posts." xml:space="preserve">
     <value>Tarkastele ja poista blogikirjoitusten kommentteja.</value>
+  </data>
+  <data name="replies" xml:space="preserve">
+    <value>vastausta</value>
+  </data>
+  <data name="total comments" xml:space="preserve">
+    <value>kaikkia kommentteja</value>
   </data>
 
 </root>

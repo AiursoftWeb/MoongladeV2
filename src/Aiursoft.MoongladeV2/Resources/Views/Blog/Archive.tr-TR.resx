@@ -21,11 +21,11 @@
       <data name="Archive" xml:space="preserve">
     <value>Arşiv</value>
   </data>
-  <data name="posts in total" xml:space="preserve">
-    <value>toplam gönderi</value>
-  </data>
   <data name="Views" xml:space="preserve">
     <value>Görüntüleme</value>
+  </data>
+  <data name="posts in total" xml:space="preserve">
+    <value>toplam gönderi</value>
   </data>
 
 </root>

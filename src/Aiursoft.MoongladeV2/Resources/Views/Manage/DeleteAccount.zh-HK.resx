@@ -21,9 +21,6 @@
       <data name="Are you sure you want to delete your account?" xml:space="preserve">
     <value>你確定要刪除你的帳戶嗎？</value>
   </data>
-  <data name="article(s)." xml:space="preserve">
-    <value>文章。</value>
-  </data>
   <data name="As these articles are public assets of the blog/news center, you must first manually delete them or transfer their ownership before you can delete your account." xml:space="preserve">
     <value>由於這些文章屬於博客/新聞中心的公共資產，您必須先手動刪除它們或轉移其所有權，然後才能刪除您的帳戶。</value>
   </data>
@@ -56,6 +53,9 @@
   </data>
   <data name="You cannot delete your account yet." xml:space="preserve">
     <value>你暫時無法刪除帳戶。</value>
+  </data>
+  <data name="article(s)." xml:space="preserve">
+    <value>文章。</value>
   </data>
 
 </root>
