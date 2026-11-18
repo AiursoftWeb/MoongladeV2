@@ -134,12 +134,17 @@ public class EmbeddingRetryTests
     [TestMethod]
     [DataRow(false)]
     [DataRow(true)]
-    public void LongInputsPreserveBothEndsWithoutSplittingSurrogatePairs(bool unicodeBoundaries)
+    public async Task LongInputsPreserveBothEndsWithoutSplittingSurrogatePairs(bool unicodeBoundaries)
     {
         var text = unicodeBoundaries
             ? new string('a', 6548) + "😀" + new string('m', 10000) + "😀" + new string('z', 1637)
             : new string('a', 6549) + new string('m', 10000) + new string('z', 1638);
-        var input = GenerateDocumentEmbeddingsJob.TruncateForEmbedding(text, 8192);
+        using var handler = new EmbeddingHandler { ContextLimit = 8192 };
+        _service = new DocumentVectorSearchService(_db, _cache, _settings, handler, NullLogger<DocumentVectorSearchService>.Instance);
+        var result = await _service.SearchAsync(_db.MarkdownDocuments.AsNoTracking(), text, 1, 10);
+        Assert.IsTrue(result.UsedAi);
+        Assert.HasCount(1, handler.Inputs);
+        var input = handler.Inputs[0];
         Assert.IsTrue(input.Length <= 8192);
         Assert.IsFalse(input.Contains('m'));
         Assert.IsFalse(input.Contains('\uFFFD'));
