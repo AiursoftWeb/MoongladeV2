@@ -55,6 +55,58 @@ public class EmbeddingRetryTests
     }
 
     [TestMethod]
+    public async Task BackgroundJobPreparesDraftWithoutAddingItToThePublicCache()
+    {
+        var draft = new MarkdownDocument
+        {
+            Title = "Draft", Content = "Draft body", UserId = "owner", SourceCulture = "en-US",
+            UpdatedAt = DateTime.UtcNow
+        };
+        _db.MarkdownDocuments.Add(draft);
+        await _db.SaveChangesAsync();
+        using var handler = new EmbeddingHandler();
+        var retry = new RetryEngine(NullLogger<RetryEngine>.Instance);
+        var job = new GenerateDocumentEmbeddingsJob(_db, _settings, handler, retry, NullLogger<GenerateDocumentEmbeddingsJob>.Instance);
+
+        await job.ExecuteAsync();
+        await _cache.LoadAsync(_db);
+
+        Assert.IsNotNull(draft.Embedding);
+        Assert.IsFalse(_cache.Snapshot().ContainsKey(draft.Id));
+        Assert.IsTrue(_cache.Snapshot().ContainsKey(_item.Id));
+
+        draft.IsPublic = true;
+        await _db.SaveChangesAsync();
+        await _cache.LoadAsync(_db);
+
+        Assert.IsTrue(_cache.Snapshot().ContainsKey(draft.Id));
+    }
+
+    [TestMethod]
+    public async Task PostMadePrivateAfterCacheRefreshDoesNotAffectSearchResultsOrCount()
+    {
+        _db.MarkdownDocuments.Add(new MarkdownDocument
+        {
+            Title = "Public post", Content = "Public body", UserId = "owner", IsPublic = true,
+            Embedding = EmbeddingHelper.Serialize([0.8f, 0.6f])
+        });
+        await _db.SaveChangesAsync();
+
+        // Populate a snapshot with both posts, then withdraw the closer match before the next refresh.
+        await _cache.LoadAsync(_db);
+        _item.IsPublic = false;
+        await _db.SaveChangesAsync();
+        using var handler = new EmbeddingHandler();
+        _service = new DocumentVectorSearchService(_db, _cache, _settings, handler, NullLogger<DocumentVectorSearchService>.Instance);
+
+        var result = await _service.SearchAsync(_db.MarkdownDocuments.Where(d => d.IsPublic), "Draft", 1, 1);
+
+        Assert.IsTrue(result.UsedAi);
+        Assert.AreEqual(1, result.TotalCount);
+        Assert.AreEqual("Public post", result.Results.Single().Title);
+    }
+
+    [TestMethod]
     [DataRow(HttpStatusCode.BadRequest)]
     [DataRow(HttpStatusCode.RequestEntityTooLarge)]
     public async Task QueryShrinksContextErrorsAndCachesOnlyTheSuccessfulVector(HttpStatusCode status)
@@ -124,58 +176,6 @@ public class EmbeddingRetryTests
         Assert.IsTrue(handler.Inputs.Count > 0);
         Assert.IsTrue(handler.Inputs.All(input => input.Length == 8000), "Transient job retries must not shrink unrelated failures.");
         Assert.IsNull(_item.Embedding);
-    }
-
-    [TestMethod]
-    public async Task BackgroundJobPreparesDraftWithoutAddingItToThePublicCache()
-    {
-        var draft = new MarkdownDocument
-        {
-            Title = "Draft", Content = "Draft body", UserId = "owner", SourceCulture = "en-US",
-            UpdatedAt = DateTime.UtcNow
-        };
-        _db.MarkdownDocuments.Add(draft);
-        await _db.SaveChangesAsync();
-        using var handler = new EmbeddingHandler();
-        var retry = new RetryEngine(NullLogger<RetryEngine>.Instance);
-        var job = new GenerateDocumentEmbeddingsJob(_db, _settings, handler, retry, NullLogger<GenerateDocumentEmbeddingsJob>.Instance);
-
-        await job.ExecuteAsync();
-        await _cache.LoadAsync(_db);
-
-        Assert.IsNotNull(draft.Embedding);
-        Assert.IsFalse(_cache.Snapshot().ContainsKey(draft.Id));
-        Assert.IsTrue(_cache.Snapshot().ContainsKey(_item.Id));
-
-        draft.IsPublic = true;
-        await _db.SaveChangesAsync();
-        await _cache.LoadAsync(_db);
-
-        Assert.IsTrue(_cache.Snapshot().ContainsKey(draft.Id));
-    }
-
-    [TestMethod]
-    public async Task PostMadePrivateAfterCacheRefreshDoesNotAffectSearchResultsOrCount()
-    {
-        _db.MarkdownDocuments.Add(new MarkdownDocument
-        {
-            Title = "Public post", Content = "Public body", UserId = "owner", IsPublic = true,
-            Embedding = EmbeddingHelper.Serialize([0.8f, 0.6f])
-        });
-        await _db.SaveChangesAsync();
-
-        // Populate a snapshot with both posts, then withdraw the closer match before the next refresh.
-        await _cache.LoadAsync(_db);
-        _item.IsPublic = false;
-        await _db.SaveChangesAsync();
-        using var handler = new EmbeddingHandler();
-        _service = new DocumentVectorSearchService(_db, _cache, _settings, handler, NullLogger<DocumentVectorSearchService>.Instance);
-
-        var result = await _service.SearchAsync(_db.MarkdownDocuments.Where(d => d.IsPublic), "Draft", 1, 1);
-
-        Assert.IsTrue(result.UsedAi);
-        Assert.AreEqual(1, result.TotalCount);
-        Assert.AreEqual("Public post", result.Results.Single().Title);
     }
 
     private sealed class EmbeddingHandler : HttpMessageHandler, IHttpClientFactory
