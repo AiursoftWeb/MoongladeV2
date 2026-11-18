@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 namespace Aiursoft.MoongladeV2.Services.BackgroundJobs;
 
 /// <summary>
-/// Generates embedding vectors for public blog posts using the configured Ollama embedding model.
+/// Generates embedding vectors for published posts and non-empty drafts using the configured Ollama embedding model.
 /// Documents whose <see cref="MarkdownDocument.SourceCulture"/> is null are skipped
 /// (pending language detection). Processes documents where
 /// <see cref="MarkdownDocument.LastEmbeddedAt"/> is older than
@@ -26,7 +26,7 @@ public class GenerateDocumentEmbeddingsJob(
     public string Name => "Generate Document Embeddings";
 
     public string Description =>
-        "Generates embedding vectors for public blog posts using the configured Ollama embedding model. " +
+        "Generates embedding vectors for published posts and non-empty drafts using the configured Ollama embedding model. " +
         "Documents whose SourceCulture is null are skipped (pending language detection). " +
         "Processes documents where LastEmbeddedAt is older than UpdatedAt " +
         "(content changed since last embedding). " +
@@ -94,8 +94,8 @@ public class GenerateDocumentEmbeddingsJob(
             var currentLastId = lastId;
             var take = Math.Min(10, MaxDocumentsPerRun - attempted);
             var pending = await db.MarkdownDocuments
-                .Where(d => d.IsPublic &&
-                            d.SourceCulture != null &&
+                .ForPreparation()
+                .Where(d => d.SourceCulture != null &&
                             d.Id.CompareTo(currentLastId) > 0 &&
                             d.LastEmbeddedAt < d.UpdatedAt)
                 .OrderBy(d => d.Id)

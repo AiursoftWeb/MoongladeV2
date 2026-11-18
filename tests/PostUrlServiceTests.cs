@@ -1,8 +1,10 @@
 using Aiursoft.MoongladeV2.Entities;
 using Aiursoft.MoongladeV2.Services;
+using Aiursoft.MoongladeV2.Services.BackgroundJobs;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.Extensions.Logging.Abstractions;
 
 namespace Aiursoft.MoongladeV2.Tests;
 
@@ -115,6 +117,32 @@ public class PostUrlServiceTests
             .Where(d => d.Id == document.Id)
             .Select(d => d.Slug)
             .SingleAsync());
+    }
+
+    [TestMethod]
+    public async Task GenerateSlugs_PreparesDraftAndPreservesExistingSlug()
+    {
+        await using var db = new TestContext(_options);
+        var draft = Document(null);
+        draft.IsPublic = false;
+        var namedDraft = Document("author-slug");
+        namedDraft.IsPublic = false;
+        db.AddRange(draft, namedDraft);
+        await db.SaveChangesAsync();
+        var postUrls = new PostUrlService(db);
+        var job = new GeneratePostSlugsJob(db, new FixedSlugGenerator(), postUrls,
+            NullLogger<GeneratePostSlugsJob>.Instance);
+
+        await job.ExecuteAsync();
+
+        Assert.AreEqual("generated-slug", draft.Slug);
+        Assert.AreEqual("author-slug", namedDraft.Slug);
+        Assert.IsFalse(draft.IsPublic);
+    }
+
+    private sealed class FixedSlugGenerator() : SlugGenerationService(null!, null!, null!)
+    {
+        public override Task<string> GenerateAsync(string title) => Task.FromResult("generated-slug");
     }
 
     private sealed class TestRetryingExecutionStrategyFactory(ExecutionStrategyDependencies dependencies)

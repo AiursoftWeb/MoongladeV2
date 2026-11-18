@@ -8,11 +8,12 @@ public class GeneratePostSlugsJob(TemplateDbContext db, SlugGenerationService ge
     PostUrlService postUrls, ILogger<GeneratePostSlugsJob> logger) : IBackgroundJob
 {
     public string Name => "Generate Post Slugs";
-    public string Description => "Generates readable slugs for up to 20 public posts which do not have one.";
+    public string Description => "Generates readable slugs for up to 20 published posts or non-empty drafts without a slug.";
 
     public async Task ExecuteAsync()
     {
-        var documents = await db.MarkdownDocuments.Where(d => d.IsPublic && d.Slug == null)
+        var documents = await db.MarkdownDocuments.ForPreparation()
+            .Where(d => d.Slug == null)
             .OrderBy(d => d.CreationTime).ThenBy(d => d.Id).Take(20).ToListAsync();
         foreach (var document in documents)
         {
@@ -25,9 +26,11 @@ public class GeneratePostSlugsJob(TemplateDbContext db, SlugGenerationService ge
                     continue;
                 }
 
-                // The author may have saved a slug while the AI request was in flight.
+                // The author may have edited the draft or saved a slug during generation.
+                var sourceUpdatedAt = document.UpdatedAt;
                 await db.Entry(document).ReloadAsync();
-                if (document.Slug != null) continue;
+                if (db.Entry(document).State == EntityState.Detached || document.Slug != null ||
+                    document.UpdatedAt != sourceUpdatedAt) continue;
 
                 var baseSlug = generated!;
                 var candidate = baseSlug;

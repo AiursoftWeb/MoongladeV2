@@ -704,6 +704,38 @@ public class PostsTests : TestBase
             $"rel=\"canonical\" href=\"{new Uri(Http.BaseAddress!, $"post/{fallbackId}")}\"");
     }
 
+    [TestMethod]
+    public async Task DraftWithSlug_IsOnlyPublicAfterPublication()
+    {
+        using var scope = Server!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+        var owner = await db.Users.FirstAsync();
+        var date = new DateTime(2026, 6, 28, 12, 0, 0, DateTimeKind.Utc);
+        var draft = new MarkdownDocument
+        {
+            Title = "Prepared unpublished article",
+            Content = "Unpublished content",
+            UserId = owner.Id,
+            Slug = "prepared-draft",
+            SlugDate = date.Date,
+            CreationTime = date
+        };
+        db.MarkdownDocuments.Add(draft);
+        await db.SaveChangesAsync();
+        var url = "/post/2026/06/28/prepared-draft";
+
+        Assert.AreEqual(HttpStatusCode.NotFound, (await Http.GetAsync(url)).StatusCode);
+        Assert.AreEqual(HttpStatusCode.NotFound, (await Http.GetAsync($"/post/{draft.Id}")).StatusCode);
+        Assert.IsFalse((await Http.GetStringAsync("/")).Contains(draft.Title, StringComparison.Ordinal));
+
+        draft.IsPublic = true;
+        await db.SaveChangesAsync();
+
+        var response = await Http.GetAsync(url);
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        StringAssert.Contains(await response.Content.ReadAsStringAsync(), draft.Title);
+    }
+
     private async Task<Guid> CreateDocumentAsync(string ownerEmail, bool isPublic, string title)
     {
         var docId = Guid.NewGuid();
