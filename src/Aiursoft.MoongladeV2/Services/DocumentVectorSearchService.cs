@@ -55,10 +55,14 @@ public class DocumentVectorSearchService(
         if (queryVector == null)
             return (false, [], 0);
 
+        // Visibility and filters may have changed since the periodic cache refresh.
+        var eligibleIds = await baseQuery.Select(d => d.Id).ToHashSetAsync(ct);
         var scored = new List<(Guid DocumentId, float Score)>();
         var skippedDimensionMismatch = 0;
         foreach (var kv in snapshot)
         {
+            if (!eligibleIds.Contains(kv.Key)) continue;
+
             if (kv.Value.Length != queryVector.Length)
             {
                 skippedDimensionMismatch++;
@@ -119,8 +123,9 @@ public class DocumentVectorSearchService(
         if (!snapshot.TryGetValue(documentId, out var targetVector))
             return [];
 
+        var eligibleIds = await baseQuery.Select(d => d.Id).ToHashSetAsync(ct);
         var topIds = snapshot
-            .Where(kv => kv.Key != documentId)
+            .Where(kv => kv.Key != documentId && eligibleIds.Contains(kv.Key))
             .Select(kv => (DocumentId: kv.Key, Score: EmbeddingHelper.CosineSimilarity(targetVector, kv.Value)))
             .OrderByDescending(x => x.Score)
             .Take(take)

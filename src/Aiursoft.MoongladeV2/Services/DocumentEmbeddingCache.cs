@@ -32,7 +32,7 @@ public class DocumentEmbeddingCache(ILogger<DocumentEmbeddingCache> logger)
     {
         var embeddings = await db.MarkdownDocuments
             .AsNoTracking()
-            .Where(d => d.Embedding != null)
+            .Where(d => d.IsPublic && d.Embedding != null)
             .Select(d => new { d.Id, d.Embedding })
             .ToListAsync();
 

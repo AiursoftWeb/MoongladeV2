@@ -170,21 +170,25 @@ public class LocalizeDocumentsJobTests
             "Documents with null SourceCulture should be skipped.");
     }
 
-    // ── 4. Skips non-public documents ───────────────────────────────────────────
+    // ── 4. Prepares drafts with content ───────────────────────────────────────────
 
     [TestMethod]
-    public async Task ExecuteAsync_SkipsNonPublicDocuments()
+    public async Task ExecuteAsync_PreparesDraftsWithContent()
     {
         var job = await CreateJobAsync();
         await using var db = new SqliteTestContext(_dbOptions);
 
-        var privateDoc = CreateDoc(Guid.NewGuid(), isPublic: false);
-        await SeedAsync(db, privateDoc);
+        var draft = CreateDoc(Guid.NewGuid(), isPublic: false);
+        var emptyDraft = CreateDoc(Guid.NewGuid(), isPublic: false);
+        emptyDraft.Content = "   ";
+        await SeedAsync(db, draft, emptyDraft);
 
         await job.ExecuteAsync();
 
         var translations = await db.LocalizedDocuments.ToListAsync();
-        Assert.AreEqual(0, translations.Count);
+        Assert.AreEqual(2, translations.Count);
+        Assert.IsTrue(translations.All(row => row.DocumentId == draft.Id));
+        CollectionAssert.AreEquivalent(new[] { "en-US", "ja-JP" }, translations.Select(row => row.Culture).ToArray());
     }
 
     // ── 5. Pass-through when SourceCulture == targetCulture ─────────────────────

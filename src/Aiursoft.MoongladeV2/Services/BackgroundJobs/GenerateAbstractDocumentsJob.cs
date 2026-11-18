@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Aiursoft.MoongladeV2.Services.BackgroundJobs;
 
 /// <summary>
-/// Generates AI abstracts for public blog posts.
+/// Generates AI abstracts for published posts and non-empty drafts.
 ///
 /// SourceCulture routing:
 /// - SourceCulture is null     → Skip (pending detection by DetectSourceCultureJob)
@@ -29,7 +29,7 @@ public class GenerateAbstractDocumentsJob(
     public string Name => "Generate Abstracts";
 
     public string Description =>
-        "Generates AI abstracts for public blog posts. " +
+        "Generates AI abstracts for published posts and non-empty drafts. " +
         "Documents whose SourceCulture is null are skipped. " +
         "An abstract is first generated in the document's SourceCulture from the full content. " +
         "It is then translated to every other configured language via DocumentTranslationService. " +
@@ -75,8 +75,8 @@ public class GenerateAbstractDocumentsJob(
             var currentLastId = lastId;
 
             var pending = await db.MarkdownDocuments
-                .Where(d => d.IsPublic &&
-                            d.SourceCulture != null &&
+                .ForPreparation()
+                .Where(d => d.SourceCulture != null &&
                             d.Id.CompareTo(currentLastId) > 0 &&
                             !db.LocalizedAbstracts.Any(la =>
                                 la.DocumentId == d.Id &&
@@ -112,7 +112,8 @@ public class GenerateAbstractDocumentsJob(
 
         // Get all distinct source cultures that exist in the database
         var sourceCultures = await db.MarkdownDocuments
-            .Where(d => d.IsPublic && d.SourceCulture != null)
+            .ForPreparation()
+            .Where(d => d.SourceCulture != null)
             .Select(d => d.SourceCulture)
             .Distinct()
             .ToListAsync();
@@ -144,8 +145,8 @@ public class GenerateAbstractDocumentsJob(
             var currentLastId = lastId;
 
             var pending = await db.MarkdownDocuments
-                .Where(d => d.IsPublic &&
-                            d.SourceCulture == sourceCulture &&
+                .ForPreparation()
+                .Where(d => d.SourceCulture == sourceCulture &&
                             d.Id.CompareTo(currentLastId) > 0 &&
                             db.LocalizedAbstracts.Any(la =>
                                 la.DocumentId == d.Id &&

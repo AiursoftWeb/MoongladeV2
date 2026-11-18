@@ -198,21 +198,25 @@ public class GenerateAbstractDocumentsJobTests
             "Source abstract (en-US) should still be generated, then translated to ja-JP and zh-TW.");
     }
 
-    // ── 5. Skips non-public documents ───────────────────────────────────────────
+    // ── 5. Prepares drafts with content ───────────────────────────────────────────
 
     [TestMethod]
-    public async Task ExecuteAsync_SkipsNonPublicDocuments()
+    public async Task ExecuteAsync_PreparesDraftsWithContent()
     {
         var job = await CreateJobAsync();
         await using var db = new SqliteTestContext(_dbOptions);
 
-        var privateDoc = CreateDoc(Guid.NewGuid(), isPublic: false);
-        await SeedAsync(db, privateDoc);
+        var draft = CreateDoc(Guid.NewGuid(), isPublic: false);
+        var emptyDraft = CreateDoc(Guid.NewGuid(), isPublic: false);
+        emptyDraft.Content = "   ";
+        await SeedAsync(db, draft, emptyDraft);
 
         await job.ExecuteAsync();
 
         var abstracts = await db.LocalizedAbstracts.ToListAsync();
-        Assert.AreEqual(0, abstracts.Count);
+        Assert.AreEqual(2, abstracts.Count);
+        Assert.IsTrue(abstracts.All(row => row.DocumentId == draft.Id));
+        CollectionAssert.AreEquivalent(new[] { "en-US", "ja-JP" }, abstracts.Select(row => row.Culture).ToArray());
     }
 
     // ── 6. Generates source abstract and translates ─────────────────────────────

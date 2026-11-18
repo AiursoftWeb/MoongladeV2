@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Aiursoft.MoongladeV2.Services.BackgroundJobs;
 
 /// <summary>
-/// Translates public blog posts into configured target languages.
+/// Translates published posts and non-empty drafts into configured target languages.
 ///
 /// SourceCulture routing:
 /// - SourceCulture is null            → Skip (pending detection by DetectSourceCultureJob)
@@ -25,7 +25,7 @@ public class LocalizeDocumentsJob(
     public string Name => "Localize Documents";
 
     public string Description =>
-        "Translates public blog posts into all configured languages. " +
+        "Translates published posts and non-empty drafts into all configured languages. " +
         "Documents whose SourceCulture is null are skipped (pending language detection). " +
         "When the target language matches the document's SourceCulture, " +
         "the original content is copied through without calling AI. " +
@@ -63,8 +63,8 @@ public class LocalizeDocumentsJob(
                 var currentLastId = lastId;
 
                 var pending = await db.MarkdownDocuments
-                    .Where(d => d.IsPublic &&
-                                d.SourceCulture != null &&
+                    .ForPreparation()
+                    .Where(d => d.SourceCulture != null &&
                                 d.Id.CompareTo(currentLastId) > 0 &&
                                 !db.LocalizedDocuments.Any(ld =>
                                     ld.DocumentId == d.Id &&
