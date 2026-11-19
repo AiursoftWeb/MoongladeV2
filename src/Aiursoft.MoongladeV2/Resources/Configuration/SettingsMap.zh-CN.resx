@@ -163,4 +163,10 @@
     <value>是否在合同视图中显示合同页眉（徽标、地址等）。</value>
   </data>
 
+  <data name="Translate Drafts" xml:space="preserve">
+    <value>翻译草稿</value>
+  </data>
+  <data name="Translate draft titles, content, and summaries before publication." xml:space="preserve">
+    <value>在文章发布前翻译草稿的标题、正文和摘要。</value>
+  </data>
 </root>

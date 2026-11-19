@@ -11,7 +11,7 @@ namespace Aiursoft.MoongladeV2.Services.BackgroundJobs;
 /// SourceCulture routing:
 /// - SourceCulture is null     → Skip (pending detection by DetectSourceCultureJob)
 /// - SourceCulture is set      → Phase 1: generate abstract in SourceCulture from full content
-///                               Phase 2: translate that abstract to every other configured language
+///                               Phase 2: translate that abstract to other configured languages
 ///
 /// The SourceCulture abstract is always created from scratch via the AI; target-language
 /// abstracts are always translations of the SourceCulture abstract.
@@ -32,7 +32,7 @@ public class GenerateAbstractDocumentsJob(
         "Generates AI abstracts for published posts and non-empty drafts. " +
         "Documents whose SourceCulture is null are skipped. " +
         "An abstract is first generated in the document's SourceCulture from the full content. " +
-        "It is then translated to every other configured language via DocumentTranslationService. " +
+        "Published abstracts are then translated to the other configured languages, with draft abstracts included when enabled. " +
         "The SourceCulture abstract is always created from scratch; " +
         "target-language abstracts are always translations of the SourceCulture abstract. " +
         "Staleness is tracked per (document × culture) pair against MarkdownDocument.UpdatedAt.";
@@ -60,7 +60,9 @@ public class GenerateAbstractDocumentsJob(
             "GenerateAbstractDocumentsJob: generated {Count} source-culture abstract(s).", generated);
 
         // Phase 2: Translate source abstracts to every other configured language.
-        var translated = await TranslateAbstractsAsync(cultures.ToHashSet());
+        var translateDrafts = await settingsService.GetBoolSettingAsync(SettingsMap.TranslateDrafts);
+        var translatableDocuments = db.MarkdownDocuments.ForPreparation(translateDrafts);
+        var translated = await TranslateAbstractsAsync(translatableDocuments, cultures.ToHashSet());
         logger.LogInformation(
             "GenerateAbstractDocumentsJob: translated {Count} abstract(s) this run.", translated);
     }
@@ -106,13 +108,12 @@ public class GenerateAbstractDocumentsJob(
         return total;
     }
 
-    private async Task<int> TranslateAbstractsAsync(HashSet<string> configuredCultures)
+    private async Task<int> TranslateAbstractsAsync(
+        IQueryable<MarkdownDocument> documents, HashSet<string> configuredCultures)
     {
         var total = 0;
 
-        // Get all distinct source cultures that exist in the database
-        var sourceCultures = await db.MarkdownDocuments
-            .ForPreparation()
+        var sourceCultures = await documents
             .Where(d => d.SourceCulture != null)
             .Select(d => d.SourceCulture)
             .Distinct()
@@ -128,14 +129,15 @@ public class GenerateAbstractDocumentsJob(
 
             foreach (var targetCulture in targetCultures)
             {
-                total += await TranslateAbstractsToCultureAsync(sourceCulture, targetCulture);
+                total += await TranslateAbstractsToCultureAsync(documents, sourceCulture, targetCulture);
             }
         }
 
         return total;
     }
 
-    private async Task<int> TranslateAbstractsToCultureAsync(string sourceCulture, string targetCulture)
+    private async Task<int> TranslateAbstractsToCultureAsync(
+        IQueryable<MarkdownDocument> documents, string sourceCulture, string targetCulture)
     {
         var total = 0;
         var lastId = Guid.Empty;
@@ -144,8 +146,7 @@ public class GenerateAbstractDocumentsJob(
         {
             var currentLastId = lastId;
 
-            var pending = await db.MarkdownDocuments
-                .ForPreparation()
+            var pending = await documents
                 .Where(d => d.SourceCulture == sourceCulture &&
                             d.Id.CompareTo(currentLastId) > 0 &&
                             db.LocalizedAbstracts.Any(la =>

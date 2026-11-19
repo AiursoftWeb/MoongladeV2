@@ -93,18 +93,27 @@ public class LocalizeDocumentsJobTests
     private async Task<LocalizeDocumentsJob> CreateJobAsync(
         string languages = "en-US,ja-JP",
         string endpoint = "https://ollama.example.com/v1/chat/completions",
-        string model = "qwen3")
+        string model = "qwen3",
+        string? translateDrafts = null,
+        string? translateDraftsOverride = null)
     {
         await using (var seedDb = new SqliteTestContext(_dbOptions))
         {
             seedDb.GlobalSettings.Add(new GlobalSetting { Key = SettingsMap.LocalizationLanguages, Value = languages });
             seedDb.GlobalSettings.Add(new GlobalSetting { Key = SettingsMap.OpenAiChatEndpoint, Value = endpoint });
             seedDb.GlobalSettings.Add(new GlobalSetting { Key = SettingsMap.OpenAiModel, Value = model });
+            if (translateDrafts != null)
+            {
+                seedDb.GlobalSettings.Add(new GlobalSetting { Key = SettingsMap.TranslateDrafts, Value = translateDrafts });
+            }
             await seedDb.SaveChangesAsync();
         }
 
         var config = new ConfigurationBuilder()
-            .AddInMemoryCollection(new Dictionary<string, string?>())
+            .AddInMemoryCollection(new Dictionary<string, string?>
+            {
+                [$"GlobalSettings:{SettingsMap.TranslateDrafts}"] = translateDraftsOverride
+            })
             .Build();
 
         var db = new SqliteTestContext(_dbOptions);
@@ -170,25 +179,33 @@ public class LocalizeDocumentsJobTests
             "Documents with null SourceCulture should be skipped.");
     }
 
-    // ── 4. Prepares drafts with content ───────────────────────────────────────────
+    // ── 4. Draft translation is configurable ─────────────────────────────────────
 
     [TestMethod]
-    public async Task ExecuteAsync_PreparesDraftsWithContent()
+    [DataRow(null, null, false)]
+    [DataRow("true", null, true)]
+    [DataRow("false", "true", true)]
+    [DataRow("true", "false", false)]
+    public async Task ExecuteAsync_TranslatesDraftsWhenEnabled(
+        string? translateDrafts, string? translateDraftsOverride, bool draftExpected)
     {
-        var job = await CreateJobAsync();
+        var job = await CreateJobAsync(translateDrafts: translateDrafts, translateDraftsOverride: translateDraftsOverride);
         await using var db = new SqliteTestContext(_dbOptions);
 
+        var published = CreateDoc(Guid.NewGuid());
         var draft = CreateDoc(Guid.NewGuid(), isPublic: false);
         var emptyDraft = CreateDoc(Guid.NewGuid(), isPublic: false);
         emptyDraft.Content = "   ";
-        await SeedAsync(db, draft, emptyDraft);
+        await SeedAsync(db, published, draft, emptyDraft);
 
         await job.ExecuteAsync();
 
         var translations = await db.LocalizedDocuments.ToListAsync();
-        Assert.AreEqual(2, translations.Count);
-        Assert.IsTrue(translations.All(row => row.DocumentId == draft.Id));
-        CollectionAssert.AreEquivalent(new[] { "en-US", "ja-JP" }, translations.Select(row => row.Culture).ToArray());
+        CollectionAssert.AreEquivalent(new[] { "en-US", "ja-JP" },
+            translations.Where(row => row.DocumentId == published.Id).Select(row => row.Culture).ToArray());
+        CollectionAssert.AreEquivalent(draftExpected ? new[] { "en-US", "ja-JP" } : Array.Empty<string>(),
+            translations.Where(row => row.DocumentId == draft.Id).Select(row => row.Culture).ToArray());
+        Assert.IsFalse(translations.Any(row => row.DocumentId == emptyDraft.Id));
     }
 
     // ── 5. Pass-through when SourceCulture == targetCulture ─────────────────────

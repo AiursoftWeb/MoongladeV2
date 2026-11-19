@@ -38,6 +38,7 @@ public class SettingsMap
     public const string EnableEmbeddingBasedSearch = "EnableEmbeddingBasedSearch";
 
     // ── Localization ────────────────────────────────────────────────────────────
+    public const string TranslateDrafts = "TranslateDrafts";
     public const string LocalizationLanguages = "LocalizationLanguages";
     public const string DefaultLocalizationLanguages = "en-US,en-GB,zh-CN,zh-TW,zh-HK,ja-JP,ko-KR,vi-VN,th-TH,de-DE,fr-FR,es-ES,ru-RU,it-IT,pt-PT,pt-BR,ar-SA,nl-NL,sv-SE,pl-PL,tr-TR,ro-RO,da-DK,uk-UA,id-ID,fi-FI,hi-IN,el-GR";
     public const string EmbeddingQueryCacheLimit = "EmbeddingQueryCacheLimit";
@@ -244,6 +245,14 @@ public class SettingsMap
         },
 
         // ── Localization ────────────────────────────────────────────────────────
+        new GlobalSettingDefinition
+        {
+            Key = TranslateDrafts,
+            Name = Localizer["Translate Drafts"],
+            Description = Localizer["Translate draft titles, content, and summaries before publication."],
+            Type = SettingType.Bool,
+            DefaultValue = "False"
+        },
         new GlobalSettingDefinition
         {
             Key = LocalizationLanguages,
