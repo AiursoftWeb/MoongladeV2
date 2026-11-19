@@ -40,6 +40,11 @@
     margin-bottom: 1em;
 }
 
+.markdown-content strong,
+.markdown-content b {
+    font-weight: 700;
+}
+
 .markdown-content ul,
 .markdown-content ol {
     margin: 0.5em 0 0.5em 2em;
