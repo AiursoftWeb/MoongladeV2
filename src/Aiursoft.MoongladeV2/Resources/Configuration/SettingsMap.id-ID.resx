@@ -159,6 +159,12 @@
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>Kode pos perusahaan atau proyek</value>
   </data>
+  <data name="Translate Drafts" xml:space="preserve">
+    <value>Terjemahkan Draf</value>
+  </data>
+  <data name="Translate draft titles, content, and summaries before publication." xml:space="preserve">
+    <value>Terjemahkan judul, konten, dan ringkasan draf sebelum dipublikasikan.</value>
+  </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>Apakah menampilkan header kontrak (Logo, alamat, dll.) dalam tampilan kontrak.</value>
   </data>

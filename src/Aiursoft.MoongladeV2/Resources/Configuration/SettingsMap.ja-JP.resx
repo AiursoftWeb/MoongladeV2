@@ -159,6 +159,12 @@
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>会社またはプロジェクトの郵便番号</value>
   </data>
+  <data name="Translate Drafts" xml:space="preserve">
+    <value>下書きの翻訳</value>
+  </data>
+  <data name="Translate draft titles, content, and summaries before publication." xml:space="preserve">
+    <value>公開前にドラフトのタイトル、本文、および概要を翻訳します。</value>
+  </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>契約ビューに契約ヘッダー（ロゴ、住所など）を表示するかどうか。</value>
   </data>

@@ -159,6 +159,12 @@
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>Mã bưu chính của công ty hoặc dự án</value>
   </data>
+  <data name="Translate Drafts" xml:space="preserve">
+    <value>Dịch bản nháp</value>
+  </data>
+  <data name="Translate draft titles, content, and summaries before publication." xml:space="preserve">
+    <value>Dịch tiêu đề, nội dung và tóm tắt bản nháp trước khi xuất bản.</value>
+  </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>Có hiển thị phần đầu hợp đồng (Logo, địa chỉ, v.v.) trong chế độ xem hợp đồng không.</value>
   </data>
