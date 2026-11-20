@@ -159,6 +159,12 @@
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>公司或項目的郵政編碼</value>
   </data>
+  <data name="Translate Drafts" xml:space="preserve">
+    <value>翻譯草稿</value>
+  </data>
+  <data name="Translate draft titles, content, and summaries before publication." xml:space="preserve">
+    <value>於發佈前翻譯草稿標題、內容及摘要。</value>
+  </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>是否在合約視圖中顯示合約標頭（標誌、地址等）。</value>
   </data>

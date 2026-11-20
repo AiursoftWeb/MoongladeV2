@@ -159,14 +159,14 @@
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>公司或项目的邮政编码</value>
   </data>
-  <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
-    <value>是否在合同视图中显示合同页眉（徽标、地址等）。</value>
-  </data>
-
   <data name="Translate Drafts" xml:space="preserve">
     <value>翻译草稿</value>
   </data>
   <data name="Translate draft titles, content, and summaries before publication." xml:space="preserve">
     <value>在文章发布前翻译草稿的标题、正文和摘要。</value>
   </data>
+  <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
+    <value>是否在合同视图中显示合同页眉（徽标、地址等）。</value>
+  </data>
+
 </root>

@@ -159,6 +159,12 @@
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>Postkod för företaget eller projektet.</value>
   </data>
+  <data name="Translate Drafts" xml:space="preserve">
+    <value>Översätt utkast</value>
+  </data>
+  <data name="Translate draft titles, content, and summaries before publication." xml:space="preserve">
+    <value>Översätt utkastens titlar, innehåll och sammanfattningar innan publicering.</value>
+  </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>Om avtalets huvud (logotyp, adress etc.) ska visas i avtalsvyn.</value>
   </data>

@@ -159,6 +159,12 @@
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>Postnummeret for virksomheden eller projektet.</value>
   </data>
+  <data name="Translate Drafts" xml:space="preserve">
+    <value>Oversæt udkast</value>
+  </data>
+  <data name="Translate draft titles, content, and summaries before publication." xml:space="preserve">
+    <value>Oversæt udkaststitler, indhold og resuméer før publicering.</value>
+  </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>Om kontraktens overskrift (logo, adresse osv.) skal vises i kontraktvisningen.</value>
   </data>

@@ -159,6 +159,12 @@
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>Поштовий індекс компанії або проекту.</value>
   </data>
+  <data name="Translate Drafts" xml:space="preserve">
+    <value>Перекладати чернетки</value>
+  </data>
+  <data name="Translate draft titles, content, and summaries before publication." xml:space="preserve">
+    <value>Перекладіть назви, вміст та резюме чернеток перед публікацією.</value>
+  </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>Чи відображати заголовок договору (логотип, адреса тощо) у перегляді договору.</value>
   </data>

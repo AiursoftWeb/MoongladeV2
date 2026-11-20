@@ -159,6 +159,12 @@
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>회사 또는 프로젝트의 우편번호입니다.</value>
   </data>
+  <data name="Translate Drafts" xml:space="preserve">
+    <value>초안 번역</value>
+  </data>
+  <data name="Translate draft titles, content, and summaries before publication." xml:space="preserve">
+    <value>게시 전 초안의 제목, 본문, 및 요약을 번역합니다.</value>
+  </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>계약 뷰에 계약 헤더 (로고, 주소 등) 를 표시할지 여부입니다.</value>
   </data>

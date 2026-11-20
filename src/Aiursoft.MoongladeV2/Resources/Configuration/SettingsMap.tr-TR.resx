@@ -159,6 +159,12 @@
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>Şirketin veya projenin posta kodu.</value>
   </data>
+  <data name="Translate Drafts" xml:space="preserve">
+    <value>Taslakları Çevir</value>
+  </data>
+  <data name="Translate draft titles, content, and summaries before publication." xml:space="preserve">
+    <value>Yayınlanmadan önce taslak başlıklarını, içeriğini ve özetlerini çevirin.</value>
+  </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>Sözleşme görünümünde sözleşme başlığının (Logo, adres vb.) gösterilip gösterilmeyeceği.</value>
   </data>

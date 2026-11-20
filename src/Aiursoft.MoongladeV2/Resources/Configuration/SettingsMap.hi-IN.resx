@@ -159,6 +159,12 @@
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>कंपनी या प्रोजेक्ट का पोस्टकोड</value>
   </data>
+  <data name="Translate Drafts" xml:space="preserve">
+    <value>ड्राफ्ट अनुवाद करें</value>
+  </data>
+  <data name="Translate draft titles, content, and summaries before publication." xml:space="preserve">
+    <value>प्रकाशन से पहले ड्राफ्ट शीर्षकों, सामग्री और सारांश का अनुवाद करें।</value>
+  </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>क्या अनुबंध दृश्य में अनुबंध शीर्षक (लोगो, पता, आदि) प्रदर्शित किया जाना चाहिए।</value>
   </data>
