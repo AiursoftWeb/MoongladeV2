@@ -54,8 +54,25 @@ public class LocalizeDocumentsJobTests
             settingsService,
             null!, null!, null!, null!, null!)
     {
-        public override Task<string> TranslateAsync(string text, string targetLanguage)
-            => Task.FromResult($"[{targetLanguage}] {text}");
+        private int _activeTranslations;
+
+        public override async Task<string> TranslateAsync(string text, string targetLanguage)
+        {
+            if (Interlocked.Exchange(ref _activeTranslations, 1) != 0)
+            {
+                throw new InvalidOperationException("Translations overlap on a scoped dependency.");
+            }
+
+            try
+            {
+                await Task.Delay(15);
+                return $"[{targetLanguage}] {text}";
+            }
+            finally
+            {
+                Interlocked.Exchange(ref _activeTranslations, 0);
+            }
+        }
     }
 
     private static async Task SeedAsync(TemplateDbContext db, params object[] entities)

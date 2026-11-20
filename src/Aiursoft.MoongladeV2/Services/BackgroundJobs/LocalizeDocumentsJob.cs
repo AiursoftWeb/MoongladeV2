@@ -120,11 +120,10 @@ public class LocalizeDocumentsJob(
                 "LocalizeDocumentsJob: translating '{Title}' (source={SourceCulture} → {TargetCulture}).",
                 doc.Title, doc.SourceCulture, culture);
 
-            var titleTask   = translator.TranslateAsync(doc.Title   ?? string.Empty, culture);
-            var contentTask = translator.TranslateAsync(doc.Content ?? string.Empty, culture);
-            await Task.WhenAll(titleTask, contentTask);
-
-            await SaveLocalizedAsync(doc, culture, await titleTask, await contentTask);
+            // The translator reads settings through this job's scoped DbContext.
+            var title = await translator.TranslateAsync(doc.Title ?? string.Empty, culture);
+            var content = await translator.TranslateAsync(doc.Content ?? string.Empty, culture);
+            await SaveLocalizedAsync(doc, culture, title, content);
             return true;
         }
         catch (Exception ex)
