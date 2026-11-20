@@ -69,28 +69,37 @@ public class HomeControllerTests : TestBase
             await db.SaveChangesAsync();
         }
 
-        var response = await PostForm("/Home/SaveUpdate", new Dictionary<string, string>
-        {
-            { "DocumentId", documentId.ToString() },
-            { "Title", title },
-            { "InputMarkdown", content }
-        }, tokenUrl: $"/Home/Edit/{documentId}");
-
-        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
-
         using var resultScope = Server!.Services.CreateScope();
         var resultDb = resultScope.ServiceProvider.GetRequiredService<TemplateDbContext>();
-        var document = await resultDb.MarkdownDocuments.SingleAsync(d => d.Id == documentId);
-        Assert.AreEqual(title, document.Title);
-        Assert.AreEqual(content, document.Content);
-        Assert.AreEqual(changed ? null : "zh-CN", document.SourceCulture);
-        if (changed)
+        try
         {
-            Assert.IsTrue(document.UpdatedAt > originalRevision);
+            var response = await PostForm("/Home/SaveUpdate", new Dictionary<string, string>
+            {
+                { "DocumentId", documentId.ToString() },
+                { "Title", title },
+                { "InputMarkdown", content }
+            }, tokenUrl: $"/Home/Edit/{documentId}");
+
+            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+
+            var document = await resultDb.MarkdownDocuments.AsNoTracking().SingleAsync(d => d.Id == documentId);
+            Assert.AreEqual(title, document.Title);
+            Assert.AreEqual(content, document.Content);
+            Assert.AreEqual(changed ? null : "zh-CN", document.SourceCulture);
+            if (changed)
+            {
+                Assert.IsTrue(document.UpdatedAt > originalRevision);
+            }
+            else
+            {
+                Assert.AreEqual(originalRevision, document.UpdatedAt);
+            }
         }
-        else
+        finally
         {
-            Assert.AreEqual(originalRevision, document.UpdatedAt);
+            var document = await resultDb.MarkdownDocuments.SingleAsync(d => d.Id == documentId);
+            resultDb.MarkdownDocuments.Remove(document);
+            await resultDb.SaveChangesAsync();
         }
     }
 }
