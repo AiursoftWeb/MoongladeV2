@@ -101,7 +101,8 @@ public class GenerateAbstractDocumentsJobTests
     private async Task<GenerateAbstractDocumentsJob> CreateJobAsync(
         string languages = "en-US,ja-JP",
         string endpoint = "https://ollama.example.com/v1/chat/completions",
-        string model = "qwen3")
+        string model = "qwen3",
+        string? translateDraftsOverride = null)
     {
         await using (var seedDb = new SqliteTestContext(_dbOptions))
         {
@@ -112,7 +113,10 @@ public class GenerateAbstractDocumentsJobTests
         }
 
         var config = new ConfigurationBuilder()
-            .AddInMemoryCollection(new Dictionary<string, string?>())
+            .AddInMemoryCollection(new Dictionary<string, string?>
+            {
+                [$"GlobalSettings:{SettingsMap.TranslateDrafts}"] = translateDraftsOverride
+            })
             .Build();
 
         var db = new SqliteTestContext(_dbOptions);
@@ -198,25 +202,31 @@ public class GenerateAbstractDocumentsJobTests
             "Source abstract (en-US) should still be generated, then translated to ja-JP and zh-TW.");
     }
 
-    // ── 5. Prepares drafts with content ───────────────────────────────────────────
+    // ── 5. Draft summaries are translated when enabled ───────────────────────────
 
     [TestMethod]
-    public async Task ExecuteAsync_PreparesDraftsWithContent()
+    [DataRow(null, false)]
+    [DataRow("true", true)]
+    public async Task ExecuteAsync_TranslatesDraftAbstractsWhenEnabled(
+        string? translateDraftsOverride, bool draftTranslationExpected)
     {
-        var job = await CreateJobAsync();
+        var job = await CreateJobAsync(translateDraftsOverride: translateDraftsOverride);
         await using var db = new SqliteTestContext(_dbOptions);
 
+        var published = CreateDoc(Guid.NewGuid());
         var draft = CreateDoc(Guid.NewGuid(), isPublic: false);
         var emptyDraft = CreateDoc(Guid.NewGuid(), isPublic: false);
         emptyDraft.Content = "   ";
-        await SeedAsync(db, draft, emptyDraft);
+        await SeedAsync(db, published, draft, emptyDraft);
 
         await job.ExecuteAsync();
 
         var abstracts = await db.LocalizedAbstracts.ToListAsync();
-        Assert.AreEqual(2, abstracts.Count);
-        Assert.IsTrue(abstracts.All(row => row.DocumentId == draft.Id));
-        CollectionAssert.AreEquivalent(new[] { "en-US", "ja-JP" }, abstracts.Select(row => row.Culture).ToArray());
+        CollectionAssert.AreEquivalent(new[] { "en-US", "ja-JP" },
+            abstracts.Where(row => row.DocumentId == published.Id).Select(row => row.Culture).ToArray());
+        CollectionAssert.AreEquivalent(draftTranslationExpected ? new[] { "en-US", "ja-JP" } : new[] { "en-US" },
+            abstracts.Where(row => row.DocumentId == draft.Id).Select(row => row.Culture).ToArray());
+        Assert.IsFalse(abstracts.Any(row => row.DocumentId == emptyDraft.Id));
     }
 
     // ── 6. Generates source abstract and translates ─────────────────────────────

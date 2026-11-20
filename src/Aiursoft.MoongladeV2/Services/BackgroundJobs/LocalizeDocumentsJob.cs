@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Aiursoft.MoongladeV2.Services.BackgroundJobs;
 
 /// <summary>
-/// Translates published posts and non-empty drafts into configured target languages.
+/// Translates published posts, with optional translation of non-empty drafts.
 ///
 /// SourceCulture routing:
 /// - SourceCulture is null            → Skip (pending detection by DetectSourceCultureJob)
@@ -25,7 +25,7 @@ public class LocalizeDocumentsJob(
     public string Name => "Localize Documents";
 
     public string Description =>
-        "Translates published posts and non-empty drafts into all configured languages. " +
+        "Translates published posts into all configured languages and includes non-empty drafts when enabled. " +
         "Documents whose SourceCulture is null are skipped (pending language detection). " +
         "When the target language matches the document's SourceCulture, " +
         "the original content is copied through without calling AI. " +
@@ -53,6 +53,7 @@ public class LocalizeDocumentsJob(
             "LocalizeDocumentsJob: starting with {Count} target language(s): {Languages}",
             cultures.Length, string.Join(", ", cultures));
 
+        var translateDrafts = await settingsService.GetBoolSettingAsync(SettingsMap.TranslateDrafts);
         var totalProcessed = 0;
 
         foreach (var culture in cultures)
@@ -63,7 +64,7 @@ public class LocalizeDocumentsJob(
                 var currentLastId = lastId;
 
                 var pending = await db.MarkdownDocuments
-                    .ForPreparation()
+                    .ForPreparation(translateDrafts)
                     .Where(d => d.SourceCulture != null &&
                                 d.Id.CompareTo(currentLastId) > 0 &&
                                 !db.LocalizedDocuments.Any(ld =>
