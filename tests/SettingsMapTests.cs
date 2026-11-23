@@ -6,13 +6,14 @@ namespace Aiursoft.MoongladeV2.Tests;
 public class SettingsMapTests
 {
     [TestMethod]
-    public void DefaultLocalizationLanguages_IncludeAllSupportedChineseCultures()
+    public void DefaultLocalizationLanguages_IncludeCroatianAndAllSupportedChineseCultures()
     {
         var definition = SettingsMap.Definitions.Single(d => d.Key == SettingsMap.LocalizationLanguages);
         var languages = definition.DefaultValue.Split(',', StringSplitOptions.RemoveEmptyEntries);
 
         Assert.AreEqual(SettingsMap.DefaultLocalizationLanguages, definition.DefaultValue);
-        Assert.HasCount(28, languages);
+        Assert.HasCount(29, languages);
+        CollectionAssert.Contains(languages, "hr-HR");
         CollectionAssert.Contains(languages, "zh-CN");
         CollectionAssert.Contains(languages, "zh-TW");
         CollectionAssert.Contains(languages, "zh-HK");
