@@ -66,12 +66,11 @@ public class DetectSourceCultureJob(
 
             foreach (var doc in pending)
             {
+                var sourceUpdatedAt = doc.UpdatedAt;
                 var detected = await DetectCultureAsync(doc);
-                if (detected != null)
+                if (detected != null && await TryAssignCultureAsync(doc, sourceUpdatedAt, detected))
                 {
-                    doc.SourceCulture = detected;
                     total++;
-                    await db.SaveChangesAsync();
                 }
             }
 
@@ -79,6 +78,28 @@ public class DetectSourceCultureJob(
         }
 
         logger.LogInformation("DetectSourceCultureJob: done. Detected {Count} language(s).", total);
+    }
+
+    private async Task<bool> TryAssignCultureAsync(MarkdownDocument doc, DateTime sourceUpdatedAt, string culture)
+    {
+        if (db.Database.IsRelational())
+        {
+            var updated = await db.MarkdownDocuments
+                .Where(d => d.Id == doc.Id && d.SourceCulture == null && d.UpdatedAt == sourceUpdatedAt)
+                .ExecuteUpdateAsync(setters => setters.SetProperty(d => d.SourceCulture, culture));
+            return updated == 1;
+        }
+
+        var entry = db.Entry(doc);
+        await entry.ReloadAsync();
+        if (entry.State == EntityState.Detached || doc.SourceCulture != null || doc.UpdatedAt != sourceUpdatedAt)
+        {
+            return false;
+        }
+
+        doc.SourceCulture = culture;
+        await db.SaveChangesAsync();
+        return true;
     }
 
     private static bool IsValidCulture(string result, out string normalized)

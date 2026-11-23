@@ -159,9 +159,16 @@ public class HomeController(
 
         if (!DocumentAuthorizationService.CanModify(accessLevel, documentInDb)) return Forbid();
 
-        documentInDb.UpdatedAt = DateTime.UtcNow;
-        documentInDb.Content = model.InputMarkdown.SafeSubstring(65535);
-        documentInDb.Title = model.Title;
+        var content = model.InputMarkdown.SafeSubstring(65535);
+        if (documentInDb.Content != content || documentInDb.Title != model.Title)
+        {
+            documentInDb.UpdatedAt = DateTime.UtcNow;
+            documentInDb.Content = content;
+            documentInDb.Title = model.Title;
+            documentInDb.SourceCulture = null;
+            // A detection job may have classified the previous revision while this edit was being saved.
+            context.Entry(documentInDb).Property(d => d.SourceCulture).IsModified = true;
+        }
 
         try
         {

@@ -52,11 +52,15 @@ public class DetectSourceCultureJobTests
         TemplateDbContext db,
         GlobalSettingsService settingsService,
         ILogger<DetectSourceCultureJob> logger,
-        string? fakeCulture)
+        string? fakeCulture,
+        Func<MarkdownDocument, Task>? onDetect)
         : DetectSourceCultureJob(db, settingsService, null!, null!, logger)
     {
-        protected override Task<string?> DetectCultureAsync(MarkdownDocument doc)
-            => Task.FromResult(fakeCulture);
+        protected override async Task<string?> DetectCultureAsync(MarkdownDocument doc)
+        {
+            if (onDetect != null) await onDetect(doc);
+            return fakeCulture;
+        }
     }
 
     private static async Task SeedAsync(TemplateDbContext db, params object[] entities)
@@ -81,7 +85,8 @@ public class DetectSourceCultureJobTests
 
     private async Task<FakeDetectSourceCultureJob> CreateJobAsync(
         string? fakeCulture = "en-US",
-        string endpoint = "https://ollama.example.com/v1/chat/completions")
+        string endpoint = "https://ollama.example.com/v1/chat/completions",
+        Func<MarkdownDocument, Task>? onDetect = null)
     {
         await using (var seedDb = new SqliteTestContext(_dbOptions))
         {
@@ -97,7 +102,7 @@ public class DetectSourceCultureJobTests
         var settings = new GlobalSettingsService(db, config, null!, _cache, new Microsoft.AspNetCore.DataProtection.EphemeralDataProtectionProvider(), NullLogger<GlobalSettingsService>.Instance);
 
         return new FakeDetectSourceCultureJob(
-            db, settings, NullLogger<DetectSourceCultureJob>.Instance, fakeCulture);
+            db, settings, NullLogger<DetectSourceCultureJob>.Instance, fakeCulture, onDetect);
     }
 
     // ── 1. Skip when AI is not enabled ──────────────────────────────────────────
@@ -132,6 +137,28 @@ public class DetectSourceCultureJobTests
 
         var reloaded = await db.MarkdownDocuments.AsNoTracking().FirstAsync(d => d.Id == doc.Id);
         Assert.AreEqual("zh-CN", reloaded.SourceCulture);
+    }
+
+    [TestMethod]
+    public async Task ExecuteAsync_DiscardsDetectionFromAnEarlierRevision()
+    {
+        var doc = CreateDoc(Guid.NewGuid(), content: "最初的正文");
+        var job = await CreateJobAsync(fakeCulture: "zh-CN", onDetect: async candidate =>
+        {
+            await using var editorDb = new SqliteTestContext(_dbOptions);
+            var newer = await editorDb.MarkdownDocuments.SingleAsync(d => d.Id == candidate.Id);
+            newer.Content = "The revised English text.";
+            newer.UpdatedAt = candidate.UpdatedAt.AddSeconds(1);
+            await editorDb.SaveChangesAsync();
+        });
+        await using var db = new SqliteTestContext(_dbOptions);
+        await SeedAsync(db, doc);
+
+        await job.ExecuteAsync();
+
+        var reloaded = await db.MarkdownDocuments.AsNoTracking().SingleAsync(d => d.Id == doc.Id);
+        Assert.AreEqual("The revised English text.", reloaded.Content);
+        Assert.IsNull(reloaded.SourceCulture);
     }
 
     // ── 3. Skips document that already has SourceCulture ────────────────────────
