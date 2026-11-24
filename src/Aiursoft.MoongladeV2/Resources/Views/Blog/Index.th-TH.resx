@@ -57,6 +57,9 @@
   <data name="Previous" xml:space="preserve">
     <value>ก่อนหน้า</value>
   </data>
+  <data name="RSS Feed" xml:space="preserve">
+    <value>ฟีด RSS</value>
+  </data>
   <data name="Recent" xml:space="preserve">
     <value>ล่าสุด</value>
   </data>

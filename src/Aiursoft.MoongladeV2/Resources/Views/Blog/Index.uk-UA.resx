@@ -57,6 +57,9 @@
   <data name="Previous" xml:space="preserve">
     <value>Назад</value>
   </data>
+  <data name="RSS Feed" xml:space="preserve">
+    <value>RSS-стрічка</value>
+  </data>
   <data name="Recent" xml:space="preserve">
     <value>Останні</value>
   </data>
