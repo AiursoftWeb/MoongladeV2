@@ -15,6 +15,8 @@ public abstract class TestBase
 
     protected string StoragePath = null!;
 
+    protected virtual string[] ServerArguments => [];
+
     [TestInitialize]
     public virtual async Task CreateServer()
     {
@@ -32,6 +34,7 @@ public abstract class TestBase
 
         StoragePath = Path.Combine(Path.GetTempPath(), "MoongladeV2-Tests-" + Guid.NewGuid());
         Server = await AppAsync<Startup>([
+            ..ServerArguments,
             $"Storage:Path={StoragePath}"
         ], port: reservation.Port);
         try
