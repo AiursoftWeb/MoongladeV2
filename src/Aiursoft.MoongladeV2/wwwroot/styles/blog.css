@@ -88,6 +88,18 @@ body {
     color: var(--bs-white) !important;
 }
 
+.btn-rss {
+    color: #f26522;
+    border-color: #f26522;
+}
+
+.btn-rss:hover,
+.btn-rss:focus {
+    background-color: #f26522;
+    border-color: #f26522;
+    color: var(--bs-white) !important;
+}
+
 .btn-round {
     border-radius: 50px !important;
 }

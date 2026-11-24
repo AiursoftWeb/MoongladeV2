@@ -190,5 +190,17 @@ public class SubscriptionControllerTests : TestBase
         StringAssert.Contains(html, "href=\"/rss\"");
         StringAssert.Contains(html, "type=\"application/atom+xml\"");
         StringAssert.Contains(html, "href=\"/atom\"");
+        StringAssert.Contains(html, "btn-rss");
+    }
+
+    [TestMethod]
+    public async Task TagPage_ContainsTagSpecificRssButton()
+    {
+        var response = await Http.GetAsync("/tags/dotnet");
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        var html = await response.Content.ReadAsStringAsync();
+
+        StringAssert.Contains(html, "href=\"/rss/dotnet\"");
+        StringAssert.Contains(html, "btn-rss");
     }
 }
