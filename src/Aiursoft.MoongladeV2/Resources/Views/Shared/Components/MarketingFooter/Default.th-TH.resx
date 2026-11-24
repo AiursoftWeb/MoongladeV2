@@ -69,6 +69,9 @@
   <data name="Project" xml:space="preserve">
     <value>โครงการ</value>
   </data>
+  <data name="RSS Feed" xml:space="preserve">
+    <value>ฟีด RSS</value>
+  </data>
   <data name="Report an Issue" xml:space="preserve">
     <value>แจ้งปัญหา</value>
   </data>

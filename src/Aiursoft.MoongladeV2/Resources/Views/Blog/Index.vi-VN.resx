@@ -57,6 +57,9 @@
   <data name="Previous" xml:space="preserve">
     <value>Trước</value>
   </data>
+  <data name="RSS Feed" xml:space="preserve">
+    <value>RSS Feed</value>
+  </data>
   <data name="Recent" xml:space="preserve">
     <value>Mới nhất</value>
   </data>
