@@ -1,5 +1,4 @@
 using System.Globalization;
-using System.Text.RegularExpressions;
 using Aiursoft.MoongladeV2.Configuration;
 using Aiursoft.MoongladeV2.Entities;
 
@@ -383,20 +382,6 @@ public class BlogController(
         return "Home";
     }
 
-    private static string BuildExcerpt(string markdown)
-    {
-        if (string.IsNullOrWhiteSpace(markdown))
-        {
-            return string.Empty;
-        }
-
-        var plainText = Regex.Replace(markdown, @"!\[[^\]]*]\([^)]+\)", " ");
-        plainText = Regex.Replace(plainText, @"\[(?<text>[^\]]+)]\([^)]+\)", "${text}");
-        plainText = Regex.Replace(plainText, @"[#>*`~\-_|]", " ");
-        plainText = Regex.Replace(plainText, @"\s+", " ").Trim();
-
-        return plainText.Length <= 280
-            ? plainText
-            : $"{plainText[..280]}...";
-    }
+    private static string BuildExcerpt(string markdown) =>
+        BlogExcerptHelper.BuildExcerpt(markdown);
 }
