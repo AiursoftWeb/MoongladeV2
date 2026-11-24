@@ -71,11 +71,21 @@
 
                     @if (!Model.UsedAiSearch)
                     {
-                        <div class="btn-group btn-group-sm" role="group" aria-label="@Localizer["Sort posts"]">
+                        <div class="btn-group btn-group-sm me-2" role="group" aria-label="@Localizer["Sort posts"]">
                             <a href="@BuildSortUrl("recent")" class="btn @(Model.SortBy == "Recent" ? "btn-accent" : "btn-outline-accent")">@Localizer["Recent"]</a>
                             <a href="@BuildSortUrl("featured")" class="btn @(Model.SortBy == "Featured" ? "btn-accent" : "btn-outline-accent")">@Localizer["Featured"]</a>
                         </div>
                     }
+
+                    <a href="@(string.IsNullOrWhiteSpace(Model.CurrentTag) ? "/rss" : $"/rss/{Model.CurrentTag}")"
+                       class="btn btn-sm btn-rss d-inline-flex align-items-center gap-1"
+                       title="@Localizer["RSS Feed"]"
+                       target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-rss-fill" viewBox="0 0 16 16">
+                            <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm1.5 2.5c5.523 0 10 4.477 10 10a1 1 0 1 1-2 0 8 8 0 0 0-8-8 1 1 0 0 1 0-2m0 4a6 6 0 0 1 6 6 1 1 0 1 1-2 0 4 4 0 0 0-4-4 1 1 0 0 1 0-2m.25 7a1.75 1.75 0 1 1 0-3.5 1.75 1.75 0 0 1 0 3.5"/>
+                        </svg>
+                        <span>RSS</span>
+                    </a>
                 </div>
                 <hr class="blog-heading-rule" />
 
