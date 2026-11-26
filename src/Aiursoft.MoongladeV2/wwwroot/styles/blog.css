@@ -89,14 +89,15 @@ body {
 }
 
 .btn-rss {
-    color: #f26522;
-    border-color: #f26522;
+    background-color: transparent;
+    border-color: var(--accent-color1);
+    color: var(--accent-color1) !important;
 }
 
 .btn-rss:hover,
 .btn-rss:focus {
-    background-color: #f26522;
-    border-color: #f26522;
+    background-color: var(--accent-color1);
+    border-color: var(--accent-color1);
     color: var(--bs-white) !important;
 }
 
