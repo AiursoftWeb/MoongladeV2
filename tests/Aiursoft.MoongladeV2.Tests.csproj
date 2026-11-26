@@ -21,4 +21,8 @@
   <ItemGroup>
     <ProjectReference Include="..\src\Aiursoft.MoongladeV2\Aiursoft.MoongladeV2.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="../src/Aiursoft.MoongladeV2/wwwroot/scripts/uploader.js" TargetPath="wwwroot/scripts/uploader.js" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../src/Aiursoft.MoongladeV2/wwwroot/styles/uploader.css" TargetPath="wwwroot/styles/uploader.css" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
 </Project>
