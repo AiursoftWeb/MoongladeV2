@@ -89,14 +89,16 @@ body {
 }
 
 .btn-rss {
-    color: #f26522;
+    background-color: #f26522;
     border-color: #f26522;
+    color: var(--bs-white) !important;
+    font-weight: 500;
 }
 
 .btn-rss:hover,
 .btn-rss:focus {
-    background-color: #f26522;
-    border-color: #f26522;
+    background-color: #d9531e;
+    border-color: #d9531e;
     color: var(--bs-white) !important;
 }
 
