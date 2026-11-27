@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="(no title)" xml:space="preserve">
+    <value>(bez naslova)</value>
+  </data>
+  <data name="A list of all posts in the system." xml:space="preserve">
+    <value>Popis svih objava u sustavu.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Akcije</value>
+  </data>
+  <data name="All Posts" xml:space="preserve">
+    <value>Svi postovi</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Očisti</value>
+  </data>
+  <data name="Creation Time" xml:space="preserve">
+    <value>Vrijeme kreiranja</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Izbriši</value>
+  </data>
+  <data name="Draft" xml:space="preserve">
+    <value>Nacrt</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Uredi</value>
+  </data>
+  <data name="Length" xml:space="preserve">
+    <value>Duljina</value>
+  </data>
+  <data name="No posts found for your search query." xml:space="preserve">
+    <value>Nema pronađenih objava za vašu pretragu.</value>
+  </data>
+  <data name="No posts found. Write your first post!" xml:space="preserve">
+    <value>Nema pronađenih objava. Napišite svoju prvu objavu!</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Vlasnik</value>
+  </data>
+  <data name="Posts" xml:space="preserve">
+    <value>Objave</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Javno</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Pretraži</value>
+  </data>
+  <data name="Search posts" xml:space="preserve">
+    <value>Pretraži objave</value>
+  </data>
+  <data name="Search posts..." xml:space="preserve">
+    <value>Pretraži objave...</value>
+  </data>
+  <data name="Source Language" xml:space="preserve">
+    <value>Izvorni jezik</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Naslov</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Vidljivost</value>
+  </data>
+  <data name="Write a new post" xml:space="preserve">
+    <value>Napišite novi post</value>
+  </data>
+
+</root>
